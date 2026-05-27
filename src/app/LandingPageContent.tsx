@@ -21,6 +21,7 @@ export default function LandingPageContent() {
                 <div className="kicker">The Ardn product suite</div>
                 <ul className="features mt-3">
                   <li>Membership Management — studios, gyms, clubs</li>
+                  <li>AI Forge — build and ship AI agents</li>
                   <li>Storefronts — Salesforce-native commerce</li>
                   <li>License Guard — reclaim unused licenses</li>
                   <li>Salesforce Payments — quote to cash inside SF</li>
@@ -79,6 +80,18 @@ export default function LandingPageContent() {
                 <li>Native Salesforce reports &amp; dashboards</li>
               </ul>
               <Link href="/membership-management" className="link">Explore Membership Management</Link>
+            </article>
+
+            <article className="product-card" style={{ "--accent": "#7C3AED" } as React.CSSProperties}>
+              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>AI</span>
+              <h3 className="h3">AI Forge</h3>
+              <p className="body">Build, deploy, and manage custom AI agents — grounded in your own data and wired into the tools your business already runs on.</p>
+              <ul className="features">
+                <li>No-code agent builder on your own data</li>
+                <li>Connects to Salesforce and your existing stack</li>
+                <li>Ship production-ready agents in days</li>
+              </ul>
+              <Link href="/ai-forge" className="link">Explore AI Forge</Link>
             </article>
 
             <article className="product-card" style={{ "--accent": "#4840E0" } as React.CSSProperties}>
