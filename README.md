@@ -229,4 +229,3 @@ git push origin main
 - **WordPress CMS:** https://cms.ardncloudsolutions.com/wp-admin
 - **Next.js Docs:** https://nextjs.org/docs
 - **Tailwind CSS Docs:** https://tailwindcss.com/docs
-- **Full project documentation:** See `ARDN_Cloud_Solutions_Documentation.md`
