@@ -74,7 +74,17 @@ const benefits = [
   },
 ];
 
-const openings = [
+const openings: {
+  title: string;
+  description: string;
+  location?: string;
+}[] = [
+  {
+    title: "AI Claude Specialist",
+    location: "Remote · Open to Nearshore",
+    description:
+      "We are looking for an AI Claude Specialist to design, build, and optimize AI-powered solutions on top of Anthropic's Claude models. You'll craft and refine prompts, build agentic workflows and tool integrations, and embed Claude across our products — including AI Forge and ReplyCX — as well as our clients' Salesforce environments. The ideal candidate has hands-on experience with large language models and the Claude API, strong prompt-engineering skills, familiarity with retrieval-augmented generation (RAG) and agent frameworks, and a track record of shipping reliable, production-grade AI features. Experience integrating LLMs with CRM platforms such as Salesforce is a strong plus.",
+  },
   {
     title: "Salesforce UI Expert",
     description:
@@ -124,11 +134,13 @@ function BenefitCard({
 function JobAccordion({
   title,
   description,
+  location,
   isOpen,
   onToggle,
 }: {
   title: string;
   description: string;
+  location?: string;
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -138,7 +150,14 @@ function JobAccordion({
         onClick={onToggle}
         className="w-full flex items-center justify-between px-6 py-4 bg-primary text-white text-left cursor-pointer transition-colors hover:bg-primary/90"
       >
-        <span className="font-semibold text-[17px]">{title}</span>
+        <span className="flex flex-col">
+          <span className="font-semibold text-[17px]">{title}</span>
+          {location && (
+            <span className="text-[13px] font-normal text-white/80 mt-0.5">
+              {location}
+            </span>
+          )}
+        </span>
         {isOpen ? (
           <ChevronUp className="w-5 h-5 flex-shrink-0" />
         ) : (
@@ -313,6 +332,7 @@ export default function CareerContent() {
                 key={job.title}
                 title={job.title}
                 description={job.description}
+                location={job.location}
                 isOpen={openIndex === index}
                 onToggle={() =>
                   setOpenIndex(openIndex === index ? null : index)
