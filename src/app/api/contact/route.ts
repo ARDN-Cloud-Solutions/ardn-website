@@ -1,15 +1,23 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+interface ContactPayload {
+  name?: string;
+  email?: string;
+  phone?: string;
+  company?: string;
+  interests?: string[];
+}
+
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { fullName, email, phone, subject, message } = body;
+    const body = (await req.json()) as ContactPayload;
+    const { name, email, phone, company } = body;
+    const interests = Array.isArray(body.interests) ? body.interests : [];
 
-    // Strict Validation Logic
-    if (!fullName || fullName.trim().length < 3) {
+    if (!name || name.trim().length < 3) {
       return NextResponse.json(
-        { error: "Full name must be at least 3 characters long" },
+        { error: "Please enter your full name" },
         { status: 400 }
       );
     }
@@ -22,28 +30,27 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!phone || phone.trim().length < 10) {
+    const phoneDigits = (phone || "").replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
       return NextResponse.json(
         { error: "Please provide a valid phone number (min 10 digits)" },
         { status: 400 }
       );
     }
 
-    if (!subject) {
+    if (!company || company.trim().length < 1) {
       return NextResponse.json(
-        { error: "Please select an inquiry subject" },
+        { error: "Please enter your company name" },
         { status: 400 }
       );
     }
 
-    if (!message || message.trim().length < 10) {
-      return NextResponse.json(
-        { error: "Message must be at least 10 characters long" },
-        { status: 400 }
-      );
-    }
+    const interestsLine = interests.length > 0 ? interests.join(", ") : "—";
+    const subjectLine =
+      interests.length > 0
+        ? `New strategy-call request: ${interests.join(", ")}`
+        : "New strategy-call request";
 
-    // Transporter configuration
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 587,
@@ -55,26 +62,26 @@ export async function POST(req: Request) {
     });
 
     const mailOptions = {
-      from: `"${fullName}" <${process.env.SMTP_USER}>`,
+      from: `"${name}" <${process.env.SMTP_USER}>`,
       replyTo: email,
-      to: process.env.CONTACT_RECEIVER_EMAIL || "contactus@ardncloudsolutions.com",
-      subject: `New Contact Form Submission: ${subject}`,
+      to:
+        process.env.CONTACT_RECEIVER_EMAIL ||
+        "contactus@ardncloudsolutions.com",
+      subject: subjectLine,
       text: `
-Name: ${fullName}
+Name: ${name}
 Email: ${email}
 Phone: ${phone}
-Subject: ${subject}
-
-Message:
-${message}
+Company: ${company}
+Interests: ${interestsLine}
             `,
       html: `
 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-  <h2 style="color: #121c27;">New Contact Form Submission</h2>
+  <h2 style="color: #121c27;">New Strategy-Call Request</h2>
   <table style="width: 100%; max-width: 600px; border-collapse: collapse;">
     <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Full Name</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">${fullName}</td>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Name</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${name}</td>
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Email</td>
@@ -85,14 +92,14 @@ ${message}
       <td style="padding: 10px; border: 1px solid #ddd;">${phone}</td>
     </tr>
     <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Subject</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">${subject}</td>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Company</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${company}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Interests</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${interestsLine}</td>
     </tr>
   </table>
-  <h3 style="color: #121c27; margin-top: 20px;">Message:</h3>
-  <div style="padding: 15px; background-color: #f9f9f9; border-left: 4px solid #121c27;">
-    ${message.replace(/\n/g, "<br>")}
-  </div>
 </div>
             `,
     };

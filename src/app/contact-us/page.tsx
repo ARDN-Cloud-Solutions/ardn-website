@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import ContactHero from "@/components/contact/ContactHero";
-import ContactFormSection from "@/components/contact/ContactFormSection";
+import ContactPageContent from "./ContactPageContent";
 
 export const metadata: Metadata = {
   title: "Contact Us - Ardn Cloud Solutions",
@@ -71,19 +70,12 @@ export default function ContactUsPage() {
   };
 
   return (
-    <main className="min-h-screen pt-[70px] lg:pt-[154px]"> 
-      {/* 
-        Note: The padding top accounts for the fixed header height. 
-        Header is ~90px on scroll, but has a top bar of ~64px when not scrolled.
-        In your LandingPageContent, there's no main, just a div. 
-        I'll adjust the padding to ensure the hero starts below the header correctly.
-      */}
+    <div className="min-h-screen pt-[70px] lg:pt-[154px]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ContactHero />
-      <ContactFormSection />
-    </main>
+      <ContactPageContent />
+    </div>
   );
 }
