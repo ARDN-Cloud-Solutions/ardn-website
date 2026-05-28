@@ -26,45 +26,6 @@
   letter-spacing: -0.02em;
 }
 
-/* ============ TOP BAR ============ */
-.topbar {
-  background: var(--navy);
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.topbarLeft {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.topbarLeft strong {
-  color: var(--blue);
-}
-
-.topbarPhone {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: var(--purple);
-  border-radius: 6px;
-  transition: background 0.15s;
-  white-space: nowrap;
-}
-
-.topbarPhone:hover {
-  background: var(--purple-bright);
-}
-
 /* ============ HERO ============ */
 .hero {
   max-width: 1180px;

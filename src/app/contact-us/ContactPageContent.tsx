@@ -146,24 +146,14 @@ export default function ContactPageContent() {
 
   return (
     <div className={styles.page}>
-      {/* TOP BAR */}
-      <div className={styles.topbar}>
-        <div className={styles.topbarLeft}>
-          Free 30-min strategy calls —{" "}
-          <strong>limited slots through Q3</strong>
-        </div>
-        <a href="tel:+14078155303" className={styles.topbarPhone}>
-          <Phone size={14} aria-hidden />
-          (407) 815-5303
-        </a>
-      </div>
-
       {/* HERO */}
       <main className={styles.hero}>
         <section>
           <span className={styles.eyebrow}>Free Strategy Call</span>
           <h1 className={`${styles.display} ${styles.headline}`}>
-            Technology that <em>pays for itself.</em>
+            Technology that
+            <br />
+            <em>pays for itself.</em>
           </h1>
           <p className={styles.subhead}>
             Tell us where your business is stuck. We&apos;ll show you the

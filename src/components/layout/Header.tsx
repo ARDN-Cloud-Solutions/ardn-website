@@ -227,7 +227,7 @@ export default function Header() {
                   rounded="full"
                   rightIcon={ArrowRight}
                 >
-                  Innovate With Us
+                  Book a Free Call
                 </Button>
 
                 {/* Search circle button */}
