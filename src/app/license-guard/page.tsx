@@ -1,10 +1,26 @@
 import { Metadata } from "next";
 import LicenseGuardContent from "./LicenseGuardContent";
 
+// SEO/positioning: License Guard is Category 1 (Salesforce-native). Metadata
+// optimised for high-intent Salesforce-cost-reduction and license-audit
+// queries. The product is free on AppExchange, so we lead with that hook.
 export const metadata: Metadata = {
-  title: "License Guard - Ardn Cloud Solutions",
+  title:
+    "License Guard — Free Salesforce License Audit & Optimization | Ardn Cloud Solutions",
   description:
-    "License Guard helps Salesforce admins track and optimise user licences — completely free on AppExchange. Stop overpaying for unused Salesforce seats today.",
+    "License Guard by Ardn is a free Salesforce-native AppExchange tool that detects inactive seats, warns users, and deactivates per your policy. Reclaim unused Salesforce licenses and cut renewal costs by 15–30%. Built by our Orlando-based team.",
+  keywords: [
+    "Salesforce license audit",
+    "Salesforce license optimization",
+    "free Salesforce license tool",
+    "Salesforce unused licenses",
+    "Salesforce cost reduction",
+    "Salesforce user inactivity",
+    "Salesforce AppExchange free app",
+    "Salesforce license management",
+    "Salesforce admin tools",
+    "Ardn License Guard",
+  ],
   alternates: {
     canonical: "https://ardncloudsolutions.com/license-guard",
     languages: {
@@ -13,9 +29,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "License Guard - Ardn Cloud Solutions",
+    title:
+      "License Guard — Free Salesforce License Audit & Optimization | Ardn Cloud Solutions",
     description:
-      "License Guard helps Salesforce admins track and optimise user licences — completely free on AppExchange. Stop overpaying for unused Salesforce seats today.",
+      "Free AppExchange tool. Detects inactive Salesforce users, sends warnings, and deactivates per your policy. Most customers reclaim 15–30% of license spend at renewal.",
     url: "https://ardncloudsolutions.com/license-guard",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -23,7 +40,8 @@ export const metadata: Metadata = {
         url: "/images/License-Guard-For-Salesforce.webp",
         width: 1200,
         height: 630,
-        alt: "License Guard For Salesforce",
+        // Outcome-focused alt — describes what the image conveys.
+        alt: "License Guard for Salesforce — free AppExchange tool to detect inactive users and reclaim unused licenses",
       },
     ],
     locale: "en_US",
@@ -31,28 +49,65 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "License Guard - Ardn Cloud Solutions",
+    title:
+      "License Guard — Free Salesforce License Audit & Optimization",
     description:
-      "License Guard helps Salesforce admins track and optimise user licences — completely free on AppExchange. Stop overpaying for unused Salesforce seats today.",
+      "Free AppExchange tool. Detects inactive Salesforce users, sends warnings, and deactivates per your policy. Reclaim 15–30% of license spend at renewal.",
     site: "@ardn_cloud_sol",
   },
 };
 
 export default function LicenseGuardPage() {
+  // SEO: SoftwareApplication primary type (was missing). Publisher resolves
+  // to the site-wide Organization via @id. Free product so the Offer carries
+  // price 0. Review + FAQPage kept and refined.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "SoftwareApplication",
+        "@id": "https://ardncloudsolutions.com/license-guard#software",
+        name: "License Guard",
+        applicationCategory: "BusinessApplication",
+        applicationSubCategory:
+          "Salesforce license audit and user-inactivity automation",
+        operatingSystem: "Salesforce",
+        description:
+          "Salesforce-native tool that tracks inactive users, sends customizable warning emails, and automatically deactivates per your policy. Built 100% on Salesforce (Apex + Flows) with no third-party dependencies. Free on AppExchange.",
+        url: "https://ardncloudsolutions.com/license-guard",
+        publisher: {
+          "@id": "https://ardncloudsolutions.com/#organization",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+        },
+        featureList: [
+          "Detects inactive users based on last-login date",
+          "Configurable inactivity threshold (30 / 60 / 90+ days)",
+          "Pre-deactivation warning emails with custom templates",
+          "Exclusion lists by profile, permission set, or user ID",
+          "100% Salesforce-native — no third-party dependencies",
+          "Free on the AppExchange",
+        ],
+        isAccessibleForFree: true,
+      },
+      {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/license-guard",
         url: "https://ardncloudsolutions.com/license-guard",
-        name: "License Guard - Ardn Cloud Solutions",
+        name: "License Guard — Free Salesforce License Audit & Optimization | Ardn Cloud Solutions",
         description:
-          "License Guard helps Salesforce admins track and optimise user licences — completely free on AppExchange. Stop overpaying for unused Salesforce seats today.",
+          "License Guard by Ardn is a free Salesforce-native tool that detects inactive seats, warns users, and deactivates per policy. Reclaim 15–30% of Salesforce license spend.",
         breadcrumb: {
           "@id": "https://ardncloudsolutions.com/license-guard#breadcrumb",
         },
         inLanguage: "en-US",
+        about: {
+          "@id": "https://ardncloudsolutions.com/license-guard#software",
+        },
       },
       {
         "@type": "BreadcrumbList",
@@ -75,15 +130,17 @@ export default function LicenseGuardPage() {
       {
         "@type": "Review",
         itemReviewed: {
-          "@type": "Organization",
-          name: "Ardn Cloud Solutions",
+          "@id":
+            "https://ardncloudsolutions.com/license-guard#software",
         },
         reviewBody:
           "Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business. Their strategic focus on high-impact efficiencies transformed our operations, delivering substantial cost reductions and measurable improvements throughout our processes.",
         author: {
           "@type": "Person",
           name: "Jay Vashi",
-          jobTitle: "Salesforce Delivery Manager",
+          // Role generalised to align with the site-wide dual-pillar
+          // positioning.
+          jobTitle: "Senior Delivery Manager",
           worksFor: {
             "@type": "Organization",
             name: "Fortune 500 insurance company",
@@ -92,13 +149,14 @@ export default function LicenseGuardPage() {
       },
       {
         "@type": "FAQPage",
+        "@id": "https://ardncloudsolutions.com/license-guard#faq",
         mainEntity: [
           {
             "@type": "Question",
             name: "What is License Guard?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "License Guard is a Salesforce-native tool that tracks inactive users, sends warning emails, and automatically deactivates them—helping you reclaim unused licenses and reduce unnecessary costs.",
+              text: "License Guard is a Salesforce-native tool that tracks inactive users, sends warning emails, and automatically deactivates them — helping you reclaim unused licenses and cut renewal costs.",
             },
           },
           {
@@ -106,7 +164,7 @@ export default function LicenseGuardPage() {
             name: "How does it detect inactive users?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "It checks users' last login activity. You can define the inactivity threshold (e.g., 60 or 90 days) based on your organization's needs.",
+              text: "License Guard checks each user's last-login date. You define the inactivity threshold (e.g., 60 or 90 days) based on your organization's policy.",
             },
           },
           {
@@ -114,7 +172,7 @@ export default function LicenseGuardPage() {
             name: "Can I warn users before deactivation?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. You can send automated warning emails using your custom templates a few days before deactivation.",
+              text: "Yes. License Guard sends automated warning emails using your custom email templates a few days before deactivation, so users have the chance to log back in.",
             },
           },
           {
@@ -122,7 +180,7 @@ export default function LicenseGuardPage() {
             name: "What if I want to exclude certain users?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "You can easily exempt users by profile, permission set, or individual user ID—ensuring complete control over who's monitored.",
+              text: "You can exempt users by profile, permission set, or individual user ID — full control over who is monitored.",
             },
           },
           {
@@ -130,7 +188,7 @@ export default function LicenseGuardPage() {
             name: "Is License Guard secure and native to Salesforce?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. It's built 100% on Salesforce using Apex and Flows, with no third-party dependencies.",
+              text: "Yes. License Guard is built 100% on Salesforce using Apex and Flows, with no third-party dependencies, no external storage, and no data leaving your org.",
             },
           },
           {
@@ -138,7 +196,15 @@ export default function LicenseGuardPage() {
             name: "How can I change the inactivity period?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Simply go to the License Guard Settings tab within the app, and update the \"Inactivity Period (Days)\" field. You can customize this to match your internal policy—whether it's 30, 60, 90 days or more.",
+              text: "Go to the License Guard Settings tab inside the app and update the Inactivity Period (Days) field. Customize to match your internal policy — 30, 60, 90 days, or more.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Is License Guard really free?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. License Guard is free on the Salesforce AppExchange. If you need help configuring inactivity rules, integrating with your renewal process, or running a paid license audit across multiple orgs, our Orlando-based Salesforce consulting team can help.",
             },
           },
         ],
@@ -147,12 +213,13 @@ export default function LicenseGuardPage() {
   };
 
   return (
+    // Semantic HTML5: <main> primary landmark.
     <main className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      < LicenseGuardContent />
+      <LicenseGuardContent />
     </main>
   );
 }
