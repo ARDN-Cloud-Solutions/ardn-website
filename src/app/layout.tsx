@@ -175,6 +175,19 @@ export default function RootLayout({
             gtag('config', 'G-RTHTZK8BNJ');
           `}
         </Script>
+        {/* Microsoft Clarity — session replay + heatmaps + UX analytics. The
+            standard Clarity loader runs after interactive so it does not
+            block initial render. Replace the project ID below if a new one
+            is provisioned. */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "r8a2qh178u");
+          `}
+        </Script>
       </head>
       <body
         className={`${publicSans.variable} ${poppins.variable} font-sans antialiased bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900`}

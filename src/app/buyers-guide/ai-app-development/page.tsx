@@ -53,35 +53,41 @@ export default function AiAppDevelopmentPage() {
         description:
           "A comprehensive guide for businesses evaluating AI app development in 2026 — covering costs, timelines, vendor selection, build vs buy decisions, and ROI.",
         inLanguage: "en-US",
+        breadcrumb: {
+          "@id":
+            "https://ardncloudsolutions.com/buyers-guide/ai-app-development#breadcrumb",
+        },
+        // Publisher resolves to site-wide Organization via @id so the
+        // entity graph is coherent (was previously inlined).
         publisher: {
-          "@type": "Organization",
-          name: "Ardn Cloud Solutions",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://ardncloudsolutions.com/logo/ardn_logo.png",
-          },
+          "@id": "https://ardncloudsolutions.com/#organization",
         },
       },
       {
         "@type": "Article",
-        headline: "AI App Development for Business: The Complete 2026 Buyer's Guide",
+        "@id":
+          "https://ardncloudsolutions.com/buyers-guide/ai-app-development#article",
+        headline:
+          "AI App Development for Business: The Complete 2026 Buyer's Guide",
+        name: "AI App Development for Business: The Complete 2026 Buyer's Guide",
+        url: "https://ardncloudsolutions.com/buyers-guide/ai-app-development",
+        mainEntityOfPage: {
+          "@id":
+            "https://ardncloudsolutions.com/buyers-guide/ai-app-development",
+        },
         description:
           "A comprehensive guide for businesses evaluating AI app development in 2026 — covering costs, timelines, vendor selection, build vs buy decisions, and ROI.",
+        inLanguage: "en-US",
         author: {
-          "@type": "Organization",
-          name: "Ardn Cloud Solutions",
-          url: "https://ardncloudsolutions.com",
+          "@id": "https://ardncloudsolutions.com/#organization",
         },
         publisher: {
-          "@type": "Organization",
-          name: "Ardn Cloud Solutions",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://ardncloudsolutions.com/logo/ardn_logo.png",
-          },
+          "@id": "https://ardncloudsolutions.com/#organization",
         },
-        datePublished: "2026-05-16",
-        dateModified: "2026-05-16",
+        datePublished: "2026-05-16T00:00:00-04:00",
+        // Updated dateModified to reflect today's metadata refresh — Google
+        // uses this as a freshness signal in search rankings.
+        dateModified: "2026-06-02T00:00:00-04:00",
       },
       {
         "@type": "BreadcrumbList",
