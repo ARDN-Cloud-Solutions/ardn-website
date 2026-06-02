@@ -31,8 +31,14 @@ const FAQS = [
     a: "No long-term contract required on Launch or Scale tiers — month-to-month after the build is delivered. Enterprise engagements typically include a 12-month commitment in exchange for negotiated rates and dedicated capacity. You can upgrade, downgrade, or cancel any tier with 30 days notice.",
   },
   {
+    // SEO hybrid: AI Forge headline positioning is Cat 2 (tech-agnostic custom
+    // dev), but Salesforce integration is a load-bearing managed-services and
+    // SF-buyer search signal we want to keep. This answer leads Salesforce-
+    // first (preserves SF ranking + buyer credibility), then lists the rest of
+    // the integration surface so it still reads as a flexible custom-dev
+    // practice — not a Salesforce-only shop.
     q: "Can you integrate with Salesforce?",
-    a: "Yes — Salesforce integration is one of our specialties. Ardn has 30+ years of Salesforce experience, and we routinely build AI apps that read from, write to, and orchestrate work inside Salesforce. We can also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, and 5,000+ other tools.",
+    a: "Yes — Salesforce integration is one of our specialties. Ardn has 30+ years of Salesforce experience as a company, so AI Forge applications routinely read from, write to, and orchestrate work inside Salesforce. We also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, billing systems, and 5,000+ other tools — whichever stack your business actually runs on.",
   },
   {
     q: "What if my AI needs change?",
@@ -153,16 +159,24 @@ export default function AiForgeContent() {
         <div className="af-container">
           <div className="af-hero-grid">
             <div>
-              <div className="af-hero-pill">NEW: AI FORGE BY ARDN — NOW ACCEPTING CLIENTS</div>
+              {/* Hero pill now leads with the AI Forge Framework brand —
+                  this is the durable, model-agnostic identity for the practice
+                  and the asset we want search engines and visitors to associate
+                  with us. */}
+              <div className="af-hero-pill">POWERED BY THE AI FORGE FRAMEWORK · ORLANDO, FL</div>
               <h1 className="af-h1">
                 Stop Guessing About AI.{" "}
                 <span className="af-accent">Start Shipping It.</span>
               </h1>
+              {/* Subhead reframed to lead with the AI Forge Framework and the
+                  Florida-based development team — local trust signal woven
+                  into copy. */}
               <p className="af-hero-sub">
                 80% of AI projects fail. Ours don&apos;t — because we build them{" "}
-                <em>and</em> run them. Ardn AI Forge designs, builds, deploys, and operates
-                custom AI applications for your business under one predictable monthly
-                subscription.
+                <em>and</em> run them. Our Florida-based development team uses the
+                proprietary <strong>AI Forge Framework</strong> to design, build,
+                deploy, and operate custom AI applications under one predictable
+                monthly subscription.
               </p>
               <div className="af-hero-cta">
                 <Link href="#pricing" className="af-btn af-btn-lg">See Pricing</Link>
@@ -486,8 +500,8 @@ export default function AiForgeContent() {
           </h2>
           <p className="af-section-sub">
             AI Forge is built on Ardn&apos;s three decades of experience designing, building,
-            and deploying complex business applications. The same team that earned this trust
-            is now building your AI.
+            and deploying complex business applications. The same Florida-based team that
+            earned this trust is now building your AI.
           </p>
           <div className="af-testimonial-box">
             <div className="af-testimonial-stat">
@@ -502,9 +516,12 @@ export default function AiForgeContent() {
                 hands-on, cost-saving approach that has been invaluable. Their strategic focus
                 on high-impact efficiencies transformed our operations.&rdquo;
               </p>
+              {/* Customer role generalised. The original "Salesforce Delivery
+                  Manager" copy associated AI Forge with Salesforce work — not
+                  the positioning we want on a Cat 2 page. */}
               <div className="af-testimonial-author">
                 <strong>Jay Vashi</strong>
-                Salesforce Delivery Manager · Fortune 500 Insurance Company
+                Senior Delivery Manager · Fortune 500 Insurance Company
               </div>
             </div>
           </div>

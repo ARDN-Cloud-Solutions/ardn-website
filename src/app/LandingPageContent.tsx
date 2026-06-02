@@ -19,11 +19,15 @@ export default function LandingPageContent() {
             <aside className="hero-aside reveal reveal-d4">
               <div className="card" style={{ padding: "28px" }}>
                 <div className="kicker">The Ardn product suite</div>
+                {/* Hero product list: descriptors rewritten so Cat 2 products
+                    (Membership Management, AI Forge) read as standalone /
+                    custom-built, while Cat 1 products keep their Salesforce-
+                    native positioning. */}
                 <ul className="features mt-3">
-                  <li>Membership Management — studios, gyms, clubs</li>
-                  <li>AI Forge — build and ship AI agents</li>
+                  <li>Membership Management — gyms, YMCAs, clubs &amp; associations</li>
+                  <li>AI Forge — custom AI apps, shipped in weeks</li>
                   <li>Storefronts — Salesforce-native commerce</li>
-                  <li>License Guard — reclaim unused licenses</li>
+                  <li>License Guard — reclaim unused Salesforce licenses</li>
                   <li>Salesforce Payments — quote to cash inside SF</li>
                   <li>AI-Powered Support — ReplyCX</li>
                 </ul>
@@ -69,27 +73,36 @@ export default function LandingPageContent() {
 
           <div className="grid-2">
 
+            {/* Cat 2: Membership Management. Standalone, AI-built positioning
+                in the headline + body, but explicitly Salesforce/HubSpot
+                capable in the feature list — keeps SF buyer-intent traffic
+                while leading with the new Cat 2 framing. */}
             <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>
               <span className="pill" style={{ background: "#FCE4EC", color: "#C2185B" }}>Flagship · Membership</span>
               <h3 className="h3">Membership Management</h3>
-              <p className="body">Salesforce-native membership platform. Sign-ups, dues, renewals, classes, attendance, retention — one system for studios, gyms, clubs, and associations.</p>
+              <p className="body">A flexible, AI-built membership platform for YMCAs, gyms, studios, clubs, and associations. Run sign-ups, dues, classes, attendance, and retention from one system that integrates cleanly with Salesforce, HubSpot, and your existing back-office tools.</p>
               <ul className="features">
                 <li>Recurring billing &amp; dunning out of the box</li>
                 <li>Class scheduling &amp; attendance tracking</li>
                 <li>Branded member self-service portal</li>
-                <li>Native Salesforce reports &amp; dashboards</li>
+                <li>Salesforce, HubSpot, and CRM-agnostic integrations</li>
               </ul>
               <Link href="/membership-management" className="link">Explore Membership Management</Link>
             </article>
 
+            {/* Cat 2: AI Forge. Headline positioning is the AI Forge Framework
+                (durable, model-agnostic brand). Salesforce-integration bullet
+                preserved as a feature so SF buyer-intent searches still see
+                themselves represented without making AI Forge feel Salesforce-
+                specific. */}
             <article className="product-card" style={{ "--accent": "#7C3AED" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>AI</span>
+              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>Custom development</span>
               <h3 className="h3">AI Forge</h3>
-              <p className="body">Build, deploy, and manage custom AI agents — grounded in your own data and wired into the tools your business already runs on.</p>
+              <p className="body">Our Florida-based development team uses the proprietary AI Forge Framework to design, build, and ship custom AI applications and business software in weeks, not months — then runs them as a managed service.</p>
               <ul className="features">
-                <li>No-code agent builder on your own data</li>
-                <li>Connects to Salesforce and your existing stack</li>
-                <li>Ship production-ready agents in days</li>
+                <li>Discovery to production in 2–6 weeks</li>
+                <li>Deep Salesforce, HubSpot, and stack integrations</li>
+                <li>One monthly subscription — build, host, and iterate</li>
               </ul>
               <Link href="/ai-forge" className="link">Explore AI Forge</Link>
             </article>

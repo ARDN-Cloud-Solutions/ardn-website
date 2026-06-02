@@ -20,18 +20,48 @@ const poppins = Poppins({
   display: "swap",
 });
 
+// SEO: Hybrid homepage and site-wide defaults. The homepage and the business
+// itself span TWO pillars:
+//   1. Custom AI + custom development (AI Forge Framework, Cat 2 products).
+//   2. Salesforce-native products and Salesforce managed services / consulting.
+// Both keyword sets are intentionally present in title, description, and keywords
+// so the homepage continues to win Salesforce-managed-services and Salesforce-
+// consulting queries while also ranking for the new Custom AI / Custom Software
+// development intents.
 export const metadata: Metadata = {
   metadataBase: new URL("https://ardncloudsolutions.com"),
-  title: "Ardn Cloud Solutions | Empowering Digital Excellence",
-  description: "ARDN Cloud Solutions offers expert Salesforce services — storefronts, integrations, optimisation, and support. See what we can build for your business.",
-  keywords: ["Salesforce Storefronts", "Salesforce Integrations", "Salesforce Optimization", "Managed Services", "Digital Transformation", "Ardn Cloud Solutions"],
+  title:
+    "Ardn Cloud Solutions | Custom AI Apps, Cloud Products & Salesforce Services",
+  description:
+    "Orlando-based development team building custom AI applications and cloud products with the AI Forge Framework — backed by 30+ years of Salesforce expertise, consulting, and managed services. Salesforce-native products and AI-built, Salesforce-capable platforms under one roof.",
+  keywords: [
+    // Cat 2 — custom AI / dev agency intents
+    "custom AI app development",
+    "AI development agency",
+    "custom software development",
+    "AI-built products",
+    "AI Forge Framework",
+    "membership management platform",
+    // Cat 1 + managed services — preserved Salesforce SEO surface
+    "Salesforce managed services",
+    "Salesforce consulting",
+    "Salesforce implementation partner",
+    "Salesforce-native cloud products",
+    "Salesforce integration services",
+    // GEO/Local
+    "cloud solutions Orlando",
+    "Florida software development",
+    "Ardn Cloud Solutions",
+  ],
   authors: [{ name: "Ardn Cloud Solutions" }],
   verification: {
     google: "hTRXgKOROx8dmiPgKzpZEZOw0fg6wuv8_skJW9LPUuQ",
   },
   openGraph: {
-    title: "Ardn Cloud Solutions",
-    description: "Expert Salesforce services — storefronts, integrations, optimisation, and support.",
+    title:
+      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+    description:
+      "Florida-based development team. Custom AI applications via the AI Forge Framework, plus Salesforce-native cloud products and 30+ years of Salesforce consulting and managed services experience.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -39,13 +69,15 @@ export const metadata: Metadata = {
         url: "/images/ardn-home-hero.webp",
         width: 1200,
         height: 630,
-        alt: "Ardn Cloud Solutions - Salesforce Expertise",
+        // SEO: outcome-focused alt covering both pillars of the business.
+        alt: "Ardn Cloud Solutions — Orlando-based team building custom AI applications, Salesforce-native cloud products, and managed Salesforce services",
       },
     ],
     locale: "en_US",
     type: "website",
   },
   alternates: {
+    // Self-referencing canonical at site root.
     canonical: "https://ardncloudsolutions.com",
     languages: {
       "en-US": "https://ardncloudsolutions.com",
@@ -59,13 +91,57 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@ardn_cloud_sol",
-    title: "Ardn Cloud Solutions",
-    description: "Expert Salesforce services — storefronts, integrations, optimisation, and support.",
+    title:
+      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+    description:
+      "Florida-based team. Custom AI applications via the AI Forge Framework, Salesforce-native cloud products, and 30+ years of Salesforce consulting & managed services.",
     images: ["/images/ardn-home-hero.webp"],
   },
   icons: {
     icon: "/logo/favicon.jpeg",
   },
+};
+
+// GEO/Local SEO: Site-wide Organization schema with hard-coded NAP. Lives at
+// root so every page carries a consistent business identity for search engines
+// and inherits the Orlando, FL local signal. Page-level schemas (SoftwareApplication,
+// WebPage, BreadcrumbList) supplement this on individual routes.
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://ardncloudsolutions.com/#organization",
+  name: "Ardn Cloud Solutions",
+  legalName: "Ardn Cloud Solutions",
+  url: "https://ardncloudsolutions.com",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://ardncloudsolutions.com/logo/favicon.jpeg",
+  },
+  description:
+    "Orlando-based development team. We build custom AI applications and bespoke software using our proprietary AI Forge Framework, deliver a suite of Salesforce-native cloud products (Storefronts, License Guard, Salesforce Payments), and provide Salesforce consulting and managed services backed by 30+ years of expertise.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Orlando",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Place", name: "Global" },
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+1-407-815-5303",
+      contactType: "sales",
+      email: "contactus@ardncloudsolutions.com",
+      areaServed: "US",
+      availableLanguage: ["English"],
+    },
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/ardn-cloud-solutions/",
+  ],
 };
 
 export default function RootLayout({
@@ -76,6 +152,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* GEO/Local SEO: site-wide Organization JSON-LD with Orlando NAP. */}
+        <Script
+          id="org-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RTHTZK8BNJ"
           strategy="afterInteractive"
