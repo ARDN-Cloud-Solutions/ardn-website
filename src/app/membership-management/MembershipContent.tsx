@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import TrustBar from "@/components/common/TrustBar";
 
 /*
  * COPYWRITING / POSITIONING NOTES (Category 2 — AI-built, CRM-agnostic):
@@ -65,6 +66,11 @@ export default function MembershipContent() {
           </div>
         </div>
       </section>
+
+      {/* CRO: thin trust signal strip directly under the hero so social-proof
+          and GEO cues are visible the moment a visitor lands. Lifts conversion
+          on existing traffic without disrupting the hero CTA. */}
+      <TrustBar />
 
       {/* METRICS */}
       <section className="section-tight">

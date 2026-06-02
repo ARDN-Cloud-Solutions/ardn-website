@@ -341,6 +341,54 @@ export default function ContactPageContent() {
         </aside>
       </main>
 
+      {/* CALENDLY INLINE — side-by-side with the form (form is in the hero,
+          this section gives the high-intent visitor a direct path that skips
+          form-fill friction entirely). Lifts conversion meaningfully for hot
+          leads who already know they want to talk. */}
+      <section className={styles.calendlySection}>
+        <div className={styles.calendlyInner}>
+          <div className={styles.calendlyCopy}>
+            <span className={styles.eyebrow}>Skip the form</span>
+            <h2 className={`${styles.display} ${styles.calendlyHeadline}`}>
+              Prefer to just <em>pick a time?</em>
+            </h2>
+            <p className={styles.calendlySub}>
+              Grab any 30-minute slot on our calendar. No form, no waiting on
+              email. Talk to a co-founder in Orlando the moment your slot lands.
+            </p>
+            <ul className={styles.benefits} style={{ marginTop: 16 }}>
+              <li>
+                <span className={styles.check} aria-hidden>
+                  <Check size={11} strokeWidth={3} />
+                </span>
+                <span>
+                  <strong>Instant confirmation.</strong> Calendar invite arrives
+                  immediately.
+                </span>
+              </li>
+              <li>
+                <span className={styles.check} aria-hidden>
+                  <Check size={11} strokeWidth={3} />
+                </span>
+                <span>
+                  <strong>Zero prep.</strong> Bring questions, leave with a path.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.calendlyEmbedWrap}>
+            {/* Calendly inline iframe — keeps the embed lightweight and
+                CSP-friendly without pulling in the Calendly JS widget. */}
+            <iframe
+              src="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai?hide_event_type_details=0&hide_gdpr_banner=1"
+              title="Book a free strategy call with Ardn Cloud Solutions"
+              className={styles.calendlyIframe}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* TRUST BAND */}
       <section className={styles.trustBand}>
         <div className={styles.trustInner}>

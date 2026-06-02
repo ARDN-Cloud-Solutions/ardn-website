@@ -42,10 +42,45 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        url: `${BASE_URL}/membership-management`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: `${BASE_URL}/ai-forge`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         url: `${BASE_URL}/ai-powered-support`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.7,
+    },
+    {
+        // Free lead-magnet calculator — high-intent landing page.
+        url: `${BASE_URL}/savings-calculator`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Local-intent landing page targeting Salesforce-Orlando / -Florida
+        // buyer queries. Highest priority among the new landings since the
+        // Salesforce managed-services line is a core revenue stream.
+        url: `${BASE_URL}/salesforce-consulting-orlando`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Local-intent landing page for AI custom development.
+        url: `${BASE_URL}/ai-app-development-florida`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
     },
     {
         url: `${BASE_URL}/ai-info-page`,

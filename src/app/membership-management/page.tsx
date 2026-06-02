@@ -110,6 +110,73 @@ export default function MembershipManagementPage() {
         },
       },
       {
+        // SEO/rich snippets: FAQPage markup makes the page eligible for FAQ
+        // rich results in Google SERPs. Questions and answers mirror the
+        // on-page FAQ — Google requires the content to be visible on the
+        // rendered page for the rich result to fire.
+        "@type": "FAQPage",
+        "@id":
+          "https://ardncloudsolutions.com/membership-management#faq",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Does it integrate with Salesforce and other CRMs?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Membership Management runs standalone, and it integrates cleanly with Salesforce, HubSpot, Microsoft Dynamics, your accounting and marketing-automation tools, and your BI stack. Ardn has 30+ years of Salesforce expertise, so the Salesforce integration in particular is deep and well-tested — you keep your existing CRM as the system of record if you want to.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can it replace our current membership software?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "For most YMCAs, studios, and associations, yes. It handles sign-up, billing, scheduling, the member portal, and analytics in one platform. We map your requirements against the product before you buy.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What payment methods are supported?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Cards, ACH, Apple Pay, Google Pay, and Venmo. Bring your own processor or use ours. Recurring billing and dunning are built in.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can members manage their own accounts?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. The member portal lets members update payment, change plans, pause, cancel, and view their history without contacting staff.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How long does implementation take?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Most customers go live in 2–4 weeks. Complex migrations with large member databases typically take 4–8 weeks end to end.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can we migrate our existing member data?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. We map your existing data into the platform and migrate it cleanly. You do not start from zero, and you keep historical context.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Does it work for multiple locations?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Multi-location, multi-plan, and multi-currency are all supported. Each location can have its own class schedules and membership tiers.",
+            },
+          },
+        ],
+      },
+      {
         "@type": "BreadcrumbList",
         "@id":
           "https://ardncloudsolutions.com/membership-management#breadcrumb",

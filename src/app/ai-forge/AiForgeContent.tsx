@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import TrustBar from "@/components/common/TrustBar";
 
 // ─── FAQ DATA ───────────────────────────────────────────────────────────────
 
@@ -201,6 +202,11 @@ export default function AiForgeContent() {
           </div>
         </div>
       </section>
+
+      {/* CRO: trust signal strip directly under the hero. Continues the dark
+          theme of the AI Forge hero, then transitions cleanly into the light
+          PROBLEM section below. */}
+      <TrustBar />
 
       {/* ── PROBLEM ──────────────────────────────────────────────────── */}
       <section className="af-section af-section--soft">

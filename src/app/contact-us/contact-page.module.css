@@ -358,6 +358,76 @@
   color: var(--purple);
 }
 
+/* ============ CALENDLY INLINE ============ */
+.calendlySection {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  padding: 48px 20px;
+}
+
+.calendlyInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .calendlyInner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.calendlyCopy {
+  padding-top: 8px;
+}
+
+.calendlyHeadline {
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.08;
+  color: var(--navy);
+  margin: 10px 0 10px;
+}
+
+.calendlyHeadline em {
+  font-style: italic;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+.calendlySub {
+  font-size: 15px;
+  color: var(--slate);
+  max-width: 460px;
+}
+
+.calendlyEmbedWrap {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 40px -16px rgba(28, 32, 69, 0.18);
+  background: var(--white);
+}
+
+.calendlyIframe {
+  width: 100%;
+  height: 720px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 880px) {
+  .calendlyIframe {
+    height: 820px;
+  }
+}
+
 /* ============ TRUST BAND ============ */
 .trustBand {
   background: white;

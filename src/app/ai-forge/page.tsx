@@ -136,6 +136,79 @@ export default function AiForgePage() {
         },
       },
       {
+        // SEO/rich snippets: FAQPage markup. Questions mirror the on-page
+        // FAQ exactly. Google requires Q/A content to be visible on the
+        // rendered page for the rich result to fire.
+        "@type": "FAQPage",
+        "@id": "https://ardncloudsolutions.com/ai-forge#faq",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What kinds of AI apps do you build?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Anything that modern AI can do. Customer-facing chatbots and support agents. Internal workflow automations. Document processing and data extraction. Sales enablement tools. Analytics and forecasting systems. Industry-specific vertical apps. If you can describe the problem, we can scope the build. We don't sell templates — we build to your exact specifications.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How is this different from your AI-Powered Support product?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "AI-Powered Support is a productized, no-code support automation tool. AI Forge is custom development — we build whatever AI application your business needs, from scratch, to your exact specs. Think of AI-Powered Support as off-the-shelf and AI Forge as tailor-made.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is a service credit?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "One service credit equals one hour of senior engineering or design work. You use them for new features, change requests, integrations, custom reporting, or anything else that needs human work. Unused credits roll over up to 30% of your monthly allocation. Overages are billed at our standard hourly rate.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What if I burn through my AI credits?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "You get real-time usage dashboards and alerts at 50%, 75%, and 90% of your monthly allocation. If you exceed the pool, overages are passed through at cost (no markup) or you can upgrade your tier mid-cycle and we prorate. We also continuously optimize your prompts to reduce token consumption — usually 30–50% over the first quarter.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do I own the app you build?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "You own the IP and the data. We retain rights to the underlying frameworks and tooling we use across clients. If you ever leave, you get a complete export of your data and full documentation of your application. We have no interest in lock-in — our model only works if you want to stay.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Is there a minimum contract?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No long-term contract required on Launch or Scale tiers — month-to-month after the build is delivered. Enterprise engagements typically include a 12-month commitment in exchange for negotiated rates and dedicated capacity. You can upgrade, downgrade, or cancel any tier with 30 days notice.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can you integrate with Salesforce?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes — Salesforce integration is one of our specialties. Ardn has 30+ years of Salesforce experience as a company, so AI Forge applications routinely read from, write to, and orchestrate work inside Salesforce. We also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, billing systems, and 5,000+ other tools — whichever stack your business actually runs on.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What if my AI needs change?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "That's the whole point. Models evolve, your business evolves, and your AI app needs to evolve with it. Your monthly subscription includes ongoing iteration — new features, model upgrades, prompt tuning, and integration changes — all drawn from your service credit pool. You won't need a new contract every time something changes.",
+            },
+          },
+        ],
+      },
+      {
         "@type": "BreadcrumbList",
         "@id": "https://ardncloudsolutions.com/ai-forge#breadcrumb",
         itemListElement: [
