@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Calendar } from "lucide-react";
 
 /**
@@ -13,24 +14,31 @@ import { Calendar } from "lucide-react";
  *
  * Hidden on /contact-us because the page is itself the conversion destination
  * and a floating button would be redundant.
+ *
+ * Implementation notes — React 19 / Next 16:
+ *   - `usePathname()` is reactive in App Router, so the contact-page check
+ *     does not need its own state + effect. This avoids the
+ *     `react-hooks/set-state-in-effect` lint error.
+ *   - All setState calls inside the effect happen inside the `onScroll`
+ *     event-handler callback (allowed pattern), not in the effect body.
  */
 export default function FloatingCta() {
+  const pathname = usePathname();
+  const hideOnContact = pathname?.startsWith("/contact-us") ?? false;
+
   const [visible, setVisible] = useState(false);
-  const [hideOnContact, setHideOnContact] = useState(false);
 
   useEffect(() => {
-    // Hide on the contact page itself (the entire page IS the CTA destination).
-    if (typeof window !== "undefined") {
-      setHideOnContact(window.location.pathname.startsWith("/contact-us"));
-    }
+    // No listener needed on the contact page — early-return to avoid
+    // attaching a scroll handler we will immediately tear down.
+    if (hideOnContact) return;
 
     const onScroll = () => {
       setVisible(window.scrollY > 400);
     };
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [hideOnContact]);
 
   if (hideOnContact) return null;
 
