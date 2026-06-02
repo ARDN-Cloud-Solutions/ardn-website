@@ -11,25 +11,36 @@ import {
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
+// Footer product list now reflects the full 6-product suite (was missing
+// Membership Management and AI Forge). Ordered by Cat 2 first (the newer
+// products that need internal-link weight), then Cat 1.
 const ourProducts = [
+  { label: "AI Forge — Custom AI Development", href: "/ai-forge" },
+  { label: "Membership Management", href: "/membership-management" },
   { label: "Storefronts: All-in-one Ecommerce Solution", href: "/storefronts" },
   { label: "Salesforce Payments", href: "/salesforce-payments" },
   { label: "License Guard", href: "/license-guard" },
-  { label: "AI-Powered Support", href: "/ai-powered-support" },
+  { label: "AI-Powered Support (ReplyCX)", href: "/ai-powered-support" },
 ];
 
 const legal = [
   { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
+// Quick Links expanded to include:
+//   - /savings-calculator (lead-magnet free tool)
+//   - /salesforce-consulting-orlando + /ai-app-development-florida
+//     (local-intent landing pages — internal links boost crawl + ranking)
 const quickLinks = [
   { label: "About Us", href: "/about-ardn" },
+  { label: "Our Products", href: "/our-products" },
+  { label: "Free Savings Calculator", href: "/savings-calculator" },
+  { label: "Salesforce Consulting (Orlando)", href: "/salesforce-consulting-orlando" },
+  { label: "AI App Development (Florida)", href: "/ai-app-development-florida" },
   { label: "Contact Us", href: "/contact-us" },
   { label: "Careers", href: "/career" },
-  { label: "Our Products", href: "/our-products" },
   { label: "Blog", href: "/blog" },
-  { label: "AI Information", href: "/ai-info-page" },
-  {label: "Case Studies", href: "/case-studies"},
+  { label: "Case Studies", href: "/case-studies" },
 ];
 
 const buyerGuides = [
@@ -100,19 +111,30 @@ export default function Footer() {
               />
             </Link>
 
-            {/* Description */}
+            {/* Description rewritten as hybrid identity. Lead pillar:
+                custom AI / development practice powered by the AI Forge
+                Framework. Supporting pillar: Salesforce consulting and
+                managed services backed by 30+ years of expertise. */}
             <p className="text-white font-poppins text-[15px] leading-[1.6] ]">
-              Ardn Cloud Solutions is your partner in transforming Salesforce for
-              efficiency and impact. We specialize in delivering innovative,
-              cost-effective Salesforce solutions designed to simplify processes,
-              maximize your investment, and drive business growth.
+              Ardn Cloud Solutions is an Orlando, Florida custom AI and
+              software development team. We build AI-powered products and
+              bespoke applications using our proprietary AI Forge Framework,
+              ship a suite of Salesforce-native cloud products, and provide
+              Salesforce consulting and managed services backed by 30+ years
+              of expertise.
             </p>
 
-            {/* Company Info */}
+            {/* Company Info — Orlando, FL address now visible in footer to
+                reinforce the LocalBusiness schema NAP and support local-SEO
+                ranking signals. */}
             <div className="flex flex-col gap-3">
               <h6 className="text-white font-medium font-poppins">
                 Company Information
               </h6>
+              <p className="text-[#c4c4c4] font-poppins text-sm">
+                <span className="text-white">Headquarters:</span>{" "}
+                Orlando, Florida — serving customers globally
+              </p>
               <p className="text-[#c4c4c4] font-poppins text-sm">
                 <span className="text-white">Send mail:</span>{" "}
                 <a
@@ -123,7 +145,7 @@ export default function Footer() {
                 </a>
               </p>
               <p className="text-[#c4c4c4] font-poppins text-sm">
-                <span className="text-white">Contact :</span>{" "}
+                <span className="text-white">Contact:</span>{" "}
                 <a
                   href="tel:+14078155303"
                   className="hover:text-white transition-colors"
