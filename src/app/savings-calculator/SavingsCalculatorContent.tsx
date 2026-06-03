@@ -79,6 +79,12 @@ export default function SavingsCalculatorContent() {
   const currentTools = TOOLS_DATA[selectedIndustry];
   const toolTotal = currentTools.reduce((s, t) => s + t.cost, 0);
   const total = Math.max(toolTotal, budget);
+  // When the user enters a budget that exceeds the preset tool stack, the
+  // difference is surfaced as an "Additional tools / overhead" line so the
+  // visible line items add up to the same total shown at the bottom.
+  // Without this, the line items would still sum to the preset (~$1,950 for
+  // medspa) while the total displays the user's actual $50,000 budget.
+  const additionalSpend = Math.max(0, budget - toolTotal);
   const monthly = total - 5000;
   const yr1 = monthly * 12;
   const yr2 = monthly * 24;
@@ -184,6 +190,14 @@ export default function SavingsCalculatorContent() {
                     <span className="sc-calc-tool-cost">${t.cost.toLocaleString()}/mo</span>
                   </div>
                 ))}
+                {/* Surface the gap between the user-entered monthly spend and
+                    the preset stack so line items sum to the displayed total. */}
+                {additionalSpend > 0 && (
+                  <div className="sc-calc-tool">
+                    <span className="sc-calc-tool-name">Additional tools / overhead</span>
+                    <span className="sc-calc-tool-cost">${additionalSpend.toLocaleString()}/mo</span>
+                  </div>
+                )}
               </div>
               <div className="sc-calc-total">
                 <span style={{ color: "var(--sc-text-2)" }}>Total monthly spend</span>
@@ -600,6 +614,19 @@ export default function SavingsCalculatorContent() {
                       <td className="sc-td-inc">Included</td>
                     </tr>
                   ))}
+                  {/* Mirror the inline calculator: render an Additional
+                      tools / overhead row when the user-entered budget
+                      exceeds the preset stack so the Total row math
+                      reconciles with the per-row breakdown. */}
+                  {additionalSpend > 0 && (
+                    <tr>
+                      <td>Additional tools / overhead</td>
+                      <td style={{ color: "var(--sc-red)", fontWeight: 600 }}>
+                        {fmt(additionalSpend)}/mo
+                      </td>
+                      <td className="sc-td-inc">Included</td>
+                    </tr>
+                  )}
                   <tr style={{ fontWeight: 700, borderTop: "2px solid var(--sc-border)" }}>
                     <td style={{ color: "var(--sc-text)" }}>Total</td>
                     <td style={{ color: "var(--sc-red)" }}>{fmt(total)}/mo</td>
