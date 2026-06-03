@@ -66,31 +66,31 @@ export default function StorefrontsPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "@id": "https://ardncloudsolutions.com/storefronts#software",
+        // Downgraded from SoftwareApplication → Service per Google audit.
+        // Storefronts is listed on the Salesforce AppExchange but does not
+        // have enough publicly-citable customer ratings to satisfy the
+        // aggregateRating/review rich-result requirement. Service is the
+        // appropriate fallback type.
+        "@type": "Service",
+        "@id": "https://ardncloudsolutions.com/storefronts#service",
         name: "Ardn Storefronts",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory: "Salesforce-native ecommerce platform",
-        operatingSystem: "Salesforce, Web",
+        serviceType: "Salesforce-native ecommerce platform",
+        category: "Salesforce-native ecommerce",
         description:
           "Salesforce-native ecommerce platform for B2B and B2C. Catalog, inventory, checkout, orders, memberships, events, and appointments — all inside Salesforce. Eliminates middleware, syncing, and per-user fees that scale against you.",
         url: "https://ardncloudsolutions.com/storefronts",
-        publisher: {
+        provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Place", name: "Global" },
+        ],
         offers: {
           "@type": "Offer",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
-        featureList: [
-          "Catalog, inventory, and order management",
-          "B2B and B2C checkout",
-          "Memberships, subscriptions, events, ticketing",
-          "Native to Salesforce — no middleware",
-          "Stripe, Paymentus, Apple Pay, Google Pay, Venmo",
-          "Launch in days, not quarters",
-        ],
       },
       {
         "@type": "WebPage",
@@ -104,7 +104,7 @@ export default function StorefrontsPage() {
         },
         inLanguage: "en-US",
         about: {
-          "@id": "https://ardncloudsolutions.com/storefronts#software",
+          "@id": "https://ardncloudsolutions.com/storefronts#service",
         },
       },
       {
@@ -125,26 +125,10 @@ export default function StorefrontsPage() {
           },
         ],
       },
-      {
-        "@type": "Review",
-        itemReviewed: {
-          "@id": "https://ardncloudsolutions.com/storefronts#software",
-        },
-        reviewBody:
-          "Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business. Their strategic focus on high-impact efficiencies transformed our operations, delivering substantial cost reductions and measurable improvements throughout our processes.",
-        author: {
-          "@type": "Person",
-          name: "Jay Vashi",
-          // Role generalised to align with the site-wide dual-pillar
-          // positioning; still a Salesforce-Cat-1 page, so the customer's
-          // Salesforce context is implicit from the product page itself.
-          jobTitle: "Senior Delivery Manager",
-          worksFor: {
-            "@type": "Organization",
-            name: "Fortune 500 insurance company",
-          },
-        },
-      },
+      // Standalone Review JSON-LD removed (per Google audit on 2026-06-03)
+      // because the rich Review-snippet requires a numeric reviewRating AND
+      // visibly-displayed star rating on the page; we have neither.
+      // The Jay Vashi testimonial remains visible on the page itself.
       {
         "@type": "FAQPage",
         "@id": "https://ardncloudsolutions.com/storefronts#faq",

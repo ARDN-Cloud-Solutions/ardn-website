@@ -65,60 +65,74 @@ export default function AiForgePage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "@id": "https://ardncloudsolutions.com/ai-forge#software",
+        // Downgraded from SoftwareApplication → Service per Google's rich-
+        // result eligibility audit. Service does not require
+        // aggregateRating/review, removing the validation error while keeping
+        // the semantic meaning (AI Forge is a managed-service productized
+        // engagement, which Service describes more accurately than
+        // SoftwareApplication anyway). The three tiers are represented as a
+        // hasOfferCatalog of OfferCatalog → Offer entries.
+        "@type": "Service",
+        "@id": "https://ardncloudsolutions.com/ai-forge#service",
         name: "AI Forge by Ardn",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory:
+        serviceType:
           "Custom AI Application Development & Operating Partnership",
-        operatingSystem: "Web",
+        category: "Business custom software development",
         description:
           "AI Forge is a productized custom development practice. Our Orlando-based team designs, builds, deploys, and operates bespoke AI applications under one predictable monthly subscription, powered by the proprietary AI Forge Framework.",
         url: "https://ardncloudsolutions.com/ai-forge",
-        publisher: {
+        provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
-        offers: [
-          {
-            "@type": "Offer",
-            name: "AI Forge — Launch tier",
-            priceCurrency: "USD",
-            price: "1500",
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Place", name: "Global" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "AI Forge tiers",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: "AI Forge — Launch tier",
               priceCurrency: "USD",
               price: "1500",
-              unitText: "month",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                priceCurrency: "USD",
+                price: "1500",
+                unitText: "month",
+              },
+              availability: "https://schema.org/InStock",
             },
-            availability: "https://schema.org/InStock",
-          },
-          {
-            "@type": "Offer",
-            name: "AI Forge — Scale tier",
-            priceCurrency: "USD",
-            price: "4500",
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
+            {
+              "@type": "Offer",
+              name: "AI Forge — Scale tier",
               priceCurrency: "USD",
               price: "4500",
-              unitText: "month",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                priceCurrency: "USD",
+                price: "4500",
+                unitText: "month",
+              },
+              availability: "https://schema.org/InStock",
             },
-            availability: "https://schema.org/InStock",
-          },
-          {
-            "@type": "Offer",
-            name: "AI Forge — Enterprise tier",
-            priceCurrency: "USD",
-            price: "12000",
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
+            {
+              "@type": "Offer",
+              name: "AI Forge — Enterprise tier",
               priceCurrency: "USD",
               price: "12000",
-              unitText: "month",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                priceCurrency: "USD",
+                price: "12000",
+                unitText: "month",
+              },
+              availability: "https://schema.org/InStock",
             },
-            availability: "https://schema.org/InStock",
-          },
-        ],
+          ],
+        },
       },
       {
         "@type": "WebPage",
@@ -132,7 +146,7 @@ export default function AiForgePage() {
         },
         inLanguage: "en-US",
         about: {
-          "@id": "https://ardncloudsolutions.com/ai-forge#software",
+          "@id": "https://ardncloudsolutions.com/ai-forge#service",
         },
       },
       {

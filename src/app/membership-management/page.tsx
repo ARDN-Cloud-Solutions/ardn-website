@@ -68,19 +68,26 @@ export default function MembershipManagementPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
+        // Downgraded from SoftwareApplication → Service per Google audit
+        // (aggregateRating/review requirement). Service is appropriate
+        // here — Membership Management is delivered as a managed AI-built
+        // platform engagement, not a self-serve packaged software product.
+        "@type": "Service",
         "@id":
-          "https://ardncloudsolutions.com/membership-management#software",
+          "https://ardncloudsolutions.com/membership-management#service",
         name: "Ardn Membership Management",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory: "Membership Management Software",
-        operatingSystem: "Web",
+        serviceType: "Membership Management Platform",
+        category: "Membership management software",
         description:
           "A flexible, AI-built membership management platform for YMCAs, gyms, studios, clubs, and associations. Runs standalone or alongside whatever CRM or back-office systems you already use.",
         url: "https://ardncloudsolutions.com/membership-management",
-        publisher: {
+        provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Place", name: "Global" },
+        ],
         offers: {
           "@type": "Offer",
           priceCurrency: "USD",
@@ -106,7 +113,7 @@ export default function MembershipManagementPage() {
         inLanguage: "en-US",
         about: {
           "@id":
-            "https://ardncloudsolutions.com/membership-management#software",
+            "https://ardncloudsolutions.com/membership-management#service",
         },
       },
       {

@@ -71,32 +71,31 @@ export default function AiPoweredSupportPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "@id": `${url}#software`,
+        // Downgraded from SoftwareApplication → Service per Google audit
+        // (SoftwareApplication requires aggregateRating/review for the rich
+        // result; ReplyCX is delivered as a managed setup + ongoing service
+        // anyway, so Service is the more semantically accurate type).
+        "@type": "Service",
+        "@id": `${url}#service`,
         name: "ReplyCX (AI-Powered Support by Ardn)",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory:
+        serviceType:
           "AI customer support automation & omnichannel helpdesk",
-        operatingSystem: "Web, Salesforce",
+        category: "AI customer support",
         description:
           "AI-built customer support automation. ReplyCX automates roughly 70% of routine queries across WhatsApp, email, chat, and social — in one omnichannel inbox with a no-code agent builder on your existing knowledge base. Salesforce-native CRM sync available.",
         url,
-        publisher: {
+        provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Place", name: "Global" },
+        ],
         offers: {
           "@type": "Offer",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
-        featureList: [
-          "No-code AI agent builder on your knowledge base",
-          "One inbox across WhatsApp, SMS, email, social, live chat",
-          "Auto-routing, priority logic, and SLA timers",
-          "Salesforce CRM sync (read & write)",
-          "Automates ~70% of routine support queries",
-          "Live in one sprint",
-        ],
       },
       {
         "@type": "WebPage",
@@ -107,7 +106,7 @@ export default function AiPoweredSupportPage() {
           "AI-built customer support that automates around 70% of routine queries across WhatsApp, email, chat, and social. Salesforce-native CRM sync.",
         breadcrumb: { "@id": `${url}#breadcrumb` },
         inLanguage: "en-US",
-        about: { "@id": `${url}#software` },
+        about: { "@id": `${url}#service` },
       },
       {
         "@type": "BreadcrumbList",
@@ -127,22 +126,10 @@ export default function AiPoweredSupportPage() {
           },
         ],
       },
-      {
-        "@type": "Review",
-        itemReviewed: { "@id": `${url}#software` },
-        reviewBody:
-          "Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business. Their strategic focus on high-impact efficiencies transformed our operations, delivering substantial cost reductions and measurable improvements throughout our processes.",
-        author: {
-          "@type": "Person",
-          name: "Jay Vashi",
-          // Role generalised to align with the site-wide dual-pillar positioning.
-          jobTitle: "Senior Delivery Manager",
-          worksFor: {
-            "@type": "Organization",
-            name: "Fortune 500 insurance company",
-          },
-        },
-      },
+      // Standalone Review JSON-LD removed (per Google audit on 2026-06-03)
+      // because the rich Review-snippet requires a numeric reviewRating AND
+      // visibly-displayed star rating on the page; we have neither.
+      // The Jay Vashi testimonial remains visible on the page itself.
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,

@@ -71,24 +71,23 @@ export default function SavingsCalculatorPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebApplication",
+        // Downgraded from WebApplication → CreativeWork ("tool"). WebApplication
+        // inherits SoftwareApplication and therefore inherits the same Google
+        // aggregateRating/review requirement that triggered the audit error.
+        // CreativeWork is the cleanest parent type for a free embedded
+        // calculator: no rating requirement, still semantically accurate.
+        "@type": "CreativeWork",
         "@id":
           "https://ardncloudsolutions.com/savings-calculator#tool",
         name: "Software Savings Calculator",
         url: "https://ardncloudsolutions.com/savings-calculator",
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
         description:
           "A free 60-second calculator that estimates how much your business overpays for tools like Mindbody, Zenoti, Salesforce, HubSpot, and Daxko — and compares that to the cost of a custom Ardn-built platform.",
         isAccessibleForFree: true,
         publisher: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-        },
+        inLanguage: "en-US",
       },
       {
         "@type": "Service",

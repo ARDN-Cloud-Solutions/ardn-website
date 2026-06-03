@@ -88,22 +88,43 @@ export default function OurProductsPage() {
           "https://ardncloudsolutions.com/our-products#productlist",
         name: "Ardn Product Suite",
         numberOfItems: 6,
+        // Each item in the product list is a Service (not SoftwareApplication)
+        // for two reasons:
+        //   1) Avoids Google's SoftwareApplication aggregateRating/review +
+        //      offers requirements (the 12 errors flagged on /our-products
+        //      were SoftwareApplication + missing offers / ratings).
+        //   2) Most of the suite is delivered as managed engagements, not
+        //      self-serve software downloads — Service is semantically right.
+        // AI Forge keeps a real starting price ($1,500/mo Launch tier);
+        // License Guard keeps a free Offer (it's free on AppExchange).
+        // The other 4 use availability-only Offers — no fabricated prices.
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             item: {
-              "@type": "SoftwareApplication",
+              "@type": "Service",
               name: "AI Forge",
               url: "https://ardncloudsolutions.com/ai-forge",
-              applicationCategory: "BusinessApplication",
-              applicationSubCategory:
+              serviceType:
                 "Custom AI application development service",
+              category: "Business custom software development",
               description:
                 "Productized custom AI development practice powered by the proprietary AI Forge Framework. Designed, built, deployed, and operated under one monthly subscription.",
-              operatingSystem: "Web",
-              publisher: {
+              provider: {
                 "@id": "https://ardncloudsolutions.com/#organization",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                price: "1500",
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  priceCurrency: "USD",
+                  price: "1500",
+                  unitText: "month",
+                },
+                availability: "https://schema.org/InStock",
               },
             },
           },
@@ -111,16 +132,20 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 2,
             item: {
-              "@type": "SoftwareApplication",
+              "@type": "Service",
               name: "Ardn Membership Management",
               url: "https://ardncloudsolutions.com/membership-management",
-              applicationCategory: "BusinessApplication",
-              applicationSubCategory: "Membership Management Software",
+              serviceType: "Membership Management Platform",
+              category: "Membership management software",
               description:
                 "Standalone, AI-built membership platform for YMCAs, gyms, studios, clubs, and associations. Integrates cleanly with Salesforce, HubSpot, and other CRMs.",
-              operatingSystem: "Web",
-              publisher: {
+              provider: {
                 "@id": "https://ardncloudsolutions.com/#organization",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
             },
           },
@@ -128,16 +153,20 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 3,
             item: {
-              "@type": "SoftwareApplication",
+              "@type": "Service",
               name: "Ardn Storefronts",
               url: "https://ardncloudsolutions.com/storefronts",
-              applicationCategory: "BusinessApplication",
-              applicationSubCategory: "Salesforce-native ecommerce",
+              serviceType: "Salesforce-native ecommerce platform",
+              category: "Salesforce-native ecommerce",
               description:
                 "Salesforce-native ecommerce platform. Catalog, inventory, checkout, orders, memberships, events, and appointments — all native, no middleware.",
-              operatingSystem: "Web",
-              publisher: {
+              provider: {
                 "@id": "https://ardncloudsolutions.com/#organization",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
             },
           },
@@ -145,17 +174,22 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 4,
             item: {
-              "@type": "SoftwareApplication",
+              "@type": "Service",
               name: "License Guard",
               url: "https://ardncloudsolutions.com/license-guard",
-              applicationCategory: "BusinessApplication",
-              applicationSubCategory:
-                "Salesforce license optimization & audit",
+              serviceType:
+                "Salesforce license audit and user-inactivity automation",
+              category: "Salesforce license management",
               description:
-                "Salesforce-native watchdog for unused licenses. Detects inactivity, warns the user, and deactivates per your rules. Typically pays back its annual cost in one quarter.",
-              operatingSystem: "Web",
-              publisher: {
+                "Salesforce-native watchdog for unused licenses. Detects inactivity, warns the user, and deactivates per your rules. Free on the Salesforce AppExchange.",
+              provider: {
                 "@id": "https://ardncloudsolutions.com/#organization",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
             },
           },
@@ -163,16 +197,21 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 5,
             item: {
-              "@type": "SoftwareApplication",
+              "@type": "Service",
               name: "Salesforce Payments by Ardn",
               url: "https://ardncloudsolutions.com/salesforce-payments",
-              applicationCategory: "BusinessApplication",
-              applicationSubCategory: "Salesforce-native payments",
+              serviceType:
+                "Salesforce-native payments & checkout",
+              category: "Salesforce-native payments",
               description:
                 "From quote to cash inside Salesforce. Branded checkout, real-time status, automated reconciliation — no tab-switching, no PCI scope creep.",
-              operatingSystem: "Web",
-              publisher: {
+              provider: {
                 "@id": "https://ardncloudsolutions.com/#organization",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
             },
           },
@@ -180,17 +219,21 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 6,
             item: {
-              "@type": "SoftwareApplication",
+              "@type": "Service",
               name: "ReplyCX (AI-Powered Support)",
               url: "https://ardncloudsolutions.com/ai-powered-support",
-              applicationCategory: "BusinessApplication",
-              applicationSubCategory:
-                "AI customer support automation",
+              serviceType:
+                "AI customer support automation & omnichannel helpdesk",
+              category: "AI customer support",
               description:
                 "AI-built support automation across WhatsApp, email, chat, and social. Automates around 70% of routine queries; no-code agent builder on your existing knowledge base.",
-              operatingSystem: "Web",
-              publisher: {
+              provider: {
                 "@id": "https://ardncloudsolutions.com/#organization",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
             },
           },

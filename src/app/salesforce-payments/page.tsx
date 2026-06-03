@@ -70,31 +70,29 @@ export default function SalesforcePaymentsPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "@id": `${url}#software`,
+        // Downgraded from SoftwareApplication → Service per Google audit
+        // (SoftwareApplication requires aggregateRating/review for the rich
+        // result; we don't have public ratings on this product).
+        "@type": "Service",
+        "@id": `${url}#service`,
         name: "Ardn Salesforce Payments",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory: "Salesforce-native payments & checkout",
-        operatingSystem: "Salesforce, Web",
+        serviceType: "Salesforce-native payments & checkout",
+        category: "Salesforce-native payments",
         description:
           "Salesforce-native payments and quote-to-cash platform. Cards, ACH, Apple Pay, Google Pay, and Venmo collected inside Salesforce. Branded checkout, real-time payment status, automated reconciliation, and PCI compliance with no middleware.",
         url,
-        publisher: {
+        provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Place", name: "Global" },
+        ],
         offers: {
           "@type": "Offer",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
-        featureList: [
-          "Cards, ACH, Apple Pay, Google Pay, Venmo",
-          "Bring your own processor or use ours for lower rates",
-          "Branded checkout inside Salesforce",
-          "Real-time payment status & automated reconciliation",
-          "PCI compliant, audit-ready",
-          "No middleware, no syncing",
-        ],
       },
       {
         "@type": "WebPage",
@@ -105,7 +103,7 @@ export default function SalesforcePaymentsPage() {
           "Salesforce-native payments. Cards, ACH, Apple Pay, Google Pay, Venmo — collected inside your Salesforce org. PCI compliant.",
         breadcrumb: { "@id": `${url}#breadcrumb` },
         inLanguage: "en-US",
-        about: { "@id": `${url}#software` },
+        about: { "@id": `${url}#service` },
       },
       {
         "@type": "BreadcrumbList",
@@ -125,25 +123,10 @@ export default function SalesforcePaymentsPage() {
           },
         ],
       },
-      {
-        "@type": "Review",
-        // Review now points at the SoftwareApplication entity, not the
-        // generic Organization — aligns with the Storefronts / License Guard
-        // pattern and is more useful for product-rich-result eligibility.
-        itemReviewed: { "@id": `${url}#software` },
-        reviewBody:
-          "Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business. Their strategic focus on high-impact efficiencies transformed our operations, delivering substantial cost reductions and measurable improvements throughout our processes.",
-        author: {
-          "@type": "Person",
-          name: "Jay Vashi",
-          // Role generalised to match the site-wide dual-pillar positioning.
-          jobTitle: "Senior Delivery Manager",
-          worksFor: {
-            "@type": "Organization",
-            name: "Fortune 500 insurance company",
-          },
-        },
-      },
+      // Standalone Review JSON-LD removed (per Google audit on 2026-06-03)
+      // because the rich Review-snippet requires a numeric reviewRating AND
+      // visibly-displayed star rating on the page; we have neither.
+      // The Jay Vashi testimonial remains visible on the page itself.
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,

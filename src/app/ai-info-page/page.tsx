@@ -73,25 +73,32 @@ export default function AiInfoPage() {
         ],
       },
       {
-        "@type": "SoftwareApplication",
-        name: "Storefronts",
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Salesforce",
+        // Downgraded from SoftwareApplication → Service. SoftwareApplication
+        // requires aggregateRating/review for the rich result; Service does
+        // not. The Storefronts pricing ($2,500/mo) inherited from the prior
+        // schema is preserved as an Offer attached to the Service — verify
+        // this is current before any further updates.
+        "@type": "Service",
+        name: "Storefronts by Ardn",
+        serviceType: "Salesforce-native ecommerce platform",
+        category: "Salesforce-native ecommerce",
         description:
           "An all-in-one ecommerce solution built 100% natively on Salesforce that enables organizations to sell products, manage subscriptions and memberships, book appointments, accept donations, and process payments directly inside Salesforce.",
+        provider: {
+          "@id": "https://ardncloudsolutions.com/#organization",
+        },
         offers: {
           "@type": "Offer",
           price: "2500",
           priceCurrency: "USD",
           priceSpecification: {
             "@type": "UnitPriceSpecification",
+            priceCurrency: "USD",
+            price: "2500",
             billingDuration: "P1M",
+            unitText: "month",
           },
-        },
-        creator: {
-          "@type": "Organization",
-          name: "ARDN Cloud Solutions",
-          url: "https://ardncloudsolutions.com/",
+          availability: "https://schema.org/InStock",
         },
       },
     ],
