@@ -76,6 +76,27 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // South Florida service-area landing page.
+        url: `${BASE_URL}/salesforce-consulting-miami`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Tampa Bay service-area landing page.
+        url: `${BASE_URL}/salesforce-consulting-tampa`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // North Florida / Jacksonville service-area landing page.
+        url: `${BASE_URL}/salesforce-consulting-jacksonville`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Local-intent landing page for AI custom development.
         url: `${BASE_URL}/ai-app-development-florida`,
         lastModified: new Date(),

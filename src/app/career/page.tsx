@@ -2,10 +2,14 @@ import { Metadata } from "next";
 import CareerContent from "./CareerContent";
 import ContactSection from "@/components/common/ContactSection";
 
+// Title expanded from 35 → ~60 chars to use Google's full SERP title budget.
+// OG image added so LinkedIn / Slack / Twitter previews render correctly when
+// the careers page is shared.
 export const metadata: Metadata = {
-  title: "Careers - Join Ardn Cloud Solutions",
+  title:
+    "Careers at Ardn Cloud Solutions — Orlando AI & Salesforce Roles",
   description:
-    "Join Ardn Cloud Solutions and build a career in Salesforce innovation. Explore open positions and discover why Ardn is a great place to work.",
+    "Join Ardn Cloud Solutions in Orlando, Florida. Open AI engineering, Salesforce, and custom development roles. Hybrid and remote-friendly culture, senior-led teams, and direct ownership from day one.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/career",
     languages: {
@@ -14,20 +18,31 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Careers - Join Ardn Cloud Solutions",
+    title:
+      "Careers at Ardn Cloud Solutions — Orlando AI & Salesforce Roles",
     description:
-      "Join Ardn Cloud Solutions and build a career in Salesforce innovation. Explore open positions and discover why Ardn is a great place to work.",
+      "Join Ardn Cloud Solutions in Orlando, Florida. Open AI engineering, Salesforce, and custom development roles. Senior-led teams, direct ownership.",
     url: "https://ardncloudsolutions.com/career",
     siteName: "Ardn Cloud Solutions",
+    images: [
+      {
+        url: "/images/ardn-home-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Careers at Ardn Cloud Solutions — Orlando-based AI and Salesforce engineering roles",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Careers - Join Ardn Cloud Solutions",
+    title:
+      "Careers at Ardn Cloud Solutions — Orlando AI & Salesforce Roles",
     description:
-      "Join Ardn Cloud Solutions and build a career in Salesforce innovation. Explore open positions and discover why Ardn is a great place to work.",
+      "Join Ardn Cloud Solutions in Orlando, Florida. Senior-led AI engineering and Salesforce roles.",
     site: "@ardn_cloud_sol",
+    images: ["/images/ardn-home-hero.webp"],
   },
 };
 

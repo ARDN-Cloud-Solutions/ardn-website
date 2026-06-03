@@ -3,49 +3,50 @@ import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 
-// Local-intent landing page targeting Orlando / Florida Salesforce buyer
-// queries. Low-volume but very high-intent — typically ranks within 2–4 weeks
-// because competition for the geo-modified keywords is thin. Single CTA
-// (Calendly), single conversion path, no in-page distractions.
+// Local-intent landing page targeting South Florida / Miami Salesforce buyer
+// queries. Same template as /salesforce-consulting-orlando, customised for
+// the Miami market — South FL finance, healthcare, hospitality, and
+// real-estate verticals. Ardn delivers remote-first from Orlando, with
+// in-person engagement available for FL-based clients.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services from a Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform for YMCAs, gyms, and clubs. Book a free 30-minute call with an Orlando senior consultant — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits, and managed services for Miami and South Florida businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
   keywords: [
-    "Salesforce consultant Orlando",
-    "Salesforce consulting Florida",
-    "Salesforce implementation partner Orlando",
-    "Salesforce managed services Orlando",
-    "Salesforce license audit Florida",
-    "Salesforce integration Florida",
-    "Salesforce admin services Orlando",
-    "Salesforce optimization Florida",
+    "Salesforce consultant Miami",
+    "Salesforce consulting Miami",
+    "Salesforce consulting South Florida",
+    "Salesforce implementation partner Miami",
+    "Salesforce managed services Miami",
+    "Salesforce license audit Miami",
+    "Salesforce integration South Florida",
+    "Salesforce admin services Miami",
     "Ardn Cloud Solutions",
   ],
   alternates: {
     canonical:
-      "https://ardncloudsolutions.com/salesforce-consulting-orlando",
+      "https://ardncloudsolutions.com/salesforce-consulting-miami",
     languages: {
       "en-US":
-        "https://ardncloudsolutions.com/salesforce-consulting-orlando",
+        "https://ardncloudsolutions.com/salesforce-consulting-miami",
       "x-default":
-        "https://ardncloudsolutions.com/salesforce-consulting-orlando",
+        "https://ardncloudsolutions.com/salesforce-consulting-miami",
     },
   },
   openGraph: {
     title:
-      "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
     description:
-      "Florida-based Salesforce consultants with 30+ years of expertise. Implementation, license audits, integration, and managed services. Free 30-min strategy call.",
-    url: "https://ardncloudsolutions.com/salesforce-consulting-orlando",
+      "Florida-based Salesforce consultants serving Miami and South Florida. 30+ years of expertise. Free 30-min strategy call.",
+    url: "https://ardncloudsolutions.com/salesforce-consulting-miami",
     siteName: "Ardn Cloud Solutions",
     images: [
       {
         url: "/images/ardn-home-hero.webp",
         width: 1200,
         height: 630,
-        alt: "Salesforce consulting and managed services in Orlando, Florida — Ardn Cloud Solutions",
+        alt: "Salesforce consulting and managed services for Miami and South Florida businesses — Ardn Cloud Solutions",
       },
     ],
     locale: "en_US",
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
     description:
-      "Florida-based Salesforce consultants with 30+ years of expertise. Free 30-min strategy call.",
+      "Florida-based Salesforce consultants serving Miami and South Florida. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",
     images: ["/images/ardn-home-hero.webp"],
   },
@@ -65,34 +66,28 @@ export const metadata: Metadata = {
 const CALENDLY =
   "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai";
 
-export default function SalesforceConsultingOrlandoPage() {
-  // SEO: Service + LocalBusiness reference + FAQPage + BreadcrumbList. The
-  // Service entity is what makes this page eligible for "Service" rich results
-  // and binds the offering to the Orlando-based LocalBusiness/Organization
-  // identity established at site root.
+export default function SalesforceConsultingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
         "@id":
-          "https://ardncloudsolutions.com/salesforce-consulting-orlando#service",
-        name: "Salesforce Consulting & Managed Services — Orlando, FL",
+          "https://ardncloudsolutions.com/salesforce-consulting-miami#service",
+        name: "Salesforce Consulting & Managed Services — Miami, FL",
         serviceType: "Salesforce Consulting & Managed Services",
         description:
-          "Salesforce consulting, implementation, license audits, integration, and managed services delivered by Ardn's Florida-based team with 30+ years of Salesforce expertise.",
+          "Salesforce consulting, implementation, license audits, integration, and managed services delivered to Miami and South Florida businesses by Ardn's Florida-based team with 30+ years of Salesforce expertise.",
         provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
         areaServed: [
           {
             "@type": "City",
-            name: "Orlando",
-            containedInPlace: {
-              "@type": "State",
-              name: "Florida",
-            },
+            name: "Miami",
+            containedInPlace: { "@type": "State", name: "Florida" },
           },
+          { "@type": "AdministrativeArea", name: "South Florida" },
           { "@type": "State", name: "Florida" },
           { "@type": "Country", name: "United States" },
         ],
@@ -141,22 +136,30 @@ export default function SalesforceConsultingOrlandoPage() {
       {
         "@type": "FAQPage",
         "@id":
-          "https://ardncloudsolutions.com/salesforce-consulting-orlando#faq",
+          "https://ardncloudsolutions.com/salesforce-consulting-miami#faq",
         mainEntity: [
           {
             "@type": "Question",
-            name: "Are you a Salesforce partner based in Orlando, FL?",
+            name: "Do you serve clients in Miami and South Florida?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. Ardn Cloud Solutions is headquartered in Orlando, Florida. Our Salesforce consulting and managed-services practice is led by senior consultants with 30+ years of combined experience designing, building, and deploying Salesforce solutions for businesses across the state and the rest of the US.",
+              text: "Yes. Ardn Cloud Solutions is headquartered in Orlando, Florida — same time zone as Miami — and we work with South Florida clients across Miami-Dade, Broward, and Palm Beach counties. We deliver remote-first, with in-person engagement available for Florida-based customers when needed.",
             },
           },
           {
             "@type": "Question",
-            name: "What Salesforce services do you offer?",
+            name: "What Salesforce services do you offer Miami businesses?",
             acceptedAnswer: {
               "@type": "Answer",
               text: "Salesforce implementation and configuration, license audits and seat-cost optimization (powered by our License Guard product), integrations, custom development, ongoing managed services and admin support, and AI applications built on Salesforce using our AI Forge Framework.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Which Miami industries do you typically work with?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "South Florida finance and wealth-management firms, healthcare and life-sciences organizations, hospitality and real estate operators, and family offices. The common thread is mid-market through enterprise Salesforce orgs needing senior-led delivery without big-firm overhead.",
             },
           },
           {
@@ -175,20 +178,12 @@ export default function SalesforceConsultingOrlandoPage() {
               text: "Usually, yes. Most customers we audit are over-licensed by 15–30%. Our License Guard product detects inactive seats and unused features so you can right-size your contract at renewal. We can run a free first-pass audit on a 30-minute call.",
             },
           },
-          {
-            "@type": "Question",
-            name: "Do you do Salesforce work outside of Florida?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Our team is based in Orlando but works with clients across the United States and globally. We offer in-person engagements for Florida-based customers when needed, and remote-first delivery for everyone else.",
-            },
-          },
         ],
       },
       {
         "@type": "BreadcrumbList",
         "@id":
-          "https://ardncloudsolutions.com/salesforce-consulting-orlando#breadcrumb",
+          "https://ardncloudsolutions.com/salesforce-consulting-miami#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -199,8 +194,8 @@ export default function SalesforceConsultingOrlandoPage() {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Salesforce Consulting · Orlando",
-            item: "https://ardncloudsolutions.com/salesforce-consulting-orlando",
+            name: "Salesforce Consulting · Miami",
+            item: "https://ardncloudsolutions.com/salesforce-consulting-miami",
           },
         ],
       },
@@ -247,15 +242,16 @@ export default function SalesforceConsultingOrlandoPage() {
           <div className="container">
             <div className="hero-grid">
               <div className="hero-copy">
-                <span className="eyebrow">Salesforce · Orlando, FL</span>
+                <span className="eyebrow">Salesforce · Miami, FL</span>
                 <h1 className="display reveal">
-                  Salesforce consulting in <em>Orlando, Florida.</em>
+                  Salesforce consulting for <em>Miami &amp; South Florida.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
-                  30+ years of Salesforce expertise, delivered by a Florida-based
-                  team. Implementation, license audits, integrations, managed
-                  services, and AI on Salesforce — all under one roof, with a
-                  four-hour response SLA.
+                  Florida-based, 30+ years of Salesforce expertise, same Eastern
+                  time zone as your team. Implementation, license audits,
+                  integrations, managed services, and AI on Salesforce — for
+                  South Florida finance, healthcare, hospitality, and real
+                  estate operators.
                 </p>
                 <div
                   style={{
@@ -265,7 +261,7 @@ export default function SalesforceConsultingOrlandoPage() {
                     marginTop: "22px",
                   }}
                 >
-                  <span className="badge">Orlando-based team</span>
+                  <span className="badge">Florida-based team</span>
                   <span className="badge is-emerald">30+ yrs Salesforce</span>
                   <span className="badge is-canvas">4-hour SLA</span>
                 </div>
@@ -284,13 +280,13 @@ export default function SalesforceConsultingOrlandoPage() {
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
-                  <div className="kicker">Who we work with</div>
+                  <div className="kicker">South Florida industries</div>
                   <ul className="features mt-3">
+                    <li>Finance, wealth management &amp; family offices</li>
+                    <li>Healthcare &amp; life sciences</li>
+                    <li>Real estate &amp; hospitality</li>
+                    <li>Professional services &amp; legal</li>
                     <li>Mid-market &amp; enterprise Salesforce orgs</li>
-                    <li>YMCAs, gyms, studios &amp; associations</li>
-                    <li>Healthcare &amp; professional services</li>
-                    <li>Fortune 500 insurance and finance teams</li>
-                    <li>Companies migrating off legacy CRMs</li>
                   </ul>
                 </div>
               </aside>
@@ -298,7 +294,6 @@ export default function SalesforceConsultingOrlandoPage() {
           </div>
         </section>
 
-        {/* Trust strip below hero — Florida + SF social proof. */}
         <TrustBar />
 
         {/* SERVICES */}
@@ -331,26 +326,24 @@ export default function SalesforceConsultingOrlandoPage() {
           </div>
         </section>
 
-        {/* BEYOND SALESFORCE — cross-promote AI Forge + Membership Management
-            so the page can convert local visitors on either pillar, not just
-            the Salesforce-buyer hook the URL targets. */}
-        <CityBeyondSalesforce city="Orlando" />
+        {/* BEYOND SALESFORCE — surfaces AI Forge + Membership Management to
+            South Florida visitors so the page converts on either pillar. */}
+        <CityBeyondSalesforce city="Miami" />
 
-        {/* WHY ORLANDO / FLORIDA */}
+        {/* WHY A FLORIDA TEAM (Miami-tailored) */}
         <section className="section is-canvas">
           <div className="container">
             <div className="split">
               <div>
                 <span className="eyebrow">Why a Florida-based team</span>
                 <h2 className="h1 mt-3">
-                  Senior consultants, <em>not call-center juniors.</em>
+                  Same time zone. <em>Senior consultants. No handoffs.</em>
                 </h2>
                 <p className="body mt-4">
                   Every Salesforce engagement at Ardn is led by senior consultants
-                  based in Orlando, Florida. You get direct access — not a ticket
-                  queue, not an offshore handoff after the sales call. Most clients
-                  meet their lead consultant on the first call and work with them
-                  through delivery.
+                  based in Florida. Miami clients work with the same lead from
+                  the first discovery call through delivery — no offshore handoff,
+                  no junior re-staffing, and full Eastern-Time business overlap.
                 </p>
               </div>
               <div>
@@ -371,11 +364,11 @@ export default function SalesforceConsultingOrlandoPage() {
                     <div className="fl-num !text-black">B</div>
                     <div>
                       <div className="fl-head !text-black">
-                        Right-time-zone delivery
+                        Same time zone as Miami
                       </div>
                       <p className="fl-body">
-                        Orlando is on Eastern Time. We overlap with every US
-                        client in business hours — no offshore handoff lag.
+                        Orlando is on Eastern Time — full business-day overlap
+                        with Miami-Dade, Broward, and Palm Beach. No lag.
                       </p>
                     </div>
                   </li>
@@ -438,7 +431,7 @@ export default function SalesforceConsultingOrlandoPage() {
             <div className="final-cta">
               <span className="eyebrow on-dark">Get started</span>
               <h2 className="display mt-4">
-                Talk to a senior Salesforce consultant in <em>Orlando.</em>
+                Talk to a senior Salesforce consultant in <em>Florida.</em>
               </h2>
               <p className="lede">
                 30-minute free strategy call. No SOW, no slides — a working answer

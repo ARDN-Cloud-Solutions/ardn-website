@@ -7,10 +7,13 @@ const PER_PAGE = 9;
 
 export const dynamic = "force-dynamic";
 
+// Title expanded with target keywords and twitter card + OG image added so
+// the page renders cleanly in shared previews.
 export const metadata: Metadata = {
-    title: "Case Studies | ARDN Cloud Solutions",
+    title:
+        "Salesforce & AI Customer Case Studies | Ardn Cloud Solutions",
     description:
-        "Explore real-world Salesforce transformation stories and success cases from ARDN Cloud Solutions.",
+        "Real-world Salesforce transformation and AI implementation case studies from Ardn Cloud Solutions. Fortune 500 deployments, mid-market launches, and measurable cost-savings outcomes.",
     alternates: {
         canonical: "https://ardncloudsolutions.com/case-studies",
         languages: {
@@ -19,10 +22,31 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Case Studies | ARDN Cloud Solutions",
+        title:
+            "Salesforce & AI Customer Case Studies | Ardn Cloud Solutions",
         description:
-            "Explore real-world Salesforce transformation stories and success cases from ARDN Cloud Solutions.",
+            "Real-world Salesforce transformation and AI implementation case studies from Ardn Cloud Solutions.",
+        url: "https://ardncloudsolutions.com/case-studies",
+        siteName: "Ardn Cloud Solutions",
+        images: [
+            {
+                url: "/images/ardn-home-hero.webp",
+                width: 1200,
+                height: 630,
+                alt: "Ardn Cloud Solutions customer case studies — Salesforce transformation and AI implementation outcomes",
+            },
+        ],
+        locale: "en_US",
         type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title:
+            "Salesforce & AI Customer Case Studies | Ardn Cloud Solutions",
+        description:
+            "Real-world Salesforce transformation and AI implementation case studies.",
+        site: "@ardn_cloud_sol",
+        images: ["/images/ardn-home-hero.webp"],
     },
 };
 
@@ -32,13 +56,33 @@ export default async function CaseStudiesIndexPage() {
         fetchCaseStudyCategories(),
     ]);
 
+    // Enriched JSON-LD: CollectionPage (proper type for a list of case
+    // studies) + BreadcrumbList. Publisher → site Organization via @id.
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ardncloudsolutions.com" },
-            { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://ardncloudsolutions.com/case-studies" }
-        ]
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "@id": "https://ardncloudsolutions.com/case-studies",
+                url: "https://ardncloudsolutions.com/case-studies",
+                name: "Salesforce & AI Customer Case Studies | Ardn Cloud Solutions",
+                description:
+                    "Real-world Salesforce transformation and AI implementation case studies from Ardn Cloud Solutions.",
+                inLanguage: "en-US",
+                publisher: {
+                    "@id": "https://ardncloudsolutions.com/#organization",
+                },
+                breadcrumb: { "@id": "https://ardncloudsolutions.com/case-studies#breadcrumb" },
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://ardncloudsolutions.com/case-studies#breadcrumb",
+                itemListElement: [
+                    { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
+                    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://ardncloudsolutions.com/case-studies" },
+                ],
+            },
+        ],
     };
 
     return (

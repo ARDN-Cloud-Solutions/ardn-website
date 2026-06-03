@@ -31,10 +31,10 @@ export default function AboutContent() {
           <div className="hero-grid">
             <div className="hero-copy">
               <span className="eyebrow">About Ardn · Orlando, FL</span>
-              {/* Hero headline now leads with both pillars: small Florida team,
-                  big experience. The "experience" framing is broad enough to
-                  cover both SF expertise and AI Forge custom-dev capability. */}
-              <h1 className="display reveal">A small Florida team. <em>Big experience.</em></h1>
+              {/* H1 expanded to include the route's primary keywords ("About
+                  Ardn") for explicit on-page relevance, while keeping the
+                  Florida + dual-pillar framing. */}
+              <h1 className="display reveal">About Ardn — a small Florida team. <em>Big experience.</em></h1>
               <p className="lede reveal reveal-d2">Ardn Cloud Solutions is an Orlando-based development team. We build custom AI applications using our proprietary AI Forge Framework, ship a focused suite of Salesforce-native cloud products, and provide Salesforce consulting and managed services backed by 30+ years of expertise.</p>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="#approach" className="btn btn-primary btn-lg btn-arrow">How we work</Link>
@@ -104,6 +104,15 @@ export default function AboutContent() {
             <div>
               <p className="thesis">&ldquo;Build cost-effective, high-impact products and applications that help businesses simplify complexity and unlock growth — whether that lives inside Salesforce or runs alongside it.&rdquo;</p>
               <p className="kicker mt-4">— Ardn Mission</p>
+              {/* Body links to the two local-intent landing pages from
+                  About — second-most-authoritative inbound link source after
+                  the homepage. */}
+              <p className="body mt-6" style={{ fontSize: "14px" }}>
+                Local to Florida? Talk to a senior consultant on our team:{" "}
+                <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce consulting in Orlando</Link>
+                {" "}·{" "}
+                <Link href="/ai-app-development-florida" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI app development in Florida</Link>.
+              </p>
             </div>
           </div>
         </div>

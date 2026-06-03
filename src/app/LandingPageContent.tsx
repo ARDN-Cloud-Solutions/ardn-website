@@ -174,13 +174,24 @@ export default function LandingPageContent() {
         </div>
       </section>
 
-      {/* ABOUT ARDN MINI */}
+      {/* ABOUT ARDN MINI — also serves as the on-page internal link hub for
+          the high-intent local landing pages. */}
        <section className="section">        <div className="container">
           <div className="split">
             <div>
               <span className="eyebrow">Who we are</span>
-              <h2 className="h1 mt-3">A small team. <em>Big Salesforce experience.</em></h2>
-              <p className="body mt-4">Ardn Cloud Solutions builds products that extend Salesforce — and a consulting practice that focuses on cost savings, simpler workflows, and faster outcomes. Same team from first call through implementation.</p>
+              {/* Stale "Big Salesforce experience" replaced with hybrid framing
+                  that covers both pillars (AI Forge custom dev + 30+ yrs SF). */}
+              <h2 className="h1 mt-3">A small Florida team. <em>Big experience.</em></h2>
+              <p className="body mt-4">Ardn Cloud Solutions is an Orlando, Florida-based team. We build custom AI applications with our proprietary <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link>, ship a focused suite of Salesforce-native cloud products, and offer Salesforce consulting and managed services backed by 30+ years of expertise. Same team from first call through implementation.</p>
+              {/* Local-intent landing pages explicitly linked from the homepage
+                  body. These were orphan pages before this commit (0 inbound
+                  body links — only footer references). */}
+              <p className="body mt-3">Based in Florida? Talk to a local team:{" "}
+                <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce consulting in Orlando</Link>
+                {" "}or{" "}
+                <Link href="/ai-app-development-florida" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom AI app development in Florida</Link>.
+              </p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "24px" }}>
                 <Link href="/about-ardn" className="btn btn-secondary btn-arrow">About Ardn</Link>
                 <Link href="/our-products" className="btn btn-ghost btn-arrow">Browse products</Link>
@@ -188,9 +199,11 @@ export default function LandingPageContent() {
             </div>
             <div>
               <ul className="fl">
-                <li><span className="n">01</span><div><h4>Innovative products</h4><p>Four Salesforce-native products in market, each replacing a third-party tool category.</p></div></li>
-                <li><span className="n">02</span><div><h4>Strategy &amp; consulting</h4><p>Decades of Salesforce expertise focused on the cheapest, fastest path to your outcome.</p></div></li>
-                <li><span className="n">03</span><div><h4>Implementation &amp; integration</h4><p>We collaborate with your team or run the build ourselves — your call.</p></div></li>
+                {/* Stale "Four" Salesforce-native products updated to the
+                    current 6-product hybrid suite. */}
+                <li><span className="n">01</span><div><h4>Innovative products</h4><p>Six products in market — AI Forge, Membership Management, Storefronts, License Guard, Salesforce Payments, and ReplyCX.</p></div></li>
+                <li><span className="n">02</span><div><h4>Strategy &amp; consulting</h4><p>30+ years of Salesforce expertise focused on the cheapest, fastest path to your outcome.</p></div></li>
+                <li><span className="n">03</span><div><h4>Implementation &amp; AI Forge builds</h4><p>We collaborate with your team or run the entire build with the AI Forge Framework — your call.</p></div></li>
               </ul>
             </div>
           </div>

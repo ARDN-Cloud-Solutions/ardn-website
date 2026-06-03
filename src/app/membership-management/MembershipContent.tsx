@@ -30,10 +30,10 @@ export default function MembershipContent() {
           <div className="hero-grid">
             <div className="hero-copy">
               <span className="eyebrow">Membership Management</span>
-              {/* Headline pivot: from "Run your members inside Salesforce" to
-                  one that positions the product as a flexible, standalone
-                  system with no CRM lock-in. */}
-              <h1 className="display reveal">Run your members on <em>one flexible platform.</em></h1>
+              {/* H1 now includes the primary "Membership Management" route
+                  keyword for explicit on-page relevance, in addition to the
+                  Cat-2 standalone-platform framing. */}
+              <h1 className="display reveal">Membership Management — run your members on <em>one flexible platform.</em></h1>
               {/* Lede now names Salesforce + HubSpot explicitly as supported
                   integration targets. This keeps Cat 2 positioning (standalone,
                   AI-built) but preserves SF buyer-intent traffic and signals

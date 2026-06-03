@@ -41,6 +41,14 @@ export const metadata: Metadata = {
       "Florida-based team. AI Forge Framework ships production AI apps in 2–6 weeks under one monthly subscription. Free 30-min strategy call.",
     url: "https://ardncloudsolutions.com/ai-app-development-florida",
     siteName: "Ardn Cloud Solutions",
+    images: [
+      {
+        url: "/images/ardn-home-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Custom AI app development in Florida — Ardn AI Forge Framework, Orlando-based team",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
@@ -51,6 +59,7 @@ export const metadata: Metadata = {
     description:
       "Florida-based team. AI Forge Framework ships production AI apps in 2–6 weeks. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",
+    images: ["/images/ardn-home-hero.webp"],
   },
 };
 

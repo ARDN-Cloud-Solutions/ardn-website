@@ -9,10 +9,12 @@ const PER_PAGE = 6;
 
 export const dynamic = "force-dynamic";
 
+// Title expanded with target keywords + OG image added.
 export const metadata: Metadata = {
-    title: "Blog & Insights | ARDN Cloud Solutions",
+    title:
+        "Salesforce & AI Development Blog | Ardn Cloud Solutions",
     description:
-        "Expert perspectives on Salesforce, cloud architecture, and digital transformation from the ARDN team.",
+        "Expert perspectives on Salesforce consulting, AI app development, cloud architecture, and digital transformation from the Orlando-based Ardn team.",
     alternates: {
         canonical: "https://ardncloudsolutions.com/blog",
         languages: {
@@ -21,10 +23,31 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Blog & Insights | ARDN Cloud Solutions",
+        title:
+            "Salesforce & AI Development Blog | Ardn Cloud Solutions",
         description:
-            "Expert perspectives on Salesforce, cloud architecture, and digital transformation from the ARDN team.",
+            "Expert perspectives on Salesforce consulting, AI app development, cloud architecture, and digital transformation.",
+        url: "https://ardncloudsolutions.com/blog",
+        siteName: "Ardn Cloud Solutions",
+        images: [
+            {
+                url: "/images/ardn-home-hero.webp",
+                width: 1200,
+                height: 630,
+                alt: "Ardn Cloud Solutions Blog — Salesforce, AI app development, and digital transformation perspectives",
+            },
+        ],
+        locale: "en_US",
         type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title:
+            "Salesforce & AI Development Blog | Ardn Cloud Solutions",
+        description:
+            "Expert perspectives on Salesforce, AI app development, and digital transformation.",
+        site: "@ardn_cloud_sol",
+        images: ["/images/ardn-home-hero.webp"],
     },
 };
 
@@ -38,13 +61,44 @@ export default async function BlogIndexPage() {
 
     const hasPosts = posts.length > 0;
 
+    // Enriched JSON-LD: Blog (Schema.org type for a blog index) + CollectionPage
+    // (semantic type for a page that lists content) + BreadcrumbList. Publisher
+    // resolves to the site-wide Organization via @id.
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ardncloudsolutions.com" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ardncloudsolutions.com/blog" }
-        ]
+        "@graph": [
+            {
+                "@type": "Blog",
+                "@id": "https://ardncloudsolutions.com/blog#blog",
+                name: "Ardn Cloud Solutions Blog",
+                url: "https://ardncloudsolutions.com/blog",
+                description:
+                    "Expert perspectives on Salesforce consulting, AI app development, cloud architecture, and digital transformation from the Orlando-based Ardn team.",
+                publisher: {
+                    "@id": "https://ardncloudsolutions.com/#organization",
+                },
+                inLanguage: "en-US",
+            },
+            {
+                "@type": "CollectionPage",
+                "@id": "https://ardncloudsolutions.com/blog",
+                url: "https://ardncloudsolutions.com/blog",
+                name: "Salesforce & AI Development Blog | Ardn Cloud Solutions",
+                description:
+                    "Expert perspectives on Salesforce, AI app development, and digital transformation.",
+                inLanguage: "en-US",
+                isPartOf: { "@id": "https://ardncloudsolutions.com/blog#blog" },
+                breadcrumb: { "@id": "https://ardncloudsolutions.com/blog#breadcrumb" },
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://ardncloudsolutions.com/blog#breadcrumb",
+                itemListElement: [
+                    { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
+                    { "@type": "ListItem", position: 2, name: "Blog", item: "https://ardncloudsolutions.com/blog" },
+                ],
+            },
+        ],
     };
 
     return (

@@ -44,6 +44,15 @@ export const metadata: Metadata = {
       "80% of AI projects fail. Ours don't — because we build them AND run them. The AI Forge Framework ships custom apps in 2–6 weeks under one predictable monthly subscription.",
     url: "https://ardncloudsolutions.com/ai-forge",
     siteName: "Ardn Cloud Solutions",
+    images: [
+      {
+        url: "/images/ardn-home-hero.webp",
+        width: 1200,
+        height: 630,
+        // Outcome-focused alt describing what AI Forge does for the searcher.
+        alt: "AI Forge by Ardn — custom AI applications built and operated by our Orlando-based team using the AI Forge Framework",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
@@ -54,6 +63,7 @@ export const metadata: Metadata = {
     description:
       "80% of AI projects fail. Ours don't — because we build them AND run them.",
     site: "@ardn_cloud_sol",
+    images: ["/images/ardn-home-hero.webp"],
   },
 };
 

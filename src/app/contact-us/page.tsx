@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ContactPageContent from "./ContactPageContent";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Ardn Cloud Solutions",
-  description: "Have a question or ready to get started? Contact the ARDN Cloud Solutions team today. We're here to help you get the most from your Salesforce investment.",
+  title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+  description: "Book a free 30-minute strategy call with the Orlando-based Ardn team. Custom AI development via the AI Forge Framework, Salesforce-native cloud products, and Salesforce consulting backed by 30+ years of expertise. Reply within 4 business hours.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/contact-us",
     languages: {
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Contact Us - Ardn Cloud Solutions",
-    description: "Have a question or ready to get started? Contact the ARDN Cloud Solutions team today. We're here to help you get the most from your Salesforce investment.",
+    title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+    description: "Book a free 30-minute strategy call with the Orlando-based Ardn team. Custom AI development via the AI Forge Framework, Salesforce-native cloud products, and Salesforce consulting backed by 30+ years of expertise. Reply within 4 business hours.",
     url: "https://ardncloudsolutions.com/contact-us",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "/images/contact-hero-bg.webp",
         width: 1200,
         height: 630,
-        alt: "Contact Us - Ardn Cloud Solutions",
+        alt: "Contact Ardn Cloud Solutions — book a free Salesforce and AI strategy call with our Orlando-based team",
       },
     ],
     locale: "en_US",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us - Ardn Cloud Solutions",
-    description: "Have a question or ready to get started? Contact the ARDN Cloud Solutions team today. We're here to help you get the most from your Salesforce investment.",
+    title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+    description: "Book a free 30-minute strategy call with the Orlando-based Ardn team. Custom AI development via the AI Forge Framework, Salesforce-native cloud products, and Salesforce consulting backed by 30+ years of expertise. Reply within 4 business hours.",
     site: "@ardn_cloud_sol",
   },
 };
@@ -98,7 +98,7 @@ export default function ContactUsPage() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/contact-us",
         url: "https://ardncloudsolutions.com/contact-us",
-        name: "Contact Us - Ardn Cloud Solutions",
+        name: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
         description:
           "Book a free 30-minute strategy call with our Orlando-based team. Custom AI apps, Salesforce consulting, managed services, and a focused suite of cloud products — reply within 4 business hours.",
         breadcrumb: {

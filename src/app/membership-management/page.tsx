@@ -46,6 +46,14 @@ export const metadata: Metadata = {
       "Flexible, AI-built membership platform. Run sign-ups, dues, classes, attendance, and retention from one system — standalone or alongside your existing stack.",
     url: "https://ardncloudsolutions.com/membership-management",
     siteName: "Ardn Cloud Solutions",
+    images: [
+      {
+        url: "/images/ardn-home-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Ardn Membership Management — flexible AI-built platform for YMCAs, gyms, studios, and clubs",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
@@ -56,6 +64,7 @@ export const metadata: Metadata = {
     description:
       "Flexible, AI-built membership platform. Run sign-ups, dues, classes, attendance, and retention from one system.",
     site: "@ardn_cloud_sol",
+    images: ["/images/ardn-home-hero.webp"],
   },
 };
 
