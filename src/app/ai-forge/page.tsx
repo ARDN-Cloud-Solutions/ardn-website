@@ -106,11 +106,11 @@ export default function AiForgePage() {
               "@type": "Offer",
               name: "AI Forge — Launch tier",
               priceCurrency: "USD",
-              price: "1500",
+              price: "3000",
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
                 priceCurrency: "USD",
-                price: "1500",
+                price: "3000",
                 unitText: "month",
               },
               availability: "https://schema.org/InStock",

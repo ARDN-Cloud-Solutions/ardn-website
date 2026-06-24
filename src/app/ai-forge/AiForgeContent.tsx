@@ -56,7 +56,7 @@ const TIERS = [
     title: "Launch",
     forText: "For small businesses validating their first AI workflow. 1–25 employees.",
     build: "$7,500",
-    monthly: "$1,500",
+    monthly: "$3,000",
     aiCredits: "500K",
     aiSub: "tokens / month",
     serviceCredits: "10",
