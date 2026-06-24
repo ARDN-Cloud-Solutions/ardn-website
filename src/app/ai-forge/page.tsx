@@ -8,9 +8,9 @@ import AiForgeContent from "./AiForgeContent";
 // queries this page is actually built to win.
 export const metadata: Metadata = {
   title:
-    "AI Forge — Custom AI Apps & Software, Built in Weeks | Ardn Cloud Solutions",
+    "AI Forge — Custom AI Apps, Built & Run For You | Ardn Cloud Solutions",
   description:
-    "Our Orlando-based development team uses the proprietary AI Forge Framework to design, build, and ship custom AI applications and business software in weeks, not months — then runs them as a managed service.",
+    "Get a custom AI app designed, built, hosted, and continuously improved by our Orlando-based team for one flat monthly fee. New customers: we build your app free — pay only the monthly subscription. Live in weeks, not months.",
   // SEO hybrid: lead with custom-AI / agile-dev intent (Cat 2 positioning),
   // but explicitly preserve Salesforce-AI and Salesforce-integration queries so
   // the page still wins managed-services-adjacent searches. Ardn's 30+ years
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "AI Forge — Custom AI Apps & Software, Built in Weeks | Ardn Cloud Solutions",
+      "AI Forge — Custom AI Apps, Built & Run For You | Ardn Cloud Solutions",
     description:
-      "80% of AI projects fail. Ours don't — because we build them AND run them. The AI Forge Framework ships custom apps in 2–6 weeks under one predictable monthly subscription.",
+      "80% of AI projects fail. Ours don't — because we build them AND run them. Custom AI apps in 2–6 weeks under one monthly fee. New customers: free custom AI build.",
     url: "https://ardncloudsolutions.com/ai-forge",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "AI Forge — Custom AI Apps & Software, Built in Weeks | Ardn Cloud Solutions",
+      "AI Forge — Custom AI Apps, Built & Run For You | Ardn Cloud Solutions",
     description:
-      "80% of AI projects fail. Ours don't — because we build them AND run them.",
+      "80% of AI projects fail. Ours don't — because we build them AND run them. New customers: free custom AI build.",
     site: "@ardn_cloud_sol",
     images: ["/images/ardn-home-hero.webp"],
   },

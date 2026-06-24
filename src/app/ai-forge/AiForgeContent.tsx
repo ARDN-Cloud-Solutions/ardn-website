@@ -72,6 +72,7 @@ const TIERS = [
     cta: "Start with Launch",
     ctaStyle: "outline",
     featured: false,
+    buildWaived: true,
   },
   {
     id: "scale",
@@ -97,6 +98,7 @@ const TIERS = [
     cta: "Start with Scale",
     ctaStyle: "filled",
     featured: true,
+    buildWaived: true,
   },
   {
     id: "enterprise",
@@ -122,6 +124,7 @@ const TIERS = [
     cta: "Talk to Sales",
     ctaStyle: "outline",
     featured: false,
+    buildWaived: false,
   },
 ];
 
@@ -158,29 +161,43 @@ export default function AiForgeContent() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="af-hero">
         <div className="af-container">
+          {/* CRO: offer ribbon at the top of the hero (sits inside the hero so
+              it clears the site's fixed header). Standard new-customer offer —
+              we waive the one-time build fee. Links straight to #pricing. */}
+          <Link href="#pricing" className="af-announce">
+            <span className="af-announce-tag">NEW</span>
+            <span className="af-announce-text">
+              <strong>New Customer Offer:</strong> we build your custom AI app{" "}
+              <strong>free</strong> — you only pay the monthly subscription.
+            </span>
+            <span className="af-announce-cta">See the offer →</span>
+          </Link>
           <div className="af-hero-grid">
             <div>
-              {/* Hero pill now leads with the AI Forge Framework brand —
-                  this is the durable, model-agnostic identity for the practice
-                  and the asset we want search engines and visitors to associate
-                  with us. */}
+              {/* Hero pill leads with the AI Forge Framework brand — the durable,
+                  model-agnostic identity we want visitors and search engines to
+                  associate with us. */}
               <div className="af-hero-pill">POWERED BY THE AI FORGE FRAMEWORK · ORLANDO, FL</div>
+              {/* Headline sharpened for clarity: leads with exactly what the
+                  buyer gets ("custom AI apps, built and run for you") instead of
+                  the abstract "stop guessing" hook. Brand stays in the pill. */}
               <h1 className="af-h1">
-                Stop Guessing About AI.{" "}
-                <span className="af-accent">Start Shipping It.</span>
+                Custom AI Apps, Built and{" "}
+                <span className="af-accent">Run For You.</span>
               </h1>
-              {/* Subhead reframed to lead with the AI Forge Framework and the
-                  Florida-based development team — local trust signal woven
-                  into copy. */}
               <p className="af-hero-sub">
-                80% of AI projects fail. Ours don&apos;t — because we build them{" "}
-                <em>and</em> run them. Our Florida-based development team uses the
-                proprietary <strong>AI Forge Framework</strong> to design, build,
-                deploy, and operate custom AI applications under one predictable
-                monthly subscription.
+                AI Forge is the done-for-you way to launch a custom AI app. Our
+                Florida-based team designs, builds, hosts, and continuously
+                improves it — for one predictable monthly fee. 80% of AI projects
+                fail because no one runs them after launch. We build yours{" "}
+                <em>and</em> keep it running.
               </p>
+              <div className="af-hero-offer">
+                <span className="af-hero-offer-icon">🎁</span>
+                New customers: <strong>$0 build fee</strong> — we build your app free
+              </div>
               <div className="af-hero-cta">
-                <Link href="#pricing" className="af-btn af-btn-lg">See Pricing</Link>
+                <Link href="#pricing" className="af-btn af-btn-lg">See Pricing &amp; Offer</Link>
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white">
                   Book a Free Discovery Call →
                 </Link>
@@ -198,6 +215,10 @@ export default function AiForgeContent() {
                   <span className="af-hero-card-label">{s.label}</span>
                 </div>
               ))}
+              <div className="af-hero-card-offer">
+                <span className="af-hero-card-offer-num">$0</span>
+                <span className="af-hero-card-offer-label">build fee for new customers — we build it free</span>
+              </div>
             </div>
           </div>
         </div>
@@ -350,6 +371,30 @@ export default function AiForgeContent() {
             <strong style={{ color: "var(--af-primary)" }}>service credits</strong> (our
             engineering time for new features, changes, and support).
           </p>
+
+          {/* CRO: offer banner sits directly above the tiers so the build-fee
+              waiver is anchored at the exact moment of price evaluation.
+              Standard new-customer offer — no scarcity language. */}
+          <div className="af-offer-banner">
+            <div className="af-offer-banner-main">
+              <div className="af-offer-banner-tag">NEW CUSTOMER OFFER</div>
+              <div className="af-offer-banner-title">
+                Your custom AI app, <span className="af-accent">built free.</span>
+              </div>
+              <div className="af-offer-banner-text">
+                New customers skip the one-time build fee entirely — we design and
+                build your custom AI app at <strong>no upfront cost</strong>. You
+                simply start your monthly subscription when it goes live.
+              </div>
+            </div>
+            <Link
+              href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank"
+              className="af-btn af-btn-lg af-btn-white af-offer-banner-btn"
+            >
+              Claim Your Spot →
+            </Link>
+          </div>
+
           <div className="af-tier-grid">
             {TIERS.map((tier) => (
               <div
@@ -362,9 +407,19 @@ export default function AiForgeContent() {
                 <div className="af-tier-prices">
                   <div className="af-tier-price-row">
                     <div className="af-tier-price-label">ONE-TIME BUILD</div>
-                    <div className="af-tier-price-main">
-                      <span className="af-tier-price-num">{tier.build}</span>
-                    </div>
+                    {tier.buildWaived ? (
+                      <>
+                        <div className="af-tier-price-main">
+                          <span className="af-tier-price-strike">{tier.build}</span>
+                          <span className="af-tier-price-num af-tier-price-free">FREE</span>
+                        </div>
+                        <div className="af-tier-offer-badge">Build fee waived for new customers</div>
+                      </>
+                    ) : (
+                      <div className="af-tier-price-main">
+                        <span className="af-tier-price-num">{tier.build}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="af-tier-price-row">
                     <div className="af-tier-price-label">MONTHLY SUBSCRIPTION</div>
@@ -404,6 +459,25 @@ export default function AiForgeContent() {
             OVERAGES BILLED AT COST · ROLL-OVER UP TO 30% OF UNUSED CREDITS · NO
             LONG-TERM CONTRACT REQUIRED
           </p>
+
+          {/* CRO: reassurance strip removes the biggest objections to a custom
+              build — "am I locked in?", "what's the catch on price?", and "will
+              they go dark for months?". All three are factual statements (no
+              financial guarantee). */}
+          <div className="af-guarantee-row">
+            <div className="af-guarantee">
+              <div className="af-guarantee-title">No Lock-In</div>
+              <div className="af-guarantee-text">Month-to-month after launch. You own the IP and your data. Cancel with 30 days&apos; notice.</div>
+            </div>
+            <div className="af-guarantee">
+              <div className="af-guarantee-title">Fixed Quote, Fixed Timeline</div>
+              <div className="af-guarantee-text">You get a firm price and delivery date within 48 hours of your discovery call. No surprise bills.</div>
+            </div>
+            <div className="af-guarantee">
+              <div className="af-guarantee-title">Weekly Demos, No Black Box</div>
+              <div className="af-guarantee-text">You see working demos every week during the build — most clients are live in 2–6 weeks, not months of silence.</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -576,11 +650,12 @@ export default function AiForgeContent() {
           </h2>
           <p className="af-cta-sub">
             Book a 30-minute discovery call. We&apos;ll map your highest-leverage AI
-            opportunity and give you a fixed quote within 48 hours. No deck, no upsell.
+            opportunity and give you a fixed quote within 48 hours. No deck, no upsell.{" "}
+            <strong>New customers: we build your custom AI app free — you only pay the monthly subscription.</strong>
           </p>
           <div className="af-cta-buttons">
-            <Link href="/contact-us" className="af-btn af-btn-lg af-btn-white">
-              Book Your Free Discovery Call
+            <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white">
+              Claim Your Spot — Book a Free Call
             </Link>
           </div>
         </div>
@@ -691,6 +766,8 @@ export default function AiForgeContent() {
         .af-tier-price-main { display: flex; align-items: baseline; gap: 6px; }
         .af-tier-price-num { font-size: 36px; font-weight: 800; color: var(--af-primary); letter-spacing: -0.02em; line-height: 1; }
         .af-tier--featured .af-tier-price-num { color: var(--af-accent); }
+        .af-tier-price-strike { font-size: 22px; font-weight: 700; color: var(--af-text-light); text-decoration: line-through; letter-spacing: -0.02em; }
+        .af-tier-price-free { color: #0A8F7C !important; }
         .af-tier-price-suffix { font-size: 14px; color: var(--af-text-dim); }
         .af-tier-credits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px; background: var(--af-bg-soft); border-radius: var(--af-radius); margin-bottom: 24px; }
         .af-credit-block { display: flex; flex-direction: column; }
@@ -751,6 +828,43 @@ export default function AiForgeContent() {
         .af-cta-sub { font-size: 19px; color: rgba(255,255,255,0.85); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
         .af-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
+        /* OFFER ANNOUNCEMENT RIBBON (inside hero) */
+        .af-announce { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; background: linear-gradient(90deg, var(--af-teal) 0%, var(--af-accent) 100%); color: white; text-decoration: none; padding: 12px 22px; font-size: 14.5px; border-radius: 100px; margin-bottom: 32px; box-shadow: 0 8px 24px rgba(0,191,166,0.25); transition: filter 0.2s, transform 0.2s; }
+        .af-announce:hover { filter: brightness(1.06); transform: translateY(-1px); }
+        .af-announce-tag { background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.5); border-radius: 100px; padding: 2px 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; }
+        .af-announce-text strong { font-weight: 800; }
+        .af-announce-cta { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+
+        /* HERO OFFER CHIP */
+        .af-hero-offer { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; padding: 11px 18px; background: rgba(0,191,166,0.14); border: 1px solid rgba(0,191,166,0.45); border-radius: 100px; color: white; font-size: 15px; }
+        .af-hero-offer strong { color: var(--af-teal); font-weight: 800; }
+        .af-hero-offer-icon { font-size: 17px; }
+
+        /* HERO CARD OFFER ROW */
+        .af-hero-card-offer { margin-top: 24px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 14px; }
+        .af-hero-card-offer-num { font-size: 30px; font-weight: 800; color: var(--af-teal); line-height: 1; letter-spacing: -0.02em; white-space: nowrap; }
+        .af-hero-card-offer-label { color: rgba(255,255,255,0.78); font-size: 13px; line-height: 1.4; }
+
+        /* PRICING OFFER BANNER */
+        .af-offer-banner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-top: 8px; margin-bottom: 16px; padding: 32px 40px; background: linear-gradient(135deg, var(--af-primary) 0%, var(--af-primary-dark) 100%); border-radius: 16px; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(15,45,82,0.18); }
+        .af-offer-banner::before { content: ''; position: absolute; top: -120px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(0,191,166,0.25) 0%, transparent 70%); pointer-events: none; }
+        .af-offer-banner-main { position: relative; z-index: 1; max-width: 680px; }
+        .af-offer-banner-tag { display: inline-block; background: rgba(0,191,166,0.2); border: 1px solid rgba(0,191,166,0.5); color: var(--af-teal); font-size: 11px; font-weight: 800; letter-spacing: 0.14em; padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+        .af-offer-banner-title { font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: white; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 10px; }
+        .af-offer-banner-text { color: rgba(255,255,255,0.85); font-size: 15.5px; line-height: 1.55; }
+        .af-offer-banner-text strong { color: white; font-weight: 700; }
+        .af-offer-banner-btn { position: relative; z-index: 1; white-space: nowrap; flex-shrink: 0; }
+
+        /* TIER OFFER BADGE */
+        .af-tier-offer-badge { display: inline-block; margin-top: 8px; background: rgba(0,191,166,0.12); color: #0A8F7C; border: 1px solid rgba(0,191,166,0.35); border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; }
+        .af-tier--featured .af-tier-offer-badge { background: rgba(0,191,166,0.16); }
+
+        /* GUARANTEE / RISK-REVERSAL ROW */
+        .af-guarantee-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+        .af-guarantee { background: white; border: 1px solid var(--af-border); border-left: 4px solid var(--af-teal); border-radius: var(--af-radius); padding: 24px 26px; }
+        .af-guarantee-title { font-size: 16px; font-weight: 800; color: var(--af-primary); margin-bottom: 8px; }
+        .af-guarantee-text { font-size: 14px; color: var(--af-text-dim); line-height: 1.55; }
+
         /* RESPONSIVE */
         @media (max-width: 980px) {
           .af-hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -761,6 +875,8 @@ export default function AiForgeContent() {
           .af-testimonial-stat { border-right: none; border-bottom: 1px solid var(--af-border); padding: 0 0 32px 0; }
           .af-testimonial-num { font-size: 56px; }
           .af-tier-credits { grid-template-columns: 1fr; }
+          .af-offer-banner { padding: 28px 28px; }
+          .af-guarantee-row { grid-template-columns: 1fr; }
         }
         @media (max-width: 640px) {
           .af-section { padding: 56px 0; }
@@ -769,6 +885,8 @@ export default function AiForgeContent() {
           .af-process-grid { grid-template-columns: 1fr; }
           .af-comparison-section { padding: 56px 0; }
           .af-cta-section { padding: 56px 0; }
+          .af-announce { font-size: 13px; padding: 10px 16px; gap: 8px; }
+          .af-offer-banner-btn { width: 100%; text-align: center; }
         }
       `}</style>
     </div>
