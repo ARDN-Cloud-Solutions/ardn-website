@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import LandingPageContent from "./LandingPageContent";
+import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
   title: "Ardn Cloud Solutions — Technology that pays for itself",
@@ -73,6 +74,18 @@ export default async function Page() {
           "https://www.youtube.com/@ardn_cloud_solutions",
           "https://www.linkedin.com/company/ardn-cloud-solutions/"
         ]
+      },
+      {
+        // GEO/SEO: homepage FAQPage. Questions/answers mirror the visible FAQ
+        // section exactly (both import HOME_FAQS) so the rich result is valid
+        // and AI engines can extract clean, quotable answers about Ardn.
+        "@type": "FAQPage",
+        "@id": "https://ardncloudsolutions.com/#faq",
+        "mainEntity": HOME_FAQS.map((f) => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a },
+        })),
       }
     ]
   };

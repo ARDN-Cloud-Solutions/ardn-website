@@ -20,6 +20,7 @@ import Button from "@/components/ui/Button";
 // ─── Data ───────────────────────────────────────────────────────────────────
 
 const products = [
+  { label: "AI Forge", href: "/ai-forge" },
   {
     label: "Storefronts: All-In-One ECommerce Solution",
     href: "/storefronts",
@@ -28,7 +29,6 @@ const products = [
   { label: "Licence Guard", href: "/license-guard" },
   { label: "Ai-powered Support", href: "/ai-powered-support" },
   { label: "Membership Management", href: "/membership-management" },
-  { label: "AI Forge", href: "/ai-forge" },
   // { label: "Signup Dance Studio", href: "/signup-dance-studio" },
   // { label: "Signup Fitness Studio", href: "/signup-fitness-studio" },
 ];

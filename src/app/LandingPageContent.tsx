@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
     <div className="ardn-page">
@@ -58,6 +59,56 @@ export default function LandingPageContent() {
         </div>
       </section>
 
+      {/* AI FORGE OFFER BANNER — promotes the new-customer free-build offer
+          and links straight to the AI Forge page. Whole banner is clickable. */}
+      <section className="section-tight">
+        <div className="container">
+          <Link
+            href="/ai-forge"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "28px",
+              flexWrap: "wrap",
+              textDecoration: "none",
+              background: "linear-gradient(135deg, #4840E0 0%, #2A2580 100%)",
+              borderRadius: "16px",
+              padding: "32px 40px",
+              color: "white",
+            }}
+          >
+            <div style={{ maxWidth: "660px" }}>
+              <span
+                style={{
+                  display: "inline-block",
+                  background: "rgba(255,255,255,0.15)",
+                  border: "1px solid rgba(255,255,255,0.35)",
+                  borderRadius: "100px",
+                  padding: "4px 12px",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  marginBottom: "14px",
+                }}
+              >
+                NEW CUSTOMER OFFER · AI FORGE
+              </span>
+              <h2 className="h2" style={{ color: "white", marginBottom: "8px" }}>
+                We&apos;ll build your custom AI app — <em>free.</em>
+              </h2>
+              <p className="body" style={{ color: "rgba(255,255,255,0.85)" }}>
+                New customers skip the one-time build fee entirely. You only pay the
+                monthly subscription once your app is live.
+              </p>
+            </div>
+            <span className="btn btn-on-dark btn-lg btn-arrow" style={{ flexShrink: 0 }}>
+              See the AI Forge offer
+            </span>
+          </Link>
+        </div>
+      </section>
+
       {/* PRODUCT SUITE */}
       <section className="section" id="products">
         <div className="container">
@@ -104,6 +155,9 @@ export default function LandingPageContent() {
                 <li>Deep Salesforce, HubSpot, and stack integrations</li>
                 <li>One monthly subscription — build, host, and iterate</li>
               </ul>
+              <p className="body" style={{ marginTop: "10px", fontWeight: 600, color: "#7C3AED" }}>
+                🎁 New customers: we build it free — pay only the monthly subscription.
+              </p>
               <Link href="/ai-forge" className="link">Explore AI Forge</Link>
             </article>
 
@@ -222,6 +276,34 @@ export default function LandingPageContent() {
                 <div className="role">Salesforce Delivery Manager, Fortune 500 insurance company</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ — GEO/SEO: quotable, self-contained Q&A. Content mirrors the
+          homepage FAQPage JSON-LD in page.tsx (both import HOME_FAQS), so the
+          rich result stays valid. Native <details> = collapsible, no JS,
+          fully crawlable. */}
+      <section className="section" id="faq">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">FAQ</span>
+              <h2 className="h1 mt-3">Common <em>questions.</em></h2>
+            </div>
+            <div>
+              <p className="lede">Quick answers about what we build, how we work, and where we&apos;re based.</p>
+            </div>
+          </div>
+          <div style={{ display: "grid", gap: "14px", marginTop: "32px" }}>
+            {HOME_FAQS.map((faq) => (
+              <details key={faq.q} className="card" style={{ padding: "22px 26px" }}>
+                <summary style={{ cursor: "pointer", fontWeight: 600, fontSize: "18px" }}>
+                  {faq.q}
+                </summary>
+                <p className="body" style={{ marginTop: "14px" }}>{faq.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
