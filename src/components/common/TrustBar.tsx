@@ -7,16 +7,16 @@ import { MapPin, Shield, Clock, Award } from "lucide-react";
  * CRO rationale: a single horizontal trust strip lifts conversion on
  * existing traffic without competing with the hero's primary CTA. Each
  * signal is calibrated to a specific buyer concern:
- *   - "Orlando, FL" → local credibility (and reinforces GEO schema signal).
- *   - "30+ yrs Salesforce" → managed-services credibility (load-bearing
- *     for the consulting line).
+ *   - "US-based team" → credibility without limiting reach to one city.
+ *   - "30+ yrs building software" → depth/experience, technology-broad
+ *     (not Salesforce-specific, so we don't read as a one-stack shop).
  *   - "4-hour response SLA" → reduces "will they ghost me?" friction.
  *   - "100% happy customers" → social proof.
  */
 export default function TrustBar() {
   const items = [
-    { Icon: MapPin, text: "Orlando, FL · Florida-based team" },
-    { Icon: Award, text: "30+ yrs Salesforce expertise" },
+    { Icon: MapPin, text: "US-based team" },
+    { Icon: Award, text: "30+ yrs building software" },
     { Icon: Clock, text: "4-hour response SLA" },
     { Icon: Shield, text: "100% happy customers" },
   ];

@@ -263,7 +263,7 @@ export default function LandingPageContent() {
               <div className="avatar">JV</div>
               <div>
                 <div className="who">Jay Vashi</div>
-                <div className="role">Salesforce Delivery Manager, Fortune 500 insurance company</div>
+                <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
               </div>
             </div>
             <p className="body mt-4">
@@ -291,10 +291,10 @@ export default function LandingPageContent() {
           <div style={{ display: "grid", gap: "14px", marginTop: "32px" }}>
             {HOME_FAQS.map((faq) => (
               <details key={faq.q} className="card" style={{ padding: "22px 26px" }}>
-                <summary style={{ cursor: "pointer", fontWeight: 600, fontSize: "18px" }}>
+                <summary style={{ cursor: "pointer", fontWeight: 700, fontSize: "18px", color: "#14142B" }}>
                   {faq.q}
                 </summary>
-                <p className="body" style={{ marginTop: "14px" }}>{faq.a}</p>
+                <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
               </details>
             ))}
           </div>

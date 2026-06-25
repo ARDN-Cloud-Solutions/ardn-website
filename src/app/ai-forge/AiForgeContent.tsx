@@ -398,6 +398,149 @@ export default function AiForgeContent() {
         </div>
       </section>
 
+      {/* ── COMPARISON ───────────────────────────────────────────────── */}
+      <section className="af-comparison-section">
+        <div className="af-container">
+          <div className="af-section-label af-section-label--light">WHY AI FORGE</div>
+          <h2 className="af-h2 af-h2--white">
+            Built Different. <span className="af-accent-light">Built to Last.</span>
+          </h2>
+          <p className="af-section-sub af-section-sub--light">
+            The market is full of broken AI options: DIY tools that don&apos;t scale, agencies
+            that disappear, in-house teams that cost a fortune. We&apos;re none of those.
+          </p>
+          <div className="af-cmp">
+            <table className="af-cmp-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>DIY (ChatGPT, etc.)</th>
+                  <th>Traditional AI agency</th>
+                  <th>In-house hire</th>
+                  <th className="af-col-ardn">
+                    <span className="af-col-ardn-badge">★ BEST FIT</span>
+                    <span className="af-col-ardn-name">Ardn AI Forge</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON_ROWS.map((row) => (
+                  <tr key={row.feature}>
+                    <td className="af-cmp-row-label">{row.feature}</td>
+                    <td><Cell c={row.diy} /></td>
+                    <td><Cell c={row.agency} /></td>
+                    <td><Cell c={row.inhouse} /></td>
+                    <td className="af-col-ardn">
+                      <span className="af-cell af-cell--ardn"><span className="af-check">✓</span>{row.ardn}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESS ──────────────────────────────────────────────────── */}
+      <section id="process" className="af-section">
+        <div className="af-container">
+          <div className="af-section-label">FROM DISCOVERY TO DEPLOYMENT</div>
+          <h2 className="af-h2">
+            Ship AI in Weeks, <span className="af-accent">Not Months.</span>
+          </h2>
+          <p className="af-section-sub">
+            Our four-stage process is designed for speed. Most clients are in production
+            inside 30 days, with a clear roadmap for ongoing iteration.
+          </p>
+          <div className="af-process-grid">
+            {[
+              {
+                week: "WEEK 1",
+                num: "STEP 01",
+                title: "Discovery",
+                desc: "We map your workflow, identify the highest-leverage automation opportunity, and scope the build. You get a fixed quote and delivery date within 48 hours.",
+              },
+              {
+                week: "WEEKS 1–4",
+                num: "STEP 02",
+                title: "Build",
+                desc: "Our team architects, builds, and tests your app on production-grade infrastructure. You see weekly demos, not month-long silence.",
+              },
+              {
+                week: "WEEKS 4–6",
+                num: "STEP 03",
+                title: "Deploy",
+                desc: "Live deployment with monitoring, security review, and team training. Your subscription starts the day your app goes into production — not before.",
+              },
+              {
+                week: "ONGOING",
+                num: "STEP 04",
+                title: "Operate",
+                desc: "We run it. Hosting, model updates, security patches, new features, and support — all inside your monthly subscription and credit allowance.",
+              },
+            ].map((step) => (
+              <div key={step.num} className="af-process-card">
+                <div className="af-process-week">{step.week}</div>
+                <div className="af-process-num">{step.num}</div>
+                <h3 className="af-process-title">{step.title}</h3>
+                <p className="af-process-desc">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIAL ──────────────────────────────────────────────── */}
+      <section className="af-section af-section--soft">
+        <div className="af-container">
+          <div className="af-section-label">PROVEN TRACK RECORD</div>
+          <h2 className="af-h2">
+            30+ Years Building{" "}
+            <span className="af-accent">Production-Grade Technology.</span>
+          </h2>
+          <p className="af-section-sub">
+            AI Forge is built on Ardn&apos;s three decades of experience designing, building,
+            and deploying production technology across industries. The same team that
+            earned this trust is now building your AI.
+          </p>
+          <div className="af-testimonial-box">
+            <div className="af-testimonial-stat">
+              <div className="af-testimonial-num">100%</div>
+              <div className="af-testimonial-stat-label">
+                Happy customers — and committed to keeping it that way
+              </div>
+            </div>
+            <div>
+              <p className="af-testimonial-quote">
+                &ldquo;Ardn Cloud Solutions went beyond our expectations, implementing a
+                hands-on, cost-saving approach that has been invaluable. Their strategic focus
+                on high-impact efficiencies transformed our operations.&rdquo;
+              </p>
+              {/* Customer role generalised. The original "Salesforce Delivery
+                  Manager" copy associated AI Forge with Salesforce work — not
+                  the positioning we want on a Cat 2 page. */}
+              <div className="af-testimonial-author">
+                <strong>Jay Vashi</strong>
+                Senior Delivery Manager · Fortune 500 Insurance Company
+              </div>
+            </div>
+          </div>
+
+          {/* CRO: surface real case studies as proof we ship complex,
+              production-grade custom software — directly counters the
+              "is this just AI slop?" objection. */}
+          <div className="af-casestudies">
+            <span className="af-cs-label">See how we&apos;ve delivered complex custom builds:</span>
+            <ul className="af-cs-list">
+              <li><Link href="/case-studies/revolutionizing-airline-customer-service-with-salesforce-customer360-console">Airline customer-service console &rarr;</Link></li>
+              <li><Link href="/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal">Centralized B2B sales portal &rarr;</Link></li>
+              <li><Link href="/case-studies/transforming-the-timeshare-industry-with-a-digitized-tour-management-platform">Timeshare tour-management platform &rarr;</Link></li>
+            </ul>
+            <Link href="/case-studies" className="af-cs-all">Browse all case studies &rarr;</Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── PRICING ──────────────────────────────────────────────────── */}
       <section id="pricing" className="af-section af-section--bg">
         <div className="af-container">
@@ -590,149 +733,6 @@ export default function AiForgeContent() {
                 <p className="af-quote-fine">We&apos;ll only use this to reply about your project. No spam, ever.</p>
               </form>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PROCESS ──────────────────────────────────────────────────── */}
-      <section id="process" className="af-section">
-        <div className="af-container">
-          <div className="af-section-label">FROM DISCOVERY TO DEPLOYMENT</div>
-          <h2 className="af-h2">
-            Ship AI in Weeks, <span className="af-accent">Not Months.</span>
-          </h2>
-          <p className="af-section-sub">
-            Our four-stage process is designed for speed. Most clients are in production
-            inside 30 days, with a clear roadmap for ongoing iteration.
-          </p>
-          <div className="af-process-grid">
-            {[
-              {
-                week: "WEEK 1",
-                num: "STEP 01",
-                title: "Discovery",
-                desc: "We map your workflow, identify the highest-leverage automation opportunity, and scope the build. You get a fixed quote and delivery date within 48 hours.",
-              },
-              {
-                week: "WEEKS 1–4",
-                num: "STEP 02",
-                title: "Build",
-                desc: "Our team architects, builds, and tests your app on production-grade infrastructure. You see weekly demos, not month-long silence.",
-              },
-              {
-                week: "WEEKS 4–6",
-                num: "STEP 03",
-                title: "Deploy",
-                desc: "Live deployment with monitoring, security review, and team training. Your subscription starts the day your app goes into production — not before.",
-              },
-              {
-                week: "ONGOING",
-                num: "STEP 04",
-                title: "Operate",
-                desc: "We run it. Hosting, model updates, security patches, new features, and support — all inside your monthly subscription and credit allowance.",
-              },
-            ].map((step) => (
-              <div key={step.num} className="af-process-card">
-                <div className="af-process-week">{step.week}</div>
-                <div className="af-process-num">{step.num}</div>
-                <h3 className="af-process-title">{step.title}</h3>
-                <p className="af-process-desc">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── COMPARISON ───────────────────────────────────────────────── */}
-      <section className="af-comparison-section">
-        <div className="af-container">
-          <div className="af-section-label af-section-label--light">WHY AI FORGE</div>
-          <h2 className="af-h2 af-h2--white">
-            Built Different. <span className="af-accent-light">Built to Last.</span>
-          </h2>
-          <p className="af-section-sub af-section-sub--light">
-            The market is full of broken AI options: DIY tools that don&apos;t scale, agencies
-            that disappear, in-house teams that cost a fortune. We&apos;re none of those.
-          </p>
-          <div className="af-cmp">
-            <table className="af-cmp-table">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>DIY (ChatGPT, etc.)</th>
-                  <th>Traditional AI agency</th>
-                  <th>In-house hire</th>
-                  <th className="af-col-ardn">
-                    <span className="af-col-ardn-badge">★ BEST FIT</span>
-                    <span className="af-col-ardn-name">Ardn AI Forge</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON_ROWS.map((row) => (
-                  <tr key={row.feature}>
-                    <td className="af-cmp-row-label">{row.feature}</td>
-                    <td><Cell c={row.diy} /></td>
-                    <td><Cell c={row.agency} /></td>
-                    <td><Cell c={row.inhouse} /></td>
-                    <td className="af-col-ardn">
-                      <span className="af-cell af-cell--ardn"><span className="af-check">✓</span>{row.ardn}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIAL ──────────────────────────────────────────────── */}
-      <section className="af-section af-section--soft">
-        <div className="af-container">
-          <div className="af-section-label">PROVEN TRACK RECORD</div>
-          <h2 className="af-h2">
-            30+ Years Building{" "}
-            <span className="af-accent">Production-Grade Technology.</span>
-          </h2>
-          <p className="af-section-sub">
-            AI Forge is built on Ardn&apos;s three decades of experience designing, building,
-            and deploying production technology across industries. The same team that
-            earned this trust is now building your AI.
-          </p>
-          <div className="af-testimonial-box">
-            <div className="af-testimonial-stat">
-              <div className="af-testimonial-num">100%</div>
-              <div className="af-testimonial-stat-label">
-                Happy customers — and committed to keeping it that way
-              </div>
-            </div>
-            <div>
-              <p className="af-testimonial-quote">
-                &ldquo;Ardn Cloud Solutions went beyond our expectations, implementing a
-                hands-on, cost-saving approach that has been invaluable. Their strategic focus
-                on high-impact efficiencies transformed our operations.&rdquo;
-              </p>
-              {/* Customer role generalised. The original "Salesforce Delivery
-                  Manager" copy associated AI Forge with Salesforce work — not
-                  the positioning we want on a Cat 2 page. */}
-              <div className="af-testimonial-author">
-                <strong>Jay Vashi</strong>
-                Senior Delivery Manager · Fortune 500 Insurance Company
-              </div>
-            </div>
-          </div>
-
-          {/* CRO: surface real case studies as proof we ship complex,
-              production-grade custom software — directly counters the
-              "is this just AI slop?" objection. */}
-          <div className="af-casestudies">
-            <span className="af-cs-label">See how we&apos;ve delivered complex custom builds:</span>
-            <ul className="af-cs-list">
-              <li><Link href="/case-studies/revolutionizing-airline-customer-service-with-salesforce-customer360-console">Airline customer-service console &rarr;</Link></li>
-              <li><Link href="/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal">Centralized B2B sales portal &rarr;</Link></li>
-              <li><Link href="/case-studies/transforming-the-timeshare-industry-with-a-digitized-tour-management-platform">Timeshare tour-management platform &rarr;</Link></li>
-            </ul>
-            <Link href="/case-studies" className="af-cs-all">Browse all case studies &rarr;</Link>
           </div>
         </div>
       </section>
