@@ -3,9 +3,9 @@ import LandingPageContent from "./LandingPageContent";
 import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom AI Apps & Salesforce Solutions, Orlando | ARDN",
+  title: "Custom AI App Development & Salesforce Solutions | ARDN",
   description:
-    "Orlando-based team building custom AI apps and Salesforce-native cloud products that cut costs, simplify operations, and unlock growth. Book a free demo.",
+    "We design, build, and run custom AI applications and Salesforce-native products that cut costs, simplify operations, and unlock growth — for clients across the US. Book a free demo.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -39,8 +39,8 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Custom AI Apps & Salesforce Solutions in Orlando | ARDN Cloud Solutions",
-        "description": "Orlando-based team building custom AI apps and Salesforce-native cloud products that cut costs, simplify operations, and unlock growth.",
+        "name": "Custom AI App Development & Salesforce Solutions | ARDN Cloud Solutions",
+        "description": "We design, build, and run custom AI applications and Salesforce-native products that cut costs, simplify operations, and unlock growth — for clients across the US.",
         "inLanguage": "en-US"
       },
       {

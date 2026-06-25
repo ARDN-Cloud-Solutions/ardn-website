@@ -222,7 +222,7 @@ export default function AiForgeContent() {
               {/* Hero pill leads with the AI Forge Framework brand — the durable,
                   model-agnostic identity we want visitors and search engines to
                   associate with us. */}
-              <div className="af-hero-pill">POWERED BY THE AI FORGE FRAMEWORK · ORLANDO, FL</div>
+              <div className="af-hero-pill">POWERED BY THE AI FORGE FRAMEWORK</div>
               {/* Headline sharpened for clarity: leads with exactly what the
                   buyer gets ("custom AI apps, built and run for you") instead of
                   the abstract "stop guessing" hook. Brand stays in the pill. */}
@@ -232,7 +232,7 @@ export default function AiForgeContent() {
               </h1>
               <p className="af-hero-sub">
                 AI Forge is the done-for-you way to launch a custom AI app. Our
-                Florida-based team designs, builds, hosts, and continuously
+                expert team designs, builds, hosts, and continuously
                 improves it — for one predictable monthly fee. 80% of AI projects
                 fail because no one runs them after launch. We build yours{" "}
                 <em>and</em> keep it running.
@@ -692,11 +692,11 @@ export default function AiForgeContent() {
           <div className="af-section-label">PROVEN TRACK RECORD</div>
           <h2 className="af-h2">
             30+ Years Building{" "}
-            <span className="af-accent">Enterprise-Grade Systems.</span>
+            <span className="af-accent">Production-Grade Technology.</span>
           </h2>
           <p className="af-section-sub">
             AI Forge is built on Ardn&apos;s three decades of experience designing, building,
-            and deploying complex business applications. The same Florida-based team that
+            and deploying production technology across industries. The same team that
             earned this trust is now building your AI.
           </p>
           <div className="af-testimonial-box">

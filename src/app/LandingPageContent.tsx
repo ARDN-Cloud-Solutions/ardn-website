@@ -9,30 +9,26 @@ export default function LandingPageContent() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-copy">
-              <span className="eyebrow">Cloud products · Consulting · Managed services</span>
-              <h1 className="display reveal">Technology that <em>pays for itself.</em></h1>
-              <p className="lede reveal reveal-d2">We build and integrate cloud products that cut costs, simplify operations, and unlock growth — standalone, alongside Salesforce, or wherever your business runs.</p>
+              <span className="eyebrow">Custom AI apps · Built &amp; run for you</span>
+              <h1 className="display reveal">AI that <em>pays for itself.</em></h1>
+              <p className="lede reveal reveal-d2">We design, build, host, and continuously improve custom AI applications for your business — live in weeks, for one predictable monthly fee. Need more? A full product suite and 30+ years of expertise are right here when you do.</p>
               <div className="hero-ctas reveal reveal-d3">
-                <Link href="#products" className="btn btn-primary btn-lg btn-arrow">Explore our products</Link>
+                <Link href="/ai-forge" className="btn btn-primary btn-lg btn-arrow">Explore our AI solution</Link>
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-secondary btn-lg">Book a free demo</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
+              {/* AI-first hero card: spotlights AI Forge (the flagship) with the
+                  free-build offer, then points to the wider suite as secondary
+                  so the page reads focused rather than scattered. */}
               <div className="card" style={{ padding: "28px" }}>
-                <div className="kicker">The Ardn product suite</div>
-                {/* Hero product list: descriptors rewritten so Cat 2 products
-                    (Membership Management, AI Forge) read as standalone /
-                    custom-built, while Cat 1 products keep their Salesforce-
-                    native positioning. */}
-                <ul className="features mt-3">
-                  <li>Membership Management — gyms, YMCAs, clubs &amp; associations</li>
-                  <li>AI Forge — custom AI apps, shipped in weeks</li>
-                  <li>Storefronts — Salesforce-native commerce</li>
-                  <li>License Guard — reclaim unused Salesforce licenses</li>
-                  <li>Salesforce Payments — quote to cash inside SF</li>
-                  <li>AI-Powered Support — ReplyCX</li>
-                </ul>
-                <Link href="#products" className="link" style={{ marginTop: "18px", color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>See each →</Link>
+                <div className="kicker">Flagship · AI Forge</div>
+                <p className="body mt-3" style={{ marginBottom: "12px" }}>Custom AI applications — designed, built, hosted, and improved by our team. Production-ready in 2–6 weeks, for one monthly fee.</p>
+                <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
+                <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
+                <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
+                  Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
+                </p>
               </div>
             </aside>
           </div>
@@ -45,14 +41,14 @@ export default function LandingPageContent() {
           <div className="metric-row">
             <div className="metric">
               <div className="number">30+</div>
-              <div className="label">years of combined Salesforce design, build, and deployment experience.</div>
+              <div className="label">years designing, building, and deploying production software — from AI apps to Salesforce.</div>
             </div>
             <div className="metric">
               <div className="number">100%</div>
               <div className="label">customer-focused — every engagement measured against an outcome, not an hour count.</div>
             </div>
             <div className="metric">
-              <div className="number">5</div>
+              <div className="number">6</div>
               <div className="label">products in market today, each replacing a category of third-party tooling.</div>
             </div>
           </div>
@@ -114,42 +110,21 @@ export default function LandingPageContent() {
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Our suite of solutions</span>
-              <h2 className="h1 mt-3">The Ardn <em>product suite.</em></h2>
+              <span className="eyebrow">More ways to grow</span>
+              <h2 className="h1 mt-3">Start with AI. <em>Add what you need.</em></h2>
             </div>
             <div>
-              <p className="lede">Five products. Each one solves a specific problem and pays for itself. Start with one, stack them all — your call.</p>
+              <p className="lede">Beyond AI Forge, six focused products — each replacing a category of third-party tooling and paying for itself. No bloated platform, no forced bundle. Add one only when you need it.</p>
             </div>
           </div>
 
           <div className="grid-2">
 
-            {/* Cat 2: Membership Management. Standalone, AI-built positioning
-                in the headline + body, but explicitly Salesforce/HubSpot
-                capable in the feature list — keeps SF buyer-intent traffic
-                while leading with the new Cat 2 framing. */}
-            <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#FCE4EC", color: "#C2185B" }}>Flagship · Membership</span>
-              <h3 className="h3">Membership Management</h3>
-              <p className="body">A flexible, AI-built membership platform for YMCAs, gyms, studios, clubs, and associations. Run sign-ups, dues, classes, attendance, and retention from one system that integrates cleanly with Salesforce, HubSpot, and your existing back-office tools.</p>
-              <ul className="features">
-                <li>Recurring billing &amp; dunning out of the box</li>
-                <li>Class scheduling &amp; attendance tracking</li>
-                <li>Branded member self-service portal</li>
-                <li>Salesforce, HubSpot, and CRM-agnostic integrations</li>
-              </ul>
-              <Link href="/membership-management" className="link">Explore Membership Management</Link>
-            </article>
-
-            {/* Cat 2: AI Forge. Headline positioning is the AI Forge Framework
-                (durable, model-agnostic brand). Salesforce-integration bullet
-                preserved as a feature so SF buyer-intent searches still see
-                themselves represented without making AI Forge feel Salesforce-
-                specific. */}
+            {/* AI Forge leads the suite — the homepage's primary focus. */}
             <article className="product-card" style={{ "--accent": "#7C3AED" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>Custom development</span>
+              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>Flagship · AI</span>
               <h3 className="h3">AI Forge</h3>
-              <p className="body">Our Florida-based development team uses the proprietary AI Forge Framework to design, build, and ship custom AI applications and business software in weeks, not months — then runs them as a managed service.</p>
+              <p className="body">Our expert development team uses the proprietary AI Forge Framework to design, build, and ship custom AI applications and business software in weeks, not months — then runs them as a managed service.</p>
               <ul className="features">
                 <li>Discovery to production in 2–6 weeks</li>
                 <li>Deep Salesforce, HubSpot, and stack integrations</li>
@@ -159,6 +134,21 @@ export default function LandingPageContent() {
                 🎁 New customers: we build it free — pay only the monthly subscription.
               </p>
               <Link href="/ai-forge" className="link">Explore AI Forge</Link>
+            </article>
+
+            {/* Membership Management — standalone, AI-built; SF/HubSpot capable
+                in the feature list to keep buyer-intent traffic. */}
+            <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>
+              <span className="pill" style={{ background: "#FCE4EC", color: "#C2185B" }}>Membership</span>
+              <h3 className="h3">Membership Management</h3>
+              <p className="body">A flexible, AI-built membership platform for YMCAs, gyms, studios, clubs, and associations. Run sign-ups, dues, classes, attendance, and retention from one system that integrates cleanly with Salesforce, HubSpot, and your existing back-office tools.</p>
+              <ul className="features">
+                <li>Recurring billing &amp; dunning out of the box</li>
+                <li>Class scheduling &amp; attendance tracking</li>
+                <li>Branded member self-service portal</li>
+                <li>Salesforce, HubSpot, and CRM-agnostic integrations</li>
+              </ul>
+              <Link href="/membership-management" className="link">Explore Membership Management</Link>
             </article>
 
             <article className="product-card" style={{ "--accent": "#4840E0" } as React.CSSProperties}>

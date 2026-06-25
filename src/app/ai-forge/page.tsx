@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "AI Forge — Custom AI Apps, Built & Run For You | Ardn Cloud Solutions",
   description:
-    "Get a custom AI app designed, built, hosted, and continuously improved by our Orlando-based team for one flat monthly fee. New customers: we build your app free — pay only the monthly subscription. Live in weeks, not months.",
+    "Get a custom AI app designed, built, hosted, and continuously improved by our expert team for one flat monthly fee. New customers: we build your app free — pay only the monthly subscription. Live in weeks, not months.",
   // SEO hybrid: lead with custom-AI / agile-dev intent (Cat 2 positioning),
   // but explicitly preserve Salesforce-AI and Salesforce-integration queries so
   // the page still wins managed-services-adjacent searches. Ardn's 30+ years
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         // Outcome-focused alt describing what AI Forge does for the searcher.
-        alt: "AI Forge by Ardn — custom AI applications built and operated by our Orlando-based team using the AI Forge Framework",
+        alt: "AI Forge by Ardn — custom AI applications built and operated by our expert team using the AI Forge Framework",
       },
     ],
     locale: "en_US",
@@ -89,7 +89,7 @@ export default function AiForgePage() {
           "Custom AI Application Development & Operating Partnership",
         category: "Business custom software development",
         description:
-          "AI Forge is a productized custom development practice. Our Orlando-based team designs, builds, deploys, and operates bespoke AI applications under one predictable monthly subscription, powered by the proprietary AI Forge Framework.",
+          "AI Forge is a productized custom development practice. Our expert team designs, builds, deploys, and operates bespoke AI applications under one predictable monthly subscription, powered by the proprietary AI Forge Framework.",
         url: "https://ardncloudsolutions.com/ai-forge",
         provider: {
           "@id": "https://ardncloudsolutions.com/#organization",
@@ -150,7 +150,7 @@ export default function AiForgePage() {
         url: "https://ardncloudsolutions.com/ai-forge",
         name: "AI Forge — Custom AI Apps & Software, Built in Weeks | Ardn Cloud Solutions",
         description:
-          "Our Orlando-based team builds and runs custom AI applications under one monthly subscription. AI Forge Framework — production-ready in 2–6 weeks.",
+          "Our expert team builds and runs custom AI applications under one monthly subscription. AI Forge Framework — production-ready in 2–6 weeks.",
         breadcrumb: {
           "@id": "https://ardncloudsolutions.com/ai-forge#breadcrumb",
         },
