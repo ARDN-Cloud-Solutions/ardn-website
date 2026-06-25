@@ -6,13 +6,15 @@ interface ContactPayload {
   email?: string;
   phone?: string;
   company?: string;
+  message?: string;
   interests?: string[];
+  source?: string;
 }
 
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as ContactPayload;
-    const { name, email, phone, company } = body;
+    const { name, email, phone, company, message, source } = body;
     const interests = Array.isArray(body.interests) ? body.interests : [];
 
     if (!name || name.trim().length < 3) {
@@ -30,24 +32,20 @@ export async function POST(req: Request) {
       );
     }
 
+    // Phone is optional (the low-friction quote form doesn't ask for it), but
+    // if provided it must be a real number.
     const phoneDigits = (phone || "").replace(/\D/g, "");
-    if (phoneDigits.length < 10) {
+    if (phone && phoneDigits.length < 10) {
       return NextResponse.json(
         { error: "Please provide a valid phone number (min 10 digits)" },
         { status: 400 }
       );
     }
 
-    if (!company || company.trim().length < 1) {
-      return NextResponse.json(
-        { error: "Please enter your company name" },
-        { status: 400 }
-      );
-    }
-
     const interestsLine = interests.length > 0 ? interests.join(", ") : "—";
-    const subjectLine =
-      interests.length > 0
+    const subjectLine = message
+      ? `New scope & quote request${company ? ` — ${company}` : ""}`
+      : interests.length > 0
         ? `New strategy-call request: ${interests.join(", ")}`
         : "New strategy-call request";
 
@@ -71,13 +69,15 @@ export async function POST(req: Request) {
       text: `
 Name: ${name}
 Email: ${email}
-Phone: ${phone}
-Company: ${company}
+Phone: ${phone || "—"}
+Company: ${company || "—"}
 Interests: ${interestsLine}
+${message ? `\nProject / message:\n${message}\n` : ""}
+Source: ${source || "Contact page"}
             `,
       html: `
 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-  <h2 style="color: #121c27;">New Strategy-Call Request</h2>
+  <h2 style="color: #121c27;">${message ? "New Scope &amp; Quote Request" : "New Strategy-Call Request"}</h2>
   <table style="width: 100%; max-width: 600px; border-collapse: collapse;">
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Name</td>
@@ -89,15 +89,23 @@ Interests: ${interestsLine}
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Phone</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">${phone}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${phone || "—"}</td>
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Company</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">${company}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${company || "—"}</td>
     </tr>
+    ${message ? `<tr>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; vertical-align: top;">Project</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${message.replace(/</g, "&lt;").replace(/\n/g, "<br>")}</td>
+    </tr>` : ""}
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Interests</td>
       <td style="padding: 10px; border: 1px solid #ddd;">${interestsLine}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Source</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${source || "Contact page"}</td>
     </tr>
   </table>
 </div>

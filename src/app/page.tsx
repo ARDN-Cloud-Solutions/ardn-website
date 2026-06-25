@@ -3,8 +3,9 @@ import LandingPageContent from "./LandingPageContent";
 import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
-  title: "Ardn Cloud Solutions — Technology that pays for itself",
-  description: "Ardn builds and integrates cloud products that cut costs, simplify operations, and unlock growth — standalone, alongside Salesforce, or wherever your business runs.",
+  title: "Custom AI Apps & Salesforce Solutions, Orlando | ARDN",
+  description:
+    "Orlando-based team building custom AI apps and Salesforce-native cloud products that cut costs, simplify operations, and unlock growth. Book a free demo.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -13,8 +14,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Homepage - Ardn Cloud Solutions",
-    description: "ARDN Cloud Solutions offers expert Salesforce services — storefronts, integrations, optimisation, and support.",
+    title: "ARDN Cloud Solutions — Custom AI Apps, Built & Run for You",
+    description: "Custom AI apps and Salesforce-native products, built and run by an Orlando team — cut costs, simplify operations, and unlock growth.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -38,8 +39,8 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Homepage - Ardn Cloud Solutions",
-        "description": "ARDN Cloud Solutions offers expert Salesforce services — storefronts, integrations, optimisation, and support. See what we can build for your business.",
+        "name": "Custom AI Apps & Salesforce Solutions in Orlando | ARDN Cloud Solutions",
+        "description": "Orlando-based team building custom AI apps and Salesforce-native cloud products that cut costs, simplify operations, and unlock growth.",
         "inLanguage": "en-US"
       },
       {

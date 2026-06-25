@@ -173,6 +173,10 @@ export default function RootLayout({
             gtag('js', new Date());
 
             gtag('config', 'G-RTHTZK8BNJ');
+            // Google Ads — enables remarketing audiences + conversion tracking.
+            // The 'generate_lead' / 'book_call_click' events fired in the app
+            // become Ads conversions once a conversion action + label is set up.
+            gtag('config', 'AW-16551257913');
           `}
         </Script>
         {/* Microsoft Clarity — session replay + heatmaps + UX analytics. The

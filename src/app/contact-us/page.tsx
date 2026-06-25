@@ -3,7 +3,7 @@ import ContactPageContent from "./ContactPageContent";
 
 export const metadata: Metadata = {
   title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
-  description: "Book a free 30-minute strategy call with the Orlando-based Ardn team. Custom AI development via the AI Forge Framework, Salesforce-native cloud products, and Salesforce consulting backed by 30+ years of expertise. Reply within 4 business hours.",
+  description: "Book a free 30-minute strategy call with the Orlando-based Ardn team — custom AI development, Salesforce-native products, and 30+ years of expertise.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/contact-us",
     languages: {

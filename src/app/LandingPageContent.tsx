@@ -276,6 +276,9 @@ export default function LandingPageContent() {
                 <div className="role">Salesforce Delivery Manager, Fortune 500 insurance company</div>
               </div>
             </div>
+            <p className="body mt-4">
+              <Link href="/case-studies" style={{ color: "var(--indigo)", fontWeight: 600 }}>See how we&apos;ve delivered for clients — read our case studies →</Link>
+            </p>
           </div>
         </div>
       </section>

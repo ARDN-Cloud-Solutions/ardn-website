@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import TrustBar from "@/components/common/TrustBar";
+
+// Lightweight gtag accessor (gtag.js is loaded site-wide in layout.tsx for
+// GA4 + Google Ads). Avoids `any` so the lint-gated build stays clean.
+function track(event: string, params: Record<string, unknown> = {}) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+  w.gtag?.("event", event, params);
+}
 
 // ─── FAQ DATA ───────────────────────────────────────────────────────────────
 
@@ -155,6 +164,42 @@ function Cell({ c }: { c: CompCell }) {
 export default function AiForgeContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  // ── Low-friction "scope & quote" lead form ──
+  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast.error("Please add your name, email, and a short note about your project.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, source: "AI Forge — Scope & Quote form" }),
+      });
+      if (!res.ok) {
+        const d = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(d.error || "Something went wrong — please try again.");
+      }
+      setSent(true);
+      toast.success("Got it! We'll reply with your free scope & quote shortly.");
+      // GA4 + Google Ads lead conversion
+      track("generate_lead", { form_location: "ai_forge_quote", value: 1 });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to send. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const onField = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+
   return (
     <div className="af-page">
 
@@ -198,7 +243,7 @@ export default function AiForgeContent() {
               </div>
               <div className="af-hero-cta">
                 <Link href="#pricing" className="af-btn af-btn-lg">See Pricing &amp; Offer</Link>
-                <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white">
+                <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white" onClick={() => track("book_call_click", { location: "hero" })}>
                   Book a Free Discovery Call →
                 </Link>
               </div>
@@ -390,6 +435,7 @@ export default function AiForgeContent() {
             <Link
               href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank"
               className="af-btn af-btn-lg af-btn-white af-offer-banner-btn"
+              onClick={() => track("book_call_click", { location: "offer_banner" })}
             >
               Claim Your Spot →
             </Link>
@@ -449,6 +495,7 @@ export default function AiForgeContent() {
                 <Link
                   href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank"
                   className={`af-btn af-tier-btn${tier.ctaStyle === "outline" ? " af-btn-outline" : ""}`}
+                  onClick={() => track("book_call_click", { location: `pricing_${tier.id}` })}
                 >
                   {tier.cta}
                 </Link>
@@ -477,6 +524,75 @@ export default function AiForgeContent() {
               <div className="af-guarantee-title">Weekly Demos, No Black Box</div>
               <div className="af-guarantee-text">You see working demos every week during the build — most clients are live in 2–6 weeks, not months of silence.</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SCOPE & QUOTE FORM — low-friction lead capture ─────────────
+          CRO: every other CTA books a Calendly call (high commitment). This
+          gives the larger "interested but not ready to call" segment a way to
+          convert. Posts to the existing /api/contact endpoint; fires a GA4 +
+          Google Ads lead event on success. */}
+      <section id="quote" className="af-section af-section--soft">
+        <div className="af-container">
+          <div className="af-quote-grid">
+            <div className="af-quote-intro">
+              <div className="af-section-label">GET STARTED · NO CALL REQUIRED</div>
+              <h2 className="af-h2">Tell us what you want to build.</h2>
+              <p className="af-section-sub" style={{ marginBottom: "28px" }}>
+                Send a few lines about your idea and we&apos;ll reply with a free scope and a
+                fixed quote — usually within one business day. No obligation, no sales pressure.
+              </p>
+              <ul className="af-pillar-list af-quote-perks">
+                <li>Free custom build for new customers</li>
+                <li>A senior engineer reads every request</li>
+                <li>Reply within one business day</li>
+              </ul>
+              <p className="af-quote-or">
+                Prefer to talk now?{" "}
+                <Link
+                  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
+                  target="_blank"
+                  onClick={() => track("book_call_click", { location: "quote_section" })}
+                >
+                  Book a 30-minute call →
+                </Link>
+              </p>
+            </div>
+
+            {sent ? (
+              <div className="af-quote-card af-quote-success">
+                <div className="af-quote-success-mark">✓</div>
+                <h3>Request received.</h3>
+                <p>
+                  Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — we&apos;ll reply to{" "}
+                  <strong>{form.email}</strong> with your free scope &amp; quote shortly.
+                </p>
+              </div>
+            ) : (
+              <form className="af-quote-card" onSubmit={handleQuoteSubmit} noValidate>
+                <div className="af-field">
+                  <label htmlFor="q-name">Name</label>
+                  <input id="q-name" name="name" type="text" value={form.name} onChange={onField("name")} placeholder="Your name" autoComplete="name" />
+                </div>
+                <div className="af-field">
+                  <label htmlFor="q-email">Work email</label>
+                  <input id="q-email" name="email" type="email" value={form.email} onChange={onField("email")} placeholder="you@company.com" autoComplete="email" />
+                </div>
+                <div className="af-field">
+                  <label htmlFor="q-company">Company <span className="af-optional">(optional)</span></label>
+                  <input id="q-company" name="company" type="text" value={form.company} onChange={onField("company")} placeholder="Company name" autoComplete="organization" />
+                </div>
+                <div className="af-field">
+                  <label htmlFor="q-message">What do you want to build?</label>
+                  <textarea id="q-message" name="message" rows={4} value={form.message} onChange={onField("message")} placeholder="e.g. an AI assistant that drafts quotes from our catalog and pushes them into Salesforce." />
+                </div>
+                <button type="submit" className="af-btn af-btn-lg af-quote-submit" disabled={submitting}>
+                  {submitting ? "Sending…" : "Get my free scope & quote →"}
+                </button>
+                <p className="af-quote-fine">We&apos;ll only use this to reply about your project. No spam, ever.</p>
+              </form>
+            )}
           </div>
         </div>
       </section>
@@ -605,6 +721,19 @@ export default function AiForgeContent() {
               </div>
             </div>
           </div>
+
+          {/* CRO: surface real case studies as proof we ship complex,
+              production-grade custom software — directly counters the
+              "is this just AI slop?" objection. */}
+          <div className="af-casestudies">
+            <span className="af-cs-label">See how we&apos;ve delivered complex custom builds:</span>
+            <ul className="af-cs-list">
+              <li><Link href="/case-studies/revolutionizing-airline-customer-service-with-salesforce-customer360-console">Airline customer-service console &rarr;</Link></li>
+              <li><Link href="/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal">Centralized B2B sales portal &rarr;</Link></li>
+              <li><Link href="/case-studies/transforming-the-timeshare-industry-with-a-digitized-tour-management-platform">Timeshare tour-management platform &rarr;</Link></li>
+            </ul>
+            <Link href="/case-studies" className="af-cs-all">Browse all case studies &rarr;</Link>
+          </div>
         </div>
       </section>
 
@@ -654,7 +783,7 @@ export default function AiForgeContent() {
             <strong>New customers: we build your custom AI app free — you only pay the monthly subscription.</strong>
           </p>
           <div className="af-cta-buttons">
-            <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white">
+            <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white" onClick={() => track("book_call_click", { location: "final_cta" })}>
               Claim Your Spot — Book a Free Call
             </Link>
           </div>
@@ -865,8 +994,40 @@ export default function AiForgeContent() {
         .af-guarantee-title { font-size: 16px; font-weight: 800; color: var(--af-primary); margin-bottom: 8px; }
         .af-guarantee-text { font-size: 14px; color: var(--af-text-dim); line-height: 1.55; }
 
+        /* SCOPE & QUOTE FORM */
+        .af-quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .af-quote-perks { margin-bottom: 24px; }
+        .af-quote-or { font-size: 15px; color: var(--af-text-dim); }
+        .af-quote-or a { color: var(--af-accent); font-weight: 600; text-decoration: none; }
+        .af-quote-or a:hover { text-decoration: underline; }
+        .af-quote-card { background: #fff; border: 1px solid var(--af-border); border-radius: 16px; padding: 32px; box-shadow: 0 16px 40px rgba(15,45,82,0.08); display: flex; flex-direction: column; gap: 18px; }
+        .af-field { display: flex; flex-direction: column; gap: 7px; }
+        .af-field label { font-size: 13px; font-weight: 700; color: var(--af-primary); }
+        .af-optional { font-weight: 500; color: var(--af-text-light); }
+        .af-field input, .af-field textarea { font: inherit; font-size: 15px; color: var(--af-text); background: var(--af-bg-soft); border: 1px solid var(--af-border); border-radius: 10px; padding: 12px 14px; outline: none; transition: border-color .15s, box-shadow .15s; width: 100%; resize: vertical; }
+        .af-field input:focus, .af-field textarea:focus { border-color: var(--af-accent); box-shadow: 0 0 0 3px rgba(30,136,229,0.15); background: #fff; }
+        .af-field input::placeholder, .af-field textarea::placeholder { color: var(--af-text-light); }
+        .af-quote-submit { width: 100%; text-align: center; margin-top: 4px; }
+        .af-quote-submit:disabled { opacity: .6; cursor: not-allowed; }
+        .af-quote-fine { font-size: 12px; color: var(--af-text-light); text-align: center; margin: 0; }
+        .af-quote-success { align-items: center; text-align: center; justify-content: center; min-height: 300px; }
+        .af-quote-success-mark { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,191,166,0.15); color: var(--af-teal); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; margin: 0 auto 8px; }
+        .af-quote-success h3 { font-size: 22px; font-weight: 800; color: var(--af-primary); margin: 0; }
+        .af-quote-success p { color: var(--af-text-dim); font-size: 15px; margin: 0; max-width: 360px; }
+
+        /* CASE STUDIES PROOF */
+        .af-casestudies { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--af-border); }
+        .af-cs-label { display: block; font-size: 14px; font-weight: 700; color: var(--af-primary); margin-bottom: 14px; }
+        .af-cs-list { list-style: none; padding: 0; margin: 0 0 16px; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+        .af-cs-list a { display: block; background: #fff; border: 1px solid var(--af-border); border-radius: 10px; padding: 14px 16px; font-size: 14px; font-weight: 600; color: var(--af-primary); text-decoration: none; transition: border-color .15s, transform .15s; }
+        .af-cs-list a:hover { border-color: var(--af-accent); transform: translateY(-2px); color: var(--af-accent); }
+        .af-cs-all { font-size: 14px; font-weight: 700; color: var(--af-accent); text-decoration: none; }
+        .af-cs-all:hover { text-decoration: underline; }
+
         /* RESPONSIVE */
         @media (max-width: 980px) {
+          .af-quote-grid { grid-template-columns: 1fr; gap: 32px; }
+          .af-cs-list { grid-template-columns: 1fr; }
           .af-hero-grid { grid-template-columns: 1fr; gap: 32px; }
           .af-problem-grid, .af-pillar-grid, .af-tier-grid, .af-faq-grid { grid-template-columns: 1fr; }
           .af-process-grid { grid-template-columns: 1fr 1fr; }
