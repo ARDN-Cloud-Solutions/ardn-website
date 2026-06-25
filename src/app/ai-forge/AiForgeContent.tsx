@@ -48,7 +48,7 @@ const FAQS = [
     // the integration surface so it still reads as a flexible custom-dev
     // practice — not a Salesforce-only shop.
     q: "Can you integrate with Salesforce?",
-    a: "Yes — Salesforce integration is one of our specialties. Ardn has 30+ years of Salesforce experience as a company, so AI Forge applications routinely read from, write to, and orchestrate work inside Salesforce. We also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, billing systems, and 5,000+ other tools — whichever stack your business actually runs on.",
+    a: "Yes — Salesforce integration is one of our specialties. Ardn has deep Salesforce experience as a company, so AI Forge applications routinely read from, write to, and orchestrate work inside Salesforce. We also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, billing systems, and 5,000+ other tools — whichever stack your business actually runs on.",
   },
   {
     q: "What if my AI needs change?",
@@ -725,7 +725,7 @@ export default function AiForgeContent() {
                 </div>
                 <div className="af-field">
                   <label htmlFor="q-message">What do you want to build?</label>
-                  <textarea id="q-message" name="message" rows={4} value={form.message} onChange={onField("message")} placeholder="e.g. an AI assistant that drafts quotes from our catalog and pushes them into Salesforce." />
+                  <textarea id="q-message" name="message" rows={4} value={form.message} onChange={onField("message")} placeholder="e.g. an AI assistant that drafts quotes from our product catalog and emails them to customers." />
                 </div>
                 <button type="submit" className="af-btn af-btn-lg af-quote-submit" disabled={submitting}>
                   {submitting ? "Sending…" : "Get my free scope & quote →"}

@@ -41,7 +41,7 @@ export default function LandingPageContent() {
           <div className="metric-row">
             <div className="metric">
               <div className="number">30+</div>
-              <div className="label">years designing, building, and deploying production software — from AI apps to Salesforce.</div>
+              <div className="label">years designing, building, and deploying production software — from AI apps to enterprise software.</div>
             </div>
             <div className="metric">
               <div className="number">100%</div>
@@ -127,7 +127,7 @@ export default function LandingPageContent() {
               <p className="body">Our expert development team uses the proprietary AI Forge Framework to design, build, and ship custom AI applications and business software in weeks, not months — then runs them as a managed service.</p>
               <ul className="features">
                 <li>Discovery to production in 2–6 weeks</li>
-                <li>Deep Salesforce, HubSpot, and stack integrations</li>
+                <li>Integrates with your stack — Salesforce, HubSpot &amp; more</li>
                 <li>One monthly subscription — build, host, and iterate</li>
               </ul>
               <p className="body" style={{ marginTop: "10px", fontWeight: 600, color: "#7C3AED" }}>
@@ -246,7 +246,7 @@ export default function LandingPageContent() {
                 {/* Stale "Four" Salesforce-native products updated to the
                     current 6-product hybrid suite. */}
                 <li><span className="n">01</span><div><h4>Innovative products</h4><p>Six products in market — AI Forge, Membership Management, Storefronts, License Guard, Salesforce Payments, and ReplyCX.</p></div></li>
-                <li><span className="n">02</span><div><h4>Strategy &amp; consulting</h4><p>30+ years of Salesforce expertise focused on the cheapest, fastest path to your outcome.</p></div></li>
+                <li><span className="n">02</span><div><h4>Strategy &amp; consulting</h4><p>30+ years of expertise focused on the cheapest, fastest path to your outcome.</p></div></li>
                 <li><span className="n">03</span><div><h4>Implementation &amp; AI Forge builds</h4><p>We collaborate with your team or run the entire build with the AI Forge Framework — your call.</p></div></li>
               </ul>
             </div>

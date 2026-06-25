@@ -219,7 +219,7 @@ export default function AiForgePage() {
             name: "Can you integrate with Salesforce?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes — Salesforce integration is one of our specialties. Ardn has 30+ years of Salesforce experience as a company, so AI Forge applications routinely read from, write to, and orchestrate work inside Salesforce. We also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, billing systems, and 5,000+ other tools — whichever stack your business actually runs on.",
+              text: "Yes — Salesforce integration is one of our specialties. Ardn has deep Salesforce experience as a company, so AI Forge applications routinely read from, write to, and orchestrate work inside Salesforce. We also integrate with HubSpot, Microsoft Dynamics, your data warehouse, internal APIs, billing systems, and 5,000+ other tools — whichever stack your business actually runs on.",
             },
           },
           {
