@@ -144,19 +144,16 @@ interface CompCell { type: CellType; text: string }
 interface CompRow { feature: string; diy: CompCell; agency: CompCell; inhouse: CompCell; ardn: string }
 
 const COMPARISON_ROWS: CompRow[] = [
-  { feature: "Time to production",            diy: { type: "partial", text: "Days (limited)" },            agency: { type: "partial", text: "3–6 months" },            inhouse: { type: "no",      text: "6–12 months" },             ardn: "2–6 weeks" },
-  { feature: "Custom to your workflow",        diy: { type: "no",      text: "✗" },                        agency: { type: "yes",     text: "✓" },                       inhouse: { type: "yes",     text: "✓" },                       ardn: "Fully custom" },
-  { feature: "Ongoing operation & support",    diy: { type: "no",      text: "You\u2019re on your own" },  agency: { type: "no",      text: "They disappear" },           inhouse: { type: "partial", text: "You hire & train" },          ardn: "Included forever" },
-  { feature: "Predictable monthly cost",       diy: { type: "partial", text: "Per-seat fees" },            agency: { type: "no",      text: "Big upfront, surprise bills" }, inhouse: { type: "no",      text: "$250K+ per engineer" },       ardn: "One subscription" },
-  { feature: "AI compute included",            diy: { type: "no",      text: "Extra cost" },               agency: { type: "no",      text: "Pass-through with markup" },  inhouse: { type: "no",      text: "You pay direct" },            ardn: "At-cost in credits" },
-  { feature: "Feature iteration over time",    diy: { type: "no",      text: "Not possible" },             agency: { type: "no",      text: "New contract each time" },    inhouse: { type: "partial", text: "If team has bandwidth" },      ardn: "Built into subscription" },
-  { feature: "Model upgrades when new ones ship", diy: { type: "no",   text: "You DIY" },                 agency: { type: "no",      text: "Re-engagement required" },    inhouse: { type: "partial", text: "If they keep up" },            ardn: "We handle it" },
-  { feature: "You own the IP & data",          diy: { type: "partial", text: "Their terms apply" },        agency: { type: "yes",     text: "\u2713 usually" },             inhouse: { type: "yes",     text: "\u2713" },                    ardn: "Always yours" },
+  { feature: "Time to launch",            diy: { type: "partial", text: "Days, but limited" },  agency: { type: "no",      text: "3–6 months" },                   inhouse: { type: "no",      text: "6–12 months" },        ardn: "2–6 weeks" },
+  { feature: "Built for your workflow",   diy: { type: "no",      text: "Off-the-shelf only" }, agency: { type: "yes",     text: "Custom" },                       inhouse: { type: "yes",     text: "Custom" },             ardn: "Fully custom" },
+  { feature: "Who runs it after launch",  diy: { type: "no",      text: "You're on your own" }, agency: { type: "no",      text: "Gone after delivery" },          inhouse: { type: "partial", text: "You hire & train" },    ardn: "We run it — forever" },
+  { feature: "What it costs",             diy: { type: "partial", text: "Per-seat + compute" },  agency: { type: "no",      text: "Big upfront + surprise bills" }, inhouse: { type: "no",      text: "$250K+ per engineer" }, ardn: "One flat subscription" },
+  { feature: "Keeps improving over time", diy: { type: "no",      text: "You DIY it" },          agency: { type: "no",      text: "New contract each time" },       inhouse: { type: "partial", text: "If they keep up" },     ardn: "Included — we handle it" },
 ];
 
 function Cell({ c }: { c: CompCell }) {
-  const cls = c.type === "yes" ? "af-check-yes" : c.type === "no" ? "af-check-no" : "af-check-partial";
-  return <span className={cls}>{c.text}</span>;
+  const cls = c.type === "yes" ? "af-cell--yes" : c.type === "no" ? "af-cell--no" : "af-cell--partial";
+  return <span className={`af-cell ${cls}`}><span className="af-dot" />{c.text}</span>;
 }
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
@@ -657,26 +654,29 @@ export default function AiForgeContent() {
             The market is full of broken AI options: DIY tools that don&apos;t scale, agencies
             that disappear, in-house teams that cost a fortune. We&apos;re none of those.
           </p>
-          <div className="af-comparison-table-wrap">
-            <table className="af-comparison-table">
+          <div className="af-cmp">
+            <table className="af-cmp-table">
               <thead>
                 <tr>
                   <th></th>
                   <th>DIY (ChatGPT, etc.)</th>
-                  <th>Traditional AI Agency</th>
-                  <th>In-House Hire</th>
-                  <th className="af-col-featured">Ardn AI Forge</th>
+                  <th>Traditional AI agency</th>
+                  <th>In-house hire</th>
+                  <th className="af-col-ardn">
+                    <span className="af-col-ardn-badge">★ BEST FIT</span>
+                    <span className="af-col-ardn-name">Ardn AI Forge</span>
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON_ROWS.map((row) => (
                   <tr key={row.feature}>
-                    <td className="af-td-feature">{row.feature}</td>
+                    <td className="af-cmp-row-label">{row.feature}</td>
                     <td><Cell c={row.diy} /></td>
                     <td><Cell c={row.agency} /></td>
                     <td><Cell c={row.inhouse} /></td>
-                    <td className="af-td-ardn">
-                      <span className="af-check-yes">✓</span> {row.ardn}
+                    <td className="af-col-ardn">
+                      <span className="af-cell af-cell--ardn"><span className="af-check">✓</span>{row.ardn}</span>
                     </td>
                   </tr>
                 ))}
@@ -920,17 +920,27 @@ export default function AiForgeContent() {
 
         /* COMPARISON */
         .af-comparison-section { background: var(--af-primary); padding: 90px 0; }
-        .af-comparison-table-wrap { background: white; border-radius: 16px; overflow: hidden; margin-top: 48px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow-x: auto; }
-        .af-comparison-table { width: 100%; border-collapse: collapse; min-width: 700px; }
-        .af-comparison-table th, .af-comparison-table td { padding: 20px 24px; text-align: left; border-bottom: 1px solid var(--af-border); font-size: 14px; }
-        .af-comparison-table thead th { background: var(--af-bg-soft); font-weight: 700; color: var(--af-primary); font-size: 14px; }
-        .af-comparison-table thead th.af-col-featured { background: var(--af-accent); color: white; }
-        .af-comparison-table tbody tr:hover { background: var(--af-bg-soft); }
-        .af-td-feature { font-weight: 600; color: var(--af-primary); }
-        .af-td-ardn { background: rgba(30,136,229,0.05); font-weight: 600; color: var(--af-primary); }
-        .af-check-yes { color: var(--af-teal); font-weight: 700; font-size: 18px; }
-        .af-check-no { color: #E53E3E; font-weight: 700; font-size: 18px; }
-        .af-check-partial { color: #ED8936; font-weight: 600; font-size: 13px; }
+        .af-cmp { margin-top: 48px; background: #fff; border-radius: 18px; box-shadow: 0 30px 60px rgba(0,0,0,0.28); overflow-x: auto; }
+        .af-cmp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 720px; }
+        .af-cmp-table th, .af-cmp-table td { padding: 22px 26px; text-align: left; vertical-align: middle; }
+        .af-cmp-table thead th { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--af-text-light); border-bottom: 1px solid var(--af-border); white-space: nowrap; }
+        .af-cmp-table thead th:first-child { color: var(--af-primary); }
+        .af-cmp-table tbody td { border-bottom: 1px solid var(--af-border); font-size: 14.5px; color: var(--af-text-dim); }
+        .af-cmp-table tbody tr:last-child td { border-bottom: none; }
+        .af-cmp-table tbody tr:hover td { background: rgba(15,45,82,0.02); }
+        .af-cmp-table tbody td.af-cmp-row-label { font-size: 15px; font-weight: 700; color: var(--af-primary); }
+        .af-cell { display: inline-flex; align-items: center; gap: 9px; line-height: 1.35; }
+        .af-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+        .af-cell--yes .af-dot { background: var(--af-teal); }
+        .af-cell--partial .af-dot { background: #ED8936; }
+        .af-cell--no .af-dot { background: #E2574C; }
+        .af-col-ardn { background: linear-gradient(180deg, rgba(30,136,229,0.08), rgba(0,191,166,0.06)); }
+        .af-cmp-table thead th.af-col-ardn { background: var(--af-accent); color: #fff; border-bottom: none; text-transform: none; letter-spacing: 0; }
+        .af-col-ardn-badge { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; background: rgba(255,255,255,0.22); padding: 3px 9px; border-radius: 100px; margin-bottom: 7px; }
+        .af-col-ardn-name { display: block; font-size: 15px; font-weight: 800; }
+        .af-cmp-table tbody td.af-col-ardn .af-cell { font-weight: 700; color: var(--af-primary); }
+        .af-cmp-table tbody tr:hover td.af-col-ardn { background: linear-gradient(180deg, rgba(30,136,229,0.13), rgba(0,191,166,0.10)); }
+        .af-check { width: 18px; height: 18px; border-radius: 50%; background: var(--af-teal); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
 
         /* TESTIMONIAL */
         .af-testimonial-box { background: white; border-radius: 16px; padding: 56px; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; box-shadow: 0 8px 24px rgba(15,45,82,0.06); margin-top: 48px; }
