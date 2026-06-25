@@ -11,10 +11,10 @@ export default function LandingPageContent() {
             <div className="hero-copy">
               <span className="eyebrow">Custom AI apps · Built &amp; run for you</span>
               <h1 className="display reveal">AI that <em>pays for itself.</em></h1>
-              <p className="lede reveal reveal-d2">We design, build, host, and continuously improve custom AI applications for your business — live in weeks, for one predictable monthly fee. Need more? A full product suite and 30+ years of expertise are right here when you do.</p>
+              <p className="lede reveal reveal-d2">You know AI could help your business — but where do you start, and how do you avoid an expensive build that breaks and a team that vanishes? We take that risk off your plate: a custom AI app built around your exact workflow and run for you — live in 2–6 weeks, for one flat monthly fee. New customers pay nothing to build it.</p>
               <div className="hero-ctas reveal reveal-d3">
-                <Link href="/ai-forge" className="btn btn-primary btn-lg btn-arrow">Explore our AI solution</Link>
-                <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-secondary btn-lg">Book a free demo</Link>
+                <Link href="/ai-forge" className="btn btn-primary btn-lg btn-arrow">See what we&apos;d build for you</Link>
+                <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-secondary btn-lg">Book a free 30-min demo</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
@@ -23,7 +23,7 @@ export default function LandingPageContent() {
                   so the page reads focused rather than scattered. */}
               <div className="card" style={{ padding: "28px" }}>
                 <div className="kicker">Flagship · AI Forge</div>
-                <p className="body mt-3" style={{ marginBottom: "12px" }}>Custom AI applications — designed, built, hosted, and improved by our team. Production-ready in 2–6 weeks, for one monthly fee.</p>
+                <p className="body mt-3" style={{ marginBottom: "12px" }}>A custom AI app built around your exact workflow — designed, built, hosted, and improved for you. Live in 2–6 weeks, one flat monthly fee.</p>
                 <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
                 <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
                 <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
