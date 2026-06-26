@@ -3,9 +3,9 @@ import LandingPageContent from "./LandingPageContent";
 import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom AI App Development & Salesforce Solutions | ARDN",
+  title: "Custom AI App Development Company — Built & Run for You | ARDN",
   description:
-    "We design, build, and run custom AI applications and Salesforce-native products that cut costs, simplify operations, and unlock growth — for clients across the US. Book a free demo.",
+    "We design, build, and run custom AI applications for companies across the US — production-ready in 2–6 weeks under one flat monthly fee. New customers: we build your app free. Book a free demo.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "ARDN Cloud Solutions — Custom AI Apps, Built & Run for You",
-    description: "Custom AI apps and Salesforce-native products, built and run by an Orlando team — cut costs, simplify operations, and unlock growth.",
+    description: "Custom AI apps designed, built, and run for you — production-ready in 2–6 weeks under one flat monthly fee. New customers: we build your app free.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -39,8 +39,8 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Custom AI App Development & Salesforce Solutions | ARDN Cloud Solutions",
-        "description": "We design, build, and run custom AI applications and Salesforce-native products that cut costs, simplify operations, and unlock growth — for clients across the US.",
+        "name": "Custom AI App Development Company — Built & Run for You | ARDN Cloud Solutions",
+        "description": "We design, build, and run custom AI applications for companies across the US — production-ready in 2–6 weeks under one flat monthly fee. New customers: we build your app free.",
         "inLanguage": "en-US"
       },
       {

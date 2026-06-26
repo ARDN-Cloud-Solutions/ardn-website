@@ -104,6 +104,66 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // National hub for the core "custom AI app development company" keyword
+        // family — top-of-funnel destination for AI Forge organic traffic.
+        url: `${BASE_URL}/ai-app-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Vertical AI landing page — insurance ICP (claims/underwriting).
+        url: `${BASE_URL}/ai-for-insurance`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Vertical AI landing page — hospitality ICP (guest service at scale).
+        url: `${BASE_URL}/ai-for-hospitality`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Vertical AI landing page — membership-org ICP (retention/renewals).
+        url: `${BASE_URL}/ai-for-membership-organizations`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Solution page — custom portals that cut per-seat CRM costs by
+        // integration (NOT replacement). High commercial intent.
+        url: `${BASE_URL}/custom-portal-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Solution page — chapter/dues management (fraternities, sororities,
+        // clubs). Niche, low-competition, high-intent.
+        url: `${BASE_URL}/chapter-management-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Solution page — GLP-1 / telehealth ecommerce. Hot niche.
+        url: `${BASE_URL}/glp-1-ecommerce`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        // Solution page — custom ecommerce (merch stores, subscriptions);
+        // off-platform counterpart to the Salesforce-native Storefronts product.
+        url: `${BASE_URL}/custom-ecommerce-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/ai-info-page`,
         lastModified: new Date(),
         changeFrequency: "monthly",

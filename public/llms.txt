@@ -1,10 +1,14 @@
 # ARDN Cloud Solutions
 
-> ARDN Cloud Solutions is an Orlando, Florida-based team that builds custom AI applications and a suite of Salesforce-native cloud products, backed by 30+ years of combined Salesforce design, build, and deployment experience. We design, build, host, and operate software for one predictable monthly fee — standalone, alongside Salesforce, or wherever your business runs.
+> ARDN Cloud Solutions is a US-based custom AI app development company. We design, build, deploy, and operate bespoke AI applications for one predictable monthly fee — production-ready in 2–6 weeks via our proprietary AI Forge Framework. Backed by 30+ years of enterprise software experience, we also offer a focused suite of cloud products and consulting for teams that run on Salesforce. New customers get the one-time custom AI build free and pay only the monthly subscription.
 
 ## Products & Services
 
-- [AI Forge](https://ardncloudsolutions.com/ai-forge): Custom AI applications built and run for you. Our Florida-based team designs, builds, hosts, and continuously improves bespoke AI apps for one monthly subscription — live in 2–6 weeks. New customers get the one-time custom build free and pay only the monthly subscription.
+- [AI Forge](https://ardncloudsolutions.com/ai-forge): Custom AI applications built and run for you. Our team designs, builds, hosts, and continuously improves bespoke AI apps for one monthly subscription — live in 2–6 weeks. New customers get the one-time custom build free and pay only the monthly subscription.
+- [Custom AI App Development](https://ardncloudsolutions.com/ai-app-development): How we build and operate custom AI applications for companies across the US — discovery to production in 2–6 weeks, then hosted and iterated under one monthly fee.
+- [AI for Insurance](https://ardncloudsolutions.com/ai-for-insurance): Custom AI for carriers and agencies — claims triage, underwriting support, document processing, and self-service, with humans in the loop on regulated decisions.
+- [AI for Hospitality](https://ardncloudsolutions.com/ai-for-hospitality): Custom AI for hotels, resorts, and hospitality groups — 24/7 guest concierge, booking automation, and service routing across every channel.
+- [AI for Membership Organizations](https://ardncloudsolutions.com/ai-for-membership-organizations): Custom AI for YMCAs, gyms, studios, clubs, and associations — onboarding, renewals, failed-payment recovery, and retention early-warning.
 - [Storefronts](https://ardncloudsolutions.com/storefronts): Salesforce-native ecommerce — products, memberships, subscriptions, events, and ticketing without leaving Salesforce.
 - [Salesforce Payments](https://ardncloudsolutions.com/salesforce-payments): Quote-to-cash inside Salesforce — branded checkout, real-time status, and automated reconciliation.
 - [License Guard](https://ardncloudsolutions.com/license-guard): Salesforce-native tool that detects and reclaims unused Salesforce licenses, typically paying back its annual cost within a quarter.
@@ -23,6 +27,6 @@
 
 - Location: Orlando, Florida, USA. Serves clients across the United States and globally (remote-friendly).
 - Contact: contactus@ardncloudsolutions.com · +1 (407) 815-5303
-- Specialties: custom AI application development, Salesforce consulting and managed services, Salesforce-native commerce and payments.
+- Specialties: custom AI application development (AI Forge), vertical AI for insurance, hospitality, and membership organizations; plus Salesforce consulting, managed services, and Salesforce-native commerce and payments.
 - Engagement model: productized monthly subscriptions (build + host + iterate) and Salesforce consulting / managed services.
 - Differentiator: we both build AND operate what we ship — 80% of AI projects fail because no one runs them after launch; we run yours.

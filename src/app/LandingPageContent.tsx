@@ -227,10 +227,21 @@ export default function LandingPageContent() {
               {/* Stale "Big Salesforce experience" replaced with hybrid framing
                   that covers both pillars (AI Forge custom dev + 30+ yrs SF). */}
               <h2 className="h1 mt-3">A small Florida team. <em>Big experience.</em></h2>
-              <p className="body mt-4">Ardn Cloud Solutions is an Orlando, Florida-based team. We build custom AI applications with our proprietary <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link>, ship a focused suite of Salesforce-native cloud products, and offer Salesforce consulting and managed services backed by 30+ years of expertise. Same team from first call through implementation.</p>
-              {/* Local-intent landing pages explicitly linked from the homepage
-                  body. These were orphan pages before this commit (0 inbound
-                  body links — only footer references). */}
+              <p className="body mt-4">Ardn Cloud Solutions is a US-based team. We design, build, and run custom AI applications with our proprietary <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link> — and back every build with 30+ years of enterprise software expertise, plus a focused suite of cloud products and consulting for teams that run on Salesforce. Same team from first call through implementation.</p>
+              {/* Internal link hub — passes homepage authority to the AI
+                  landing pages (national hub + verticals) and the local pages.
+                  These were orphan pages otherwise (0 inbound body links). */}
+              <p className="body mt-3">Explore <Link href="/ai-app-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom AI app development</Link>, or see how we build AI for{" "}
+                <Link href="/ai-for-insurance" style={{ color: "var(--indigo)", fontWeight: 600 }}>insurance</Link>,{" "}
+                <Link href="/ai-for-hospitality" style={{ color: "var(--indigo)", fontWeight: 600 }}>hospitality</Link>, and{" "}
+                <Link href="/ai-for-membership-organizations" style={{ color: "var(--indigo)", fontWeight: 600 }}>membership organizations</Link>.
+              </p>
+              <p className="body mt-3">Solutions we build:{" "}
+                <Link href="/custom-portal-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom portals that cut CRM costs</Link>,{" "}
+                <Link href="/custom-ecommerce-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom ecommerce</Link>,{" "}
+                <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth stores</Link>, and{" "}
+                <Link href="/chapter-management-software" style={{ color: "var(--indigo)", fontWeight: 600 }}>chapter &amp; dues management</Link>.
+              </p>
               <p className="body mt-3">Based in Florida? Talk to a local team:{" "}
                 <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce consulting in Orlando</Link>
                 {" "}or{" "}
