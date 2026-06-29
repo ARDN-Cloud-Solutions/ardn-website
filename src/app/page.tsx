@@ -3,9 +3,12 @@ import LandingPageContent from "./LandingPageContent";
 import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom AI App Development Company — Built & Run for You | ARDN",
+  // Title trimmed to ≤60 chars and description to ≤160 so neither is
+  // truncated in Google's results. Keyword "Custom AI App Development"
+  // stays at the front (most weight).
+  title: "Custom AI App Development — Built & Run for You | ARDN",
   description:
-    "We design, build, and run custom AI applications for companies across the US — production-ready in 2–6 weeks under one flat monthly fee. New customers: we build your app free. Book a free demo.",
+    "We design, build, and run custom AI applications for businesses across the US — live in 2–6 weeks for one flat monthly fee. New customers: free build.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -39,8 +42,8 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Custom AI App Development Company — Built & Run for You | ARDN Cloud Solutions",
-        "description": "We design, build, and run custom AI applications for companies across the US — production-ready in 2–6 weeks under one flat monthly fee. New customers: we build your app free.",
+        "name": "Custom AI App Development — Built & Run for You | ARDN Cloud Solutions",
+        "description": "We design, build, and run custom AI applications for businesses across the US — live in 2–6 weeks for one flat monthly fee. New customers: free build.",
         "inLanguage": "en-US"
       },
       {
