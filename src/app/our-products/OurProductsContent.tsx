@@ -143,6 +143,59 @@ export default function OurProductsContent() {
         </div>
       </section>
 
+      {/* CUSTOM SOLUTIONS — in-content links to the AI Forge solution &
+           vertical landing pages. Passes link equity from this established
+           hub page to the newer pages and gives visitors a path to them. */}
+      <section className="section" id="solutions">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Built for you</span>
+              <h2 className="h1 mt-3">Custom solutions <em>we build.</em></h2>
+            </div>
+            <div>
+              <p className="lede">Beyond the productized suite, our team builds and runs custom applications with the <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link>. A few of the things we&apos;re asked for most:</p>
+            </div>
+          </div>
+          <div className="grid-3" style={{ marginTop: "8px" }}>
+            <Link href="/ai-app-development" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Custom AI App Development</h3>
+              <p className="body">We design, build, deploy, and run bespoke AI applications in 2–6 weeks under one monthly fee.</p>
+              <span className="link">Explore custom AI development →</span>
+            </Link>
+            <Link href="/custom-portal-development" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Custom Portal Development</h3>
+              <p className="body">Cut CRM costs by moving light users to integrated portals — keep your tech, drop the per-seat bill.</p>
+              <span className="link">Explore custom portals →</span>
+            </Link>
+            <Link href="/custom-ecommerce-development" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Custom Ecommerce Development</h3>
+              <p className="body">Merch stores, subscriptions, and complex catalogs built to your model and run for you.</p>
+              <span className="link">Explore custom ecommerce →</span>
+            </Link>
+            <Link href="/glp-1-ecommerce" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">GLP-1 &amp; Telehealth Ecommerce</h3>
+              <p className="body">Intake, provider workflow, subscriptions, and refills as one connected, compliance-ready platform.</p>
+              <span className="link">Explore telehealth ecommerce →</span>
+            </Link>
+            <Link href="/chapter-management-software" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Chapter &amp; Dues Management</h3>
+              <p className="body">Automatic dues, member records, and events for fraternities, sororities, and clubs.</p>
+              <span className="link">Explore chapter management →</span>
+            </Link>
+            <div className="card">
+              <h3 className="h3">AI by Industry</h3>
+              <p className="body">Vertical AI built for specific businesses:</p>
+              <ul className="features">
+                <li><Link href="/ai-for-insurance" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI for insurance</Link></li>
+                <li><Link href="/ai-for-hospitality" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI for hospitality</Link></li>
+                <li><Link href="/ai-for-membership-organizations" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI for membership orgs</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* MID-PAGE CTA */}
       <section className="section-tight is-canvas">
         <div className="container">

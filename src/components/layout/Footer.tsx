@@ -23,6 +23,20 @@ const ourProducts = [
   { label: "AI-Powered Support (ReplyCX)", href: "/ai-powered-support" },
 ];
 
+// AI Forge solution + vertical landing pages. Surfacing them in the footer
+// gives every page on the site an internal link to each — accelerating
+// discovery/indexing and passing link equity from established pages.
+const solutions = [
+  { label: "Custom AI App Development", href: "/ai-app-development" },
+  { label: "Custom Portal Development", href: "/custom-portal-development" },
+  { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
+  { label: "GLP-1 & Telehealth Ecommerce", href: "/glp-1-ecommerce" },
+  { label: "Chapter & Dues Management", href: "/chapter-management-software" },
+  { label: "AI for Insurance", href: "/ai-for-insurance" },
+  { label: "AI for Hospitality", href: "/ai-for-hospitality" },
+  { label: "AI for Membership Orgs", href: "/ai-for-membership-organizations" },
+];
+
 const legal = [
   { label: "Privacy Policy", href: "/privacy-policy" },
 ];
@@ -178,7 +192,7 @@ export default function Footer() {
           {/* ── RIGHT COLUMN ── */}
           <div className="lg:pl-4 xl:pl-8 flex flex-col gap-10 pb-5 lg:py-20">
             {/* Link columns grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               {/* Our Products + Legal */}
               <div className="flex flex-col gap-8">
                 <div>
@@ -201,6 +215,18 @@ export default function Footer() {
                     ))}
                   </ul>
                 </div>
+              </div>
+
+              {/* Solutions — AI Forge solution & vertical landing pages */}
+              <div>
+                <FooterHeading>Solutions</FooterHeading>
+                <ul className="flex flex-col gap-3">
+                  {solutions.map((item) => (
+                    <FooterLink key={item.href} href={item.href}>
+                      {item.label}
+                    </FooterLink>
+                  ))}
+                </ul>
               </div>
 
               {/* Quick Links */}

@@ -225,6 +225,19 @@ export default function StorefrontsContent() {
       </section>
 
       {/* FINAL CTA */}
+      {/* Cross-link to the off-Salesforce custom ecommerce options for
+           visitors who aren't on Salesforce. Passes equity to newer pages. */}
+      <section className="section-tight is-canvas">
+        <div className="container">
+          <p className="body" style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto" }}>
+            Not building on Salesforce? We also build{" "}
+            <Link href="/custom-ecommerce-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom ecommerce stores</Link>{" "}
+            off-platform — including{" "}
+            <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth ecommerce</Link>.
+          </p>
+        </div>
+      </section>
+
       <section className="section" id="demo">
         <div className="container">
           <div className="final-cta">

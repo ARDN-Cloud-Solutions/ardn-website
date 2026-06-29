@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Vertical landing page targeting hospitality/hotel-AI buyer intent. Matches
 // the ICP outbound research surfaces (mid-market hotel chains scaling guest
@@ -321,6 +322,8 @@ export default function AiForHospitalityPage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="AI for Hospitality page" />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

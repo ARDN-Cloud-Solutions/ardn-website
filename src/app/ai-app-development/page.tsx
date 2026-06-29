@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // National hub page for the core commercial keyword family:
 // "custom AI app development company / agency / AI development partner".
@@ -457,6 +458,8 @@ export default function AiAppDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="Custom AI App Development page" />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

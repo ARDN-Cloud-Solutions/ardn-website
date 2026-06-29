@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Vertical landing page targeting membership-organization AI buyer intent
 // (YMCAs, gyms, studios, clubs, associations). Matches the ICP outbound
@@ -319,6 +320,8 @@ export default function AiForMembershipOrganizationsPage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="AI for Membership Organizations page" />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

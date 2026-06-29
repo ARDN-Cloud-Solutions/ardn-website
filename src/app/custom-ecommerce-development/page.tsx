@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Solution page anchored to real delivered builds: custom ecommerce stores
 // (incl. merch storefronts) that are NOT necessarily Salesforce-native. This
@@ -305,6 +306,8 @@ export default function CustomEcommerceDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="Custom Ecommerce Development page" />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Vertical landing page targeting insurance-AI buyer intent. Matches the ICP
 // our outbound research surfaces (carriers 500–5,000 employees automating
@@ -322,6 +323,8 @@ export default function AiForInsurancePage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="AI for Insurance page" />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

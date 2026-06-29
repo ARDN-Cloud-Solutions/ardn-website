@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Solution page anchored to a real delivered build: fraternity chapter +
 // dues management. Generalized to the rankable niche (fraternities, sororities,
@@ -304,6 +305,8 @@ export default function ChapterManagementSoftwarePage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="Chapter & Dues Management page" sub="Tell us about your chapter or organization. We'll reply within one business day with next steps and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

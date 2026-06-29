@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Solution page anchored to a real delivered build: a GLP-1 / telehealth
 // ecommerce site. Targets the hot "GLP-1 / telehealth ecommerce platform"
@@ -301,6 +302,8 @@ export default function Glp1EcommercePage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="GLP-1 & Telehealth Ecommerce page" />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

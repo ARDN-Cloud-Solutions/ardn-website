@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 // Solution page anchored to a real delivered build: custom seller + operations
 // portals that integrate with the client's CRM and offload light users from
@@ -307,6 +308,8 @@ export default function CustomPortalDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
