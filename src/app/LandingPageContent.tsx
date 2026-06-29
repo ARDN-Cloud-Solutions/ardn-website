@@ -9,12 +9,12 @@ export default function LandingPageContent() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-copy">
-              <span className="eyebrow">Custom AI apps · Built &amp; run for you</span>
-              <h1 className="display reveal">AI that <em>pays for itself.</em></h1>
-              <p className="lede reveal reveal-d2">You know AI could help your business — but where do you start, and how do you avoid an expensive build that breaks and a team that vanishes? We take that risk off your plate: a custom AI app built around your exact workflow and run for you — live in 2–6 weeks, for one flat monthly fee. New customers pay nothing to build it.</p>
+              <span className="eyebrow">Custom software, platforms &amp; AI · Built and run for you</span>
+              <h1 className="display reveal">Run your business on software built <em>for it</em> — not the other way around.</h1>
+              <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
               <div className="hero-ctas reveal reveal-d3">
-                <Link href="/ai-forge" className="btn btn-primary btn-lg btn-arrow">See what we&apos;d build for you</Link>
-                <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-secondary btn-lg">Book a free 30-min demo</Link>
+                <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
@@ -31,6 +31,41 @@ export default function LandingPageContent() {
                 </p>
               </div>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* APPROACH — the "one platform" story. Names the false choice every
+          buyer faces (rigid per-seat tools vs. doing it by hand) and frames
+          ARDN as the guide that removes it. Resonates across every vertical;
+          AI Forge remains the flagship example of the approach. */}
+      <section className="section" id="approach">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">How we think</span>
+              <h2 className="h1 mt-3">You shouldn&apos;t have to <em>choose.</em></h2>
+            </div>
+            <div>
+              <p className="lede">Most businesses get stuck between rigid, per-seat software that doesn&apos;t quite fit — and doing it all by hand. We remove that choice: one platform built around exactly how you work, that you own, run for you for one flat monthly fee.</p>
+            </div>
+          </div>
+          <div className="grid-3">
+            <div className="card">
+              <h3 className="h3">Built for your business</h3>
+              <p className="body">We start with your process and your pain point, then build the platform around it — not the other way around. No bending your operation to fit someone else&apos;s tool.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">One flat fee — no per-seat tax</h3>
+              <p className="body">One platform that does the work of several tools, for a flat monthly fee. Add users and grow without the bill climbing every time you hire.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">Built and run for you</h3>
+              <p className="body">We don&apos;t hand you software and walk away. We design, build, host, and keep improving it — accessible anywhere, with one team accountable for it.</p>
+            </div>
+          </div>
+          <div style={{ marginTop: "28px", textAlign: "center" }}>
+            <Link href="/ai-forge" className="link">AI Forge is our flagship example — see how it works →</Link>
           </div>
         </div>
       </section>
