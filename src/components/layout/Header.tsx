@@ -34,6 +34,7 @@ const products = [
 ];
 
 const navLinks = [
+  { label: "Pricing", href: "/ai-forge#pricing" },
   { label: "Calculate Savings", href: "/savings-calculator" },
   { label: "About Ardn", href: "/about-ardn" },
   { label: "Blog", href: "/blog" },

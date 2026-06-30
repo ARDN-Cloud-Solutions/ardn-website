@@ -309,7 +309,7 @@ export default function OurProductsContent() {
       <section className="section">
         <div className="container">
           <div className="testimonial">
-            <span className="eyebrow">100% happy customers</span>
+            <span className="eyebrow">What clients say</span>
             <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
             <div className="attribution">
               <div className="avatar">JV</div>

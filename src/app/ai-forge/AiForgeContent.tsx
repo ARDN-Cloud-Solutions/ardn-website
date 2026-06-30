@@ -230,8 +230,8 @@ export default function AiForgeContent() {
               <p className="af-hero-sub">
                 AI Forge is the done-for-you way to launch a custom AI app. Our
                 expert team designs, builds, hosts, and continuously
-                improves it — for one predictable monthly fee. 80% of AI projects
-                fail because no one runs them after launch. We build yours{" "}
+                improves it — for one predictable monthly fee. Most AI projects
+                stall because no one runs them after launch. We build yours{" "}
                 <em>and</em> keep it running.
               </p>
               <div className="af-hero-offer">
@@ -274,10 +274,10 @@ export default function AiForgeContent() {
       {/* ── PROBLEM ──────────────────────────────────────────────────── */}
       <section className="af-section af-section--soft">
         <div className="af-container">
-          <div className="af-section-label">THE AI ADOPTION CRISIS</div>
+          <div className="af-section-label">WHY MOST AI STALLS</div>
           <h2 className="af-h2">
-            Why 8 Out of 10 AI Projects{" "}
-            <span className="af-accent">Never See Daylight</span>
+            Most AI projects stall.{" "}
+            <span className="af-accent">Yours won&apos;t.</span>
           </h2>
           <p className="af-section-sub">
             The technology isn&apos;t the problem. The execution model is. Most businesses are
