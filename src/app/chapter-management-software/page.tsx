@@ -8,9 +8,9 @@ import LeadForm from "@/components/common/LeadForm";
 // clubs, chapters). No client names / metrics (no proof cleared yet).
 export const metadata: Metadata = {
   title:
-    "Chapter & Dues Management Software | Fraternities, Sororities & Clubs | Ardn",
+    "Fraternity & Chapter Management Software | Ardn",
   description:
-    "Custom chapter management software for fraternities, sororities, and member organizations — collect dues automatically, track members and events, and cut the admin. Built and run for one flat monthly fee. New customers: we build it free.",
+    "Custom chapter software for fraternities, sororities & clubs — automatic dues, member & event tracking, less admin. New customers: free build.",
   keywords: [
     "chapter management software",
     "fraternity management software",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Chapter & Dues Management Software | Fraternities, Sororities & Clubs | Ardn",
+      "Fraternity & Chapter Management Software | Ardn",
     description:
       "Custom chapter software — collect dues automatically, track members and events, cut admin. Built and run for one monthly fee. New customers: free build.",
     url: "https://ardncloudsolutions.com/chapter-management-software",

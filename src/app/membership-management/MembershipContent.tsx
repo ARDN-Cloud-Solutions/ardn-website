@@ -104,7 +104,7 @@ export default function MembershipContent() {
           </div>
           <div className="grid-3">
             <div className="card"><div className="card-num">01</div><h3 className="h3">Sign-up &amp; onboarding</h3><p className="body">Branded sign-up flows with custom fields, waivers, and payment collection on day one.</p></div>
-            <div className="card"><div className="card-num">02</div><h3 className="h3">Recurring billing</h3><p className="body">Automated billing cycles, proration, failed-payment retries, and dunning — all built in.</p></div>
+            <div className="card"><div className="card-num">02</div><h3 className="h3">Recurring billing</h3><p className="body">Automated billing cycles, proration, failed-payment retries, and automatic late-payment recovery — all built in.</p></div>
             <div className="card"><div className="card-num">03</div><h3 className="h3">Renewals &amp; retention</h3><p className="body">Automated renewal sequences and membership pause, cancel, and reactivation workflows.</p></div>
             <div className="card"><div className="card-num">04</div><h3 className="h3">Classes &amp; sessions</h3><p className="body">Schedule classes, manage capacity, and let members book — all from one admin screen.</p></div>
             <div className="card"><div className="card-num">05</div><h3 className="h3">Member portal</h3><p className="body">Self-service portal. Members join, update payment, pause, or cancel without contacting staff.</p></div>
@@ -194,7 +194,7 @@ export default function MembershipContent() {
                   credibility asset (and SEO signal) without making the product
                   itself a Salesforce-native one. */}
               <h2 className="h1 mt-3">Built by a <em>Florida-based team.</em></h2>
-              <p className="body mt-4">We built Membership Management because we were tired of watching YMCAs, studios, and associations pay for three tools to do the job of one. Our Orlando-based development team engineered it on the AI Forge Framework — backed by Ardn&apos;s 30+ years of Salesforce expertise and managed-services experience, so the integrations into your CRM, billing, and BI stack are battle-tested from day one.</p>
+              <p className="body mt-4">We built Membership Management because we were tired of watching YMCAs, studios, and associations pay for three tools to do the job of one. Our Orlando-based development team engineered it on the AI Forge Framework — backed by Ardn&apos;s 30+ years of Salesforce expertise and managed-services experience, so the integrations into your CRM, billing, and reporting tools are battle-tested from day one.</p>
             </div>
             <div>
               <ul className="fl">
@@ -267,7 +267,7 @@ export default function MembershipContent() {
                 CRM-agnostic platform. */}
             <details className="faq-item" open>
               <summary>Does it integrate with Salesforce and other CRMs?</summary>
-              <div className="answer">Yes. Membership Management runs standalone, and it integrates cleanly with Salesforce, HubSpot, Microsoft Dynamics, your accounting and marketing-automation tools, and your BI stack. Ardn has 30+ years of Salesforce expertise, so the Salesforce integration in particular is deep and well-tested — you keep your existing CRM as the system of record if you want to.</div>
+              <div className="answer">Yes. Membership Management runs standalone, and it integrates cleanly with Salesforce, HubSpot, Microsoft Dynamics, your accounting and marketing tools, and your reporting tools. Ardn has 30+ years of Salesforce expertise, so the Salesforce integration in particular is deep and well-tested — you keep your existing CRM as your main system if you want to.</div>
             </details>
             <details className="faq-item">
               <summary>Can it replace our current membership software?</summary>
@@ -275,7 +275,7 @@ export default function MembershipContent() {
             </details>
             <details className="faq-item">
               <summary>What payment methods are supported?</summary>
-              <div className="answer">Cards, ACH, Apple Pay, Google Pay, and Venmo. Bring your own processor or use ours. Recurring billing and dunning are built in.</div>
+              <div className="answer">Cards, ACH, Apple Pay, Google Pay, and Venmo. Bring your own processor or use ours. Recurring billing and automatic late-payment recovery are built in.</div>
             </details>
             <details className="faq-item">
               <summary>Can members manage their own accounts?</summary>

@@ -25,7 +25,7 @@ const tiers: Tier[] = [
     title: "Launch",
     for: "For small businesses validating their first AI workflow. 1–25 employees.",
     build: "$7,500",
-    monthly: "$1,500",
+    monthly: "$3,000",
     aiCredits: "500K",
     aiLabel: "tokens / month",
     svcCredits: "10",

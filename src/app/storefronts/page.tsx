@@ -7,9 +7,9 @@ import StorefrontsContent from "./StorefrontsContent";
 // B2B commerce", "Salesforce-native storefront" search to find this page.
 export const metadata: Metadata = {
   title:
-    "Storefronts — Salesforce-Native Ecommerce Platform | Ardn Cloud Solutions",
+    "Storefronts — Salesforce-Native Ecommerce | Ardn",
   description:
-    "Storefronts by Ardn is a Salesforce-native ecommerce platform for B2B and B2C. Catalog, inventory, checkout, orders, memberships, events, and appointments — all inside your Salesforce org. No middleware, no syncing, no per-user fees. Built by our Orlando-based team.",
+    "Salesforce-native ecommerce for B2B & B2C — catalog, checkout, orders, memberships, events, all inside your Salesforce org. No middleware, no per-user fees.",
   keywords: [
     "Salesforce ecommerce",
     "Salesforce-native ecommerce platform",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Storefronts — Salesforce-Native Ecommerce Platform | Ardn Cloud Solutions",
+      "Storefronts — Salesforce-Native Ecommerce | Ardn",
     description:
       "Run your store inside Salesforce. Catalog, inventory, checkout, orders, memberships, events, and appointments — all native, no middleware. Built by an Orlando-based team.",
     url: "https://ardncloudsolutions.com/storefronts",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Storefronts — Salesforce-Native Ecommerce Platform | Ardn Cloud Solutions",
+      "Storefronts — Salesforce-Native Ecommerce | Ardn",
     description:
       "Run your store inside Salesforce. Catalog, inventory, checkout, orders — all native, no middleware. Orlando-based team.",
     site: "@ardn_cloud_sol",

@@ -6,9 +6,9 @@ import OurProductsContent from "./OurProductsContent";
 // product lines under one roof. Metadata covers both intent buckets.
 export const metadata: Metadata = {
   title:
-    "Ardn Product Suite — Custom AI Apps & Salesforce-Native Cloud Products | Ardn Cloud Solutions",
+    "Custom AI Apps & Salesforce Cloud Products | Ardn",
   description:
-    "Six focused products from our Orlando-based team. AI Forge (custom AI development), Membership Management (AI-built platform for YMCAs and gyms), Storefronts, License Guard, Salesforce Payments, and ReplyCX — Salesforce-native where it counts, AI-built where it matters.",
+    "Six focused products: AI Forge custom AI development, Membership Management, Storefronts, License Guard, Salesforce Payments, and ReplyCX — built and run for you.",
   keywords: [
     "Ardn product suite",
     "Salesforce-native products",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Ardn Product Suite — Custom AI Apps & Salesforce-Native Cloud Products | Ardn Cloud Solutions",
+      "Custom AI Apps & Salesforce Cloud Products | Ardn",
     description:
       "Six focused products. AI Forge (custom AI development) + Membership Management + Storefronts + License Guard + Salesforce Payments + ReplyCX. Florida-based team, 30+ years Salesforce expertise.",
     url: "https://ardncloudsolutions.com/our-products",
@@ -95,7 +95,7 @@ export default function OurProductsPage() {
         //      were SoftwareApplication + missing offers / ratings).
         //   2) Most of the suite is delivered as managed engagements, not
         //      self-serve software downloads — Service is semantically right.
-        // AI Forge keeps a real starting price ($1,500/mo Launch tier);
+        // AI Forge keeps a real starting price ($3,000/mo Launch tier);
         // License Guard keeps a free Offer (it's free on AppExchange).
         // The other 4 use availability-only Offers — no fabricated prices.
         itemListElement: [
@@ -117,11 +117,11 @@ export default function OurProductsPage() {
               offers: {
                 "@type": "Offer",
                 priceCurrency: "USD",
-                price: "1500",
+                price: "3000",
                 priceSpecification: {
                   "@type": "UnitPriceSpecification",
                   priceCurrency: "USD",
-                  price: "1500",
+                  price: "3000",
                   unitText: "month",
                 },
                 availability: "https://schema.org/InStock",

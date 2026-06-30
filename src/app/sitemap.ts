@@ -218,6 +218,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.7,
     },
     {
+        url: `${BASE_URL}/buyers-guide/ai-app-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
+        url: `${BASE_URL}/buyers-guide/salesforce-workflow-automation-tools`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
         url: `${BASE_URL}/privacy-policy`,
         lastModified: new Date(),
         changeFrequency: "yearly",

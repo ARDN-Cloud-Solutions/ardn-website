@@ -93,13 +93,12 @@ export default function ContactPageContent() {
     if (!emailRegex.test(formData.email)) {
       next.email = "Please enter a valid email";
     }
+    // Phone is optional — only validate the format if one was entered.
     const digits = formData.phone.replace(/\D/g, "");
-    if (digits.length < 10) {
+    if (digits.length > 0 && digits.length < 10) {
       next.phone = "Please enter a valid phone number";
     }
-    if (!formData.company.trim()) {
-      next.company = "Please enter your company name";
-    }
+    // Company is optional — no required check.
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -160,6 +159,16 @@ export default function ContactPageContent() {
             fastest path to fix it — standalone, alongside Salesforce, or
             wherever your business runs.
           </p>
+          <p className={styles.subhead} style={{ marginTop: 10 }}>
+            Prefer to talk now? Call{" "}
+            <a
+              href="tel:+14078155303"
+              style={{ color: "#4840E0", fontWeight: 700, whiteSpace: "nowrap" }}
+            >
+              (407) 815-5303
+            </a>{" "}
+            — a real person in Orlando answers.
+          </p>
 
           <ul className={styles.benefits}>
             <li>
@@ -167,8 +176,8 @@ export default function ContactPageContent() {
                 <Check size={11} strokeWidth={3} />
               </span>
               <span>
-                <strong>30 minutes.</strong> No SOW, no slides — a working
-                answer.
+                <strong>30 minutes.</strong> No paperwork, no slides — a
+                working answer.
               </span>
             </li>
             <li>
@@ -176,7 +185,7 @@ export default function ContactPageContent() {
                 <Check size={11} strokeWidth={3} />
               </span>
               <span>
-                <strong>Talk to a co-founder</strong>, not an SDR.
+                <strong>Talk to a co-founder</strong>, not a sales rep.
               </span>
             </li>
             <li>
@@ -260,7 +269,7 @@ export default function ContactPageContent() {
 
               <div className={styles.row2}>
                 <div className={styles.field}>
-                  <label htmlFor="phone">Phone</label>
+                  <label htmlFor="phone">Phone (optional)</label>
                   <input
                     id="phone"
                     name="phone"
@@ -278,7 +287,7 @@ export default function ContactPageContent() {
                 </div>
 
                 <div className={styles.field}>
-                  <label htmlFor="company">Company</label>
+                  <label htmlFor="company">Company (optional)</label>
                   <input
                     id="company"
                     name="company"

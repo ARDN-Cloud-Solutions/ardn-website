@@ -139,7 +139,7 @@ export default function MembershipManagementPage() {
             name: "Does it integrate with Salesforce and other CRMs?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. Membership Management runs standalone, and it integrates cleanly with Salesforce, HubSpot, Microsoft Dynamics, your accounting and marketing-automation tools, and your BI stack. Ardn has 30+ years of Salesforce expertise, so the Salesforce integration in particular is deep and well-tested — you keep your existing CRM as the system of record if you want to.",
+              text: "Yes. Membership Management runs standalone, and it integrates cleanly with Salesforce, HubSpot, Microsoft Dynamics, your accounting and marketing tools, and your reporting tools. Ardn has 30+ years of Salesforce expertise, so the Salesforce integration in particular is deep and well-tested — you keep your existing CRM as your main system if you want to.",
             },
           },
           {
@@ -155,7 +155,7 @@ export default function MembershipManagementPage() {
             name: "What payment methods are supported?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Cards, ACH, Apple Pay, Google Pay, and Venmo. Bring your own processor or use ours. Recurring billing and dunning are built in.",
+              text: "Cards, ACH, Apple Pay, Google Pay, and Venmo. Bring your own processor or use ours. Recurring billing and automatic late-payment recovery are built in.",
             },
           },
           {

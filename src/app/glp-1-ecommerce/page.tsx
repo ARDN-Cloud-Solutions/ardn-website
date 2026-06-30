@@ -8,9 +8,9 @@ import LeadForm from "@/components/common/LeadForm";
 // niche. Compliance-aware framing. No client names / metrics (no proof cleared).
 export const metadata: Metadata = {
   title:
-    "GLP-1 & Telehealth Ecommerce Development | Launch Your Store | Ardn",
+    "GLP-1 & Telehealth Ecommerce Development | Ardn",
   description:
-    "We build custom GLP-1 and telehealth ecommerce platforms — intake, subscriptions, recurring refills, and pharmacy/provider integrations — designed for compliance and built to convert. Live in weeks, run for you, one flat monthly fee. New customers: we build it free.",
+    "Custom GLP-1 & telehealth ecommerce — patient intake, provider workflow, subscriptions & refills as one compliance-ready platform. New customers: free build.",
   keywords: [
     "GLP-1 ecommerce",
     "telehealth ecommerce platform",

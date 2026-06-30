@@ -83,7 +83,7 @@ export default function OurProductsContent() {
             <article className="product-card" style={{ "--accent": "#7C3AED" } as React.CSSProperties}>
               <div className="product-eyebrow">AI Forge · Custom development</div>
               <h3 className="h2">Custom AI apps, shipped in weeks.</h3>
-              <p className="body">Design, build, deploy, and operate a custom AI application under one monthly subscription. Three tiers — Launch ($1,500/mo), Scale ($4,500/mo), and Enterprise (from $12K/mo). Production in 2–6 weeks.</p>
+              <p className="body">Design, build, deploy, and operate a custom AI application under one monthly subscription. Three tiers — Launch ($3,000/mo), Scale ($4,500/mo), and Enterprise (from $12K/mo). Production in 2–6 weeks.</p>
               <Link href="/ai-forge" className="btn btn-primary btn-arrow mt-auto">Explore AI Forge</Link>
             </article>
             <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>

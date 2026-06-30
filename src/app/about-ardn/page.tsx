@@ -112,7 +112,7 @@ export default function AboutArdnPage() {
             name: "Do you take small clients or only enterprise?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Both. Our AI Forge Launch tier starts at $1,500/month for small businesses, and our Enterprise tier supports Fortune 500 customers with dedicated infrastructure. Same Florida-based team, scaled to fit.",
+              text: "Both. Our AI Forge Launch tier starts at $3,000/month for small businesses, and our Enterprise tier supports Fortune 500 customers with dedicated infrastructure. Same Florida-based team, scaled to fit.",
             },
           },
         ],

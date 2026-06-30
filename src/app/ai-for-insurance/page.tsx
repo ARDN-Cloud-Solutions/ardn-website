@@ -8,9 +8,9 @@ import LeadForm from "@/components/common/LeadForm";
 // underwriting/claims). Non-geo; single conversion path (Calendly).
 export const metadata: Metadata = {
   title:
-    "AI for Insurance | Custom Claims & Underwriting Automation — Ardn AI Forge",
+    "AI for Insurance — Claims & Underwriting Automation | Ardn",
   description:
-    "Custom AI applications for insurance carriers and agencies — automate claims triage, underwriting support, and policy document processing. Built and run by Ardn in 2–6 weeks under one monthly fee. New customers: free build.",
+    "Custom AI for insurance carriers — automate claims triage, underwriting support & document processing. Built and run in 2–6 weeks. New customers: free build.",
   keywords: [
     "AI for insurance",
     "insurance claims automation AI",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "AI for Insurance | Custom Claims & Underwriting Automation — Ardn AI Forge",
+      "AI for Insurance — Claims & Underwriting Automation | Ardn",
     description:
       "Custom AI for carriers — claims triage, underwriting support, document processing. Built and run in 2–6 weeks under one monthly fee. New customers: free build.",
     url: "https://ardncloudsolutions.com/ai-for-insurance",
