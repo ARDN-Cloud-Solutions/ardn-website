@@ -9,7 +9,7 @@ import LeadForm from "@/components/common/LeadForm";
 // Non-geo; single conversion path (Calendly).
 export const metadata: Metadata = {
   title:
-    "AI for Membership Organizations | Onboarding & Retention — Ardn AI Forge",
+    "AI for Membership Organizations | Ardn",
   description:
     "Custom AI applications for YMCAs, gyms, studios, clubs, and associations — automate member onboarding, renewals, support, and retention. Built and run by Ardn in 2–6 weeks under one monthly fee. New customers: free build.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "AI for Membership Organizations | Onboarding & Retention — Ardn AI Forge",
+      "AI for Membership Organizations | Ardn",
     description:
       "Custom AI for YMCAs, gyms, studios, clubs, and associations — onboarding, renewals, support, retention. Built and run in 2–6 weeks. New customers: free build.",
     url: "https://ardncloudsolutions.com/ai-for-membership-organizations",

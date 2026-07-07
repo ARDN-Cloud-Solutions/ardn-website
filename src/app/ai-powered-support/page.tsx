@@ -8,7 +8,7 @@ import AiPoweredSupportContent from "./AiPoweredContent";
 // buyer searches that drive the existing managed-services traffic.
 export const metadata: Metadata = {
   title:
-    "ReplyCX — AI-Powered Customer Support for Salesforce & Beyond | Ardn Cloud Solutions",
+    "ReplyCX — AI Customer Support for Salesforce | Ardn",
   description:
     "ReplyCX by Ardn is AI-built customer support that automates around 70% of routine queries across WhatsApp, email, chat, and social. No-code agent builder on your knowledge base, Salesforce-native CRM sync, and one omnichannel inbox. Built by our Orlando-based team.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "ReplyCX — AI-Powered Customer Support for Salesforce & Beyond | Ardn Cloud Solutions",
+      "ReplyCX — AI Customer Support for Salesforce | Ardn",
     description:
       "AI-built customer support. Automates ~70% of routine queries across WhatsApp, email, chat, and social. No-code agent builder, Salesforce-native CRM sync, omnichannel inbox.",
     url: "https://ardncloudsolutions.com/ai-powered-support",
@@ -101,7 +101,7 @@ export default function AiPoweredSupportPage() {
         "@type": "WebPage",
         "@id": url,
         url,
-        name: "ReplyCX — AI-Powered Customer Support for Salesforce & Beyond | Ardn Cloud Solutions",
+        name: "ReplyCX — AI Customer Support for Salesforce | Ardn",
         description:
           "AI-built customer support that automates around 70% of routine queries across WhatsApp, email, chat, and social. Salesforce-native CRM sync.",
         breadcrumb: { "@id": `${url}#breadcrumb` },

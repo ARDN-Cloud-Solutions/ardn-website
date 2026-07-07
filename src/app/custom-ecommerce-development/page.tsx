@@ -9,7 +9,7 @@ import LeadForm from "@/components/common/LeadForm";
 // Salesforce-native). No client names / metrics (no proof cleared yet).
 export const metadata: Metadata = {
   title:
-    "Custom Ecommerce Development | Online Stores Built & Run for You | Ardn",
+    "Custom Ecommerce Development — Built & Run for You | Ardn",
   description:
     "We design, build, and run custom ecommerce stores — merch shops, subscriptions, memberships, and complex catalogs — that fit your exact business. Live in weeks, one flat monthly fee. New customers: we build it free.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Custom Ecommerce Development | Online Stores Built & Run for You | Ardn",
+      "Custom Ecommerce Development — Built & Run for You | Ardn",
     description:
       "Custom ecommerce stores — merch, subscriptions, memberships, complex catalogs — built to fit your business and run for you. New customers: free build.",
     url: "https://ardncloudsolutions.com/custom-ecommerce-development",

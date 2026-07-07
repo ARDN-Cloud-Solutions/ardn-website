@@ -10,7 +10,7 @@ import LeadForm from "@/components/common/LeadForm";
 // No client names / specific numbers (no proof cleared yet) — value-prop framing.
 export const metadata: Metadata = {
   title:
-    "Custom Portal Development | Cut CRM Costs, Keep Your Tech | Ardn",
+    "Custom Portal Development — Cut CRM Costs | Ardn",
   description:
     "We build custom seller, operations, partner, and customer portals that integrate with your existing CRM — moving light users off expensive per-seat licenses onto a flat-fee portal. Cut costs without switching platforms. New customers: we build it free.",
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Portal Development | Cut CRM Costs, Keep Your Tech | Ardn",
+    title: "Custom Portal Development — Cut CRM Costs | Ardn",
     description:
       "Custom portals that integrate with your CRM and move light users off per-seat licenses onto a flat fee. Cut costs without switching. New customers: free build.",
     url: "https://ardncloudsolutions.com/custom-portal-development",

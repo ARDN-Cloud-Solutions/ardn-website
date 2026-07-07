@@ -10,7 +10,7 @@ import LeadForm from "@/components/common/LeadForm";
 // canonical top-of-funnel destination for AI Forge organic traffic.
 export const metadata: Metadata = {
   title:
-    "Custom AI App Development Company | Built & Run for You — Ardn AI Forge",
+    "Custom AI App Development Company | Ardn",
   description:
     "Ardn is a custom AI app development company that designs, builds, deploys, and operates production-ready AI applications in 2–6 weeks — under one flat monthly fee. New customers: we build your app free. Serving companies across the US.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Custom AI App Development Company | Built & Run for You — Ardn AI Forge",
+      "Custom AI App Development Company | Ardn",
     description:
       "We design, build, deploy, and operate custom AI applications in 2–6 weeks under one flat monthly fee. New customers: free custom AI build. Serving the US.",
     url: "https://ardncloudsolutions.com/ai-app-development",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Custom AI App Development Company | Built & Run for You — Ardn AI Forge",
+      "Custom AI App Development Company | Ardn",
     description:
       "Production-ready custom AI apps in 2–6 weeks under one monthly fee. New customers: free custom AI build.",
     site: "@ardn_cloud_sol",

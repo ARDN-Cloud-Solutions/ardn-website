@@ -8,7 +8,7 @@ import LeadForm from "@/components/common/LeadForm";
 // service). Non-geo; single conversion path (Calendly).
 export const metadata: Metadata = {
   title:
-    "AI for Hospitality | Guest Service & Booking Automation — Ardn AI Forge",
+    "AI for Hospitality — Guest Service Automation | Ardn",
   description:
     "Custom AI applications for hotels, resorts, and hospitality groups — automate guest inquiries, bookings, and service requests while keeping the experience personal. Built and run by Ardn in 2–6 weeks under one monthly fee. New customers: free build.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "AI for Hospitality | Guest Service & Booking Automation — Ardn AI Forge",
+      "AI for Hospitality — Guest Service Automation | Ardn",
     description:
       "Custom AI for hotels and resorts — guest inquiries, bookings, service requests. Built and run in 2–6 weeks under one monthly fee. New customers: free build.",
     url: "https://ardncloudsolutions.com/ai-for-hospitality",

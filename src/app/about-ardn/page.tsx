@@ -8,7 +8,7 @@ import AboutContent from "./AboutContent";
 // "Salesforce consulting Florida" AND "AI development Orlando" searches.
 export const metadata: Metadata = {
   title:
-    "About Ardn — Orlando-Based Custom AI & Salesforce Experts | Ardn Cloud Solutions",
+    "About Ardn — Custom AI & Salesforce Experts",
   description:
     "Ardn Cloud Solutions is an Orlando, FL custom software and AI development team with 30+ years of Salesforce consulting expertise. We build AI-powered products with the AI Forge Framework and deliver Salesforce-native cloud products, integrations, and managed services.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "About Ardn — Orlando-Based Custom AI & Salesforce Experts | Ardn Cloud Solutions",
+      "About Ardn — Custom AI & Salesforce Experts",
     description:
       "Orlando, FL custom AI and software development with 30+ years of Salesforce expertise. AI Forge Framework + Salesforce-native products + consulting under one roof.",
     url: "https://ardncloudsolutions.com/about-ardn",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "About Ardn — Orlando-Based Custom AI & Salesforce Experts | Ardn Cloud Solutions",
+      "About Ardn — Custom AI & Salesforce Experts",
     description:
       "Orlando, FL custom AI and software development with 30+ years of Salesforce expertise. AI Forge Framework + Salesforce-native products + consulting.",
     site: "@ardn_cloud_sol",

@@ -9,7 +9,7 @@ import MembershipContent from "./MembershipContent";
 // and was silently breaking Google's canonical signal.
 export const metadata: Metadata = {
   title:
-    "Membership Management Platform for Gyms, YMCAs & Clubs | Ardn Cloud Solutions",
+    "Membership Management Platform for Gyms & Clubs | Ardn",
   description:
     "A flexible, AI-built membership management platform for YMCAs, gyms, studios, and clubs. Sign-ups, recurring billing, class scheduling, and a member portal — runs standalone or alongside your existing tools. Built by our Orlando-based team.",
   // SEO hybrid: lead with the product-true intents (membership platform,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Membership Management Platform for Gyms, YMCAs & Clubs | Ardn Cloud Solutions",
+      "Membership Management Platform for Gyms & Clubs | Ardn",
     description:
       "Flexible, AI-built membership platform. Run sign-ups, dues, classes, attendance, and retention from one system — standalone or alongside your existing stack.",
     url: "https://ardncloudsolutions.com/membership-management",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Membership Management Platform for Gyms, YMCAs & Clubs | Ardn Cloud Solutions",
+      "Membership Management Platform for Gyms & Clubs | Ardn",
     description:
       "Flexible, AI-built membership platform. Run sign-ups, dues, classes, attendance, and retention from one system.",
     site: "@ardn_cloud_sol",
@@ -112,7 +112,7 @@ export default function MembershipManagementPage() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/membership-management",
         url: "https://ardncloudsolutions.com/membership-management",
-        name: "Membership Management Platform for Gyms, YMCAs & Clubs | Ardn Cloud Solutions",
+        name: "Membership Management Platform for Gyms & Clubs | Ardn",
         description:
           "Flexible, AI-built membership platform. Run sign-ups, dues, classes, attendance, and retention from one system — standalone or alongside your existing stack.",
         breadcrumb: {

@@ -7,7 +7,7 @@ import SalesforcePaymentContent from "./SalesforcePaymentContent";
 // emphasises the Salesforce-native, no-middleware, quote-to-cash positioning.
 export const metadata: Metadata = {
   title:
-    "Salesforce Payments — Native Quote-to-Cash & PCI-Compliant Checkout | Ardn Cloud Solutions",
+    "Salesforce Payments — Native Quote-to-Cash | Ardn",
   description:
     "Salesforce Payments by Ardn is a Salesforce-native payment platform. Cards, ACH, Apple Pay, Google Pay, and Venmo — collected inside your Salesforce org with branded checkout, real-time status, automated reconciliation, and PCI compliance built in. No middleware. Built by our Orlando-based team.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Salesforce Payments — Native Quote-to-Cash & PCI-Compliant Checkout | Ardn Cloud Solutions",
+      "Salesforce Payments — Native Quote-to-Cash | Ardn",
     description:
       "Salesforce-native payment platform. Cards, ACH, Apple Pay, Google Pay, Venmo — collected inside your Salesforce org with branded checkout, real-time status, and automated reconciliation.",
     url: "https://ardncloudsolutions.com/salesforce-payments",
@@ -98,7 +98,7 @@ export default function SalesforcePaymentsPage() {
         "@type": "WebPage",
         "@id": url,
         url,
-        name: "Salesforce Payments — Native Quote-to-Cash & PCI-Compliant Checkout | Ardn Cloud Solutions",
+        name: "Salesforce Payments — Native Quote-to-Cash | Ardn",
         description:
           "Salesforce-native payments. Cards, ACH, Apple Pay, Google Pay, Venmo — collected inside your Salesforce org. PCI compliant.",
         breadcrumb: { "@id": `${url}#breadcrumb` },
