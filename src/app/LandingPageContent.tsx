@@ -272,6 +272,7 @@ export default function LandingPageContent() {
                 <Link href="/ai-for-membership-organizations" style={{ color: "var(--indigo)", fontWeight: 600 }}>membership organizations</Link>.
               </p>
               <p className="body mt-3">Solutions we build:{" "}
+                <Link href="/custom-software-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom software &amp; platforms</Link>,{" "}
                 <Link href="/custom-portal-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom portals that cut CRM costs</Link>,{" "}
                 <Link href="/custom-ecommerce-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom ecommerce</Link>,{" "}
                 <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth stores</Link>, and{" "}

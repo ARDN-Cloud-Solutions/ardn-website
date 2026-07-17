@@ -104,6 +104,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Broad-money-keyword HUB (custom software / platform development).
+        // Top of the solution cluster; highest priority among the new pages.
+        url: `${BASE_URL}/custom-software-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // National hub for the core "custom AI app development company" keyword
         // family — top-of-funnel destination for AI Forge organic traffic.
         url: `${BASE_URL}/ai-app-development`,

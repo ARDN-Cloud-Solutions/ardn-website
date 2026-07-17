@@ -27,6 +27,7 @@ const ourProducts = [
 // gives every page on the site an internal link to each — accelerating
 // discovery/indexing and passing link equity from established pages.
 const solutions = [
+  { label: "Custom Software Development", href: "/custom-software-development" },
   { label: "Custom AI App Development", href: "/ai-app-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
