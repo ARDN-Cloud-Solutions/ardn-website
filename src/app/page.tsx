@@ -3,12 +3,13 @@ import LandingPageContent from "./LandingPageContent";
 import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
-  // Title trimmed to ≤60 chars and description to ≤160 so neither is
-  // truncated in Google's results. Keyword "Custom AI App Development"
-  // stays at the front (most weight).
-  title: "Custom AI App Development — Built & Run for You | ARDN",
+  // Keyword focus (2026): lead with the money-buyer terms — custom
+  // software / platforms / portals — NOT generic "AI app development"
+  // (which draws free-seeker traffic that never converts). AI stays a
+  // capability, surfaced on /ai-forge, not the homepage's primary term.
+  title: "Custom Software & Platforms, Built & Run for You | ARDN",
   description:
-    "We design, build, and run custom AI applications for businesses across the US — live in 2–6 weeks for one flat monthly fee. New customers: free build.",
+    "We design, build, and run custom software, portals, and platforms that replace or connect the tools you already use — live in weeks, one flat monthly fee.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ARDN Cloud Solutions — Custom AI Apps, Built & Run for You",
-    description: "Custom AI apps designed, built, and run for you — production-ready in 2–6 weeks under one flat monthly fee. New customers: we build your app free.",
+    title: "ARDN — Custom Software & Platforms, Built & Run for You",
+    description: "Custom software, portals, and platforms built and run for you — live in weeks under one flat monthly fee. New customers build free.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -42,8 +43,8 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Custom AI App Development — Built & Run for You | ARDN Cloud Solutions",
-        "description": "We design, build, and run custom AI applications for businesses across the US — live in 2–6 weeks for one flat monthly fee. New customers: free build.",
+        "name": "Custom Software & Platforms — Built & Run for You | ARDN Cloud Solutions",
+        "description": "We design, build, and run custom software, portals, and platforms that replace or connect the tools you already use — live in weeks, one flat monthly fee.",
         "inLanguage": "en-US"
       },
       {
@@ -51,7 +52,7 @@ export default async function Page() {
         "@id": "https://ardncloudsolutions.com/#website",
         "url": "https://ardncloudsolutions.com/",
         "name": "Ardn Cloud Solutions",
-        "description": "Power Up Salesforce with Next-Level Products",
+        "description": "Custom software, platforms, and portals — built and run for you.",
         "publisher": { "@id": "https://ardncloudsolutions.com/#organization" },
         "inLanguage": "en-US"
       },
