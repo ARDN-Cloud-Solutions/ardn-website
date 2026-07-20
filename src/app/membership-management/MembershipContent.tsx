@@ -308,6 +308,10 @@ export default function MembershipContent() {
               <a href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Request a demo</a>
               <Link href="/our-products" className="btn btn-outline-light btn-lg">See the full suite</Link>
             </div>
+            <p style={{ marginTop: "20px" }}>
+              Running a fraternity, chapter, or dues-based org instead? See{" "}
+              <Link href="/chapter-management-software" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Chapter &amp; Dues Management →</Link>
+            </p>
           </div>
         </div>
       </section>

@@ -64,7 +64,13 @@ export const metadata: Metadata = {
 const CALENDLY =
   "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai";
 
-const FAQS = [
+interface Faq {
+  q: string;
+  a: string;
+  link?: { href: string; label: string };
+}
+
+const FAQS: Faq[] = [
   {
     q: "What kind of custom software do you build?",
     a: "Custom web applications and internal platforms, client and customer portals, systems that connect the tools you already run, workflow and process automation, and custom commerce or membership systems. If it runs your business and off-the-shelf software doesn't quite fit, we can build it — and run it for you.",
@@ -72,6 +78,7 @@ const FAQS = [
   {
     q: "How is custom software different from off-the-shelf tools?",
     a: "Off-the-shelf tools make you bend your process to fit them, charge per user as you grow, and leave gaps you patch with more tools. Custom software is shaped to exactly how you work, you own it, and it does the job of several tools at once — usually for a flat fee that beats stacking subscriptions.",
+    link: { href: "/compare/custom-software-vs-saas", label: "See the full cost comparison →" },
   },
   {
     q: "How long does it take to build?",
@@ -325,6 +332,16 @@ export default function CustomSoftwareDevelopmentPage() {
                 <p className="body">Vertical builds for insurance, hospitality &amp; membership organizations.</p>
                 <span className="link">Explore AI for insurance →</span>
               </Link>
+              <Link href="/ai-app-development" className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">Custom AI App Development</h3>
+                <p className="body">A standalone AI app or workflow, built and run for you when AI is the core of the build.</p>
+                <span className="link">Explore AI app development →</span>
+              </Link>
+              <Link href="/glp-1-ecommerce" className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">GLP-1 &amp; Telehealth Ecommerce</h3>
+                <p className="body">Custom storefronts and fulfillment for GLP-1 and telehealth brands.</p>
+                <span className="link">Explore GLP-1 ecommerce →</span>
+              </Link>
             </div>
           </div>
         </section>
@@ -346,6 +363,11 @@ export default function CustomSoftwareDevelopmentPage() {
                 <details key={faq.q} className="card" style={{ padding: "22px 26px" }}>
                   <summary style={{ cursor: "pointer", fontWeight: 700, fontSize: "18px", color: "#14142B" }}>{faq.q}</summary>
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
+                  {faq.link && (
+                    <Link href={faq.link.href} className="link" style={{ display: "inline-block", marginTop: "10px" }}>
+                      {faq.link.label}
+                    </Link>
+                  )}
                 </details>
               ))}
             </div>

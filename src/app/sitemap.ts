@@ -249,6 +249,20 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "daily",
         priority: 0.9,
     },
+    {
+        url: `${BASE_URL}/compare/salesforce-commerce-cloud-alternatives`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
+        // New comparison/content-gap page: custom software vs. SaaS total
+        // cost of ownership. Feeds the hub cluster's cost-objection FAQ.
+        url: `${BASE_URL}/compare/custom-software-vs-saas`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

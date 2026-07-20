@@ -41,7 +41,7 @@ export default function AiAppDevelopmentContent() {
         <div className="aad-container">
           <Link href="/">Home</Link>
           <span className="aad-sep">›</span>
-          <Link href="/buyers-guide">Buyer&apos;s Guides</Link>
+          <span>Buyer&apos;s Guides</span>
           <span className="aad-sep">›</span>
           <span>AI App Development for Business</span>
         </div>

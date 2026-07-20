@@ -505,9 +505,9 @@ export default function AiForgeContent() {
           </p>
           <div className="af-testimonial-box">
             <div className="af-testimonial-stat">
-              <div className="af-testimonial-num">100%</div>
+              <div className="af-testimonial-num">30+</div>
               <div className="af-testimonial-stat-label">
-                Happy customers — and committed to keeping it that way
+                Years designing, building &amp; deploying production technology
               </div>
             </div>
             <div>
@@ -787,6 +787,11 @@ export default function AiForgeContent() {
               Claim Your Spot — Book a Free Call
             </Link>
           </div>
+          <p style={{ marginTop: "20px" }}>
+            <Link href="/ai-app-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See custom AI app development →</Link>
+            {" · "}
+            <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Back to custom software &amp; platforms →</Link>
+          </p>
         </div>
       </section>
 

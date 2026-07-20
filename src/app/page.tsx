@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   // software / platforms / portals — NOT generic "AI app development"
   // (which draws free-seeker traffic that never converts). AI stays a
   // capability, surfaced on /ai-forge, not the homepage's primary term.
-  title: "Custom Software & Platforms, Built & Run for You | ARDN",
+  title: "Ardn Cloud Solutions — Custom Tech, Built & Run for You",
   description:
-    "We design, build, and run custom software, portals, and platforms that replace or connect the tools you already use — live in weeks, one flat monthly fee.",
+    "Custom software, portals, ecommerce & AI apps — designed, built, and run for you under one flat monthly fee. Live in weeks, not months.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ARDN — Custom Software & Platforms, Built & Run for You",
-    description: "Custom software, portals, and platforms built and run for you — live in weeks under one flat monthly fee. New customers build free.",
+    title: "Ardn Cloud Solutions — Custom Tech, Built & Run for You",
+    description: "Custom software, portals, ecommerce & AI apps built and run for you — live in weeks under one flat monthly fee. New customers build free.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [

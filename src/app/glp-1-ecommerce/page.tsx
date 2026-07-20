@@ -316,6 +316,9 @@ export default function Glp1EcommercePage() {
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
               </div>
+              <p style={{ marginTop: "20px" }}>
+                <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
+              </p>
             </div>
           </div>
         </section>

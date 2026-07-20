@@ -24,20 +24,6 @@ const TESTIMONIALS = [
     name: "Jay Vashi",
     title: "Salesforce Delivery Manager, Fortune 500 Insurance",
   },
-  {
-    quote:
-      "A game-changer for our sales team. They're more than a vendor — they're a trusted partner.",
-    initials: "CL",
-    name: "Client Lead",
-    title: "Sales Operations",
-  },
-  {
-    quote:
-      "Seamless experience. Innovative approach and keen understanding of our needs — directly enhanced our business outcomes.",
-    initials: "PM",
-    name: "Partner Manager",
-    title: "Operations",
-  },
 ];
 
 const PARTNERS = [

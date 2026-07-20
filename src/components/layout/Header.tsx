@@ -364,18 +364,31 @@ export default function Header() {
           </div>
 
           {/* Other links */}
-          {[...navLinks, { label: "Contact Us", href: "/contact-us" }].map(
-            (link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setDrawerOpen(false)}
-                className="flex items-center px-2 py-4 text-sm font-semibold font-poppins text-heading-dark hover:text-primary transition-colors border-b border-slate-100"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              onClick={() => setDrawerOpen(false)}
+              className="flex items-center px-2 py-4 text-sm font-semibold font-poppins text-heading-dark hover:text-primary transition-colors border-b border-slate-100"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Primary CTA — mirrors the desktop header button so the drawer
+              always has a clear next step, not just a plain "Contact Us" link.
+              (Button forwards only `href`+`className` for link mode, so an
+              onClick to close the drawer needs a plain Link here instead.) */}
+          <div className="pt-5 pb-2">
+            <Link
+              href="/contact-us"
+              onClick={() => setDrawerOpen(false)}
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 text-base font-medium border-2 rounded-full bg-btn-primary text-white border-btn-primary hover:bg-btn-primary-hover hover:border-btn-primary-hover transition-all duration-200"
+            >
+              Book a Free Call
+              <ArrowRight size={20} />
+            </Link>
+          </div>
         </nav>
       </div>
 

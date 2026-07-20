@@ -548,6 +548,9 @@ export default function SavingsCalculatorContent() {
           <p className="sc-cta-note">
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
           </p>
+          <p className="sc-cta-note" style={{ marginTop: "10px" }}>
+            <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
+          </p>
         </div>
       </section>
 
