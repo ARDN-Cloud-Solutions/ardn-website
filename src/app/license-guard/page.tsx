@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "License Guard — Free Salesforce License Audit | Ardn",
   description:
-    "License Guard by Ardn is a free Salesforce-native AppExchange tool that detects inactive seats, warns users, and deactivates per your policy. Reclaim unused Salesforce licenses and cut renewal costs by 15–30%. Built by our Orlando-based team.",
+    "Free Salesforce-native AppExchange tool that finds inactive seats, warns users & deactivates per policy. Reclaim unused licenses and cut renewal costs.",
   keywords: [
     "Salesforce license audit",
     "Salesforce license optimization",

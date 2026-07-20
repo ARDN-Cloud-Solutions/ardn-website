@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "About Ardn — Custom AI & Salesforce Experts",
   description:
-    "Ardn Cloud Solutions is an Orlando, FL custom software and AI development team with 30+ years of Salesforce consulting expertise. We build AI-powered products with the AI Forge Framework and deliver Salesforce-native cloud products, integrations, and managed services.",
+    "Ardn Cloud Solutions is an Orlando, FL custom software & AI development team with 30+ years of Salesforce consulting expertise and managed services.",
   keywords: [
     "Ardn Cloud Solutions",
     "Salesforce consultant Florida",

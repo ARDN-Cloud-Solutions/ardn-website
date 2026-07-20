@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "AI for Hospitality — Guest Service Automation | Ardn",
   description:
-    "Custom AI applications for hotels, resorts, and hospitality groups — automate guest inquiries, bookings, and service requests while keeping the experience personal. Built and run by Ardn in 2–6 weeks under one monthly fee. New customers: free build.",
+    "Custom AI for hotels & resorts — automate guest inquiries, bookings & service requests. Built and run in 2–6 weeks, one flat fee. New customers: free build.",
   keywords: [
     "AI for hospitality",
     "hotel AI chatbot",
@@ -346,6 +346,11 @@ export default function AiForHospitalityPage() {
               </div>
               <p style={{ marginTop: "20px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
+              </p>
+              <p style={{ marginTop: "10px", fontSize: "14px" }}>
+                <Link href="/ai-for-insurance" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>AI for Insurance</Link>
+                {" · "}
+                <Link href="/ai-for-membership-organizations" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>AI for Membership Orgs</Link>
               </p>
             </div>
           </div>

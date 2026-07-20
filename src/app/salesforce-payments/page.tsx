@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title:
     "Salesforce Payments — Native Quote-to-Cash | Ardn",
   description:
-    "Salesforce Payments by Ardn is a Salesforce-native payment platform. Cards, ACH, Apple Pay, Google Pay, and Venmo — collected inside your Salesforce org with branded checkout, real-time status, automated reconciliation, and PCI compliance built in. No middleware. Built by our Orlando-based team.",
+    "Salesforce-native payment platform — cards, ACH, Apple Pay, Google Pay & Venmo, collected inside your org with branded checkout & PCI compliance built in.",
   keywords: [
     "Salesforce payments",
     "Salesforce-native payments",

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "AI Forge — Custom AI Apps, Built & Run for You | Ardn",
   description:
-    "Get a custom AI app designed, built, hosted, and continuously improved by our expert team for one flat monthly fee. New customers: we build your app free — pay only the monthly subscription. Live in weeks, not months.",
+    "Custom AI apps designed, built, hosted & improved for one flat monthly fee. New customers: we build your app free. Live in weeks, not months.",
   // SEO hybrid: lead with custom-AI / agile-dev intent (Cat 2 positioning),
   // but explicitly preserve Salesforce-AI and Salesforce-integration queries so
   // the page still wins managed-services-adjacent searches. Ardn's 30+ years

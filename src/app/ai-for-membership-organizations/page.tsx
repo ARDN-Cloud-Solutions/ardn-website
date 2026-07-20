@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "AI for Membership Organizations | Ardn",
   description:
-    "Custom AI applications for YMCAs, gyms, studios, clubs, and associations — automate member onboarding, renewals, support, and retention. Built and run by Ardn in 2–6 weeks under one monthly fee. New customers: free build.",
+    "Custom AI for YMCAs, gyms, studios, clubs & associations — automate onboarding, renewals, support & retention. New customers: free build.",
   keywords: [
     "AI for membership organizations",
     "AI for associations",
@@ -341,6 +341,11 @@ export default function AiForMembershipOrganizationsPage() {
               </div>
               <p style={{ marginTop: "20px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
+              </p>
+              <p style={{ marginTop: "10px", fontSize: "14px" }}>
+                <Link href="/ai-for-insurance" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>AI for Insurance</Link>
+                {" · "}
+                <Link href="/ai-for-hospitality" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>AI for Hospitality</Link>
               </p>
             </div>
           </div>

@@ -263,6 +263,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Priority wedge content: Salesforce/HubSpot seat-cost math vs. a
+        // flat-fee custom portal. Feeds the per-seat cost-reduction wedge.
+        url: `${BASE_URL}/compare/salesforce-seat-cost-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

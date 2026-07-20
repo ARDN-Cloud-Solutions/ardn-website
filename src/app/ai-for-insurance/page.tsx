@@ -348,6 +348,11 @@ export default function AiForInsurancePage() {
               <p style={{ marginTop: "20px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
               </p>
+              <p style={{ marginTop: "10px", fontSize: "14px" }}>
+                <Link href="/ai-for-hospitality" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>AI for Hospitality</Link>
+                {" · "}
+                <Link href="/ai-for-membership-organizations" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>AI for Membership Orgs</Link>
+              </p>
             </div>
           </div>
         </section>

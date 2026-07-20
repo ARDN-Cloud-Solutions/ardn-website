@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Custom Ecommerce Development — Built & Run for You | Ardn",
   description:
-    "We design, build, and run custom ecommerce stores — merch shops, subscriptions, memberships, and complex catalogs — that fit your exact business. Live in weeks, one flat monthly fee. New customers: we build it free.",
+    "Custom ecommerce stores — merch shops, subscriptions, memberships & complex catalogs — built and run for you. Live in weeks. New customers: free build.",
   keywords: [
     "custom ecommerce development",
     "custom online store development",

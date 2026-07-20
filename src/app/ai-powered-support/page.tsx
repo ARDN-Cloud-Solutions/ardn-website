@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "ReplyCX — AI Customer Support for Salesforce | Ardn",
   description:
-    "ReplyCX by Ardn is AI-built customer support that automates around 70% of routine queries across WhatsApp, email, chat, and social. No-code agent builder on your knowledge base, Salesforce-native CRM sync, and one omnichannel inbox. Built by our Orlando-based team.",
+    "ReplyCX by Ardn automates ~70% of routine support queries across WhatsApp, email, chat & social — no-code builder, Salesforce-native CRM sync, one inbox.",
   keywords: [
     "AI customer support",
     "AI-powered customer support",

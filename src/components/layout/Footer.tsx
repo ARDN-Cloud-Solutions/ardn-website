@@ -69,6 +69,7 @@ const buyerGuides = [
   { label: "Salesforce Commerce AppExchange Solutions", href: "/buyers-guide/salesforce-commerce-appexchange-solutions" },
   { label: "Salesforce Workflow Automation Tools", href: "/buyers-guide/salesforce-workflow-automation-tools" },
   { label: "AI App Development", href: "/buyers-guide/ai-app-development" },
+  { label: "Salesforce Commerce Cloud Alternatives", href: "/compare/salesforce-commerce-cloud-alternatives" },
 ];
 
 const socials = [

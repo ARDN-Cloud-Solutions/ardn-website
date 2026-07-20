@@ -85,7 +85,9 @@ export default function SavingsCalculatorContent() {
   // Without this, the line items would still sum to the preset (~$1,950 for
   // medspa) while the total displays the user's actual $50,000 budget.
   const additionalSpend = Math.max(0, budget - toolTotal);
-  const monthly = total - 5000;
+  // Uses the Launch tier's real $3,000/mo flat rate (see /ai-forge#pricing)
+  // as the comparison baseline — this must stay in sync with actual pricing.
+  const monthly = total - 3000;
   const yr1 = monthly * 12;
   const yr2 = monthly * 24;
   const yr3 = monthly * 36;
@@ -471,16 +473,16 @@ export default function SavingsCalculatorContent() {
                 Built for you.<br />Owned by you.
               </div>
               <div className="sc-pricing-desc">
-                One-time build fee covers discovery, architecture, development, testing,
-                deployment, and staff training. Monthly subscription covers everything after
-                go-live.
+                Tiers run from $3,000–$12,000+/month depending on scope. New
+                customers pay nothing for the one-time build — you only pay
+                the monthly subscription once you&apos;re live.
               </div>
               <div className="sc-pricing-amount">
-                <div className="sc-pricing-num">$5,000</div>
-                <div className="sc-pricing-per">/month flat</div>
+                <div className="sc-pricing-num">$3,000</div>
+                <div className="sc-pricing-per">/month flat, starting at</div>
               </div>
               <div className="sc-pricing-note">
-                + one-time build fee from $25,000 · Fixed quote within 48 hours
+                🎁 Build fee free for new customers · Fixed quote within 48 hours
               </div>
               <Link
                 href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
@@ -549,6 +551,8 @@ export default function SavingsCalculatorContent() {
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
           </p>
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
+            <Link href="/custom-portal-development">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
+            {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
           </p>
         </div>
@@ -587,8 +591,8 @@ export default function SavingsCalculatorContent() {
                 </div>
                 <div className="sc-modal-metric">
                   <div className="sc-modal-metric-label">Ardn platform</div>
-                  <div className="sc-modal-metric-val sc-val-blue">$5,000</div>
-                  <div style={{ fontSize: 11, color: "var(--sc-text-3)", marginTop: 3 }}>flat / month</div>
+                  <div className="sc-modal-metric-val sc-val-blue">$3,000</div>
+                  <div style={{ fontSize: 11, color: "var(--sc-text-3)", marginTop: 3 }}>flat / month, starting at</div>
                 </div>
                 <div className="sc-modal-metric">
                   <div className="sc-modal-metric-label">Monthly savings</div>
@@ -633,7 +637,7 @@ export default function SavingsCalculatorContent() {
                   <tr style={{ fontWeight: 700, borderTop: "2px solid var(--sc-border)" }}>
                     <td style={{ color: "var(--sc-text)" }}>Total</td>
                     <td style={{ color: "var(--sc-red)" }}>{fmt(total)}/mo</td>
-                    <td style={{ color: "var(--sc-green)", fontWeight: 700 }}>$5,000/mo flat</td>
+                    <td style={{ color: "var(--sc-green)", fontWeight: 700 }}>from $3,000/mo flat</td>
                   </tr>
                 </tbody>
               </table>

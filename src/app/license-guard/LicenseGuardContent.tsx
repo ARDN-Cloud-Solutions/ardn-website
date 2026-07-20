@@ -89,6 +89,9 @@ export default function LicenseGuardContent() {
               <Link href="/our-products" className="btn btn-secondary btn-lg">Browse other products</Link>
             </div>
           </div>
+          <p className="body mt-4" style={{ textAlign: "center" }}>
+            Already reclaimed the dormant seats? <Link href="/custom-portal-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>Move light users to a custom portal</Link> to cut the rest of the per-seat bill.
+          </p>
         </div>
       </section>
 

@@ -233,7 +233,8 @@ export default function StorefrontsContent() {
             Not building on Salesforce? We also build{" "}
             <Link href="/custom-ecommerce-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom ecommerce stores</Link>{" "}
             off-platform — including{" "}
-            <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth ecommerce</Link>.
+            <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth ecommerce</Link>. Comparing{" "}
+            <Link href="/compare/salesforce-commerce-cloud-alternatives" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce Commerce Cloud alternatives</Link>? See how Storefronts stacks up.
           </p>
         </div>
       </section>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Free Software Savings Calculator | Ardn",
   description:
-    "Free 60-second calculator. See exactly how much your business overpays for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a custom platform from our Orlando-based team would cost instead. No email required to see your number.",
+    "Free 60-second calculator. See what you overpay for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a flat-fee custom platform costs instead.",
   keywords: [
     "software savings calculator",
     "Salesforce cost calculator",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Membership Management Platform for Gyms & Clubs | Ardn",
   description:
-    "A flexible, AI-built membership management platform for YMCAs, gyms, studios, and clubs. Sign-ups, recurring billing, class scheduling, and a member portal — runs standalone or alongside your existing tools. Built by our Orlando-based team.",
+    "AI-built membership platform for YMCAs, gyms, studios & clubs — sign-ups, billing, class scheduling & a member portal. Runs standalone or alongside your tools.",
   // SEO hybrid: lead with the product-true intents (membership platform,
   // YMCA/gym/studio software), then preserve Salesforce buyer-intent
   // queries — the platform IS Salesforce-capable and the company is a

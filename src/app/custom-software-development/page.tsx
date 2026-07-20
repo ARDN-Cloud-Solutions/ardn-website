@@ -87,6 +87,7 @@ const FAQS: Faq[] = [
   {
     q: "How much does it cost?",
     a: "It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — no per-seat licensing that climbs as you grow. New customers pay nothing for the one-time build; you only pay the monthly fee once it's live.",
+    link: { href: "/compare/salesforce-seat-cost-vs-custom-portal", label: "See the Salesforce & HubSpot seat-cost math →" },
   },
   {
     q: "Do we own the software you build?",
