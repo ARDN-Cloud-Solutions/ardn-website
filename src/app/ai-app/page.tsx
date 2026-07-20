@@ -12,6 +12,18 @@ export const metadata: Metadata = {
       "x-default": "https://ardncloudsolutions.com/ai-app",
     },
   },
+  // Orphaned duplicate of /ai-app-development (no inbound links, excluded from
+  // sitemap) — noindex to stop it competing with the canonical spoke page.
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
   openGraph: {
     title: "Custom AI Apps, Built and Run for You — Ardn Cloud Solutions",
     description:

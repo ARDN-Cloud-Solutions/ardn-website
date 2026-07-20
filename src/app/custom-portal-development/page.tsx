@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     "Custom Portal Development — Cut CRM Costs | Ardn",
   description:
-    "We build custom seller, operations, partner, and customer portals that integrate with your existing CRM — moving light users off expensive per-seat licenses onto a flat-fee portal. Cut costs without switching platforms. New customers: we build it free.",
+    "Custom seller, ops, partner & customer portals synced to your CRM — move light users off per-seat licenses onto one flat fee. New customers: free build.",
   keywords: [
     "custom portal development",
     "seller portal development",
@@ -166,7 +166,7 @@ export default function CustomPortalDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Portal Development</span>
                 <h1 className="display reveal">
-                  Keep your CRM. <em>Cut the bill.</em>
+                  Custom portals: <em>keep your CRM, cut the bill.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   You are likely paying full per-seat CRM licenses for people who
@@ -199,6 +199,9 @@ export default function CustomPortalDevelopmentPage() {
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free.
                   </p>
+                  <p className="body" style={{ marginTop: "14px" }}>
+                    <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
+                  </p>
                 </div>
               </aside>
             </div>
@@ -228,8 +231,9 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
+              <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
         </section>

@@ -312,6 +312,10 @@ export default function MembershipContent() {
               Running a fraternity, chapter, or dues-based org instead? See{" "}
               <Link href="/chapter-management-software" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Chapter &amp; Dues Management →</Link>
             </p>
+            <p style={{ marginTop: "10px" }}>
+              Still paying per-seat AMS or CRM fees for occasional staff and volunteers?{" "}
+              <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See how a member portal cuts those costs →</Link>
+            </p>
           </div>
         </div>
       </section>

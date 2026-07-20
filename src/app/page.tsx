@@ -33,6 +33,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    site: "@ardn_cloud_sol",
+    title: "Ardn Cloud Solutions — Custom Tech, Built & Run for You",
+    description:
+      "Custom software, portals, ecommerce & AI apps built and run for you — live in weeks, one flat monthly fee. New customers build free.",
+    images: ["/images/ardn-home-hero.webp"],
+  },
 };
 
 export default async function Page() {

@@ -240,9 +240,12 @@ export default function AiForInsurancePage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/ai-app-development" className="link">
                 How we build &amp; run custom AI apps →
+              </Link>
+              <Link href="/custom-portal-development" className="link">
+                Give adjusters &amp; light users a portal instead of a full CRM seat →
               </Link>
             </div>
           </div>

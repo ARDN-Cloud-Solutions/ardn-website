@@ -218,9 +218,9 @@ export default function SavingsCalculatorContent() {
         <div className="sc-stats-inner">
           {[
             { val: "30", em: "+", label: "Years enterprise experience" },
-            { val: "100", em: "%", label: "Client satisfaction rate" },
+            { val: "0", em: "", label: "Per-seat or per-user fees" },
             { val: "3", em: "–4", label: "Weeks from spec to live" },
-            { val: "Fortune", em: " 500", label: "Clients served" },
+            { val: "48", em: " hrs", label: "Fixed quote turnaround" },
           ].map((s) => (
             <div key={s.label} className="sc-stat-item">
               <div className="sc-stat-val">
@@ -413,13 +413,13 @@ export default function SavingsCalculatorContent() {
               },
               {
                 num: "",
-                em: "100 %",
-                desc: "Happy customers — and committed to keeping it that way",
+                em: "$0",
+                desc: "Per-seat or per-user fees — flat monthly rate, always",
               },
               {
                 num: "",
-                em: "Fortune 500",
-                desc: "Clients served across airlines, insurance, retail, and more",
+                em: "Built & Run",
+                desc: "We build the platform and operate it for you long-term",
               },
             ].map((s) => (
               <div key={s.desc}>

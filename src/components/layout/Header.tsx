@@ -21,6 +21,8 @@ import Button from "@/components/ui/Button";
 
 const products = [
   { label: "AI Forge", href: "/ai-forge" },
+  { label: "Custom Portal Development", href: "/custom-portal-development" },
+  { label: "Custom Software Development", href: "/custom-software-development" },
   {
     label: "Storefronts: All-In-One ECommerce Solution",
     href: "/storefronts",

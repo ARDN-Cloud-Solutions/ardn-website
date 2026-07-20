@@ -13,7 +13,7 @@ import LeadForm from "@/components/common/LeadForm";
 export const metadata: Metadata = {
   title: "Custom Software & Platform Development | ARDN",
   description:
-    "We design, build, and run custom software, platforms & portals that replace or connect the tools you rely on — live in weeks, one flat monthly fee. New customers build free.",
+    "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
   keywords: [
     "custom software development",
     "custom software development company",
@@ -174,7 +174,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software &amp; Platform Development</span>
                 <h1 className="display reveal">
-                  Software built for <em>how you actually work.</em>
+                  Custom software, built for <em>how you actually work.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Off-the-shelf tools make you bend your business to fit them,
@@ -328,9 +328,19 @@ export default function CustomSoftwareDevelopmentPage() {
                 <span className="link">Explore membership →</span>
               </Link>
               <Link href="/ai-for-insurance" className="card" style={{ textDecoration: "none" }}>
-                <h3 className="h3">AI by Industry</h3>
-                <p className="body">Vertical builds for insurance, hospitality &amp; membership organizations.</p>
+                <h3 className="h3">AI for Insurance</h3>
+                <p className="body">Claims, underwriting &amp; service workflows built for insurance agencies and carriers.</p>
                 <span className="link">Explore AI for insurance →</span>
+              </Link>
+              <Link href="/ai-for-hospitality" className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">AI for Hospitality</h3>
+                <p className="body">Front-desk, booking &amp; guest-service builds for hotels and hospitality groups.</p>
+                <span className="link">Explore AI for hospitality →</span>
+              </Link>
+              <Link href="/ai-for-membership-organizations" className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">AI for Membership Orgs</h3>
+                <p className="body">Member records, renewals &amp; engagement builds for associations and membership organizations.</p>
+                <span className="link">Explore AI for membership orgs →</span>
               </Link>
               <Link href="/ai-app-development" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">Custom AI App Development</h3>

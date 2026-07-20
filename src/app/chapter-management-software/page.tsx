@@ -226,8 +226,9 @@ export default function ChapterManagementSoftwarePage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/membership-management" className="link">Running a gym, studio, or association instead? See Membership Management →</Link>
+              <Link href="/custom-portal-development" className="link">Paying per-seat AMS fees for volunteer officers? Give them a portal instead →</Link>
             </div>
           </div>
         </section>

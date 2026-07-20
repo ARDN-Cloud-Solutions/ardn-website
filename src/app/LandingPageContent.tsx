@@ -64,8 +64,9 @@ export default function LandingPageContent() {
               <p className="body">We don&apos;t hand you software and walk away. We design, build, host, and keep improving it — accessible anywhere, with one team accountable for it.</p>
             </div>
           </div>
-          <div style={{ marginTop: "28px", textAlign: "center" }}>
+          <div style={{ marginTop: "28px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/ai-forge" className="link">AI Forge is our flagship example — see how it works →</Link>
+            <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
           </div>
         </div>
       </section>
@@ -169,6 +170,20 @@ export default function LandingPageContent() {
                 🎁 New customers: we build it free — pay only the monthly subscription.
               </p>
               <Link href="/ai-forge" className="link">Explore AI Forge</Link>
+            </article>
+
+            {/* Custom Portal Development — the #1 cost-reduction wedge: move
+                light users off per-seat CRM licenses onto a flat-fee portal. */}
+            <article className="product-card" style={{ "--accent": "#1B6FC9" } as React.CSSProperties}>
+              <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9" }}>Cut per-seat costs</span>
+              <h3 className="h3">Custom Portal Development</h3>
+              <p className="body">Paying full per-seat Salesforce or HubSpot licenses for sellers, ops staff, or partners who use a sliver of it? We build a custom portal, wired into your CRM, so light users move to one flat fee instead of a license each.</p>
+              <ul className="features">
+                <li>Keeps your CRM — no rip-and-replace</li>
+                <li>Two-way sync, one source of truth</li>
+                <li>Flat fee, not per-seat, no matter how many users</li>
+              </ul>
+              <Link href="/custom-portal-development" className="link">Explore Custom Portals</Link>
             </article>
 
             {/* Membership Management — standalone, AI-built; SF/HubSpot capable
