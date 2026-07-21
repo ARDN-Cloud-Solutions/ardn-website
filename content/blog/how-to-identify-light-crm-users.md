@@ -4,6 +4,7 @@ slug: "how-to-identify-light-crm-users"
 excerpt: "Most mid-market teams pay full CRM seats for people who use a sliver of the platform. Here's a practical way to find those light users — and cut the bill without switching CRMs."
 categories: "CRM Cost Reduction"
 tags: "Salesforce, CRM licensing, cost reduction, custom portals"
+image_alt: "How to identify light CRM users you are overpaying for — ARDN Cloud Solutions"
 ---
 <p>If your CRM bill climbs every time you hire, you're almost certainly paying full per-seat prices for people who barely touch the platform. Per-seat pricing is built around the power user — the rep who lives in the CRM all day. Everyone lighter than that is where the overpayment quietly piles up.</p>
 

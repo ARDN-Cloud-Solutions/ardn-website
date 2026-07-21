@@ -45,6 +45,22 @@ tags: "Salesforce, CRM licensing, cost reduction"
 - `title` and `slug` are required.
 - `categories` / `tags` are comma-separated names; the publisher creates any
   that don't exist yet.
+- `image_alt` (optional) is the featured image's alt text; defaults to the title.
+
+## Featured images
+
+Each post gets an on-brand 1200x630 WebP featured image, generated automatically
+from the title + category — no stock photos, no external services. It's rendered
+from an HTML card (ARDN indigo gradient) with the pre-installed Chromium and
+cropped with `sharp` (`scripts/lib/og-image.mjs`), then uploaded to the WordPress
+media library and set as the post's featured image with alt text.
+
+Idempotent: the image is stored with the slug `{post-slug}-og`, so re-runs reuse
+it instead of uploading duplicates. Flags:
+
+- `--no-images` — skip featured-image generation entirely.
+- `--regen-images` — force-regenerate even if one already exists (use after
+  changing the template or a post title).
 
 ## Publishing
 

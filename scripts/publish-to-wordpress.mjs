@@ -27,6 +27,7 @@
 
 import { readFile, readdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
+import { generateOgImage } from "./lib/og-image.mjs";
 
 // Node's built-in fetch (undici) ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY
 // is set at startup (Node >= 22.21). In sandboxed environments outbound HTTPS
@@ -57,6 +58,8 @@ const doDraft = has("--draft");
 const dryRun = !doPublish && !doDraft;
 const status = doPublish ? "publish" : "draft";
 const onlyFile = argVal("--file");
+const noImages = has("--no-images");     // skip featured-image generation
+const regenImages = has("--regen-images"); // force-regenerate even if one exists
 
 const { WP_API_URL, WP_USERNAME, WP_APP_PASSWORD } = process.env;
 
@@ -128,6 +131,48 @@ async function findPostBySlug(slug) {
   return posts[0] || null;
 }
 
+/**
+ * Ensure a featured image exists for the post and return its media ID.
+ * Idempotent: reuses an existing media item with the same slug ({slug}-og)
+ * unless --regen-images is passed. Generates an on-brand WebP, uploads it as
+ * a binary to the media library, and sets alt text.
+ */
+async function ensureFeaturedImage({ slug, title, eyebrow, altText }) {
+  const mediaSlug = `${slug}-og`;
+
+  if (!regenImages) {
+    const existing = await wp(`/media?slug=${encodeURIComponent(mediaSlug)}&per_page=1`);
+    if (existing[0]) {
+      console.log(`  image: reusing media #${existing[0].id}`);
+      return existing[0].id;
+    }
+  }
+
+  const { buffer, contentType, ext } = await generateOgImage({ title, eyebrow });
+  const filename = `${mediaSlug}.${ext}`;
+  const res = await fetch(`${API}/media`, {
+    method: "POST",
+    headers: {
+      Authorization: authHeader,
+      "Content-Type": contentType,
+      "Content-Disposition": `attachment; filename="${filename}"`,
+    },
+    body: buffer,
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`media upload -> ${res.status} ${text.slice(0, 200)}`);
+  }
+  const media = await res.json();
+  // Set alt text + a stable slug (second call — WP ignores these on binary create).
+  await wp(`/media/${media.id}`, {
+    method: "POST",
+    body: JSON.stringify({ alt_text: altText, slug: mediaSlug, title: title }),
+  });
+  console.log(`  image: uploaded media #${media.id} (${filename})`);
+  return media.id;
+}
+
 async function processFile(file) {
   const raw = await readFile(file, "utf8");
   const { meta, body } = parseFrontmatter(raw);
@@ -142,6 +187,7 @@ async function processFile(file) {
 
   if (dryRun) {
     console.log(`  body: ${body.length} chars of HTML ready`);
+    if (!noImages) console.log(`  image: would generate featured image (alt: "${meta.image_alt || meta.title}")`);
     return;
   }
 
@@ -149,6 +195,16 @@ async function processFile(file) {
   for (const c of meta.categories || []) categories.push(await resolveTerm("categories", c));
   const tags = [];
   for (const t of meta.tags || []) tags.push(await resolveTerm("tags", t));
+
+  let featuredMedia;
+  if (!noImages) {
+    featuredMedia = await ensureFeaturedImage({
+      slug: meta.slug,
+      title: meta.title,
+      eyebrow: (meta.categories && meta.categories[0]) || "Ardn Cloud Solutions",
+      altText: meta.image_alt || meta.title,
+    });
+  }
 
   const payload = {
     title: meta.title,
@@ -158,6 +214,7 @@ async function processFile(file) {
     excerpt: meta.excerpt || "",
     ...(categories.length ? { categories } : {}),
     ...(tags.length ? { tags } : {}),
+    ...(featuredMedia ? { featured_media: featuredMedia } : {}),
   };
 
   const existing = await findPostBySlug(meta.slug);
