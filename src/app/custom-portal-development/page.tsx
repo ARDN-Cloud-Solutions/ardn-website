@@ -327,9 +327,12 @@ export default function CustomPortalDevelopmentPage() {
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
-                <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
+                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
-              <p style={{ marginTop: "20px" }}>
+              <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
+              </p>
+              <p style={{ marginTop: "8px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
               </p>
             </div>

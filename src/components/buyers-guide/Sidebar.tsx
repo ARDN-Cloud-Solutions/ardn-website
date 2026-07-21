@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 interface ToCItem {
@@ -172,6 +173,21 @@ export default function Sidebar() {
               Get In Touch!
             </Button>
           </div>
+        </div>
+
+        {/* Wedge cross-link — surfaces the per-seat cost-reduction angle to
+            every buyer's-guide reader, most of whom are already evaluating
+            Salesforce-native tooling and are the exact ICP for this pitch. */}
+        <div className="rounded-md p-4 lg:p-5 border border-[#e5e7eb] bg-white">
+          <p className="text-[#1c2045] text-sm leading-snug m-0">
+            Paying per-seat for Salesforce licenses?{" "}
+            <Link
+              href="/compare/salesforce-seat-cost-vs-custom-portal"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              See the seat-cost math →
+            </Link>
+          </p>
         </div>
       </div>
     </aside>

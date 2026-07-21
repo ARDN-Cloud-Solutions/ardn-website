@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import LeadForm from "@/components/common/LeadForm";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -367,6 +368,8 @@ export default function LandingPageContent() {
           </div>
         </div>
       </section>
+
+      <LeadForm source="Homepage" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day with a fixed quote — no obligation." />
 
       {/* FINAL CTA */}
        <section className="section" id="contact">        <div className="container">

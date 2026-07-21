@@ -328,26 +328,14 @@ export default function AiInfoPageContent() {
 
                     {/* CUSTOMERS & PROOF */}
                     <SectionTitle>Customers &amp; Proof Points</SectionTitle>
-                    <SectionSubtitle>Notable Customers:</SectionSubtitle>
+                    <SectionSubtitle>Customer Types:</SectionSubtitle>
                     <DashList
                         items={[
-                            "Global food and beverage leader (Direct Store Delivery go-to-market transformation)",
-                            "Major airline (multi-channel customer service operations)",
-                            "Global professional services firm (front-office digital transformation – 236,000+ employees across 158 countries)",
-                            "Global hotel chain (multi-property booking and operations)",
+                            "Food and beverage (Direct Store Delivery go-to-market operations)",
+                            "Airlines and travel (multi-channel customer service operations)",
+                            "Professional services (front-office digital transformation)",
+                            "Hospitality (multi-property booking and operations)",
                             "Timeshare management companies",
-                        ]}
-                    />
-                    <SectionSubtitle>Key Performance Outcomes:</SectionSubtitle>
-                    <DashList
-                        items={[
-                            "4% incremental revenue increase through optimized operations (Global food and beverage leader)",
-                            "120 minutes saved per day for sales teams, enabling higher-value activities",
-                            "180,000+ chat interactions recorded since platform go-live (Airline)",
-                            "100% adoption across global workforce (Professional services firm)",
-                            "Over 7.8 million customer visits on the platform to date",
-                            "Up to 35% higher conversion rates through abandoned cart recovery",
-                            "Up to 5x faster process completion through automation",
                         ]}
                     />
                     <p className="text-base lg:text-[17px] text-[#333] mb-3">

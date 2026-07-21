@@ -27,14 +27,46 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
           <div>
             <p className="lede">
               Salesforce consulting is one pillar of what we do. Our Florida-based
-              team also builds custom AI applications via the proprietary AI Forge
-              Framework and ships a standalone membership platform that runs
-              alongside whatever stack you already have.
+              team also cuts per-seat license costs with custom portals, builds
+              custom AI applications via the proprietary AI Forge Framework, and
+              ships a standalone membership platform that runs alongside whatever
+              stack you already have.
             </p>
           </div>
         </div>
 
-        <div className="grid-2">
+        <div className="grid-3">
+          {/* Custom Portal Development — the #1 cost-reduction wedge. Listed
+              first since it's the highest-intent offer for buyers already
+              paying for Salesforce seats. */}
+          <article
+            className="product-card"
+            style={{ "--accent": "#1B6FC9" } as React.CSSProperties}
+          >
+            <span
+              className="pill"
+              style={{ background: "#E4F1FF", color: "#1B6FC9" }}
+            >
+              Cut per-seat costs
+            </span>
+            <h3 className="h3">Keep Salesforce, cut the seat bill</h3>
+            <p className="body">
+              Paying full per-seat Salesforce licenses for {city}-area sellers,
+              ops staff, or partners who use a fraction of it? We build a custom
+              portal wired into your Salesforce org so light users move to one
+              flat fee instead of a license each — your CRM stays exactly where
+              it is.
+            </p>
+            <ul className="features">
+              <li>No rip-and-replace — Salesforce stays the system of record</li>
+              <li>Two-way sync, one source of truth</li>
+              <li>Flat fee, not per-seat, no matter how many users</li>
+            </ul>
+            <Link href="/custom-portal-development" className="link">
+              Explore Custom Portal Development
+            </Link>
+          </article>
+
           {/* AI Forge — custom AI dev practice */}
           <article
             className="product-card"
@@ -94,10 +126,20 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
           </article>
         </div>
 
-        {/* Secondary CTA pointing to the AI Forge Florida landing page for
-            visitors who want a more AI-focused entry point. */}
+        {/* Secondary CTAs — seat-cost calculator for the wedge, plus the AI
+            Forge Florida landing page for visitors who want a more
+            AI-focused entry point. */}
         <div style={{ marginTop: 40, textAlign: "center" }}>
           <p className="body" style={{ fontSize: 15 }}>
+            Want to see your own numbers?{" "}
+            <Link
+              href="/savings-calculator"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              Run your per-seat savings calculator →
+            </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 15 }}>
             Looking specifically for custom AI development in Florida?{" "}
             <Link
               href="/ai-app-development-florida"

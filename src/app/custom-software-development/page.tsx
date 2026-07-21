@@ -186,7 +186,7 @@ export default function CustomSoftwareDevelopmentPage() {
                 </p>
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
                   <span className="badge">Weeks, not months</span>
-                  <span className="badge is-emerald">Flat fee, no per-seat</span>
+                  <span className="badge is-emerald">Cut CRM per-seat costs</span>
                   <span className="badge is-canvas">You own it</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
@@ -303,7 +303,8 @@ export default function CustomSoftwareDevelopmentPage() {
               </div>
             </div>
             <div className="grid-3">
-              <Link href="/custom-portal-development" className="card" style={{ textDecoration: "none" }}>
+              <Link href="/custom-portal-development" className="card" style={{ textDecoration: "none", borderColor: "var(--indigo)" }}>
+                <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>Cut per-seat costs</span>
                 <h3 className="h3">Custom Portals</h3>
                 <p className="body">Seller, partner, operations &amp; customer portals that cut per-seat CRM costs.</p>
                 <span className="link">Explore portals →</span>
@@ -353,6 +354,11 @@ export default function CustomSoftwareDevelopmentPage() {
                 <p className="body">Custom storefronts and fulfillment for GLP-1 and telehealth brands.</p>
                 <span className="link">Explore GLP-1 ecommerce →</span>
               </Link>
+            </div>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
+              <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             </div>
           </div>
         </section>
