@@ -28,6 +28,19 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
 
+// Node's built-in fetch (undici) ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY
+// is set at startup (Node >= 22.21). In sandboxed environments outbound HTTPS
+// only succeeds through that proxy, so re-exec once with the flag — scheduled
+// runs then route correctly without the caller having to remember it.
+if (process.env.HTTPS_PROXY && process.env.NODE_USE_ENV_PROXY !== "1") {
+  const { spawnSync } = await import("node:child_process");
+  const r = spawnSync(process.execPath, [import.meta.filename, ...process.argv.slice(2)], {
+    stdio: "inherit",
+    env: { ...process.env, NODE_USE_ENV_PROXY: "1" },
+  });
+  process.exit(r.status ?? 0);
+}
+
 const ROOT = resolve(new URL("..", import.meta.url).pathname);
 const BLOG_DIR = join(ROOT, "content", "blog");
 
