@@ -85,9 +85,11 @@ export default function SavingsCalculatorContent() {
   // Without this, the line items would still sum to the preset (~$1,950 for
   // medspa) while the total displays the user's actual $50,000 budget.
   const additionalSpend = Math.max(0, budget - toolTotal);
-  // Uses the Launch tier's real $3,000/mo flat rate (see /ai-forge#pricing)
-  // as the comparison baseline — this must stay in sync with actual pricing.
-  const monthly = total - 3000;
+  // Baseline scales with the visitor's own spend so the comparison uses the
+  // tier they'd realistically land in (see /ai-forge#pricing), instead of
+  // always comparing against the cheapest Launch price regardless of scope.
+  const baseline = total <= 6000 ? 3000 : total <= 15000 ? 4500 : 12000;
+  const monthly = total - baseline;
   const yr1 = monthly * 12;
   const yr2 = monthly * 24;
   const yr3 = monthly * 36;
@@ -394,6 +396,9 @@ export default function SavingsCalculatorContent() {
               </div>
             ))}
           </div>
+          <p style={{ fontSize: 12, color: "var(--sc-text-3)", marginTop: "1.5rem" }}>
+            Figures above are illustrative ranges based on typical published vendor pricing for these categories, not a quote or a client result — use the calculator above for your own numbers.
+          </p>
         </div>
       </section>
 
@@ -551,9 +556,11 @@ export default function SavingsCalculatorContent() {
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
           </p>
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
-            <Link href="/custom-portal-development">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
+            {" · "}
+            <Link href="/license-guard">Reclaim dormant Salesforce seats first →</Link>
           </p>
         </div>
       </section>
@@ -591,8 +598,8 @@ export default function SavingsCalculatorContent() {
                 </div>
                 <div className="sc-modal-metric">
                   <div className="sc-modal-metric-label">Ardn platform</div>
-                  <div className="sc-modal-metric-val sc-val-blue">$3,000</div>
-                  <div style={{ fontSize: 11, color: "var(--sc-text-3)", marginTop: 3 }}>flat / month, starting at</div>
+                  <div className="sc-modal-metric-val sc-val-blue">{fmt(baseline)}</div>
+                  <div style={{ fontSize: 11, color: "var(--sc-text-3)", marginTop: 3 }}>flat / month, at your scope</div>
                 </div>
                 <div className="sc-modal-metric">
                   <div className="sc-modal-metric-label">Monthly savings</div>
@@ -637,7 +644,7 @@ export default function SavingsCalculatorContent() {
                   <tr style={{ fontWeight: 700, borderTop: "2px solid var(--sc-border)" }}>
                     <td style={{ color: "var(--sc-text)" }}>Total</td>
                     <td style={{ color: "var(--sc-red)" }}>{fmt(total)}/mo</td>
-                    <td style={{ color: "var(--sc-green)", fontWeight: 700 }}>from $3,000/mo flat</td>
+                    <td style={{ color: "var(--sc-green)", fontWeight: 700 }}>{fmt(baseline)}/mo flat</td>
                   </tr>
                 </tbody>
               </table>

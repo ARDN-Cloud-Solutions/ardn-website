@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     "Custom AI App Development Company | Ardn",
   description:
-    "Ardn is a custom AI app development company that designs, builds, deploys, and operates production-ready AI applications in 2–6 weeks — under one flat monthly fee. New customers: we build your app free. Serving companies across the US.",
+    "We design, build, deploy, and operate custom AI applications in 2–6 weeks under one flat monthly fee. New customers: free custom AI build. Serving the US.",
   keywords: [
     "custom AI app development company",
     "AI development agency",

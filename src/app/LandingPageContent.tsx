@@ -12,6 +12,10 @@ export default function LandingPageContent() {
               <span className="eyebrow">Custom software, platforms &amp; AI · Built and run for you</span>
               <h1 className="display reveal">Run your business on software built <em>for it</em> — not the other way around.</h1>
               <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "4px" }} className="reveal reveal-d2">
+                <span className="badge is-emerald">Flat fee, not per-seat</span>
+                <span className="badge">Cut CRM per-seat costs</span>
+              </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                 <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
@@ -67,6 +71,7 @@ export default function LandingPageContent() {
           <div style={{ marginTop: "28px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/ai-forge" className="link">AI Forge is our flagship example — see how it works →</Link>
             <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
           </div>
         </div>
       </section>
@@ -80,8 +85,8 @@ export default function LandingPageContent() {
               <div className="label">years designing, building, and deploying production software — from AI apps to enterprise software.</div>
             </div>
             <div className="metric">
-              <div className="number">100%</div>
-              <div className="label">customer-focused — every engagement measured against an outcome, not an hour count.</div>
+              <div className="number">0</div>
+              <div className="label">per-seat fees — every engagement is measured against an outcome, not an hour count.</div>
             </div>
             <div className="metric">
               <div className="number">6</div>

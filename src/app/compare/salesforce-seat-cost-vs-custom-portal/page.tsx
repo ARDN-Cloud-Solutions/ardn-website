@@ -236,6 +236,42 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
           </div>
         </section>
 
+        {/* LICENSE TIER BREAKDOWN */}
+        <section className="section is-canvas" id="license-tiers">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Salesforce &amp; HubSpot license tiers</span>
+                <h2 className="h1 mt-3">Enterprise seat, Platform seat, <em>login license, or portal.</em></h2>
+              </div>
+              <div>
+                <p className="lede">CRM vendors already sell several tiers below a full seat. Here&apos;s how they typically compare to a flat-fee custom portal.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Access tier</th>
+                    <th>Typical published price</th>
+                    <th>Still scales with headcount?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">Full Sales/Service Cloud Enterprise seat</td><td>~$150–$165/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Salesforce Platform (limited-access) license</td><td>~$25–$30/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Login-based / Experience Cloud license</td><td>~$2–$10 per login (list)</td><td className="is-no">Yes — per login/user</td></tr>
+                  <tr><td className="feat">HubSpot seat above Starter tier</td><td>~$20–$90+/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Custom portal (Ardn)</td><td>Flat monthly fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No — same fee at any headcount</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Prices above are typical, publicly listed ranges as of this writing — not a quote. Actual pricing varies by edition, region, and negotiated contract; confirm current numbers with your CRM vendor. Even the cheapest per-seat tier still bills per person and caps what you can build for them, which is the gap a custom portal closes.
+            </p>
+          </div>
+        </section>
+
         {/* NOT ANTI-CRM */}
         <section className="section is-canvas">
           <div className="container">
@@ -308,6 +344,9 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
                 <span className="link">Run the numbers →</span>
               </Link>
             </div>
+            <p className="body mt-4" style={{ textAlign: "center" }}>
+              <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown across every SaaS tool →</Link>
+            </p>
           </div>
         </section>
 

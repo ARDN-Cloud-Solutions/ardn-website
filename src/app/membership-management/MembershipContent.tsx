@@ -316,6 +316,9 @@ export default function MembershipContent() {
               Still paying per-seat AMS or CRM fees for occasional staff and volunteers?{" "}
               <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See how a member portal cuts those costs →</Link>
             </p>
+            <p style={{ marginTop: "10px" }}>
+              <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See every custom software &amp; platform build →</Link>
+            </p>
           </div>
         </div>
       </section>

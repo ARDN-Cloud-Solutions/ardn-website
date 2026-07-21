@@ -70,6 +70,8 @@ const buyerGuides = [
   { label: "Salesforce Workflow Automation Tools", href: "/buyers-guide/salesforce-workflow-automation-tools" },
   { label: "AI App Development", href: "/buyers-guide/ai-app-development" },
   { label: "Salesforce Commerce Cloud Alternatives", href: "/compare/salesforce-commerce-cloud-alternatives" },
+  { label: "Cut Salesforce/HubSpot Seat Costs", href: "/compare/salesforce-seat-cost-vs-custom-portal" },
+  { label: "Custom Software vs. SaaS Cost", href: "/compare/custom-software-vs-saas" },
 ];
 
 const socials = [
