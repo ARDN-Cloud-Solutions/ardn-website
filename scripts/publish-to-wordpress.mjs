@@ -173,11 +173,65 @@ async function ensureFeaturedImage({ slug, title, eyebrow, altText }) {
   return media.id;
 }
 
+// ─── Pre-publish QA gate ──────────────────────────────────────────────────
+// Automated half of the review before auto-publishing: internal linking, SEO
+// hygiene, and content structure. Hard errors block publishing (unless
+// --force); warnings are advisory. The editorial + visual ("does the image
+// resonate") judgment is done by a human/agent looking at the rendered output.
+const MONEY_PAGES = [
+  "reduce-crm-licensing-costs",
+  "custom-portal-development",
+  "custom-software-development",
+  "savings-calculator",
+  "license-guard",
+  "/compare/",
+];
+
+function verifyPost(meta, body) {
+  const errors = [];
+  const warnings = [];
+
+  if (!meta.title) errors.push("missing title");
+  else if (meta.title.length > 60) warnings.push(`SEO title ${meta.title.length} chars (>60 may truncate in SERPs)`);
+
+  if (!meta.slug) errors.push("missing slug");
+  else if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(meta.slug)) warnings.push("slug is not clean lowercase-hyphen");
+
+  if (!meta.excerpt) warnings.push("no excerpt (used as meta description)");
+  else if (meta.excerpt.length > 160) errors.push(`excerpt ${meta.excerpt.length} chars (>160 meta-description limit)`);
+
+  const h2 = (body.match(/<h2/gi) || []).length;
+  if (h2 < 2) warnings.push(`only ${h2} H2 heading(s) — add structure for GEO/SEO`);
+
+  if (!/frequently asked|<h[23][^>]*>\s*faq/i.test(body))
+    warnings.push("no FAQ section (recommended for GEO / AI-overview capture)");
+
+  const moneyLinks = MONEY_PAGES.filter((p) => body.includes(p));
+  if (moneyLinks.length < 2)
+    errors.push(`only ${moneyLinks.length} internal money-page link(s) — need >=2 for cluster health`);
+
+  if (!/cms\.ardncloudsolutions\.com\/[a-z0-9-]+\//i.test(body))
+    warnings.push("no sibling blog-post link — cross-link related posts in the cluster");
+
+  return { errors, warnings };
+}
+
 async function processFile(file) {
   const raw = await readFile(file, "utf8");
   const { meta, body } = parseFrontmatter(raw);
   if (!meta.title) throw new Error(`${file}: frontmatter missing 'title'`);
   if (!meta.slug) throw new Error(`${file}: frontmatter missing 'slug'`);
+
+  // QA gate — runs on every real publish/draft push.
+  const { errors, warnings } = verifyPost(meta, body);
+  for (const w of warnings) console.log(`  ⚠ ${w}`);
+  if (errors.length) {
+    for (const e of errors) console.log(`  ✗ QA: ${e}`);
+    if (!dryRun && !has("--force")) {
+      console.log(`  ↳ skipped (failed QA gate; pass --force to override)`);
+      return "skipped";
+    }
+  }
 
   console.log(`\n• ${meta.slug}`);
   console.log(`  title: ${meta.title}`);
@@ -241,15 +295,17 @@ async function main() {
   console.log(`WordPress publisher — ${files.length} file(s)${dryRun ? " — DRY RUN" : ` — target: ${WP_API_URL}`}`);
 
   let ok = 0;
+  let skipped = 0;
   for (const f of files) {
     try {
-      await processFile(f);
-      ok++;
+      const r = await processFile(f);
+      if (r === "skipped") skipped++;
+      else ok++;
     } catch (e) {
       console.error(`  ✗ ${e.message}`);
     }
   }
-  console.log(`\nDone: ${ok}/${files.length} processed${dryRun ? " (dry run)" : ""}.\n`);
+  console.log(`\nDone: ${ok}/${files.length} processed${skipped ? `, ${skipped} skipped by QA gate` : ""}${dryRun ? " (dry run)" : ""}.\n`);
 }
 
 main().catch((e) => fail(e.message));

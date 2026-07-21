@@ -1,7 +1,7 @@
 ---
 title: "How to Tell Which CRM Users You're Overpaying For"
 slug: "how-to-identify-light-crm-users"
-excerpt: "Most mid-market teams pay full CRM seats for people who use a sliver of the platform. Here's a practical way to find those light users — and cut the bill without switching CRMs."
+excerpt: "Most mid-market teams pay full CRM seats for people who barely use them. Here's how to find those light users — and cut the bill without switching CRMs."
 categories: "CRM Cost Reduction"
 tags: "Salesforce, CRM licensing, cost reduction, custom portals"
 image_alt: "How to identify light CRM users you are overpaying for — ARDN Cloud Solutions"
@@ -60,6 +60,8 @@ image_alt: "How to identify light CRM users you are overpaying for — ARDN Clou
 <p>The key point: this isn't "leave Salesforce." Your CRM stays the system of record. A custom portal sits alongside it, syncs through its API in real time, and gives light users a clean tool built for their job — on one flat fee instead of a license each. Your power users never notice a thing.</p>
 
 <p>Want to see the whole framework? Read <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>, or plug your own numbers into the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a> to see what moving light users off per-seat licenses would save you.</p>
+
+<p>Related reading: <a href="https://cms.ardncloudsolutions.com/ways-to-cut-crm-licensing-costs/">7 ways to cut CRM licensing costs in 2026</a> and <a href="https://cms.ardncloudsolutions.com/salesforce-platform-license-vs-custom-portal/">Salesforce Platform license vs. a custom portal</a>.</p>
 
 <h2>Frequently asked questions</h2>
 
