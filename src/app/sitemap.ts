@@ -271,6 +271,23 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.85,
     },
+    {
+        // Wedge PILLAR: "how to cut CRM licensing costs" decision framework.
+        // Anchors the cost-reduction content cluster (problem-intent head term),
+        // distinct from the portal product page and the seat-cost comparison.
+        url: `${BASE_URL}/reduce-crm-licensing-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
+        // custom portal. Captures Experience Cloud / Community Cloud cost intent.
+        url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

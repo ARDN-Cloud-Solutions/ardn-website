@@ -72,7 +72,7 @@ export default function LandingPageContent() {
           <div style={{ marginTop: "28px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/ai-forge" className="link">AI Forge is our flagship example — see how it works →</Link>
             <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
-            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+            <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs — the full guide →</Link>
           </div>
         </div>
       </section>
