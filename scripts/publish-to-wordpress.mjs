@@ -296,8 +296,12 @@ async function main() {
   if (onlyFile) {
     files = [resolve(ROOT, onlyFile)];
   } else {
+    // Post files are lowercase-slug .md; skip docs like BACKLOG.md / README.md
+    // (anything starting with an uppercase letter or underscore).
     const entries = await readdir(BLOG_DIR).catch(() => []);
-    files = entries.filter((f) => f.endsWith(".md")).map((f) => join(BLOG_DIR, f));
+    files = entries
+      .filter((f) => f.endsWith(".md") && !/^[A-Z_]/.test(f))
+      .map((f) => join(BLOG_DIR, f));
   }
 
   if (!files.length) fail(`No post files found in ${BLOG_DIR}`);

@@ -81,6 +81,27 @@ node scripts/publish-to-wordpress.mjs --file content/blog/your-post.md --draft
 **Idempotent:** posts are matched by slug, so re-running updates the existing
 post instead of creating a duplicate. Safe to run on a schedule.
 
+## Daily content engine (automated)
+
+A daily scheduled run (fresh session) drives this pipeline autonomously:
+
+1. Read `content/blog/BACKLOG.md`; pick the unchecked topics that are genuinely
+   distinct and high-intent. **Quality gates the count** — publish as many as
+   clear the bar; if nothing distinct remains, publish fewer (or none) and log
+   that the backlog is thin. Never pad with near-duplicates (Google penalizes
+   scaled/thin content — that would hurt the whole domain).
+2. Write each as a full post (frontmatter + HTML): honest, on-brand, FAQ,
+   comparison table where useful, >=2 internal money-page links + a sibling link.
+3. `node scripts/publish-to-wordpress.mjs --publish` — the QA gate blocks
+   anything that fails; featured images generate + attach automatically.
+4. Mark published topics `[x]` in BACKLOG.md and append newly-discovered
+   distinct angles. Commit the content + backlog.
+5. Report what published, what was skipped by the gate, and backlog depth.
+
+Weight ~half Salesforce/HubSpot per-seat cost, half verticals + comparisons +
+buyer questions. Expand into a new vertical when the current topic space thins,
+rather than repeating angles.
+
 ## Guardrails
 
 - No fabricated stats, client names, or metrics. Cite only publicly verifiable
