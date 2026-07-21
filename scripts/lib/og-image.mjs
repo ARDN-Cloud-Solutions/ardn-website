@@ -24,18 +24,30 @@ const PAD = 100; // > the ~87px headless viewport offset
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+// Centered, crop-safe composition. Blog/social themes commonly center-crop a
+// featured image toward square, so ALL content lives in a centered column
+// (~540px wide, vertically centered) that survives a 1:1 center crop. A topical
+// motif (declining bars + down arrow = cost reduction) makes the card relate to
+// the content instead of just repeating the title.
 function template({ title, eyebrow }) {
+  const motif = `<svg width="84" height="84" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="30" width="14" height="52" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<rect x="24" y="44" width="14" height="38" rx="3" fill="#ffffff" fill-opacity="0.68"/>
+<rect x="44" y="56" width="14" height="26" rx="3" fill="#ffffff" fill-opacity="0.46"/>
+<path d="M70 18 L70 60 M56 47 L70 63 L84 47" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:${W}px;background:#2A2580}
-.card{width:${W}px;height:${H}px;background:linear-gradient(135deg,#4840E0 0%,#2A2580 100%);color:#fff;font-family:Arial,Helvetica,sans-serif;padding:76px 80px;position:relative;overflow:hidden}
-.card::after{content:"";position:absolute;right:-140px;top:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.14),transparent)}
-.ey{font-size:22px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;font-weight:700}
-h1{font-size:58px;line-height:1.1;margin-top:24px;max-width:17ch;font-weight:800;position:relative;z-index:1}
-.foot{position:absolute;left:80px;right:80px;bottom:60px;display:flex;align-items:center;justify-content:space-between;z-index:1}
-.mark{font-size:28px;font-weight:800;letter-spacing:.01em}
-.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:100px;padding:10px 20px;font-size:19px;font-weight:700}
-</style></head><body><div class="card"><div class="ey">${esc(eyebrow || "Ardn Cloud Solutions")}</div><h1>${esc(title)}</h1><div class="foot"><div class="mark">ardn</div><div class="badge">ardncloudsolutions.com</div></div></div></body></html>`;
+.card{width:${W}px;height:${H}px;background:linear-gradient(135deg,#4840E0 0%,#2A2580 100%);color:#fff;font-family:Arial,Helvetica,sans-serif;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.card::before{content:"";position:absolute;left:50%;top:-160px;transform:translateX(-50%);width:620px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.12),transparent)}
+.inner{position:relative;z-index:1;width:540px;display:flex;flex-direction:column;align-items:center}
+.motif{margin-bottom:26px;opacity:.95}
+.ey{font-size:19px;letter-spacing:.2em;text-transform:uppercase;opacity:.82;font-weight:700;margin-bottom:20px}
+h1{font-size:44px;line-height:1.14;font-weight:800}
+.brand{margin-top:34px;font-size:18px;font-weight:700;opacity:.9;letter-spacing:.01em}
+.brand span{opacity:.6;margin:0 8px}
+</style></head><body><div class="card"><div class="inner"><div class="motif">${motif}</div><div class="ey">${esc(eyebrow || "Ardn Cloud Solutions")}</div><h1>${esc(title)}</h1><div class="brand">ardn<span>·</span>ardncloudsolutions.com</div></div></div></body></html>`;
 }
 
 /**

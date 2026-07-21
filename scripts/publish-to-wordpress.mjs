@@ -140,11 +140,22 @@ async function findPostBySlug(slug) {
 async function ensureFeaturedImage({ slug, title, eyebrow, altText }) {
   const mediaSlug = `${slug}-og`;
 
-  if (!regenImages) {
-    const existing = await wp(`/media?slug=${encodeURIComponent(mediaSlug)}&per_page=1`);
-    if (existing[0]) {
-      console.log(`  image: reusing media #${existing[0].id}`);
-      return existing[0].id;
+  // The post's own featured_media is the source of truth — robust against slug
+  // collisions. Reuse it on normal runs; on --regen-images delete it first so
+  // no orphaned media accumulate and dedup never reverts to a stale image.
+  const post = await findPostBySlug(slug);
+  const currentId = post && post.featured_media ? post.featured_media : 0;
+
+  if (currentId && !regenImages) {
+    console.log(`  image: reusing media #${currentId}`);
+    return currentId;
+  }
+  if (currentId && regenImages) {
+    try {
+      await wp(`/media/${currentId}?force=true`, { method: "DELETE" });
+      console.log(`  image: deleted old media #${currentId}`);
+    } catch (e) {
+      console.log(`  image: could not delete old media #${currentId} (${e.message})`);
     }
   }
 
@@ -164,10 +175,9 @@ async function ensureFeaturedImage({ slug, title, eyebrow, altText }) {
     throw new Error(`media upload -> ${res.status} ${text.slice(0, 200)}`);
   }
   const media = await res.json();
-  // Set alt text + a stable slug (second call — WP ignores these on binary create).
   await wp(`/media/${media.id}`, {
     method: "POST",
-    body: JSON.stringify({ alt_text: altText, slug: mediaSlug, title: title }),
+    body: JSON.stringify({ alt_text: altText, title: title }),
   });
   console.log(`  image: uploaded media #${media.id} (${filename})`);
   return media.id;
