@@ -78,6 +78,14 @@ const FAQS = [
     a: "No. Every lever on this page keeps your CRM as the system of record. A license audit right-sizes your existing contract; a custom portal sits alongside the CRM and syncs through its API. A full migration is a separate, larger decision that only makes sense if the platform itself no longer fits your power users — not something you should take on just to trim seat cost.",
   },
   {
+    q: "Can I reduce my Salesforce license count before renewal?",
+    a: "Usually only at renewal. Most Salesforce contracts include a no-reduction clause, so you can add seats mid-term but not remove them until the term ends. That makes timing everything: start the audit 3–6 months before renewal so you know exactly how many seats you actually need — and which light users you can move to a portal — before you re-sign. Going into a renewal with that data is also your strongest negotiating position.",
+  },
+  {
+    q: "How do I move light users off the CRM without losing the single source of truth?",
+    a: "You don't delete them — you move them to a portal that stays wired into the CRM. The portal reads and writes the same records live through the CRM's API, so those users keep working and the CRM stays the one source of truth. The only thing that changes is you stop paying a full seat for someone who needs a sliver of it. This is the difference between deactivating a user (they lose access) and offloading them (they keep working, cheaper).",
+  },
+  {
     q: "What is a 'light user' and why do they cost the most per unit of value?",
     a: "A light user touches the CRM for a narrow slice of work but gets billed the same (or nearly the same) as a power user who lives in it all day. Because per-seat pricing is built around the power user, the overpayment concentrates on everyone lighter than that — which in most companies is the majority of the seat count.",
   },
@@ -101,7 +109,7 @@ const levers = [
   {
     tag: "Lever 2 — Right-size",
     title: "Move users to a cheaper tier",
-    body: "CRMs sell limited-access, platform, and login-based tiers below a full seat. Cheaper per head — but still per head, and still capped in what you can build for that user.",
+    body: "CRMs sell limited-access tiers below a full seat — Salesforce Platform licenses, login-based licenses, and add-on Permission Set Licenses you may be assigning to people who never use the feature. Cheaper per head — but still per head, and still capped in what you can build for that user.",
     best: "Best for: occasional users who still need native CRM access.",
   },
   {
@@ -225,7 +233,7 @@ export default function ReduceCrmLicensingCostsPage() {
               <div className="card">
                 <div className="card-num">02</div>
                 <h3 className="h3">The bill grows with headcount</h3>
-                <p className="body">Every new hire, partner, or customer segment that needs access adds another recurring seat — permanently, unless something changes the model.</p>
+                <p className="body">Every new hire, partner, or customer segment that needs access adds another recurring seat — permanently, unless something changes the model. And with vendors now charging separately for AI (Salesforce&rsquo;s Agentforce, for example) on top of the seat, per-user pricing is trending up, not down.</p>
               </div>
               <div className="card">
                 <div className="card-num">03</div>
@@ -371,6 +379,7 @@ export default function ReduceCrmLicensingCostsPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? How to cut HubSpot seat costs →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>

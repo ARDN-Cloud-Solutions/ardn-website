@@ -212,7 +212,7 @@ export default function ExperienceCloudVsCustomPortalPage() {
               </table>
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
-              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and use our <Link href="/savings-calculator" className="link">calculator</Link> to compare against a flat-fee portal for your own user counts.
+              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and <Link href="/savings-calculator" className="link">run your per-seat savings calculation</Link> to compare against a flat-fee portal for your own user counts.
             </p>
           </div>
         </section>
@@ -313,8 +313,9 @@ export default function ExperienceCloudVsCustomPortalPage() {
                 <span className="link">Run the numbers →</span>
               </Link>
             </div>
-            <p className="body mt-4" style={{ textAlign: "center" }}>
+            <p className="body mt-4" style={{ textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/custom-software-development" className="link">See how we build custom portals &amp; software →</Link>
             </p>
           </div>
         </section>

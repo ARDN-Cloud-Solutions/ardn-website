@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
 
@@ -85,6 +86,14 @@ const FAQS = [
   {
     q: "How is this different from CRM community or portal licenses?",
     a: "Built-in community and portal license tiers still bill per user and limit what you can build. A custom portal is yours, runs on one flat monthly fee regardless of how many users you add, and is shaped exactly to your process instead of a vendor's template.",
+  },
+  {
+    q: "Is a custom portal secure, and how is CRM data protected?",
+    a: "The portal authenticates every user and only ever exposes the specific records and fields that user's role needs — it never hands out broad CRM access. Data moves over encrypted connections through your CRM's official API, honoring the same permissions and sharing rules you already enforce. Because the CRM stays the system of record, there's no extra copy of your data sitting somewhere less controlled. We can also scope it to your compliance requirements and wire in SSO.",
+  },
+  {
+    q: "Do we own the portal, or are we locked in?",
+    a: "You own the IP and the data. We retain rights only to the underlying frameworks and tooling we reuse across clients. There's no per-seat lock-in and no proprietary trap: if you ever leave, you get a full export and documentation. We build it AND run it under one flat fee, so you're not left maintaining it alone — but you're never stuck with us to keep it running, either.",
   },
   {
     q: "How long does it take and what does it cost?",
@@ -237,6 +246,8 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Salesforce Experience Cloud? See how a custom portal compares →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? How to cut HubSpot seat costs →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -313,6 +324,32 @@ export default function CustomPortalDevelopmentPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PROOF — single genuine, attributed testimonial (no fabricated metrics) */}
+        <section className="section">
+          <div className="container">
+            <div className="card" style={{ maxWidth: "760px", margin: "0 auto", padding: "36px", display: "flex", gap: "22px", alignItems: "flex-start", flexWrap: "wrap" }}>
+              <Image
+                src="/images/testimonial-jay-vashi.webp"
+                alt="Jay Vashi"
+                width={64}
+                height={64}
+                style={{ borderRadius: "50%", flexShrink: 0 }}
+              />
+              <div style={{ flex: 1, minWidth: "260px" }}>
+                <p className="body" style={{ fontSize: "18px", lineHeight: 1.6, color: "#14142B" }}>
+                  &ldquo;Ardn Cloud Solutions went beyond our expectations, implementing a
+                  hands-on, cost-saving approach that has been invaluable to our business.
+                  Their strategic focus on high-impact efficiencies transformed our
+                  operations, delivering substantial cost reductions and measurable
+                  improvements throughout our processes.&rdquo;
+                </p>
+                <div style={{ marginTop: "14px", fontWeight: 700, color: "#14142B" }}>Jay Vashi</div>
+                <div style={{ color: "#475467", fontSize: "14px" }}>Salesforce Delivery Manager — Fortune 500 Insurance Company</div>
+              </div>
             </div>
           </div>
         </section>

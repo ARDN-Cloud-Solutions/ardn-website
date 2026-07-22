@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   keywords: [
     "software savings calculator",
     "Salesforce cost calculator",
+    "per-seat savings calculator",
+    "CRM license cost calculator",
     "Salesforce spend optimization",
     "Mindbody alternative cost",
     "Zenoti alternative",

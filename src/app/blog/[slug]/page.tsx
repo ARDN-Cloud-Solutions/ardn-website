@@ -208,8 +208,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                             </div>
                         )}
 
-                        {/* Title */}
-                        <h2
+                        {/* Title — must be the page H1 for on-page SEO */}
+                        <h1
                             className="text-3xl md:text-4xl font-semibold text-heading-dark leading-tight mb-5"
                             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                         />

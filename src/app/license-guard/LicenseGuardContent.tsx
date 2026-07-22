@@ -92,6 +92,11 @@ export default function LicenseGuardContent() {
           <p className="body mt-4" style={{ textAlign: "center" }}>
             Already reclaimed the dormant seats? <Link href="/custom-portal-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>Move light users to a custom portal</Link> to cut the rest of the per-seat bill, or <Link href="/compare/salesforce-seat-cost-vs-custom-portal" style={{ color: "var(--indigo)", fontWeight: 600 }}>see the full seat-cost math</Link>.
           </p>
+          <p className="body mt-3" style={{ textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/reduce-crm-licensing-costs" className="link">The full guide to cutting CRM licensing costs →</Link>
+            <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
+            <Link href="/custom-software-development" className="link">Explore custom software &amp; platform builds →</Link>
+          </p>
         </div>
       </section>
 

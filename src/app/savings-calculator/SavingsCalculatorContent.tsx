@@ -75,6 +75,11 @@ export default function SavingsCalculatorContent() {
   const [selectedIndustry, setSelectedIndustry] = useState("medspa");
   const [budget, setBudget] = useState(4500);
   const [modalOpen, setModalOpen] = useState(false);
+  // Optional lead capture on the results modal — the highest-intent moment on
+  // the site. Results stay visible without gating; this only offers to email a
+  // copy, capturing the visitors who'll share an email but won't book a call.
+  const [leadEmail, setLeadEmail] = useState("");
+  const [leadStatus, setLeadStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
 
   const currentTools = TOOLS_DATA[selectedIndustry];
   const toolTotal = currentTools.reduce((s, t) => s + t.cost, 0);
@@ -93,6 +98,38 @@ export default function SavingsCalculatorContent() {
   const yr1 = monthly * 12;
   const yr2 = monthly * 24;
   const yr3 = monthly * 36;
+
+  async function handleLeadSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const email = leadEmail.trim();
+    if (!email) return;
+    setLeadStatus("sending");
+    const savingsNote =
+      monthly > 0
+        ? `Estimated saving: ${fmt(yr1)}/year (current ${fmt(total)}/mo vs. ${fmt(baseline)}/mo flat).`
+        : `Estimated current spend ${fmt(total)}/mo, near the ${fmt(baseline)}/mo flat rate.`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: email.split("@")[0] || "Savings Calculator lead",
+          email,
+          source: "Savings Calculator result",
+          message: `Savings report request (${selectedIndustry}). ${savingsNote}`,
+        }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setLeadStatus("ok");
+      if (typeof window !== "undefined" && typeof (window as { gtag?: unknown }).gtag === "function") {
+        (window as unknown as { gtag: (...a: unknown[]) => void }).gtag("event", "generate_lead", {
+          source: "Savings Calculator result",
+        });
+      }
+    } catch {
+      setLeadStatus("err");
+    }
+  }
 
   return (
     <div className="sc-page">
@@ -539,7 +576,7 @@ export default function SavingsCalculatorContent() {
         <div className="sc-cta-inner">
           <div className="sc-cta-eyebrow">Ready to stop overpaying?</div>
           <h2 className="sc-cta-title">
-            See exactly what you&apos;d save<br /><em>in 15 minutes.</em>
+            See exactly what you&apos;d save<br /><em>in 30 minutes.</em>
           </h2>
           <p className="sc-cta-sub">
             Book a free discovery call. We&apos;ll map your current stack, calculate your
@@ -550,7 +587,7 @@ export default function SavingsCalculatorContent() {
             target="_blank"
             className="sc-cta-btn"
           >
-            Book Free 15-Minute Discovery Call →
+            Book Free 30-Minute Discovery Call →
           </Link>
           <p className="sc-cta-note">
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
@@ -563,6 +600,12 @@ export default function SavingsCalculatorContent() {
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
             <Link href="/license-guard">Reclaim dormant Salesforce seats first →</Link>
+            {" · "}
+            <Link href="/reduce-crm-licensing-costs">How to cut Salesforce/HubSpot licensing costs →</Link>
+            {" · "}
+            <Link href="/compare/salesforce-experience-cloud-vs-custom-portal">Compare Experience Cloud vs. a custom portal →</Link>
+            {" · "}
+            <Link href="/custom-software-development">See all custom software &amp; platform builds →</Link>
           </p>
         </div>
       </section>
@@ -585,11 +628,21 @@ export default function SavingsCalculatorContent() {
             </button>
             <div className="sc-modal-header">
               <div className="sc-modal-tag">Your Savings Report</div>
-              <div className="sc-modal-headline">
-                You could save{" "}
-                <span>{yr1 > 0 ? fmt(yr1) : fmt(yr2)}</span>/year
-              </div>
-              <div className="sc-modal-sub">Based on your estimated current software spend</div>
+              {monthly > 0 ? (
+                <>
+                  <div className="sc-modal-headline">
+                    You could save <span>{fmt(yr1)}</span>/year
+                  </div>
+                  <div className="sc-modal-sub">Based on your estimated current software spend</div>
+                </>
+              ) : (
+                <>
+                  <div className="sc-modal-headline">
+                    Let&apos;s find your savings <span>on a call</span>
+                  </div>
+                  <div className="sc-modal-sub">Your estimate is close to our flat rate — the real savings depend on your exact seats and tools.</div>
+                </>
+              )}
             </div>
             <div className="sc-modal-body">
               <div className="sc-modal-metrics">
@@ -669,11 +722,46 @@ export default function SavingsCalculatorContent() {
                 target="_blank"
                 className="sc-modal-cta"
               >
-                Book Free 15-Minute Discovery Call →
+                Book Free 30-Minute Discovery Call →
               </Link>
               <div className="sc-modal-fine">
-                No pressure. No sales deck. Just your actual numbers in 15 minutes.
+                No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
+
+              {/* Optional lead capture — email a copy of the report */}
+              {leadStatus === "ok" ? (
+                <div className="sc-modal-fine" style={{ marginTop: 14, color: "var(--sc-green)", fontWeight: 600 }}>
+                  ✅ On its way — we&apos;ll email your report and follow up within one business day.
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleLeadSubmit}
+                  style={{ marginTop: 16, display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}
+                >
+                  <input
+                    type="email"
+                    required
+                    value={leadEmail}
+                    onChange={(e) => setLeadEmail(e.target.value)}
+                    placeholder="Email me this report"
+                    aria-label="Email me this savings report"
+                    style={{ flex: "1 1 220px", minWidth: 0, padding: "11px 14px", borderRadius: 10, border: "1px solid var(--sc-border)", fontSize: 14, fontFamily: "inherit" }}
+                  />
+                  <button
+                    type="submit"
+                    disabled={leadStatus === "sending"}
+                    className="sc-modal-cta"
+                    style={{ margin: 0, width: "auto", padding: "11px 20px", opacity: leadStatus === "sending" ? 0.7 : 1 }}
+                  >
+                    {leadStatus === "sending" ? "Sending…" : "Send it"}
+                  </button>
+                  {leadStatus === "err" && (
+                    <div className="sc-modal-fine" style={{ flexBasis: "100%", color: "var(--sc-red)" }}>
+                      Something went wrong — please try again or book a call.
+                    </div>
+                  )}
+                </form>
+              )}
             </div>
           </div>
         </div>
