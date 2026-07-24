@@ -11,7 +11,7 @@ export default function LandingPageContent() {
           <div className="hero-grid">
             <div className="hero-copy">
               <span className="eyebrow">Custom software, platforms &amp; AI · Built and run for you</span>
-              <h1 className="display reveal">Run your business on software built <em>for it</em> — not the other way around.</h1>
+              <h1 className="display reveal">Custom software, built for <em>how you run</em> — not the other way around.</h1>
               <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "4px" }} className="reveal reveal-d2">
                 <span className="badge is-emerald">Flat fee, not per-seat</span>
@@ -19,7 +19,7 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
@@ -369,7 +369,7 @@ export default function LandingPageContent() {
         </div>
       </section>
 
-      <LeadForm source="Homepage" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day with a fixed quote — no obligation." />
+      <LeadForm source="Homepage" heading="Tell us what you're building — or overpaying for" sub="A sentence on the problem (or your CRM and rough user count) is plenty. We'll reply within one business day with where we'd cut the bill and a fixed quote — no obligation." />
 
       {/* FINAL CTA */}
        <section className="section" id="contact">        <div className="container">

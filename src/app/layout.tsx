@@ -116,8 +116,15 @@ const organizationSchema = {
   url: "https://ardncloudsolutions.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://ardncloudsolutions.com/logo/favicon.jpeg",
+    inLanguage: "en-US",
+    "@id": "https://ardncloudsolutions.com/#/schema/logo/image/",
+    url: "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
+    contentUrl: "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
+    width: 350,
+    height: 90,
+    caption: "Ardn Cloud Solutions",
   },
+  email: "contactus@ardncloudsolutions.com",
   description:
     "Orlando-based development team. We build custom AI applications and bespoke software using our proprietary AI Forge Framework, deliver a suite of Salesforce-native cloud products (Storefronts, License Guard, Salesforce Payments), and provide Salesforce consulting and managed services backed by 30+ years of expertise.",
   address: {
@@ -141,6 +148,10 @@ const organizationSchema = {
     },
   ],
   sameAs: [
+    "https://www.facebook.com/profile.php?id=61569012437188",
+    "https://x.com/ardn_cloud_sol",
+    "https://www.instagram.com/ardncloudsolutions/",
+    "https://www.youtube.com/@ardn_cloud_solutions",
     "https://www.linkedin.com/company/ardn-cloud-solutions/",
   ],
 };

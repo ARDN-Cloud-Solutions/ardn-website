@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AiInfoPageContent from "./AiInfoPageContent";
 
 export const metadata: Metadata = {
-  title: "ARDN Storefronts: AI Information Page | Ardn Cloud",
+  title: "AI & Automation for Salesforce Storefronts | Ardn",
   description:
     "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
   alternates: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ARDN Storefronts: AI Information Page | Ardn Cloud",
+    title: "AI & Automation for Salesforce Storefronts | Ardn",
     description:
       "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
     url: "https://ardncloudsolutions.com/ai-info-page",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARDN Storefronts: AI Information Page | Ardn Cloud",
+    title: "AI & Automation for Salesforce Storefronts | Ardn",
     description:
       "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
     site: "@ardn_cloud_sol",
@@ -46,7 +46,7 @@ export default function AiInfoPage() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/ai-info-page",
         url: "https://ardncloudsolutions.com/ai-info-page",
-        name: "ARDN Storefronts: AI Information Page | Ardn Cloud",
+        name: "AI & Automation for Salesforce Storefronts | Ardn",
         description:
           "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
         breadcrumb: {

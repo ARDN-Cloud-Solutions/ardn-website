@@ -9,7 +9,7 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // (Calendly), single conversion path, no in-page distractions.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services in Orlando | Ardn",
   description:
     "Salesforce consulting, implementation, license audits, and managed services from a Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform for YMCAs, gyms, and clubs. Book a free 30-minute call with an Orlando senior consultant — reply within 4 business hours.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services in Orlando | Ardn",
     description:
       "Florida-based Salesforce consultants with 30+ years of expertise. Implementation, license audits, integration, and managed services. Free 30-min strategy call.",
     url: "https://ardncloudsolutions.com/salesforce-consulting-orlando",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services in Orlando | Ardn",
     description:
       "Florida-based Salesforce consultants with 30+ years of expertise. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",
@@ -459,6 +459,9 @@ export default function SalesforceConsultingOrlandoPage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "20px" }}>
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Paying per Salesforce seat? See how to cut CRM licensing costs →</Link>
+              </p>
             </div>
           </div>
         </section>

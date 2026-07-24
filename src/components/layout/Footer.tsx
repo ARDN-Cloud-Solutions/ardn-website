@@ -38,6 +38,19 @@ const solutions = [
   { label: "AI for Membership Orgs", href: "/ai-for-membership-organizations" },
 ];
 
+// Dedicated cost-reduction wedge cluster — ARDN's #1 go-to-market play.
+// Pulled out of the generic "Buyer Guides" list so the pillar + cost pages
+// read as a self-contained, keyword-rich cluster and gain sitewide link
+// weight instead of being diluted at the bottom of a mixed list.
+const cutCrmCosts = [
+  { label: "How to Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
+  { label: "Reduce HubSpot Seat & Contact Costs", href: "/reduce-hubspot-costs" },
+  { label: "Salesforce Seat Cost vs. Custom Portal", href: "/compare/salesforce-seat-cost-vs-custom-portal" },
+  { label: "Experience Cloud vs. Custom Portal", href: "/compare/salesforce-experience-cloud-vs-custom-portal" },
+  { label: "Custom Software vs. SaaS Cost", href: "/compare/custom-software-vs-saas" },
+  { label: "Free Savings Calculator", href: "/savings-calculator" },
+];
+
 const legal = [
   { label: "Privacy Policy", href: "/privacy-policy" },
 ];
@@ -70,10 +83,6 @@ const buyerGuides = [
   { label: "Salesforce Workflow Automation Tools", href: "/buyers-guide/salesforce-workflow-automation-tools" },
   { label: "AI App Development", href: "/buyers-guide/ai-app-development" },
   { label: "Salesforce Commerce Cloud Alternatives", href: "/compare/salesforce-commerce-cloud-alternatives" },
-  { label: "How to Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
-  { label: "Cut Salesforce/HubSpot Seat Costs", href: "/compare/salesforce-seat-cost-vs-custom-portal" },
-  { label: "Experience Cloud vs. Custom Portal", href: "/compare/salesforce-experience-cloud-vs-custom-portal" },
-  { label: "Custom Software vs. SaaS Cost", href: "/compare/custom-software-vs-saas" },
 ];
 
 const socials = [
@@ -208,6 +217,16 @@ export default function Footer() {
                   <FooterHeading>Our Products</FooterHeading>
                   <ul className="flex flex-col gap-3">
                     {ourProducts.map((item) => (
+                      <FooterLink key={item.href} href={item.href}>
+                        {item.label}
+                      </FooterLink>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <FooterHeading>Cut CRM Costs</FooterHeading>
+                  <ul className="flex flex-col gap-3">
+                    {cutCrmCosts.map((item) => (
                       <FooterLink key={item.href} href={item.href}>
                         {item.label}
                       </FooterLink>

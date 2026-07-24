@@ -9,7 +9,7 @@ import SalesforceMembershipContent from "./SalesforceMembershipContent";
 // entity graph stays coherent across the site.
 export const metadata: Metadata = {
   title:
-    "Top Salesforce Membership Management Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Salesforce Membership Management Tools 2026 | Ardn",
   description:
     "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow, and Ardn. Expert evaluation criteria, pitfalls to avoid, and buying questions that get you to the right fit.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Top Salesforce Membership Management Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+      "Salesforce Membership Management Tools 2026 | Ardn",
     description:
       "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow, and Ardn. Expert evaluation criteria and buying questions.",
     url: "https://ardncloudsolutions.com/buyers-guide/salesforce-membership-management-tools",
@@ -81,7 +81,7 @@ export default function Page() {
         "@type": "WebPage",
         "@id": url,
         url,
-        name: "Top Salesforce Membership Management Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+        name: "Salesforce Membership Management Tools 2026 | Ardn",
         description:
           "Compare the best Salesforce membership management tools in 2026. Expert evaluation criteria, pitfalls, and buying questions.",
         inLanguage: "en-US",
