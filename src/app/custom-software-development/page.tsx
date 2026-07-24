@@ -143,6 +143,20 @@ export default function CustomSoftwareDevelopmentPage() {
           { "@type": "Country", name: "United States" },
           { "@type": "Place", name: "Global" },
         ],
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            minPrice: 3000,
+            maxPrice: 12000,
+            unitText: "MONTH",
+          },
+          description:
+            "One flat monthly subscription covering build, hosting, and changes — no per-seat licensing. One-time build free for new customers.",
+          url: "https://ardncloudsolutions.com/custom-software-development",
+        },
       },
       {
         "@type": "FAQPage",

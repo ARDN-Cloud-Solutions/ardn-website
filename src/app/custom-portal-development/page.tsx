@@ -136,6 +136,20 @@ export default function CustomPortalDevelopmentPage() {
           { "@type": "Country", name: "United States" },
           { "@type": "Place", name: "Global" },
         ],
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            minPrice: 3000,
+            maxPrice: 12000,
+            unitText: "MONTH",
+          },
+          description:
+            "Flat monthly subscription — no per-seat fees. One-time build free for new customers.",
+          url: "https://ardncloudsolutions.com/custom-portal-development",
+        },
       },
       {
         "@type": "FAQPage",

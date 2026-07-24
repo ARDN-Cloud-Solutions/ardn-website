@@ -10,7 +10,7 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // in-person engagement available for FL-based clients.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services in Miami | Ardn",
   description:
     "Salesforce consulting, implementation, license audits, and managed services for Miami and South Florida businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services in Miami | Ardn",
     description:
       "Florida-based Salesforce consultants serving Miami and South Florida. 30+ years of expertise. Free 30-min strategy call.",
     url: "https://ardncloudsolutions.com/salesforce-consulting-miami",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services in Miami | Ardn",
     description:
       "Florida-based Salesforce consultants serving Miami and South Florida. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",
@@ -452,6 +452,9 @@ export default function SalesforceConsultingMiamiPage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "20px" }}>
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Paying per Salesforce seat? See how to cut CRM licensing costs →</Link>
+              </p>
             </div>
           </div>
         </section>

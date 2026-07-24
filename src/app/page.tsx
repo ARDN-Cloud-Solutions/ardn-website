@@ -62,31 +62,15 @@ export default async function Page() {
         "name": "Ardn Cloud Solutions",
         "description": "Custom software, platforms, and portals — built and run for you.",
         "publisher": { "@id": "https://ardncloudsolutions.com/#organization" },
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://ardncloudsolutions.com/#organization",
-        "name": "Ardn Cloud Solutions",
-        "url": "https://ardncloudsolutions.com/",
-        "email": "contactus@ardncloudsolutions.com",
-        "logo": {
-          "@type": "ImageObject",
-          "inLanguage": "en-US",
-          "@id": "https://ardncloudsolutions.com/#/schema/logo/image/",
-          "url": "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
-          "contentUrl": "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
-          "width": 350,
-          "height": 90,
-          "caption": "Ardn Cloud Solutions"
-        },
-        "sameAs": [
-          "https://www.facebook.com/profile.php?id=61569012437188",
-          "https://x.com/ardn_cloud_sol",
-          "https://www.instagram.com/ardncloudsolutions/",
-          "https://www.youtube.com/@ardn_cloud_solutions",
-          "https://www.linkedin.com/company/ardn-cloud-solutions/"
-        ]
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://ardncloudsolutions.com/blog/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         // GEO/SEO: homepage FAQPage. Questions/answers mirror the visible FAQ

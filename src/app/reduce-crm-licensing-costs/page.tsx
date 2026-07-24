@@ -86,6 +86,10 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "When should I start if my CRM renewal is coming up?",
+    a: "Start early — ideally 3 to 12 months before renewal. Seat count is easiest to change at renewal, and coming to that conversation with real usage data (who logs in, how often, and how deeply) is what gives you leverage to cut. The practical sequence is: pull usage data now, reclaim dormant seats, identify your light users, and stand up a portal for them before you re-sign — so you renew for the seats you actually need, not the ones you had.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -296,8 +300,43 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* RENEWAL TIMING */}
+        <section className="section is-canvas" id="renewal">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">When to act</span>
+                <h2 className="h1 mt-3">Before your renewal <em>locks the seat count in.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Seat count is easiest to change at renewal — and the earlier you start, the more leverage you have. Aim to begin 3–12 months out.</p>
+              </div>
+            </div>
+            <div className="grid-3">
+              <div className="card">
+                <div className="card-num">01</div>
+                <h3 className="h3">Pull your usage data early</h3>
+                <p className="body">Who actually logs in, how often, and how deeply? Real usage data is your leverage at renewal — and it takes a few billing cycles to be convincing.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">02</div>
+                <h3 className="h3">Reclaim, then right-size</h3>
+                <p className="body">Deactivate dormant seats and move occasional users to cheaper tiers before you re-sign, so the contract reflects the seats you actually need.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">03</div>
+                <h3 className="h3">Stand up the portal before you re-sign</h3>
+                <p className="body">Move your light users to a flat-fee portal ahead of renewal so you renew for the power users only — not a headcount you&rsquo;ve already outgrown paying for.</p>
+              </div>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              A portal goes live in 2–6 weeks via our <Link href="/custom-portal-development" className="link">AI Forge Framework</Link>, so even a renewal a couple of months out is enough runway to move light users off paid seats first.
+            </p>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
-        <section className="section is-canvas">
+        <section className="section">
           <div className="container">
             <div className="split">
               <div>

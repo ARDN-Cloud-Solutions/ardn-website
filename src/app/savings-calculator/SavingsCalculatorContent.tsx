@@ -539,7 +539,7 @@ export default function SavingsCalculatorContent() {
         <div className="sc-cta-inner">
           <div className="sc-cta-eyebrow">Ready to stop overpaying?</div>
           <h2 className="sc-cta-title">
-            See exactly what you&apos;d save<br /><em>in 15 minutes.</em>
+            See exactly what you&apos;d save<br /><em>on a free 30-min call.</em>
           </h2>
           <p className="sc-cta-sub">
             Book a free discovery call. We&apos;ll map your current stack, calculate your
@@ -550,7 +550,7 @@ export default function SavingsCalculatorContent() {
             target="_blank"
             className="sc-cta-btn"
           >
-            Book Free 15-Minute Discovery Call →
+            Book a free 30-min call →
           </Link>
           <p className="sc-cta-note">
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
@@ -563,6 +563,8 @@ export default function SavingsCalculatorContent() {
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
             <Link href="/license-guard">Reclaim dormant Salesforce seats first →</Link>
+            {" · "}
+            <Link href="/reduce-crm-licensing-costs">Read the full guide to cutting CRM licensing costs →</Link>
           </p>
         </div>
       </section>
@@ -669,10 +671,10 @@ export default function SavingsCalculatorContent() {
                 target="_blank"
                 className="sc-modal-cta"
               >
-                Book Free 15-Minute Discovery Call →
+                Book a free 30-min call →
               </Link>
               <div className="sc-modal-fine">
-                No pressure. No sales deck. Just your actual numbers in 15 minutes.
+                No pressure. No sales deck. Just your actual numbers on a free 30-min call.
               </div>
             </div>
           </div>
