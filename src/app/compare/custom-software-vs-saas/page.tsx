@@ -332,7 +332,7 @@ export default function CustomSoftwareVsSaasPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Software vs SaaS page" heading="Get your own comparison" sub="Tell us what you're paying for today and roughly how many users. We'll reply within one business day with a fixed quote for the custom alternative." />
+        <LeadForm source="Custom Software vs SaaS page" heading="Get your own comparison" sub="Tell us what you're paying for today and roughly how many users. We'll reply within one business day — usually within a few hours — with a fixed quote for the custom alternative." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

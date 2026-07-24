@@ -23,13 +23,17 @@ const products = [
   { label: "AI Forge", href: "/ai-forge" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Software Development", href: "/custom-software-development" },
+  // Per-seat cost-reduction wedge pillar promoted into the site-wide nav
+  // (previously footer-only). It is the #1 go-to-market angle, so it earns
+  // top-nav link weight on every page.
+  { label: "Reduce CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
   {
     label: "Storefronts: All-In-One ECommerce Solution",
     href: "/storefronts",
   },
   { label: "Salesforce Payments", href: "/salesforce-payments" },
-  { label: "Licence Guard", href: "/license-guard" },
-  { label: "Ai-powered Support", href: "/ai-powered-support" },
+  { label: "License Guard", href: "/license-guard" },
+  { label: "AI-Powered Support", href: "/ai-powered-support" },
   { label: "Membership Management", href: "/membership-management" },
   // { label: "Signup Dance Studio", href: "/signup-dance-studio" },
   // { label: "Signup Fitness Studio", href: "/signup-fitness-studio" },

@@ -9,9 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // concentrations.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Tampa, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services Tampa | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Tampa Bay-area businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services for Tampa Bay businesses — Florida team, 30+ years' expertise. Free 30-min call.",
   keywords: [
     "Salesforce consultant Tampa",
     "Salesforce consulting Tampa",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Salesforce Consulting & Managed Services in Tampa, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services Tampa | Ardn",
     description:
       "Florida-based Salesforce consultants serving Tampa, St. Pete, and Clearwater. 30+ years of expertise. Free 30-min strategy call.",
     url: "https://ardncloudsolutions.com/salesforce-consulting-tampa",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Salesforce Consulting & Managed Services in Tampa, FL | Ardn Cloud Solutions",
+      "Salesforce Consulting & Managed Services Tampa | Ardn",
     description:
       "Florida-based Salesforce consultants serving Tampa Bay. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",

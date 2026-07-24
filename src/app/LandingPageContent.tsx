@@ -21,6 +21,10 @@ export default function LandingPageContent() {
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                 <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
               </div>
+              <p className="body reveal reveal-d3" style={{ marginTop: "16px", fontSize: "15px" }}>
+                Still paying per-seat Salesforce or HubSpot licenses for light users?{" "}
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "var(--indigo)", fontWeight: 600 }}>See how we cut that bill — keep your CRM →</Link>
+              </p>
             </div>
             <aside className="hero-aside reveal reveal-d4">
               {/* AI-first hero card: spotlights AI Forge (the flagship) with the
@@ -264,10 +268,10 @@ export default function LandingPageContent() {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "32px", flexWrap: "wrap" }}>
             <div style={{ maxWidth: "600px" }}>
               <h2 className="h2">See it in your environment.</h2>
-              <p className="body mt-2">Book a 30-minute demo. We will walk through your stack and show exactly where Ardn fits.</p>
+              <p className="body mt-2">Book a free 30-minute call. We will walk through your stack and show exactly where Ardn fits.</p>
             </div>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <Link  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free demo</Link>
+              <Link  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
               <Link href="/our-products" className="btn btn-secondary btn-lg">See all products</Link>
             </div>
           </div>
@@ -369,7 +373,7 @@ export default function LandingPageContent() {
         </div>
       </section>
 
-      <LeadForm source="Homepage" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day with a fixed quote — no obligation." />
+      <LeadForm source="Homepage" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day — usually within a few hours — with a fixed quote, no obligation." />
 
       {/* FINAL CTA */}
        <section className="section" id="contact">        <div className="container">
@@ -378,7 +382,7 @@ export default function LandingPageContent() {
             <h2 className="display mt-4">Let us talk about <em>what to ship first.</em></h2>
             <p className="lede">30 minutes. No SOW, no slides. Just a working answer to where Ardn can save you time, money, or both.</p>
             <div className="hero-ctas">
-              <a  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book a free demo</a>
+              <a  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book a free 30-min call</a>
               <Link href="/our-products" className="btn btn-outline-light btn-lg">Browse products</Link>
             </div>
           </div>

@@ -357,6 +357,8 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">Cut HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
             </div>
@@ -391,7 +393,7 @@ export default function CustomSoftwareDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day with a fixed quote — no obligation." />
+        <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day — usually within a few hours — with a fixed quote, no obligation." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
