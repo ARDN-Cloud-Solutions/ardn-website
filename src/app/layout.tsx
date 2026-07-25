@@ -120,6 +120,15 @@ const organizationSchema = {
   },
   description:
     "Orlando-based development team. We build custom AI applications and bespoke software using our proprietary AI Forge Framework, deliver a suite of Salesforce-native cloud products (Storefronts, License Guard, Salesforce Payments), and provide Salesforce consulting and managed services backed by 30+ years of expertise.",
+  slogan: "Custom software, portals & platforms — built and run for you, one flat fee, no per-seat licensing.",
+  knowsAbout: [
+    "Custom software development",
+    "Custom portal development",
+    "Reducing per-seat CRM licensing costs",
+    "Salesforce license optimization",
+    "Business process automation",
+    "Custom AI application development",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Orlando",
@@ -142,6 +151,10 @@ const organizationSchema = {
   ],
   sameAs: [
     "https://www.linkedin.com/company/ardn-cloud-solutions/",
+    "https://x.com/ardn_cloud_sol",
+    "https://www.facebook.com/profile.php?id=61569012437188",
+    "https://www.instagram.com/ardncloudsolutions/",
+    "https://www.youtube.com/@ardn_cloud_solutions",
   ],
 };
 

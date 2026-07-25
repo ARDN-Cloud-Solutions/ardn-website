@@ -82,6 +82,14 @@ const FAQS = [
     a: "Yes. The pattern is the same regardless of which CRM sits behind it — Salesforce, HubSpot, Microsoft Dynamics, or something else. We integrate the portal with whatever system of record you already run.",
   },
   {
+    q: "Can we reduce our Salesforce licenses mid-contract?",
+    a: "Usually not — most Salesforce agreements bill for the seats you contracted until renewal, even if you deactivate the users tomorrow. That's exactly why the timing matters: the reclaim-and-right-size levers land at renewal, while a custom portal removes the need for a seat going forward so you don't renew it at all. Planning the portal ahead of your renewal date is how you avoid paying for another full term of light-user seats.",
+  },
+  {
+    q: "Is our CRM data secure, and what happens to it if we leave?",
+    a: "Your CRM stays the system of record — the portal doesn't copy your data into a separate database, it reads and writes the same records live through the CRM's API, with role-based access so each user only sees their slice. We build and host on modern cloud infrastructure and can accommodate security requirements you already run under. And there's no lock-in: you own the IP and the data, and if you ever leave you get a full export and complete documentation.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -200,9 +208,9 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
                     them or 400.
                   </p>
                   <p className="body" style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    This is an illustration, not a quote — actual seat pricing
-                    varies by CRM, edition, and negotiated rate. Use the free
-                    calculator to run your own.
+                    🎁 New customers: we build it free. This is an illustration,
+                    not a quote — actual seat pricing varies by CRM, edition, and
+                    negotiated rate. Use the free calculator to run your own.
                   </p>
                 </div>
               </aside>
@@ -346,6 +354,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? See the HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
             </div>
@@ -371,6 +380,24 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — genuine, already-published client quote whose
+            "cost-saving approach" language matches this page's intent. */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

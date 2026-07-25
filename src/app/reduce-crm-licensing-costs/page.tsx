@@ -172,8 +172,10 @@ export default function ReduceCrmLicensingCostsPage() {
                   piles up on everyone lighter than that — the sellers, ops staff,
                   partners, and customers who touch it for a handful of tasks.
                   There are three honest ways to cut that bill, and only one of
-                  them requires building anything. Here&apos;s how to decide which
-                  lever fits which problem.
+                  them requires building anything. The same levers apply whether
+                  you&apos;re doing Salesforce license optimization or cutting
+                  HubSpot seat costs — here&apos;s how to decide which one fits
+                  which problem.
                 </p>
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
                   <span className="badge">Keep your CRM</span>
@@ -195,6 +197,9 @@ export default function ReduceCrmLicensingCostsPage() {
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     Only the third one breaks the link between cost and headcount.
+                  </p>
+                  <p className="body" style={{ marginTop: "12px", fontWeight: 600, color: "var(--indigo)" }}>
+                    🎁 New customers: we build the portal free.
                   </p>
                 </div>
               </aside>
@@ -369,7 +374,8 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -395,6 +401,24 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — genuine, already-published client quote whose
+            "cost-saving approach" language matches this page's intent. */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

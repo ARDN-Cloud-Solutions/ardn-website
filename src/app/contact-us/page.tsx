@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContactPageContent from "./ContactPageContent";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+  title: "Contact Ardn — Book a Free Strategy Call | Ardn",
   description: "Book a free 30-minute strategy call with the Orlando-based Ardn team — custom AI development, Salesforce-native products, and 30+ years of expertise.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/contact-us",

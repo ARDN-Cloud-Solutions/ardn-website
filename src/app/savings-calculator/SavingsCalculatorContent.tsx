@@ -556,9 +556,15 @@ export default function SavingsCalculatorContent() {
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
           </p>
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
+            <Link href="/reduce-crm-licensing-costs">See the complete playbook for reducing CRM licensing costs →</Link>
+            {" · "}
             <Link href="/custom-portal-development">See how a custom portal replaces those seats →</Link>
             {" · "}
-            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce seat-cost math →</Link>
+            {" · "}
+            <Link href="/compare/hubspot-seat-cost-vs-custom-portal">See the HubSpot seat-cost math →</Link>
+            {" · "}
+            <Link href="/compare/salesforce-experience-cloud-vs-custom-portal">Comparing Salesforce Experience Cloud? See the breakdown →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}

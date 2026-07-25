@@ -359,6 +359,9 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce per-seat cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot per-seat cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Salesforce Experience Cloud vs. a custom portal →</Link>
             </div>
           </div>
         </section>

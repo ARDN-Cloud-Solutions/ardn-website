@@ -4,7 +4,7 @@ import PrivacyPolicyContent from "./PrivacyPolicyContent";
 export const metadata: Metadata = {
   title: "ARDN Cloud Solutions Privacy Policy | How We Use Your Data",
   description:
-    "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
+    "How Ardn Cloud Solutions collects, uses, and protects your personal data — read our Privacy Policy to understand your rights and how we handle your information.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/privacy-policy",
     languages: {
