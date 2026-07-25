@@ -281,6 +281,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // HubSpot side of the per-seat wedge (mirrors the Salesforce pillar).
+        // Targets "reduce HubSpot licensing costs" / HubSpot Core-Seat intent.
+        url: `${BASE_URL}/reduce-hubspot-licensing-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,
