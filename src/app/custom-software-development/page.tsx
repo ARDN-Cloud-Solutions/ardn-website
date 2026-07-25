@@ -193,6 +193,9 @@ export default function CustomSoftwareDevelopmentPage() {
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                   <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
                 </div>
+                <p className="body reveal reveal-d3" style={{ marginTop: "12px", fontSize: "13px", color: "#6b7280" }}>
+                  Fixed quote in 48 hours. No lock-in — cancel in 30 days.
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -205,7 +208,7 @@ export default function CustomSoftwareDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free.
+                    🎁 New customers: we build it free — you only pay the flat monthly fee once it&rsquo;s live.
                   </p>
                 </div>
               </aside>
@@ -357,6 +360,7 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce seat-cost vs. custom portal math →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
             </div>

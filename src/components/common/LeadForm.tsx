@@ -18,10 +18,12 @@ export default function LeadForm({
   source,
   heading = "Get a free scope & quote",
   sub = "Tell us what you're trying to build. We'll reply within one business day with a fixed quote — no obligation.",
+  messageLabel = "What do you want to build?",
 }: {
   source: string;
   heading?: string;
   sub?: string;
+  messageLabel?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [error, setError] = useState("");
@@ -111,7 +113,7 @@ export default function LeadForm({
                 <p className="body">{sub}</p>
               </div>
               <form onSubmit={handleSubmit} style={{ display: "grid", gap: "16px" }}>
-                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label style={labelStyle} htmlFor="lf-name">Name *</label>
                     <input id="lf-name" name="name" type="text" required style={inputStyle} placeholder="Your name" />
@@ -126,7 +128,7 @@ export default function LeadForm({
                   <input id="lf-company" name="company" type="text" style={inputStyle} placeholder="Company name (optional)" />
                 </div>
                 <div>
-                  <label style={labelStyle} htmlFor="lf-message">What do you want to build?</label>
+                  <label style={labelStyle} htmlFor="lf-message">{messageLabel}</label>
                   <textarea id="lf-message" name="message" rows={3} style={{ ...inputStyle, resize: "vertical" }} placeholder="A sentence or two is plenty (optional)" />
                 </div>
                 {status === "err" && (

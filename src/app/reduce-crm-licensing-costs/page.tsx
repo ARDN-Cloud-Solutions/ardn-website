@@ -89,6 +89,18 @@ const FAQS = [
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
+  {
+    q: "What is the difference between a Salesforce Platform license and a full license?",
+    a: "A Salesforce Platform license costs meaningfully less than a full Sales or Service Cloud license, but it excludes the standard CRM objects — Leads, Opportunities, Cases, Campaigns, and Forecasts. It is designed for users working on custom apps and custom objects, not the core sales or service funnel. That makes it a genuine saving for users who only need custom functionality — but it is still a per-seat license, and it still doesn't fit a light user who just needs to submit, view, or update one thing. Check Salesforce's current list pricing for exact figures; the right-sizing principle holds regardless of the number.",
+  },
+  {
+    q: "Which Salesforce users can safely move off a full license?",
+    a: "The users who touch a narrow slice: report and dashboard viewers, occasional status-checkers, people who submit or update one type of record, and external partners or customers. Power users who run pipeline all day keep their full seats — it is worth it for them. A quick test: if someone would be fine with read-only access or a single-purpose screen, they are a candidate to move to a cheaper license tier or, more durably, to a flat-fee portal.",
+  },
+  {
+    q: "How is a custom portal different from Salesforce license-optimization tools?",
+    a: "License-optimization tools and manual audits reduce the seats you keep paying for — they surface dormant licenses, flag over-provisioned tiers, and help you negotiate the renewal. That is useful, and reclaiming seats is the first lever on this page. But they leave you on per-seat billing for every active user. A custom portal removes the per-seat line entirely for the light-user segment: those users act on your CRM data through one flat-fee portal instead of a license each. Optimizers trim the bill; a portal changes the model.",
+  },
 ];
 
 const levers = [
@@ -184,6 +196,9 @@ export default function ReduceCrmLicensingCostsPage() {
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                   <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your own numbers →</Link>
                 </div>
+                <p className="body reveal reveal-d3" style={{ marginTop: "12px", fontSize: "13px", color: "#6b7280" }}>
+                  Fixed quote in 48 hours. No lock-in — cancel in 30 days.
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -195,6 +210,9 @@ export default function ReduceCrmLicensingCostsPage() {
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     Only the third one breaks the link between cost and headcount.
+                  </p>
+                  <p className="body" style={{ marginTop: "14px", fontSize: "13px", color: "#6b7280" }}>
+                    🎁 New customers: we build the portal free — you only pay the flat monthly fee once it&rsquo;s live.
                   </p>
                 </div>
               </aside>
@@ -370,6 +388,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-licensing-costs" className="link">On HubSpot? Reduce HubSpot licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
