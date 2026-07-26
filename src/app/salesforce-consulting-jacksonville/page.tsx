@@ -9,9 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // and military-services concentrations.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Jacksonville, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting Jacksonville, FL | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Jacksonville-area businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Salesforce consulting, license audits & managed services for Jacksonville from a Florida team with 30+ years of Salesforce expertise. Book a free 30-min call.",
   keywords: [
     "Salesforce consultant Jacksonville",
     "Salesforce consulting Jacksonville",

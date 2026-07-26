@@ -308,7 +308,7 @@ export default function CustomEcommerceDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Ecommerce Development page" />
+        <LeadForm source="Custom Ecommerce Development page" heading="Tell us what you're selling" sub="A sentence or two about your catalog, subscriptions, or fulfillment is plenty. We'll reply within one business day with a fixed quote — no obligation." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

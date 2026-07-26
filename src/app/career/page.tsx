@@ -7,7 +7,7 @@ import ContactSection from "@/components/common/ContactSection";
 // the careers page is shared.
 export const metadata: Metadata = {
   title:
-    "Careers at Ardn Cloud Solutions — Orlando AI & Salesforce Roles",
+    "Careers at Ardn — Orlando AI & Salesforce Roles",
   description:
     "Join Ardn Cloud Solutions in Orlando, Florida. Open AI engineering, Salesforce, and custom development roles. Hybrid and remote-friendly culture, senior-led teams, and direct ownership from day one.",
   alternates: {

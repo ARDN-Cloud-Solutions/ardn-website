@@ -28,14 +28,18 @@ const products = [
     href: "/storefronts",
   },
   { label: "Salesforce Payments", href: "/salesforce-payments" },
-  { label: "Licence Guard", href: "/license-guard" },
-  { label: "Ai-powered Support", href: "/ai-powered-support" },
+  { label: "License Guard", href: "/license-guard" },
+  { label: "AI-Powered Support", href: "/ai-powered-support" },
   { label: "Membership Management", href: "/membership-management" },
   // { label: "Signup Dance Studio", href: "/signup-dance-studio" },
   // { label: "Signup Fitness Studio", href: "/signup-fitness-studio" },
 ];
 
+// "Cut CRM Licensing Costs" surfaces the #1 per-seat cost-reduction wedge in
+// the global nav, so the pillar page is one click from every page (it was
+// previously only reachable via the footer + in-body links).
 const navLinks = [
+  { label: "Cut CRM Costs", href: "/reduce-crm-licensing-costs" },
   { label: "Pricing", href: "/ai-forge#pricing" },
   { label: "Calculate Savings", href: "/savings-calculator" },
   { label: "About Ardn", href: "/about-ardn" },

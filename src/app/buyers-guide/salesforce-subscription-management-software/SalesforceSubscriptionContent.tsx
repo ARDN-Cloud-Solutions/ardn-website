@@ -6,6 +6,7 @@ import ProductFAQ from "@/components/products/ProductFAQ";
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SalesforceSubscriptionContent() {
   const fadeIn = {
@@ -163,6 +164,12 @@ export default function SalesforceSubscriptionContent() {
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               With ARDN Storefronts, you&apos;re walking away with a specialist team known for helping mid-market companies get enterprise-level outcomes without enterprise-level pricing!
+            </p>
+            <p className="text-heading-dark text-sm lg:text-base mt-4">
+              Paying per seat for users who barely touch the CRM? Learn how to{" "}
+              <Link href="/reduce-crm-licensing-costs" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">reduce CRM licensing costs</Link>, see the{" "}
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">Salesforce seat-cost vs. custom-portal math</Link>, or{" "}
+              <Link href="/savings-calculator" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">run your own savings numbers</Link>.
             </p>
 
             {/* CTA Block */}

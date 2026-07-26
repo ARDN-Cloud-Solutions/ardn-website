@@ -142,6 +142,19 @@ export default function SavingsCalculatorContent() {
                 Book Free Discovery Call
               </Link>
             </div>
+            {/* Wedge reconciliation: this page's headline is rip-and-replace, but
+                the #1 cost play keeps the CRM. Give Salesforce/HubSpot buyers the
+                "keep it" path so they don't bounce. */}
+            <p style={{ marginTop: 18, fontSize: 14, opacity: 0.85, lineHeight: 1.6 }}>
+              Already on Salesforce or HubSpot? You don&rsquo;t have to replace it —{" "}
+              <Link
+                href="/custom-portal-development"
+                style={{ color: "#fff", fontWeight: 600, textDecoration: "underline" }}
+              >
+                move light users to a flat-fee portal
+              </Link>{" "}
+              and keep your CRM.
+            </p>
           </div>
 
           {/* CALCULATOR CARD */}

@@ -5,9 +5,9 @@ import SalesforceEcommerceContent from "./SalesforceEcommerceContent";
 // kept narrow to the SF ecommerce intent the page is already ranking for.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce E-commerce Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Best Salesforce E-commerce Solutions 2026 | Ardn",
   description:
-    "Compare the best Salesforce-native ecommerce solutions for B2B and B2C in 2026 — Ardn Storefronts, Commerce Studio by 1440, StoreConnect, Fonteva, Nexternal, Shopify Plus, and Adobe Commerce. Features, fit, pitfalls, and pricing to guide your choice.",
+    "Compare the best Salesforce ecommerce solutions for B2B & B2C in 2026 — Ardn, Commerce Studio 1440, StoreConnect, Fonteva, Shopify Plus & Adobe Commerce.",
   keywords: [
     "Salesforce ecommerce",
     "Salesforce ecommerce solutions",

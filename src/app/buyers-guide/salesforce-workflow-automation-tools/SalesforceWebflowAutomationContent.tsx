@@ -194,6 +194,13 @@ export default function SalesforceWebflowAutomationContent() {
               In simple terms, ARDN builds and customizes Salesforce around how your business actually works. Instead of forcing you into rigid tools, they create workflows, products, and integrations that fit your processes.
             </p>
 
+            <p className="text-heading-dark text-sm lg:text-base">
+              If automation licensing is part of the cost problem, see how to{" "}
+              <Link href="/reduce-crm-licensing-costs" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">reduce CRM licensing costs</Link>, compare{" "}
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">Salesforce seat cost vs. a flat-fee custom portal</Link>, or explore{" "}
+              <Link href="/custom-software-development" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">custom workflow automation software</Link> built and run for you.
+            </p>
+
             <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Key Features:</strong>
             <ul className="list-disc pl-6 space-y-3 my-6 text-heading-dark">
               <li><strong>License lifecycle automation (License Guard):</strong> Automatically identifies inactive users, sends warning emails, and deactivates them based on rules. This directly cuts wasted Salesforce license spend without manual audits.</li>
