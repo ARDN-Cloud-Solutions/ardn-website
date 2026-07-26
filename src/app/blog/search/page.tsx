@@ -14,7 +14,9 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     return {
         title,
         description: `Search results for "${q}" on the ARDN Cloud Solutions blog.`,
-        robots: { index: true, follow: true },
+        // Search-results pages are thin/duplicate — keep them out of the index
+        // (still crawlable so links are followed).
+        robots: { index: false, follow: true },
     };
 }
 

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AiCloudSolutionsContent from "./AiAppContent";
 
 export const metadata: Metadata = {
-  title: "Custom AI Apps, Built and Run for You — Ardn Cloud Solutions",
+  title: "Custom AI Apps, Built & Run for You | Ardn",
   description:
     "We build custom AI applications to your exact specifications, then operate them as a monthly service — hosting, maintenance, AI compute, support, and ongoing feature work. One predictable bill.",
   alternates: {

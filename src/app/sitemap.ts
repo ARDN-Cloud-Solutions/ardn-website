@@ -281,6 +281,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge SPOKE: Salesforce-specific "reduce Salesforce license costs"
+        // capture (money query where the SERP is license-audit vendors). Keeps
+        // Salesforce as system of record; funnels light users to a portal.
+        url: `${BASE_URL}/reduce-salesforce-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

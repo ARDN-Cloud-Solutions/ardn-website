@@ -10,14 +10,16 @@ import { MapPin, Shield, Clock, Award } from "lucide-react";
  *   - "US-based team" → credibility without limiting reach to one city.
  *   - "30+ yrs building software" → depth/experience, technology-broad
  *     (not Salesforce-specific, so we don't read as a one-stack shop).
- *   - "4-hour response SLA" → reduces "will they ghost me?" friction.
+ *   - "Fixed quote in 48 hours" → concrete, universally-true promise that
+ *     matches every money page's copy (the tiered response SLAs differ by
+ *     plan, so a single "4-hour SLA" claim would overstate for most buyers).
  *   - "No lock-in — cancel in 30 days" → concrete risk reversal.
  */
 export default function TrustBar() {
   const items = [
     { Icon: MapPin, text: "US-based team" },
     { Icon: Award, text: "30+ yrs building software" },
-    { Icon: Clock, text: "4-hour response SLA" },
+    { Icon: Clock, text: "Fixed quote in 48 hours" },
     { Icon: Shield, text: "No lock-in — cancel in 30 days" },
   ];
 
