@@ -14,9 +14,9 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "Reduce Salesforce & HubSpot License Costs | Ardn",
   description:
-    "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
+    "Three honest ways to reduce per-seat Salesforce & HubSpot license costs: reclaim unused seats, right-size tiers, or move light users to a flat-fee portal.",
   keywords: [
     "reduce CRM licensing costs",
     "cut CRM licensing costs",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "How to Cut CRM Licensing Costs — Keep Your CRM | Ardn",
+    title: "Reduce Salesforce & HubSpot License Costs — Keep Your CRM | Ardn",
     description:
       "Three honest ways to reduce per-seat CRM licensing costs without a migration: reclaim unused seats, right-size tiers, or move light users to a flat-fee portal.",
     url: "https://ardncloudsolutions.com/reduce-crm-licensing-costs",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Cut CRM Licensing Costs | Ardn",
+    title: "Reduce Salesforce & HubSpot License Costs | Ardn",
     description:
       "Three honest ways to reduce per-seat CRM licensing costs — reclaim, right-size, or move light users to a flat-fee custom portal.",
     images: ["/images/ardn-home-hero.webp"],
@@ -84,6 +84,10 @@ const FAQS = [
   {
     q: "How much can a custom portal actually save versus per-seat licenses?",
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
+  },
+  {
+    q: "Should I move light users to a cheaper Salesforce Platform license or a custom portal?",
+    a: "A Platform (limited-access) license is cheaper than a full Sales/Service seat, but it is still a per-seat license — the cost still grows with every user you add, and the user is still working inside Salesforce with what it lets you build. A custom portal removes the seat entirely for that user: it runs on one flat fee no matter how many light users you add, lets them do their exact task, and writes straight back to Salesforce. Right-sizing to Platform is the faster, lower-effort win; a portal is the bigger, more durable one because it breaks the link between cost and headcount. Many companies do both — Platform for occasional users who still need native CRM access, a portal for the light users who don't.",
   },
   {
     q: "How long does it take to stand up a portal, and what does it cost?",
@@ -236,6 +240,34 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* DEFINITION — "CRM light user" (definition / snippet capture) */}
+        <section className="section" id="light-user">
+          <div className="container">
+            <div
+              className="card"
+              style={{ maxWidth: "820px", margin: "0 auto", padding: "32px 36px", borderLeft: "4px solid var(--indigo)" }}
+            >
+              <span className="eyebrow" style={{ color: "var(--indigo)" }}>Definition</span>
+              <h2 className="h2 mt-2">What is a CRM light user?</h2>
+              <p className="body mt-3" style={{ fontSize: "18px", lineHeight: 1.6 }}>
+                A CRM light user is someone who needs the CRM for a narrow slice
+                of work — checking a record, updating a status, approving or
+                submitting a request — but doesn&apos;t run pipeline, build
+                reports, or live in the platform. Because per-seat pricing is
+                built around the power user, a light user is billed at or near the
+                same rate for a fraction of the value.
+              </p>
+              <p className="body mt-3">
+                Typical light users: field sellers, operations and back-office
+                staff, partners, dealers, and customers. In most mid-market orgs
+                they outnumber the power users — which is exactly why they&apos;re
+                the biggest, most overlooked line in a CRM bill, and the group a
+                flat-fee portal is built to serve.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* THE THREE LEVERS */}
         <section className="section is-canvas" id="levers">
           <div className="container">
@@ -369,7 +401,8 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -395,6 +428,23 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — real, cost-focused, no fabricated metric */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
