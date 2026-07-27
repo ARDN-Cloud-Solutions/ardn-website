@@ -149,6 +149,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Wedge spoke — custom PARTNER/VENDOR/DISTRIBUTOR portals that replace
+        // per-login Partner Community / PRM seats. Highest external per-seat
+        // bill; distinct commercial intent from the general portal page.
+        url: `${BASE_URL}/custom-partner-portal-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Solution page — chapter/dues management (fraternities, sororities,
         // clubs). Niche, low-competition, high-intent.
         url: `${BASE_URL}/chapter-management-software`,

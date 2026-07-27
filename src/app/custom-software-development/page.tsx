@@ -11,7 +11,7 @@ import LeadForm from "@/components/common/LeadForm";
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
 // capability, not the whole pitch.
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | ARDN",
+  title: "Custom Software & Platform Development | Ardn",
   description:
     "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Software & Platform Development | ARDN",
+    title: "Custom Software & Platform Development | Ardn",
     description:
       "Custom software, platforms & portals that replace or connect your tools — built and run for you in weeks, one flat monthly fee. New customers build free.",
     url: "https://ardncloudsolutions.com/custom-software-development",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software & Platform Development | ARDN",
+    title: "Custom Software & Platform Development | Ardn",
     description:
       "Custom software, platforms & portals — built and run for you in weeks, one flat monthly fee. New customers build free.",
     site: "@ardn_cloud_sol",
@@ -306,8 +306,14 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/custom-portal-development" className="card" style={{ textDecoration: "none", borderColor: "var(--indigo)" }}>
                 <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>Cut per-seat costs</span>
                 <h3 className="h3">Custom Portals</h3>
-                <p className="body">Seller, partner, operations &amp; customer portals that cut per-seat CRM costs.</p>
-                <span className="link">Explore portals →</span>
+                <p className="body">Seller, operations &amp; customer portals that cut per-seat CRM costs.</p>
+                <span className="link">Custom portal development →</span>
+              </Link>
+              <Link href="/custom-partner-portal-development" className="card" style={{ textDecoration: "none", borderColor: "var(--indigo)" }}>
+                <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>Cut per-login costs</span>
+                <h3 className="h3">Custom Partner Portals</h3>
+                <p className="body">Channel, dealer, broker &amp; vendor portals that replace per-login Partner Community seats.</p>
+                <span className="link">Custom partner portal development →</span>
               </Link>
               <Link href="/custom-ecommerce-development" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">Custom Ecommerce</h3>
@@ -359,6 +365,9 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
+              <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
             </div>
           </div>
         </section>

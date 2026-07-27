@@ -626,7 +626,7 @@ export default function SalesforceCommerceCloudAlternativesContent() {
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Pricing &amp; Total Cost</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
-              <li>ARDN uses your existing <Link href="/blog/how-to-stop-wasting-money-on-unused-salesforce-licenses" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Salesforce license</Link> with no GMV-based fees.</li>
+              <li>ARDN uses your existing <Link href="/reduce-crm-licensing-costs" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Salesforce license</Link> with no GMV-based fees.</li>
               <li>SFCC adds 1–2% GMV licensing, plus extra in setup and ongoing partner retainers.</li>
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Scalability &amp; Fit</strong>

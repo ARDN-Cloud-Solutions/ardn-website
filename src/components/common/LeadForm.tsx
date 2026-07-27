@@ -140,6 +140,9 @@ export default function LeadForm({
                 >
                   {status === "sending" ? "Sending…" : "Get my free quote"}
                 </button>
+                <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
+                  Fixed quote within 48 hours &middot; We reply within one business day &middot; No obligation
+                </p>
                 <p style={{ fontSize: "12px", color: "#98a2b3", textAlign: "center", margin: 0 }}>
                   We&apos;ll only use this to reply about your project. No spam, ever.
                 </p>
