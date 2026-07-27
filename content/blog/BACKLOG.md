@@ -20,39 +20,46 @@ near-duplicate of an existing post.
 - [x] how-to-identify-light-crm-users
 - [x] ways-to-cut-crm-licensing-costs
 - [x] salesforce-platform-license-vs-custom-portal
-- [ ] salesforce-license-audit-checklist | A Salesforce License Audit Checklist for RevOps | how-to | salesforce license audit | /reduce-crm-licensing-costs
-- [ ] salesforce-experience-cloud-cost-explained | Salesforce Experience Cloud Pricing, Explained | education | experience cloud cost | /compare/salesforce-experience-cloud-vs-custom-portal
+- [x] salesforce-license-audit-checklist
+- [x] salesforce-experience-cloud-cost-explained
 - [ ] salesforce-inactive-user-cleanup | How to Find and Remove Inactive Salesforce Users | how-to | inactive salesforce users | /license-guard
-- [ ] salesforce-renewal-negotiation-guide | How to Negotiate Your Salesforce Renewal | how-to | salesforce renewal negotiation | /reduce-crm-licensing-costs
+- [x] salesforce-renewal-negotiation-guide
 - [ ] salesforce-partner-community-cost | The Real Cost of Salesforce Partner Communities | education | partner community license cost | /custom-portal-development
+- [ ] salesforce-flow-vs-custom-app-cost | Salesforce Flow/Automation Add-On Costs vs. a Custom App | comparison | salesforce automation cost | /custom-software-development
 
 ## HubSpot cost
-- [ ] cut-hubspot-seat-costs | How to Cut HubSpot Sales Hub Seat Costs | how-to | reduce hubspot costs | /custom-portal-development
-- [ ] hubspot-seat-cost-vs-custom-portal | HubSpot Seat Costs vs. a Custom Portal | comparison | hubspot seat cost | /reduce-crm-licensing-costs
+- [x] cut-hubspot-seat-costs
+- [x] hubspot-seat-cost-vs-custom-portal
 - [ ] hubspot-paid-vs-free-seats | HubSpot Paid vs. Free Seats: Who Needs Which | education | hubspot free seats | /reduce-crm-licensing-costs
 - [ ] hubspot-service-hub-cost-reduction | Cutting HubSpot Service Hub Costs for Light Agents | how-to | hubspot service hub cost | /custom-portal-development
+- [ ] hubspot-marketing-hub-contact-tier-cost | HubSpot Marketing Hub Contact-Tier Pricing Explained | education | hubspot marketing hub cost | /compare/custom-software-vs-saas
 
 ## Comparisons
-- [ ] custom-portal-vs-nocode-tool | Custom Portal vs. No-Code Tools (Airtable, Caspio) | comparison | custom portal vs no-code | /custom-portal-development
+- [x] custom-portal-vs-nocode-tool
 - [ ] build-vs-buy-crm-portal | Build vs. Buy: CRM Portal for Light Users | comparison | build vs buy portal | /custom-software-development
 - [ ] custom-portal-vs-crm-migration | Custom Portal vs. Full CRM Migration | comparison | crm migration alternative | /reduce-crm-licensing-costs
+- [ ] zendesk-freshdesk-agent-seat-cost | Zendesk/Freshdesk Agent Seat Costs vs. a Custom Support Portal | comparison | helpdesk agent seat cost | /custom-portal-development
 
 ## Buyer questions (Ops / RevOps / CFO / IT)
-- [ ] what-is-a-light-crm-user | What Is a "Light" CRM User? | education | light crm user | /reduce-crm-licensing-costs
-- [ ] saas-seat-sprawl-mid-market | SaaS Seat Sprawl: Why Mid-Market Bills Keep Climbing | education | saas seat sprawl | /compare/custom-software-vs-saas
+- [x] saas-seat-sprawl-mid-market
+- [x] per-seat-vs-flat-fee-pricing
 - [ ] cfo-guide-software-cost-reduction | A CFO's Guide to Cutting Software Costs Without Losing Capability | education | reduce software costs | /custom-software-development
-- [ ] per-seat-vs-flat-fee-pricing | Per-Seat vs. Flat-Fee Software Pricing, Compared | education | per-seat vs flat fee | /compare/custom-software-vs-saas
 - [ ] how-to-do-a-saas-spend-audit | How to Run a SaaS Spend Audit | how-to | saas spend audit | /reduce-crm-licensing-costs
+- [ ] shadow-it-mid-market-cost | Shadow IT: The Hidden Per-Seat Cost Mid-Market Companies Don't Track | education | shadow it cost | /custom-software-development
 
 ## Verticals — insurance
-- [ ] insurance-ams-per-seat-costs | Cutting Per-Seat Costs in Insurance Agency Management Systems | education | insurance ams cost | /ai-for-insurance
+- [x] insurance-ams-per-seat-costs
 - [ ] insurance-client-portal-cost | A Client Portal for Insurance Without Per-Seat Fees | how-to | insurance client portal | /ai-for-insurance
 
 ## Verticals — hospitality
-- [ ] hospitality-software-per-seat-costs | Why Hospitality Teams Overpay for Software Seats | education | hospitality software cost | /ai-for-hospitality
+- [x] hospitality-software-per-seat-costs
 - [ ] hotel-staff-portal-flat-fee | A Flat-Fee Staff Portal for Hotels | how-to | hotel staff portal | /ai-for-hospitality
 
 ## Verticals — membership / associations / chapters
 - [ ] association-ams-cost-reduction | Cutting Association Management Software Costs | education | ams cost reduction | /ai-for-membership-organizations
 - [ ] chapter-management-per-member-fees | Escaping Per-Member Fees in Chapter Management | education | chapter management cost | /chapter-management-software
 - [ ] member-portal-flat-fee | A Member Portal That Doesn't Bill Per Member | how-to | member portal cost | /membership-management
+
+## Verticals — professional services / agencies
+- [ ] agency-client-portal-per-seat-cost | Why Agencies Overpay for Client-Facing Software Seats | education | agency client portal cost | /custom-portal-development
+- [ ] professional-services-psa-license-cost | PSA Tool License Costs for Professional Services Firms | education | psa license cost | /custom-software-development
