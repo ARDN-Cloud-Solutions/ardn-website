@@ -294,6 +294,66 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* EXPERIENCE CLOUD ALTERNATIVE — money-keyword section */}
+        <section className="section" id="experience-cloud-alternative">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">A flat-fee alternative to Experience Cloud</span>
+                <h2 className="h1 mt-3">Stop paying <em>per portal member.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Salesforce Experience Cloud (formerly Community Cloud) is the usual answer for external users &mdash; but it still bills per login or per member, on top of the internal seats you already pay for.</p>
+              </div>
+            </div>
+            <div className="split">
+              <div>
+                <p className="body">
+                  For a mid-market company rolling a B2B customer, partner, or
+                  seller portal out to hundreds of users, per-member fees add a
+                  recurring line item that grows every time the portal does. A
+                  custom portal flips that: it syncs to Salesforce (or any CRM)
+                  through the API, keeps your CRM as the system of record, and
+                  runs on one flat monthly fee no matter how many members you add.
+                </p>
+                <p className="body mt-4">
+                  You are not choosing between Salesforce and nothing &mdash; you
+                  are choosing between renting external seats forever and owning a
+                  portal built to your exact workflow.
+                </p>
+                <p className="body mt-4">
+                  <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">See the full Experience Cloud vs. custom portal breakdown &rarr;</Link>
+                </p>
+              </div>
+              <div>
+                <ul className="fl">
+                  <li>
+                    <div className="fl-num !text-black">1</div>
+                    <div>
+                      <div className="fl-head !text-black">No per-member licensing</div>
+                      <p className="fl-body">Add 50 or 5,000 portal users without the bill climbing &mdash; the flat fee stays flat.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="fl-num !text-black">2</div>
+                    <div>
+                      <div className="fl-head !text-black">Keep Salesforce as system of record</div>
+                      <p className="fl-body">Two-way API sync means one source of truth &mdash; the portal is a tailored window into your CRM data.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="fl-num !text-black">3</div>
+                    <div>
+                      <div className="fl-head !text-black">Built to your workflow, not a template</div>
+                      <p className="fl-body">A portal shaped to how your users actually work, instead of configuring around a vendor&rsquo;s community model.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">

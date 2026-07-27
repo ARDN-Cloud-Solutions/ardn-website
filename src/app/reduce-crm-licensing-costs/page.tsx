@@ -101,7 +101,7 @@ const levers = [
   {
     tag: "Lever 2 — Right-size",
     title: "Move users to a cheaper tier",
-    body: "CRMs sell limited-access, platform, and login-based tiers below a full seat. Cheaper per head — but still per head, and still capped in what you can build for that user.",
+    body: "CRMs sell limited-access tiers below a full seat — a Salesforce Platform license (roughly $25/user vs. ~$165 for Enterprise) or a lighter HubSpot seat. Cheaper per head, but still per head, and still capped in what you can build for that user.",
     best: "Best for: occasional users who still need native CRM access.",
   },
   {
@@ -126,6 +126,9 @@ export default function ReduceCrmLicensingCostsPage() {
         url,
         mainEntityOfPage: { "@id": url },
         inLanguage: "en-US",
+        datePublished: "2026-07-01",
+        dateModified: "2026-07-27",
+        image: "https://ardncloudsolutions.com/images/ardn-home-hero.webp",
         author: { "@id": "https://ardncloudsolutions.com/#organization" },
         publisher: { "@id": "https://ardncloudsolutions.com/#organization" },
         about: [
@@ -258,6 +261,62 @@ export default function ReduceCrmLicensingCostsPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* FOUR APPROACHES COMPARED — cost-model table (featured-snippet bait) */}
+        <section className="section" id="approaches">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The four approaches, side by side</span>
+                <h2 className="h1 mt-3">Only one makes cost <em>stop scaling with headcount.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Audits and cheaper seat tiers help, but they all keep the per-seat model. A flat-fee portal is the only option that breaks the link between cost and how many people you add.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Cost model</th>
+                    <th>Scales with headcount?</th>
+                    <th>Keeps your CRM?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="feat">Reclaim dormant seats (audit)</td>
+                    <td>Removes the seat entirely</td>
+                    <td className="is-yes">Fewer seats, one-time</td>
+                    <td className="is-yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Downgrade to a Platform / light tier</td>
+                    <td>Lower per-seat (~$25 vs ~$165)</td>
+                    <td className="is-no">Yes &mdash; still per user</td>
+                    <td className="is-yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Experience Cloud / community license</td>
+                    <td>Per login or per member</td>
+                    <td className="is-no">Yes &mdash; still per user</td>
+                    <td className="is-yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Custom flat-fee portal</td>
+                    <td>One flat monthly fee</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No &mdash; flat at any headcount</td>
+                    <td className="is-yes">Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              License figures are approximate publicly listed list prices, shown for illustration &mdash; not a quote for any product. Industry license audits routinely find a meaningful share of CRM seats sit dormant or lightly used, so most of the overpayment is spread across seats that barely touch the platform. See the <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud cost breakdown</Link> or run your own numbers in the <Link href="/savings-calculator" className="link">savings calculator</Link>.
+            </p>
           </div>
         </section>
 

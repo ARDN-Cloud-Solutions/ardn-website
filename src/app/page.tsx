@@ -65,30 +65,6 @@ export default async function Page() {
         "inLanguage": "en-US"
       },
       {
-        "@type": "Organization",
-        "@id": "https://ardncloudsolutions.com/#organization",
-        "name": "Ardn Cloud Solutions",
-        "url": "https://ardncloudsolutions.com/",
-        "email": "contactus@ardncloudsolutions.com",
-        "logo": {
-          "@type": "ImageObject",
-          "inLanguage": "en-US",
-          "@id": "https://ardncloudsolutions.com/#/schema/logo/image/",
-          "url": "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
-          "contentUrl": "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
-          "width": 350,
-          "height": 90,
-          "caption": "Ardn Cloud Solutions"
-        },
-        "sameAs": [
-          "https://www.facebook.com/profile.php?id=61569012437188",
-          "https://x.com/ardn_cloud_sol",
-          "https://www.instagram.com/ardncloudsolutions/",
-          "https://www.youtube.com/@ardn_cloud_solutions",
-          "https://www.linkedin.com/company/ardn-cloud-solutions/"
-        ]
-      },
-      {
         // GEO/SEO: homepage FAQPage. Questions/answers mirror the visible FAQ
         // section exactly (both import HOME_FAQS) so the rich result is valid
         // and AI engines can extract clean, quotable answers about Ardn.

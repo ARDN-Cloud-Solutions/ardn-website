@@ -90,6 +90,11 @@ const FAQS: Faq[] = [
     link: { href: "/compare/salesforce-seat-cost-vs-custom-portal", label: "See the Salesforce & HubSpot seat-cost math →" },
   },
   {
+    q: "Isn't custom software expensive and hard to maintain?",
+    a: "That's the old reputation, and our model is built to kill it. There's no upfront build cost for new customers, delivery is 2–6 weeks rather than months, and — the part most shops skip — we run it after launch. Hosting, monitoring, security, and ongoing changes are all covered by the one flat monthly fee, so you never inherit a maintenance burden or a team that disappears once it ships.",
+    link: { href: "/compare/custom-software-vs-saas", label: "See the 5-year custom-vs-SaaS cost comparison →" },
+  },
+  {
     q: "Do we own the software you build?",
     a: "You own the IP and the data. We retain rights only to the underlying frameworks and tooling we reuse across clients. If you ever leave, you get a full export and complete documentation — no lock-in.",
   },
@@ -391,7 +396,7 @@ export default function CustomSoftwareDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day with a fixed quote — no obligation." />
+        <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within 4 business hours — no obligation." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

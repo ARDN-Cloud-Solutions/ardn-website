@@ -17,7 +17,7 @@ import { useState } from "react";
 export default function LeadForm({
   source,
   heading = "Get a free scope & quote",
-  sub = "Tell us what you're trying to build. We'll reply within one business day with a fixed quote — no obligation.",
+  sub = "Tell us what you're trying to build. We'll reply within 4 business hours — no obligation.",
 }: {
   source: string;
   heading?: string;
@@ -91,8 +91,8 @@ export default function LeadForm({
               <div style={{ fontSize: "40px", marginBottom: "8px" }}>✅</div>
               <h2 className="h2" style={{ marginBottom: "8px" }}>Got it — thank you.</h2>
               <p className="body">
-                Your request is in. We&apos;ll get back to you within one business
-                day with next steps and a fixed quote. Need to talk sooner?{" "}
+                Your request is in. We&apos;ll get back to you within 4 business
+                hours with next steps. Need to talk sooner?{" "}
                 <a
                   href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
                   target="_blank"

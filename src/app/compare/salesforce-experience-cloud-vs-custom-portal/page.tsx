@@ -102,6 +102,9 @@ export default function ExperienceCloudVsCustomPortalPage() {
         url,
         mainEntityOfPage: { "@id": url },
         inLanguage: "en-US",
+        datePublished: "2026-07-01",
+        dateModified: "2026-07-27",
+        image: "https://ardncloudsolutions.com/images/ardn-home-hero.webp",
         author: { "@id": "https://ardncloudsolutions.com/#organization" },
         publisher: { "@id": "https://ardncloudsolutions.com/#organization" },
         about: [

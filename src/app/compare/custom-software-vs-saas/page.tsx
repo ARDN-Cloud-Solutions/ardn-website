@@ -125,6 +125,9 @@ export default function CustomSoftwareVsSaasPage() {
         url,
         mainEntityOfPage: { "@id": url },
         inLanguage: "en-US",
+        datePublished: "2026-07-01",
+        dateModified: "2026-07-27",
+        image: "https://ardncloudsolutions.com/images/ardn-home-hero.webp",
         author: { "@id": "https://ardncloudsolutions.com/#organization" },
         publisher: { "@id": "https://ardncloudsolutions.com/#organization" },
         about: [
@@ -305,6 +308,8 @@ export default function CustomSoftwareVsSaasPage() {
             </div>
             <p className="body mt-4" style={{ textAlign: "center" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Paying per-seat Salesforce or HubSpot fees? See the seat-cost math →</Link>
+              {" "}
+              <Link href="/reduce-crm-licensing-costs" className="link">Start with the full CRM cost-cutting guide →</Link>
             </p>
           </div>
         </section>
@@ -332,7 +337,7 @@ export default function CustomSoftwareVsSaasPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Software vs SaaS page" heading="Get your own comparison" sub="Tell us what you're paying for today and roughly how many users. We'll reply within one business day with a fixed quote for the custom alternative." />
+        <LeadForm source="Custom Software vs SaaS page" heading="Get your own comparison" sub="Tell us what you're paying for today and roughly how many users. We'll reply within 4 business hours with a fixed quote for the custom alternative." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

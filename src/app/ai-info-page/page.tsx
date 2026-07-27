@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-storefronts-ai-info.webp",
+        url: "/images/ardn-home-hero.webp",
         width: 1200,
         height: 630,
         alt: "Storefronts by ARDN Cloud Solutions AI Information Page",

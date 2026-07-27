@@ -199,6 +199,9 @@ export default function SalesforcePaymentContent() {
               <a href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Request your trial</a>
               <Link href="/our-products" className="btn btn-outline-light btn-lg">See the full suite</Link>
             </div>
+            <p style={{ marginTop: "20px" }}>
+              <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
+            </p>
           </div>
         </div>
       </section>

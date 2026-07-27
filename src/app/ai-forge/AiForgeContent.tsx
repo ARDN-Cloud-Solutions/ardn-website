@@ -681,12 +681,12 @@ export default function AiForgeContent() {
               <h2 className="af-h2">Tell us what you want to build.</h2>
               <p className="af-section-sub" style={{ marginBottom: "28px" }}>
                 Send a few lines about your idea and we&apos;ll reply with a free scope and a
-                fixed quote — usually within one business day. No obligation, no sales pressure.
+                fixed quote — usually within 4 business hours. No obligation, no sales pressure.
               </p>
               <ul className="af-pillar-list af-quote-perks">
                 <li>Free custom build for new customers</li>
                 <li>A senior engineer reads every request</li>
-                <li>Reply within one business day</li>
+                <li>Reply within 4 business hours</li>
               </ul>
               <p className="af-quote-or">
                 Prefer to talk now?{" "}

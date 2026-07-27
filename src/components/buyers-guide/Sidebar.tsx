@@ -186,7 +186,22 @@ export default function Sidebar() {
               className="text-[#FF7A00] font-semibold no-underline hover:underline"
             >
               See the seat-cost math →
+            </Link>{" "}
+            or read the{" "}
+            <Link
+              href="/reduce-crm-licensing-costs"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              CRM cost-cutting guide
             </Link>
+            , or{" "}
+            <Link
+              href="/custom-portal-development"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              explore custom portals
+            </Link>
+            .
           </p>
         </div>
       </div>

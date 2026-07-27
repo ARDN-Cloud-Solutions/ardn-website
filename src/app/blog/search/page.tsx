@@ -14,7 +14,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     return {
         title,
         description: `Search results for "${q}" on the ARDN Cloud Solutions blog.`,
-        robots: { index: true, follow: true },
+        robots: { index: false, follow: true },
     };
 }
 

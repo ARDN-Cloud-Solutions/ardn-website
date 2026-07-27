@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -19,7 +20,7 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your savings →</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
@@ -39,6 +40,8 @@ export default function LandingPageContent() {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames
@@ -87,7 +90,7 @@ export default function LandingPageContent() {
             </div>
             <div className="metric">
               <div className="number">0</div>
-              <div className="label">per-seat fees — every engagement is measured against an outcome, not an hour count.</div>
+              <div className="label">per-seat fees — one flat monthly price, no matter how many users you add.</div>
             </div>
             <div className="metric">
               <div className="number">6</div>
@@ -267,7 +270,7 @@ export default function LandingPageContent() {
               <p className="body mt-2">Book a 30-minute demo. We will walk through your stack and show exactly where Ardn fits.</p>
             </div>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <Link  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free demo</Link>
+              <Link  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
               <Link href="/our-products" className="btn btn-secondary btn-lg">See all products</Link>
             </div>
           </div>
@@ -369,7 +372,7 @@ export default function LandingPageContent() {
         </div>
       </section>
 
-      <LeadForm source="Homepage" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within one business day with a fixed quote — no obligation." />
+      <LeadForm source="Homepage" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within 4 business hours — no obligation." />
 
       {/* FINAL CTA */}
        <section className="section" id="contact">        <div className="container">
@@ -378,7 +381,7 @@ export default function LandingPageContent() {
             <h2 className="display mt-4">Let us talk about <em>what to ship first.</em></h2>
             <p className="lede">30 minutes. No SOW, no slides. Just a working answer to where Ardn can save you time, money, or both.</p>
             <div className="hero-ctas">
-              <a  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book a free demo</a>
+              <a  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book a free 30-min call</a>
               <Link href="/our-products" className="btn btn-outline-light btn-lg">Browse products</Link>
             </div>
           </div>

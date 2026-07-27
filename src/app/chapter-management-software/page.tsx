@@ -307,7 +307,7 @@ export default function ChapterManagementSoftwarePage() {
           </div>
         </section>
 
-        <LeadForm source="Chapter & Dues Management page" sub="Tell us about your chapter or organization. We'll reply within one business day with next steps and a fixed quote." />
+        <LeadForm source="Chapter & Dues Management page" sub="Tell us about your chapter or organization. We'll reply within 4 business hours with next steps." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

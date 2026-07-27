@@ -563,6 +563,8 @@ export default function SavingsCalculatorContent() {
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
             <Link href="/license-guard">Reclaim dormant Salesforce seats first →</Link>
+            {" · "}
+            <Link href="/reduce-crm-licensing-costs">Read the full guide to cutting CRM licensing costs →</Link>
           </p>
         </div>
       </section>

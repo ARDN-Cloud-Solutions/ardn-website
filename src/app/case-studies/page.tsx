@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title:
         "Salesforce & AI Customer Case Studies | Ardn Cloud Solutions",
     description:
-        "Real-world Salesforce transformation and AI implementation case studies from Ardn Cloud Solutions. Fortune 500 deployments, mid-market launches, and measurable cost-savings outcomes.",
+        "Salesforce transformation and AI implementation case studies from Ardn — Fortune 500 deployments, mid-market launches, and measurable cost-savings outcomes.",
     alternates: {
         canonical: "https://ardncloudsolutions.com/case-studies",
         languages: {
