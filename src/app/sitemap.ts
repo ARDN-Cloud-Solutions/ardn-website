@@ -288,6 +288,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Broader-wedge pillar: reduce SaaS spend / tech-stack consolidation.
+        // Extends the per-seat cost-reduction wedge from CRM to the whole stack
+        // (CFO/RevOps budget intent); funnels the CRM slice to the pillar page.
+        url: `${BASE_URL}/reduce-saas-spend`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
