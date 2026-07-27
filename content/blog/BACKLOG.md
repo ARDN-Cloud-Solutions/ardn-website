@@ -22,44 +22,60 @@ near-duplicate of an existing post.
 - [x] salesforce-platform-license-vs-custom-portal
 - [x] salesforce-license-audit-checklist
 - [x] salesforce-experience-cloud-cost-explained
-- [ ] salesforce-inactive-user-cleanup | How to Find and Remove Inactive Salesforce Users | how-to | inactive salesforce users | /license-guard
+- [x] salesforce-inactive-user-cleanup
 - [x] salesforce-renewal-negotiation-guide
-- [ ] salesforce-partner-community-cost | The Real Cost of Salesforce Partner Communities | education | partner community license cost | /custom-portal-development
-- [ ] salesforce-flow-vs-custom-app-cost | Salesforce Flow/Automation Add-On Costs vs. a Custom App | comparison | salesforce automation cost | /custom-software-development
+- [ ] salesforce-partner-community-cost | The Real Cost of Salesforce Partner Communities | education | partner community license cost | /custom-portal-development — SKIPPED 2026-07-27: too close to salesforce-experience-cloud-cost-explained (Partner Community is a legacy Experience Cloud license type; same login/member pricing mechanism). Needs a materially different angle (e.g. migrating off the legacy SKU specifically) before it clears the distinctness bar, or drop it.
+- [x] salesforce-flow-vs-custom-app-cost
 
 ## HubSpot cost
 - [x] cut-hubspot-seat-costs
 - [x] hubspot-seat-cost-vs-custom-portal
-- [ ] hubspot-paid-vs-free-seats | HubSpot Paid vs. Free Seats: Who Needs Which | education | hubspot free seats | /reduce-crm-licensing-costs
-- [ ] hubspot-service-hub-cost-reduction | Cutting HubSpot Service Hub Costs for Light Agents | how-to | hubspot service hub cost | /custom-portal-development
-- [ ] hubspot-marketing-hub-contact-tier-cost | HubSpot Marketing Hub Contact-Tier Pricing Explained | education | hubspot marketing hub cost | /compare/custom-software-vs-saas
+- [x] hubspot-paid-vs-free-seats
+- [x] hubspot-service-hub-cost-reduction
+- [x] hubspot-marketing-hub-contact-tier-cost
 
 ## Comparisons
 - [x] custom-portal-vs-nocode-tool
-- [ ] build-vs-buy-crm-portal | Build vs. Buy: CRM Portal for Light Users | comparison | build vs buy portal | /custom-software-development
-- [ ] custom-portal-vs-crm-migration | Custom Portal vs. Full CRM Migration | comparison | crm migration alternative | /reduce-crm-licensing-costs
-- [ ] zendesk-freshdesk-agent-seat-cost | Zendesk/Freshdesk Agent Seat Costs vs. a Custom Support Portal | comparison | helpdesk agent seat cost | /custom-portal-development
+- [x] build-vs-buy-crm-portal
+- [x] custom-portal-vs-crm-migration
+- [x] zendesk-freshdesk-agent-seat-cost
 
 ## Buyer questions (Ops / RevOps / CFO / IT)
 - [x] saas-seat-sprawl-mid-market
 - [x] per-seat-vs-flat-fee-pricing
-- [ ] cfo-guide-software-cost-reduction | A CFO's Guide to Cutting Software Costs Without Losing Capability | education | reduce software costs | /custom-software-development
+- [x] cfo-guide-software-cost-reduction
 - [ ] how-to-do-a-saas-spend-audit | How to Run a SaaS Spend Audit | how-to | saas spend audit | /reduce-crm-licensing-costs
 - [ ] shadow-it-mid-market-cost | Shadow IT: The Hidden Per-Seat Cost Mid-Market Companies Don't Track | education | shadow it cost | /custom-software-development
 
 ## Verticals — insurance
 - [x] insurance-ams-per-seat-costs
-- [ ] insurance-client-portal-cost | A Client Portal for Insurance Without Per-Seat Fees | how-to | insurance client portal | /ai-for-insurance
+- [ ] insurance-client-portal-cost | A Client Portal for Insurance Without Per-Seat Fees | how-to | insurance client portal | /ai-for-insurance — reframe as an implementation/scoping guide (what screens/modules to include, integration approach, timeline, compliance) rather than the cost-case already made in insurance-ams-per-seat-costs, or it'll read as a near-duplicate.
 
 ## Verticals — hospitality
 - [x] hospitality-software-per-seat-costs
-- [ ] hotel-staff-portal-flat-fee | A Flat-Fee Staff Portal for Hotels | how-to | hotel staff portal | /ai-for-hospitality
+- [ ] hotel-staff-portal-flat-fee | A Flat-Fee Staff Portal for Hotels | how-to | hotel staff portal | /ai-for-hospitality — SKIPPED 2026-07-27: hospitality-software-per-seat-costs already pitches "the fix: a purpose-built staff portal" as its closing section. Reframe as a concrete implementation/rollout guide (screens, integration points, seasonal onboarding flow) before publishing, or it's a near-duplicate.
 
 ## Verticals — membership / associations / chapters
-- [ ] association-ams-cost-reduction | Cutting Association Management Software Costs | education | ams cost reduction | /ai-for-membership-organizations
-- [ ] chapter-management-per-member-fees | Escaping Per-Member Fees in Chapter Management | education | chapter management cost | /chapter-management-software
+- [x] association-ams-cost-reduction
+- [x] chapter-management-per-member-fees
 - [ ] member-portal-flat-fee | A Member Portal That Doesn't Bill Per Member | how-to | member portal cost | /membership-management
 
 ## Verticals — professional services / agencies
 - [ ] agency-client-portal-per-seat-cost | Why Agencies Overpay for Client-Facing Software Seats | education | agency client portal cost | /custom-portal-development
 - [ ] professional-services-psa-license-cost | PSA Tool License Costs for Professional Services Firms | education | psa license cost | /custom-software-development
+
+## Buyer questions — round 2 (added 2026-07-27)
+- [ ] rfp-questions-for-crm-portal-vendor | RFP Questions to Ask Before Buying a CRM Portal Add-On | how-to | crm portal rfp questions | /custom-portal-development
+- [ ] total-cost-of-ownership-saas-vs-custom | Total Cost of Ownership: SaaS Add-Ons vs. Custom-Built Software | education | tco saas vs custom software | /compare/custom-software-vs-saas
+- [ ] it-directors-guide-shadow-saas | An IT Director's Guide to Finding and Consolidating Shadow SaaS | how-to | shadow saas consolidation | /custom-software-development
+
+## Verticals — professional services / agencies (round 2)
+- [ ] law-firm-client-portal-cost | Client Portal Costs for Law Firms Without Per-Seat Practice Management Fees | how-to | law firm client portal | /custom-portal-development
+- [ ] accounting-firm-client-portal-seat-cost | Why Accounting Firms Overpay for Client Portal Seats | education | accounting firm client portal cost | /custom-portal-development
+
+## Verticals — healthcare / wellness (new, seed for next batch)
+- [ ] healthcare-patient-portal-per-seat-cost | Patient Portal Software: Per-Seat Costs vs. a Custom Build | comparison | patient portal cost | /custom-portal-development
+- [ ] medical-practice-management-license-cost | Practice Management Software License Costs Explained | education | practice management software cost | /custom-software-development
+
+## Verticals — nonprofit (new, seed for next batch)
+- [ ] nonprofit-donor-database-per-seat-cost | Donor Database Per-Seat Costs for Growing Nonprofits | education | nonprofit donor database cost | /custom-portal-development
