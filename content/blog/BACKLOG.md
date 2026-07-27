@@ -24,7 +24,7 @@ near-duplicate of an existing post.
 - [x] salesforce-experience-cloud-cost-explained
 - [x] salesforce-inactive-user-cleanup
 - [x] salesforce-renewal-negotiation-guide
-- [ ] salesforce-partner-community-cost | The Real Cost of Salesforce Partner Communities | education | partner community license cost | /custom-portal-development — SKIPPED 2026-07-27: too close to salesforce-experience-cloud-cost-explained (Partner Community is a legacy Experience Cloud license type; same login/member pricing mechanism). Needs a materially different angle (e.g. migrating off the legacy SKU specifically) before it clears the distinctness bar, or drop it.
+- [x] salesforce-partner-community-cost — published with a partner-network-growth angle (turnover, seasonal partners, cost scaling with network size) distinct from the general login/member pricing mechanics already covered in salesforce-experience-cloud-cost-explained; flagged here as a borderline call for editorial review, not a clean SKIP.
 - [x] salesforce-flow-vs-custom-app-cost
 
 ## HubSpot cost
@@ -44,12 +44,12 @@ near-duplicate of an existing post.
 - [x] saas-seat-sprawl-mid-market
 - [x] per-seat-vs-flat-fee-pricing
 - [x] cfo-guide-software-cost-reduction
-- [ ] how-to-do-a-saas-spend-audit | How to Run a SaaS Spend Audit | how-to | saas spend audit | /reduce-crm-licensing-costs
+- [x] how-to-do-a-saas-spend-audit
 - [ ] shadow-it-mid-market-cost | Shadow IT: The Hidden Per-Seat Cost Mid-Market Companies Don't Track | education | shadow it cost | /custom-software-development
 
 ## Verticals — insurance
 - [x] insurance-ams-per-seat-costs
-- [ ] insurance-client-portal-cost | A Client Portal for Insurance Without Per-Seat Fees | how-to | insurance client portal | /ai-for-insurance — reframe as an implementation/scoping guide (what screens/modules to include, integration approach, timeline, compliance) rather than the cost-case already made in insurance-ams-per-seat-costs, or it'll read as a near-duplicate.
+- [x] insurance-client-portal-cost — published, scoped to policyholder self-service specifically (documents, COIs, claim status) rather than the internal-seat audit already covered in insurance-ams-per-seat-costs.
 
 ## Verticals — hospitality
 - [x] hospitality-software-per-seat-costs
@@ -79,3 +79,26 @@ near-duplicate of an existing post.
 
 ## Verticals — nonprofit (new, seed for next batch)
 - [ ] nonprofit-donor-database-per-seat-cost | Donor Database Per-Seat Costs for Growing Nonprofits | education | nonprofit donor database cost | /custom-portal-development
+
+## Verticals — e-commerce / retail (new, seed for next batch)
+- [ ] ecommerce-cs-seat-cost | Cutting Customer-Service Seat Costs for E-Commerce Brands | how-to | ecommerce support seat cost | /custom-portal-development
+- [ ] shopify-plus-app-fee-stacking | When Shopify Plus App Fees Add Up to More Than a Custom Build | comparison | shopify app fees | /custom-ecommerce-development
+
+## Verticals — wellness / med spa (new, seed for next batch)
+- [ ] med-spa-scheduling-portal-cost | A Flat-Fee Scheduling Portal for Med Spas and Wellness Clinics | how-to | med spa scheduling software cost | /custom-portal-development
+- [ ] healthcare-referral-portal-cost | Cutting Per-Seat Costs for Healthcare Referral Coordination | education | healthcare referral portal | /custom-portal-development
+
+## Buyer questions — round 3 (added 2026-07-27)
+- [ ] api-integration-vs-middleware-cost | API Integration Costs vs. Paying for Middleware Seats | comparison | integration platform cost | /custom-software-development
+- [ ] crm-contract-renewal-red-flags | Red Flags to Check Before Signing Your Next CRM Renewal | education | crm renewal red flags | /savings-calculator
+
+## Process note (2026-07-27)
+Two concurrent runs of this engine independently picked nearly the same 7
+next-in-line topics from the backlog within minutes of each other (see git
+history around this date). Both wrote and QA-passed their own versions;
+whichever run's `--publish` call landed last on a given slug is the version
+that stayed live, and that run's file is what's committed here. No content
+was lost — the losing versions are recoverable from git history on the
+`backup-mine` branch — but future runs should be aware the backlog's
+strict top-to-bottom order makes this collision likely if two runs
+overlap in time.
