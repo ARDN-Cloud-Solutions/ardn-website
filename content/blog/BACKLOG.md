@@ -22,34 +22,34 @@ near-duplicate of an existing post.
 - [x] salesforce-platform-license-vs-custom-portal
 - [x] salesforce-license-audit-checklist
 - [x] salesforce-experience-cloud-cost-explained
-- [ ] salesforce-inactive-user-cleanup | How to Find and Remove Inactive Salesforce Users | how-to | inactive salesforce users | /license-guard
+- [x] salesforce-inactive-user-cleanup
 - [x] salesforce-renewal-negotiation-guide
-- [ ] salesforce-partner-community-cost | The Real Cost of Salesforce Partner Communities | education | partner community license cost | /custom-portal-development
-- [ ] salesforce-flow-vs-custom-app-cost | Salesforce Flow/Automation Add-On Costs vs. a Custom App | comparison | salesforce automation cost | /custom-software-development
+- [x] salesforce-partner-community-cost
+- [x] salesforce-flow-vs-custom-app-cost
 
 ## HubSpot cost
 - [x] cut-hubspot-seat-costs
 - [x] hubspot-seat-cost-vs-custom-portal
-- [ ] hubspot-paid-vs-free-seats | HubSpot Paid vs. Free Seats: Who Needs Which | education | hubspot free seats | /reduce-crm-licensing-costs
-- [ ] hubspot-service-hub-cost-reduction | Cutting HubSpot Service Hub Costs for Light Agents | how-to | hubspot service hub cost | /custom-portal-development
+- [x] hubspot-paid-vs-free-seats
+- [x] hubspot-service-hub-cost-reduction
 - [ ] hubspot-marketing-hub-contact-tier-cost | HubSpot Marketing Hub Contact-Tier Pricing Explained | education | hubspot marketing hub cost | /compare/custom-software-vs-saas
 
 ## Comparisons
 - [x] custom-portal-vs-nocode-tool
-- [ ] build-vs-buy-crm-portal | Build vs. Buy: CRM Portal for Light Users | comparison | build vs buy portal | /custom-software-development
+- [x] build-vs-buy-crm-portal
 - [ ] custom-portal-vs-crm-migration | Custom Portal vs. Full CRM Migration | comparison | crm migration alternative | /reduce-crm-licensing-costs
-- [ ] zendesk-freshdesk-agent-seat-cost | Zendesk/Freshdesk Agent Seat Costs vs. a Custom Support Portal | comparison | helpdesk agent seat cost | /custom-portal-development
+- [x] zendesk-freshdesk-agent-seat-cost
 
 ## Buyer questions (Ops / RevOps / CFO / IT)
 - [x] saas-seat-sprawl-mid-market
 - [x] per-seat-vs-flat-fee-pricing
-- [ ] cfo-guide-software-cost-reduction | A CFO's Guide to Cutting Software Costs Without Losing Capability | education | reduce software costs | /custom-software-development
-- [ ] how-to-do-a-saas-spend-audit | How to Run a SaaS Spend Audit | how-to | saas spend audit | /reduce-crm-licensing-costs
+- [x] cfo-guide-software-cost-reduction
+- [x] how-to-do-a-saas-spend-audit
 - [ ] shadow-it-mid-market-cost | Shadow IT: The Hidden Per-Seat Cost Mid-Market Companies Don't Track | education | shadow it cost | /custom-software-development
 
 ## Verticals — insurance
 - [x] insurance-ams-per-seat-costs
-- [ ] insurance-client-portal-cost | A Client Portal for Insurance Without Per-Seat Fees | how-to | insurance client portal | /ai-for-insurance
+- [x] insurance-client-portal-cost
 
 ## Verticals — hospitality
 - [x] hospitality-software-per-seat-costs
@@ -63,3 +63,15 @@ near-duplicate of an existing post.
 ## Verticals — professional services / agencies
 - [ ] agency-client-portal-per-seat-cost | Why Agencies Overpay for Client-Facing Software Seats | education | agency client portal cost | /custom-portal-development
 - [ ] professional-services-psa-license-cost | PSA Tool License Costs for Professional Services Firms | education | psa license cost | /custom-software-development
+
+## Verticals — e-commerce / retail
+- [ ] ecommerce-cs-seat-cost | Cutting Customer-Service Seat Costs for E-Commerce Brands | how-to | ecommerce support seat cost | /custom-portal-development
+- [ ] shopify-plus-app-fee-stacking | When Shopify Plus App Fees Add Up to More Than a Custom Build | comparison | shopify app fees | /custom-ecommerce-development
+
+## Verticals — healthcare / wellness (non-clinical ops)
+- [ ] med-spa-scheduling-portal-cost | A Flat-Fee Scheduling Portal for Med Spas and Wellness Clinics | how-to | med spa scheduling software cost | /custom-portal-development
+- [ ] healthcare-referral-portal-cost | Cutting Per-Seat Costs for Healthcare Referral Coordination | education | healthcare referral portal | /custom-portal-development
+
+## Buyer questions — IT / RevOps (round 2)
+- [ ] api-integration-vs-middleware-cost | API Integration Costs vs. Paying for Middleware Seats | comparison | integration platform cost | /custom-software-development
+- [ ] crm-contract-renewal-red-flags | Red Flags to Check Before Signing Your Next CRM Renewal | education | crm renewal red flags | /savings-calculator
