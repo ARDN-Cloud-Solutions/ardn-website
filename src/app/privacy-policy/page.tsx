@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import PrivacyPolicyContent from "./PrivacyPolicyContent";
 
 export const metadata: Metadata = {
-  title: "ARDN Cloud Solutions Privacy Policy | How We Use Your Data",
+  title: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
   description:
     "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
   alternates: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ARDN Cloud Solutions Privacy Policy | How We Use Your Data",
+    title: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
     description:
       "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
     url: "https://ardncloudsolutions.com/privacy-policy",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARDN Cloud Solutions Privacy Policy | How We Use Your Data",
+    title: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
     description:
       "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
     site: "@ardn_cloud_sol",
@@ -38,9 +38,9 @@ export default function PrivacyPolicyPage() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/privacy-policy",
         url: "https://ardncloudsolutions.com/privacy-policy",
-        name: "ARDN Cloud Solutions Privacy Policy | How We Use Your Data",
+        name: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
         description:
-          "Read the ARDN Cloud Solutions Privacy Policy to understand how we collect, use, and protect your personal data.",
+          "Read the Ardn Cloud Solutions Privacy Policy to understand how we collect, use, and protect your personal data.",
         breadcrumb: {
           "@id": "https://ardncloudsolutions.com/privacy-policy#breadcrumb",
         },

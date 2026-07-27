@@ -9,7 +9,7 @@ import LeadForm from "@/components/common/LeadForm";
 // illustrative math, not a client case study, and points to the existing
 // /savings-calculator tool for a reader's own numbers.
 export const metadata: Metadata = {
-  title: "Custom Software vs. SaaS: Total Cost | ARDN",
+  title: "Custom Software vs. SaaS: Total Cost | Ardn",
   description:
     "Per-seat SaaS fees climb every time you hire. A flat monthly fee doesn't. See how the total cost compares, and where custom software wins.",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Software vs. SaaS: Total Cost Compared | ARDN",
+    title: "Custom Software vs. SaaS: Total Cost Compared | Ardn",
     description:
       "Per-seat SaaS fees climb every time you hire. A flat monthly fee doesn't. See how the total cost compares over time.",
     url: "https://ardncloudsolutions.com/compare/custom-software-vs-saas",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software vs. SaaS: Total Cost Compared | ARDN",
+    title: "Custom Software vs. SaaS: Total Cost Compared | Ardn",
     description:
       "Per-seat SaaS fees climb every time you hire. A flat monthly fee doesn't.",
     images: ["/images/ardn-home-hero.webp"],

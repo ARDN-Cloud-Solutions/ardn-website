@@ -558,9 +558,13 @@ export default function SavingsCalculatorContent() {
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
             <Link href="/custom-portal-development">See how a custom portal replaces those seats →</Link>
             {" · "}
+            <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
+            {" · "}
             <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
+            {" · "}
+            <Link href="/custom-software-development">What we build to replace seats →</Link>
             {" · "}
             <Link href="/license-guard">Reclaim dormant Salesforce seats first →</Link>
           </p>

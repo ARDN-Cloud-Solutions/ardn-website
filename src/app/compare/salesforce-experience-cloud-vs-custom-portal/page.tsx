@@ -11,7 +11,7 @@ import LeadForm from "@/components/common/LeadForm";
 // wins. Pricing is publicly listed list-price ranges, labeled illustrative;
 // no fabricated quotes. GEO-structured (H2/H3, comparison table, FAQ schema).
 export const metadata: Metadata = {
-  title: "Experience Cloud vs. Custom Portal | Ardn",
+  title: "Salesforce Experience Cloud vs. Custom Portal | Ardn",
   description:
     "Weighing Salesforce Experience Cloud licenses against a flat-fee custom portal for light users? See the cost and feature tradeoffs, and when each one wins.",
   keywords: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Experience Cloud vs. Custom Portal | Ardn",
+    title: "Salesforce Experience Cloud vs. Custom Portal | Ardn",
     description:
       "Experience Cloud bills per login or member. See how a flat-fee custom portal compares for light users.",
     images: ["/images/ardn-home-hero.webp"],
@@ -313,8 +313,10 @@ export default function ExperienceCloudVsCustomPortalPage() {
                 <span className="link">Run the numbers →</span>
               </Link>
             </div>
-            <p className="body mt-4" style={{ textAlign: "center" }}>
+            <p className="body mt-4" style={{ textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut per-login Partner Community costs →</Link>
+              <Link href="/custom-software-development" className="link">Explore custom software development →</Link>
             </p>
           </div>
         </section>

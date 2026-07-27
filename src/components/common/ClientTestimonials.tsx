@@ -35,9 +35,9 @@ export default function ClientTestimonials({
   heading = "What",
   headingHighlight = "Our Clients",
   image = "/images/ardn-our-clients.webp",
-  imageAlt = "Happy clients",
-  statValue = "100%",
-  statLabel = "Happy Customers & committed to keeping it that way",
+  imageAlt = "Ardn clients",
+  statValue = "30+",
+  statLabel = "years building & running software for our clients",
   testimonials = [],
   className = "pt-20 pb-30",
 }: ClientTestimonialsProps & { className?: string }) {

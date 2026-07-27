@@ -87,6 +87,10 @@ const FAQS = [
     a: "Built-in community and portal license tiers still bill per user and limit what you can build. A custom portal is yours, runs on one flat monthly fee regardless of how many users you add, and is shaped exactly to your process instead of a vendor's template.",
   },
   {
+    q: "Is our data secure, and who owns the portal?",
+    a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
