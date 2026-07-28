@@ -45,7 +45,11 @@ near-duplicate of an existing post.
 - [x] per-seat-vs-flat-fee-pricing
 - [x] cfo-guide-software-cost-reduction
 - [x] how-to-do-a-saas-spend-audit
-- [ ] shadow-it-mid-market-cost | Shadow IT: The Hidden Per-Seat Cost Mid-Market Companies Don't Track | education | shadow it cost | /custom-software-development
+- [x] shadow-it-mid-market-cost
+- [x] rfp-questions-for-crm-portal-vendor
+- [x] total-cost-of-ownership-saas-vs-custom
+- [x] it-directors-guide-shadow-saas
+- [x] crm-contract-renewal-red-flags
 
 ## Verticals — insurance
 - [x] insurance-ams-per-seat-costs
@@ -58,24 +62,22 @@ near-duplicate of an existing post.
 ## Verticals — membership / associations / chapters
 - [x] association-ams-cost-reduction
 - [x] chapter-management-per-member-fees
-- [ ] member-portal-flat-fee | A Member Portal That Doesn't Bill Per Member | how-to | member portal cost | /membership-management
+- [x] member-portal-flat-fee
 
 ## Verticals — professional services / agencies
-- [ ] agency-client-portal-per-seat-cost | Why Agencies Overpay for Client-Facing Software Seats | education | agency client portal cost | /custom-portal-development
-- [ ] professional-services-psa-license-cost | PSA Tool License Costs for Professional Services Firms | education | psa license cost | /custom-software-development
+- [x] agency-client-portal-per-seat-cost
+- [x] professional-services-psa-license-cost
 
 ## Buyer questions — round 2 (added 2026-07-27)
-- [ ] rfp-questions-for-crm-portal-vendor | RFP Questions to Ask Before Buying a CRM Portal Add-On | how-to | crm portal rfp questions | /custom-portal-development
-- [ ] total-cost-of-ownership-saas-vs-custom | Total Cost of Ownership: SaaS Add-Ons vs. Custom-Built Software | education | tco saas vs custom software | /compare/custom-software-vs-saas
-- [ ] it-directors-guide-shadow-saas | An IT Director's Guide to Finding and Consolidating Shadow SaaS | how-to | shadow saas consolidation | /custom-software-development
+(all published — see round-1 checkmarks above)
 
 ## Verticals — professional services / agencies (round 2)
-- [ ] law-firm-client-portal-cost | Client Portal Costs for Law Firms Without Per-Seat Practice Management Fees | how-to | law firm client portal | /custom-portal-development
-- [ ] accounting-firm-client-portal-seat-cost | Why Accounting Firms Overpay for Client Portal Seats | education | accounting firm client portal cost | /custom-portal-development
+- [x] law-firm-client-portal-cost
+- [ ] accounting-firm-client-portal-seat-cost | Why Accounting Firms Overpay for Client Portal Seats | education | accounting firm client portal cost | /custom-portal-development — hold until it can be scoped with a genuinely distinct angle (trust-accounting / tax-season document exchange specifics) from law-firm-client-portal-cost and agency-client-portal-per-seat-cost, both published 2026-07-28; three near-identical "vertical X overpays for client portal seats" posts in close succession risks reading as templated.
 
 ## Verticals — healthcare / wellness (new, seed for next batch)
-- [ ] healthcare-patient-portal-per-seat-cost | Patient Portal Software: Per-Seat Costs vs. a Custom Build | comparison | patient portal cost | /custom-portal-development
-- [ ] medical-practice-management-license-cost | Practice Management Software License Costs Explained | education | practice management software cost | /custom-software-development
+- [x] healthcare-patient-portal-per-seat-cost
+- [x] medical-practice-management-license-cost
 
 ## Verticals — nonprofit (new, seed for next batch)
 - [ ] nonprofit-donor-database-per-seat-cost | Donor Database Per-Seat Costs for Growing Nonprofits | education | nonprofit donor database cost | /custom-portal-development
@@ -90,7 +92,39 @@ near-duplicate of an existing post.
 
 ## Buyer questions — round 3 (added 2026-07-27)
 - [ ] api-integration-vs-middleware-cost | API Integration Costs vs. Paying for Middleware Seats | comparison | integration platform cost | /custom-software-development
-- [ ] crm-contract-renewal-red-flags | Red Flags to Check Before Signing Your Next CRM Renewal | education | crm renewal red flags | /savings-calculator
+- [x] crm-contract-renewal-red-flags
+
+## Salesforce cost — round 2 (added 2026-07-28, all rounds above exhausted)
+- [ ] salesforce-sandbox-license-cost | Salesforce Sandbox and Dev License Costs Nobody Budgets For | education | salesforce sandbox license cost | /reduce-crm-licensing-costs
+- [ ] salesforce-cpq-license-cost | Salesforce CPQ License Costs vs. a Custom Quoting Tool | comparison | salesforce cpq cost | /custom-software-development
+- [ ] salesforce-shield-cost | Salesforce Shield Pricing and When You Don't Actually Need It | education | salesforce shield cost | /custom-software-development
+- [ ] crm-user-provisioning-deprovisioning-cost | The Hidden Cost of Manual CRM User Provisioning and Deprovisioning | education | crm user provisioning cost | /license-guard
+
+## HubSpot cost — round 2 (added 2026-07-28, round 1 exhausted)
+- [ ] hubspot-operations-hub-cost | Is HubSpot Operations Hub Worth Its Per-Seat Price Tag? | education | hubspot operations hub cost | /custom-software-development
+- [ ] hubspot-enterprise-seat-cost-breakdown | What You're Actually Paying for in a HubSpot Enterprise Seat | education | hubspot enterprise seat cost | /reduce-crm-licensing-costs
+- [ ] hubspot-content-hub-seat-cost | HubSpot Content Hub Seat Costs for Marketing Teams | education | hubspot content hub cost | /custom-software-development
+
+## Process note (2026-07-28)
+This run's Salesforce-cost and HubSpot-cost sections were both fully
+exhausted (checked off in prior batches) — every unchecked topic left in the
+backlog was a vertical, comparison, or buyer-question angle, so this batch
+published 100% outside the "half SF/HubSpot" weighting guideline by
+necessity, not by choice. Four new Salesforce-cost and three new HubSpot-cost
+angles were seeded above (round 2) so the next batch can rebalance toward
+that weighting.
+
+Skipped/held this batch: `accounting-firm-client-portal-seat-cost` (would
+have been a third near-identical "vertical X overpays for client portal
+seats" post alongside `law-firm-client-portal-cost` and
+`agency-client-portal-per-seat-cost`, both published this run — held for a
+more distinct angle). `hotel-staff-portal-flat-fee` remains held per the
+2026-07-27 note pending a genuine rollout-guide reframe. Remaining unchecked
+inventory after this batch: `nonprofit-donor-database-per-seat-cost`,
+`ecommerce-cs-seat-cost`, `shopify-plus-app-fee-stacking`,
+`med-spa-scheduling-portal-cost`, `healthcare-referral-portal-cost`,
+`api-integration-vs-middleware-cost`, plus the 7 Salesforce/HubSpot seeds
+above — enough distinct depth for at least one more full batch.
 
 ## Process note (2026-07-27)
 Two concurrent runs of this engine independently picked nearly the same 7
