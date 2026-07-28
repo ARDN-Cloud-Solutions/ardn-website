@@ -246,6 +246,12 @@ export default function AiForHospitalityPage() {
               <Link href="/custom-portal-development" className="link">
                 Give front-desk &amp; light staff a portal instead of a full CRM seat →
               </Link>
+              <Link href="/savings-calculator" className="link">
+                Calculate your per-seat software savings →
+              </Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">
+                How to cut per-seat software licensing costs →
+              </Link>
             </div>
           </div>
         </section>

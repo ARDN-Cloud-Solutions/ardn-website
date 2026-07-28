@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import LeadForm from "@/components/common/LeadForm";
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
@@ -139,7 +140,7 @@ export default function SavingsCalculatorContent() {
                 target="_blank"
                 className="sc-btn-outline"
               >
-                Book Free Discovery Call
+                Book a free 30-min call
               </Link>
             </div>
           </div>
@@ -534,12 +535,26 @@ export default function SavingsCalculatorContent() {
         </div>
       </section>
 
+      {/* ── LEAD CAPTURE ────────────────────────────────────────────────
+          The calculator is the highest-intent moment on the site, but the
+          only exit was an outbound Calendly link — every visitor not ready
+          to book a live call was lost with no follow-up path. This form
+          captures the warm-but-not-ready majority (name + work email, plus
+          the CRM + seat qualifiers that size a portal-vs-seat saving) and
+          fires the GA4 generate_lead event, same as the other landing pages. */}
+      <LeadForm
+        source="Savings Calculator page"
+        heading="Email me my savings breakdown"
+        showSeatQualifiers
+        sub="Not ready to book a call? Tell us which CRM you run and roughly how many users, and we'll send a written per-seat savings breakdown plus a fixed quote — no obligation."
+      />
+
       {/* ── CTA SECTION ─────────────────────────────────────────────── */}
       <section className="sc-cta-section">
         <div className="sc-cta-inner">
           <div className="sc-cta-eyebrow">Ready to stop overpaying?</div>
           <h2 className="sc-cta-title">
-            See exactly what you&apos;d save<br /><em>in 15 minutes.</em>
+            See exactly what you&apos;d save<br /><em>in 30 minutes.</em>
           </h2>
           <p className="sc-cta-sub">
             Book a free discovery call. We&apos;ll map your current stack, calculate your
@@ -550,7 +565,7 @@ export default function SavingsCalculatorContent() {
             target="_blank"
             className="sc-cta-btn"
           >
-            Book Free 15-Minute Discovery Call →
+            Book a free 30-min call →
           </Link>
           <p className="sc-cta-note">
             +1 (407) 815-5303 &nbsp;·&nbsp; contactus@ardncloudsolutions.com
@@ -673,10 +688,10 @@ export default function SavingsCalculatorContent() {
                 target="_blank"
                 className="sc-modal-cta"
               >
-                Book Free 15-Minute Discovery Call →
+                Book a free 30-min call →
               </Link>
               <div className="sc-modal-fine">
-                No pressure. No sales deck. Just your actual numbers in 15 minutes.
+                No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
             </div>
           </div>

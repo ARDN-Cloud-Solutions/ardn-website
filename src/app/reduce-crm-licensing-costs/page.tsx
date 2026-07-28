@@ -196,6 +196,9 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     Only the third one breaks the link between cost and headcount.
                   </p>
+                  <p className="body" style={{ marginTop: "14px", paddingTop: "14px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
+                    🎁 New customers: we build the portal free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
+                  </p>
                 </div>
               </aside>
             </div>
@@ -233,6 +236,13 @@ export default function ReduceCrmLicensingCostsPage() {
                 <p className="body">In most mid-market orgs, the people who need a sliver of the CRM outnumber the power users — so the overpayment is spread across most of the seat count, not a corner of it.</p>
               </div>
             </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              For scale: a full Salesforce Sales Cloud Enterprise seat lists at
+              roughly $165/user/month, and Experience Cloud external users bill
+              per login or per member on top. A flat-fee portal costs the same at
+              10 light users or 400. (List prices shown for illustration only —{" "}
+              <Link href="/savings-calculator" className="link">run the calculator</Link> for your own negotiated rate.)
+            </p>
           </div>
         </section>
 
@@ -399,7 +409,7 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

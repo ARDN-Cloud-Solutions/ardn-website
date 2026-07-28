@@ -229,6 +229,7 @@ export default function ChapterManagementSoftwarePage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/membership-management" className="link">Running a gym, studio, or association instead? See Membership Management →</Link>
               <Link href="/custom-portal-development" className="link">Paying per-seat AMS fees for volunteer officers? Give them a portal instead →</Link>
+              <Link href="/savings-calculator" className="link">Calculate what per-member &amp; per-seat fees cost you →</Link>
             </div>
           </div>
         </section>
@@ -307,7 +308,7 @@ export default function ChapterManagementSoftwarePage() {
           </div>
         </section>
 
-        <LeadForm source="Chapter & Dues Management page" sub="Tell us about your chapter or organization. We'll reply within one business day with next steps and a fixed quote." />
+        <LeadForm source="Chapter & Dues Management page" sub="Tell us about your chapter or organization. We'll reply within 4 business hours with next steps and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

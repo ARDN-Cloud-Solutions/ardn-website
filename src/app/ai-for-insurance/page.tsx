@@ -247,6 +247,12 @@ export default function AiForInsurancePage() {
               <Link href="/custom-portal-development" className="link">
                 Give adjusters &amp; light users a portal instead of a full CRM seat →
               </Link>
+              <Link href="/savings-calculator" className="link">
+                Calculate your per-seat AMS savings →
+              </Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">
+                How to cut insurance software licensing costs →
+              </Link>
             </div>
           </div>
         </section>
