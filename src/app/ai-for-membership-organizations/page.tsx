@@ -237,9 +237,15 @@ export default function AiForMembershipOrganizationsPage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/membership-management" className="link">
                 Need the full platform too? See Membership Management →
+              </Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">
+                Cut per-seat association software costs →
+              </Link>
+              <Link href="/savings-calculator" className="link">
+                Calculate your per-member savings →
               </Link>
             </div>
           </div>

@@ -19,7 +19,7 @@ image_alt: "The real cost of Salesforce partner communities — ARDN Cloud Solut
 </ul>
 
 <h2>The structural alternative: a portal, not a community license</h2>
-<p>What most partners actually need is narrow: check deal status, register a lead, pull inventory, download a spec sheet. That's a smaller surface area than the full Experience Cloud community license assumes. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom partner portal</a> built to that exact scope, synced live to Salesforce as the system of record, replaces the per-login fee with one flat monthly fee — whether you have 20 partners or 200.</p>
+<p>What most partners actually need is narrow: check deal status, register a lead, pull inventory, download a spec sheet. That's a smaller surface area than the full Experience Cloud community license assumes. A <a href="https://ardncloudsolutions.com/custom-partner-portal-development">custom partner portal</a> built to that exact scope, synced live to Salesforce as the system of record, replaces the per-login fee with one flat monthly fee — whether you have 20 partners or 200.</p>
 
 <table>
   <thead>

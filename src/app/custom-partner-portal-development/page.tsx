@@ -319,7 +319,7 @@ export default function CustomPartnerPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Partner Portal Development page" heading="See what your partner logins cost you" sub="Tell us which CRM you run and roughly how many partners have access. We'll come back with where a portal cuts your per-login costs — and a fixed quote." />
+        <LeadForm source="Custom Partner Portal Development page" heading="See what your partner logins cost you" showSeatQualifiers sub="Tell us which CRM you run and roughly how many partners have access. We'll come back with where a portal cuts your per-login costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

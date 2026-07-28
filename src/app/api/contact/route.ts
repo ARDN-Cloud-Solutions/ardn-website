@@ -6,6 +6,8 @@ interface ContactPayload {
   email?: string;
   phone?: string;
   company?: string;
+  crm?: string;
+  seats?: string;
   message?: string;
   interests?: string[];
   source?: string;
@@ -14,7 +16,7 @@ interface ContactPayload {
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as ContactPayload;
-    const { name, email, phone, company, message, source } = body;
+    const { name, email, phone, company, crm, seats, message, source } = body;
     const interests = Array.isArray(body.interests) ? body.interests : [];
 
     if (!name || name.trim().length < 3) {
@@ -71,6 +73,8 @@ Name: ${name}
 Email: ${email}
 Phone: ${phone || "—"}
 Company: ${company || "—"}
+CRM: ${crm || "—"}
+Approx. seats: ${seats || "—"}
 Interests: ${interestsLine}
 ${message ? `\nProject / message:\n${message}\n` : ""}
 Source: ${source || "Contact page"}
@@ -94,6 +98,14 @@ Source: ${source || "Contact page"}
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Company</td>
       <td style="padding: 10px; border: 1px solid #ddd;">${company || "—"}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">CRM</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${crm || "—"}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Approx. seats</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${seats || "—"}</td>
     </tr>
     ${message ? `<tr>
       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; vertical-align: top;">Project</td>

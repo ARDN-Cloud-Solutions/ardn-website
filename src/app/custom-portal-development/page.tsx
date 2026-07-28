@@ -87,6 +87,14 @@ const FAQS = [
     a: "Built-in community and portal license tiers still bill per user and limit what you can build. A custom portal is yours, runs on one flat monthly fee regardless of how many users you add, and is shaped exactly to your process instead of a vendor's template.",
   },
   {
+    q: "Do all my users really need a full Salesforce or HubSpot license?",
+    a: "Almost never. Per-seat pricing is built around the power user who lives in the platform, but most companies have far more light users — sellers, ops staff, partners, customers — who touch it for a handful of tasks. Those users don't need a full seat at all; they need a focused tool. Moving them to a custom portal doesn't just downgrade their license, it removes the seat entirely while your CRM stays the system of record.",
+  },
+  {
+    q: "How is a custom portal different from portal software like Experience Cloud, CRMJetty, or a no-code builder?",
+    a: "Those are all products you license — Experience Cloud bills per login or per member, productized portal add-ons and no-code builders (Softr, SuiteDash, and similar) bill per end-user or per subscription, and most still leave you to build and maintain the thing yourself. A custom portal from Ardn is the opposite on every axis: it's built and run for you, shaped to your exact workflow, integrated deeply with your CRM, and it runs on one flat fee you own — no per-seat or per-login meter stacked on top.",
+  },
+  {
     q: "Is our data secure, and who owns the portal?",
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
@@ -203,7 +211,7 @@ export default function CustomPortalDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free.
+                    🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
@@ -321,7 +329,7 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

@@ -11,17 +11,26 @@ import { useState } from "react";
  * larger group who will share contact details but won't book a call yet.
  *
  * Posts to the existing /api/contact route (name + email required; company,
- * message, source optional — backward-compatible). Fires the GA4
+ * crm, seats, message, source optional — backward-compatible). Fires the GA4
  * `generate_lead` event on success so the conversion is tracked per source.
+ *
+ * The optional "Which CRM?" + "Approx. users/seats" fields exist to qualify the
+ * per-seat cost-reduction wedge: they are the two data points sales needs to
+ * size a portal-vs-seat saving, and they make good on the wedge pages' sub-copy
+ * ("tell us which CRM you run and roughly how many users"). Both are optional so
+ * form friction stays low. Set `showSeatQualifiers={false}` for build-shop pages
+ * where CRM/seat count is not the qualifier.
  */
 export default function LeadForm({
   source,
   heading = "Get a free scope & quote",
-  sub = "Tell us what you're trying to build. We'll reply within one business day with a fixed quote — no obligation.",
+  sub = "Tell us what you're trying to build. We'll reply within 4 business hours with a fixed quote — no obligation.",
+  showSeatQualifiers = false,
 }: {
   source: string;
   heading?: string;
   sub?: string;
+  showSeatQualifiers?: boolean;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [error, setError] = useState("");
@@ -33,6 +42,8 @@ export default function LeadForm({
       name: (form.elements.namedItem("name") as HTMLInputElement)?.value?.trim(),
       email: (form.elements.namedItem("email") as HTMLInputElement)?.value?.trim(),
       company: (form.elements.namedItem("company") as HTMLInputElement)?.value?.trim(),
+      crm: (form.elements.namedItem("crm") as HTMLInputElement)?.value?.trim(),
+      seats: (form.elements.namedItem("seats") as HTMLInputElement)?.value?.trim(),
       message: (form.elements.namedItem("message") as HTMLTextAreaElement)?.value?.trim(),
       source,
     };
@@ -91,8 +102,8 @@ export default function LeadForm({
               <div style={{ fontSize: "40px", marginBottom: "8px" }}>✅</div>
               <h2 className="h2" style={{ marginBottom: "8px" }}>Got it — thank you.</h2>
               <p className="body">
-                Your request is in. We&apos;ll get back to you within one business
-                day with next steps and a fixed quote. Need to talk sooner?{" "}
+                Your request is in. We&apos;ll get back to you within 4 business
+                hours with next steps and a fixed quote. Need to talk sooner?{" "}
                 <a
                   href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
                   target="_blank"
@@ -125,8 +136,20 @@ export default function LeadForm({
                   <label style={labelStyle} htmlFor="lf-company">Company</label>
                   <input id="lf-company" name="company" type="text" style={inputStyle} placeholder="Company name (optional)" />
                 </div>
+                {showSeatQualifiers && (
+                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                    <div>
+                      <label style={labelStyle} htmlFor="lf-crm">Which CRM do you run?</label>
+                      <input id="lf-crm" name="crm" type="text" style={inputStyle} placeholder="Salesforce, HubSpot… (optional)" />
+                    </div>
+                    <div>
+                      <label style={labelStyle} htmlFor="lf-seats">Approx. # of users/seats</label>
+                      <input id="lf-seats" name="seats" type="text" inputMode="numeric" style={inputStyle} placeholder="e.g. 250 (optional)" />
+                    </div>
+                  </div>
+                )}
                 <div>
-                  <label style={labelStyle} htmlFor="lf-message">What do you want to build?</label>
+                  <label style={labelStyle} htmlFor="lf-message">{showSeatQualifiers ? "What are you trying to cut costs on?" : "What do you want to build?"}</label>
                   <textarea id="lf-message" name="message" rows={3} style={{ ...inputStyle, resize: "vertical" }} placeholder="A sentence or two is plenty (optional)" />
                 </div>
                 {status === "err" && (
@@ -141,7 +164,7 @@ export default function LeadForm({
                   {status === "sending" ? "Sending…" : "Get my free quote"}
                 </button>
                 <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
-                  Fixed quote within 48 hours &middot; We reply within one business day &middot; No obligation
+                  Fixed quote within 48 hours &middot; We reply within 4 business hours &middot; No obligation
                 </p>
                 <p style={{ fontSize: "12px", color: "#98a2b3", textAlign: "center", margin: 0 }}>
                   We&apos;ll only use this to reply about your project. No spam, ever.

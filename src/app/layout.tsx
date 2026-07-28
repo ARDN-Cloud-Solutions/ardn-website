@@ -140,8 +140,15 @@ const organizationSchema = {
       availableLanguage: ["English"],
     },
   ],
+  // Full social profile set — kept in sync with the homepage Organization node
+  // (src/app/page.tsx) so the shared @id #organization doesn't send conflicting
+  // sameAs signals to search engines / knowledge-graph.
   sameAs: [
     "https://www.linkedin.com/company/ardn-cloud-solutions/",
+    "https://www.facebook.com/profile.php?id=61569012437188",
+    "https://x.com/ardn_cloud_sol",
+    "https://www.instagram.com/ardncloudsolutions/",
+    "https://www.youtube.com/@ardn_cloud_solutions",
   ],
 };
 

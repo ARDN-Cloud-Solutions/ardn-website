@@ -344,7 +344,7 @@ export default function ExperienceCloudVsCustomPortalPage() {
           </div>
         </section>
 
-        <LeadForm source="Experience Cloud vs Custom Portal page" heading="Not sure which fits your users?" sub="Tell us roughly how many external users you have and how they use Salesforce. We'll give you an honest read on Experience Cloud vs. a portal — and a fixed quote." />
+        <LeadForm source="Experience Cloud vs Custom Portal page" heading="Not sure which fits your users?" showSeatQualifiers sub="Tell us roughly how many external users you have and how they use Salesforce. We'll give you an honest read on Experience Cloud vs. a portal — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
