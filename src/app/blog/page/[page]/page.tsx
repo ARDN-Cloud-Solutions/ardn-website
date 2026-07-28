@@ -21,20 +21,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const title =
         pageNum === 1
-            ? "Blog & Insights | ARDN Cloud Solutions"
-            : `Blog – Page ${pageNum} | ARDN Cloud Solutions`;
+            ? "Blog & Insights | Ardn Cloud Solutions"
+            : `Blog – Page ${pageNum} | Ardn Cloud Solutions`;
 
     const description =
-        "Expert perspectives on Salesforce, cloud architecture, and digital transformation from the ARDN team.";
+        "Expert perspectives on Salesforce, cloud architecture, and digital transformation from the Ardn team.";
+
+    // Page 1 renders the same posts as /blog, so it canonicalizes to /blog to
+    // avoid a duplicate-content pair. Pages 2+ self-canonicalize.
+    const canonicalPath = pageNum === 1 ? "/blog" : `/blog/page/${pageNum}`;
 
     return {
         title,
         description,
         alternates: {
-            canonical: `/blog/page/${pageNum}`,
+            canonical: canonicalPath,
             languages: {
-                "en-US": `https://ardncloudsolutions.com/blog/page/${pageNum}`,
-                "x-default": `https://ardncloudsolutions.com/blog/page/${pageNum}`,
+                "en-US": `https://ardncloudsolutions.com${canonicalPath}`,
+                "x-default": `https://ardncloudsolutions.com${canonicalPath}`,
             },
         },
         openGraph: {

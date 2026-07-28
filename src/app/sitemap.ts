@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke — clones the per-seat cost-reduction playbook onto
+        // Microsoft Dynamics 365 (the #3 CRM). New platform keyword family,
+        // zero cannibalization of the Salesforce/HubSpot wedge pages.
+        url: `${BASE_URL}/reduce-dynamics-365-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

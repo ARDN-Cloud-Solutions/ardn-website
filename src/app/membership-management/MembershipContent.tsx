@@ -319,6 +319,13 @@ export default function MembershipContent() {
             <p style={{ marginTop: "10px" }}>
               <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See every custom software &amp; platform build →</Link>
             </p>
+            <p style={{ marginTop: "10px" }}>
+              Comparing tools first? See our{" "}
+              <Link href="/buyers-guide/salesforce-membership-management-tools" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Salesforce membership management tools</Link>
+              {" "}and{" "}
+              <Link href="/buyers-guide/salesforce-event-ticketing-platform" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>event ticketing platforms</Link>
+              {" "}guides.
+            </p>
           </div>
         </div>
       </section>

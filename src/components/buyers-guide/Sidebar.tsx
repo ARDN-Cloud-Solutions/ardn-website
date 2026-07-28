@@ -179,15 +179,35 @@ export default function Sidebar() {
             every buyer's-guide reader, most of whom are already evaluating
             Salesforce-native tooling and are the exact ICP for this pitch. */}
         <div className="rounded-md p-4 lg:p-5 border border-[#e5e7eb] bg-white">
-          <p className="text-[#1c2045] text-sm leading-snug m-0">
-            Paying per-seat for Salesforce licenses?{" "}
-            <Link
-              href="/compare/salesforce-seat-cost-vs-custom-portal"
-              className="text-[#FF7A00] font-semibold no-underline hover:underline"
-            >
-              See the seat-cost math →
-            </Link>
+          <p className="text-[#1c2045] text-sm font-semibold leading-snug m-0 mb-2">
+            Paying per-seat for Salesforce licenses?
           </p>
+          <ul className="flex flex-col gap-1.5 m-0 p-0 list-none">
+            <li>
+              <Link
+                href="/reduce-crm-licensing-costs"
+                className="text-[#FF7A00] font-semibold no-underline hover:underline text-sm"
+              >
+                Keep your CRM, cut the per-seat bill →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/custom-portal-development"
+                className="text-[#FF7A00] font-semibold no-underline hover:underline text-sm"
+              >
+                Move light users to a custom portal →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/compare/salesforce-seat-cost-vs-custom-portal"
+                className="text-[#FF7A00] font-semibold no-underline hover:underline text-sm"
+              >
+                See the seat-cost math →
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </aside>

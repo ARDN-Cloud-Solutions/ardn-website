@@ -13,7 +13,20 @@ import Link from "next/link";
  *   city — the city name (e.g. "Orlando", "Miami", "Tampa", "Jacksonville").
  *          Used in copy to anchor the offering geographically.
  */
+// Florida service-area cluster. Rendering links to the OTHER cities on each
+// city page interlinks the four local landing pages (previously only Orlando
+// had inbound links), forming a proper local cluster and spreading crawl equity.
+const FL_CITIES = [
+  { name: "Orlando", href: "/salesforce-consulting-orlando" },
+  { name: "Miami", href: "/salesforce-consulting-miami" },
+  { name: "Tampa", href: "/salesforce-consulting-tampa" },
+  { name: "Jacksonville", href: "/salesforce-consulting-jacksonville" },
+];
+
 export default function CityBeyondSalesforce({ city }: { city: string }) {
+  const otherCities = FL_CITIES.filter(
+    (c) => c.name.toLowerCase() !== city.toLowerCase()
+  );
   return (
     <section className="section">
       <div className="container">
@@ -65,6 +78,14 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             <Link href="/custom-portal-development" className="link">
               Explore Custom Portal Development
             </Link>
+            <p className="body" style={{ marginTop: 10, fontSize: 14 }}>
+              <Link
+                href="/reduce-crm-licensing-costs"
+                style={{ color: "var(--indigo)", fontWeight: 600 }}
+              >
+                How to cut Salesforce licensing costs in {city} &rarr;
+              </Link>
+            </p>
           </article>
 
           {/* AI Forge — custom AI dev practice */}
@@ -148,6 +169,22 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
               See our AI app development page for Florida businesses →
             </Link>
           </p>
+          {otherCities.length > 0 && (
+            <p className="body mt-2" style={{ fontSize: 14, color: "#6b7280" }}>
+              Salesforce consulting across Florida:{" "}
+              {otherCities.map((c, i) => (
+                <span key={c.href}>
+                  <Link
+                    href={c.href}
+                    style={{ color: "var(--indigo)", fontWeight: 600 }}
+                  >
+                    Salesforce consulting in {c.name}
+                  </Link>
+                  {i < otherCities.length - 1 ? " · " : ""}
+                </span>
+              ))}
+            </p>
+          )}
         </div>
       </div>
     </section>

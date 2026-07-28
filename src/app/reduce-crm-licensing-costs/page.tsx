@@ -179,6 +179,7 @@ export default function ReduceCrmLicensingCostsPage() {
                   <span className="badge">Keep your CRM</span>
                   <span className="badge is-emerald">No migration</span>
                   <span className="badge is-canvas">Salesforce, HubSpot &amp; more</span>
+                  <span className="badge">Live in 2–6 weeks</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
@@ -296,6 +297,66 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* OPTIMIZATION CEILING — flanks the dominant competitor narrative
+            ("just audit / downgrade seats, stay on the platform"). Reframes
+            seat optimization as only half the job: it lowers the rate but keeps
+            you locked to per-seat pricing, where the portal lever breaks the
+            link between cost and headcount entirely. */}
+        <section className="section">
+          <div className="container">
+            <div className="split">
+              <div>
+                <span className="eyebrow">The other half of the savings</span>
+                <h2 className="h1 mt-3">Optimization only gets you <em>halfway.</em></h2>
+                <p className="body mt-4">
+                  Most advice about cutting CRM costs stops at the first two
+                  levers: audit unused seats and downgrade people to cheaper
+                  tiers. That is real money — but it has a ceiling. You are still
+                  paying per seat, so the bill still climbs every time you hire,
+                  and every &ldquo;light&rdquo; user still costs you a recurring
+                  license. Seat optimization lowers the rate. It does not break
+                  the link between your cost and your headcount.
+                </p>
+                <p className="body mt-4">
+                  The third lever does. Move light users onto a flat-fee portal
+                  wired into your CRM, and those seats leave the per-seat model
+                  entirely — the cost stops scaling with how many people you add.
+                  That is the half most vendors and license-optimization firms
+                  never mention, because it means fewer seats sold.
+                </p>
+              </div>
+              <div>
+                <ul className="fl">
+                  <li>
+                    <div className="fl-num !text-black">1</div>
+                    <div>
+                      <div className="fl-head !text-black">Audit &amp; reclaim</div>
+                      <p className="fl-body">Removes seats nobody uses. One-time cleanup — the rate per remaining seat is unchanged.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="fl-num !text-black">2</div>
+                    <div>
+                      <div className="fl-head !text-black">Downgrade tiers</div>
+                      <p className="fl-body">Lowers the per-seat rate for occasional users. Better price, but still priced per seat.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="fl-num !text-black">3</div>
+                    <div>
+                      <div className="fl-head !text-black">Move light users to a portal</div>
+                      <p className="fl-body">Breaks the cost-per-headcount link: one flat fee, the same whether you add 10 users or 500.</p>
+                    </div>
+                  </li>
+                </ul>
+                <p className="body" style={{ marginTop: "18px" }}>
+                  <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a flat-fee custom portal →</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
         <section className="section is-canvas">
           <div className="container">
@@ -371,6 +432,7 @@ export default function ReduceCrmLicensingCostsPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+              <Link href="/reduce-dynamics-365-license-costs" className="link">On Microsoft Dynamics 365? Cut those license costs →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>

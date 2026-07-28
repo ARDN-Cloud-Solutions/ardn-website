@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -12,7 +13,7 @@ export default function LandingPageContent() {
             <div className="hero-copy">
               <span className="eyebrow">Custom software, platforms &amp; AI · Built and run for you</span>
               <h1 className="display reveal">Run your business on software built <em>for it</em> — not the other way around.</h1>
-              <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
+              <p className="lede reveal reveal-d2">One flat monthly fee instead of per-seat licensing that climbs every time you hire. Off-the-shelf tools make you bend your process to fit them, then charge per user just to grow. We flip it: custom software, portals, and platforms shaped around exactly how your business works — accessible anywhere, built and run for you. New customers pay nothing to build it.</p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "4px" }} className="reveal reveal-d2">
                 <span className="badge is-emerald">Flat fee, not per-seat</span>
                 <span className="badge">Cut CRM per-seat costs</span>
@@ -77,6 +78,8 @@ export default function LandingPageContent() {
         </div>
       </section>
 
+      <TrustBar />
+
       {/* QUICK KPI BAR */}
       <section className="section-tight">
         <div className="container">
@@ -87,7 +90,7 @@ export default function LandingPageContent() {
             </div>
             <div className="metric">
               <div className="number">0</div>
-              <div className="label">per-seat fees — every engagement is measured against an outcome, not an hour count.</div>
+              <div className="label">per-seat fees — one flat monthly fee that stays the same no matter how many users you add.</div>
             </div>
             <div className="metric">
               <div className="number">6</div>
@@ -299,9 +302,12 @@ export default function LandingPageContent() {
                 <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth stores</Link>, and{" "}
                 <Link href="/chapter-management-software" style={{ color: "var(--indigo)", fontWeight: 600 }}>chapter &amp; dues management</Link>.
               </p>
-              <p className="body mt-3">Based in Florida? Talk to a local team:{" "}
-                <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce consulting in Orlando</Link>
-                {" "}or{" "}
+              <p className="body mt-3">Based in Florida? Talk to a local team for Salesforce consulting in{" "}
+                <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Orlando</Link>,{" "}
+                <Link href="/salesforce-consulting-miami" style={{ color: "var(--indigo)", fontWeight: 600 }}>Miami</Link>,{" "}
+                <Link href="/salesforce-consulting-tampa" style={{ color: "var(--indigo)", fontWeight: 600 }}>Tampa</Link>, or{" "}
+                <Link href="/salesforce-consulting-jacksonville" style={{ color: "var(--indigo)", fontWeight: 600 }}>Jacksonville</Link>
+                {" "}— or explore{" "}
                 <Link href="/ai-app-development-florida" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom AI app development in Florida</Link>.
               </p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "24px" }}>

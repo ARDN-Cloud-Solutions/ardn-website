@@ -91,6 +91,14 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Is a custom portal cheaper than Salesforce Experience Cloud?",
+    a: "Over time, usually yes. Experience Cloud (and per-login partner tiers) bills you every month for every external user, forever — so the cost keeps climbing with adoption. A custom portal is a one-time build you own, run on one flat monthly fee that does not scale with user count. For anything past a modest number of portal users, the flat fee tends to win — and you own the result instead of renting seats.",
+  },
+  {
+    q: "Should we build a custom portal or use a no-code tool like Softr or SuiteDash?",
+    a: "No-code portal builders are fast to stand up but hit a wall as your workflows, permissions, and CRM sync get more complex — and you still own the building and the upkeep. We sit between DIY no-code and a slow, expensive enterprise dev shop: real custom depth, live in weeks, and we build AND run it for you on a flat fee. You get the flexibility of custom without the maintenance burden landing on your team.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -186,10 +194,11 @@ export default function CustomPortalDevelopmentPage() {
                   <span className="badge">Integrates with your CRM</span>
                   <span className="badge is-emerald">Flat fee, not per-seat</span>
                   <span className="badge is-canvas">No rip-and-replace</span>
+                  <span className="badge">Live in 2–6 weeks</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Estimate your savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -298,8 +307,49 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* POSITIONING — customer/client portal software head-term capture +
+            three-way comparison (DIY no-code vs. enterprise dev shop vs. Ardn).
+            Targets "customer portal software" / "client portal software" intent
+            while framing Ardn's built-AND-run, flat-fee wedge against both
+            alternatives buyers actually shortlist. */}
+        <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Customer &amp; client portal software</span>
+                <h2 className="h1 mt-3">Not another <em>per-user portal subscription.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Most &ldquo;customer portal software&rdquo; and &ldquo;client portal software&rdquo; still charges per user or boxes you into a template. When you shop for a portal, you are really choosing between three options — here is how they compare.</p>
+              </div>
+            </div>
+            <div className="grid-3">
+              <div className="card">
+                <span className="pill" style={{ background: "#F3F4F6", color: "#4B5563", marginBottom: "10px", display: "inline-block" }}>DIY no-code tools</span>
+                <h3 className="h3">Softr, SuiteDash &amp; similar</h3>
+                <p className="body">Fast to start and cheap up front, but they hit a wall as workflows, permissions, and CRM sync get complex — and the building and upkeep land on your team. Many still price per user as you grow.</p>
+              </div>
+              <div className="card">
+                <span className="pill" style={{ background: "#F3F4F6", color: "#4B5563", marginBottom: "10px", display: "inline-block" }}>Enterprise dev shop</span>
+                <h3 className="h3">Traditional custom build</h3>
+                <p className="body">Real custom depth, but long timelines, heavy upfront cost, and a team that often disappears after launch — leaving you to host, maintain, and pay for changes.</p>
+              </div>
+              <div className="card" style={{ borderColor: "var(--indigo)" }}>
+                <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>Ardn custom portal</span>
+                <h3 className="h3">Built AND run for you</h3>
+                <p className="body">The custom depth of a dev shop with the speed of no-code — live in 2&ndash;6 weeks, one flat monthly fee no matter how many users, and we host, monitor, and iterate it for you. You own the result.</p>
+              </div>
+            </div>
+            <div style={{ marginTop: "28px", textAlign: "center" }}>
+              <p className="body" style={{ fontSize: 15 }}>
+                Whether you need a <strong>customer portal</strong>, a <strong>client portal</strong>, a partner portal, or an internal ops portal, the model is the same: your CRM stays the source of truth, users get a focused tool, and the bill stops scaling with headcount.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
-        <section className="section" id="faq">
+        <section className="section is-canvas" id="faq">
           <div className="container">
             <div className="section-head">
               <div>

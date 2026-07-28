@@ -10,14 +10,17 @@ import { MapPin, Shield, Clock, Award } from "lucide-react";
  *   - "US-based team" → credibility without limiting reach to one city.
  *   - "30+ yrs building software" → depth/experience, technology-broad
  *     (not Salesforce-specific, so we don't read as a one-stack shop).
- *   - "4-hour response SLA" → reduces "will they ghost me?" friction.
+ *   - "One-business-day response" → reduces "will they ghost me?" friction.
+ *     (Matches the promise stated in LeadForm and every hero CTA subcopy —
+ *     reconciled from the old "4-hour SLA" to keep one honest, consistent
+ *     response-time commitment site-wide.)
  *   - "No lock-in — cancel in 30 days" → concrete risk reversal.
  */
 export default function TrustBar() {
   const items = [
     { Icon: MapPin, text: "US-based team" },
     { Icon: Award, text: "30+ yrs building software" },
-    { Icon: Clock, text: "4-hour response SLA" },
+    { Icon: Clock, text: "One-business-day response" },
     { Icon: Shield, text: "No lock-in — cancel in 30 days" },
   ];
 

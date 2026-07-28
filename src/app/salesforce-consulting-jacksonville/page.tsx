@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Salesforce Consulting & Managed Services in Jacksonville, FL | Ardn Cloud Solutions",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Jacksonville-area businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Jacksonville Salesforce consulting, implementation, license audits & managed services from a Florida team with 30+ years of Salesforce expertise. Free call.",
   keywords: [
     "Salesforce consultant Jacksonville",
     "Salesforce consulting Jacksonville",
