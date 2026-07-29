@@ -39,7 +39,7 @@ image_alt: "Salesforce Experience Cloud pricing explained — ARDN Cloud Solutio
 <h2>When a custom portal wins</h2>
 <p>Once the external-user population is large, growing, or needs a workflow Experience Cloud's component set doesn't fit well, a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> — synced live to Salesforce through its API — breaks the link between cost and user count entirely. It's one flat monthly fee whether you have 50 partners or 5,000, and it's built around your exact process rather than a general community template. We cover the full head-to-head, including the "when each wins" cases, in our <a href="https://ardncloudsolutions.com/compare/salesforce-experience-cloud-vs-custom-portal">Experience Cloud vs. custom portal comparison</a>.</p>
 
-<p>For the broader picture on cutting CRM costs beyond just external users, see <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>. And if you haven't audited your internal seats yet, start with our <a href="https://cms.ardncloudsolutions.com/salesforce-license-audit-checklist/">Salesforce license audit checklist</a> — internal seat waste is usually the bigger number.</p>
+<p>For the broader picture on cutting CRM costs beyond just external users, see <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>. And if you haven't audited your internal seats yet, start with our <a href="https://ardncloudsolutions.com/blog/salesforce-license-audit-checklist">Salesforce license audit checklist</a> — internal seat waste is usually the bigger number.</p>
 
 <h2>Frequently asked questions</h2>
 

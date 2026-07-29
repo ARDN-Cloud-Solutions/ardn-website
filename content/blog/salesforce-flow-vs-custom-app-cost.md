@@ -35,7 +35,7 @@ image_alt: "Salesforce Flow and automation add-on costs vs. a custom app — ARD
 <h2>What ARDN builds instead</h2>
 <p>When automation needs outgrow what native Flow and its add-ons handle cleanly, a <a href="https://ardncloudsolutions.com/custom-software-development">custom application</a> replaces the stack of add-ons with one system built for the specific process — still reading and writing to Salesforce as the system of record where that's the right call, but not paying platform-tier prices for logic that doesn't need the platform. This is the same principle behind moving light users to a <a href="https://ardncloudsolutions.com/custom-portal-development">flat-fee portal</a> instead of a per-seat license — pay for what the process needs, not for the platform tier the automation happens to require.</p>
 
-<p>For the seat-cost side of this same logic, see <a href="https://cms.ardncloudsolutions.com/salesforce-platform-license-vs-custom-portal/">Salesforce platform licenses vs. a custom portal</a>.</p>
+<p>For the seat-cost side of this same logic, see <a href="https://ardncloudsolutions.com/blog/salesforce-platform-license-vs-custom-portal">Salesforce platform licenses vs. a custom portal</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

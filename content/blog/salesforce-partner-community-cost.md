@@ -36,7 +36,7 @@ image_alt: "The real cost of Salesforce partner communities — ARDN Cloud Solut
 <h2>When Experience Cloud still makes sense</h2>
 <p>If partners genuinely need broad, evolving access — building their own reports, using multiple Salesforce-native features, or the network is small and stable — the native community can be the simpler path. The flat-fee case gets stronger specifically when partner count is growing, when partner needs are narrow and repetitive, or both.</p>
 
-<p>For the deeper comparison of Experience Cloud licensing generally, see <a href="https://cms.ardncloudsolutions.com/salesforce-experience-cloud-cost-explained/">how Experience Cloud licensing works</a>. To see what a flat-fee build costs against your specific partner count, use the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>For the deeper comparison of Experience Cloud licensing generally, see <a href="https://ardncloudsolutions.com/blog/salesforce-experience-cloud-cost-explained">how Experience Cloud licensing works</a>. To see what a flat-fee build costs against your specific partner count, use the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 
