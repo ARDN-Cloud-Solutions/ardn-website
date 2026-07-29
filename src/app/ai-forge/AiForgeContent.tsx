@@ -791,6 +791,8 @@ export default function AiForgeContent() {
             <Link href="/ai-app-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See custom AI app development →</Link>
             {" · "}
             <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Back to custom software &amp; platforms →</Link>
+            {" · "}
+            <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See what per-seat software is costing you →</Link>
           </p>
         </div>
       </section>

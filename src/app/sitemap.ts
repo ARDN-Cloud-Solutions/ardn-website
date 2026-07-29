@@ -181,6 +181,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Solution spoke — custom business process automation. Targets the
+        // "business process automation" money term (no prior coverage) with
+        // the flat-fee / no-per-task-or-connector angle that reinforces the
+        // cost-reduction wedge.
+        url: `${BASE_URL}/business-process-automation`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/ai-info-page`,
         lastModified: new Date(),
         changeFrequency: "monthly",

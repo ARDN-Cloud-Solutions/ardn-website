@@ -348,6 +348,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Partner &amp; reseller seats cost the most — see partner portals →</Link>
             </div>
           </div>
         </section>

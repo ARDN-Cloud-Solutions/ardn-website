@@ -320,6 +320,11 @@ export default function CustomSoftwareDevelopmentPage() {
                 <p className="body">Merch stores, subscriptions, and complex catalogs built to your model.</p>
                 <span className="link">Explore ecommerce →</span>
               </Link>
+              <Link href="/business-process-automation" className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">Business Process Automation</h3>
+                <p className="body">Connect your tools and automate workflows on a flat fee — no per-task or per-connector meter.</p>
+                <span className="link">Explore automation →</span>
+              </Link>
               <Link href="/ai-forge" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">AI Forge</h3>
                 <p className="body">Custom AI apps built and run for you when AI is the right tool for the job.</p>

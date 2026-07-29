@@ -250,6 +250,7 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
+              <Link href="/business-process-automation" className="link">Automate the workflows behind those seats →</Link>
             </div>
           </div>
         </section>
