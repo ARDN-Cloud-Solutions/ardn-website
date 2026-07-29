@@ -80,30 +80,79 @@ near-duplicate of an existing post.
 - [x] medical-practice-management-license-cost
 
 ## Verticals — nonprofit (new, seed for next batch)
-- [ ] nonprofit-donor-database-per-seat-cost | Donor Database Per-Seat Costs for Growing Nonprofits | education | nonprofit donor database cost | /custom-portal-development
+- [x] nonprofit-donor-database-per-seat-cost
 
 ## Verticals — e-commerce / retail (new, seed for next batch)
-- [ ] ecommerce-cs-seat-cost | Cutting Customer-Service Seat Costs for E-Commerce Brands | how-to | ecommerce support seat cost | /custom-portal-development
+- [ ] ecommerce-cs-seat-cost | Cutting Customer-Service Seat Costs for E-Commerce Brands | how-to | ecommerce support seat cost | /custom-portal-development — HOLD: as scoped, this is a near-duplicate of the seasonal-agent-seat / escalation-contact angle already published in `zendesk-freshdesk-agent-seat-cost`. Only publish with a genuinely distinct mechanic — e.g. order/ticket-volume-based pricing tiers (Gorgias-style) rather than pure per-seat, or BFCM-specific seasonal spike math — not a vertical relabel of the same argument.
 - [ ] shopify-plus-app-fee-stacking | When Shopify Plus App Fees Add Up to More Than a Custom Build | comparison | shopify app fees | /custom-ecommerce-development
 
 ## Verticals — wellness / med spa (new, seed for next batch)
-- [ ] med-spa-scheduling-portal-cost | A Flat-Fee Scheduling Portal for Med Spas and Wellness Clinics | how-to | med spa scheduling software cost | /custom-portal-development
-- [ ] healthcare-referral-portal-cost | Cutting Per-Seat Costs for Healthcare Referral Coordination | education | healthcare referral portal | /custom-portal-development
+- [x] med-spa-scheduling-portal-cost
+- [x] healthcare-referral-portal-cost
 
 ## Buyer questions — round 3 (added 2026-07-27)
-- [ ] api-integration-vs-middleware-cost | API Integration Costs vs. Paying for Middleware Seats | comparison | integration platform cost | /custom-software-development
+- [x] api-integration-vs-middleware-cost
 - [x] crm-contract-renewal-red-flags
 
 ## Salesforce cost — round 2 (added 2026-07-28, all rounds above exhausted)
-- [ ] salesforce-sandbox-license-cost | Salesforce Sandbox and Dev License Costs Nobody Budgets For | education | salesforce sandbox license cost | /reduce-crm-licensing-costs
-- [ ] salesforce-cpq-license-cost | Salesforce CPQ License Costs vs. a Custom Quoting Tool | comparison | salesforce cpq cost | /custom-software-development
-- [ ] salesforce-shield-cost | Salesforce Shield Pricing and When You Don't Actually Need It | education | salesforce shield cost | /custom-software-development
-- [ ] crm-user-provisioning-deprovisioning-cost | The Hidden Cost of Manual CRM User Provisioning and Deprovisioning | education | crm user provisioning cost | /license-guard
+- [x] salesforce-sandbox-license-cost
+- [x] salesforce-cpq-license-cost
+- [x] salesforce-shield-cost
+- [x] crm-user-provisioning-deprovisioning-cost
 
 ## HubSpot cost — round 2 (added 2026-07-28, round 1 exhausted)
-- [ ] hubspot-operations-hub-cost | Is HubSpot Operations Hub Worth Its Per-Seat Price Tag? | education | hubspot operations hub cost | /custom-software-development
-- [ ] hubspot-enterprise-seat-cost-breakdown | What You're Actually Paying for in a HubSpot Enterprise Seat | education | hubspot enterprise seat cost | /reduce-crm-licensing-costs
-- [ ] hubspot-content-hub-seat-cost | HubSpot Content Hub Seat Costs for Marketing Teams | education | hubspot content hub cost | /custom-software-development
+- [x] hubspot-operations-hub-cost
+- [x] hubspot-enterprise-seat-cost-breakdown
+- [x] hubspot-content-hub-seat-cost
+
+## Salesforce cost — round 3 (added 2026-07-29, round 2 exhausted)
+- [ ] salesforce-marketing-cloud-account-engagement-cost | Marketing Cloud Account Engagement (Pardot) Cost Tiers Explained | education | pardot pricing cost | /custom-software-development
+- [ ] salesforce-nonprofit-cloud-cost | Salesforce Nonprofit Cloud: What It Costs Beyond the Discount | education | salesforce nonprofit cloud cost | /reduce-crm-licensing-costs
+- [ ] salesforce-field-service-lightning-cost | Field Service Lightning Licensing Costs for Growing Teams | education | field service lightning cost | /custom-software-development
+
+## HubSpot cost — round 3 (added 2026-07-29, round 2 exhausted)
+- [ ] hubspot-vs-salesforce-tco-mid-market | HubSpot vs. Salesforce TCO for a 200-500 Employee Company | comparison | hubspot vs salesforce cost | /compare/
+- [ ] hubspot-sales-hub-starter-to-pro-jump | Why the Jump from HubSpot Sales Hub Starter to Pro Costs So Much | education | hubspot sales hub pricing | /reduce-crm-licensing-costs
+
+## Verticals — logistics / field service (new, seed for next batch)
+- [ ] field-service-dispatch-software-seat-cost | Field Service Dispatch Software: Per-Seat Costs for Growing Fleets | education | field service dispatch software cost | /custom-portal-development
+- [ ] logistics-tms-per-user-cost | Transportation Management System (TMS) Per-User Costs Explained | education | tms software cost | /custom-software-development
+
+## Verticals — real estate / property management (new, seed for next batch)
+- [ ] property-management-software-per-unit-cost | Property Management Software: Per-Unit and Per-Seat Costs Compared | comparison | property management software cost | /custom-portal-development
+- [ ] real-estate-crm-agent-seat-cost | Real Estate CRM Agent Seat Costs for Growing Brokerages | education | real estate crm cost | /reduce-crm-licensing-costs
+
+## Process note (2026-07-29)
+Published 11 posts this batch, rebalancing back toward the SF/HubSpot weighting
+per the 2026-07-28 note: all 4 Salesforce-cost-round-2 and all 3 HubSpot-cost-
+round-2 seeds (7 total), plus 4 genuinely distinct new angles —
+`api-integration-vs-middleware-cost` (general comparison, not vertical),
+`nonprofit-donor-database-per-seat-cost` (new vertical), and two wellness/
+healthcare angles confirmed distinct from existing published posts before
+writing: `med-spa-scheduling-portal-cost` (new wellness vertical, scheduling/
+treatment-rules angle, distinct from any existing post) and
+`healthcare-referral-portal-cost` (cross-organization referral coordination,
+distinct from the patient-self-service angle in
+`healthcare-patient-portal-per-seat-cost` and the internal-ops angle in
+`medical-practice-management-license-cost`).
+
+Skipped/held this batch: `ecommerce-cs-seat-cost` — as scoped in the backlog
+it reduces to the same seasonal-agent-seat argument already published in
+`zendesk-freshdesk-agent-seat-cost` with an e-commerce label on top; held
+pending a genuinely distinct mechanic (see note above). `shopify-plus-app-fee-
+stacking` held simply for scope/pacing, not a quality concern — clean to
+publish next batch. `hotel-staff-portal-flat-fee` (held since 2026-07-27) and
+`accounting-firm-client-portal-seat-cost` (held since 2026-07-28) remain held
+per their existing notes — no new information this run to resolve either.
+
+Seeded 7 new angles above (3 Salesforce, 2 HubSpot, 2 logistics/real-estate
+verticals) so the next batch has full-weighting depth without repeating
+angles already covered. Remaining unchecked inventory after this batch:
+`ecommerce-cs-seat-cost` (held), `shopify-plus-app-fee-stacking`,
+`hotel-staff-portal-flat-fee` (held), `accounting-firm-client-portal-seat-cost`
+(held), plus the 7 new seeds — enough distinct depth for at least one more
+full batch, with two verticals (logistics, real estate) opened up for the
+batch after that.
 
 ## Process note (2026-07-28)
 This run's Salesforce-cost and HubSpot-cost sections were both fully
