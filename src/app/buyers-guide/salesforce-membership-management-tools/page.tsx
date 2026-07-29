@@ -8,10 +8,9 @@ import SalesforceMembershipContent from "./SalesforceMembershipContent";
 // image, mainEntityOfPage, plus publisher → site Organization via @id so the
 // entity graph stays coherent across the site.
 export const metadata: Metadata = {
-  title:
-    "Top Salesforce Membership Management Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+  title: "Top Salesforce Membership Management Tools 2026 | Ardn",
   description:
-    "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow, and Ardn. Expert evaluation criteria, pitfalls to avoid, and buying questions that get you to the right fit.",
+    "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow & Ardn. Criteria & pitfalls.",
   keywords: [
     "Salesforce membership management tools",
     "Salesforce membership software",

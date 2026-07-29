@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge comparison spoke extending the per-seat play to ServiceNow:
+        // fulfiller-license cost vs. a flat-fee custom portal for narrow-workflow
+        // users. Fills a zero-coverage, high-intent money-keyword gap.
+        url: `${BASE_URL}/compare/servicenow-license-cost-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

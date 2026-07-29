@@ -86,6 +86,14 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "How is this different from a SaaS license-optimization tool like Zylo or Vendr?",
+    a: "Those tools find the waste — they show you which seats are dormant, duplicated, or under-used, and help you reclaim or renegotiate them. That's valuable, but it stops at the diagnosis: it can't remove a seat that's genuinely in use, just lightly. We're the step after the audit. Once you know which light users don't need a full seat, we build the flat-fee portal that lets you actually move them off it. Run the audit first; we handle what it can't.",
+  },
+  {
+    q: "Isn't downgrading to a Salesforce Platform license (~$25/user) cheaper and simpler?",
+    a: "It's a real saving and a good first move for users who still need native CRM access — but it doesn't change the model. A Platform, limited-access, or login-based license is still billed per person and still climbs with headcount, and it caps what you can build for that user. A flat-fee portal costs the same whether 10 light users are on it or 400, and is shaped to the exact workflow those users need. For genuinely light or external users, replacing the seat usually beats renting a smaller one.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -181,7 +189,7 @@ export default function ReduceCrmLicensingCostsPage() {
                   <span className="badge is-canvas">Salesforce, HubSpot &amp; more</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a CRM cost review</Link>
                   <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your own numbers →</Link>
                 </div>
               </div>
@@ -405,6 +413,29 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">
+                Ardn Cloud Solutions went beyond our expectations, implementing a
+                hands-on, cost-saving approach that has been invaluable to our
+                business.
+              </p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">
+                    Senior Delivery Manager · Fortune 500 insurance company
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

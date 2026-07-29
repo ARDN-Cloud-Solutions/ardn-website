@@ -211,6 +211,41 @@ export default function LicenseGuardContent() {
         </div>
       </section>
 
+      {/* NEXT STEPS — wedge cluster links (reclaim first, then cut light-user seats) */}
+      <section className="section is-canvas">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">After you reclaim</span>
+              <h2 className="h1 mt-3">Reclaiming seats is <em>step one.</em></h2>
+            </div>
+            <div>
+              <p className="lede">License Guard clears the dormant seats. The bigger, structural saving is moving the users who log in but barely use the platform onto a flat-fee portal.</p>
+            </div>
+          </div>
+          <div className="grid-3">
+            <Link href="/reduce-crm-licensing-costs" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Cut CRM Licensing Costs</h3>
+              <p className="body">The full decision framework: reclaim, right-size, or move light users to a flat-fee portal.</p>
+              <span className="link">Read the guide →</span>
+            </Link>
+            <Link href="/savings-calculator" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Savings Calculator</h3>
+              <p className="body">Plug in your seat count and rate to see the flat-fee comparison in 30 seconds.</p>
+              <span className="link">Calculate your per-seat savings →</span>
+            </Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Seat Cost vs. Portal</h3>
+              <p className="body">The Salesforce &amp; HubSpot per-seat cost math against a flat-fee custom portal.</p>
+              <span className="link">See the math →</span>
+            </Link>
+          </div>
+          <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <Link href="/custom-portal-development" className="link">Build a flat-fee custom portal for your light users →</Link>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="section">
         <div className="container">
