@@ -190,7 +190,7 @@ export default function CustomSoftwareDevelopmentPage() {
                   <span className="badge is-canvas">You own it</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free build scope</Link>
                   <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default function CustomSoftwareDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
+                    🎁 New customers: we build it free — we earn on the flat monthly subscription, not the build. Tiers from $3,000/mo, no per-seat pricing.
                   </p>
                 </div>
               </aside>

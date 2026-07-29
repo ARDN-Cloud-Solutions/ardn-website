@@ -577,6 +577,8 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             {" · "}
+            <Link href="/compare/servicenow-license-cost-vs-custom-portal">On ServiceNow? See the fulfiller-seat math →</Link>
+            {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
             <Link href="/custom-software-development">What we build to replace seats →</Link>

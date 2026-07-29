@@ -107,7 +107,7 @@ export default async function BlogIndexPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <BlogHero />
+            <BlogHero title="CRM Cost Reduction, Salesforce & AI Development Blog" />
 
             <section className="container py-12 md:py-16">
                 <div className="grid lg:grid-cols-[1fr_360px] gap-10 xl:gap-14 items-start">
