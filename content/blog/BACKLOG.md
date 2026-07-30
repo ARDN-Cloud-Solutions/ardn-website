@@ -106,21 +106,77 @@ near-duplicate of an existing post.
 - [x] hubspot-content-hub-seat-cost
 
 ## Salesforce cost — round 3 (added 2026-07-29, round 2 exhausted)
-- [ ] salesforce-marketing-cloud-account-engagement-cost | Marketing Cloud Account Engagement (Pardot) Cost Tiers Explained | education | pardot pricing cost | /custom-software-development
-- [ ] salesforce-nonprofit-cloud-cost | Salesforce Nonprofit Cloud: What It Costs Beyond the Discount | education | salesforce nonprofit cloud cost | /reduce-crm-licensing-costs
-- [ ] salesforce-field-service-lightning-cost | Field Service Lightning Licensing Costs for Growing Teams | education | field service lightning cost | /custom-software-development
+- [x] salesforce-marketing-cloud-account-engagement-cost
+- [x] salesforce-nonprofit-cloud-cost
+- [x] salesforce-field-service-lightning-cost
 
 ## HubSpot cost — round 3 (added 2026-07-29, round 2 exhausted)
-- [ ] hubspot-vs-salesforce-tco-mid-market | HubSpot vs. Salesforce TCO for a 200-500 Employee Company | comparison | hubspot vs salesforce cost | /compare/
-- [ ] hubspot-sales-hub-starter-to-pro-jump | Why the Jump from HubSpot Sales Hub Starter to Pro Costs So Much | education | hubspot sales hub pricing | /reduce-crm-licensing-costs
+- [x] hubspot-vs-salesforce-tco-mid-market
+- [x] hubspot-sales-hub-starter-to-pro-jump
 
 ## Verticals — logistics / field service (new, seed for next batch)
-- [ ] field-service-dispatch-software-seat-cost | Field Service Dispatch Software: Per-Seat Costs for Growing Fleets | education | field service dispatch software cost | /custom-portal-development
-- [ ] logistics-tms-per-user-cost | Transportation Management System (TMS) Per-User Costs Explained | education | tms software cost | /custom-software-development
+- [x] field-service-dispatch-software-seat-cost
+- [x] logistics-tms-per-user-cost
 
 ## Verticals — real estate / property management (new, seed for next batch)
-- [ ] property-management-software-per-unit-cost | Property Management Software: Per-Unit and Per-Seat Costs Compared | comparison | property management software cost | /custom-portal-development
-- [ ] real-estate-crm-agent-seat-cost | Real Estate CRM Agent Seat Costs for Growing Brokerages | education | real estate crm cost | /reduce-crm-licensing-costs
+- [x] property-management-software-per-unit-cost
+- [x] real-estate-crm-agent-seat-cost
+
+## Comparisons — round 2 (added 2026-07-29)
+- [x] shopify-plus-app-fee-stacking
+
+## Salesforce cost — round 4 (added 2026-07-30, round 3 exhausted)
+- [ ] salesforce-omnistudio-cost | Salesforce OmniStudio/Vlocity Licensing Costs Explained | education | omnistudio cost | /custom-software-development
+- [ ] salesforce-data-cloud-cost | Salesforce Data Cloud: Where the Consumption-Based Bill Comes From | education | salesforce data cloud cost | /reduce-crm-licensing-costs
+- [ ] salesforce-einstein-ai-addon-cost | Salesforce Einstein/Agentforce Add-On Costs for Mid-Market Teams | education | salesforce einstein cost | /custom-software-development
+
+## HubSpot cost — round 4 (added 2026-07-30, round 3 exhausted)
+- [ ] hubspot-service-hub-ticket-tier-cost | How HubSpot Service Hub Tickets and Seats Both Drive Up Cost | education | hubspot service hub pricing | /reduce-crm-licensing-costs
+- [ ] hubspot-app-marketplace-addon-stacking | When HubSpot Marketplace App Fees Rival the Core Subscription | comparison | hubspot app fees | /custom-software-development
+
+## Verticals — construction / trades (new, seed for next batch)
+- [ ] construction-project-management-software-seat-cost | Construction Project Management Software: Per-User Costs Explained | education | construction project management software cost | /custom-portal-development
+- [ ] gc-subcontractor-portal-cost | Subcontractor Portal Costs for General Contractors | education | subcontractor portal cost | /custom-portal-development
+
+## Verticals — education / training (new, seed for next batch)
+- [ ] lms-per-learner-cost | Learning Management System (LMS) Per-Learner Pricing Explained | education | lms per learner cost | /reduce-crm-licensing-costs
+- [ ] school-district-sis-per-student-cost | Student Information System (SIS) Per-Student Licensing Costs | education | sis software cost | /custom-software-development
+
+## Buyer questions — round 4 (added 2026-07-30, prior rounds exhausted)
+- [ ] vendor-lock-in-crm-portal-warning-signs | Vendor Lock-In Warning Signs in CRM and Portal Contracts | education | vendor lock-in crm | /rfp-questions-for-crm-portal-vendor
+- [ ] data-ownership-saas-vs-custom-portal | Who Actually Owns Your Data: SaaS Contracts vs. a Custom-Built Portal | comparison | data ownership saas | /custom-portal-development
+
+## Process note (2026-07-30)
+Published 10 posts this batch: all 5 remaining Salesforce/HubSpot round-3 seeds
+(`salesforce-marketing-cloud-account-engagement-cost`,
+`salesforce-nonprofit-cloud-cost`, `salesforce-field-service-lightning-cost`,
+`hubspot-vs-salesforce-tco-mid-market`, `hubspot-sales-hub-starter-to-pro-jump`),
+all 4 new-vertical seeds (`field-service-dispatch-software-seat-cost`,
+`logistics-tms-per-user-cost`, `property-management-software-per-unit-cost`,
+`real-estate-crm-agent-seat-cost`), and `shopify-plus-app-fee-stacking`. That's
+a clean 50/50 split (5 Salesforce/HubSpot, 5 verticals/comparisons) per the
+weighting guideline. Confirmed each topic distinct from existing posts before
+writing — e.g. `salesforce-field-service-lightning-cost` (Salesforce-native
+FSL add-on mechanic) vs. `field-service-dispatch-software-seat-cost`
+(standalone, non-Salesforce trades dispatch SaaS) vs. `logistics-tms-per-user-cost`
+(freight/carrier TMS) are three distinct software categories despite
+adjacent-sounding names; `salesforce-nonprofit-cloud-cost` (free-license-ceiling
+mechanic) is distinct from the already-published
+`nonprofit-donor-database-per-seat-cost` (general donor DB per-seat pattern).
+
+Not published this batch, still held from prior notes (no new information to
+resolve either): `hotel-staff-portal-flat-fee` (needs rollout-guide reframe,
+held since 2026-07-27), `accounting-firm-client-portal-seat-cost` (needs a
+trust-accounting/tax-season angle distinct from the two published law-firm/
+agency portal posts, held since 2026-07-28), `ecommerce-cs-seat-cost` (needs a
+volume-tier or BFCM-specific mechanic distinct from
+`zendesk-freshdesk-agent-seat-cost`, held since 2026-07-29).
+
+Seeded 9 new angles above (3 Salesforce, 2 HubSpot, 2 construction/trades
+verticals, 2 education verticals) plus 2 general buyer-question angles, so the
+next batch has full-weighting depth. Remaining unchecked inventory after this
+batch: the 3 held posts above, 9 new round-4 seeds, and 2 buyer-question
+seeds — enough distinct depth for at least one more full batch.
 
 ## Process note (2026-07-29)
 Published 11 posts this batch, rebalancing back toward the SF/HubSpot weighting
