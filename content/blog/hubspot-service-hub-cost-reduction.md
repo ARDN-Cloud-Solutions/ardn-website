@@ -40,7 +40,7 @@ image_alt: "Cutting HubSpot Service Hub costs for light agents — ARDN Cloud So
 <h2>Why seasonal spikes are the clearest case</h2>
 <p>Seat-based pricing is built for steady headcount, not seasonal surges. Adding ten Service Hub seats for a two-month peak, then removing them, means paying full price for a temporary need — and remembering to remove them on time. A portal sidesteps that entirely: usage can spike without the bill moving, because the fee isn't counting logins.</p>
 
-<p>See the broader mechanism in <a href="https://cms.ardncloudsolutions.com/cut-hubspot-seat-costs/">cutting HubSpot seat costs</a>, and model the numbers for your support team with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>See the broader mechanism in <a href="/blog/cut-hubspot-seat-costs">cutting HubSpot seat costs</a>, and model the numbers for your support team with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

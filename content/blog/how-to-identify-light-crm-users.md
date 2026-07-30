@@ -61,7 +61,7 @@ image_alt: "How to identify light CRM users you are overpaying for — ARDN Clou
 
 <p>Want to see the whole framework? Read <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>, or plug your own numbers into the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a> to see what moving light users off per-seat licenses would save you.</p>
 
-<p>Related reading: <a href="https://cms.ardncloudsolutions.com/ways-to-cut-crm-licensing-costs/">7 ways to cut CRM licensing costs in 2026</a> and <a href="https://cms.ardncloudsolutions.com/salesforce-platform-license-vs-custom-portal/">Salesforce Platform license vs. a custom portal</a>.</p>
+<p>Related reading: <a href="/blog/ways-to-cut-crm-licensing-costs">7 ways to cut CRM licensing costs in 2026</a> and <a href="/blog/salesforce-platform-license-vs-custom-portal">Salesforce Platform license vs. a custom portal</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

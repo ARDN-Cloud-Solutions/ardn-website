@@ -35,7 +35,7 @@ image_alt: "Donor database per-seat costs for growing nonprofits — ARDN Cloud 
 <h2>Where a portal fits without replacing the donor platform</h2>
 <p>The donor database stays the system of record for gift history, tax receipting, and compliance reporting — none of that changes. What can move is the access layer for everyone whose need is narrower than a full seat: a board dashboard showing campaign progress, a volunteer view scoped to one event, a seasonal staff view for a single campaign. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> synced to the donor platform via API delivers exactly that slice, on one flat fee regardless of how many board members or seasonal staff use it.</p>
 
-<p>See the underlying mechanism in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, model your own numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and see how the same pattern plays out for membership organizations in <a href="https://cms.ardncloudsolutions.com/member-portal-flat-fee/">a flat-fee member portal for associations</a>.</p>
+<p>See the underlying mechanism in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, model your own numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and see how the same pattern plays out for membership organizations in <a href="/blog/member-portal-flat-fee">a flat-fee member portal for associations</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

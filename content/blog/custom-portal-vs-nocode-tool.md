@@ -45,7 +45,7 @@ image_alt: "Custom portal vs no-code tools like Airtable and Caspio — ARDN Clo
 <h2>When it's time to move to a custom build</h2>
 <p>Once the portal is customer- or partner-facing, growing in users or complexity, or running into the platform's ceilings, a <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built portal</a> tends to make more sense: flat pricing regardless of user count, no platform ceilings, and you own the result. It's a similar calculation to the one we walk through for <a href="https://ardncloudsolutions.com/custom-software-development">custom software vs. off-the-shelf tools</a> generally.</p>
 
-<p>For the broader per-seat vs. flat-fee math behind this decision, see <a href="https://cms.ardncloudsolutions.com/per-seat-vs-flat-fee-pricing/">per-seat vs. flat-fee software pricing, compared</a>.</p>
+<p>For the broader per-seat vs. flat-fee math behind this decision, see <a href="/blog/per-seat-vs-flat-fee-pricing">per-seat vs. flat-fee software pricing, compared</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

@@ -36,7 +36,7 @@ image_alt: "Salesforce Platform license vs full seat vs custom portal for light 
   <li><strong>Needs your custom data inside Salesforce, occasionally?</strong> Platform license.</li>
   <li><strong>Light or external user doing a handful of tasks?</strong> Custom portal — especially at scale.</li>
 </ul>
-<p>Most mid-market teams end up with a mix. The point isn't to pick one globally — it's to stop assigning full seats by default. For the complete framework, see <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>, and to spot which users belong in which bucket, read <a href="https://cms.ardncloudsolutions.com/how-to-identify-light-crm-users/">how to tell which CRM users you're overpaying for</a>. To model the portal option against your seat count, use the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>Most mid-market teams end up with a mix. The point isn't to pick one globally — it's to stop assigning full seats by default. For the complete framework, see <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>, and to spot which users belong in which bucket, read <a href="/blog/how-to-identify-light-crm-users">how to tell which CRM users you're overpaying for</a>. To model the portal option against your seat count, use the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

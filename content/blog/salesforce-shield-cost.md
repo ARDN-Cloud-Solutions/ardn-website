@@ -38,7 +38,7 @@ image_alt: "Salesforce Shield pricing and when you don't actually need it — AR
   </tbody>
 </table>
 
-<p>Where the actual need is narrower than the bundle, a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built layer</a> scoped to the specific audit or encryption requirement avoids paying for org-wide capabilities that go unused. See the broader licensing-cost picture in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, and the related question of what you're actually licensing in <a href="https://cms.ardncloudsolutions.com/salesforce-license-audit-checklist/">a Salesforce license audit checklist for RevOps</a>.</p>
+<p>Where the actual need is narrower than the bundle, a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built layer</a> scoped to the specific audit or encryption requirement avoids paying for org-wide capabilities that go unused. See the broader licensing-cost picture in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, and the related question of what you're actually licensing in <a href="/blog/salesforce-license-audit-checklist">a Salesforce license audit checklist for RevOps</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

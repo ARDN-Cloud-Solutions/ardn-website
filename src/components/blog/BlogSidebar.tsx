@@ -33,6 +33,40 @@ export default function BlogSidebar({
             {/* Search */}
             <SidebarSearch />
 
+            {/* Wedge conversion CTA — surfaces the per-seat cost-reduction offer
+                on every post & category page, funneling readers to the money
+                pages (calculator + cost-reduction guide + portal). */}
+            <div className="border border-gray-100 overflow-hidden">
+                <WidgetHeader title="Cut your CRM bill" />
+                <div className="p-4">
+                    <p className="text-sm text-paragraph leading-relaxed mb-4">
+                        Paying full per-seat licenses for light CRM users? A flat-fee
+                        custom portal moves them off per-seat pricing &mdash; keep your
+                        CRM, cut the bill.
+                    </p>
+                    <div className="flex flex-col gap-2">
+                        <Link
+                            href="/savings-calculator"
+                            className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                        >
+                            Calculate your per-seat savings
+                        </Link>
+                        <Link
+                            href="/reduce-crm-licensing-costs"
+                            className="text-sm font-medium text-primary hover:underline"
+                        >
+                            How to cut CRM licensing costs →
+                        </Link>
+                        <Link
+                            href="/custom-portal-development"
+                            className="text-sm font-medium text-primary hover:underline"
+                        >
+                            Explore custom portal development →
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
             {/* Categories */}
             {categories.length > 0 && (
                 <div className="border border-gray-100 overflow-hidden">

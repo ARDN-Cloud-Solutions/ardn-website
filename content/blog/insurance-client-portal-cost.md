@@ -34,7 +34,7 @@ image_alt: "A client portal for insurance without per-seat fees — ARDN Cloud S
 <h2>The staff-time case, not just the license case</h2>
 <p>Beyond licensing, self-service shifts certificate and status requests off CSR phone and email queues entirely, freeing that time for actual servicing and sales work. That operational case often matters as much as the licensing math, especially for agencies where CSR time is the real constraint on growth.</p>
 
-<p>This portal works alongside the internal-side savings covered in <a href="https://cms.ardncloudsolutions.com/insurance-ams-per-seat-costs/">cutting per-seat costs in insurance agency systems</a>. See what ARDN builds for the industry at <a href="https://ardncloudsolutions.com/ai-for-insurance">AI and portals for insurance agencies</a>, or model the numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>This portal works alongside the internal-side savings covered in <a href="/blog/insurance-ams-per-seat-costs">cutting per-seat costs in insurance agency systems</a>. See what ARDN builds for the industry at <a href="https://ardncloudsolutions.com/ai-for-insurance">AI and portals for insurance agencies</a>, or model the numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

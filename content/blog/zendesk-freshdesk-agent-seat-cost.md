@@ -34,7 +34,7 @@ image_alt: "Zendesk and Freshdesk agent seat costs vs. a custom portal — ARDN 
 <h2>What a custom support portal replaces (and what it doesn't)</h2>
 <p>A <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> synced to Zendesk or Freshdesk via API doesn't replace your core ticketing system — it replaces the need for a full agent seat for people whose work is narrower than the platform assumes: status visibility, a single escalation queue, seasonal ticket handling for one product line. Your daily agents keep working in the native platform exactly as they do now.</p>
 
-<p>This is the same underlying pattern behind moving light CRM users off per-seat licenses — see the full mechanism in <a href="https://cms.ardncloudsolutions.com/ways-to-cut-crm-licensing-costs/">7 ways to cut CRM licensing costs</a>. Model your own numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>This is the same underlying pattern behind moving light CRM users off per-seat licenses — see the full mechanism in <a href="/blog/ways-to-cut-crm-licensing-costs">7 ways to cut CRM licensing costs</a>. Model your own numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

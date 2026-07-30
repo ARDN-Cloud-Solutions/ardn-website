@@ -32,7 +32,7 @@ image_alt: "Shadow IT: the hidden per-seat cost mid-market companies don't track
 </table>
 
 <h2>Finding it before it finds you at renewal</h2>
-<p>Your SSO or identity provider's connected-app list is usually the single best source, since most shadow tools get connected through it even when they were never formally procured. Pair that with a pass through expensed card statements for recurring software charges. For the full step-by-step process, see <a href="https://cms.ardncloudsolutions.com/how-to-do-a-saas-spend-audit/">how to run a SaaS spend audit</a>.</p>
+<p>Your SSO or identity provider's connected-app list is usually the single best source, since most shadow tools get connected through it even when they were never formally procured. Pair that with a pass through expensed card statements for recurring software charges. For the full step-by-step process, see <a href="/blog/how-to-do-a-saas-spend-audit">how to run a SaaS spend audit</a>.</p>
 
 <h2>The structural fix, not just visibility</h2>
 <p>Finding shadow IT is step one; the recurring problem is that most of what teams reach for shadow tools to do — a lightweight dashboard, a client-facing status view, a simple intake form — is exactly the kind of narrow, repetitive workflow a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built tool</a> handles on one flat monthly fee instead of a per-seat subscription that grows with headcount. Consolidating three or four shadow tools into one purpose-built system, run for a flat fee, often costs less than what any single one of them was already billing.</p>

@@ -54,7 +54,7 @@ image_alt: "Red flags to check before signing your next CRM renewal — ARDN Clo
 </table>
 
 <h2>Bring an alternative to the table, not just objections</h2>
-<p>A red-flag checklist gives you leverage in the conversation, but leverage works better paired with a concrete alternative — a projected number for what a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> would cost for your light users instead of more seats, run through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>. For the fuller pre-purchase version of this checklist, see <a href="https://cms.ardncloudsolutions.com/rfp-questions-for-crm-portal-vendor/">RFP questions to ask before buying a CRM portal add-on</a>.</p>
+<p>A red-flag checklist gives you leverage in the conversation, but leverage works better paired with a concrete alternative — a projected number for what a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> would cost for your light users instead of more seats, run through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>. For the fuller pre-purchase version of this checklist, see <a href="/blog/rfp-questions-for-crm-portal-vendor">RFP questions to ask before buying a CRM portal add-on</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

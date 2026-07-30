@@ -32,7 +32,7 @@ image_alt: "Why agencies overpay for client-facing software seats — ARDN Cloud
 <p>A <a href="https://ardncloudsolutions.com/custom-portal-development">custom client portal</a> covers campaign approvals, deliverable review, and reporting in one white-labeled front end, synced to whatever internal project and analytics tools the agency's team already runs — client count stops being a line item.</p>
 
 <h2>Internal tooling is a separate, related problem</h2>
-<p>This is the client-facing side specifically. If the agency is also paying per-seat for internal team tools with the same seat-growth problem, that's the more general case covered in <a href="https://cms.ardncloudsolutions.com/build-vs-buy-crm-portal/">build vs. buy for a CRM portal</a>. Professional services firms carrying a separate internal PSA license cost are covered in <a href="https://cms.ardncloudsolutions.com/professional-services-psa-license-cost/">PSA tool license costs for professional services firms</a>.</p>
+<p>This is the client-facing side specifically. If the agency is also paying per-seat for internal team tools with the same seat-growth problem, that's the more general case covered in <a href="/blog/build-vs-buy-crm-portal">build vs. buy for a CRM portal</a>. Professional services firms carrying a separate internal PSA license cost are covered in <a href="/blog/professional-services-psa-license-cost">PSA tool license costs for professional services firms</a>.</p>
 
 <p>Model what a specific client roster is currently costing in seats with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 

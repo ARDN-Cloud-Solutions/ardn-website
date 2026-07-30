@@ -43,7 +43,7 @@ image_alt: "Cutting per-seat costs in insurance agency management systems — AR
 <h2>Why this matters more as an agency grows</h2>
 <p>Client count, carrier relationships, and seasonal staffing all tend to scale faster than the core producer/CSR headcount at a growing agency. If every one of those touchpoints requires an AMS seat, the license bill grows disconnected from the size of your actual sales team. A flat-fee portal for those groups keeps the cost tied to what you're building, not to how many people need to check a status.</p>
 
-<p>ARDN builds portals for insurance agencies without requiring a system migration — your AMS stays the system of record. See <a href="https://ardncloudsolutions.com/ai-for-insurance">what we build for insurance agencies</a>, or model your own numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>. The same audit-and-right-size logic applies across CRMs generally — see <a href="https://cms.ardncloudsolutions.com/ways-to-cut-crm-licensing-costs/">7 ways to cut CRM licensing costs</a> for the underlying framework.</p>
+<p>ARDN builds portals for insurance agencies without requiring a system migration — your AMS stays the system of record. See <a href="https://ardncloudsolutions.com/ai-for-insurance">what we build for insurance agencies</a>, or model your own numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>. The same audit-and-right-size logic applies across CRMs generally — see <a href="/blog/ways-to-cut-crm-licensing-costs">7 ways to cut CRM licensing costs</a> for the underlying framework.</p>
 
 <h2>Frequently asked questions</h2>
 

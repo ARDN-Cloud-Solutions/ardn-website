@@ -32,9 +32,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ardncloudsolutions.com"),
   title:
-    "Ardn Cloud Solutions | Custom AI Apps, Cloud Products & Salesforce Services",
+    "Ardn Cloud Solutions | Custom Software, Portals & AI Apps",
   description:
-    "Orlando-based development team building custom AI applications and cloud products with the AI Forge Framework — backed by 30+ years of Salesforce expertise, consulting, and managed services. Salesforce-native products and AI-built, Salesforce-capable platforms under one roof.",
+    "Orlando team building custom software, portals & AI apps — built and run for you in weeks, one flat monthly fee, no per-seat. 30+ years' expertise.",
   keywords: [
     // Cat 2 — custom AI / dev agency intents
     "custom AI app development",

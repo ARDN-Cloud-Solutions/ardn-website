@@ -315,6 +315,12 @@ export default function CustomSoftwareDevelopmentPage() {
                 <p className="body">Channel, dealer, broker &amp; vendor portals that replace per-login Partner Community seats.</p>
                 <span className="link">Custom partner portal development →</span>
               </Link>
+              <Link href="/custom-crm-software" className="card" style={{ textDecoration: "none", borderColor: "var(--indigo)" }}>
+                <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>Own your CRM</span>
+                <h3 className="h3">Custom CRM Software</h3>
+                <p className="body">A CRM built to your exact process, owned by you, on one flat fee &mdash; no per-seat licenses.</p>
+                <span className="link">Custom CRM software development →</span>
+              </Link>
               <Link href="/custom-ecommerce-development" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">Custom Ecommerce</h3>
                 <p className="body">Merch stores, subscriptions, and complex catalogs built to your model.</p>

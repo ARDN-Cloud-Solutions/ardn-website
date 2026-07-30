@@ -36,7 +36,7 @@ image_alt: "HubSpot paid vs. free seats: who needs which — ARDN Cloud Solution
 <h2>The structural option beyond seat-type audits</h2>
 <p>Auditing free vs. paid is worth doing, but it's still working within HubSpot's two seat types. For users whose entire need is one narrow, repeated task — checking an order status, submitting a request, viewing a single report — neither seat type is really the right shape. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> synced live to HubSpot gives that exact view or action on a flat monthly fee, independent of whether HubSpot would classify them free or paid. See the full breakdown in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">reducing CRM licensing costs</a>.</p>
 
-<p>For the seat-cost comparison specifically, see <a href="https://cms.ardncloudsolutions.com/hubspot-seat-cost-vs-custom-portal/">HubSpot seat cost vs. a custom portal</a>.</p>
+<p>For the seat-cost comparison specifically, see <a href="/blog/hubspot-seat-cost-vs-custom-portal">HubSpot seat cost vs. a custom portal</a>.</p>
 
 <h2>Frequently asked questions</h2>
 
