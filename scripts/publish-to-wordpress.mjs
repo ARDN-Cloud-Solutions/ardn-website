@@ -122,8 +122,16 @@ async function resolveTerm(taxonomy, name) {
   const found = await wp(`/${taxonomy}?search=${encodeURIComponent(name)}&per_page=100`);
   const exact = found.find((t) => t.name.toLowerCase() === name.toLowerCase());
   if (exact) return exact.id;
-  const created = await wp(`/${taxonomy}`, { method: "POST", body: JSON.stringify({ name }) });
-  return created.id;
+  try {
+    const created = await wp(`/${taxonomy}`, { method: "POST", body: JSON.stringify({ name }) });
+    return created.id;
+  } catch (e) {
+    // Race / case-fold mismatch: WP already has the term. It returns the
+    // existing term_id in the error payload — recover it instead of failing.
+    const m = e.message.match(/"term_id":(\d+)/);
+    if (m) return Number(m[1]);
+    throw e;
+  }
 }
 
 async function findPostBySlug(slug) {
@@ -220,7 +228,7 @@ function verifyPost(meta, body) {
   if (moneyLinks.length < 2)
     errors.push(`only ${moneyLinks.length} internal money-page link(s) — need >=2 for cluster health`);
 
-  if (!/cms\.ardncloudsolutions\.com\/[a-z0-9-]+\//i.test(body))
+  if (!/(?:cms\.ardncloudsolutions\.com\/[a-z0-9-]+\/|href="\/blog\/[a-z0-9-]+)/i.test(body))
     warnings.push("no sibling blog-post link — cross-link related posts in the cluster");
 
   return { errors, warnings };

@@ -35,7 +35,7 @@ image_alt: "Per-seat vs flat-fee software pricing compared — ARDN Cloud Soluti
 <h2>When flat-fee wins</h2>
 <p>Once a workflow needs to reach a large or growing number of people — most of whom touch it for a narrow set of tasks — a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built</a> flat-fee tool usually wins on total cost, often within the first year or two, and the gap widens every year after. We break down the full build-vs-buy math, including when SaaS is still the better call, in <a href="https://ardncloudsolutions.com/compare/custom-software-vs-saas">custom software vs. SaaS</a>.</p>
 
-<p>To see where the crossover point sits for your own team and tool stack, run your numbers through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>. And if the seat sprawl you're modeling spans more than one tool, see <a href="https://cms.ardncloudsolutions.com/saas-seat-sprawl-mid-market/">why mid-market SaaS bills keep climbing</a> for the bigger picture.</p>
+<p>To see where the crossover point sits for your own team and tool stack, run your numbers through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>. And if the seat sprawl you're modeling spans more than one tool, see <a href="/blog/saas-seat-sprawl-mid-market">why mid-market SaaS bills keep climbing</a> for the bigger picture.</p>
 
 <h2>Frequently asked questions</h2>
 

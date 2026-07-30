@@ -5,9 +5,9 @@ import SalesforceSubscriptionContent from "./SalesforceSubscriptionContent";
 // FAQPage in its JSON-LD (kept and enriched).
 export const metadata: Metadata = {
   title:
-    "8 Best Salesforce Subscription Management Software Tools (2026) | Ardn Cloud Solutions",
+    "Salesforce Subscription Management Software 2026 | Ardn",
   description:
-    "Compare the 8 best Salesforce subscription management software tools in 2026 — Ardn Storefronts, Fonteva, StoreConnect, Chargebee, Stripe Billing, Recurly, Zuora, and Maxio. Pricing, fit, and pitfalls to guide your choice.",
+    "Compare the 8 best Salesforce subscription management tools in 2026 — Fonteva, Chargebee, Stripe Billing, Zuora & more. Pricing, fit & pitfalls.",
   keywords: [
     "Salesforce subscription management",
     "Salesforce subscription software",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "8 Best Salesforce Subscription Management Software Tools (2026) | Ardn Cloud Solutions",
+      "Salesforce Subscription Management Software 2026 | Ardn",
     description:
       "Compare 8 top Salesforce subscription management tools in 2026. Ardn, Fonteva, StoreConnect, Chargebee, Stripe Billing, Recurly, Zuora, Maxio.",
     url: "https://ardncloudsolutions.com/buyers-guide/salesforce-subscription-management-software",
@@ -70,7 +70,7 @@ export default function Page() {
         "@type": "WebPage",
         "@id": url,
         url,
-        name: "8 Best Salesforce Subscription Management Software Tools (2026) | Ardn Cloud Solutions",
+        name: "Salesforce Subscription Management Software 2026 | Ardn",
         description:
           "Compare 8 top Salesforce subscription management tools in 2026.",
         inLanguage: "en-US",

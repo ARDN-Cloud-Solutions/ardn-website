@@ -112,6 +112,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Spoke targeting the "custom CRM software" commercial cluster; routes
+        // build-vs-keep intent into the per-seat portal wedge.
+        url: `${BASE_URL}/custom-crm-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         // National hub for the core "custom AI app development company" keyword
         // family — top-of-funnel destination for AI Forge organic traffic.
         url: `${BASE_URL}/ai-app-development`,

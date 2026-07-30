@@ -537,6 +537,7 @@ export default function AiForgeContent() {
               <li><Link href="/case-studies/transforming-the-timeshare-industry-with-a-digitized-tour-management-platform">Timeshare tour-management platform &rarr;</Link></li>
             </ul>
             <Link href="/case-studies" className="af-cs-all">Browse all case studies &rarr;</Link>
+            <Link href="/reduce-crm-licensing-costs" className="af-cs-all">Paying per-seat for a CRM? Cut the bill &rarr;</Link>
           </div>
         </div>
       </section>

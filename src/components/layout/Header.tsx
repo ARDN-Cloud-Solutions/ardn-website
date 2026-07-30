@@ -24,6 +24,7 @@ const products = [
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
   { label: "Custom Software Development", href: "/custom-software-development" },
+  { label: "Custom CRM Software", href: "/custom-crm-software" },
   {
     label: "Storefronts: All-In-One ECommerce Solution",
     href: "/storefronts",

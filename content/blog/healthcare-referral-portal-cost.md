@@ -17,7 +17,7 @@ image_alt: "Cutting per-seat costs for healthcare referral coordination — ARDN
 </ul>
 
 <h2>Why this differs from patient-facing or internal PM tools</h2>
-<p>This isn't the patient self-service problem, and it isn't the internal scheduling-and-billing problem — it's coordination across organizational boundaries, where the "users" needing access span practices that don't share a single IT budget or procurement decision. That's a structurally different licensing problem than a single practice's patient portal or PM software. See the patient-facing comparison in <a href="https://cms.ardncloudsolutions.com/healthcare-patient-portal-per-seat-cost/">patient portal software: per-seat cost vs. custom build</a> and the internal-operations comparison in <a href="https://cms.ardncloudsolutions.com/medical-practice-management-license-cost/">practice management software license costs explained</a>.</p>
+<p>This isn't the patient self-service problem, and it isn't the internal scheduling-and-billing problem — it's coordination across organizational boundaries, where the "users" needing access span practices that don't share a single IT budget or procurement decision. That's a structurally different licensing problem than a single practice's patient portal or PM software. See the patient-facing comparison in <a href="/blog/healthcare-patient-portal-per-seat-cost">patient portal software: per-seat cost vs. custom build</a> and the internal-operations comparison in <a href="/blog/medical-practice-management-license-cost">practice management software license costs explained</a>.</p>
 
 <h2>Native referral platforms vs. a custom coordination layer</h2>
 <table>

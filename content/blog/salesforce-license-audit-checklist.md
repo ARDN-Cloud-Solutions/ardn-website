@@ -50,7 +50,7 @@ image_alt: "Salesforce license audit checklist for RevOps teams — ARDN Cloud S
 <h2>What the audit doesn't fix</h2>
 <p>An audit is a snapshot — seats drift back into dormancy every quarter as people change roles or leave. Continuous monitoring (License Guard is a free app built for this) keeps the list clean between audits. And for the light-user pool the audit surfaces, right-sizing tiers only goes so far, since even the cheapest per-seat tier still bills per person. The durable fix for that group is a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> on a flat monthly fee, wired into Salesforce, that costs the same regardless of headcount. See the full framework in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>.</p>
 
-<p>Once you've run the audit, bring the numbers to your renewal conversation — see our guide on <a href="https://cms.ardncloudsolutions.com/salesforce-renewal-negotiation-guide/">how to negotiate your Salesforce renewal</a>, and use the same audit method described in <a href="https://cms.ardncloudsolutions.com/how-to-identify-light-crm-users/">how to tell which CRM users you're overpaying for</a> to prioritize which light users to move first.</p>
+<p>Once you've run the audit, bring the numbers to your renewal conversation — see our guide on <a href="/blog/salesforce-renewal-negotiation-guide">how to negotiate your Salesforce renewal</a>, and use the same audit method described in <a href="/blog/how-to-identify-light-crm-users">how to tell which CRM users you're overpaying for</a> to prioritize which light users to move first.</p>
 
 <h2>Frequently asked questions</h2>
 

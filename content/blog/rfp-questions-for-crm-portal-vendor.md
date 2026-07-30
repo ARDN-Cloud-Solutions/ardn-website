@@ -45,7 +45,7 @@ image_alt: "RFP questions to ask before buying a CRM portal add-on — ARDN Clou
   </tbody>
 </table>
 
-<p>For the broader framework these questions sit inside, see <a href="https://cms.ardncloudsolutions.com/crm-contract-renewal-red-flags/">red flags to check before signing your CRM renewal</a>, and for the general cost-reduction case read <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>.</p>
+<p>For the broader framework these questions sit inside, see <a href="/blog/crm-contract-renewal-red-flags">red flags to check before signing your CRM renewal</a>, and for the general cost-reduction case read <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

@@ -40,7 +40,7 @@ image_alt: "SaaS seat sprawl and rising mid-market software bills — ARDN Cloud
 <h2>The structural fix</h2>
 <p>Audits and consolidation trim the existing bill, but they don't change the underlying pattern — every tool that bills per seat will keep scaling with headcount, indefinitely, no matter how clean your provisioning is. The structural fix is moving the workflows with the largest and fastest-growing user populations — usually light users touching a system for a narrow set of tasks — onto <a href="https://ardncloudsolutions.com/custom-software-development">custom-built, flat-fee software</a> instead of another per-seat subscription. We cover the underlying build-vs-buy math in <a href="https://ardncloudsolutions.com/compare/custom-software-vs-saas">custom software vs. SaaS</a>.</p>
 
-<p>Start by running your own numbers through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and for the general per-seat vs. flat-fee mechanics behind the fix, see <a href="https://cms.ardncloudsolutions.com/per-seat-vs-flat-fee-pricing/">per-seat vs. flat-fee software pricing, compared</a>.</p>
+<p>Start by running your own numbers through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and for the general per-seat vs. flat-fee mechanics behind the fix, see <a href="/blog/per-seat-vs-flat-fee-pricing">per-seat vs. flat-fee software pricing, compared</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

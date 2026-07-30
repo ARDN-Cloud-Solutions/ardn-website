@@ -17,7 +17,7 @@ image_alt: "Practice management software license costs explained — ARDN Cloud 
 </ul>
 
 <h2>How this differs from the patient portal cost problem</h2>
-<p>This is the staff-facing half of the equation — the practice's own scheduling, billing, and claims workflows — not the patient-facing self-service side. Both scale with growth, but for different reasons: patient-facing tools scale with patient volume, and PM software scales with provider and administrative headcount. See <a href="https://cms.ardncloudsolutions.com/healthcare-patient-portal-per-seat-cost/">patient portal software: per-seat cost vs. custom build</a> for the patient-facing comparison.</p>
+<p>This is the staff-facing half of the equation — the practice's own scheduling, billing, and claims workflows — not the patient-facing self-service side. Both scale with growth, but for different reasons: patient-facing tools scale with patient volume, and PM software scales with provider and administrative headcount. See <a href="/blog/healthcare-patient-portal-per-seat-cost">patient portal software: per-seat cost vs. custom build</a> for the patient-facing comparison.</p>
 
 <h2>The build-vs-license comparison</h2>
 <table>

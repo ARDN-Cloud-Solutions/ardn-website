@@ -272,6 +272,56 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
           </div>
         </section>
 
+        {/* COST CROSSOVER BY HEADCOUNT */}
+        <section className="section" id="cost-by-headcount">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The cost curve</span>
+                <h2 className="h1 mt-3">What light users cost <em>as you scale.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Per-seat fees climb with every user you add. A flat-fee portal doesn&apos;t. Here&apos;s roughly where the two diverge as your light-user count grows.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Light users moved</th>
+                    <th>Full Enterprise seats (~$150/user/mo)</th>
+                    <th>Platform licenses (~$30/user/mo)</th>
+                    <th>Ardn flat-fee portal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="feat">100</td>
+                    <td className="is-no">~$180,000/yr</td>
+                    <td className="is-no">~$36,000/yr</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>One flat fee — from ~$36,000/yr</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">500</td>
+                    <td className="is-no">~$900,000/yr</td>
+                    <td className="is-no">~$180,000/yr</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Same flat fee</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">1,000</td>
+                    <td className="is-no">~$1,800,000/yr</td>
+                    <td className="is-no">~$360,000/yr</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Same flat fee</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Illustrative only, using publicly listed per-seat list prices and Ardn&apos;s published flat-fee tiers (from $3,000/mo) — not a quote. Even the cheapest per-seat tier keeps climbing with headcount, while a flat-fee portal costs the same at 100 light users or 1,000. Plug in your own seat count and negotiated rate in the <Link href="/savings-calculator" className="link">savings calculator</Link> for your real numbers.
+            </p>
+          </div>
+        </section>
+
         {/* NOT ANTI-CRM */}
         <section className="section is-canvas">
           <div className="container">
