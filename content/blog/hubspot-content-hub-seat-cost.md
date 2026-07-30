@@ -34,7 +34,7 @@ image_alt: "HubSpot Content Hub seat costs for marketing teams — ARDN Cloud So
 <h2>Where a lighter-weight option fits</h2>
 <p>For the review and approval workflow specifically — routing drafts to legal, brand, or a manager for sign-off — a <a href="https://ardncloudsolutions.com/custom-portal-development">custom review portal</a> synced to Content Hub's draft status can carry that entire loop without adding a seat for every occasional reviewer. It doesn't replace Content Hub for the people actually building content; it removes the seat requirement for everyone else in the approval chain.</p>
 
-<p>See the same mechanism applied to HubSpot's other Hubs in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, and the closely related teardown in <a href="https://cms.ardncloudsolutions.com/hubspot-marketing-hub-contact-tier-cost/">HubSpot Marketing Hub contact-tier costs explained</a>.</p>
+<p>See the same mechanism applied to HubSpot's other Hubs in <a href="https://ardncloudsolutions.com/reduce-hubspot-seat-costs">how to reduce HubSpot seat costs</a>, and the closely related teardown in <a href="https://cms.ardncloudsolutions.com/hubspot-marketing-hub-contact-tier-cost/">HubSpot Marketing Hub contact-tier costs explained</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

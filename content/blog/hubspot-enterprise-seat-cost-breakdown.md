@@ -39,7 +39,7 @@ image_alt: "What you're actually paying for in a HubSpot Enterprise seat — ARD
 </table>
 
 <h2>The structural fix for the read-only and light-user groups</h2>
-<p>Where HubSpot's tier and seat structure doesn't flex down for narrow roles, a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> synced live to HubSpot data gives those users exactly the visibility they need — status, pipeline, reporting — on a flat monthly fee, independent of whichever tier the power users require. Model the numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and see the closely related teardown in <a href="https://cms.ardncloudsolutions.com/hubspot-paid-vs-free-seats/">HubSpot paid vs. free seats explained</a>.</p>
+<p>Where HubSpot's tier and seat structure doesn't flex down for narrow roles, a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> synced live to HubSpot data gives those users exactly the visibility they need — status, pipeline, reporting — on a flat monthly fee, independent of whichever tier the power users require. Model the numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, walk through the full framework for <a href="https://ardncloudsolutions.com/reduce-hubspot-seat-costs">how to cut HubSpot seat costs</a>, and see the closely related teardown in <a href="https://cms.ardncloudsolutions.com/hubspot-paid-vs-free-seats/">HubSpot paid vs. free seats explained</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

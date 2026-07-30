@@ -34,7 +34,7 @@ image_alt: "Is HubSpot Operations Hub worth its seat price tag — ARDN Cloud So
   </tbody>
 </table>
 
-<p>For genuinely custom, multi-system integration needs, a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built integration layer</a> connected to HubSpot via API replaces the tier upgrade with a flat fee, still keeping HubSpot as the CRM and marketing system of record. See the broader per-seat pattern in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, and the related tradeoff in <a href="https://cms.ardncloudsolutions.com/hubspot-seat-cost-vs-custom-portal/">HubSpot seat cost vs. a custom portal</a>.</p>
+<p>For genuinely custom, multi-system integration needs, a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built integration layer</a> connected to HubSpot via API replaces the tier upgrade with a flat fee, still keeping HubSpot as the CRM and marketing system of record. See the broader per-seat pattern in <a href="https://ardncloudsolutions.com/reduce-hubspot-seat-costs">how to reduce HubSpot seat costs</a>, and the related tradeoff in <a href="https://cms.ardncloudsolutions.com/hubspot-seat-cost-vs-custom-portal/">HubSpot seat cost vs. a custom portal</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

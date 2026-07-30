@@ -27,7 +27,7 @@ image_alt: "HubSpot seat costs vs a custom portal comparison — ARDN Cloud Solu
 <p>The problem shows up with light users: field sellers checking an order, ops staff updating a status, partners submitting a request, customers viewing account info. These people don't need HubSpot's depth — but on a per-seat model, they're billed close to what a power user pays, or they get squeezed into a limited role that still costs per person.</p>
 
 <h2>What a custom portal changes</h2>
-<p>A <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> built for exactly those light-user workflows syncs live with HubSpot through its API, so the CRM data stays accurate and current — but the cost structure changes completely. It's one flat monthly fee whether 10 people use it or 500. As the light-user group grows (which it usually does, faster than the power-user group), the economics tilt further toward the flat fee.</p>
+<p>A <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal</a> built for exactly those light-user workflows syncs live with HubSpot through its API, so the CRM data stays accurate and current — but the cost structure changes completely. It's one flat monthly fee whether 10 people use it or 500. As the light-user group grows (which it usually does, faster than the power-user group), the economics tilt further toward the flat fee. For the full step-by-step framework, see <a href="https://ardncloudsolutions.com/reduce-hubspot-seat-costs">how to cut HubSpot seat costs</a>.</p>
 
 <h2>A simple way to decide</h2>
 <ul>

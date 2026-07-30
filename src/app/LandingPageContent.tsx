@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -15,11 +16,11 @@ export default function LandingPageContent() {
               <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "4px" }} className="reveal reveal-d2">
                 <span className="badge is-emerald">Flat fee, not per-seat</span>
-                <span className="badge">Cut CRM per-seat costs</span>
+                <Link href="/custom-portal-development" className="badge" style={{ textDecoration: "none" }}>Cut CRM per-seat costs →</Link>
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your CRM savings</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
@@ -39,6 +40,8 @@ export default function LandingPageContent() {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames

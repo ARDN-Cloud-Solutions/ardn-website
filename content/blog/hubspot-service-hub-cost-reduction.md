@@ -23,7 +23,7 @@ image_alt: "Cutting HubSpot Service Hub costs for light agents — ARDN Cloud So
 <p>Some Service Hub tiers and permission sets allow narrower access at a lower cost than a full agent seat. Check what your tier actually offers before assuming everyone needs the same license — this alone can trim the bill for read-only or reassignment-only users.</p>
 
 <h3>Move narrow, recurring roles to a custom portal</h3>
-<p>For roles whose entire need is a specific slice — status visibility for a manager, a single-purpose escalation queue for occasional responders, a seasonal team working one ticket type — a <a href="https://ardncloudsolutions.com/custom-portal-development">custom support portal</a> synced live to HubSpot's ticket data gives exactly that slice, on one flat fee, whether it's used by three people or thirty during a seasonal spike.</p>
+<p>For roles whose entire need is a specific slice — status visibility for a manager, a single-purpose escalation queue for occasional responders, a seasonal team working one ticket type — a <a href="https://ardncloudsolutions.com/custom-portal-development">custom support portal</a> synced live to HubSpot's ticket data gives exactly that slice, on one flat fee, whether it's used by three people or thirty during a seasonal spike. See the broader framework for <a href="https://ardncloudsolutions.com/reduce-hubspot-seat-costs">how to cut HubSpot seat costs</a> across every Hub.</p>
 
 <table>
   <thead>

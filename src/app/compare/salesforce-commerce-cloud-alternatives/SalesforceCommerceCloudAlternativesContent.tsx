@@ -637,6 +637,9 @@ export default function SalesforceCommerceCloudAlternativesContent() {
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               If you’re already living inside Salesforce every day, adding another platform shouldn’t be what holds you back from selling online. <strong>Storefronts</strong> keeps everything under one roof so you can move faster, spend less, and actually enjoy running your store!
             </p>
+            <p className="text-heading-dark text-sm lg:text-base mt-4">
+              Prefer to build off-platform? Explore <Link href="/custom-ecommerce-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">custom Salesforce ecommerce development</Link>, our broader <Link href="/custom-software-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">custom software development</Link> hub, or a <Link href="/custom-portal-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">custom portal alternative to Commerce Cloud</Link> that cuts per-seat costs.
+            </p>
 
             <section className="bg-[#0D121F] rounded-2xl p-8 lg:p-12 my-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
               <h3 className="text-white text-xl lg:text-2xl font-bold m-0 max-w-xl leading-tight">Ready to see how it all fits together?</h3>

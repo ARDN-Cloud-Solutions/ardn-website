@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge money page: HubSpot-specific cost-reduction hub. Mirror of
+        // /reduce-crm-licensing-costs for HubSpot buyers; the conversion
+        // destination for the HubSpot blog cost cluster (~8 posts).
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

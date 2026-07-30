@@ -9,9 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // (Calendly), single conversion path, no in-page distractions.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services in Orlando | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services from a Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform for YMCAs, gyms, and clubs. Book a free 30-minute call with an Orlando senior consultant — reply within 4 business hours.",
+    "Florida-based Salesforce consultants with 30+ years of expertise. Implementation, license audits, integration, and managed services. Free 30-min strategy call.",
   keywords: [
     "Salesforce consultant Orlando",
     "Salesforce consulting Florida",
@@ -313,9 +313,13 @@ export default function SalesforceConsultingOrlandoPage() {
               </div>
               <div>
                 <p className="lede">
-                  From new-org implementation to ongoing managed services. From
-                  free license audits to AI applications built directly inside
-                  Salesforce on the AI Forge Framework.
+                  From new-org implementation to ongoing managed services.
+                  From free license audits that{" "}
+                  <Link href="/reduce-crm-licensing-costs" className="link">cut your Salesforce licensing costs</Link>{" "}
+                  and{" "}
+                  <Link href="/custom-portal-development" className="link">custom portals that move light users off per-seat licenses</Link>{" "}
+                  to AI applications built directly inside Salesforce on the AI
+                  Forge Framework.
                 </p>
               </div>
             </div>

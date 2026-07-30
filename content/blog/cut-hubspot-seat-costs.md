@@ -38,7 +38,7 @@ image_alt: "How to cut HubSpot Sales Hub seat costs — ARDN Cloud Solutions"
   </tbody>
 </table>
 
-<p>For the head-to-head math on HubSpot seats vs. a portal, see <a href="https://cms.ardncloudsolutions.com/hubspot-seat-cost-vs-custom-portal/">HubSpot seat costs vs. a custom portal</a>, and for the broader cross-CRM framework, read <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>.</p>
+<p>For the head-to-head math on HubSpot seats vs. a portal, see <a href="https://cms.ardncloudsolutions.com/hubspot-seat-cost-vs-custom-portal/">HubSpot seat costs vs. a custom portal</a>, and for the broader cross-CRM framework, read <a href="https://ardncloudsolutions.com/reduce-hubspot-seat-costs">how to cut HubSpot seat costs</a>.</p>
 
 <h2>Frequently asked questions</h2>
 
