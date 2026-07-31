@@ -297,6 +297,23 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke: HubSpot seat-cost reduction — mirrors the Salesforce
+        // pillar for the HubSpot half of the buyer base (free seats, right-size,
+        // flat-fee portal). Targets "reduce HubSpot seats / seat cost reduction".
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Comparison hub / index: parents the four cost-comparison spokes and
+        // fixes the previously-broken "Compare" breadcrumb target.
+        url: `${BASE_URL}/compare`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -99,6 +99,14 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Is it safe to move light users off their CRM seats onto a portal?",
+    a: "Yes — because nothing leaves your CRM. Your CRM stays the system of record, the portal talks to it live through its API, and each user only sees the records their existing CRM permissions already allow. You are not migrating data or standing up a shadow database; you are giving a defined set of users a narrower, purpose-built window into the same data they already touch. That is a far lower-risk change than a full platform migration, and your power users keep working exactly as they do today.",
+  },
+  {
+    q: "What happens if the integration breaks or the CRM changes?",
+    a: "One team builds the portal and runs it — hosting, monitoring, and fixes are inside your flat monthly fee. If your CRM's API changes or a sync issue comes up, it is on us to catch and fix it, not on your staff. And because the portal reads and writes your CRM records live rather than keeping a separate copy, 'out of sync' isn't a state it can get stuck in.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -196,8 +204,8 @@ export default function CustomPortalDevelopmentPage() {
                   <span className="badge is-canvas">No rip-and-replace</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Get a fixed monthly quote</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -210,7 +218,10 @@ export default function CustomPortalDevelopmentPage() {
                     <li>Seller, ops, partner &amp; customer portals</li>
                     <li>We build it AND run it</li>
                   </ul>
-                  <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
+                  <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#475467" }}>
+                    A full CRM seat can list around $165/user/mo — a flat-fee portal costs the same at 10 light users or 400. (List price, illustrative.)
+                  </p>
+                  <p className="body" style={{ marginTop: "14px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>

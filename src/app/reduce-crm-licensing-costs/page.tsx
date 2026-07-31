@@ -82,6 +82,10 @@ const FAQS = [
     a: "A light user touches the CRM for a narrow slice of work but gets billed the same (or nearly the same) as a power user who lives in it all day. Because per-seat pricing is built around the power user, the overpayment concentrates on everyone lighter than that — which in most companies is the majority of the seat count.",
   },
   {
+    q: "Is it safe and compliant to serve light users from a portal instead of a full CRM seat?",
+    a: "Yes. Your CRM stays the system of record and the single source of truth — the portal reads and writes it live through its API, so no data is copied into a separate system. Each user only ever sees the records their existing CRM permissions allow, so your access controls and audit trail still apply. Nothing is ripped out and no data leaves the environment you already govern, which makes this a much lower-risk change than migrating to a new platform.",
+  },
+  {
     q: "How much can a custom portal actually save versus per-seat licenses?",
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
@@ -181,7 +185,7 @@ export default function ReduceCrmLicensingCostsPage() {
                   <span className="badge is-canvas">Salesforce, HubSpot &amp; more</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Get a fixed monthly quote</Link>
                   <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your own numbers →</Link>
                 </div>
               </div>
@@ -306,6 +310,49 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* PLATFORM LICENSE VS PORTAL — the "4th lever" counter-position */}
+        <section className="section" id="platform-vs-portal">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Right-size vs. replace the seat</span>
+                <h2 className="h1 mt-3">A cheaper tier still <em>scales with headcount.</em></h2>
+              </div>
+              <div>
+                <p className="lede">The standard advice is &ldquo;downgrade light users to a cheaper platform license.&rdquo; It helps — but a per-user tier is still per user, so the bill still climbs with every seat you add. A flat-fee portal breaks that link entirely.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Light users on the CRM</th>
+                    <th>Cheaper &ldquo;platform&rdquo; tier (~$25/user/mo)</th>
+                    <th>Flat-fee custom portal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">25 users</td><td className="is-no">~$625/mo — and rising</td><td className="is-yes">One flat monthly fee</td></tr>
+                  <tr><td className="feat">100 users</td><td className="is-no">~$2,500/mo — and rising</td><td className="is-yes">Same flat fee</td></tr>
+                  <tr><td className="feat">400 users</td><td className="is-no">~$10,000/mo — and rising</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Same flat fee</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Illustrative only, using a publicly listed ~$25/user/month platform-tier
+              list price — not a quote for any named product. A right-sized tier is a
+              real, sensible win for occasional users who still need native CRM
+              access; the point is simply that it stays a per-seat cost. For the light
+              users who only need a slice of the CRM, a{" "}
+              <Link href="/custom-portal-development" className="link">custom portal</Link> turns
+              that climbing line into a fixed one. External partners and vendors are
+              the sharpest case —{" "}
+              <Link href="/custom-partner-portal-development" className="link">replace per-login Partner Community seats with a custom partner portal</Link>.
+              Run the <Link href="/savings-calculator" className="link">savings calculator</Link> for your own seat count and rate.
+            </p>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
         <section className="section is-canvas">
           <div className="container">
@@ -379,9 +426,10 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Replace per-login Partner Community seats →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
-              <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>
         </section>
