@@ -126,25 +126,90 @@ near-duplicate of an existing post.
 - [x] shopify-plus-app-fee-stacking
 
 ## Salesforce cost — round 4 (added 2026-07-30, round 3 exhausted)
-- [ ] salesforce-omnistudio-cost | Salesforce OmniStudio/Vlocity Licensing Costs Explained | education | omnistudio cost | /custom-software-development
-- [ ] salesforce-data-cloud-cost | Salesforce Data Cloud: Where the Consumption-Based Bill Comes From | education | salesforce data cloud cost | /reduce-crm-licensing-costs
-- [ ] salesforce-einstein-ai-addon-cost | Salesforce Einstein/Agentforce Add-On Costs for Mid-Market Teams | education | salesforce einstein cost | /custom-software-development
+- [x] salesforce-omnistudio-cost
+- [x] salesforce-data-cloud-cost
+- [x] salesforce-einstein-ai-addon-cost
 
 ## HubSpot cost — round 4 (added 2026-07-30, round 3 exhausted)
-- [ ] hubspot-service-hub-ticket-tier-cost | How HubSpot Service Hub Tickets and Seats Both Drive Up Cost | education | hubspot service hub pricing | /reduce-crm-licensing-costs
-- [ ] hubspot-app-marketplace-addon-stacking | When HubSpot Marketplace App Fees Rival the Core Subscription | comparison | hubspot app fees | /custom-software-development
+- [x] hubspot-service-hub-ticket-tier-cost
+- [x] hubspot-app-marketplace-addon-stacking
 
 ## Verticals — construction / trades (new, seed for next batch)
-- [ ] construction-project-management-software-seat-cost | Construction Project Management Software: Per-User Costs Explained | education | construction project management software cost | /custom-portal-development
-- [ ] gc-subcontractor-portal-cost | Subcontractor Portal Costs for General Contractors | education | subcontractor portal cost | /custom-portal-development
+- [x] construction-project-management-software-seat-cost
+- [x] gc-subcontractor-portal-cost
 
 ## Verticals — education / training (new, seed for next batch)
-- [ ] lms-per-learner-cost | Learning Management System (LMS) Per-Learner Pricing Explained | education | lms per learner cost | /reduce-crm-licensing-costs
-- [ ] school-district-sis-per-student-cost | Student Information System (SIS) Per-Student Licensing Costs | education | sis software cost | /custom-software-development
+- [x] lms-per-learner-cost
+- [x] school-district-sis-per-student-cost
 
 ## Buyer questions — round 4 (added 2026-07-30, prior rounds exhausted)
-- [ ] vendor-lock-in-crm-portal-warning-signs | Vendor Lock-In Warning Signs in CRM and Portal Contracts | education | vendor lock-in crm | /rfp-questions-for-crm-portal-vendor
-- [ ] data-ownership-saas-vs-custom-portal | Who Actually Owns Your Data: SaaS Contracts vs. a Custom-Built Portal | comparison | data ownership saas | /custom-portal-development
+- [ ] vendor-lock-in-crm-portal-warning-signs | Vendor Lock-In Warning Signs in CRM and Portal Contracts | education | vendor lock-in crm | /rfp-questions-for-crm-portal-vendor — HOLD 2026-07-31: as scoped this overlaps heavily with the exit/lock-in clauses already covered in `crm-contract-renewal-red-flags` and `rfp-questions-for-crm-portal-vendor`. Only publish with a genuinely distinct angle — e.g. technical/architectural lock-in signals in the product itself (proprietary data schemas, non-portable customizations/workflows, API access restrictions) rather than contract-clause red flags, which are already well covered.
+- [ ] data-ownership-saas-vs-custom-portal | Who Actually Owns Your Data: SaaS Contracts vs. a Custom-Built Portal | comparison | data ownership saas | /custom-portal-development — HOLD 2026-07-31: `rfp-questions-for-crm-portal-vendor` already asks "who owns portal-generated data" and export-format questions directly, and `total-cost-of-ownership-saas-vs-custom` already covers vendor-dependency risk. Needs a narrower, distinct angle (e.g. compliance/data-residency ownership, or infra-control specifics) before publishing, not a relabeled comparison of ground already covered.
+
+## Salesforce cost — round 5 (added 2026-07-31, round 4 exhausted)
+- [ ] salesforce-marketing-cloud-send-credit-cost | Salesforce Marketing Cloud Engagement: Where Send-Credit Costs Come From | education | salesforce marketing cloud pricing | /reduce-crm-licensing-costs
+- [ ] salesforce-health-cloud-cost | Salesforce Health Cloud Licensing Costs Beyond the Core CRM | education | salesforce health cloud cost | /custom-software-development
+- [ ] salesforce-commerce-cloud-gmv-pricing | Salesforce Commerce Cloud: How GMV-Based Pricing Actually Works | education | salesforce commerce cloud pricing | /compare/salesforce-commerce-cloud-alternatives
+
+## HubSpot cost — round 5 (added 2026-07-31, round 4 exhausted)
+- [ ] hubspot-cms-hub-cost | HubSpot CMS Hub: Seats, Page Views, and Where the Cost Comes From | education | hubspot cms hub pricing | /custom-software-development
+- [ ] hubspot-breeze-ai-credit-cost | HubSpot Breeze AI Credits: What Actually Consumes Them | education | hubspot ai pricing | /reduce-crm-licensing-costs
+
+## Verticals — automotive / manufacturing (new, seed for next batch)
+- [ ] automotive-dealership-dms-seat-cost | Dealership Management System (DMS) Per-Seat Costs Explained | education | dealership management system cost | /custom-portal-development
+- [ ] manufacturing-erp-per-user-cost | Manufacturing ERP Per-User Licensing Costs Explained | education | manufacturing erp cost | /custom-software-development
+
+## Verticals — fitness / veterinary (new, seed for next batch)
+- [ ] gym-membership-software-per-location-cost | Gym and Studio Membership Software: Per-Location and Per-Seat Costs | education | gym membership software cost | /custom-portal-development
+- [ ] veterinary-practice-management-software-cost | Veterinary Practice Management Software Per-Seat Costs Explained | education | veterinary practice management software cost | /custom-software-development
+
+## Process note (2026-07-31)
+Published 9 posts this batch: all 3 Salesforce-cost-round-4 seeds
+(`salesforce-omnistudio-cost`, `salesforce-data-cloud-cost`,
+`salesforce-einstein-ai-addon-cost`), both HubSpot-cost-round-4 seeds
+(`hubspot-service-hub-ticket-tier-cost`, `hubspot-app-marketplace-addon-stacking`),
+both construction-vertical seeds (`construction-project-management-software-seat-cost`,
+`gc-subcontractor-portal-cost`), and both education-vertical seeds
+(`lms-per-learner-cost`, `school-district-sis-per-student-cost`) — a clean
+9-post batch, roughly 5 Salesforce/HubSpot to 4 verticals, close to the 50/50
+weighting guideline. Confirmed distinctness before writing: e.g.
+`hubspot-service-hub-ticket-tier-cost` (tier jump forced by ticket-pipeline
+limits, parallel to the already-published `hubspot-sales-hub-starter-to-pro-jump`
+mechanic) is distinct from the already-published `hubspot-service-hub-cost-reduction`
+(seat optimization for light/occasional agents, no tier-jump angle);
+`construction-project-management-software-seat-cost` (internal PM/office/field
+staff seats) vs. `gc-subcontractor-portal-cost` (external subcontractor access,
+capped free-tier mechanic) follows the same internal-vs-external-portal
+distinction already validated for insurance (`insurance-ams-per-seat-costs` vs.
+`insurance-client-portal-cost`); `lms-per-learner-cost` (course-delivery,
+active-learner billing) vs. `school-district-sis-per-student-cost` (enrollment
+records/compliance, per-student billing) are distinct software categories with
+distinct buyers despite both being K-12-adjacent. Researched real public
+pricing mechanics (via web search) for the less-familiar products — OmniStudio,
+Data Cloud's consumption-credit model, Agentforce's three overlapping pricing
+mechanisms, HubSpot Service Hub's pipeline limits by tier, and construction/LMS/SIS
+category pricing norms — before writing, to avoid asserting a pricing model that
+doesn't actually hold for a given product; keep the site's existing convention
+of describing pricing mechanisms rather than citing specific dollar figures.
+
+Held, not published this batch: `vendor-lock-in-crm-portal-warning-signs` and
+`data-ownership-saas-vs-custom-portal` — both would substantially overlap
+existing coverage in `crm-contract-renewal-red-flags`, `rfp-questions-for-crm-portal-vendor`,
+and `total-cost-of-ownership-saas-vs-custom` (exit terms, data ownership
+questions, vendor-dependency risk are all already addressed there); see hold
+notes above for the narrower angle each would need. Also still held from prior
+notes (no new information to resolve either): `hotel-staff-portal-flat-fee`
+(needs rollout-guide reframe, held since 2026-07-27), `accounting-firm-client-portal-seat-cost`
+(needs a trust-accounting/tax-season angle, held since 2026-07-28),
+`ecommerce-cs-seat-cost` (needs a volume-tier or BFCM-specific mechanic, held
+since 2026-07-29).
+
+Seeded 9 new angles above (3 Salesforce round 5, 2 HubSpot round 5, 4 new
+verticals — automotive/manufacturing, fitness/veterinary) so the next batch
+has full-weighting depth without repeating angles already covered. Remaining
+unchecked inventory after this batch: the 5 held items above plus the 9 new
+round-5/new-vertical seeds — enough distinct depth for at least one more full
+batch.
 
 ## Process note (2026-07-30)
 Published 10 posts this batch: all 5 remaining Salesforce/HubSpot round-3 seeds
