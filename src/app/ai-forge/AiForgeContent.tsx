@@ -792,6 +792,13 @@ export default function AiForgeContent() {
             {" · "}
             <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Back to custom software &amp; platforms →</Link>
           </p>
+          <p style={{ marginTop: "12px" }}>
+            <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Cut CRM per-seat licensing costs →</Link>
+            {" · "}
+            <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Custom portal development →</Link>
+            {" · "}
+            <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Per-seat savings calculator →</Link>
+          </p>
         </div>
       </section>
 

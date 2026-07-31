@@ -11,7 +11,7 @@ import LeadForm from "@/components/common/LeadForm";
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
 // capability, not the whole pitch.
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | Ardn",
+  title: "Custom Software Development Company — Built & Run | Ardn",
   description:
     "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
   keywords: [
@@ -363,11 +363,12 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">Reduce HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
+              <Link href="/compare" className="link">All cost comparisons →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
-              <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
-              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
+              <Link href="/compare/salesforce-commerce-cloud-alternatives" className="link">Salesforce Commerce Cloud alternatives →</Link>
             </div>
           </div>
         </section>

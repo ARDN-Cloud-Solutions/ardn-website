@@ -110,7 +110,9 @@ export default function SavingsCalculatorContent() {
             <p className="sc-hero-sub">
               Ardn Cloud Solutions replaces Mindbody, Zenoti, Salesforce, and your entire
               fragmented software stack with one custom platform. Flat monthly rate. No
-              per-user fees. You own it forever.
+              per-user fees. You own it forever. Whether you keep your CRM and move light
+              users off per-seat licenses, or replace the whole stack — see the number
+              either way.
             </p>
             <div className="sc-hero-checks">
               {[
@@ -546,6 +548,7 @@ export default function SavingsCalculatorContent() {
         source="Savings Calculator page"
         heading="Email me my savings breakdown"
         showSeatQualifiers
+        submitLabel="Email me my breakdown"
         sub="Not ready to book a call? Tell us which CRM you run and roughly how many users, and we'll send a written per-seat savings breakdown plus a fixed quote — no obligation."
       />
 

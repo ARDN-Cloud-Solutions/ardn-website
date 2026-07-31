@@ -187,7 +187,7 @@ export default function CustomPartnerPortalDevelopmentPage() {
                   <span className="badge is-canvas">No rip-and-replace</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Get a fixed monthly quote</Link>
                   <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See what you&apos;d save</Link>
                 </div>
               </div>
@@ -296,8 +296,47 @@ export default function CustomPartnerPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* THE PER-LOGIN MATH */}
+        <section className="section" id="cost-math">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The per-login math</span>
+                <h2 className="h1 mt-3">What external logins <em>cost you at scale.</em></h2>
+              </div>
+              <div>
+                <p className="lede">External Community licenses bill for every provisioned partner — often whether they log in that month or not. Across a network that turns over and grows, that&apos;s the line item a flat-fee portal erases.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>External partners</th>
+                    <th>Per-login Partner Community (~$10/login/mo)</th>
+                    <th>Flat-fee custom partner portal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">50 partners</td><td className="is-no">~$500/mo — and rising</td><td className="is-yes">One flat monthly fee</td></tr>
+                  <tr><td className="feat">200 partners</td><td className="is-no">~$2,000/mo — and rising</td><td className="is-yes">Same flat fee</td></tr>
+                  <tr><td className="feat">500 partners</td><td className="is-no">~$5,000/mo — and rising</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Same flat fee</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Illustrative only, using publicly listed per-login list prices
+              (customer logins list around $2 and partner logins around $10 each) —
+              not a quote for any named product, and real contracts are often
+              bundled or negotiated. Plug in your own network size and rate in the{" "}
+              <Link href="/savings-calculator" className="link">savings calculator</Link>, or see the wider{" "}
+              <Link href="/reduce-crm-licensing-costs" className="link">ways to cut CRM licensing costs</Link>.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
-        <section className="section" id="faq">
+        <section className="section is-canvas" id="faq">
           <div className="container">
             <div className="section-head">
               <div>
