@@ -188,6 +188,22 @@ export default function Sidebar() {
               See the seat-cost math →
             </Link>
           </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0 mt-3">
+            <Link
+              href="/reduce-crm-licensing-costs"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              How to cut CRM licensing costs →
+            </Link>
+          </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0 mt-3">
+            <Link
+              href="/savings-calculator"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              Free per-seat savings calculator →
+            </Link>
+          </p>
         </div>
       </div>
     </aside>

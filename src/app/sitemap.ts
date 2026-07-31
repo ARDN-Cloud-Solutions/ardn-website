@@ -281,6 +281,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.85,
     },
     {
+        // Wedge companion to the Salesforce seat-cost compare page — the
+        // HubSpot-first version, filling the Salesforce/HubSpot asymmetry.
+        url: `${BASE_URL}/compare/hubspot-seat-cost-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Wedge PILLAR: "how to cut CRM licensing costs" decision framework.
         // Anchors the cost-reduction content cluster (problem-intent head term),
         // distinct from the portal product page and the seat-cost comparison.

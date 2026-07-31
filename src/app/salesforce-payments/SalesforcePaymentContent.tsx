@@ -87,6 +87,14 @@ export default function SalesforcePaymentContent() {
               <Link href="/our-products" className="btn btn-secondary btn-lg">Browse other products</Link>
             </div>
           </div>
+          <p className="body mt-4" style={{ fontSize: "15px" }}>
+            Selling online too?{" "}
+            <Link href="/storefronts" className="link">Salesforce-native ecommerce storefront →</Link>
+            {"  ·  "}
+            <Link href="/custom-ecommerce-development" className="link">custom ecommerce build →</Link>
+            {"  ·  "}
+            <Link href="/reduce-crm-licensing-costs" className="link">cut the CRM seat costs around it →</Link>
+          </p>
         </div>
       </section>
 

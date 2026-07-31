@@ -163,7 +163,8 @@ export default function CustomPortalDevelopmentPage() {
         "@id": "https://ardncloudsolutions.com/custom-portal-development#breadcrumb",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
-          { "@type": "ListItem", position: 2, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
+          { "@type": "ListItem", position: 2, name: "Custom Software Development", item: "https://ardncloudsolutions.com/custom-software-development" },
+          { "@type": "ListItem", position: 3, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
         ],
       },
     ],
@@ -213,6 +214,9 @@ export default function CustomPortalDevelopmentPage() {
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
+                  <p className="body" style={{ marginTop: "6px", fontSize: "13px", color: "#6b7280" }}>
+                    No catch — you pay only the flat monthly subscription once it&rsquo;s live.
+                  </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
                   </p>
@@ -247,6 +251,7 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Partner &amp; reseller portal (external users) →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>

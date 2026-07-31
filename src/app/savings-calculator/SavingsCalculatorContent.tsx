@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
@@ -77,6 +78,29 @@ export default function SavingsCalculatorContent() {
   const [budget, setBudget] = useState(4500);
   const [modalOpen, setModalOpen] = useState(false);
 
+  // "CRM seats" mode — the per-seat calculator the wedge pages promise
+  // ("run your own per-seat savings numbers"). Models light-user seat spend on
+  // Salesforce/HubSpot vs. a flat-fee portal, distinct from the whole-stack
+  // consolidation model above. Rates default to publicly listed per-seat
+  // ranges (illustrative) and remain user-editable.
+  const [mode, setMode] = useState<"stack" | "seats">("stack");
+  const [crm, setCrm] = useState("Salesforce");
+  const [lightUsers, setLightUsers] = useState(40);
+  const [seatRate, setSeatRate] = useState(165);
+
+  function selectCrm(value: string) {
+    setCrm(value);
+    // Prefill a typical list per-seat rate; the user can override it.
+    if (value === "Salesforce") setSeatRate(165);
+    else if (value === "HubSpot") setSeatRate(90);
+    else setSeatRate(100);
+  }
+
+  const seatMonthly = Math.max(0, lightUsers * seatRate);
+  const seatBaseline = seatMonthly <= 6000 ? 3000 : seatMonthly <= 15000 ? 4500 : 12000;
+  const seatSavings = seatMonthly - seatBaseline;
+  const seatYr1 = seatSavings * 12;
+
   const currentTools = TOOLS_DATA[selectedIndustry];
   const toolTotal = currentTools.reduce((s, t) => s + t.cost, 0);
   const total = Math.max(toolTotal, budget);
@@ -102,7 +126,7 @@ export default function SavingsCalculatorContent() {
       <section className="sc-hero">
         <div className="sc-hero-inner">
           <div>
-            <div className="sc-hero-eyebrow">Maximum Business Impact</div>
+            <div className="sc-hero-eyebrow">Free Software &amp; Per-Seat Savings Calculator</div>
             <h1 className="sc-h1">
               Stop Paying Per Seat.<br />
               <em>Own Your Stack.</em>
@@ -152,6 +176,107 @@ export default function SavingsCalculatorContent() {
               <div className="sc-calc-header-badge">Free</div>
             </div>
             <div className="sc-calc-body">
+              {/* Mode toggle: whole-stack consolidation vs. per-seat CRM math */}
+              <div className="sc-calc-field">
+                <div style={{ display: "flex", gap: "6px", background: "var(--sc-surface)", padding: "4px", borderRadius: "var(--sc-r)" }}>
+                  <button
+                    type="button"
+                    onClick={() => setMode("stack")}
+                    style={{
+                      flex: 1, padding: "8px 10px", fontSize: "13px", fontWeight: 600,
+                      fontFamily: "inherit", cursor: "pointer", borderRadius: "calc(var(--sc-r) - 2px)",
+                      border: "none",
+                      background: mode === "stack" ? "white" : "transparent",
+                      color: mode === "stack" ? "var(--sc-blue)" : "var(--sc-text-2)",
+                      boxShadow: mode === "stack" ? "0 1px 2px rgba(0,0,0,0.06)" : "none",
+                    }}
+                  >
+                    Whole software stack
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setMode("seats")}
+                    style={{
+                      flex: 1, padding: "8px 10px", fontSize: "13px", fontWeight: 600,
+                      fontFamily: "inherit", cursor: "pointer", borderRadius: "calc(var(--sc-r) - 2px)",
+                      border: "none",
+                      background: mode === "seats" ? "white" : "transparent",
+                      color: mode === "seats" ? "var(--sc-blue)" : "var(--sc-text-2)",
+                      boxShadow: mode === "seats" ? "0 1px 2px rgba(0,0,0,0.06)" : "none",
+                    }}
+                  >
+                    CRM seats
+                  </button>
+                </div>
+              </div>
+
+              {mode === "seats" ? (
+                <>
+                  <div className="sc-calc-field">
+                    <label className="sc-calc-label">Which CRM?</label>
+                    <select
+                      className="sc-calc-input"
+                      value={crm}
+                      onChange={(e) => selectCrm(e.target.value)}
+                    >
+                      <option value="Salesforce">Salesforce</option>
+                      <option value="HubSpot">HubSpot</option>
+                      <option value="Other">Other CRM</option>
+                    </select>
+                  </div>
+                  <div className="sc-calc-row" style={{ display: "flex", gap: "12px" }}>
+                    <div className="sc-calc-field" style={{ flex: 1 }}>
+                      <label className="sc-calc-label"># of light users</label>
+                      <input
+                        type="number"
+                        className="sc-calc-input"
+                        value={lightUsers}
+                        min={1}
+                        step={1}
+                        onChange={(e) => setLightUsers(parseInt(e.target.value) || 0)}
+                      />
+                    </div>
+                    <div className="sc-calc-field" style={{ flex: 1 }}>
+                      <label className="sc-calc-label">Cost per seat ($/mo)</label>
+                      <input
+                        type="number"
+                        className="sc-calc-input"
+                        value={seatRate}
+                        min={0}
+                        step={5}
+                        onChange={(e) => setSeatRate(parseInt(e.target.value) || 0)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sc-calc-sep" />
+
+                  <div className="sc-calc-tools-label">Light users on full {crm} seats</div>
+                  <div className="sc-calc-tool">
+                    <span className="sc-calc-tool-name">{lightUsers} seats × ${seatRate.toLocaleString()}/mo</span>
+                    <span className="sc-calc-tool-cost">${seatMonthly.toLocaleString()}/mo</span>
+                  </div>
+                  <div className="sc-calc-tool">
+                    <span className="sc-calc-tool-name">Flat-fee custom portal</span>
+                    <span className="sc-calc-tool-cost">${seatBaseline.toLocaleString()}/mo</span>
+                  </div>
+                  <div className="sc-calc-total">
+                    <span style={{ color: "var(--sc-text-2)" }}>Est. monthly savings</span>
+                    <span style={{ color: seatSavings > 0 ? "var(--sc-green, #16a34a)" : "var(--sc-text)", fontWeight: 700 }}>
+                      {seatSavings > 0 ? `$${seatSavings.toLocaleString()}/mo` : "Break even"}
+                    </span>
+                  </div>
+                  {seatYr1 > 0 && (
+                    <p className="body" style={{ fontSize: "13px", color: "var(--sc-text-2)", marginTop: "8px" }}>
+                      ≈ ${seatYr1.toLocaleString()}/year by moving {lightUsers} light {crm} users off per-seat licenses onto one flat-fee portal. Illustrative — <Link href="/reduce-crm-licensing-costs" style={{ color: "var(--sc-blue)", fontWeight: 600 }}>see the method</Link>.
+                    </p>
+                  )}
+                  <a href="#quote" className="sc-calc-submit" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>
+                    Email me this breakdown →
+                  </a>
+                </>
+              ) : (
+              <>
               {/* Industry selector */}
               <div className="sc-calc-field">
                 <label className="sc-calc-label">Select your industry</label>
@@ -213,10 +338,14 @@ export default function SavingsCalculatorContent() {
               <button className="sc-calc-submit" onClick={() => setModalOpen(true)}>
                 Calculate My Savings →
               </button>
+              </>
+              )}
             </div>
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* ── STATS ROW ───────────────────────────────────────────────── */}
       <div className="sc-stats-row">

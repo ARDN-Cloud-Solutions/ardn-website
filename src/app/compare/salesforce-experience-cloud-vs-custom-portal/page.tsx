@@ -217,6 +217,45 @@ export default function ExperienceCloudVsCustomPortalPage() {
           </div>
         </section>
 
+        {/* BREAKEVEN / CROSSOVER — the honest math no conflicted partner plots:
+            at what external-user count does per-member Experience Cloud pricing
+            pass a flat-fee portal? Numbers are illustrative list-price ranges,
+            explicitly labeled, and defer to the calculator for real figures. */}
+        <section className="section" id="breakeven">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The crossover point</span>
+                <h2 className="h1 mt-3">Where a flat fee <em>starts winning.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Per-member pricing is cheap at a handful of users and expensive at scale. A flat-fee portal is the opposite. The question is only where they cross — and that depends on your member count and tier.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Active external users</th>
+                    <th>Experience Cloud, member-based (illustrative)</th>
+                    <th>Flat-fee custom portal</th>
+                    <th>Cheaper</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">100</td><td>~$500–$3,500/mo</td><td>Flat monthly fee</td><td>Usually Experience Cloud</td></tr>
+                  <tr><td className="feat">500</td><td>~$2,500–$17,500/mo</td><td>Flat monthly fee</td><td>Depends on tier</td></tr>
+                  <tr><td className="feat">1,000</td><td>~$5,000–$35,000/mo</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Flat monthly fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Usually the portal</td></tr>
+                  <tr><td className="feat">5,000+</td><td>~$25,000–$175,000/mo</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Same flat fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>The portal, by a wide margin</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Illustrative only, not a quote. The Experience Cloud column spans roughly $5/member/mo (Customer Community list) to $35/member/mo (external-app tiers, list) — your real rate depends on edition, activity, and contract. The portal column is Ardn&apos;s flat monthly subscription ($3,000–$12,000+/mo by scope), which does <em>not</em> move with headcount. The takeaway isn&apos;t a fixed number — it&apos;s the shape: per-member cost climbs with every user, a flat fee doesn&apos;t. <Link href="/savings-calculator" className="link">Run your own member count →</Link>
+            </p>
+          </div>
+        </section>
+
         {/* WHEN EACH WINS */}
         <section className="section is-canvas" id="when">
           <div className="container">

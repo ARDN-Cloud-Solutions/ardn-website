@@ -61,6 +61,7 @@ export const metadata: Metadata = {
     description:
       "Free 60-second calculator. See exactly what your business overpays for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a custom Ardn platform costs instead.",
     site: "@ardn_cloud_sol",
+    images: ["/images/ardn-home-hero.webp"],
   },
 };
 

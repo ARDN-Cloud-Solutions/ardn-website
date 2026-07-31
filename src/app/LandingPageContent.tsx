@@ -23,16 +23,21 @@ export default function LandingPageContent() {
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
-              {/* AI-first hero card: spotlights AI Forge (the flagship) with the
-                  free-build offer, then points to the wider suite as secondary
-                  so the page reads focused rather than scattered. */}
+              {/* Wedge-first hero card: leads with the #1 go-to-market play —
+                  cutting per-seat CRM costs with a custom portal ("keep your
+                  CRM, cut the bill") — since that is the highest-intent money
+                  message. AI Forge and the rest of the suite follow as the
+                  wider capability set, keeping AI as one capability, not the
+                  brand lead. */}
               <div className="card" style={{ padding: "28px" }}>
-                <div className="kicker">Flagship · AI Forge</div>
-                <p className="body mt-3" style={{ marginBottom: "12px" }}>A custom AI app built around your exact workflow — designed, built, hosted, and improved for you. Live in 2–6 weeks, one flat monthly fee.</p>
+                <div className="kicker">Cut per-seat CRM costs</div>
+                <p className="body mt-3" style={{ marginBottom: "12px" }}>Paying full Salesforce or HubSpot seats for people who barely use them? We move light users onto a custom portal wired into your CRM — one flat fee instead of a license each. Keep your CRM. Cut the bill.</p>
                 <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
-                <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
+                <Link href="/custom-portal-development" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>See how it works →</Link>
+                {"  ·  "}
+                <Link href="/savings-calculator" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Run your savings →</Link>
                 <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
-                  Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
+                  Plus a full suite — AI Forge, Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
                 </p>
               </div>
             </aside>
