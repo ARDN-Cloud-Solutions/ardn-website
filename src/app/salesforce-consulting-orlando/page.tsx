@@ -9,9 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // (Calendly), single conversion path, no in-page distractions.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+    "Orlando Salesforce Consulting & Managed Services | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services from a Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform for YMCAs, gyms, and clubs. Book a free 30-minute call with an Orlando senior consultant — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services from an Orlando team with 30+ years' expertise. Book a free 30-min call.",
   keywords: [
     "Salesforce consultant Orlando",
     "Salesforce consulting Florida",

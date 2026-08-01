@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import WedgeProof from "@/components/common/WedgeProof";
 
 // WEDGE spoke page: custom PARTNER / VENDOR / DISTRIBUTOR portals. Distinct from
 // /custom-portal-development (general seller/ops/customer portals) — this page
@@ -185,6 +186,7 @@ export default function CustomPartnerPortalDevelopmentPage() {
                   <span className="badge">Integrates with your CRM</span>
                   <span className="badge is-emerald">Flat fee, not per-login</span>
                   <span className="badge is-canvas">No rip-and-replace</span>
+                  <span className="badge">Live in 2&ndash;6 weeks</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
@@ -202,7 +204,7 @@ export default function CustomPartnerPortalDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free.
+                    🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
@@ -239,6 +241,8 @@ export default function CustomPartnerPortalDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Compare Experience Cloud vs. a custom portal →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot per-seat cost math →</Link>
+              <Link href="/license-guard" className="link">Reclaim dormant Salesforce &amp; Partner Community logins with License Guard →</Link>
               <Link href="/custom-portal-development" className="link">Also see internal seller, ops &amp; customer portals →</Link>
             </div>
           </div>
@@ -319,7 +323,9 @@ export default function CustomPartnerPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Partner Portal Development page" heading="See what your partner logins cost you" showSeatQualifiers sub="Tell us which CRM you run and roughly how many partners have access. We'll come back with where a portal cuts your per-login costs — and a fixed quote." />
+        <WedgeProof />
+
+        <LeadForm source="Custom Partner Portal Development page" heading="See what your partner logins cost you" showSeatQualifiers submitLabel="Send me my savings breakdown" sub="Tell us which CRM you run and roughly how many partners have access. We'll come back with where a portal cuts your per-login costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

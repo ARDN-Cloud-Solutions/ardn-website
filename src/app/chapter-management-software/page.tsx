@@ -230,6 +230,7 @@ export default function ChapterManagementSoftwarePage() {
               <Link href="/membership-management" className="link">Running a gym, studio, or association instead? See Membership Management →</Link>
               <Link href="/custom-portal-development" className="link">Paying per-seat AMS fees for volunteer officers? Give them a portal instead →</Link>
               <Link href="/savings-calculator" className="link">Calculate what per-member &amp; per-seat fees cost you →</Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">See how per-member &amp; per-seat fees add up — and how to cut them →</Link>
             </div>
           </div>
         </section>

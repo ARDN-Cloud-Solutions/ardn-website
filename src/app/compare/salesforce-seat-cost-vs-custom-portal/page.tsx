@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import WedgeProof from "@/components/common/WedgeProof";
 
 // SEO: fills a validated content gap — buyers researching "reduce Salesforce
 // license costs" / "cut CRM per-seat costs" find either (a) license-audit
@@ -347,6 +348,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Paying per-login for partners &amp; dealers? See custom partner portals →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
             </div>
           </div>
@@ -375,7 +377,9 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
           </div>
         </section>
 
-        <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
+        <WedgeProof />
+
+        <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers submitLabel="Send me my savings breakdown" sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

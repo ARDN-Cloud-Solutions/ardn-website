@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import AiAppDevelopmentContent from "./AiAppDevelopmentContent";
 
 export const metadata: Metadata = {
-  title: "AI App Development for Business: The Complete 2026 Buyer's Guide | Ardn Cloud Solutions",
+  title: "AI App Development for Business (2026 Guide) | Ardn",
   description:
-    "How much does an AI app cost? Build vs buy vs outsource? Why 80% of AI projects fail. The complete 2026 buyer's guide to AI app development for business — pricing, timelines, vendor selection, and ROI.",
+    "The complete 2026 buyer's guide to AI app development for business — cost, build vs. buy vs. outsource, timelines, vendor selection & ROI.",
   keywords: [
     "AI app development",
     "AI app cost",

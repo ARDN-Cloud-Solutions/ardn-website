@@ -581,6 +581,10 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/custom-software-development">What we build to replace seats →</Link>
             {" · "}
+            <Link href="/custom-partner-portal-development">Cut per-login partner &amp; dealer seats →</Link>
+            {" · "}
+            <Link href="/compare/salesforce-experience-cloud-vs-custom-portal">Experience Cloud vs. custom portal cost →</Link>
+            {" · "}
             <Link href="/license-guard">Reclaim dormant Salesforce seats first →</Link>
           </p>
         </div>
@@ -692,6 +696,16 @@ export default function SavingsCalculatorContent() {
               </Link>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
+              </div>
+              <div className="sc-modal-fine" style={{ marginTop: "10px" }}>
+                Not ready to talk?{" "}
+                <a
+                  href="#quote"
+                  onClick={() => setModalOpen(false)}
+                  style={{ color: "var(--sc-accent, #4840E0)", fontWeight: 600 }}
+                >
+                  Email me the breakdown instead →
+                </a>
               </div>
             </div>
           </div>
