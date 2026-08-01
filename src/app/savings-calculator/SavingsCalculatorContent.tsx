@@ -115,7 +115,7 @@ export default function SavingsCalculatorContent() {
             <div className="sc-hero-checks">
               {[
                 "No per-user, per-seat, or per-location fees",
-                "Built in 3–4 weeks · Fixed quote within 48 hours",
+                "Built in 2–6 weeks · Fixed quote within 48 hours",
                 "HIPAA-ready architecture included",
                 "30+ years enterprise software experience",
                 "You own the IP and data outright",
@@ -133,7 +133,7 @@ export default function SavingsCalculatorContent() {
                   document.getElementById("sc-calculator")?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Calculate My Savings →
+                See the calculator ↓
               </button>
               <Link
                 href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
@@ -257,7 +257,7 @@ export default function SavingsCalculatorContent() {
               {
                 num: "Step 02",
                 title: "Build",
-                desc: "Our team builds your custom platform in 3–4 weeks with weekly demos. You're never in the dark.",
+                desc: "Our team builds your custom platform in 2–6 weeks with weekly demos. You're never in the dark.",
               },
               {
                 num: "Step 03",
@@ -517,7 +517,7 @@ export default function SavingsCalculatorContent() {
                 "All locations covered — no per-location fees ever",
                 "Unlimited users — no per-seat charges",
                 "HIPAA-ready architecture built in",
-                "Built in 3–4 weeks from signed agreement",
+                "Built in 2–6 weeks from signed agreement",
                 "Weekly demos — never a month of silence",
                 "Hosting, updates & security all included",
                 "You own the IP and all your data outright",

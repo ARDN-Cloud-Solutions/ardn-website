@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke — bottom-of-funnel persona page for "move light users off
+        // Salesforce". Owns the segmentation decision (who stays on Salesforce,
+        // who moves to a flat-fee portal); the least-contested term in the wedge.
+        url: `${BASE_URL}/move-light-users-off-salesforce`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -379,6 +379,8 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/move-light-users-off-salesforce" className="link">On Salesforce? See how to move light users off seats →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut per-login Partner Community &amp; Experience Cloud seat costs →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
@@ -422,7 +424,10 @@ export default function ReduceCrmLicensingCostsPage() {
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/custom-portal-development" className="btn btn-outline-light btn-lg">Explore custom portals</Link>
               </div>
-              <p style={{ marginTop: "20px" }}>
+              <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                New customers pay nothing for the build — the flat monthly fee only starts once it&apos;s live.
+              </p>
+              <p style={{ marginTop: "12px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
               </p>
             </div>

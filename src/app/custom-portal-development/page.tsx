@@ -247,9 +247,11 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/move-light-users-off-salesforce" className="link">On Salesforce? See how to move light users off seats →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Need an external partner or reseller portal? →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
-              <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal: the cost math →</Link>
             </div>
           </div>
         </section>
@@ -343,7 +345,7 @@ export default function CustomPortalDevelopmentPage() {
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
-                Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
+                New customers pay nothing for the build — the flat monthly fee only starts once it&apos;s live. Same three tiers power every build: Launch, Scale, and Enterprise. No per-seat pricing, ever.
               </p>
               <p style={{ marginTop: "8px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
