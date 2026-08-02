@@ -290,6 +290,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge spoke extending the per-seat cost-reduction play onto the
+        // Microsoft ecosystem (Dynamics 365 + Power Platform / Power Pages).
+        url: `${BASE_URL}/reduce-dynamics-365-licensing-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

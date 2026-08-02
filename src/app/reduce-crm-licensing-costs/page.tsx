@@ -89,6 +89,14 @@ const FAQS = [
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
+  {
+    q: "What is the difference between a Salesforce Platform license and a full license?",
+    a: "A Platform license lets a user work with custom apps and core objects but not the full Sales or Service Cloud feature set, so Salesforce sells it well below a full seat — a common list gap is roughly $25/user/month for Platform versus about $165 for Sales Cloud Enterprise (list prices, illustrative). Downgrading light users to Platform is a real saving, but it is still a per-seat license with capped access. If a user only needs a narrow slice of data and workflow, a flat-fee custom portal removes the per-seat cost entirely rather than just lowering it.",
+  },
+  {
+    q: "Do read-only or view-only users need a full CRM license?",
+    a: "No. Users who only look up records or update a single field are the clearest case of overpaying, because a seat priced for a power user delivers almost no extra value to them. Some CRMs offer reduced read-only or view-only tiers, but those are still per-seat and still capped. Moving read-only and light users to a custom portal wired into your CRM gives them exactly the view they need on one flat fee — and takes the seat off the bill completely while the CRM stays the system of record.",
+  },
 ];
 
 const levers = [
@@ -380,6 +388,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-dynamics-365-licensing-costs" className="link">On Microsoft? Cut Dynamics 365 &amp; Power Platform costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>

@@ -108,9 +108,9 @@ export default function SavingsCalculatorContent() {
               <em>Own Your Stack.</em>
             </h1>
             <p className="sc-hero-sub">
-              Ardn Cloud Solutions replaces Mindbody, Zenoti, Salesforce, and your entire
-              fragmented software stack with one custom platform. Flat monthly rate. No
-              per-user fees. You own it forever.
+              Ardn Cloud Solutions replaces or offloads Mindbody, Zenoti, Salesforce seats,
+              and your fragmented software stack with one custom platform — keep the CRM you
+              rely on and move light users to a flat monthly rate. No per-user fees.
             </p>
             <div className="sc-hero-checks">
               {[

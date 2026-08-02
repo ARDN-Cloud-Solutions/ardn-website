@@ -32,7 +32,7 @@ image_alt: "Build vs. buy: CRM portal for light users — ARDN Cloud Solutions"
 <h2>How to actually decide</h2>
 <p>The decision comes down to two questions: how standard is the workflow, and how much does usage grow over time? A simple, static need with few users can reasonably start with a no-code tool. A workflow specific to your business, or a user base (clients, partners, seasonal staff) that grows independently of your core team, is where a flat-fee custom build pays for itself — because the alternative's cost line keeps moving with something you don't control.</p>
 
-<p>See the deeper comparison against no-code specifically in <a href="https://cms.ardncloudsolutions.com/custom-portal-vs-nocode-tool/">custom portal vs. no-code tool</a>. To scope what a custom build costs for your situation, see <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal development</a> or run your numbers through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>See the deeper comparison against no-code specifically in <a href="https://ardncloudsolutions.com/blog/custom-portal-vs-nocode-tool">custom portal vs. no-code tool</a>. To scope what a custom build costs for your situation, see <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal development</a> or run your numbers through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

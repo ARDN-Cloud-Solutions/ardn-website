@@ -31,7 +31,7 @@ image_alt: "Patient portal software: per-seat costs vs. a custom build — ARDN 
 <h2>Compliance and access control still come first</h2>
 <p>Nothing about moving to a flat-fee model changes the access-control and data-handling standards a patient-facing tool has to meet. A custom build is scoped to the same standard the practice already applies to protected health information, not a generic vendor default — this is a design requirement from day one of the build, not an afterthought.</p>
 
-<p>Compare the broader build-vs-license tradeoff at <a href="https://ardncloudsolutions.com/compare/custom-software-vs-saas">custom software vs. SaaS: total cost compared</a>. The client-facing pattern here parallels what's covered for a different regulated industry in <a href="https://cms.ardncloudsolutions.com/insurance-client-portal-cost/">a client portal for insurance without per-seat fees</a>.</p>
+<p>Compare the broader build-vs-license tradeoff at <a href="https://ardncloudsolutions.com/compare/custom-software-vs-saas">custom software vs. SaaS: total cost compared</a>. The client-facing pattern here parallels what's covered for a different regulated industry in <a href="https://ardncloudsolutions.com/blog/insurance-client-portal-cost">a client portal for insurance without per-seat fees</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

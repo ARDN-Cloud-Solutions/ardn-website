@@ -9,7 +9,7 @@ image_alt: "A CFO's guide to cutting software costs without losing capability �
 <p>The instinct when software spend is under scrutiny is to cut seats or cancel tools — a blunt approach that risks cutting capability a team actually needs. The sturdier framework separates cost reduction into three distinct moves, each with a different risk profile, and applies them in order.</p>
 
 <h2>Move 1: Audit before you cut anything</h2>
-<p>You can't right-size what you haven't measured. Pull license counts, last-login data, and feature usage across your major SaaS contracts — CRM, helpdesk, project management, whatever else bills per seat. This step alone often surfaces dormant licenses and duplicate tools nobody flagged. See the step-by-step version in <a href="https://cms.ardncloudsolutions.com/how-to-do-a-saas-spend-audit/">how to run a SaaS spend audit</a>.</p>
+<p>You can't right-size what you haven't measured. Pull license counts, last-login data, and feature usage across your major SaaS contracts — CRM, helpdesk, project management, whatever else bills per seat. This step alone often surfaces dormant licenses and duplicate tools nobody flagged. See the step-by-step version in <a href="https://ardncloudsolutions.com/blog/how-to-do-a-saas-spend-audit">how to run a SaaS spend audit</a>.</p>
 
 <h2>Move 2: Right-size within existing contracts</h2>
 <p>Before touching the tools themselves, match every user to the cheapest license tier that still covers their actual work. Most CRM and support platforms sell limited or view-only tiers below the full seat price — often unused simply because nobody mapped who needs what. This recovers real savings without changing anyone's workflow.</p>

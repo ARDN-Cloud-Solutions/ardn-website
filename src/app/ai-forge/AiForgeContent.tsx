@@ -556,6 +556,11 @@ export default function AiForgeContent() {
             <strong style={{ color: "var(--af-primary)" }}>service credits</strong> (our
             engineering time for new features, changes, and support).
           </p>
+          <p className="af-section-sub" style={{ marginTop: "-8px", fontWeight: 600 }}>
+            The same three tiers power every build — custom{" "}
+            <Link href="/custom-portal-development" style={{ color: "var(--af-accent)", textDecoration: "underline" }}>portals</Link>,{" "}
+            <Link href="/custom-software-development" style={{ color: "var(--af-accent)", textDecoration: "underline" }}>software &amp; platforms</Link>, and AI apps. No per-seat pricing, ever.
+          </p>
 
           {/* CRO: offer banner sits directly above the tiers so the build-fee
               waiver is anchored at the exact moment of price evaluation.
@@ -791,6 +796,14 @@ export default function AiForgeContent() {
             <Link href="/ai-app-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See custom AI app development →</Link>
             {" · "}
             <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Back to custom software &amp; platforms →</Link>
+          </p>
+          <p style={{ marginTop: "12px", fontSize: "14px" }}>
+            <span style={{ color: "rgba(255,255,255,0.6)" }}>Paying per-seat for software your team barely uses? </span>
+            <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline", fontWeight: 600 }}>Cut per-seat CRM licensing costs →</Link>
+            {" · "}
+            <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline", fontWeight: 600 }}>Calculate your savings →</Link>
+            {" · "}
+            <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline", fontWeight: 600 }}>Custom portal that replaces paid seats →</Link>
           </p>
         </div>
       </section>
