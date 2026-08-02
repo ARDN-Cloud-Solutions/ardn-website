@@ -12,7 +12,7 @@ image_alt: "How to negotiate your Salesforce renewal — ARDN Cloud Solutions"
 <p>Negotiating leverage comes from having time to act on what you find — if you're auditing seats the week before renewal, you have no room to actually deactivate or migrate anyone before the deadline. Give yourself at least a full quarter.</p>
 
 <h2>1. Run the audit first</h2>
-<p>You can't negotiate from a position of strength without your own usage data. Pull last-login dates, license-type assignments, and feature usage where available. Our <a href="https://ardncloudsolutions.com/license-guard">License Guard</a> app automates the dormant-seat scan on Salesforce if you don't want to build the report by hand; the full audit process is in our <a href="https://cms.ardncloudsolutions.com/salesforce-license-audit-checklist/">Salesforce license audit checklist</a>.</p>
+<p>You can't negotiate from a position of strength without your own usage data. Pull last-login dates, license-type assignments, and feature usage where available. Our <a href="https://ardncloudsolutions.com/license-guard">License Guard</a> app automates the dormant-seat scan on Salesforce if you don't want to build the report by hand; the full audit process is in our <a href="/blog/salesforce-license-audit-checklist">Salesforce license audit checklist</a>.</p>
 
 <h2>2. Know your real number, not the list price</h2>
 <p>List price is a starting point for the vendor, not the number you should expect to pay. Multi-year deals, competitive pressure, and your own usage trend (flat or shrinking active-user count vs. growing) all move the number. Come in knowing exactly how many seats you actually need — not how many you're currently paying for.</p>
@@ -42,7 +42,7 @@ image_alt: "How to negotiate your Salesforce renewal — ARDN Cloud Solutions"
 </table>
 
 <h2>What negotiation can't fix</h2>
-<p>Negotiation moves the per-seat rate. It doesn't change the fact that per-seat pricing scales with headcount forever — a great renewal this year doesn't stop the bill from climbing again in three years as you hire. For the structural fix, see the full framework in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>, which covers moving light users to a flat-fee portal so the number stops growing with your team.</p>
+<p>Negotiation moves the per-seat rate. It doesn't change the fact that per-seat pricing scales with headcount forever — a great renewal this year doesn't stop the bill from climbing again in three years as you hire. For the structural fix, see <a href="/reduce-salesforce-costs">how to reduce Salesforce license costs</a> and the cross-CRM framework in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to cut CRM licensing costs</a>, which cover moving light users to a flat-fee portal so the number stops growing with your team.</p>
 
 <h2>Frequently asked questions</h2>
 

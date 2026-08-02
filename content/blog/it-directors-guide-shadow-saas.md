@@ -38,7 +38,7 @@ image_alt: "An IT director's guide to finding and consolidating shadow SaaS — 
 <h2>Step 5: Close the loop so shadow SaaS doesn't come back</h2>
 <p>Discovery without an ongoing process just resets to zero at the next renewal cycle. Put a recurring quarterly pull of the same three sources on the calendar, and route new tool requests through a lightweight approval step instead of a full procurement gate that pushes people back to buying quietly.</p>
 
-<p>For the cost mechanics behind why this matters, see <a href="https://cms.ardncloudsolutions.com/shadow-it-mid-market-cost/">shadow IT: the per-seat cost you're not tracking</a>. To put a number on a specific consolidation, use the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, or see how continuous license monitoring works with <a href="https://ardncloudsolutions.com/license-guard">License Guard</a>.</p>
+<p>For the cost mechanics behind why this matters, see <a href="/blog/shadow-it-mid-market-cost">shadow IT: the per-seat cost you're not tracking</a>. To put a number on a specific consolidation, use the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, or see how continuous license monitoring works with <a href="https://ardncloudsolutions.com/license-guard">License Guard</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

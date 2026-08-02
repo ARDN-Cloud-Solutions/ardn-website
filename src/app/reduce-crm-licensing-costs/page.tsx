@@ -14,7 +14,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "How to Cut CRM & Per-Seat License Costs | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -238,7 +238,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
               For scale: a full Salesforce Sales Cloud Enterprise seat lists at
-              roughly $165/user/month, and Experience Cloud external users bill
+              roughly $175/user/month, and Experience Cloud external users bill
               per login or per member on top. A flat-fee portal costs the same at
               10 light users or 400. (List prices shown for illustration only —{" "}
               <Link href="/savings-calculator" className="link">run the calculator</Link> for your own negotiated rate.)
@@ -379,6 +379,8 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/reduce-salesforce-costs" className="link">Reduce Salesforce license costs →</Link>
+              <Link href="/reduce-hubspot-costs" className="link">Reduce HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
@@ -405,6 +407,23 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — real, on-strategy quote (cost-saving approach) */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

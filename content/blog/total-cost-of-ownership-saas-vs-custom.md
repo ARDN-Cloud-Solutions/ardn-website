@@ -41,7 +41,7 @@ image_alt: "Total cost of ownership: SaaS add-ons vs. custom-built software — 
 <h2>Why the comparison usually gets run too late</h2>
 <p>Most companies run this comparison only after a SaaS renewal shock, when the honest answer is that the crossover point should be checked before signing a multi-year contract, not after the third price increase. Building the TCO model at procurement time — even roughly — changes which contract terms are worth pushing back on.</p>
 
-<p>For the internal audit process that feeds real numbers into a TCO model, see <a href="https://cms.ardncloudsolutions.com/how-to-do-a-saas-spend-audit/">how to run a SaaS spend audit</a>, or scope a <a href="https://ardncloudsolutions.com/custom-software-development">custom build</a> against a specific SaaS tool you're evaluating.</p>
+<p>For the internal audit process that feeds real numbers into a TCO model, see <a href="/blog/how-to-do-a-saas-spend-audit">how to run a SaaS spend audit</a>, or scope a <a href="https://ardncloudsolutions.com/custom-software-development">custom build</a> against a specific SaaS tool you're evaluating.</p>
 
 <h2>Frequently asked questions</h2>
 

@@ -33,7 +33,7 @@ image_alt: "Salesforce OmniStudio licensing costs explained — ARDN Cloud Solut
 </table>
 
 <h2>Where the fix actually lives</h2>
-<p>The honest comparison isn't OmniStudio vs. nothing — it's whether the specific guided process you need justifies standing up (or staying on) a full Industries Cloud edition, versus a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built guided workflow</a> that reads and writes to Salesforce via API for the teams that only need one or two specific flows. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a> for the general pattern, and <a href="https://cms.ardncloudsolutions.com/insurance-client-portal-cost/">a client portal for insurance without per-seat fees</a> for a concrete example of the vertical this often shows up in.</p>
+<p>The honest comparison isn't OmniStudio vs. nothing — it's whether the specific guided process you need justifies standing up (or staying on) a full Industries Cloud edition, versus a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built guided workflow</a> that reads and writes to Salesforce via API for the teams that only need one or two specific flows. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a> for the general pattern, and <a href="/blog/insurance-client-portal-cost">a client portal for insurance without per-seat fees</a> for a concrete example of the vertical this often shows up in.</p>
 
 <h2>Frequently asked questions</h2>
 

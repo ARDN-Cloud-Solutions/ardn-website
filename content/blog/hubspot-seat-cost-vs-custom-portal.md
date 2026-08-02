@@ -36,7 +36,7 @@ image_alt: "HubSpot seat costs vs a custom portal comparison — ARDN Cloud Solu
   <li><strong>External user (partner, customer) accessing limited data?</strong> Portal, almost always — you shouldn't be paying an internal-tier seat for someone outside the company.</li>
 </ul>
 
-<p>Run your own seat count and rate through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a> to see where the crossover point sits for your team, and read <a href="https://cms.ardncloudsolutions.com/cut-hubspot-seat-costs/">how to cut HubSpot Sales Hub seat costs</a> for the levers to pull before you migrate anyone.</p>
+<p>Run your own seat count and rate through the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a> to see where the crossover point sits for your team, and read <a href="/blog/cut-hubspot-seat-costs">how to cut HubSpot Sales Hub seat costs</a> for the levers to pull before you migrate anyone.</p>
 
 <h2>Frequently asked questions</h2>
 

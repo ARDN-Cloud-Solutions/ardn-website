@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Portal Development — Cut CRM Costs, Keep Your Tech | Ardn",
+    title: "Custom Portal Development — Cut CRM Costs | Ardn",
     description:
       "Custom portals that integrate with your CRM and cut per-seat costs without switching platforms. New customers: free build.",
     site: "@ardn_cloud_sol",
@@ -196,8 +196,8 @@ export default function CustomPortalDevelopmentPage() {
                   <span className="badge is-canvas">No rip-and-replace</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free savings call</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See what you&rsquo;d save &rarr;</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -325,6 +325,23 @@ export default function CustomPortalDevelopmentPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — real, on-strategy quote (cost-saving approach) */}
+        <section className="section is-canvas">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

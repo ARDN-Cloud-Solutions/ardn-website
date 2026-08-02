@@ -26,6 +26,19 @@ export default function FloatingCta() {
   const pathname = usePathname();
   const hideOnContact = pathname?.startsWith("/contact-us") ?? false;
 
+  // On the per-seat cost-reduction wedge pages, match the CTA to the intent
+  // (cutting the bill) rather than the generic booking prompt.
+  const wedgePaths = [
+    "/reduce-crm-licensing-costs",
+    "/reduce-salesforce-costs",
+    "/reduce-hubspot-costs",
+    "/custom-portal-development",
+    "/custom-partner-portal-development",
+    "/savings-calculator",
+  ];
+  const isWedge = wedgePaths.some((p) => pathname?.startsWith(p)) ?? false;
+  const ctaLabel = isWedge ? "Book a free savings call" : "Book a Free Call";
+
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -59,7 +72,7 @@ export default function FloatingCta() {
       style={{ boxShadow: "0 16px 32px -8px rgba(79, 67, 229, 0.5)" }}
     >
       <Calendar size={18} strokeWidth={2.5} aria-hidden />
-      <span>Book a Free Call</span>
+      <span>{ctaLabel}</span>
     </a>
   );
 }

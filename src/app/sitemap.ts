@@ -290,6 +290,23 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Salesforce-specific cost money page (branded head term "reduce
+        // Salesforce license costs"). Consolidating hub for the Salesforce cost
+        // blog cluster; distinct from the generic CRM pillar and the compare page.
+        url: `${BASE_URL}/reduce-salesforce-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // HubSpot-specific cost money page (branded head term "reduce HubSpot
+        // seat costs"). Consolidating hub for the HubSpot cost blog cluster.
+        url: `${BASE_URL}/reduce-hubspot-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

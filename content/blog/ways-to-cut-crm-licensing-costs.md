@@ -30,7 +30,7 @@ image_alt: "7 ways to cut CRM licensing costs in 2026 — ARDN Cloud Solutions"
 <p>Partners, vendors, and customers frequently end up on internal CRM licenses by default — the most expensive way possible to give an outsider limited access. Move them to a portal or an appropriate external tier so you're never paying a full internal seat for someone outside the company.</p>
 
 <h2>Which lever should you start with?</h2>
-<p>Run them roughly in order: reclaim first (free), then right-size, then move the structurally-light users to a portal for the durable win. Most teams combine several. To see what the portal move is worth for your specific seat count and rate, plug your numbers into the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a> — and if you want the step-by-step method for spotting light users, read <a href="https://cms.ardncloudsolutions.com/how-to-identify-light-crm-users/">how to tell which CRM users you're overpaying for</a>.</p>
+<p>Run them roughly in order: reclaim first (free), then right-size, then move the structurally-light users to a portal for the durable win. Most teams combine several. To see what the portal move is worth for your specific seat count and rate, plug your numbers into the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a> — and if you want the step-by-step method for spotting light users, read <a href="/blog/how-to-identify-light-crm-users">how to tell which CRM users you're overpaying for</a>.</p>
 
 <h2>Frequently asked questions</h2>
 
