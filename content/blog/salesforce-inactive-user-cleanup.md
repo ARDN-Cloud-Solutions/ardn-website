@@ -35,7 +35,7 @@ image_alt: "How to find and remove inactive Salesforce users — ARDN Cloud Solu
 </table>
 
 <h2>What this doesn't fix</h2>
-<p>Inactive-user cleanup recovers seats you're already paying for and shouldn't be — it's a maintenance task, not a structural fix. If a large share of your licensed users are active but only doing a handful of narrow tasks (checking a status, submitting a form, pulling a report), the fix is different: move them to a <a href="https://ardncloudsolutions.com/custom-portal-development">flat-fee custom portal</a> synced to Salesforce instead of a per-seat license. See the full breakdown in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, and pair this cleanup with a broader look at <a href="https://cms.ardncloudsolutions.com/how-to-identify-light-crm-users/">how to identify your light CRM users</a>.</p>
+<p>Inactive-user cleanup recovers seats you're already paying for and shouldn't be — it's a maintenance task, not a structural fix. If a large share of your licensed users are active but only doing a handful of narrow tasks (checking a status, submitting a form, pulling a report), the fix is different: move them to a <a href="https://ardncloudsolutions.com/custom-portal-development">flat-fee custom portal</a> synced to Salesforce instead of a per-seat license. See the full breakdown in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>, and pair this cleanup with a broader look at <a href="https://ardncloudsolutions.com/blog/how-to-identify-light-crm-users">how to identify your light CRM users</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

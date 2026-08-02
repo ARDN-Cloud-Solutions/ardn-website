@@ -33,7 +33,7 @@ image_alt: "Client portal costs for law firms without per-seat practice manageme
 <p>A <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built client portal</a> synced to the firm's existing practice management system delivers matter status, documents, and billing visibility on a flat monthly fee, with access controls scoped to the firm's own confidentiality standards rather than a vendor's one-size-fits-all permission tiers.</p>
 
 <h2>Related, but distinct: internal practice tooling</h2>
-<p>This covers the client-facing side. Firms carrying internal per-seat practice management licensing costs on top of this are dealing with a related but separate problem — the professional-services-wide version of it is covered in <a href="https://cms.ardncloudsolutions.com/professional-services-psa-license-cost/">PSA tool license costs for professional services firms</a>.</p>
+<p>This covers the client-facing side. Firms carrying internal per-seat practice management licensing costs on top of this are dealing with a related but separate problem — the professional-services-wide version of it is covered in <a href="https://ardncloudsolutions.com/blog/professional-services-psa-license-cost">PSA tool license costs for professional services firms</a>.</p>
 
 <p>Model the numbers for a specific client roster with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 

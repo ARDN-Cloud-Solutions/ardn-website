@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -21,6 +22,12 @@ export default function LandingPageContent() {
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                 <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
               </div>
+              <p className="body reveal reveal-d3" style={{ marginTop: "16px", fontSize: "14px" }}>
+                Paying full per-seat CRM licenses for light users?{" "}
+                <Link href="/custom-portal-development" className="link" style={{ fontWeight: 600 }}>See how a custom portal cuts the bill</Link>
+                {" · "}
+                <Link href="/savings-calculator" className="link" style={{ fontWeight: 600 }}>calculate your savings →</Link>
+              </p>
             </div>
             <aside className="hero-aside reveal reveal-d4">
               {/* AI-first hero card: spotlights AI Forge (the flagship) with the
@@ -39,6 +46,8 @@ export default function LandingPageContent() {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames

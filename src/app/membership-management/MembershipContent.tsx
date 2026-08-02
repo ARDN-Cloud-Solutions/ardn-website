@@ -319,6 +319,8 @@ export default function MembershipContent() {
               <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See what per-member fees are costing you →</Link>
             </p>
             <p style={{ marginTop: "10px" }}>
+              <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>How to cut per-seat CRM licensing costs →</Link>
+              {" · "}
               <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See every custom software &amp; platform build →</Link>
             </p>
           </div>

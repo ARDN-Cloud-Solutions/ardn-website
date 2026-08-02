@@ -5,7 +5,7 @@ import SalesforceEventTicketingContent from "./SalesforceEventTicketingContent";
 // category for associations, nonprofits, and event-driven businesses.
 export const metadata: Metadata = {
   title:
-    "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn Cloud Solutions",
+    "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn",
   description:
     "Compare the top 7 Salesforce event ticketing platforms in 2026 — Ardn Storefronts, Blackthorn.io, Fonteva Events, AC Events Enterprise, EVA, Ticketbud, and Eventbrite. Native solutions for events, registrations, and payments inside Salesforce.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn Cloud Solutions",
+      "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn",
     description:
       "Compare top Salesforce event ticketing platforms in 2026. Ardn Storefronts, Blackthorn, Fonteva Events, AC Events, EVA, Ticketbud, Eventbrite.",
     url: "https://ardncloudsolutions.com/buyers-guide/salesforce-event-ticketing-platform",
@@ -71,7 +71,7 @@ export default function Page() {
         "@type": "WebPage",
         "@id": url,
         url,
-        name: "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn Cloud Solutions",
+        name: "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn",
         description:
           "Compare top Salesforce event ticketing platforms in 2026.",
         inLanguage: "en-US",
