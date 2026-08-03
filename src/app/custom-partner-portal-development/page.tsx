@@ -261,6 +261,10 @@ export default function CustomPartnerPortalDevelopmentPage() {
                   that link: the cost is the same whether you have fifty partners
                   or five hundred, so growth stops being a line-item negotiation.
                 </p>
+                <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+                  Salesforce sells external partner access through{" "}
+                  <a href="https://www.salesforce.com/products/experience-cloud/pricing/partner-relationship-management/" target="_blank" rel="noopener noreferrer nofollow" className="link">Partner Relationship Management on Experience Cloud</a>, billed per member or per login — so the bill grows with the network. A flat-fee portal doesn&rsquo;t.
+                </p>
               </div>
               <div>
                 <ul className="fl">

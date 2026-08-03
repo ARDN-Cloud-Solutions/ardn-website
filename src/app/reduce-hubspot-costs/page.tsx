@@ -241,11 +241,13 @@ export default function ReduceHubspotCostsPage() {
               </div>
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
-              For scale: HubSpot lists paid Core seats around $50/user/month on
-              Professional, with role-specific Sales and Service seats around
-              $100/user/month, while view-only seats are free. A flat-fee portal
-              costs the same at 10 light users or 400. (List prices shown for
-              illustration only —{" "}
+              For scale:{" "}
+              <a href="https://www.hubspot.com/pricing/sales" target="_blank" rel="noopener noreferrer nofollow" className="link">HubSpot lists</a>{" "}
+              paid Core seats around $50/user/month on Professional, with
+              role-specific Sales and Service seats around $100/user/month, while
+              view-only seats are free. A flat-fee portal costs the same at 10
+              light users or 400. (List prices from HubSpot&rsquo;s own pricing
+              page, shown for illustration only —{" "}
               <Link href="/savings-calculator" className="link">run the calculator</Link> for your own plan and rate.)
             </p>
           </div>

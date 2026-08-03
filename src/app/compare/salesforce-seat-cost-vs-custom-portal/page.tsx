@@ -201,8 +201,11 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
                   </p>
                   <p className="body" style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     This is an illustration, not a quote — actual seat pricing
-                    varies by CRM, edition, and negotiated rate. Use the free
-                    calculator to run your own.
+                    varies by CRM, edition, and negotiated rate. Figures track
+                    the vendors&rsquo; own list prices (
+                    <a href="https://www.salesforce.com/sales/pricing/" target="_blank" rel="noopener noreferrer nofollow" className="link">Salesforce</a>,{" "}
+                    <a href="https://www.hubspot.com/pricing/sales" target="_blank" rel="noopener noreferrer nofollow" className="link">HubSpot</a>
+                    ). Use the free calculator to run your own.
                   </p>
                 </div>
               </aside>
@@ -346,6 +349,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-costs" className="link">On HubSpot? See how to cut HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
               <Link href="/custom-partner-portal-development" className="link">Cutting external Partner Community seats? See custom partner portals →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>

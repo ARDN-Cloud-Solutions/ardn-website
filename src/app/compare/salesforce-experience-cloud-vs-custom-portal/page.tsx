@@ -212,7 +212,7 @@ export default function ExperienceCloudVsCustomPortalPage() {
               </table>
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
-              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and use our <Link href="/savings-calculator" className="link">calculator</Link> to compare against a flat-fee portal for your own user counts.
+              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers on <a href="https://www.salesforce.com/products/experience-cloud/pricing/" target="_blank" rel="noopener noreferrer nofollow" className="link">Salesforce&rsquo;s Experience Cloud pricing page</a>, and use our <Link href="/savings-calculator" className="link">calculator</Link> to compare against a flat-fee portal for your own user counts.
             </p>
           </div>
         </section>

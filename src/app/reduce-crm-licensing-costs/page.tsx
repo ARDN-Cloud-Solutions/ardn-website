@@ -237,10 +237,13 @@ export default function ReduceCrmLicensingCostsPage() {
               </div>
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
-              For scale: a full Salesforce Sales Cloud Enterprise seat lists at
-              roughly $165/user/month, and Experience Cloud external users bill
-              per login or per member on top. A flat-fee portal costs the same at
-              10 light users or 400. (List prices shown for illustration only —{" "}
+              For scale: a full{" "}
+              <a href="https://www.salesforce.com/sales/pricing/" target="_blank" rel="noopener noreferrer nofollow" className="link">Salesforce Sales Cloud</a>{" "}
+              Enterprise seat lists at roughly $165/user/month, and{" "}
+              <a href="https://www.salesforce.com/products/experience-cloud/pricing/" target="_blank" rel="noopener noreferrer nofollow" className="link">Experience Cloud</a>{" "}
+              external users bill per login or per member on top. A flat-fee
+              portal costs the same at 10 light users or 400. (List prices from
+              the vendors&rsquo; own pages, shown for illustration only —{" "}
               <Link href="/savings-calculator" className="link">run the calculator</Link> for your own negotiated rate.)
             </p>
           </div>
