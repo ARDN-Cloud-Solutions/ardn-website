@@ -546,6 +546,7 @@ export default function SavingsCalculatorContent() {
         source="Savings Calculator page"
         heading="Email me my savings breakdown"
         showSeatQualifiers
+        submitLabel="Email me my savings breakdown"
         sub="Not ready to book a call? Tell us which CRM you run and roughly how many users, and we'll send a written per-seat savings breakdown plus a fixed quote — no obligation."
       />
 
@@ -690,6 +691,24 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              {/* Low-commitment second path at the highest-intent moment: the
+                  results modal previously dead-ended at a single high-commitment
+                  Calendly ask. This closes the modal and drops the visitor at the
+                  on-page email-capture form so warm-but-not-ready users convert. */}
+              <button
+                type="button"
+                onClick={() => {
+                  setModalOpen(false);
+                  if (typeof document !== "undefined") {
+                    document
+                      .getElementById("quote")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="sc-modal-cta-secondary"
+              >
+                Prefer not to book yet? Email me this breakdown →
+              </button>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +917,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-cta-secondary { display: block; width: 100%; text-align: center; background: transparent; color: var(--sc-cta-btn); font-size: 14px; font-weight: 600; padding: 10px; border: none; cursor: pointer; text-decoration: none; font-family: inherit; margin-bottom: 10px; }
+        .sc-modal-cta-secondary:hover { text-decoration: underline; }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */

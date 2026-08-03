@@ -236,6 +236,11 @@ export default function StorefrontsContent() {
             <Link href="/glp-1-ecommerce" style={{ color: "var(--indigo)", fontWeight: 600 }}>GLP-1 &amp; telehealth ecommerce</Link>. Comparing{" "}
             <Link href="/compare/salesforce-commerce-cloud-alternatives" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce Commerce Cloud alternatives</Link>? See how Storefronts stacks up.
           </p>
+          <p className="body" style={{ textAlign: "center", maxWidth: "720px", margin: "18px auto 0" }}>
+            Also on Salesforce and paying per-seat for light users? See how a{" "}
+            <Link href="/custom-portal-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom portal cuts CRM licensing costs</Link>{" "}
+            without a migration.
+          </p>
         </div>
       </section>
 

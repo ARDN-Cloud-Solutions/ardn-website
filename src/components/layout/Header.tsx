@@ -21,9 +21,16 @@ import Button from "@/components/ui/Button";
 
 const products = [
   { label: "AI Forge", href: "/ai-forge" },
+  { label: "Custom Software Development", href: "/custom-software-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
-  { label: "Custom Software Development", href: "/custom-software-development" },
+  { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
+  { label: "Custom AI App Development", href: "/ai-app-development" },
+  { label: "Chapter & Dues Management", href: "/chapter-management-software" },
+  { label: "GLP-1 & Telehealth Ecommerce", href: "/glp-1-ecommerce" },
+  { label: "AI for Insurance", href: "/ai-for-insurance" },
+  { label: "AI for Hospitality", href: "/ai-for-hospitality" },
+  { label: "AI for Membership Orgs", href: "/ai-for-membership-organizations" },
   {
     label: "Storefronts: All-In-One ECommerce Solution",
     href: "/storefronts",

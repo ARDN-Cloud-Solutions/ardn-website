@@ -140,6 +140,15 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             </Link>
           </p>
           <p className="body mt-2" style={{ fontSize: 15 }}>
+            New to the idea?{" "}
+            <Link
+              href="/reduce-crm-licensing-costs"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              Read the full guide to cutting Salesforce per-seat licensing costs →
+            </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 15 }}>
             Looking specifically for custom AI development in Florida?{" "}
             <Link
               href="/ai-app-development-florida"

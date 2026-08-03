@@ -74,6 +74,7 @@ const buyerGuides = [
   { label: "How to Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
   { label: "Cut Salesforce/HubSpot Seat Costs", href: "/compare/salesforce-seat-cost-vs-custom-portal" },
   { label: "Experience Cloud vs. Custom Portal", href: "/compare/salesforce-experience-cloud-vs-custom-portal" },
+  { label: "License Tools vs. Custom Portal", href: "/compare/license-optimization-tools-vs-custom-portal" },
   { label: "Custom Software vs. SaaS Cost", href: "/compare/custom-software-vs-saas" },
 ];
 

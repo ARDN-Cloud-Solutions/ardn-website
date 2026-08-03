@@ -5,11 +5,14 @@ export const metadata: Metadata = {
   title: "Custom AI Apps, Built and Run for You — Ardn Cloud Solutions",
   description:
     "We build custom AI applications to your exact specifications, then operate them as a monthly service — hosting, maintenance, AI compute, support, and ongoing feature work. One predictable bill.",
+  // Canonical points at the indexed spoke, not itself: this is a noindex
+  // duplicate, so a self-canonical sends a mixed signal. Consolidate any equity
+  // onto /ai-app-development instead.
   alternates: {
-    canonical: "https://ardncloudsolutions.com/ai-app",
+    canonical: "https://ardncloudsolutions.com/ai-app-development",
     languages: {
-      "en-US": "https://ardncloudsolutions.com/ai-app",
-      "x-default": "https://ardncloudsolutions.com/ai-app",
+      "en-US": "https://ardncloudsolutions.com/ai-app-development",
+      "x-default": "https://ardncloudsolutions.com/ai-app-development",
     },
   },
   // Orphaned duplicate of /ai-app-development (no inbound links, excluded from

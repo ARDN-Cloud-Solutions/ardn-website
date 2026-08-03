@@ -281,6 +281,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.85,
     },
     {
+        // Wedge content: "license optimization tools vs. custom portal" — targets
+        // the SaaS-management / license-optimization SERP (Zylo/Flexera-type
+        // intent) with the reporting-vs-removing-seats angle.
+        url: `${BASE_URL}/compare/license-optimization-tools-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Wedge PILLAR: "how to cut CRM licensing costs" decision framework.
         // Anchors the cost-reduction content cluster (problem-intent head term),
         // distinct from the portal product page and the seat-cost comparison.

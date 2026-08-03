@@ -3,6 +3,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Membership Platform - Ardn Cloud Solutions",
   description: "Ardn Cloud Solutions Membership Platform details.",
+  // Noindex duplicate of /membership-management — point the canonical at the
+  // indexed page so no ambiguous self-reference competes with it.
+  alternates: {
+    canonical: "https://ardncloudsolutions.com/membership-management",
+  },
   robots: {
     index: false,
     follow: false,

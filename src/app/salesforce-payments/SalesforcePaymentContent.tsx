@@ -188,6 +188,22 @@ export default function SalesforcePaymentContent() {
         </div>
       </section>
 
+      {/* Wedge cross-link — Salesforce Payments visitors are Salesforce
+           customers, the exact ICP for the per-seat cost-reduction wedge.
+           Funnels equity into the money pages instead of dead-ending. */}
+      <section className="section-tight is-canvas">
+        <div className="container">
+          <p className="body" style={{ textAlign: "center", maxWidth: "760px", margin: "0 auto" }}>
+            Paying full Salesforce seats for light users who barely log in? We build{" "}
+            <Link href="/custom-portal-development" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom portals that cut per-seat CRM costs</Link>{" "}
+            without switching platforms — see the{" "}
+            <Link href="/reduce-crm-licensing-costs" style={{ color: "var(--indigo)", fontWeight: 600 }}>full guide to reducing CRM licensing costs</Link>{" "}
+            or{" "}
+            <Link href="/savings-calculator" style={{ color: "var(--indigo)", fontWeight: 600 }}>run your own per-seat savings numbers</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="section" id="trial">
         <div className="container">

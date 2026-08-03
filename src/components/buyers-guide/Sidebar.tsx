@@ -178,9 +178,25 @@ export default function Sidebar() {
         {/* Wedge cross-link — surfaces the per-seat cost-reduction angle to
             every buyer's-guide reader, most of whom are already evaluating
             Salesforce-native tooling and are the exact ICP for this pitch. */}
-        <div className="rounded-md p-4 lg:p-5 border border-[#e5e7eb] bg-white">
+        <div className="rounded-md p-4 lg:p-5 border border-[#e5e7eb] bg-white flex flex-col gap-2">
           <p className="text-[#1c2045] text-sm leading-snug m-0">
             Paying per-seat for Salesforce licenses?{" "}
+            <Link
+              href="/reduce-crm-licensing-costs"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              Keep your CRM, cut the per-seat bill →
+            </Link>
+          </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0">
+            <Link
+              href="/custom-portal-development"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              Replace paid seats with a custom portal →
+            </Link>
+          </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0">
             <Link
               href="/compare/salesforce-seat-cost-vs-custom-portal"
               className="text-[#FF7A00] font-semibold no-underline hover:underline"

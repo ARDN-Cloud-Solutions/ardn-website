@@ -368,6 +368,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
+              <Link href="/compare/license-optimization-tools-vs-custom-portal" className="link">License-optimization tools vs. a custom portal →</Link>
             </div>
           </div>
         </section>
