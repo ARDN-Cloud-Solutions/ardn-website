@@ -382,6 +382,8 @@ export default function ReduceCrmLicensingCostsPage() {
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Replace per-login Partner Community seats with a custom partner portal →</Link>
+              <Link href="/reduce-hubspot-costs" className="link">On HubSpot? See how to cut HubSpot seat costs →</Link>
             </div>
           </div>
         </section>

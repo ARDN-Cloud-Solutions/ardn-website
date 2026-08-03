@@ -115,7 +115,7 @@ export default function SavingsCalculatorContent() {
             <div className="sc-hero-checks">
               {[
                 "No per-user, per-seat, or per-location fees",
-                "Built in 3–4 weeks · Fixed quote within 48 hours",
+                "Built in 2–6 weeks · Fixed quote within 48 hours",
                 "HIPAA-ready architecture included",
                 "30+ years enterprise software experience",
                 "You own the IP and data outright",

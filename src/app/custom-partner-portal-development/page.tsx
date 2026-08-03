@@ -202,7 +202,7 @@ export default function CustomPartnerPortalDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free.
+                    🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-login pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
@@ -239,6 +239,8 @@ export default function CustomPartnerPortalDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Compare Experience Cloud vs. a custom portal →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/license-guard" className="link">Reclaim unused Salesforce licenses with License Guard →</Link>
               <Link href="/custom-portal-development" className="link">Also see internal seller, ops &amp; customer portals →</Link>
             </div>
           </div>

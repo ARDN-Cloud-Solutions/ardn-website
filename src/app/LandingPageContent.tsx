@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -39,6 +40,8 @@ export default function LandingPageContent() {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames

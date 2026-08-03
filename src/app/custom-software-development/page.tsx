@@ -363,6 +363,7 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-costs" className="link">How to cut HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
@@ -400,7 +401,7 @@ export default function CustomSoftwareDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within 4 business hours with a fixed quote — no obligation." />
+        <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" showSeatQualifiers sub="A sentence or two about the problem is plenty — and if you're trying to cut CRM per-seat costs, tell us which CRM you run and roughly how many users. We'll reply within 4 business hours with a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
@@ -411,7 +412,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <p className="lede">30-minute free call. We&rsquo;ll find the highest-leverage thing to build first and return a fixed quote within 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
-                <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
+                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See pricing</Link>
               </div>
             </div>
           </div>
