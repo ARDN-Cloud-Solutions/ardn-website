@@ -4,7 +4,7 @@ import AiCloudSolutionsContent from "./AiAppContent";
 export const metadata: Metadata = {
   title: "Custom AI Apps, Built and Run for You — Ardn Cloud Solutions",
   description:
-    "We build custom AI applications to your exact specifications, then operate them as a monthly service — hosting, maintenance, AI compute, support, and ongoing feature work. One predictable bill.",
+    "We build custom AI applications to your exact specs, then run them as a monthly service — hosting, maintenance, compute, support & feature work. One bill.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/ai-app",
     languages: {

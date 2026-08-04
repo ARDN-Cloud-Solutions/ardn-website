@@ -410,9 +410,12 @@ export default function CustomSoftwareDevelopmentPage() {
               <h2 className="display mt-4">Describe the problem. <em>We&rsquo;ll scope the build.</em></h2>
               <p className="lede">30-minute free call. We&rsquo;ll find the highest-leverage thing to build first and return a fixed quote within 48 hours.</p>
               <div className="hero-ctas">
-                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
+                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book a free 30-min call</a>
                 <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
               </div>
+              <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                New customers build free &middot; Fixed quote in 48 hrs &middot; No lock-in — you own the IP
+              </p>
             </div>
           </div>
         </section>

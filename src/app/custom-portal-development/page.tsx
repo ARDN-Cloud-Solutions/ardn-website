@@ -197,8 +197,11 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your savings &rarr;</Link>
                 </div>
+                <p className="reveal reveal-d3" style={{ marginTop: "14px", fontSize: "14px", color: "#6b7280", fontWeight: 500 }}>
+                  New customers: we build it free &middot; Fixed quote in 48 hrs &middot; No lock-in
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -247,6 +250,7 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Paying per-login for partners? See partner portals →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
@@ -329,6 +333,24 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* SOCIAL PROOF — genuine client quote (also on the home page). The
+            "cost-saving" language maps directly onto the per-seat wedge. */}
+        <section className="section is-canvas">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
@@ -339,11 +361,11 @@ export default function CustomPortalDevelopmentPage() {
               <h2 className="display mt-4">See what you&apos;re overpaying. <em>Then keep it.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
-                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
+                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book a free 30-min call</a>
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
-                Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
+                New customers build free &middot; Fixed quote in 48 hrs &middot; No lock-in. Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
               </p>
               <p style={{ marginTop: "8px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
