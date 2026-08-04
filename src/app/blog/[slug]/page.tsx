@@ -246,6 +246,38 @@ export default async function BlogPostPage({ params }: PageProps) {
                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                         />
 
+                        {/* Related services — funnels article readers into the
+                            cost-reduction wedge. Post bodies live in WordPress and
+                            rarely link out, so this template-level block is the
+                            repo-side path from every article into the money pages. */}
+                        <aside className="mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 md:p-8">
+                            <p className="text-sm font-semibold uppercase tracking-wide text-primary mb-3">
+                                Paying full price for light CRM users?
+                            </p>
+                            <h3 className="text-xl font-semibold text-heading-dark mb-2">
+                                Keep your CRM, cut the bill.
+                            </h3>
+                            <p className="text-muted mb-5">
+                                Ardn builds custom portals that move light and external
+                                users off per-seat licenses onto one flat fee — synced
+                                to the CRM you already run, live in 2&ndash;6 weeks.
+                            </p>
+                            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
+                                <Link href="/reduce-crm-licensing-costs" className="text-primary hover:underline">
+                                    How to cut CRM licensing costs →
+                                </Link>
+                                <Link href="/cut-salesforce-license-costs" className="text-primary hover:underline">
+                                    Cut Salesforce license costs →
+                                </Link>
+                                <Link href="/custom-portal-development" className="text-primary hover:underline">
+                                    Custom portal development →
+                                </Link>
+                                <Link href="/savings-calculator" className="text-primary hover:underline">
+                                    Calculate your per-seat savings →
+                                </Link>
+                            </div>
+                        </aside>
+
                         {/* Back link */}
                         <div className="mt-10 pt-8 border-t border-gray-100">
                             <Link

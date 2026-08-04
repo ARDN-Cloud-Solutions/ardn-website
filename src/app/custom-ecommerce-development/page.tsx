@@ -147,7 +147,8 @@ export default function CustomEcommerceDevelopmentPage() {
         "@id": "https://ardncloudsolutions.com/custom-ecommerce-development#breadcrumb",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
-          { "@type": "ListItem", position: 2, name: "Custom Ecommerce Development", item: "https://ardncloudsolutions.com/custom-ecommerce-development" },
+          { "@type": "ListItem", position: 2, name: "Custom Software Development", item: "https://ardncloudsolutions.com/custom-software-development" },
+          { "@type": "ListItem", position: 3, name: "Custom Ecommerce Development", item: "https://ardncloudsolutions.com/custom-ecommerce-development" },
         ],
       },
     ],
@@ -164,7 +165,7 @@ export default function CustomEcommerceDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Ecommerce Development</span>
                 <h1 className="display reveal">
-                  A store that fits <em>your business — not a template.</em>
+                  Custom ecommerce that fits <em>your business — not a template.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   When your catalog, pricing, subscriptions, or memberships

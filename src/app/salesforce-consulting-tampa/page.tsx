@@ -455,6 +455,11 @@ export default function SalesforceConsultingTampaPage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "16px", fontSize: "14px" }}>
+                <Link href="/cut-salesforce-license-costs" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "underline" }}>Cut your Salesforce license costs →</Link>
+                {"  ·  "}
+                <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "underline" }}>See your Salesforce licensing savings →</Link>
+              </p>
             </div>
           </div>
         </section>
