@@ -31,7 +31,10 @@ export default function LandingPageContent() {
                 <p className="body mt-3" style={{ marginBottom: "12px" }}>A custom AI app built around your exact workflow — designed, built, hosted, and improved for you. Live in 2–6 weeks, one flat monthly fee.</p>
                 <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
                 <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
-                <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
+                <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "14px", color: "#14142B", fontWeight: 600 }}>
+                  Paying per-seat for light CRM users? <Link href="/reduce-crm-licensing-costs" style={{ color: "var(--indigo)" }}>Cut the bill, keep your CRM →</Link>
+                </p>
+                <p className="body" style={{ marginTop: "14px", fontSize: "13px", color: "#6b7280" }}>
                   Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
                 </p>
               </div>

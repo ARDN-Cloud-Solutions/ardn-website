@@ -5,9 +5,9 @@ import SalesforceEcommerceContent from "./SalesforceEcommerceContent";
 // kept narrow to the SF ecommerce intent the page is already ranking for.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce E-commerce Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Best Salesforce E-commerce Solutions 2026 | Ardn",
   description:
-    "Compare the best Salesforce-native ecommerce solutions for B2B and B2C in 2026 — Ardn Storefronts, Commerce Studio by 1440, StoreConnect, Fonteva, Nexternal, Shopify Plus, and Adobe Commerce. Features, fit, pitfalls, and pricing to guide your choice.",
+    "Compare the best Salesforce-native ecommerce solutions for B2B & B2C in 2026 — Storefronts, StoreConnect, Fonteva, Shopify Plus & Adobe Commerce.",
   keywords: [
     "Salesforce ecommerce",
     "Salesforce ecommerce solutions",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Best Salesforce E-commerce Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+      "Best Salesforce E-commerce Solutions 2026 | Ardn",
     description:
       "Compare top Salesforce-native ecommerce solutions for B2B and B2C in 2026. Ardn Storefronts, Commerce Studio, StoreConnect, Fonteva, Shopify Plus and more.",
     url: "https://ardncloudsolutions.com/buyers-guide/salesforce-ecommerce-solutions",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Best Salesforce E-commerce Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+      "Best Salesforce E-commerce Solutions 2026 | Ardn",
     description:
       "Compare top Salesforce-native ecommerce solutions for B2B and B2C in 2026.",
     images: [
@@ -75,7 +75,7 @@ export default function Page() {
         "@type": "WebPage",
         "@id": url,
         url,
-        name: "Best Salesforce E-commerce Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+        name: "Best Salesforce E-commerce Solutions 2026 | Ardn",
         description:
           "Compare the best Salesforce-native ecommerce solutions for B2B and B2C in 2026.",
         inLanguage: "en-US",
