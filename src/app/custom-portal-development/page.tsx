@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See what you&apos;d save →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -230,10 +230,10 @@ export default function CustomPortalDevelopmentPage() {
             <div className="section-head">
               <div>
                 <span className="eyebrow">What we build</span>
-                <h2 className="h1 mt-3">Portals for the users <em>who don&apos;t need a full seat.</em></h2>
+                <h2 className="h1 mt-3">Client portal software, <em>without the per-seat bill.</em></h2>
               </div>
               <div>
-                <p className="lede">Each portal is built to one group&apos;s workflow and wired into your CRM — so the data stays in one place and the licensing bill stops climbing.</p>
+                <p className="lede">Custom client and customer portal software, built to one group&apos;s workflow and wired into your CRM — so the data stays in one place and the licensing bill stops climbing.</p>
               </div>
             </div>
             <div className="grid-3">
@@ -306,6 +306,41 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* PROOF — real testimonial + real, published case study. No invented
+            clients or metrics; reuses the cleared Jay Vashi quote and the
+            on-topic centralized B2B sales-portal case study. */}
+        <section className="section is-canvas" id="proof">
+          <div className="container">
+            <div className="split">
+              <div>
+                <span className="eyebrow">Proof</span>
+                <h2 className="h1 mt-3">We&apos;ve <em>built and run portals like this.</em></h2>
+                <p className="body mt-4">
+                  A flat-fee shop is only worth it if it can actually deliver and
+                  keep the thing running. We build the portal, integrate it with
+                  your CRM, and operate it after launch — here&apos;s one we shipped.
+                </p>
+                <p className="body mt-4">
+                  <Link href="/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal" className="link">
+                    Read the case study: a centralized B2B sales portal →
+                  </Link>
+                </p>
+              </div>
+              <div>
+                <figure className="card" style={{ padding: "28px", margin: 0 }}>
+                  <blockquote style={{ margin: 0, fontSize: "19px", lineHeight: 1.55, color: "#14142B", fontWeight: 600 }}>
+                    &ldquo;Hands-on, cost-saving approach that&rsquo;s been invaluable
+                    to our business. Strategic focus on high-impact efficiencies.&rdquo;
+                  </blockquote>
+                  <figcaption className="body" style={{ marginTop: "16px", color: "#475467" }}>
+                    <strong style={{ color: "#14142B" }}>Jay Vashi</strong> — Salesforce Delivery Manager, Fortune 500 Insurance
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">
@@ -337,7 +372,7 @@ export default function CustomPortalDevelopmentPage() {
             <div className="final-cta">
               <span className="eyebrow on-dark">Get started</span>
               <h2 className="display mt-4">See what you&apos;re overpaying. <em>Then keep it.</em></h2>
-              <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
+              <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours. Prefer to talk now? Call <a href="tel:+14078155303" style={{ color: "#fff", textDecoration: "underline" }}>+1 (407) 815-5303</a> — we reply within 4 business hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>

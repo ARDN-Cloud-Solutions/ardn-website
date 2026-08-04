@@ -286,8 +286,37 @@ export default function ExperienceCloudVsCustomPortalPage() {
           </div>
         </section>
 
+        {/* EXPERIENCE CLOUD ALTERNATIVE — capture the "alternative" query and
+            frame the flat-fee differentiation vs. other per-member products. */}
+        <section className="section" id="alternative">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The flat-fee Experience Cloud alternative</span>
+                <h2 className="h1 mt-3">Most &ldquo;alternatives&rdquo; <em>are still per-member SaaS.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Search &ldquo;Salesforce Experience Cloud alternative&rdquo; and you get more portal products — each with its own per-member or per-login meter. A custom portal is the option that removes the meter entirely.</p>
+              </div>
+            </div>
+            <p className="body mt-4" style={{ maxWidth: "820px" }}>
+              The named Experience Cloud alternatives — templated DXP and portal
+              products — mostly swap one per-user bill for a cheaper one, and many
+              still leave you to build and maintain the portal yourself. A custom
+              portal from Ardn is different on both axes: it runs on one flat
+              monthly fee no matter how many external users log in, and we build{" "}
+              <em>and</em> run it for you — hosted, monitored, and iterated under
+              the same subscription. You keep Salesforce as the system of record;
+              the portal just becomes the flat-fee front end for everyone who
+              doesn&apos;t need a full seat. If your external user count is modest
+              and stable, Experience Cloud may still be the better call — we&apos;ll
+              tell you honestly which one saves more for your numbers.
+            </p>
+          </div>
+        </section>
+
         {/* CLUSTER LINKS */}
-        <section className="section">
+        <section className="section is-canvas">
           <div className="container">
             <div className="section-head">
               <div>
@@ -322,7 +351,7 @@ export default function ExperienceCloudVsCustomPortalPage() {
         </section>
 
         {/* FAQ */}
-        <section className="section is-canvas" id="faq">
+        <section className="section" id="faq">
           <div className="container">
             <div className="section-head">
               <div>

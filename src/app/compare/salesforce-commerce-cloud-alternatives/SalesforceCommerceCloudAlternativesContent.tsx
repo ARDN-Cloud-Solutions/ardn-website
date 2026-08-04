@@ -35,6 +35,9 @@ export default function SalesforceCommerceCloudAlternativesContent() {
             {/* Intro */}
             <section className="mb-12">
               <div className="max-w-none text-black font-poppins space-y-4">
+                <h1 className="block lg:text-5xl text-3xl font-bold text-heading-dark mb-4 leading-tight">
+                  Top Salesforce Commerce Cloud Alternatives in 2026
+                </h1>
                 <p className="text-heading-dark text-sm lg:text-base">
                   Did you know nearly <strong>90% of e-commerce businesses fail within 120 days?</strong> Most don&apos;t fold because of bad products, but because their platforms can&apos;t keep up. The ones that get it right can see up to <strong>271% ROI in just three years.</strong>
                 </p>

@@ -14,7 +14,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "How to Cut Per-Seat CRM Licensing Costs | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -306,6 +306,51 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* LICENSE OPTIMIZATION — reporting vs. removing */}
+        <section className="section" id="license-optimization">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">License optimization, one step further</span>
+                <h2 className="h1 mt-3">Software that <em>reports</em> waste vs. removing <em>the seat.</em></h2>
+              </div>
+              <div>
+                <p className="lede">SaaS license-optimization and SAM tools are useful — but they stop one step short of the saving. Here&apos;s the difference.</p>
+              </div>
+            </div>
+            <div className="split">
+              <div>
+                <h3 className="h3">What license-optimization tools do</h3>
+                <p className="body mt-3">
+                  Tools that scan your CRM for unused seats and low-usage users
+                  (and the &ldquo;downgrade everyone to a cheaper tier&rdquo; advice
+                  that comes with them) surface the waste and nudge you to reclaim
+                  or right-size. That&apos;s the first lever on this page, and it
+                  works — for seats nobody is using. But once a light user is
+                  flagged, the tool&apos;s job is done: it still leaves you buying
+                  <em> some</em> per-seat license for every person who needs to do
+                  anything at all. The meter keeps running, just a little slower.
+                </p>
+              </div>
+              <div>
+                <h3 className="h3">What removing the seat does</h3>
+                <p className="body mt-3">
+                  A custom portal doesn&apos;t report the seat — it removes the
+                  reason that user needed one. The light user gets a purpose-built
+                  tool wired into your CRM, and the license is gone for good, not
+                  just flagged or downgraded. Reporting tools optimize the bill you
+                  keep paying; a portal ends it for that group. Run an audit or{" "}
+                  <Link href="/license-guard" className="link">License Guard</Link>{" "}
+                  first to clear dead seats, then move the remaining light users to
+                  a{" "}
+                  <Link href="/custom-portal-development" className="link">flat-fee portal</Link>{" "}
+                  — the two combine well.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
         <section className="section is-canvas">
           <div className="container">
@@ -380,6 +425,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -417,7 +463,7 @@ export default function ReduceCrmLicensingCostsPage() {
             <div className="final-cta">
               <span className="eyebrow on-dark">Get started</span>
               <h2 className="display mt-4">Stop paying full price <em>for light use.</em></h2>
-              <p className="lede">30-minute free call. We&apos;ll look at how your users actually use the CRM, show which levers cut the most, and give you a fixed quote in 48 hours.</p>
+              <p className="lede">30-minute free call. We&apos;ll look at how your users actually use the CRM, show which levers cut the most, and give you a fixed quote in 48 hours. Prefer to talk now? Call <a href="tel:+14078155303" style={{ color: "#fff", textDecoration: "underline" }}>+1 (407) 815-5303</a> — we reply within 4 business hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/custom-portal-development" className="btn btn-outline-light btn-lg">Explore custom portals</Link>

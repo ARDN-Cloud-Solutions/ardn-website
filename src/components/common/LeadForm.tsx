@@ -161,10 +161,16 @@ export default function LeadForm({
                   disabled={status === "sending"}
                   style={{ width: "100%", opacity: status === "sending" ? 0.7 : 1 }}
                 >
-                  {status === "sending" ? "Sending…" : "Get my free quote"}
+                  {status === "sending"
+                    ? "Sending…"
+                    : showSeatQualifiers
+                      ? "Send my savings breakdown"
+                      : "Get my free quote"}
                 </button>
                 <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
-                  Fixed quote within 48 hours &middot; We reply within 4 business hours &middot; No obligation
+                  {showSeatQualifiers
+                    ? "Where a portal cuts your per-seat bill · We reply within 4 business hours · No obligation"
+                    : "Fixed quote within 48 hours · We reply within 4 business hours · No obligation"}
                 </p>
                 <p style={{ fontSize: "12px", color: "#98a2b3", textAlign: "center", margin: 0 }}>
                   We&apos;ll only use this to reply about your project. No spam, ever.

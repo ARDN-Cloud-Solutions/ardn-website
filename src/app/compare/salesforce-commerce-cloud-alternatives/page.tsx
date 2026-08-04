@@ -6,10 +6,9 @@ import SalesforceCommerceCloudAlternativesContent from "./SalesforceCommerceClou
 // (only WebPage); enriched here with Article, BreadcrumbList, ItemList, and
 // FAQPage so the rich-result surface matches the other buyers' guides.
 export const metadata: Metadata = {
-  title:
-    "Top Salesforce Commerce Cloud Alternatives in 2026 | Ardn Cloud Solutions",
+  title: "Top Salesforce Commerce Cloud Alternatives 2026 | Ardn",
   description:
-    "Compare the best Salesforce Commerce Cloud alternatives in 2026 — Ardn Storefronts, Shopify Plus, Adobe Commerce (Magento), BigCommerce, WooCommerce, and StoreConnect. Real pricing, fit, and pitfalls to guide your decision.",
+    "Compare the best Salesforce Commerce Cloud alternatives in 2026 — Shopify Plus, Adobe Commerce, BigCommerce, WooCommerce & Ardn Storefronts. Real pricing & fit.",
   keywords: [
     "Salesforce Commerce Cloud alternatives",
     "Salesforce Commerce Cloud vs",
