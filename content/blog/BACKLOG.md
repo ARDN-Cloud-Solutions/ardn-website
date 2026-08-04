@@ -164,18 +164,84 @@ near-duplicate of an existing post.
 - [x] veterinary-practice-management-software-cost | Veterinary Practice Management Software Per-Seat Costs Explained | education | veterinary practice management software cost | /custom-software-development
 
 ## Salesforce cost — round 6 (added 2026-08-03, round 5 exhausted)
-- [ ] salesforce-service-cloud-voice-cost | Salesforce Service Cloud Voice: Where the Per-Minute and Per-Seat Costs Stack | education | salesforce service cloud voice cost | /reduce-crm-licensing-costs
-- [ ] salesforce-loyalty-management-cost | Salesforce Loyalty Management Licensing Costs Explained | education | salesforce loyalty management cost | /custom-software-development
-- [ ] salesforce-manufacturing-cloud-cost | Salesforce Manufacturing Cloud: Licensing Beyond Standard Sales Cloud | education | salesforce manufacturing cloud cost | /custom-portal-development
+- [x] salesforce-service-cloud-voice-cost | Salesforce Service Cloud Voice: Where the Per-Minute and Per-Seat Costs Stack | education | salesforce service cloud voice cost | /reduce-crm-licensing-costs
+- [x] salesforce-loyalty-management-cost | Salesforce Loyalty Management Licensing Costs Explained | education | salesforce loyalty management cost | /custom-software-development
+- [x] salesforce-manufacturing-cloud-cost | Salesforce Manufacturing Cloud: Licensing Beyond Standard Sales Cloud | education | salesforce manufacturing cloud cost | /custom-portal-development
 
 ## HubSpot cost — round 6 (added 2026-08-03, round 5 exhausted)
-- [ ] hubspot-payments-transaction-fee-cost | HubSpot Payments: What the Per-Transaction Fee Actually Costs | education | hubspot payments fee | /reduce-crm-licensing-costs
-- [ ] hubspot-commerce-hub-cost | HubSpot Commerce Hub Pricing: Seats, Fees, and Where They Overlap | education | hubspot commerce hub pricing | /custom-software-development
+- [x] hubspot-payments-transaction-fee-cost | HubSpot Payments: What the Per-Transaction Fee Actually Costs | education | hubspot payments fee | /reduce-crm-licensing-costs
+- [x] hubspot-commerce-hub-cost | HubSpot Revenue Hub: Seats, Fees, and Where They Overlap | education | hubspot revenue hub pricing | /custom-software-development — published under the Revenue Hub name (Commerce Hub was renamed mid-2026); reframed around the new per-seat CPQ requirement layered onto the historical transaction-fee-only billing.
 
 ## Verticals — restaurant / self-storage / home services (new, seed for next batch)
-- [ ] restaurant-pos-labor-software-per-location-cost | Restaurant POS and Labor Software: Per-Location and Per-Terminal Costs | education | restaurant pos software cost | /custom-portal-development — scope distinctly from gym-membership-software-per-location-cost: per-terminal/processing-fee mechanic, not member-tier.
-- [ ] self-storage-facility-management-software-cost | Self-Storage Facility Management Software: Per-Unit and Per-Facility Costs | education | self storage software cost | /custom-software-development
-- [ ] home-services-field-service-software-seat-cost | HVAC, Plumbing, and Electrical Field Service Software Seat Costs | education | home services field service software cost | /custom-portal-development — before writing, confirm genuinely distinct from the already-published `field-service-dispatch-software-seat-cost` (check whether that post was scoped generically or specifically to a different trades segment); narrow to what's distinct (e.g. flat-rate pricebook / technician-commission tracking mechanics specific to home-services trades) if overlap exists.
+- [x] restaurant-pos-labor-software-per-location-cost | Restaurant POS and Labor Software: Per-Location and Per-Terminal Costs | education | restaurant pos software cost | /custom-portal-development
+- [x] self-storage-facility-management-software-cost | Self-Storage Facility Management Software: Per-Unit and Per-Facility Costs | education | self storage software cost | /custom-software-development
+- [ ] home-services-field-service-software-seat-cost | HVAC, Plumbing, and Electrical Field Service Software Seat Costs | education | home services field service software cost | /custom-portal-development — SKIP confirmed 2026-08-04: read the published `field-service-dispatch-software-seat-cost` before writing this — it already explicitly names the HVAC/plumbing/electrical/home-services segment and the same vendor set (ServiceTitan/Jobber/Housecall Pro) with the same per-technician/per-dispatcher-seat mechanic. There is no distinct angle left to scope here; drop this line unless a genuinely different mechanic (e.g. flat-rate pricebook licensing, technician-commission tracking) surfaces.
+
+## Verticals — professional services (resolved 2026-08-04)
+- [x] accounting-firm-client-portal-seat-cost | Why Accounting Firm Client Portals Bill in Different Ways | comparison | accounting firm client portal cost | /custom-portal-development — resolved a hold in place since 2026-07-28 with a genuinely distinct angle: contrasting the three pricing mechanics actually used in this vertical (SafeSend's per-return volume pricing, Suralink/Liscio/TaxDome's per-staff-seat pricing with typically-unlimited client guest access, and Canopy's hybrid per-seat-plus-per-client-record pricing) rather than repeating the generic "vertical X overpays for portal seats" framing already used for law-firm-client-portal-cost and agency-client-portal-per-seat-cost.
+
+## Verticals — salons/spas/dental, apartment leasing (new, seed for next batch, added 2026-08-04)
+- [ ] salon-spa-software-per-provider-cost | Salon and Spa Software: Per-Provider vs. Per-Location Pricing | education | salon spa software cost | /custom-portal-development — the vertical is genuinely split between per-bookable-staff-member pricing (e.g. Vagaro-style) and per-location tiered pricing (e.g. Boulevard-style), with no single dominant mechanic — a real comparison angle, distinct from the med-spa scheduling-rules angle already published in med-spa-scheduling-portal-cost.
+- [ ] dental-practice-management-software-per-provider-cost | Dental Practice Management Software: Per-Provider and Per-Location Costs | education | dental practice management software cost | /custom-software-development — confirm distinct from medical-practice-management-license-cost and veterinary-practice-management-software-cost before writing; dental vendors (Dentrix Ascend, Curve Dental) skew per-location-with-provider-count-scaling rather than a flat per-seat model, which may be the distinguishing angle.
+- [ ] apartment-leasing-software-per-unit-cost | Apartment Leasing and Resident Portal Software: Per-Unit Costs | education | apartment leasing software cost | /custom-portal-development — confirm distinct from property-management-software-per-unit-cost before writing; scope to the leasing/resident-portal side (applications, resident communication, maintenance requests) rather than the owner/PM-operations side already covered.
+
+## Process note (2026-08-04)
+Published 8 posts this batch: all 3 Salesforce-round-6 seeds
+(`salesforce-service-cloud-voice-cost`, `salesforce-loyalty-management-cost`,
+`salesforce-manufacturing-cloud-cost`), both HubSpot-round-6 seeds
+(`hubspot-payments-transaction-fee-cost`, `hubspot-commerce-hub-cost` —
+published as Revenue Hub, confirming via web research that HubSpot renamed
+Commerce Hub to Revenue Hub in 2026 and added a new per-seat CPQ requirement
+on top of the historical transaction-fee-only model), both restaurant/
+self-storage vertical seeds, and the long-held `accounting-firm-client-
+portal-seat-cost` (resolved with a genuinely distinct three-mechanic
+comparison angle — see note above). Roughly 5 Salesforce/HubSpot to 3
+verticals/comparisons.
+
+Did not write `home-services-field-service-software-seat-cost` as scoped:
+read the published `field-service-dispatch-software-seat-cost` first and
+confirmed it already explicitly covers HVAC/plumbing/electrical with the
+same vendor set and mechanic — publishing the home-services post as scoped
+would have been a near-duplicate. Marked as a confirmed skip rather than a
+hold, since no new distinct angle is apparent without a different mechanic.
+
+Researched real public pricing mechanics via web search before writing
+(Salesforce Voice's dual per-user-seat-plus-metered-minutes structure and
+annual-overage-cliff billing behavior; Loyalty Management's per-org
+tiered-edition model with a bundled internal-user permission-set pool, not
+per-member billing; Manufacturing Cloud's premium-edition-replaces-base-seat
+structure with Channel Revenue Management for rebates as a separate
+per-org/year add-on; HubSpot Payments' two-layer processing-fee-plus-
+platform-fee structure with cards uncapped vs. ACH capped; the Commerce
+Hub → Revenue Hub rename and its new CPQ seat requirement; restaurant POS's
+per-terminal/per-location model vs. labor-scheduling tools' per-location
+model with employee-count as a tier-gate rather than a linear seat charge;
+self-storage's per-facility banded pricing plus a separate tenant-insurance
+revenue-share layer; and the three genuinely distinct pricing mechanics in
+the accounting-firm client-portal space). Flagged several conflicting or
+unofficial figures during research and wrote posts to describe pricing
+mechanics rather than assert unverified dollar amounts, consistent with the
+site's existing convention.
+
+Incidentally noticed two pre-existing issues while re-running the publisher
+across all posts (unrelated to this batch's new content, not fixed this run
+since fixing already-published posts is outside this engine's scope):
+`member-portal-flat-fee` failed to update with a WordPress
+`term_exists`/400 error on its category taxonomy term; `salesforce-omnistudio-
+cost` was skipped by the QA gate for having only 1 internal money-page link
+(needs a second money-page link added). Both existed before this run's edits
+— worth a maintenance pass to fix the taxonomy conflict and add a money link,
+but out of scope for the content-engine run itself.
+
+Remaining unchecked inventory after this batch: `vendor-lock-in-crm-portal-
+warning-signs` and `data-ownership-saas-vs-custom-portal` (both still held,
+same narrow-angle notes as before, no new information this run), plus 3 new
+seeds opened above (salon/spa, dental, apartment leasing). The Salesforce/
+HubSpot product list is now quite thin — round 6 covered most of the
+remaining well-known clouds/hubs: future batches should lean further into
+new verticals rather than mining deeper into obscure Salesforce/HubSpot
+SKUs, which are starting to require genuine primary research per product
+rather than being readily distinguishable from what's already published.
 
 ## Process note (2026-08-03)
 Published 11 posts this batch: all 3 Salesforce-cost-round-5 seeds
