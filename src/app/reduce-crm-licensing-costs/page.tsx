@@ -123,9 +123,13 @@ export default function ReduceCrmLicensingCostsPage() {
         "@id": `${url}#article`,
         headline: "How to Cut CRM Licensing Costs Without Switching CRMs",
         name: "How to Cut CRM Licensing Costs Without Switching CRMs",
+        description:
+          "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
         url,
         mainEntityOfPage: { "@id": url },
         inLanguage: "en-US",
+        datePublished: "2026-07-01",
+        dateModified: "2026-08-04",
         author: { "@id": "https://ardncloudsolutions.com/#organization" },
         publisher: { "@id": "https://ardncloudsolutions.com/#organization" },
         about: [
@@ -181,7 +185,7 @@ export default function ReduceCrmLicensingCostsPage() {
                   <span className="badge is-canvas">Salesforce, HubSpot &amp; more</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free CRM cost review</Link>
                   <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your own numbers →</Link>
                 </div>
               </div>
@@ -379,9 +383,12 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/cut-salesforce-license-costs" className="link">On Salesforce? Cut Salesforce license costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut per-login Partner Community seat costs →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
+              <Link href="/buyers-guide/salesforce-membership-management-tools" className="link">Read the Salesforce buyer&rsquo;s guides →</Link>
             </div>
           </div>
         </section>
@@ -409,7 +416,25 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        {/* TESTIMONIAL — reuses the real, attributed Jay Vashi quote already
+            live across the site. Honest social proof, no new claims. */}
+        <section className="section" style={{ paddingBottom: 0 }}>
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers submitLabel="Email me my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
@@ -419,7 +444,7 @@ export default function ReduceCrmLicensingCostsPage() {
               <h2 className="display mt-4">Stop paying full price <em>for light use.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use the CRM, show which levers cut the most, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
-                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
+                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book my free CRM cost review</a>
                 <Link href="/custom-portal-development" className="btn btn-outline-light btn-lg">Explore custom portals</Link>
               </div>
               <p style={{ marginTop: "20px" }}>

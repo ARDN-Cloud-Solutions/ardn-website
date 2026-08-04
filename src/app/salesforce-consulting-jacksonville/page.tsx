@@ -446,6 +446,11 @@ export default function SalesforceConsultingJacksonvillePage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "16px", fontSize: "14px" }}>
+                <Link href="/cut-salesforce-license-costs" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "underline" }}>Cut your Salesforce license costs →</Link>
+                {"  ·  "}
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "underline" }}>Reduce CRM licensing costs →</Link>
+              </p>
             </div>
           </div>
         </section>

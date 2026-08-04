@@ -163,7 +163,8 @@ export default function CustomPortalDevelopmentPage() {
         "@id": "https://ardncloudsolutions.com/custom-portal-development#breadcrumb",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
-          { "@type": "ListItem", position: 2, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
+          { "@type": "ListItem", position: 2, name: "Custom Software Development", item: "https://ardncloudsolutions.com/custom-software-development" },
+          { "@type": "ListItem", position: 3, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
         ],
       },
     ],
@@ -193,11 +194,11 @@ export default function CustomPortalDevelopmentPage() {
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
                   <span className="badge">Integrates with your CRM</span>
                   <span className="badge is-emerald">Flat fee, not per-seat</span>
-                  <span className="badge is-canvas">No rip-and-replace</span>
+                  <span className="badge is-canvas">Live in 2&ndash;6 weeks</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free portal assessment</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See what you could save →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -247,8 +248,11 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/cut-salesforce-license-costs" className="link">On Salesforce? Cut Salesforce license costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Custom partner portal development →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal: cost breakdown →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -329,7 +333,26 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        {/* TESTIMONIAL — reuses the real, attributed Jay Vashi quote already
+            live across the site (same asset/attribution), adding honest social
+            proof to a page that had none. No new claims. */}
+        <section className="section is-canvas">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Email me my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
@@ -339,11 +362,11 @@ export default function CustomPortalDevelopmentPage() {
               <h2 className="display mt-4">See what you&apos;re overpaying. <em>Then keep it.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
-                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
+                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book my free portal assessment</a>
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
-                Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
+                Prefer to talk now? Call +1 (407) 815-5303. Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
               </p>
               <p style={{ marginTop: "8px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>

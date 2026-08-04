@@ -11,7 +11,7 @@ import LeadForm from "@/components/common/LeadForm";
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
 // capability, not the whole pitch.
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | Ardn",
+  title: "Custom Software Development Company | Ardn",
   description:
     "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Software & Platform Development | Ardn",
+    title: "Custom Software Development Company | Ardn",
     description:
       "Custom software, platforms & portals that replace or connect your tools — built and run for you in weeks, one flat monthly fee. New customers build free.",
     url: "https://ardncloudsolutions.com/custom-software-development",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software & Platform Development | Ardn",
+    title: "Custom Software Development Company | Ardn",
     description:
       "Custom software, platforms & portals — built and run for you in weeks, one flat monthly fee. New customers build free.",
     site: "@ardn_cloud_sol",
@@ -175,7 +175,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software &amp; Platform Development</span>
                 <h1 className="display reveal">
-                  Custom software, built for <em>how you actually work.</em>
+                  Custom software that replaces per-seat SaaS — <em>one flat fee, live in weeks.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Off-the-shelf tools make you bend your business to fit them,
@@ -190,7 +190,7 @@ export default function CustomSoftwareDevelopmentPage() {
                   <span className="badge is-canvas">You own it</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free build consult</Link>
                   <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
                 </div>
               </div>
@@ -362,6 +362,7 @@ export default function CustomSoftwareDevelopmentPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/cut-salesforce-license-costs" className="link">Cut Salesforce license costs →</Link>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
