@@ -163,7 +163,8 @@ export default function CustomPortalDevelopmentPage() {
         "@id": "https://ardncloudsolutions.com/custom-portal-development#breadcrumb",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
-          { "@type": "ListItem", position: 2, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
+          { "@type": "ListItem", position: 2, name: "Custom Software Development", item: "https://ardncloudsolutions.com/custom-software-development" },
+          { "@type": "ListItem", position: 3, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
         ],
       },
     ],
@@ -180,7 +181,7 @@ export default function CustomPortalDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Portal Development</span>
                 <h1 className="display reveal">
-                  Custom portals: <em>keep your CRM, cut the bill.</em>
+                  Custom portal development: <em>keep your CRM, cut the bill.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   You are likely paying full per-seat CRM licenses for people who
@@ -191,14 +192,18 @@ export default function CustomPortalDevelopmentPage() {
                   your technology — and stop overpaying to run it.
                 </p>
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
+                  <span className="badge is-emerald">New customers: we build it free</span>
                   <span className="badge">Integrates with your CRM</span>
-                  <span className="badge is-emerald">Flat fee, not per-seat</span>
+                  <span className="badge">Flat fee, not per-seat</span>
                   <span className="badge is-canvas">No rip-and-replace</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your savings →</Link>
                 </div>
+                <p className="body" style={{ marginTop: "12px", fontSize: "13px", color: "#6b7280" }}>
+                  30-min call &middot; fixed quote in 48 hours &middot; you own the IP &middot; no obligation
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -212,6 +217,9 @@ export default function CustomPortalDevelopmentPage() {
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
+                  </p>
+                  <p className="body" style={{ marginTop: "14px", fontSize: "13px", color: "#6b7280" }}>
+                    Illustrative: 100 light users on full Sales Cloud Enterprise seats list at ~$198,000/yr (list price, $165/seat/mo). A flat-fee portal costs the same at 100 users or 500.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
@@ -247,6 +255,7 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/salesforce-license-optimization" className="link">On Salesforce? See 6 ways to optimize your licenses →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>

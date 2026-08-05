@@ -65,6 +65,11 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             <Link href="/custom-portal-development" className="link">
               Explore Custom Portal Development
             </Link>
+            <p className="body mt-2" style={{ fontSize: 14 }}>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">
+                Compare Salesforce seat costs vs. a flat-fee custom portal →
+              </Link>
+            </p>
           </article>
 
           {/* AI Forge — custom AI dev practice */}
@@ -137,6 +142,15 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
               style={{ color: "var(--indigo)", fontWeight: 600 }}
             >
               Run your per-seat savings calculator →
+            </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 15 }}>
+            Already paying for Salesforce seats?{" "}
+            <Link
+              href="/salesforce-license-optimization"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              See 6 ways to cut Salesforce &amp; CRM licensing costs →
             </Link>
           </p>
           <p className="body mt-2" style={{ fontSize: 15 }}>

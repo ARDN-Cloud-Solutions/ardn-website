@@ -188,6 +188,22 @@ export default function Sidebar() {
               See the seat-cost math →
             </Link>
           </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0 mt-3">
+            <Link
+              href="/reduce-crm-licensing-costs"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              How to cut CRM licensing costs →
+            </Link>
+          </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0 mt-3">
+            <Link
+              href="/license-guard"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              Audit unused Salesforce licenses with License Guard →
+            </Link>
+          </p>
         </div>
       </div>
     </aside>

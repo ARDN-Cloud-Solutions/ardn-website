@@ -6,7 +6,7 @@ import SalesforceWebflowAutomationContent from "./SalesforceWebflowAutomationCon
 // BreadcrumbList + ItemList pattern used across the rest of the buyers' guides.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce Workflow Automation Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Salesforce Workflow Automation Tools: 2026 Buyer's Guide",
   description:
     "Compare the best Salesforce workflow automation tools in 2026 — Flow Builder, Process Builder alternatives, Mulesoft, Zapier, Workato, and more. Simplify processes, reduce manual effort, and keep your Salesforce org clean as you scale.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Best Salesforce Workflow Automation Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+      "Salesforce Workflow Automation Tools: 2026 Buyer's Guide",
     description:
       "Compare the best Salesforce workflow automation tools in 2026 — simplify processes, reduce manual effort, and keep your Salesforce org clean as you scale.",
     url: "https://ardncloudsolutions.com/buyers-guide/salesforce-workflow-automation-tools",

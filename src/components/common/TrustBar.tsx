@@ -1,4 +1,4 @@
-import { MapPin, Shield, Clock, Award } from "lucide-react";
+import { MapPin, Shield, Clock, Award, FileCheck, KeyRound } from "lucide-react";
 
 /**
  * Trust signal strip — small, thin, dark bar with 4 social-proof signals.
@@ -17,7 +17,9 @@ export default function TrustBar() {
   const items = [
     { Icon: MapPin, text: "US-based team" },
     { Icon: Award, text: "30+ yrs building software" },
+    { Icon: FileCheck, text: "Fixed quote in 48 hrs" },
     { Icon: Clock, text: "4-hour response SLA" },
+    { Icon: KeyRound, text: "You own the IP & data" },
     { Icon: Shield, text: "No lock-in — cancel in 30 days" },
   ];
 
