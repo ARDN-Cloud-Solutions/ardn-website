@@ -142,12 +142,12 @@ export default function Footer() {
                 Framework. Supporting pillar: Salesforce consulting and
                 managed services backed by 30+ years of expertise. */}
             <p className="text-white font-poppins text-[15px] leading-[1.6] ]">
-              Ardn Cloud Solutions is an Orlando, Florida custom AI and
-              software development team. We build AI-powered products and
-              bespoke applications using our proprietary AI Forge Framework,
-              ship a suite of Salesforce-native cloud products, and provide
-              Salesforce consulting and managed services backed by 30+ years
-              of expertise.
+              Ardn Cloud Solutions is an Orlando, Florida custom software and
+              product development team. We design, build, and run custom
+              software, platforms, and portals — shipped in weeks, not months,
+              with our proprietary AI Forge Framework — plus a suite of
+              Salesforce-native cloud products and Salesforce consulting and
+              managed services backed by 30+ years of expertise.
             </p>
 
             {/* Company Info — Orlando, FL address now visible in footer to

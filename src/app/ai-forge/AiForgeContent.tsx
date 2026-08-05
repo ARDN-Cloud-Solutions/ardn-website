@@ -228,11 +228,11 @@ export default function AiForgeContent() {
                 <span className="af-accent">Run For You.</span>
               </h1>
               <p className="af-hero-sub">
-                AI Forge is the done-for-you way to launch a custom AI app. Our
-                expert team designs, builds, hosts, and continuously
-                improves it — for one predictable monthly fee. Most AI projects
-                stall because no one runs them after launch. We build yours{" "}
-                <em>and</em> keep it running.
+                AI Forge is the framework our expert team builds with — designing,
+                building, hosting, and continuously improving your custom app in
+                weeks, not months, at lower cost and higher accuracy, for one
+                predictable monthly fee. Most AI projects stall because no one runs
+                them after launch. We build yours <em>and</em> keep it running.
               </p>
               <div className="af-hero-offer">
                 <span className="af-hero-offer-icon">🎁</span>
