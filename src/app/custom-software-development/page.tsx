@@ -175,7 +175,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software &amp; Platform Development</span>
                 <h1 className="display reveal">
-                  Custom software, built for <em>how you actually work.</em>
+                  Custom software, live in weeks — <em>flat fee, you own it.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Off-the-shelf tools make you bend your business to fit them,
@@ -193,6 +193,9 @@ export default function CustomSoftwareDevelopmentPage() {
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                   <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
                 </div>
+                <p className="body" style={{ marginTop: "12px", fontSize: "13px", color: "#6b7280" }}>
+                  30-min call &middot; fixed quote in 48 hours &middot; you own the IP &middot; no obligation
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>

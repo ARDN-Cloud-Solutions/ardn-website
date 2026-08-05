@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke: "salesforce license optimization" head term. Matches the
+        // in-platform tactics the optimization consultancies rank for, then adds
+        // the flat-fee-portal move they omit. Feeds the per-seat cost wedge.
+        url: `${BASE_URL}/salesforce-license-optimization`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

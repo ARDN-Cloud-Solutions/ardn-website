@@ -110,6 +110,32 @@ export default function BlogSidebar({
                 </div>
             )}
 
+            {/* Wedge CTA — routes blog readers (the highest-traffic surface,
+                previously passing no contextual equity to the money pages) into
+                the per-seat cost-reduction cluster with keyword-rich anchors. */}
+            <div className="border border-gray-100 overflow-hidden">
+                <WidgetHeader title="Cut Your CRM Costs" />
+                <div className="p-4 space-y-3">
+                    <p className="text-sm text-paragraph leading-snug">
+                        Paying full per-seat Salesforce or HubSpot licenses for light
+                        users? A custom portal moves them to one flat fee — keep your
+                        CRM, cut the bill.
+                    </p>
+                    <Link
+                        href="/reduce-crm-licensing-costs"
+                        className="block text-sm font-semibold text-primary hover:underline"
+                    >
+                        Cut your Salesforce &amp; CRM licensing costs →
+                    </Link>
+                    <Link
+                        href="/savings-calculator"
+                        className="block text-sm font-semibold text-primary hover:underline"
+                    >
+                        Run the free per-seat savings calculator →
+                    </Link>
+                </div>
+            </div>
+
             {/* Newsletter */}
             <div className="border border-gray-100 overflow-hidden">
                 <WidgetHeader title="Subscribe Newsletter" />
