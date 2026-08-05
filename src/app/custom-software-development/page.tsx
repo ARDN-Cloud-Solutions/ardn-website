@@ -175,7 +175,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software &amp; Platform Development</span>
                 <h1 className="display reveal">
-                  Custom software, built for <em>how you actually work.</em>
+                  Custom software &amp; platform development, built for <em>how you actually work.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Off-the-shelf tools make you bend your business to fit them,
@@ -363,6 +363,8 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-dynamics-365-license-costs" className="link">Reduce Dynamics 365 license costs →</Link>
+              <Link href="/reduce-servicenow-license-costs" className="link">Reduce ServiceNow license costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>

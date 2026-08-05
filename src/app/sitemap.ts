@@ -290,6 +290,22 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Cost-reduction wedge extended to Microsoft Dynamics 365 (per-user app
+        // seats + Team Members tier). New-platform spoke, zero prior coverage.
+        url: `${BASE_URL}/reduce-dynamics-365-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Cost-reduction wedge extended to ServiceNow (per-fulfiller seats;
+        // fulfiller-vs-requester split). New-platform spoke, zero prior coverage.
+        url: `${BASE_URL}/reduce-servicenow-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

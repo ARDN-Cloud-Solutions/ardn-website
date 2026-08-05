@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -23,22 +24,25 @@ export default function LandingPageContent() {
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
-              {/* AI-first hero card: spotlights AI Forge (the flagship) with the
-                  free-build offer, then points to the wider suite as secondary
-                  so the page reads focused rather than scattered. */}
+              {/* Wedge-first hero card: leads with the priority cost-reduction
+                  play (per-seat CRM → flat-fee portal) to match the outbound
+                  sales message, then surfaces AI Forge and the wider suite as
+                  supporting capabilities — AI is one capability, not the lead. */}
               <div className="card" style={{ padding: "28px" }}>
-                <div className="kicker">Flagship · AI Forge</div>
-                <p className="body mt-3" style={{ marginBottom: "12px" }}>A custom AI app built around your exact workflow — designed, built, hosted, and improved for you. Live in 2–6 weeks, one flat monthly fee.</p>
-                <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
-                <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
-                <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
-                  Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
+                <div className="kicker">The cost-reduction play</div>
+                <p className="body mt-3" style={{ marginBottom: "14px" }}>Paying full per-seat CRM licenses for people who barely use them? We build a custom portal that moves your light users onto one flat fee — keep your CRM, cut the bill.</p>
+                <Link href="/reduce-crm-licensing-costs" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block", marginBottom: "16px" }}>See how to cut CRM licensing costs →</Link>
+                <p className="body" style={{ fontWeight: 600, color: "var(--indigo)" }}>🎁 New customers: we build it free.</p>
+                <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
+                  Plus custom AI via <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge</Link> and a full product suite. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
                 </p>
               </div>
             </aside>
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames
