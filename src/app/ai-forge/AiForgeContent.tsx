@@ -228,11 +228,11 @@ export default function AiForgeContent() {
                 <span className="af-accent">Run For You.</span>
               </h1>
               <p className="af-hero-sub">
-                AI Forge is the done-for-you way to launch a custom AI app. Our
-                expert team designs, builds, hosts, and continuously
-                improves it — for one predictable monthly fee. Most AI projects
-                stall because no one runs them after launch. We build yours{" "}
-                <em>and</em> keep it running.
+                AI Forge is the framework our expert team builds with — designing,
+                building, hosting, and continuously improving your custom app in
+                weeks, not months, at lower cost and higher accuracy, for one
+                predictable monthly fee. Most AI projects stall because no one runs
+                them after launch. We build yours <em>and</em> keep it running.
               </p>
               <div className="af-hero-offer">
                 <span className="af-hero-offer-icon">🎁</span>
@@ -791,6 +791,11 @@ export default function AiForgeContent() {
             <Link href="/ai-app-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See custom AI app development →</Link>
             {" · "}
             <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Back to custom software &amp; platforms →</Link>
+          </p>
+          <p style={{ marginTop: "10px" }}>
+            <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Cut your per-seat CRM licensing costs →</Link>
+            {" · "}
+            <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Calculate your CRM seat savings →</Link>
           </p>
         </div>
       </section>

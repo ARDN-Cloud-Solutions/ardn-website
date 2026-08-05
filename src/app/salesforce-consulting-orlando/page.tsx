@@ -8,10 +8,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // because competition for the geo-modified keywords is thin. Single CTA
 // (Calendly), single conversion path, no in-page distractions.
 export const metadata: Metadata = {
-  title:
-    "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
+  title: "Salesforce Consulting & Managed Services Orlando | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services from a Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform for YMCAs, gyms, and clubs. Book a free 30-minute call with an Orlando senior consultant — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services from an Orlando team with 30+ years of Salesforce expertise. Free 30-min call.",
   keywords: [
     "Salesforce consultant Orlando",
     "Salesforce consulting Florida",
@@ -459,6 +458,13 @@ export default function SalesforceConsultingOrlandoPage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "20px" }}>
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Reduce your Salesforce licensing costs →</Link>
+                {" · "}
+                <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Estimate your per-seat savings →</Link>
+                {" · "}
+                <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Move light users to a custom portal →</Link>
+              </p>
             </div>
           </div>
         </section>

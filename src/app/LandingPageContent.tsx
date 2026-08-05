@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -10,12 +11,13 @@ export default function LandingPageContent() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-copy">
-              <span className="eyebrow">Custom software, platforms &amp; AI · Built and run for you</span>
-              <h1 className="display reveal">Run your business on software built <em>for it</em> — not the other way around.</h1>
-              <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
+              <span className="eyebrow">Custom software, platforms &amp; portals · Built in weeks, run for you</span>
+              <h1 className="display reveal">Custom software, built for your business — <em>live in weeks, not months.</em></h1>
+              <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: custom software, platforms, and portals shaped around exactly how you work — designed, built, and run for you for one flat monthly fee. Our AI Forge Framework is how we ship it in weeks, not months, at lower cost and higher accuracy. New customers pay nothing to build it.</p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "4px" }} className="reveal reveal-d2">
-                <span className="badge is-emerald">Flat fee, not per-seat</span>
-                <span className="badge">Cut CRM per-seat costs</span>
+                <span className="badge is-emerald">Weeks, not months</span>
+                <span className="badge">Flat fee, not per-seat</span>
+                <span className="badge is-canvas">Built &amp; run for you</span>
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
@@ -23,22 +25,25 @@ export default function LandingPageContent() {
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
-              {/* AI-first hero card: spotlights AI Forge (the flagship) with the
-                  free-build offer, then points to the wider suite as secondary
-                  so the page reads focused rather than scattered. */}
+              {/* Wedge-first hero card: leads with the priority cost-reduction
+                  play (per-seat CRM → flat-fee portal) to match the outbound
+                  sales message. AI Forge is framed as the FRAMEWORK/how we ship
+                  custom products in weeks — the engine, not the pitch. */}
               <div className="card" style={{ padding: "28px" }}>
-                <div className="kicker">Flagship · AI Forge</div>
-                <p className="body mt-3" style={{ marginBottom: "12px" }}>A custom AI app built around your exact workflow — designed, built, hosted, and improved for you. Live in 2–6 weeks, one flat monthly fee.</p>
-                <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
-                <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
-                <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
-                  Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
+                <div className="kicker">The cost-reduction play</div>
+                <p className="body mt-3" style={{ marginBottom: "14px" }}>Paying full per-seat CRM licenses for people who barely use them? We build a custom portal that moves your light users onto one flat fee — keep your CRM, cut the bill.</p>
+                <Link href="/reduce-crm-licensing-costs" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block", marginBottom: "16px" }}>See how to cut CRM licensing costs →</Link>
+                <p className="body" style={{ fontWeight: 600, color: "var(--indigo)" }}>🎁 New customers: we build it free.</p>
+                <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
+                  Built fast with our <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link> — how we ship custom products in weeks. Plus a full product suite. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
                 </p>
               </div>
             </aside>
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames
@@ -70,7 +75,7 @@ export default function LandingPageContent() {
             </div>
           </div>
           <div style={{ marginTop: "28px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/ai-forge" className="link">AI Forge is our flagship example — see how it works →</Link>
+            <Link href="/ai-forge" className="link">See the AI Forge Framework — how we build it in weeks →</Link>
             <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
             <Link href="/custom-partner-portal-development" className="link">Cut per-login partner &amp; dealer portal costs →</Link>
             <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs — the full guide →</Link>
@@ -131,18 +136,19 @@ export default function LandingPageContent() {
                   marginBottom: "14px",
                 }}
               >
-                NEW CUSTOMER OFFER · AI FORGE
+                NEW CUSTOMER OFFER · FREE BUILD
               </span>
               <h2 className="h2" style={{ color: "white", marginBottom: "8px" }}>
-                We&apos;ll build your custom AI app — <em>free.</em>
+                We&apos;ll build your custom product — <em>free.</em>
               </h2>
               <p className="body" style={{ color: "rgba(255,255,255,0.85)" }}>
                 New customers skip the one-time build fee entirely. You only pay the
-                monthly subscription once your app is live.
+                monthly subscription once it&apos;s live — shipped in weeks with our
+                AI Forge Framework.
               </p>
             </div>
             <span className="btn btn-on-dark btn-lg btn-arrow" style={{ flexShrink: 0 }}>
-              See the AI Forge offer
+              See the free-build offer
             </span>
           </Link>
         </div>
@@ -154,7 +160,7 @@ export default function LandingPageContent() {
           <div className="section-head">
             <div>
               <span className="eyebrow">More ways to grow</span>
-              <h2 className="h1 mt-3">Start with AI. <em>Add what you need.</em></h2>
+              <h2 className="h1 mt-3">Start with your biggest need. <em>Add the rest as you grow.</em></h2>
             </div>
             <div>
               <p className="lede">Beyond AI Forge, six focused products — each replacing a category of third-party tooling and paying for itself. No bloated platform, no forced bundle. Add one only when you need it.</p>
@@ -163,11 +169,13 @@ export default function LandingPageContent() {
 
           <div className="grid-2">
 
-            {/* AI Forge leads the suite — the homepage's primary focus. */}
+            {/* AI Forge — framed as the delivery FRAMEWORK behind every custom
+                build (weeks not months, lower cost, higher accuracy), not an
+                "AI-first" pitch. */}
             <article className="product-card" style={{ "--accent": "#7C3AED" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>Flagship · AI</span>
+              <span className="pill" style={{ background: "#F3E8FF", color: "#7C3AED" }}>The Framework</span>
               <h3 className="h3">AI Forge</h3>
-              <p className="body">Our expert development team uses the proprietary AI Forge Framework to design, build, and ship custom AI applications and business software in weeks, not months — then runs them as a managed service.</p>
+              <p className="body">The proprietary framework our expert team builds with — designing, shipping, and running custom software, platforms, and AI applications in weeks, not months, at lower cost and higher accuracy.</p>
               <ul className="features">
                 <li>Discovery to production in 2–6 weeks</li>
                 <li>Integrates with your stack — Salesforce, HubSpot &amp; more</li>
