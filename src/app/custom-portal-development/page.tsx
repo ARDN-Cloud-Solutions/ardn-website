@@ -163,7 +163,8 @@ export default function CustomPortalDevelopmentPage() {
         "@id": "https://ardncloudsolutions.com/custom-portal-development#breadcrumb",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://ardncloudsolutions.com" },
-          { "@type": "ListItem", position: 2, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
+          { "@type": "ListItem", position: 2, name: "Custom Software Development", item: "https://ardncloudsolutions.com/custom-software-development" },
+          { "@type": "ListItem", position: 3, name: "Custom Portal Development", item: "https://ardncloudsolutions.com/custom-portal-development" },
         ],
       },
     ],
