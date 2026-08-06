@@ -11,7 +11,7 @@ export default function LandingPageContent() {
           <div className="hero-grid">
             <div className="hero-copy">
               <span className="eyebrow">Custom software, platforms &amp; AI · Built and run for you</span>
-              <h1 className="display reveal">Run your business on software built <em>for it</em> — not the other way around.</h1>
+              <h1 className="display reveal">Custom software, portals &amp; AI apps — built <em>for how you work,</em> not the other way around.</h1>
               <p className="lede reveal reveal-d2">Off-the-shelf tools make you bend your process to fit them, then charge you per user just to grow. We flip it: one platform shaped around exactly how your business works — accessible anywhere, for one flat monthly fee, built and run for you. New customers pay nothing to build it.</p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "4px" }} className="reveal reveal-d2">
                 <span className="badge is-emerald">Flat fee, not per-seat</span>

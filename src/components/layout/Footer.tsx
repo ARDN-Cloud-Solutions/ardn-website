@@ -31,6 +31,8 @@ const solutions = [
   { label: "Custom AI App Development", href: "/ai-app-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
+  { label: "Cut Dynamics 365 License Costs", href: "/reduce-dynamics-365-licensing-costs" },
+  { label: "Cut ServiceNow License Costs", href: "/reduce-servicenow-license-costs" },
   { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
   { label: "GLP-1 & Telehealth Ecommerce", href: "/glp-1-ecommerce" },
   { label: "Chapter & Dues Management", href: "/chapter-management-software" },

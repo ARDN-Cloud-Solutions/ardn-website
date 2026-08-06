@@ -297,6 +297,24 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge SPOKE: Microsoft Dynamics 365 seat-cost reduction. Extends the
+        // per-seat cost-reduction wedge to a new, uncovered ecosystem (full
+        // Sales/Customer Service seats vs. the limited Team Member license).
+        url: `${BASE_URL}/reduce-dynamics-365-licensing-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
+        // Wedge SPOKE: ServiceNow fulfiller-license cost reduction. Highest
+        // per-seat pain in the market; move light fulfillers/requesters to a
+        // flat-fee portal synced to the instance.
+        url: `${BASE_URL}/reduce-servicenow-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

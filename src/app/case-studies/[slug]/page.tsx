@@ -169,8 +169,9 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <div className="grid lg:grid-cols-[1fr_360px] gap-10 xl:gap-14 items-start">
                     {/* ─── Left: case study content ────────────────────────── */}
                     <article className="min-w-0">
-                        {/* Title */}
-                        <h2
+                        {/* Title — H1 for the indexed case-study detail page
+                            (was an H2, leaving these pages with no H1). */}
+                        <h1
                             className="text-3xl md:text-4xl font-semibold text-heading-dark leading-tight mb-5"
                             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                         />
