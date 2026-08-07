@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Custom Partner & Vendor Portal Development | Ardn",
     description:
-      "Replace per-login Partner Community seats with a custom partner, vendor & distributor portal wired to your CRM — one flat fee, any number of partners. New customers: free build.",
+      "Replace per-login Partner Community seats with a flat-fee custom partner & vendor portal wired to your CRM — unlimited partners. New customers: free build.",
     url: "https://ardncloudsolutions.com/custom-partner-portal-development",
     siteName: "Ardn Cloud Solutions",
     images: [

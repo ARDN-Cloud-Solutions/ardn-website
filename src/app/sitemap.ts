@@ -259,6 +259,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Compare hub / index — resolves the /compare breadcrumb crumb the
+        // comparison pages emit, and links out to every comparison.
+        url: `${BASE_URL}/compare`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
         url: `${BASE_URL}/compare/salesforce-commerce-cloud-alternatives`,
         lastModified: new Date(),
         changeFrequency: "monthly",

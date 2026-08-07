@@ -169,7 +169,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Salesforce &amp; HubSpot Seat Costs</span>
                 <h1 className="display reveal">
-                  Keep the CRM. <em>Cut the seats you don&apos;t need.</em>
+                  Salesforce seat costs: <em>keep the CRM, cut the seats you don&apos;t need.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Full per-seat CRM licenses are built for power users — reps who
@@ -346,6 +346,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut per-login partner seats with a custom partner portal →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
             </div>
@@ -385,7 +386,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
               <h2 className="display mt-4">Keep the CRM. <em>Stop paying full price for it.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your light users actually use your CRM, show where a portal cuts the bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
-                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
+                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Get my fixed monthly quote</a>
                 <Link href="/custom-portal-development" className="btn btn-outline-light btn-lg">Explore custom portals</Link>
               </div>
               <p style={{ marginTop: "20px" }}>

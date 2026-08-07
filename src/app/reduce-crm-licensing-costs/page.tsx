@@ -14,7 +14,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "Cut CRM Licensing & Per-Seat Costs, Keep Your CRM | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -80,6 +80,10 @@ const FAQS = [
   {
     q: "What is a 'light user' and why do they cost the most per unit of value?",
     a: "A light user touches the CRM for a narrow slice of work but gets billed the same (or nearly the same) as a power user who lives in it all day. Because per-seat pricing is built around the power user, the overpayment concentrates on everyone lighter than that — which in most companies is the majority of the seat count.",
+  },
+  {
+    q: "Isn't moving light users to a cheaper Salesforce Platform license enough?",
+    a: "A Salesforce Platform license costs less than a full Sales or Service Cloud seat, and it's a reasonable step for users who still need to work natively in Salesforce. But it's still a per-seat license, billed every month for every user, forever — and it strips out exactly the standard CRM objects many light users actually came for. Downgrading trims the bill; it doesn't change the model. Moving a genuinely light user to a flat-fee custom portal removes the seat entirely — the cheapest seat is no seat. Your Salesforce data stays the system of record, and the portal reads and writes it live through the API.",
   },
   {
     q: "How much can a custom portal actually save versus per-seat licenses?",
@@ -380,6 +384,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Move partners off per-login CRM seats with a partner portal →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>

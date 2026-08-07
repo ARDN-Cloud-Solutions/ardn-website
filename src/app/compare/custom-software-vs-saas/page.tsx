@@ -165,7 +165,7 @@ export default function CustomSoftwareVsSaasPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software vs. SaaS</span>
                 <h1 className="display reveal">
-                  Do the math <em>before you renew.</em>
+                  Custom software vs. SaaS: <em>do the math before you renew.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Per-seat SaaS pricing climbs every time you hire, open a
@@ -303,9 +303,11 @@ export default function CustomSoftwareVsSaasPage() {
                 <span className="link">Explore the hub →</span>
               </Link>
             </div>
-            <p className="body mt-4" style={{ textAlign: "center" }}>
+            <div style={{ marginTop: "16px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Paying per-seat Salesforce or HubSpot fees? See the seat-cost math →</Link>
-            </p>
+              <Link href="/reduce-crm-licensing-costs" className="link">How to reduce CRM licensing costs →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Salesforce Experience Cloud vs. a custom portal →</Link>
+            </div>
           </div>
         </section>
 
