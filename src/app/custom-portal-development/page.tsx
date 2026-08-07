@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -233,7 +233,7 @@ export default function CustomPortalDevelopmentPage() {
                 <h2 className="h1 mt-3">Portals for the users <em>who don&apos;t need a full seat.</em></h2>
               </div>
               <div>
-                <p className="lede">Each portal is built to one group&apos;s workflow and wired into your CRM — so the data stays in one place and the licensing bill stops climbing.</p>
+                <p className="lede">From client and customer portal software to seller, ops, and partner portals — each is built to one group&apos;s workflow and wired into your CRM, so the data stays in one place and the licensing bill stops climbing.</p>
               </div>
             </div>
             <div className="grid-3">
@@ -247,6 +247,8 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Partners, dealers &amp; resellers? See custom partner portal development →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Compare Salesforce Experience Cloud vs. a custom portal →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
@@ -339,7 +341,7 @@ export default function CustomPortalDevelopmentPage() {
               <h2 className="display mt-4">See what you&apos;re overpaying. <em>Then keep it.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
-                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
+                <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Get my fixed monthly quote</a>
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>

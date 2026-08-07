@@ -690,8 +690,41 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              {/* CRO: the modal is the highest-intent moment on the site — the
+                  visitor has just seen their savings number. Not everyone is
+                  ready to book a live call, so give the warm-but-not-ready
+                  majority a lower-friction path to the on-page lead form
+                  (#quote) instead of only an outbound Calendly link. */}
+              <button
+                type="button"
+                onClick={() => {
+                  setModalOpen(false);
+                  setTimeout(
+                    () =>
+                      document
+                        .getElementById("quote")
+                        ?.scrollIntoView({ behavior: "smooth" }),
+                    120
+                  );
+                }}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  marginTop: 10,
+                  padding: "12px",
+                  background: "transparent",
+                  border: "1px solid var(--sc-border-2)",
+                  borderRadius: 10,
+                  color: "var(--sc-text-2)",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                Prefer it in writing? Email me my full breakdown →
+              </button>
               <div className="sc-modal-fine">
-                No pressure. No sales deck. Just your actual numbers in 30 minutes.
+                No pressure. No sales deck. Just your actual numbers — a call in 30 minutes, or a written breakdown in your inbox.
               </div>
             </div>
           </div>

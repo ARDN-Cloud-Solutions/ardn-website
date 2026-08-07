@@ -164,7 +164,7 @@ export default function CustomEcommerceDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Ecommerce Development</span>
                 <h1 className="display reveal">
-                  A store that fits <em>your business — not a template.</em>
+                  Custom ecommerce development that fits <em>your business — not a template.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   When your catalog, pricing, subscriptions, or memberships
