@@ -290,6 +290,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge spoke: HubSpot-specific cut-the-seat-bill landing page.
+        // Mirrors the cross-CRM pillar for the HubSpot per-seat query set.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

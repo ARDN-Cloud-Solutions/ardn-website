@@ -207,6 +207,9 @@ export default function CustomSoftwareDevelopmentPage() {
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
+                  <p className="body" style={{ marginTop: "14px" }}>
+                    <Link href="/savings-calculator" className="link">Run your per-seat savings numbers →</Link>
+                  </p>
                 </div>
               </aside>
             </div>
@@ -363,6 +366,7 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">Reduce HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
