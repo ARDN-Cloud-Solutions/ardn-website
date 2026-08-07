@@ -211,8 +211,21 @@ export default function ExperienceCloudVsCustomPortalPage() {
                 </tbody>
               </table>
             </div>
+            <div className="card" style={{ marginTop: "28px", padding: "24px 28px", borderLeft: "4px solid var(--indigo)" }}>
+              <div className="kicker" style={{ color: "var(--indigo)" }}>The crossover</div>
+              <p className="body mt-2">
+                Both models start cheap and stay cheap while only a handful of
+                external users log in. The bill turns as adoption succeeds:
+                every extra login block or active member adds recurring cost,
+                so the more your portal works, the more it costs. A flat-fee
+                custom portal inverts that — the fee is the same whether 50 or
+                5,000 people use it, so the savings widen exactly as usage
+                grows. The right question isn&apos;t today&apos;s price; it&apos;s where
+                the two lines cross at the adoption you&apos;re planning for.
+              </p>
+            </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
-              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and use our <Link href="/savings-calculator" className="link">calculator</Link> to compare against a flat-fee portal for your own user counts.
+              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and use our <Link href="/savings-calculator" className="link">calculator</Link> to find your own crossover point against a flat-fee portal.
             </p>
           </div>
         </section>

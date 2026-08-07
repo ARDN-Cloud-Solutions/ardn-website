@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
+import TrustBar from "@/components/common/TrustBar";
 import { HOME_FAQS } from "./homeFaqs";
 export default function LandingPageContent() {
   return (
@@ -19,26 +20,29 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
-              {/* AI-first hero card: spotlights AI Forge (the flagship) with the
-                  free-build offer, then points to the wider suite as secondary
-                  so the page reads focused rather than scattered. */}
+              {/* Wedge-first hero card: leads with the #1 go-to-market play —
+                  cut per-seat CRM costs with a custom portal — then points to
+                  AI Forge and the wider suite as secondary, so AI stays one
+                  capability rather than the whole pitch. */}
               <div className="card" style={{ padding: "28px" }}>
-                <div className="kicker">Flagship · AI Forge</div>
-                <p className="body mt-3" style={{ marginBottom: "12px" }}>A custom AI app built around your exact workflow — designed, built, hosted, and improved for you. Live in 2–6 weeks, one flat monthly fee.</p>
+                <div className="kicker">The #1 play · Cut per-seat costs</div>
+                <p className="body mt-3" style={{ marginBottom: "12px" }}>Paying full per-seat CRM licenses for people who barely use them? We build a custom portal wired into your CRM so light users move to one flat fee — keep Salesforce or HubSpot, cut the bill.</p>
                 <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
-                <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
+                <Link href="/custom-portal-development" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Keep your CRM, cut the bill →</Link>
                 <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
-                  Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
+                  Plus a full suite — AI Forge, Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
                 </p>
               </div>
             </aside>
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* APPROACH — the "one platform" story. Names the false choice every
           buyer faces (rigid per-seat tools vs. doing it by hand) and frames

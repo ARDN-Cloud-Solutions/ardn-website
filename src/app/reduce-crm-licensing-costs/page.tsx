@@ -89,6 +89,18 @@ const FAQS = [
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
+  {
+    q: "What's the difference between a Salesforce Platform license and a full license?",
+    a: "A full Sales or Service Cloud license unlocks the standard CRM objects (leads, opportunities, cases) and the sales/service feature set. A Platform license is cheaper and gives a user access to custom objects and core CRM records, but not the standard sales/service apps. It's a real saving for users who only work in custom apps — but it's still a per-seat license that scales with headcount, which is why light users often land on a flat-fee portal instead.",
+  },
+  {
+    q: "Does deactivating a Salesforce user immediately free up the license?",
+    a: "Yes — deactivating a user frees the license so you can reassign it to someone else right away. It does not reduce the number of licenses on your contract, though: your paid license count only drops when you lower it at renewal. So the audit-and-deactivate step lets you stop buying new seats, and the renewal conversation is where the count (and the bill) actually comes down.",
+  },
+  {
+    q: "What percentage of our CRM spend can a license audit recover?",
+    a: "It depends entirely on how many dormant, duplicate, and over-provisioned seats you're carrying, so we won't put a fixed percentage on it. Two things are reliably true: most mid-market orgs carry more inactive or over-tiered seats than they expect, and the reclaim is a one-time saving. The larger, recurring saving comes from the light users who are genuinely active — that's the group a flat-fee portal addresses.",
+  },
 ];
 
 const levers = [
@@ -380,6 +392,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>

@@ -13,7 +13,15 @@ import Link from "next/link";
  *   city — the city name (e.g. "Orlando", "Miami", "Tampa", "Jacksonville").
  *          Used in copy to anchor the offering geographically.
  */
+const CITY_LINKS: { city: string; href: string }[] = [
+  { city: "Orlando", href: "/salesforce-consulting-orlando" },
+  { city: "Miami", href: "/salesforce-consulting-miami" },
+  { city: "Tampa", href: "/salesforce-consulting-tampa" },
+  { city: "Jacksonville", href: "/salesforce-consulting-jacksonville" },
+];
+
 export default function CityBeyondSalesforce({ city }: { city: string }) {
+  const otherCities = CITY_LINKS.filter((c) => c.city !== city);
   return (
     <section className="section">
       <div className="container">
@@ -131,6 +139,15 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             AI-focused entry point. */}
         <div style={{ marginTop: 40, textAlign: "center" }}>
           <p className="body" style={{ fontSize: 15 }}>
+            Not sure where to start?{" "}
+            <Link
+              href="/reduce-crm-licensing-costs"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              See the three ways to cut Salesforce licensing costs →
+            </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 15 }}>
             Want to see your own numbers?{" "}
             <Link
               href="/savings-calculator"
@@ -147,6 +164,15 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             >
               See our AI app development page for Florida businesses →
             </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 14, color: "#6b7280" }}>
+            Salesforce consulting nearby:{" "}
+            {otherCities.map((c, i) => (
+              <span key={c.href}>
+                <Link href={c.href} className="link">{c.city}</Link>
+                {i < otherCities.length - 1 ? ", " : ""}
+              </span>
+            ))}
           </p>
         </div>
       </div>

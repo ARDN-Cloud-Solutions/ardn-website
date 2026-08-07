@@ -249,6 +249,8 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Salesforce Experience Cloud vs. a custom portal →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -306,8 +308,47 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* PORTAL SOFTWARE COMPARISON — intercepts the "client / customer
+            portal software" buyer term, where the SERP is dominated by
+            off-the-shelf portal SaaS listicles. Positions a CRM-native custom
+            portal as the flat-fee, no-per-user pick vs. generic portal tools. */}
+        <section className="section" id="vs-portal-software">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Custom portal vs. portal software</span>
+                <h2 className="h1 mt-3">Client &amp; customer portal software, <em>without the per-user fee.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Off-the-shelf portal tools get you live fast, then bill per user and box you into their data model. A CRM-native custom portal is shaped to your workflow and runs on one flat fee — here&apos;s the trade-off.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>What matters</th>
+                    <th>Off-the-shelf portal SaaS</th>
+                    <th>Custom CRM-native portal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">Pricing model</td><td className="is-no">Per user / per seat, climbs with headcount</td><td className="is-yes">One flat monthly fee at any user count</td></tr>
+                  <tr><td className="feat">CRM sync</td><td className="is-no">Add-on connector, often one-way or delayed</td><td className="is-yes">Two-way, real-time — one source of truth</td></tr>
+                  <tr><td className="feat">Workflow fit</td><td className="is-no">Their templates &amp; data model</td><td className="is-yes">Built to your exact process</td></tr>
+                  <tr><td className="feat">Who runs it</td><td className="is-no">You configure &amp; maintain it</td><td className="is-yes">We build it and run it for you</td></tr>
+                  <tr><td className="feat">Light-user cost</td><td className="is-no">Another paid seat each</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Off per-seat licenses entirely</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Off-the-shelf portal software can be the right call for a simple, standalone use case. When the portal has to stay in lockstep with your CRM and serve a growing group of light users, the per-user math is what a custom portal fixes — see the <Link href="/compare/custom-software-vs-saas" className="link">full custom-vs-SaaS cost breakdown</Link>.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
-        <section className="section" id="faq">
+        <section className="section is-canvas" id="faq">
           <div className="container">
             <div className="section-head">
               <div>
@@ -340,7 +381,7 @@ export default function CustomPortalDevelopmentPage() {
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
-                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
+                <Link href="/savings-calculator" className="btn btn-outline-light btn-lg">Run your per-seat savings numbers</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
                 Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
