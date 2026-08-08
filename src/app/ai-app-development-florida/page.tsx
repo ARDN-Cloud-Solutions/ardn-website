@@ -8,9 +8,9 @@ import TrustBar from "@/components/common/TrustBar";
 // Single CTA (Calendly), single conversion path.
 export const metadata: Metadata = {
   title:
-    "AI App Development in Florida | Custom AI Built in Weeks — Ardn AI Forge",
+    "AI App Development in Florida | Ardn AI Forge",
   description:
-    "Custom AI application development by a Florida-based team. Our AI Forge Framework ships production-ready AI apps in 2–6 weeks — designed, built, deployed, and operated under one monthly subscription. Free 30-min strategy call.",
+    "Custom AI app development by a Florida team. The AI Forge Framework ships production-ready AI apps in 2–6 weeks. Free 30-min strategy call.",
   keywords: [
     "AI app development Florida",
     "AI development Orlando",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "AI App Development in Florida | Custom AI Built in Weeks — Ardn AI Forge",
+      "AI App Development in Florida | Ardn AI Forge",
     description:
       "Florida-based team. AI Forge Framework ships production AI apps in 2–6 weeks under one monthly subscription. Free 30-min strategy call.",
     url: "https://ardncloudsolutions.com/ai-app-development-florida",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "AI App Development in Florida | Custom AI Built in Weeks — Ardn AI Forge",
+      "AI App Development in Florida | Ardn AI Forge",
     description:
       "Florida-based team. AI Forge Framework ships production AI apps in 2–6 weeks. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",

@@ -227,7 +227,7 @@ export default function LandingPageContent() {
               <ul className="features">
                 <li>Inactivity rules by role, profile, permission set</li>
                 <li>Pre-warning emails before any action</li>
-                <li>Typically pays back its annual cost in one quarter</li>
+                <li>Turns dormant, paid-for licenses back into savings</li>
               </ul>
               <Link href="/license-guard" className="link">Explore License Guard</Link>
             </article>
@@ -247,7 +247,7 @@ export default function LandingPageContent() {
             <article className="product-card" style={{ "--accent": "#B45309" } as React.CSSProperties}>
               <span className="pill" style={{ background: "#FEF3E2", color: "#B45309" }}>Customer service</span>
               <h3 className="h3">AI-Powered Support</h3>
-              <p className="body">ReplyCX automates ~70% of routine queries across WhatsApp, email, chat, and social — in one no-code workspace.</p>
+              <p className="body">ReplyCX is built to automate routine queries across WhatsApp, email, chat, and social — in one no-code workspace.</p>
               <ul className="features">
                 <li>No-code AI agents from your existing docs</li>
                 <li>One inbox: WhatsApp, SMS, email, social, live chat</li>

@@ -4,7 +4,7 @@ import PrivacyPolicyContent from "./PrivacyPolicyContent";
 export const metadata: Metadata = {
   title: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
   description:
-    "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
+    "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data, and the rights you have over the information you share with us.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/privacy-policy",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
     description:
-      "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
+      "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data, and the rights you have over the information you share with us.",
     url: "https://ardncloudsolutions.com/privacy-policy",
     siteName: "Ardn Cloud Solutions",
     locale: "en_US",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ardn Cloud Solutions Privacy Policy | How We Use Your Data",
     description:
-      "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data. Read our Privacy Policy to understand your rights and how we handle the information you share with us.",
+      "Learn how Ardn Cloud Solutions collects, uses, and protects your personal data, and the rights you have over the information you share with us.",
     site: "@ardn_cloud_sol",
   },
 };

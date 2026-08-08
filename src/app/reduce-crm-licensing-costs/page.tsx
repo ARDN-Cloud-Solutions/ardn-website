@@ -86,6 +86,14 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "Our CRM already gives free or view-only seats — isn't that enough?",
+    a: "For truly passive users, sometimes. But free view-only and read-only seats are limited by design: the user can look at records but can't reliably update them, submit requests, or run a branded self-service workflow, and they're usually meant for internal staff, not partners or customers. The moment a light user needs to do something — update a status, file a request, self-serve — a free view-only seat runs out and you're back to buying a full one. That's the exact gap a flat-fee portal closes without adding a paid seat.",
+  },
+  {
+    q: "Is it allowed to connect a custom portal to Salesforce or HubSpot?",
+    a: "Yes. A portal is a standard API integration — the same supported mechanism the Salesforce AppExchange and HubSpot marketplace are built on. It authenticates to your CRM, reads and writes only the records you permit, and honors the permissions you already define. Your CRM stays the system of record; nothing is scraped or worked around. It's an integration, not a loophole.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -380,7 +388,9 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-costs" className="link">On HubSpot? How to cut HubSpot costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut external Experience Cloud seat costs with a partner portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>

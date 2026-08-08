@@ -99,6 +99,14 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Is it allowed to connect a third-party portal to Salesforce or HubSpot?",
+    a: "Yes. The portal is a standard API integration — the same supported mechanism every app on the Salesforce AppExchange and HubSpot marketplace is built on. It authenticates to your CRM, reads and writes only the records you permit, and honors the permissions and sharing rules you already define. Your CRM stays the system of record; the portal is simply a tailored front end for the users who need less of it. This is an integration, not a workaround.",
+  },
+  {
+    q: "Our CRM already offers free or view-only seats — why pay for a portal?",
+    a: "Free view-only and read-only seats are useful, but they're limited by design: a view-only user can look at records but can't reliably update them, submit requests, or run a branded self-service workflow — and they're usually meant for internal users, not customers or partners. A custom portal lets a light user actually transact — update a status, submit a request, self-serve — which a free view-only seat can't, without consuming a full paid seat. Use the free seats where they fit; use a portal where users need to do something, not just look.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -247,6 +255,8 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Partner &amp; channel portals that replace Experience Cloud seats →</Link>
+              <Link href="/reduce-hubspot-costs" className="link">On HubSpot? How to cut HubSpot costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
@@ -303,6 +313,45 @@ export default function CustomPortalDevelopmentPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* SAVINGS ILLUSTRATION — quantified CFO business case. Uses publicly
+            listed Sales Cloud Enterprise list price and a real Ardn pricing tier,
+            explicitly labeled illustrative, and points to the calculator. No
+            fabricated client result or invented number. */}
+        <section className="section is-canvas" id="the-math">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The math, illustrated</span>
+                <h2 className="h1 mt-3">What light users <em>cost as full seats.</em></h2>
+              </div>
+              <div>
+                <p className="lede">A worked example for a mid-market org moving light users off full CRM seats onto one flat-fee portal. Your numbers will differ — run them in the calculator.</p>
+              </div>
+            </div>
+            <div className="grid-3" style={{ marginTop: "8px" }}>
+              <div className="card">
+                <div className="kicker">Today — per-seat</div>
+                <div style={{ fontSize: "34px", fontWeight: 800, color: "#b42318", marginTop: "8px" }}>~$33,000<span style={{ fontSize: "16px", fontWeight: 600, color: "#6b7280" }}>/mo</span></div>
+                <p className="body mt-2">200 light users &times; ~$165/seat/mo — Sales Cloud Enterprise list price.</p>
+              </div>
+              <div className="card" style={{ borderColor: "var(--indigo)" }}>
+                <div className="kicker">With a flat-fee portal</div>
+                <div style={{ fontSize: "34px", fontWeight: 800, color: "var(--indigo)", marginTop: "8px" }}>$4,500<span style={{ fontSize: "16px", fontWeight: 600, color: "#6b7280" }}>/mo</span></div>
+                <p className="body mt-2">One flat subscription (Scale tier) — same fee whether it&apos;s 200 users or 400.</p>
+              </div>
+              <div className="card" style={{ background: "rgba(15,152,112,0.06)" }}>
+                <div className="kicker">Illustrative saving</div>
+                <div style={{ fontSize: "34px", fontWeight: 800, color: "#0F9870", marginTop: "8px" }}>~$342K<span style={{ fontSize: "16px", fontWeight: 600, color: "#6b7280" }}>/yr</span></div>
+                <p className="body mt-2">~$28,500/mo, and it doesn&apos;t climb as you add users.</p>
+              </div>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              This is an illustration using a publicly listed seat price and a standard Ardn tier — not a quote or a client result. Actual seat pricing varies by CRM, edition, and negotiated rate.{" "}
+              <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
+            </p>
           </div>
         </section>
 
