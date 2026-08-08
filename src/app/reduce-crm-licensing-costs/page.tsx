@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import RelatedReading from "@/components/common/RelatedReading";
 
 // PILLAR page for the per-seat cost-reduction wedge. Targets the problem-intent
 // head terms ("reduce/cut CRM licensing costs", "reduce per-seat license
@@ -14,7 +15,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "Cut Per-Seat CRM Licensing Costs — Keep Your CRM | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Cut CRM Licensing Costs | Ardn",
+    title: "Cut Per-Seat CRM Licensing Costs — Keep Your CRM | Ardn",
     description:
       "Three honest ways to reduce per-seat CRM licensing costs — reclaim, right-size, or move light users to a flat-fee custom portal.",
     images: ["/images/ardn-home-hero.webp"],
@@ -382,9 +383,23 @@ export default function ReduceCrmLicensingCostsPage() {
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Flat-fee partner portal for external users →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? See how to reduce HubSpot seat costs →</Link>
             </div>
           </div>
         </section>
+
+        <RelatedReading
+          canvas
+          posts={[
+            { href: "/blog/how-to-identify-light-crm-users", label: "How to identify light CRM users" },
+            { href: "/blog/ways-to-cut-crm-licensing-costs", label: "Ways to cut CRM licensing costs" },
+            { href: "/blog/per-seat-vs-flat-fee-pricing", label: "Per-seat vs. flat-fee pricing, explained" },
+            { href: "/blog/build-vs-buy-crm-portal", label: "Build vs. buy: a CRM portal decision guide" },
+            { href: "/blog/cfo-guide-software-cost-reduction", label: "A CFO&rsquo;s guide to software cost reduction" },
+            { href: "/blog/salesforce-license-audit-checklist", label: "The Salesforce license audit checklist" },
+          ]}
+        />
 
         {/* FAQ */}
         <section className="section is-canvas" id="faq">
