@@ -185,19 +185,99 @@ near-duplicate of an existing post.
 - [x] dental-practice-management-software-per-provider-cost — published scoped to multi-location DSO chair/location scaling (per-location base fees compounding across a growing portfolio, dental-specific 837D clearinghouse routing) vs. the general per-provider/medical-clearinghouse angle in medical-practice-management-license-cost.
 - [x] apartment-leasing-software-per-unit-cost — published scoped to the leasing/resident-portal side (applications, resident communication, maintenance requests, per-unit pricing with minimum-fee floors that penalize small portfolios) vs. the owner/PM-operations side in property-management-software-per-unit-cost.
 
+## Verticals — country club / private club (published 2026-08-08, backfilled here for backlog hygiene)
+- [x] country-club-management-software-cost | Country Club Management Software: The Opaque-Pricing Problem | comparison | country club software cost | /custom-portal-development — published 2026-08-08 with the custom-quote-only, module-stacking mechanic (Jonas/Clubessential-tier suites publish no rate card; membership billing, tee-time booking, dining/POS, and mobile app are separately negotiated modules) — a genuinely new membership-adjacent vertical distinct from the association/chapter posts. Note: this line was omitted from the checklist when originally published (only covered in that day's process-note prose) — added now so the backlog accurately reflects published inventory.
+
 ## Salesforce cost — round 7 (added 2026-08-08, round 6 exhausted)
 - [x] salesforce-mulesoft-integration-cost | Salesforce MuleSoft: How Integration Pricing Actually Works | education | salesforce mulesoft cost | /custom-software-development — published with the compute/vCore-based pricing mechanic (integration throughput and complexity, not headcount) as the distinguishing angle vs. the generic iPaaS/middleware coverage already published in api-integration-vs-middleware-cost.
-- [ ] salesforce-net-zero-cloud-cost | Salesforce Net Zero Cloud: Licensing Beyond Standard Sales Cloud | education | salesforce net zero cloud cost | /custom-software-development — seed only, not yet researched or vetted; confirm real public pricing-mechanic info exists before writing (early process notes flag that the more obscure Salesforce clouds are starting to require genuine primary research, not just distinctness-checking).
-- [ ] salesforce-government-cloud-cost | Salesforce Government Cloud Plus: What Drives the Premium | education | salesforce government cloud cost | /reduce-crm-licensing-costs — seed only, not yet researched; confirm public pricing-mechanic info exists (FedRAMP/compliance-tier premium over standard Sales Cloud) before writing.
+- [x] salesforce-net-zero-cloud-cost | Salesforce Net Zero Cloud: Edition Pricing Explained | education | salesforce net zero cloud cost | /custom-software-development — published 2026-08-08 (second batch same day) with the flat per-org edition-tier mechanic (bundled CRM license count per tier, e.g. reported Starter/Growth editions bundling a small fixed number of licenses each) as the distinguishing angle — genuinely different from every other Salesforce post published so far, all of which describe per-seat, consumption-credit, or GMV/percentage-of-revenue pricing rather than a bundled-license edition tier. Reported dollar figures are third-party estimates (no official public rate card found); described the mechanic rather than asserting the specific numbers as confirmed pricing.
+- [x] salesforce-government-cloud-cost | Salesforce Government Cloud Plus: The Premium Explained | education | salesforce government cloud cost | /reduce-crm-licensing-costs — published 2026-08-08 (second batch same day) with the percentage-surcharge-on-existing-spend mechanic (reported ~15% premium on net spend for compatible products hosted in the dedicated FedRAMP-authorized instance) — distinct from every other Salesforce post, none of which use a surcharge-on-other-spend model. Direct fetches to salesforce.com and a third-party explainer were blocked by network egress this run; relied on WebSearch-aggregated summaries and flagged the percentage as reported/illustrative, not an official published rate.
 
 ## HubSpot cost — round 7 (added 2026-08-08, round 6 exhausted)
 - [x] hubspot-custom-objects-enterprise-cost | HubSpot Custom Objects: Why They Force an Enterprise Jump | education | hubspot custom objects cost | /custom-portal-development — published with the feature-gate angle (custom objects are Enterprise-only across every Hub, with no standalone Professional add-on to unlock them), distinct from the seat-utilization angle in cut-hubspot-seat-costs and the CMS-specific tier-cliff angle in hubspot-cms-hub-cost.
-- [ ] hubspot-reporting-data-add-on-cost | HubSpot Custom Report Builder & Data Add-Ons: What They Actually Cost | education | hubspot reporting cost | /reduce-crm-licensing-costs — seed only; confirm distinct from hubspot-enterprise-seat-cost-breakdown's passing mention of "custom reporting" as an Enterprise feature before writing — needs a genuinely separate angle (e.g. the standalone Reporting/Data add-on SKUs some tiers require) or drop.
+- [x] hubspot-reporting-data-add-on-cost | HubSpot's Reporting Add-On: A Second Fee on Top | education | hubspot reporting cost | /reduce-crm-licensing-costs — published 2026-08-08 (second batch same day): confirmed via research that a standalone Reporting Add-On (reported ~$200/mo, available regardless of Hub tier) genuinely exists separately from the custom report builder bundled into Professional-and-up — the distinct angle the hold note called for (unified cross-Hub dashboards vs. the bundled single-object/funnel builder), not a relabeling of hubspot-enterprise-seat-cost-breakdown's passing mention.
 
-## Verticals — senior living, chiropractic/PT, car wash (new, seed for next batch, added 2026-08-08)
-- [ ] senior-living-management-software-per-bed-cost | Senior Living & Assisted Living Software: Per-Bed and Per-Resident Costs | education | senior living software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. PointClickCare, MatrixCare) before writing.
-- [ ] chiropractic-pt-practice-management-software-cost | Chiropractic & Physical Therapy Practice Management Software Costs | education | chiropractic software cost | /custom-software-development — confirm distinct from medical-practice-management-license-cost before writing; check whether per-visit/per-modality billing (common in PT documentation tools) is a genuinely distinct mechanic from the general per-provider angle already published.
-- [ ] car-wash-equipment-rental-software-cost | Car Wash & Equipment Rental Management Software: Per-Location Costs | comparison | car wash software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info before writing.
+## Verticals — senior living, chiropractic/PT, car wash (added 2026-08-08, resolved same day)
+- [x] senior-living-management-software-per-bed-cost | Senior Living Software: Per-Bed and Per-Facility Costs | education | senior living software cost | /custom-portal-development — published with the per-bed-plus-growth-clause mechanic (PointClickCare/MatrixCare; base fee scales with bed count, contractual growth clauses raise the rate as occupancy/beds increase, per-facility fees for portfolio operators, separate per-connection interface fees) — a genuinely new vertical, distinct from every other healthcare post published (patient portal, practice management, referral portal all use different mechanics).
+- [x] chiropractic-pt-practice-management-software-cost | Chiropractic & PT Software: Visit-Based Pricing Costs | education | chiropractic software cost | /custom-software-development — published scoped to the mechanic distinction the hold note asked for: mainstream chiropractic platforms bill flat per-provider (like medical-practice-management-license-cost's general mechanic), but PT-specific platforms often bill by visit-volume tier or as a percentage of collections (4–6%, bundled RCM) — a genuinely different, revenue-linked mechanic not covered anywhere else on the site.
+- [x] car-wash-membership-software-cost | Car Wash Membership Software: What It Actually Costs | comparison | car wash software cost | /custom-portal-development — published under a narrower, retitled scope (dropped "equipment rental" from the original seed title/slug — research found no substantiated pricing mechanic pairing car wash and equipment-rental software together, and forcing the combination would have been a padded, ungrounded angle). Scoped instead to the mechanic actually found in research: some car wash membership platforms take a revenue share of recurring membership dues rather than a flat per-location fee — distinct from gym-membership-software-per-location-cost's base-fee-plus-member-tier mechanic despite both being recurring-membership verticals.
+
+## Verticals — daycare/childcare, HOA/community association, landscaping, funeral homes (new, seed for next batch, added 2026-08-08)
+- [ ] daycare-childcare-management-software-per-child-cost | Daycare and Childcare Management Software: Per-Child and Per-Center Costs | education | daycare software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Procare, Brightwheel, HiMama) before writing — check whether pricing is per-child, per-center, or tiered by enrollment, and whether it's genuinely distinct from other per-seat/per-unit verticals already published.
+- [ ] hoa-community-association-management-software-cost | HOA and Community Association Management Software: Per-Unit and Per-Community Costs | education | HOA software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. AppFolio, Vantaca, PayHOA) before writing — check distinctness from property-management-software-per-unit-cost and apartment-leasing-software-per-unit-cost, both already published, since HOA management could overlap with either depending on how it's scoped (likely distinct: association/board governance and assessment billing, not landlord/leasing operations).
+- [ ] landscaping-lawn-care-field-service-software-cost | Landscaping and Lawn Care Software: Per-Crew and Per-Route Costs | education | landscaping software cost | /custom-software-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Aspire, Service Autopilot, LawnPro) before writing — check distinctness from field-service-dispatch-software-seat-cost (HVAC/plumbing/electrical dispatch) and logistics-tms-per-user-cost before writing; look for a genuinely different mechanic (e.g. per-crew or per-route pricing, seasonal-crew scaling) rather than a relabeled field-service dispatch post.
+- [ ] funeral-home-management-software-cost | Funeral Home Management Software: Per-Location and Per-Case Costs | education | funeral home software cost | /custom-software-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Passare, Halcyon, FDMS) before writing — check whether pricing is per-case/per-call, per-location, or per-seat, and confirm a genuinely distinct mechanic exists before committing to write.
+
+## Process note (2026-08-08 — batch 2)
+Second content-engine run on 2026-08-08. The prior same-day batch (see the
+process note immediately below) had already exhausted every ready-to-write
+item in the backlog except one confirmed skip
+(`home-services-field-service-software-seat-cost`) and 6 unresearched seeds.
+Cloned the repo fresh this run (`ARDN-Cloud-Solutions/ardn-website` — not
+pre-attached to the session, added via GitHub repo access and cloned to
+`/workspace/ardn-website`), ran `npm ci` clean, then researched all 6
+remaining seeds via WebSearch before writing anything, consistent with this
+backlog's convention of not rubber-stamping seeds.
+
+Published 6 posts this batch, roughly 3 Salesforce/HubSpot to 3 verticals —
+back to the 50/50 weighting guideline after several batches skewed toward
+verticals while the SF/HubSpot list was thin:
+
+- `salesforce-net-zero-cloud-cost` — confirmed a genuinely distinct mechanic
+  (flat per-org edition tiers with a bundled CRM license count, e.g. reported
+  Starter/Growth editions) unlike any other Salesforce post published so far
+  (per-seat, consumption-credit, and GMV/revenue-share mechanics are all
+  already covered elsewhere).
+- `salesforce-government-cloud-cost` — confirmed the mechanic the seed note
+  asked for: a reported ~15% surcharge on net spend for compatible products
+  hosted in the dedicated FedRAMP instance, not a standalone price list —
+  distinct from every other Salesforce post.
+- `hubspot-reporting-data-add-on-cost` — confirmed a standalone Reporting
+  Add-On (reported ~$200/mo, available regardless of Hub tier) genuinely
+  exists separately from the bundled custom report builder in Professional
+  and up, resolving the hold with the distinct angle its note called for.
+- `senior-living-management-software-per-bed-cost` — new vertical
+  (PointClickCare/MatrixCare), per-bed-plus-growth-clause mechanic.
+- `chiropractic-pt-practice-management-software-cost` — resolved with the
+  angle its hold note asked for: PT-specific platforms' visit-volume-tier and
+  percentage-of-collections (4-6%) billing is a genuinely different,
+  revenue-linked mechanic from the flat per-provider pricing already covered
+  in `medical-practice-management-license-cost` and mainstream chiropractic
+  platforms.
+- `car-wash-membership-software-cost` — published under a narrower, retitled
+  scope. The original seed (`car-wash-equipment-rental-software-cost`) paired
+  car wash software with equipment-rental software; research found no
+  substantiated pricing mechanic connecting the two, so writing it as scoped
+  would have forced an ungrounded combination. Retitled and rescoped to the
+  mechanic research actually supported: some car wash membership platforms
+  take a revenue share of recurring membership dues rather than a flat
+  per-location fee, distinct from `gym-membership-software-per-location-cost`'s
+  base-fee-plus-member-tier mechanic despite both being recurring-membership
+  verticals.
+
+Also backfilled a checklist line for `country-club-management-software-cost`
+(published in the prior same-day batch but only recorded in that batch's
+process-note prose, not as its own checklist item) so the backlog's checked
+items accurately reflect everything actually published.
+
+Direct fetches to `salesforce.com` and one third-party Salesforce-pricing
+explainer were blocked by network egress this run (consistent with prior
+runs' experience with `mulesoft.com`, `hubspot.com`, `vagaro.com`); relied on
+WebSearch-aggregated summaries for the Net Zero Cloud edition figures and the
+Government Cloud Plus surcharge percentage, and wrote both posts to describe
+the pricing mechanic with the specific figures flagged as reported/illustrative
+rather than confirmed official pricing, consistent with the site's existing
+convention.
+
+Remaining unchecked inventory after this batch: `home-services-field-service-
+software-seat-cost` (confirmed skip, no distinct angle without a new
+mechanic) and 4 new vertical seeds opened above (daycare/childcare, HOA/
+community association, landscaping/lawn care, funeral homes) — all seeds,
+not yet researched or vetted for distinctness. The Salesforce/HubSpot product
+list is now genuinely exhausted of mainstream SKUs across 7 rounds; future
+batches should treat any further Salesforce/HubSpot angle as requiring real
+primary research into an increasingly obscure product, and should lean on
+new verticals as the primary source of fresh, distinct topics going forward.
 
 ## Process note (2026-08-08)
 Published 8 posts this batch. Resolved both long-held items from the 2026-07-30
