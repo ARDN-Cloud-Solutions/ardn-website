@@ -143,8 +143,8 @@ near-duplicate of an existing post.
 - [x] school-district-sis-per-student-cost
 
 ## Buyer questions — round 4 (added 2026-07-30, prior rounds exhausted)
-- [ ] vendor-lock-in-crm-portal-warning-signs | Vendor Lock-In Warning Signs in CRM and Portal Contracts | education | vendor lock-in crm | /rfp-questions-for-crm-portal-vendor — HOLD 2026-07-31: as scoped this overlaps heavily with the exit/lock-in clauses already covered in `crm-contract-renewal-red-flags` and `rfp-questions-for-crm-portal-vendor`. Only publish with a genuinely distinct angle — e.g. technical/architectural lock-in signals in the product itself (proprietary data schemas, non-portable customizations/workflows, API access restrictions) rather than contract-clause red flags, which are already well covered.
-- [ ] data-ownership-saas-vs-custom-portal | Who Actually Owns Your Data: SaaS Contracts vs. a Custom-Built Portal | comparison | data ownership saas | /custom-portal-development — HOLD 2026-07-31: `rfp-questions-for-crm-portal-vendor` already asks "who owns portal-generated data" and export-format questions directly, and `total-cost-of-ownership-saas-vs-custom` already covers vendor-dependency risk. Needs a narrower, distinct angle (e.g. compliance/data-residency ownership, or infra-control specifics) before publishing, not a relabeled comparison of ground already covered.
+- [x] vendor-lock-in-crm-portal-warning-signs — resolved 2026-08-08 with the technical/architectural angle flagged in the hold note: proprietary automation runtimes (Salesforce Flow/Apex, HubSpot workflows), non-standard data schemas, non-exportable configuration objects, and API rate limits that throttle bulk migration — distinct from the contract-clause coverage in `crm-contract-renewal-red-flags` and `rfp-questions-for-crm-portal-vendor`.
+- [x] data-ownership-saas-vs-custom-portal — resolved 2026-08-08 with the compliance/data-residency angle flagged in the hold note: what HIPAA/GDPR/SOC 2 actually govern (handling obligations, not data location or export guarantees), subprocessor-chain disclosure, and the genuine infra-control difference in a custom build — distinct from the RFP-question and vendor-dependency coverage already published.
 
 ## Salesforce cost — round 5 (added 2026-07-31, round 4 exhausted)
 - [x] salesforce-marketing-cloud-send-credit-cost | Salesforce Marketing Cloud Engagement: Where Send-Credit Costs Come From | education | salesforce marketing cloud pricing | /reduce-crm-licensing-costs
@@ -180,10 +180,82 @@ near-duplicate of an existing post.
 ## Verticals — professional services (resolved 2026-08-04)
 - [x] accounting-firm-client-portal-seat-cost | Why Accounting Firm Client Portals Bill in Different Ways | comparison | accounting firm client portal cost | /custom-portal-development — resolved a hold in place since 2026-07-28 with a genuinely distinct angle: contrasting the three pricing mechanics actually used in this vertical (SafeSend's per-return volume pricing, Suralink/Liscio/TaxDome's per-staff-seat pricing with typically-unlimited client guest access, and Canopy's hybrid per-seat-plus-per-client-record pricing) rather than repeating the generic "vertical X overpays for portal seats" framing already used for law-firm-client-portal-cost and agency-client-portal-per-seat-cost.
 
-## Verticals — salons/spas/dental, apartment leasing (new, seed for next batch, added 2026-08-04)
-- [ ] salon-spa-software-per-provider-cost | Salon and Spa Software: Per-Provider vs. Per-Location Pricing | education | salon spa software cost | /custom-portal-development — the vertical is genuinely split between per-bookable-staff-member pricing (e.g. Vagaro-style) and per-location tiered pricing (e.g. Boulevard-style), with no single dominant mechanic — a real comparison angle, distinct from the med-spa scheduling-rules angle already published in med-spa-scheduling-portal-cost.
-- [ ] dental-practice-management-software-per-provider-cost | Dental Practice Management Software: Per-Provider and Per-Location Costs | education | dental practice management software cost | /custom-software-development — confirm distinct from medical-practice-management-license-cost and veterinary-practice-management-software-cost before writing; dental vendors (Dentrix Ascend, Curve Dental) skew per-location-with-provider-count-scaling rather than a flat per-seat model, which may be the distinguishing angle.
-- [ ] apartment-leasing-software-per-unit-cost | Apartment Leasing and Resident Portal Software: Per-Unit Costs | education | apartment leasing software cost | /custom-portal-development — confirm distinct from property-management-software-per-unit-cost before writing; scope to the leasing/resident-portal side (applications, resident communication, maintenance requests) rather than the owner/PM-operations side already covered.
+## Verticals — salons/spas/dental, apartment leasing (added 2026-08-04, resolved 2026-08-08)
+- [x] salon-spa-software-per-provider-cost — published with the booth-rental/independent-contractor billing angle (per-booked-staff-member pricing applies identically to W-2 employees and booth-renting contractors, despite very different revenue economics), distinct from the treatment-rules/employee-model angle already published in med-spa-scheduling-portal-cost.
+- [x] dental-practice-management-software-per-provider-cost — published scoped to multi-location DSO chair/location scaling (per-location base fees compounding across a growing portfolio, dental-specific 837D clearinghouse routing) vs. the general per-provider/medical-clearinghouse angle in medical-practice-management-license-cost.
+- [x] apartment-leasing-software-per-unit-cost — published scoped to the leasing/resident-portal side (applications, resident communication, maintenance requests, per-unit pricing with minimum-fee floors that penalize small portfolios) vs. the owner/PM-operations side in property-management-software-per-unit-cost.
+
+## Salesforce cost — round 7 (added 2026-08-08, round 6 exhausted)
+- [x] salesforce-mulesoft-integration-cost | Salesforce MuleSoft: How Integration Pricing Actually Works | education | salesforce mulesoft cost | /custom-software-development — published with the compute/vCore-based pricing mechanic (integration throughput and complexity, not headcount) as the distinguishing angle vs. the generic iPaaS/middleware coverage already published in api-integration-vs-middleware-cost.
+- [ ] salesforce-net-zero-cloud-cost | Salesforce Net Zero Cloud: Licensing Beyond Standard Sales Cloud | education | salesforce net zero cloud cost | /custom-software-development — seed only, not yet researched or vetted; confirm real public pricing-mechanic info exists before writing (early process notes flag that the more obscure Salesforce clouds are starting to require genuine primary research, not just distinctness-checking).
+- [ ] salesforce-government-cloud-cost | Salesforce Government Cloud Plus: What Drives the Premium | education | salesforce government cloud cost | /reduce-crm-licensing-costs — seed only, not yet researched; confirm public pricing-mechanic info exists (FedRAMP/compliance-tier premium over standard Sales Cloud) before writing.
+
+## HubSpot cost — round 7 (added 2026-08-08, round 6 exhausted)
+- [x] hubspot-custom-objects-enterprise-cost | HubSpot Custom Objects: Why They Force an Enterprise Jump | education | hubspot custom objects cost | /custom-portal-development — published with the feature-gate angle (custom objects are Enterprise-only across every Hub, with no standalone Professional add-on to unlock them), distinct from the seat-utilization angle in cut-hubspot-seat-costs and the CMS-specific tier-cliff angle in hubspot-cms-hub-cost.
+- [ ] hubspot-reporting-data-add-on-cost | HubSpot Custom Report Builder & Data Add-Ons: What They Actually Cost | education | hubspot reporting cost | /reduce-crm-licensing-costs — seed only; confirm distinct from hubspot-enterprise-seat-cost-breakdown's passing mention of "custom reporting" as an Enterprise feature before writing — needs a genuinely separate angle (e.g. the standalone Reporting/Data add-on SKUs some tiers require) or drop.
+
+## Verticals — senior living, chiropractic/PT, car wash (new, seed for next batch, added 2026-08-08)
+- [ ] senior-living-management-software-per-bed-cost | Senior Living & Assisted Living Software: Per-Bed and Per-Resident Costs | education | senior living software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. PointClickCare, MatrixCare) before writing.
+- [ ] chiropractic-pt-practice-management-software-cost | Chiropractic & Physical Therapy Practice Management Software Costs | education | chiropractic software cost | /custom-software-development — confirm distinct from medical-practice-management-license-cost before writing; check whether per-visit/per-modality billing (common in PT documentation tools) is a genuinely distinct mechanic from the general per-provider angle already published.
+- [ ] car-wash-equipment-rental-software-cost | Car Wash & Equipment Rental Management Software: Per-Location Costs | comparison | car wash software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info before writing.
+
+## Process note (2026-08-08)
+Published 8 posts this batch. Resolved both long-held items from the 2026-07-30
+buyer-questions round-4 backlog with the exact reframes their hold notes called
+for: `vendor-lock-in-crm-portal-warning-signs` (technical/architectural lock-in
+signals — non-portable automation runtimes, non-standard schemas, non-exportable
+config objects, API rate limits — instead of contract clauses already covered
+elsewhere) and `data-ownership-saas-vs-custom-portal` (what HIPAA/GDPR/SOC 2
+actually govern vs. what they don't, subprocessor-chain disclosure, and genuine
+infra-control differences, instead of a relabeled RFP-question comparison).
+Also resolved all 3 salons/dental/apartment-leasing seeds from 2026-08-04 with
+the specific distinct angles their seed notes called for (booth-rental billing
+quirk, DSO location-scaling, leasing/resident-portal side) — confirmed each
+against the relevant existing post before writing, no overlap found. Opened two
+new Salesforce/HubSpot angles not previously seeded — `salesforce-mulesoft-
+integration-cost` (compute/vCore pricing, distinct from the generic iPaaS post)
+and `hubspot-custom-objects-enterprise-cost` (feature-gate-forced tier jump,
+distinct from seat-utilization and CMS-tier-cliff posts) — plus a new vertical,
+`country-club-management-software-cost` (opaque custom-quote-only pricing for
+Jonas/Clubessential-tier private club software, a genuinely new membership-
+adjacent vertical distinct from the association/chapter posts already published).
+
+Researched real public pricing mechanics via web search before writing (MuleSoft's
+vCore/compute-based licensing vs. newer usage-based Anypoint packaging; HubSpot's
+consistent Enterprise-only gating of custom objects across every Hub with no
+add-on unlock; dental DSO vendors' location-base-fee-plus-provider-count hybrid
+model and the 837D dental clearinghouse format distinct from medical 837P;
+AppFolio's per-unit-plus-minimum-fee resident-portal pricing; salon platforms'
+identical per-booked-staff billing for employees and booth-rental contractors
+despite very different revenue economics; Jonas/Clubessential's custom-quote-
+only, no-published-rate-card club software market). Flagged several pricing
+figures throughout this research as third-party-estimated rather than confirmed
+against live vendor pricing pages (direct fetches to mulesoft.com, hubspot.com,
+vagaro.com were blocked by network egress in this run) — wrote posts to describe
+pricing mechanics and structural quirks rather than assert unverified dollar
+figures, consistent with the site's existing convention.
+
+The Salesforce/HubSpot product list remains thin after 7 rounds — the two new
+angles opened this batch (MuleSoft, custom objects) required going slightly
+outside the core CRM-hub product list into adjacent products (integration
+platform) and cross-cutting features (data modeling) rather than another CRM
+cloud/hub SKU. Seeded 2 more Salesforce and 1 more HubSpot angle above but
+flagged all three as unresearched seeds needing primary-source verification
+before writing, not confirmed-viable topics — future batches should prioritize
+new verticals (senior living, chiropractic/PT, car wash seeded above) over
+continuing to mine Salesforce/HubSpot, which is now genuinely running out of
+mainstream, well-documented SKUs. This batch's weighting was 2 Salesforce/
+HubSpot to 6 verticals/comparisons/buyer-questions — intentionally weighted
+away from the 50/50 guideline given the thinning product list, consistent with
+the direction set in the 2026-08-04 process note.
+
+Remaining unchecked inventory after this batch: `home-services-field-service-
+software-seat-cost` (confirmed SKIP, kept unchecked per its note — no distinct
+angle without a new mechanic), 3 unresearched Salesforce/HubSpot seeds, and 3
+unresearched new-vertical seeds (senior living, chiropractic/PT, car wash) —
+enough raw seed material for at least one more batch, but all seeds need
+primary research and a distinctness check before writing, not a rubber-stamp
+publish.
 
 ## Process note (2026-08-04)
 Published 8 posts this batch: all 3 Salesforce-round-6 seeds
