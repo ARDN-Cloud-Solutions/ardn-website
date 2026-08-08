@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import RelatedReading from "@/components/common/RelatedReading";
 
 // Solution page anchored to a real delivered build: custom seller + operations
 // portals that integrate with the client's CRM and offload light users from
@@ -210,7 +211,10 @@ export default function CustomPortalDevelopmentPage() {
                     <li>Seller, ops, partner &amp; customer portals</li>
                     <li>We build it AND run it</li>
                   </ul>
-                  <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
+                  <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontSize: "14px", color: "#475467" }}>
+                    A full Salesforce Sales Cloud Enterprise seat lists at roughly $165/user/mo; a flat-fee portal costs the same at 10 light users or 400. <span style={{ color: "#98a2b3" }}>(List price, illustration only.)</span>
+                  </p>
+                  <p className="body" style={{ marginTop: "14px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
@@ -248,7 +252,9 @@ export default function CustomPortalDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Custom partner portal for channel &amp; reseller access →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Salesforce Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -328,6 +334,15 @@ export default function CustomPortalDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <RelatedReading
+          heading="More on cutting per-seat CRM costs"
+          posts={[
+            { href: "/blog/hubspot-seat-cost-vs-custom-portal", label: "HubSpot seat cost vs. a custom portal" },
+            { href: "/blog/salesforce-platform-license-vs-custom-portal", label: "Salesforce Platform license vs. a custom portal" },
+            { href: "/blog/per-seat-vs-flat-fee-pricing", label: "Per-seat vs. flat-fee pricing, explained" },
+          ]}
+        />
 
         <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 

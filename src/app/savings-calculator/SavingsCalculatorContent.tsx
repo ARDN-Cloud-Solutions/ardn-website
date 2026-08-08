@@ -690,6 +690,13 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              <a
+                href="#quote"
+                onClick={() => setModalOpen(false)}
+                className="sc-modal-alt"
+              >
+                Not ready to book? Email me this breakdown instead →
+              </a>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +905,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-alt { display: block; text-align: center; color: var(--sc-blue); font-size: 14px; font-weight: 600; text-decoration: none; padding: 4px 0 10px; font-family: inherit; }
+        .sc-modal-alt:hover { text-decoration: underline; }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */

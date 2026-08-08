@@ -1,4 +1,4 @@
-import { MapPin, Shield, Clock, Award } from "lucide-react";
+import { MapPin, Shield, Clock, Award, KeyRound } from "lucide-react";
 
 /**
  * Trust signal strip — small, thin, dark bar with 4 social-proof signals.
@@ -12,12 +12,15 @@ import { MapPin, Shield, Clock, Award } from "lucide-react";
  *     (not Salesforce-specific, so we don't read as a one-stack shop).
  *   - "4-hour response SLA" → reduces "will they ghost me?" friction.
  *   - "No lock-in — cancel in 30 days" → concrete risk reversal.
+ *   - "You own the IP & your data" → answers the #1 custom-software
+ *     procurement objection; recurs in every page FAQ, now in the strip too.
  */
 export default function TrustBar() {
   const items = [
     { Icon: MapPin, text: "US-based team" },
     { Icon: Award, text: "30+ yrs building software" },
     { Icon: Clock, text: "4-hour response SLA" },
+    { Icon: KeyRound, text: "You own the IP & your data" },
     { Icon: Shield, text: "No lock-in — cancel in 30 days" },
   ];
 
