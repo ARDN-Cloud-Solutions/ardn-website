@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See what you&rsquo;d save →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -247,8 +247,10 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Need custom partner &amp; channel portals? →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -303,6 +305,44 @@ export default function CustomPortalDevelopmentPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* COST MATH — illustrative, explicitly labeled (no fabricated quote) */}
+        <section className="section is-canvas" id="cost">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The cost math</span>
+                <h2 className="h1 mt-3">Per-seat licenses vs. <em>one flat fee.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Every CRM sells tiers below a full seat — but they all still bill per user. A flat-fee portal is the only line that doesn&apos;t climb with headcount.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Access tier</th>
+                    <th>Typical published price</th>
+                    <th>Still scales with headcount?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">Full Salesforce Enterprise seat</td><td>~$150–$165/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Salesforce Platform (limited-access) license</td><td>~$25–$30/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Login / Experience Cloud license</td><td>~$2–$10 per login (list)</td><td className="is-no">Yes — per login/user</td></tr>
+                  <tr><td className="feat">HubSpot paid seat above Starter</td><td>~$20–$90+/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Custom portal (Ardn)</td><td>Flat monthly fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No — same fee at any headcount</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Prices above are typical, publicly listed ranges as of this writing — not a quote. Actual pricing varies by CRM, edition, and negotiated contract.{" "}
+              <Link href="/savings-calculator" className="link">Run the calculator</Link> for your own seat count and rate, or see the full{" "}
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot seat-cost math</Link>.
+            </p>
           </div>
         </section>
 

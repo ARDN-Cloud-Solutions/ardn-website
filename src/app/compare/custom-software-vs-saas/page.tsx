@@ -292,10 +292,10 @@ export default function CustomSoftwareVsSaasPage() {
                 <p className="body">Move light users off per-seat CRM licenses onto a flat-fee portal.</p>
                 <span className="link">Explore portals →</span>
               </Link>
-              <Link href="/membership-management" className="card" style={{ textDecoration: "none" }}>
-                <h3 className="h3">Membership Management</h3>
-                <p className="body">Replace per-member SaaS fees with one flat platform for the whole org.</p>
-                <span className="link">Explore membership →</span>
+              <Link href="/custom-partner-portal-development" className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">Partner &amp; Channel Portals</h3>
+                <p className="body">Replace per-login Partner Community seats with a flat-fee partner portal.</p>
+                <span className="link">Explore partner portals →</span>
               </Link>
               <Link href="/custom-software-development" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">All Custom Builds</h3>
@@ -303,9 +303,11 @@ export default function CustomSoftwareVsSaasPage() {
                 <span className="link">Explore the hub →</span>
               </Link>
             </div>
-            <p className="body mt-4" style={{ textAlign: "center" }}>
+            <div style={{ marginTop: "24px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/reduce-crm-licensing-costs" className="link">The full playbook for cutting CRM licensing costs →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Paying per-seat Salesforce or HubSpot fees? See the seat-cost math →</Link>
-            </p>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+            </div>
           </div>
         </section>
 

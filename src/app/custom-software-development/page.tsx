@@ -191,7 +191,7 @@ export default function CustomSoftwareDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">

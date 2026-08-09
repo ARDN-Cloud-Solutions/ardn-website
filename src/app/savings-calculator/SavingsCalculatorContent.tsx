@@ -575,6 +575,10 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
             {" · "}
+            <Link href="/reduce-hubspot-seat-costs">On HubSpot? Cut your HubSpot seat costs →</Link>
+            {" · "}
+            <Link href="/custom-partner-portal-development">Move partner &amp; channel users to a flat-fee portal →</Link>
+            {" · "}
             <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
@@ -604,11 +608,21 @@ export default function SavingsCalculatorContent() {
             </button>
             <div className="sc-modal-header">
               <div className="sc-modal-tag">Your Savings Report</div>
-              <div className="sc-modal-headline">
-                You could save{" "}
-                <span>{yr1 > 0 ? fmt(yr1) : fmt(yr2)}</span>/year
-              </div>
-              <div className="sc-modal-sub">Based on your estimated current software spend</div>
+              {monthly > 0 ? (
+                <>
+                  <div className="sc-modal-headline">
+                    You could save <span>{fmt(yr1)}</span>/year
+                  </div>
+                  <div className="sc-modal-sub">Based on your estimated current software spend</div>
+                </>
+              ) : (
+                <>
+                  <div className="sc-modal-headline">
+                    Let&apos;s find your <span>savings</span>
+                  </div>
+                  <div className="sc-modal-sub">Your entered spend is near our flat baseline — a quick call is the fastest way to size a real saving for your setup.</div>
+                </>
+              )}
             </div>
             <div className="sc-modal-body">
               <div className="sc-modal-metrics">
@@ -690,6 +704,16 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              <button
+                type="button"
+                className="sc-modal-cta-alt"
+                onClick={() => {
+                  setModalOpen(false);
+                  document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Not ready to call? Email me this breakdown →
+              </button>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +922,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-cta-alt { display: block; width: 100%; text-align: center; background: transparent; color: var(--sc-blue); font-size: 14px; font-weight: 600; padding: 12px; border-radius: var(--sc-r-pill); border: 1.5px solid var(--sc-border-2); cursor: pointer; transition: all 0.15s; margin-bottom: 10px; font-family: inherit; }
+        .sc-modal-cta-alt:hover { border-color: var(--sc-blue); background: var(--sc-blue-light); }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */
