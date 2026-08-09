@@ -297,6 +297,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke: HubSpot-specific per-seat cost reduction. Mirrors the
+        // reduce-crm pillar but scoped to HubSpot seat-based pricing (Core
+        // Seats vs. free View-Only seats) — captures "reduce HubSpot seat
+        // costs" intent the Salesforce-flavoured pages don't cover.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

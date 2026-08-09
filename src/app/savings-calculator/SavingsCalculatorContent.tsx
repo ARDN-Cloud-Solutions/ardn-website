@@ -115,7 +115,7 @@ export default function SavingsCalculatorContent() {
             <div className="sc-hero-checks">
               {[
                 "No per-user, per-seat, or per-location fees",
-                "Built in 3–4 weeks · Fixed quote within 48 hours",
+                "Built in 2–6 weeks · Fixed quote within 48 hours",
                 "HIPAA-ready architecture included",
                 "30+ years enterprise software experience",
                 "You own the IP and data outright",
@@ -224,7 +224,7 @@ export default function SavingsCalculatorContent() {
           {[
             { val: "30", em: "+", label: "Years enterprise experience" },
             { val: "0", em: "", label: "Per-seat or per-user fees" },
-            { val: "3", em: "–4", label: "Weeks from spec to live" },
+            { val: "2", em: "–6", label: "Weeks from spec to live" },
             { val: "48", em: " hrs", label: "Fixed quote turnaround" },
           ].map((s) => (
             <div key={s.label} className="sc-stat-item">
@@ -242,7 +242,7 @@ export default function SavingsCalculatorContent() {
         <div className="sc-section-inner">
           <div className="sc-section-eyebrow">How it works</div>
           <h2 className="sc-section-title">
-            From first call to live platform<br />in under 30 days.
+            From first call to live platform<br />in 2–6 weeks.
           </h2>
           <p className="sc-section-sub">
             No 6-month implementations. No surprise invoices. No 24-month lock-in contracts.
@@ -257,7 +257,7 @@ export default function SavingsCalculatorContent() {
               {
                 num: "Step 02",
                 title: "Build",
-                desc: "Our team builds your custom platform in 3–4 weeks with weekly demos. You're never in the dark.",
+                desc: "Our team builds your custom platform in 2–6 weeks with weekly demos. You're never in the dark.",
               },
               {
                 num: "Step 03",
@@ -517,7 +517,7 @@ export default function SavingsCalculatorContent() {
                 "All locations covered — no per-location fees ever",
                 "Unlimited users — no per-seat charges",
                 "HIPAA-ready architecture built in",
-                "Built in 3–4 weeks from signed agreement",
+                "Built in 2–6 weeks from signed agreement",
                 "Weekly demos — never a month of silence",
                 "Hosting, updates & security all included",
                 "You own the IP and all your data outright",
@@ -546,6 +546,7 @@ export default function SavingsCalculatorContent() {
         source="Savings Calculator page"
         heading="Email me my savings breakdown"
         showSeatQualifiers
+        cta="Send my savings breakdown"
         sub="Not ready to book a call? Tell us which CRM you run and roughly how many users, and we'll send a written per-seat savings breakdown plus a fixed quote — no obligation."
       />
 
@@ -690,6 +691,19 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              <button
+                type="button"
+                className="sc-modal-alt"
+                onClick={() => {
+                  setModalOpen(false);
+                  setTimeout(
+                    () => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" }),
+                    120
+                  );
+                }}
+              >
+                Not ready to talk? Email me this breakdown instead →
+              </button>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +912,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-alt { display: block; width: 100%; text-align: center; background: transparent; color: var(--sc-blue); font-size: 14px; font-weight: 600; padding: 8px; border: none; cursor: pointer; text-decoration: underline; transition: color 0.15s; margin-bottom: 10px; font-family: inherit; }
+        .sc-modal-alt:hover { color: var(--sc-navy); }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */

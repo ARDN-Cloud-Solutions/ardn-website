@@ -6,9 +6,9 @@ import SalesforceAppExchangeContent from "./SalesforceAppExchangeContent";
 // modifiers and the AppExchange-specific phrasing.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce Commerce AppExchange Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Salesforce Commerce AppExchange Solutions (2026) | Ardn",
   description:
-    "Compare the top Salesforce Commerce AppExchange solutions in 2026 — Ardn Storefronts, StoreConnect, Commerce Studio by 1440, EPOSLY, and more. Find the right Salesforce-native commerce app for B2B and B2C businesses.",
+    "Compare the top Salesforce Commerce AppExchange solutions in 2026 — Ardn Storefronts, StoreConnect, Commerce Studio by 1440 & more, for B2B & B2C.",
   keywords: [
     "Salesforce Commerce AppExchange",
     "Salesforce ecommerce AppExchange",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Best Salesforce Commerce AppExchange Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+      "Salesforce Commerce AppExchange Solutions (2026) | Ardn",
     description:
       "Compare top Salesforce Commerce AppExchange solutions in 2026. Ardn Storefronts, StoreConnect, Commerce Studio by 1440, EPOSLY, and more.",
     url: "https://ardncloudsolutions.com/buyers-guide/salesforce-commerce-appexchange-solutions",
