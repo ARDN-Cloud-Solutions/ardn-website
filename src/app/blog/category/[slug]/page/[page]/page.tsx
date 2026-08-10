@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { fetchPosts, fetchCategories, fetchCategoryBySlug } from "@/lib/wordpress/api";
+import { cleanSeoTitle } from "@/lib/wordpress/utils";
 import BlogListItem from "@/components/blog/BlogListItem";
 import Pagination from "@/components/blog/Pagination";
 import BlogSidebar from "@/components/blog/BlogSidebar";
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const yoast = category.yoast_head_json;
     const categoryName = category.name.replace(/<[^>]+>/g, "");
-    const baseTitle = yoast?.title ?? `${categoryName} | Blog | ARDN Cloud Solutions`;
+    const baseTitle = cleanSeoTitle(yoast?.title) ?? `${categoryName} | Blog | ARDN Cloud Solutions`;
     const title = `${baseTitle} | Page ${pageNum}`;
     const description = yoast?.description || `Page ${pageNum} of posts in ${categoryName}.`;
 

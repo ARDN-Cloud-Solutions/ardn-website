@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { fetchPosts, fetchCategories, fetchCategoryBySlug } from "@/lib/wordpress/api";
+import { cleanSeoTitle } from "@/lib/wordpress/utils";
 import BlogListItem from "@/components/blog/BlogListItem";
 import Pagination from "@/components/blog/Pagination";
 import BlogSidebar from "@/components/blog/BlogSidebar";
@@ -22,9 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const categoryName = category.name.replace(/<[^>]+>/g, "");
     const fallbackDescription = category.description || `Browse all posts in ${categoryName}.`;
 
-    const metaTitle = yoast?.title ?? `${categoryName} | Blog | ARDN Cloud Solutions`;
+    const metaTitle = cleanSeoTitle(yoast?.title) ?? `${categoryName} | Blog | ARDN Cloud Solutions`;
     const metaDescription = yoast?.description ?? fallbackDescription;
-    const ogTitle = yoast?.og_title ?? categoryName;
+    const ogTitle = cleanSeoTitle(yoast?.og_title) ?? categoryName;
     const ogDescription = yoast?.og_description ?? fallbackDescription;
 
     const ogImages = yoast?.og_image?.map((img) => ({

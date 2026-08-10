@@ -1,6 +1,20 @@
 import type { WPPost, WPTerm } from "./types";
 
 /**
+ * Yoast builds SEO titles as "%title% - %sitename%", and the headless
+ * WordPress install's site name is the internal hostname
+ * "cms.ardncloudsolutions.com" — it must never surface in a public title.
+ * Replaces that suffix with the real brand name; returns undefined untouched
+ * so callers can keep their own fallbacks.
+ */
+export function cleanSeoTitle(title: string | undefined): string | undefined {
+    if (!title) return undefined;
+    const cleaned = title.replace(/\s*[-–—|]\s*cms\.ardncloudsolutions\.com\s*$/i, "");
+    if (cleaned === title) return title;
+    return `${cleaned} | ARDN Cloud Solutions`;
+}
+
+/**
  * Strip HTML tags and decode common entities, returning plain text.
  * Optionally truncate to maxLength characters.
  */

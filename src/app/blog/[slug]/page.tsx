@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Calendar, Clock, Tag } from "lucide-react";
 import { fetchPostBySlug, fetchAllPostSlugs, fetchCategories, fetchPosts } from "@/lib/wordpress/api";
 import {
+    cleanSeoTitle,
     getExcerptText,
     getFeaturedImageUrl,
     getFeaturedImageAlt,
@@ -31,9 +32,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const fallbackDescription = getExcerptText(post.excerpt.rendered, 160);
     const fallbackImage = getFeaturedImageUrl(post);
 
-    const metaTitle = yoast?.title ?? `${titleText} | ARDN Blog`;
+    const metaTitle = cleanSeoTitle(yoast?.title) ?? `${titleText} | ARDN Blog`;
     const metaDescription = yoast?.description ?? fallbackDescription;
-    const ogTitle = yoast?.og_title ?? titleText;
+    const ogTitle = cleanSeoTitle(yoast?.og_title) ?? titleText;
     const ogDescription = yoast?.og_description ?? fallbackDescription;
 
     const ogImages =
