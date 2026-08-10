@@ -6,9 +6,9 @@ import OurProductsContent from "./OurProductsContent";
 // product lines under one roof. Metadata covers both intent buckets.
 export const metadata: Metadata = {
   title:
-    "Custom AI Apps & Salesforce Cloud Products | Ardn",
+    "Custom Software Products & Salesforce Tools | Ardn",
   description:
-    "Six focused products: AI Forge custom AI development, Membership Management, Storefronts, License Guard, Salesforce Payments, and ReplyCX — built and run for you.",
+    "Six products: AI Forge custom AI, Membership Management, Storefronts, License Guard, Salesforce Payments & ReplyCX — custom software, built and run for you.",
   keywords: [
     "Ardn product suite",
     "Salesforce-native products",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Custom AI Apps & Salesforce Cloud Products | Ardn",
+      "Custom Software Products & Salesforce Tools | Ardn",
     description:
       "Six focused products. AI Forge (custom AI development) + Membership Management + Storefronts + License Guard + Salesforce Payments + ReplyCX. Florida-based team, 30+ years Salesforce expertise.",
     url: "https://ardncloudsolutions.com/our-products",

@@ -546,6 +546,7 @@ export default function SavingsCalculatorContent() {
         source="Savings Calculator page"
         heading="Email me my savings breakdown"
         showSeatQualifiers
+        submitLabel="Email me my savings breakdown"
         sub="Not ready to book a call? Tell us which CRM you run and roughly how many users, and we'll send a written per-seat savings breakdown plus a fixed quote — no obligation."
       />
 

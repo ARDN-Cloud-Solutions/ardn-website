@@ -86,6 +86,14 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "What's the difference between seat-based and login-based CRM licensing?",
+    a: "Seat-based licensing charges a fixed monthly fee per assigned user, which is efficient for people who are in the CRM every day. Login-based (or 'per-login') licensing charges from a pool of logins, which is cheaper for users who only visit a few times a month but far more expensive for frequent users. A common source of overspend is misclassifying users onto the wrong model — putting occasional users on full seats, or daily users on login pricing. A custom portal sidesteps the choice entirely for light users: they don't consume a seat or a login at all.",
+  },
+  {
+    q: "Is license optimization enough on its own, or do I need a portal?",
+    a: "For many orgs, license optimization — deactivating dormant seats and right-sizing tiers — is the first and easiest step, and it's worth doing before anything else. But it works within the per-seat model, so it can only take you so far: it can't shrink the cost of seats that are genuinely used, just lightly, and the bill still grows with every new hire. Moving that light-user segment to a flat-fee portal is what removes their per-seat cost entirely, which is why the two approaches combine well — optimize first, then port the users who don't need a full seat at all.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -181,8 +189,8 @@ export default function ReduceCrmLicensingCostsPage() {
                   <span className="badge is-canvas">Salesforce, HubSpot &amp; more</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
-                  <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your own numbers →</Link>
+                  <Link href="/savings-calculator" className="btn btn-primary btn-lg btn-arrow">See how much you&rsquo;d save</Link>
+                  <Link href={CALENDLY} target="_blank" className="btn btn-secondary btn-lg">Book a free 30-min call</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -379,8 +387,10 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">HubSpot Core vs. View-Only seat math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut per-login partner/community seat costs →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>
@@ -409,7 +419,7 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

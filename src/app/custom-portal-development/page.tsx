@@ -99,6 +99,14 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Do external portal users (partners, customers) need their own CRM license?",
+    a: "In native Salesforce, external users normally require Customer Community, Partner Community, or External Apps licenses — roughly $2–$15 per login or $5–$35 per member per month (publicly listed ranges; confirm current pricing with Salesforce), on top of your Enterprise or Unlimited edition. A custom portal built on the CRM's API removes that per-user requirement: external users log into the portal, not the CRM, so they read and write the records they need without holding a CRM license at all.",
+  },
+  {
+    q: "How much does Salesforce Experience Cloud cost per user?",
+    a: "Salesforce's publicly listed ranges are roughly: Customer Community about $2 per login or $5 per member; Community Plus about $6 per login or $15 per member; External Apps about $15 per login or $35 per member per month — all in addition to your underlying Enterprise/Unlimited subscription and typically $10k–$50k+ of implementation. These are list ranges, not a quote, so confirm current numbers with Salesforce. Because every one of those tiers still bills per user or per login, cost keeps climbing with your external-user count — which is the gap a flat-fee custom portal closes.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -197,7 +205,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See how much you&rsquo;d save →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -248,7 +256,10 @@ export default function CustomPortalDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? Core vs. View-Only seat math →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Need a channel/dealer portal? Replace per-login Partner Community seats →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See the per-login cost comparison →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -329,7 +340,7 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

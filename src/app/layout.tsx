@@ -32,16 +32,21 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ardncloudsolutions.com"),
   title:
-    "Ardn Cloud Solutions | Custom AI Apps, Cloud Products & Salesforce Services",
+    "Ardn Cloud Solutions — Custom Software & Salesforce",
   description:
-    "Orlando-based development team building custom AI applications and cloud products with the AI Forge Framework — backed by 30+ years of Salesforce expertise, consulting, and managed services. Salesforce-native products and AI-built, Salesforce-capable platforms under one roof.",
+    "We build & run custom software, platforms & portals that replace or connect your tools — cut per-seat CRM costs, one flat fee. Salesforce services + AI Forge.",
   keywords: [
-    // Cat 2 — custom AI / dev agency intents
-    "custom AI app development",
-    "AI development agency",
-    "custom software development",
-    "AI-built products",
+    // Priority wedge — per-seat cost reduction / custom portals
+    "custom software development company",
+    "custom portal development",
+    "reduce per-seat CRM license costs",
+    "cut CRM licensing costs",
+    "custom platform development",
+    "client portal software",
+    "business process automation",
+    // AI Forge — one capability, not the brand lead
     "AI Forge Framework",
+    "custom AI app development",
     "membership management platform",
     // Cat 1 + managed services — preserved Salesforce SEO surface
     "Salesforce managed services",
@@ -60,9 +65,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+      "Ardn Cloud Solutions — Custom Software, Portals & Salesforce Services",
     description:
-      "Florida-based development team. Custom AI applications via the AI Forge Framework, plus Salesforce-native cloud products and 30+ years of Salesforce consulting and managed services experience.",
+      "Florida-based team building & running custom software, platforms, and portals that replace or connect your tools and cut per-seat CRM costs — one flat monthly fee. Salesforce consulting, managed services, and AI Forge under one roof.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -93,9 +98,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@ardn_cloud_sol",
     title:
-      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+      "Ardn Cloud Solutions — Custom Software, Portals & Salesforce",
     description:
-      "Florida-based team. Custom AI applications via the AI Forge Framework, Salesforce-native cloud products, and 30+ years of Salesforce consulting & managed services.",
+      "Florida-based team building & running custom software, platforms & portals that cut per-seat CRM costs — one flat fee. Salesforce services + AI Forge.",
     images: ["/images/ardn-home-hero.webp"],
   },
   icons: {

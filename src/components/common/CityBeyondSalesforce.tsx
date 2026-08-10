@@ -139,6 +139,27 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
               Run your per-seat savings calculator →
             </Link>
           </p>
+          {/* Wedge cross-links — {city} Salesforce buyers are the exact ICP for
+              the per-seat cost-reduction play, so surface the pillar page and
+              the seat-cost math directly to them. */}
+          <p className="body mt-2" style={{ fontSize: 15 }}>
+            Paying full per-seat Salesforce licenses?{" "}
+            <Link
+              href="/reduce-crm-licensing-costs"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              How {city} teams cut per-seat CRM licensing costs →
+            </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 15 }}>
+            Weighing seats vs. a portal?{" "}
+            <Link
+              href="/compare/salesforce-seat-cost-vs-custom-portal"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              Salesforce seat cost vs. a custom portal — the math →
+            </Link>
+          </p>
           <p className="body mt-2" style={{ fontSize: 15 }}>
             Looking specifically for custom AI development in Florida?{" "}
             <Link

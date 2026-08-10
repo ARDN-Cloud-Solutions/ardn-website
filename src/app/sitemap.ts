@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge comparison spoke: HubSpot Core vs View-Only seat costs vs. a
+        // flat-fee custom portal. Captures the HubSpot-flavored per-seat
+        // cost-reduction intent; pairs with the HubSpot cost blog.
+        url: `${BASE_URL}/compare/hubspot-seat-cost-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

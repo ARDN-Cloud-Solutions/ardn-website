@@ -182,10 +182,19 @@ export default function Sidebar() {
           <p className="text-[#1c2045] text-sm leading-snug m-0">
             Paying per-seat for Salesforce licenses?{" "}
             <Link
+              href="/reduce-crm-licensing-costs"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              How to cut CRM licensing costs →
+            </Link>
+          </p>
+          <p className="text-[#1c2045] text-sm leading-snug m-0 mt-3">
+            Or see the numbers:{" "}
+            <Link
               href="/compare/salesforce-seat-cost-vs-custom-portal"
               className="text-[#FF7A00] font-semibold no-underline hover:underline"
             >
-              See the seat-cost math →
+              Salesforce seat cost vs. a custom portal →
             </Link>
           </p>
         </div>
