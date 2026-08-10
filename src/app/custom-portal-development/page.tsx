@@ -99,6 +99,10 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Isn't a custom portal more expensive than a no-code tool like Softr or CRMJetty?",
+    a: "Not over time, and not for our target scale. No-code portal builders look cheap at first but still bill per user or per portal, cap what you can build, and leave you to build and maintain it yourself — so the cost climbs as you add users and the work never really ends. A custom portal from Ardn is built and run for you on one flat fee that doesn't climb with headcount, shaped to your exact workflow, and you own the result. For a mid-market team moving dozens or hundreds of light users off per-seat CRM licenses, the flat-fee model is usually the cheaper path once you count both the subscription and the upkeep.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -197,7 +201,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your seat-savings numbers</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -249,6 +253,7 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal: cost comparison →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -306,6 +311,48 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* NO-CODE VS CUSTOM — competitor white-space. The "portal to cut
+            seats" SERP is dominated by no-code SaaS builders (Softr, CRMJetty,
+            Titan, Knack, Noloco); none is built AND run for you on a flat fee.
+            Honest, structural comparison — no invented competitor prices. */}
+        <section className="section is-canvas" id="vs-nocode">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Not a DIY tool</span>
+                <h2 className="h1 mt-3">No-code portal builder, <em>or built &amp; run for you?</em></h2>
+              </div>
+              <div>
+                <p className="lede">No-code portal tools (Softr, CRMJetty, Titan, Knack and the like) still bill per user or per portal — and still leave you to build, connect, and maintain the thing. Here&rsquo;s how that model compares to a portal Ardn builds and operates for you.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto", marginTop: "8px" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>No-code portal builders</th>
+                    <th className="is-ardn">Custom portal by Ardn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">Pricing model</td><td className="is-no">Per-seat or per-portal subscription</td><td className="is-ardn">One flat monthly fee, any number of users</td></tr>
+                  <tr><td className="feat">Who builds it</td><td className="is-no">You build &amp; configure it yourself</td><td className="is-ardn">We design and build it for you</td></tr>
+                  <tr><td className="feat">Who runs it after launch</td><td className="is-no">You — updates, fixes, scaling</td><td className="is-ardn">We host, monitor &amp; keep improving it</td></tr>
+                  <tr><td className="feat">Fit to your workflow</td><td className="is-no">Templates &amp; blocks within the tool&rsquo;s limits</td><td className="is-ardn">Shaped to your exact process</td></tr>
+                  <tr><td className="feat">Approvals, branching logic, deep integrations</td><td className="is-no">Constrained by the platform</td><td className="is-ardn">Whatever your process actually needs</td></tr>
+                  <tr><td className="feat">CRM integration</td><td className="is-no">Add-on or limited connectors</td><td className="is-ardn">Deep two-way sync, one source of truth</td></tr>
+                  <tr><td className="feat">Code &amp; data ownership</td><td className="is-no">Locked to the vendor&rsquo;s platform</td><td className="is-ardn">You own the IP and your data outright</td></tr>
+                  <tr><td className="feat">Cost as you grow</td><td className="is-no">Climbs with users, records &amp; portals</td><td className="is-ardn">Flat — doesn&rsquo;t climb with headcount</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Comparison reflects the general model of no-code/low-code portal products versus a custom build Ardn operates for you — not any one vendor&rsquo;s current plan. Confirm specifics with each vendor. The point isn&rsquo;t that no-code tools are bad; it&rsquo;s that they swap one per-seat bill for another and still hand you the build and upkeep.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">
@@ -336,7 +383,7 @@ export default function CustomPortalDevelopmentPage() {
           <div className="container">
             <div className="final-cta">
               <span className="eyebrow on-dark">Get started</span>
-              <h2 className="display mt-4">See what you&apos;re overpaying. <em>Then keep it.</em></h2>
+              <h2 className="display mt-4">See what you&apos;re overpaying. <em>Keep your CRM, cut the bill.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>

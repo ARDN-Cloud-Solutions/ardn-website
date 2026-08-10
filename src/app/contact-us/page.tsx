@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContactPageContent from "./ContactPageContent";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+  title: "Contact Us — Book a Free Salesforce & AI Call | Ardn",
   description: "Book a free 30-minute strategy call with the Orlando-based Ardn team — custom AI development, Salesforce-native products, and 30+ years of expertise.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/contact-us",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+    title: "Contact Us — Book a Free Salesforce & AI Call | Ardn",
     description: "Book a free 30-minute strategy call with the Orlando-based Ardn team. Custom AI development via the AI Forge Framework, Salesforce-native cloud products, and Salesforce consulting backed by 30+ years of expertise. Reply within 4 business hours.",
     url: "https://ardncloudsolutions.com/contact-us",
     siteName: "Ardn Cloud Solutions",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us — Book a Free Salesforce & AI Strategy Call | Ardn",
+    title: "Contact Us — Book a Free Salesforce & AI Call | Ardn",
     description: "Book a free 30-minute strategy call with the Orlando-based Ardn team. Custom AI development via the AI Forge Framework, Salesforce-native cloud products, and Salesforce consulting backed by 30+ years of expertise. Reply within 4 business hours.",
     site: "@ardn_cloud_sol",
   },

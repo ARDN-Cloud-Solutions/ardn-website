@@ -317,6 +317,8 @@ export default function ExperienceCloudVsCustomPortalPage() {
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/custom-partner-portal-development" className="link">Cut per-login Partner Community costs →</Link>
               <Link href="/custom-software-development" className="link">Explore custom software development →</Link>
+              <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost of ownership →</Link>
+              <Link href="/license-guard" className="link">Find unused Salesforce licenses with License Guard →</Link>
             </p>
           </div>
         </section>

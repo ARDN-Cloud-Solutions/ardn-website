@@ -303,9 +303,12 @@ export default function CustomSoftwareVsSaasPage() {
                 <span className="link">Explore the hub →</span>
               </Link>
             </div>
-            <p className="body mt-4" style={{ textAlign: "center" }}>
+            <div style={{ marginTop: "18px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Paying per-seat Salesforce or HubSpot fees? See the seat-cost math →</Link>
-            </p>
+              <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs — the full playbook →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal: cost →</Link>
+              <Link href="/license-guard" className="link">Find unused Salesforce licenses with License Guard →</Link>
+            </div>
           </div>
         </section>
 

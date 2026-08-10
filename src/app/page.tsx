@@ -70,6 +70,21 @@ export default async function Page() {
         "name": "Ardn Cloud Solutions",
         "url": "https://ardncloudsolutions.com/",
         "email": "contactus@ardncloudsolutions.com",
+        "telephone": "+1-407-815-5303",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Orlando",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-407-815-5303",
+          "email": "contactus@ardncloudsolutions.com",
+          "contactType": "sales",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        },
         "logo": {
           "@type": "ImageObject",
           "inLanguage": "en-US",

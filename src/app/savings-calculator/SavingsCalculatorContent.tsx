@@ -690,6 +690,21 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              {/* Secondary, lower-friction capture: the results modal is the
+                  highest-intent moment on the page. Not everyone will book a
+                  live call right then — this closes the modal and drops them at
+                  the on-page lead form (#quote) so we capture the warm-but-not-
+                  ready majority instead of losing them. */}
+              <button
+                type="button"
+                className="sc-modal-cta-alt"
+                onClick={() => {
+                  setModalOpen(false);
+                  document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Email me this breakdown instead →
+              </button>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +913,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-cta-alt { display: block; width: 100%; text-align: center; background: transparent; color: var(--sc-blue); font-size: 15px; font-weight: 700; padding: 12px; border: 1px solid var(--sc-border-2); border-radius: var(--sc-r-pill); cursor: pointer; transition: background 0.15s, border-color 0.15s; margin-bottom: 10px; font-family: inherit; }
+        .sc-modal-cta-alt:hover { background: var(--sc-blue-light); border-color: var(--sc-blue); }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */
