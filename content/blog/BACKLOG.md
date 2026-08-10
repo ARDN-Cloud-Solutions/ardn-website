@@ -73,7 +73,7 @@ near-duplicate of an existing post.
 
 ## Verticals — professional services / agencies (round 2)
 - [x] law-firm-client-portal-cost
-- [ ] accounting-firm-client-portal-seat-cost | Why Accounting Firms Overpay for Client Portal Seats | education | accounting firm client portal cost | /custom-portal-development — hold until it can be scoped with a genuinely distinct angle (trust-accounting / tax-season document exchange specifics) from law-firm-client-portal-cost and agency-client-portal-per-seat-cost, both published 2026-07-28; three near-identical "vertical X overpays for client portal seats" posts in close succession risks reading as templated.
+(stale duplicate removed 2026-08-10 — this topic was already resolved and published under the retitled `accounting-firm-client-portal-seat-cost` post; see the "Verticals — professional services (resolved 2026-08-04)" section below for its checklist entry.)
 
 ## Verticals — healthcare / wellness (new, seed for next batch)
 - [x] healthcare-patient-portal-per-seat-cost
@@ -84,7 +84,7 @@ near-duplicate of an existing post.
 
 ## Verticals — e-commerce / retail (new, seed for next batch)
 - [x] ecommerce-cs-seat-cost | Ecommerce Helpdesk Costs: Ticket Tiers, Not Seats | comparison | ecommerce support ticket pricing | /custom-portal-development — published 2026-08-03 with the Gorgias-style ticket-volume-tier mechanic (unlimited seats, billed by monthly ticket count, BFCM-spike and AI-agent double-billing angles), resolving the hold with a genuinely distinct mechanic from `zendesk-freshdesk-agent-seat-cost`'s per-agent-seat model.
-- [ ] shopify-plus-app-fee-stacking | When Shopify Plus App Fees Add Up to More Than a Custom Build | comparison | shopify app fees | /custom-ecommerce-development
+(stale duplicate removed 2026-08-10 — already published; see the checked `shopify-plus-app-fee-stacking` entry under "Comparisons — round 2" below.)
 
 ## Verticals — wellness / med spa (new, seed for next batch)
 - [x] med-spa-scheduling-portal-cost
@@ -202,11 +202,11 @@ near-duplicate of an existing post.
 - [x] chiropractic-pt-practice-management-software-cost | Chiropractic & PT Software: Visit-Based Pricing Costs | education | chiropractic software cost | /custom-software-development — published scoped to the mechanic distinction the hold note asked for: mainstream chiropractic platforms bill flat per-provider (like medical-practice-management-license-cost's general mechanic), but PT-specific platforms often bill by visit-volume tier or as a percentage of collections (4–6%, bundled RCM) — a genuinely different, revenue-linked mechanic not covered anywhere else on the site.
 - [x] car-wash-membership-software-cost | Car Wash Membership Software: What It Actually Costs | comparison | car wash software cost | /custom-portal-development — published under a narrower, retitled scope (dropped "equipment rental" from the original seed title/slug — research found no substantiated pricing mechanic pairing car wash and equipment-rental software together, and forcing the combination would have been a padded, ungrounded angle). Scoped instead to the mechanic actually found in research: some car wash membership platforms take a revenue share of recurring membership dues rather than a flat per-location fee — distinct from gym-membership-software-per-location-cost's base-fee-plus-member-tier mechanic despite both being recurring-membership verticals.
 
-## Verticals — daycare/childcare, HOA/community association, landscaping, funeral homes (new, seed for next batch, added 2026-08-08)
-- [ ] daycare-childcare-management-software-per-child-cost | Daycare and Childcare Management Software: Per-Child and Per-Center Costs | education | daycare software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Procare, Brightwheel, HiMama) before writing — check whether pricing is per-child, per-center, or tiered by enrollment, and whether it's genuinely distinct from other per-seat/per-unit verticals already published.
-- [ ] hoa-community-association-management-software-cost | HOA and Community Association Management Software: Per-Unit and Per-Community Costs | education | HOA software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. AppFolio, Vantaca, PayHOA) before writing — check distinctness from property-management-software-per-unit-cost and apartment-leasing-software-per-unit-cost, both already published, since HOA management could overlap with either depending on how it's scoped (likely distinct: association/board governance and assessment billing, not landlord/leasing operations).
-- [ ] landscaping-lawn-care-field-service-software-cost | Landscaping and Lawn Care Software: Per-Crew and Per-Route Costs | education | landscaping software cost | /custom-software-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Aspire, Service Autopilot, LawnPro) before writing — check distinctness from field-service-dispatch-software-seat-cost (HVAC/plumbing/electrical dispatch) and logistics-tms-per-user-cost before writing; look for a genuinely different mechanic (e.g. per-crew or per-route pricing, seasonal-crew scaling) rather than a relabeled field-service dispatch post.
-- [ ] funeral-home-management-software-cost | Funeral Home Management Software: Per-Location and Per-Case Costs | education | funeral home software cost | /custom-software-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Passare, Halcyon, FDMS) before writing — check whether pricing is per-case/per-call, per-location, or per-seat, and confirm a genuinely distinct mechanic exists before committing to write.
+## Verticals — daycare/childcare, HOA/community association, landscaping, funeral homes (added 2026-08-08, resolved 2026-08-10)
+- [x] daycare-childcare-management-software-per-child-cost | Daycare Software: Per-Child Pricing Costs Explained | education | daycare software cost | /custom-portal-development — published with the per-child, continuously-recalculating billing mechanic (Brightwheel base+per-child add-on, Lillio/HiMama's transparent $8-12/child/mo rate) driven by weekly enrollment churn — distinct from school-district-sis-per-student-cost's annual, enrollment-locked district contract model.
+- [x] hoa-community-association-management-software-cost | HOA Software: The Per-Unit Minimum-Fee Problem | education | HOA software cost | /custom-portal-development — published with the minimum-fee-floor mechanic (AppFolio's ~$0.80/unit with a ~$280/mo minimum that penalizes communities under ~200 units; PayHOA's tiered bands) plus the volunteer-board/assessment-governance buyer distinction — distinct from apartment-leasing-software-per-unit-cost's landlord-tenant leasing workflow and property-management-software-per-unit-cost's professional-PM-portfolio angle.
+- [x] landscaping-lawn-care-field-service-software-cost | Landscaping Software: Per-Crew Seasonal Scaling Cost | education | landscaping software cost | /custom-software-development — published with the per-crew/per-user mechanic (Aspire's $39/mo/crew entry tier scaling to $300-500/user/mo at full platform; Service Autopilot up to ~$499/mo) and the seasonal-crew-scaling angle (spring ramp-up multiplies license count) — distinct from field-service-dispatch-software-seat-cost's stable year-round per-technician HVAC/plumbing/electrical workforce.
+- [x] funeral-home-management-software-cost | Funeral Home Software: Per-Case Pricing Costs | education | funeral home software cost | /custom-software-development — published with the base-plus-per-case mechanic (Halcyon ~$295/mo base plus a case fee at volume) and the uncontrollable-volume angle (case count driven by regional mortality trends, not a business lever) — distinct from every other visit/ticket-volume-billed post (chiropractic-pt, ecommerce-cs) where the business can influence volume.
 
 ## Process note (2026-08-08 — batch 2)
 Second content-engine run on 2026-08-08. The prior same-day batch (see the
@@ -594,6 +594,79 @@ inventory after this batch: `nonprofit-donor-database-per-seat-cost`,
 `med-spa-scheduling-portal-cost`, `healthcare-referral-portal-cost`,
 `api-integration-vs-middleware-cost`, plus the 7 Salesforce/HubSpot seeds
 above — enough distinct depth for at least one more full batch.
+
+## CRM/ITSM platforms beyond Salesforce/HubSpot (added 2026-08-10, resolved same day)
+- [x] microsoft-dynamics-365-per-user-licensing-cost | Microsoft Dynamics 365: Per-User Licensing Costs | education | microsoft dynamics 365 cost | /reduce-crm-licensing-costs — published with the base-and-attach mechanic (first Dynamics app at full tier price, each additional app on the same user discounted to a flat attach rate) — a genuinely different upsell lever than any Salesforce/HubSpot seat-tier-jump or feature-gate mechanic already covered.
+- [x] servicenow-itsm-per-agent-licensing-cost | ServiceNow ITSM: Per-Fulfiller Licensing Costs | education | servicenow itsm cost | /custom-portal-development — published with the fulfiller-based (not per-requester) licensing mechanic plus the April 2026 three-tier overhaul (Foundation/Advanced/Prime) and AI-bundled-with-consumption-overage angle — a hybrid seat-plus-consumption mechanic distinct from every pure-per-seat or pure-consumption post already published.
+- [x] zoho-crm-per-user-pricing-tiers | Zoho CRM: Per-User Pricing and Bundle Stacking | comparison | zoho crm pricing | /reduce-crm-licensing-costs — published with the Zoho One company-wide-per-employee bundle angle (prices against total headcount regardless of actual CRM usage) contrasted with the standard 4-tier per-CRM-user ladder — a distinct pricing unit (per-employee vs. per-CRM-user) not seen in any other CRM post on the site.
+
+## Salesforce/HubSpot rounds — status check (2026-08-10)
+Confirmed via research this run: the mainstream Salesforce and HubSpot SKU
+list remains exhausted after 7+ rounds (see prior process notes). Rather than
+force a further reach into obscure SKUs, this run treated "cutting per-seat
+CRM licensing costs" broadly enough to cover other major per-seat CRM/ITSM
+platforms buyers in this market actually evaluate (Microsoft Dynamics 365,
+ServiceNow, Zoho) — each with a genuinely distinct pricing mechanic, not a
+relabeled Salesforce/HubSpot post. Future batches should keep leaning on this
+category (Pipedrive, Freshsales, NetSuite CRM are seeded below) alongside new
+verticals, rather than forcing further Salesforce/HubSpot SKU posts.
+
+## CRM/ITSM platforms — round 2 (new, seed for next batch, added 2026-08-10)
+- [ ] pipedrive-per-user-pricing-tiers | Pipedrive CRM: Per-User Pricing and AI Credit Add-Ons | education | pipedrive pricing | /reduce-crm-licensing-costs — new, not yet researched; confirm current tier pricing and whether AI credits or automation are gated/metered separately from the per-seat price, and that the mechanic is genuinely distinct from Zoho's tier ladder and HubSpot's feature-gate pattern before writing.
+- [ ] freshworks-freshsales-per-user-cost | Freshsales / Freshworks CRM Suite: Per-User Bundle Costs | education | freshsales pricing | /custom-portal-development — new, not yet researched; confirm whether Freshworks' cross-suite bundling (sales, support, IT) creates a distinct per-user mechanic from Zoho One's company-wide bundle, or if it's too similar to skip.
+- [ ] netsuite-crm-per-user-cost | Oracle NetSuite CRM: Per-User Costs Inside an ERP Bundle | education | netsuite crm cost | /custom-software-development — new, not yet researched; confirm NetSuite's module-based/per-user licensing mechanic within a broader ERP suite (distinct buyer: finance/ops evaluating CRM as one module of a larger ERP decision, not a standalone CRM buy) before writing.
+
+## Verticals — dance/martial arts studios, auto repair, pest control, campgrounds (new, seed for next batch, added 2026-08-10)
+- [ ] dance-studio-class-management-software-cost | Dance Studio Class Management Software: Per-Student and Per-Family Costs | education | dance studio software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Jackrabbit Class/Dance) before writing. Note: the site has an existing `/signup-dance-studio` page, so this post can link there in addition to the standard money pages — check whether that page is stable enough to link before publishing. Confirm distinctness from gym-membership-software-per-location-cost (per-location/per-member, not per-student/family).
+- [ ] martial-arts-gym-studio-software-cost | Martial Arts and Studio Management Software Costs | education | martial arts studio software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing info (e.g. Zen Planner) before writing — likely overlaps heavily with gym-membership-software-per-location-cost; only write if a genuinely distinct mechanic surfaces (e.g. per-program/belt-rank billing), otherwise skip and drop this line.
+- [ ] auto-repair-shop-management-software-cost | Independent Auto Repair Shop Software: Per-Bay and Per-User Costs | education | auto repair shop software cost | /custom-software-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Shop-Ware, Tekmetric) before writing — check distinctness from automotive-dealership-dms-seat-cost (independent repair shops vs. franchised dealerships, likely a different per-bay/per-technician mechanic rather than dealership-wide DMS seats).
+- [ ] pest-control-field-service-software-cost | Pest Control Field Service Software: Per-Technician and Per-Route Costs | education | pest control software cost | /custom-portal-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. PestPac, FieldRoutes) before writing — check distinctness from field-service-dispatch-software-seat-cost and landscaping-lawn-care-field-service-software-cost (both published); only write if a genuinely different mechanic surfaces (e.g. chemical-application compliance billing, route-density pricing), otherwise skip.
+- [ ] campground-rv-park-management-software-cost | Campground and RV Park Management Software: Per-Site Costs | education | campground software cost | /custom-software-development — new vertical, not yet researched; confirm real vendor/pricing-mechanic info (e.g. Newbook, CampLife) before writing — likely a genuinely new per-site pricing unit distinct from every per-seat/per-unit/per-bed vertical published so far.
+
+## Process note (2026-08-10)
+Cloned the repo fresh this run (not pre-attached to the session; added via
+GitHub repo access to `ARDN-Cloud-Solutions/ardn-website` and cloned to
+`/workspace/ardn-website`), ran `npm ci` clean. Found the backlog's unchecked
+inventory was mostly stale: two lines (`accounting-firm-client-portal-seat-
+cost`, `shopify-plus-app-fee-stacking`) were leftover duplicates of topics
+already published under the same slug earlier in the file — removed those
+two stale lines rather than re-writing already-published content. One item
+(`home-services-field-service-software-seat-cost`) remains a confirmed skip
+with no distinct angle. That left exactly 4 genuinely fresh, unresearched
+vertical seeds (daycare/childcare, HOA/community association, landscaping/
+lawn care, funeral homes) — researched all 4 via WebSearch before writing,
+confirmed each has a real, distinct pricing mechanic and buyer pain point,
+and published all 4.
+
+That's only 4 posts, and all vertical (no Salesforce/HubSpot angle left to
+pair them with per the prior process note's confirmed exhaustion after 7
+rounds). Rather than pad with a weak SF/HubSpot SKU or a near-duplicate
+vertical to hit a target count, extended the definition of "cutting per-seat
+CRM licensing costs" to cover three other major per-seat CRM/ITSM platforms
+mid-market buyers actually evaluate against Salesforce and HubSpot —
+Microsoft Dynamics 365, ServiceNow ITSM, and Zoho CRM — researched each via
+WebSearch and confirmed each has a genuinely distinct pricing mechanic (base-
+and-attach module discounting, fulfiller-based-plus-AI-consumption hybrid,
+and per-employee company-wide bundling, respectively) not already covered by
+any Salesforce or HubSpot post. Published all 3, bringing this batch to 7
+posts total (4 verticals + 3 CRM/ITSM platforms), restoring something close
+to the 50/50 weighting the engine targets without writing a single
+near-duplicate.
+
+Seeded 3 new CRM/ITSM platform angles (Pipedrive, Freshsales/Freshworks,
+NetSuite CRM) and 5 new vertical seeds (dance studio, martial arts studio —
+flagged as a likely-skip pending a distinct mechanic, auto repair shop, pest
+control — flagged as needing a distinct mechanic check against landscaping/
+field-service, and campgrounds/RV parks) for the next batch, each with an
+explicit note on what needs confirming before writing. Remaining unchecked
+inventory after this batch: those 8 new seeds, `nonprofit-donor-database-
+per-seat-cost`/`ecommerce-cs-seat-cost`/`med-spa-scheduling-portal-cost`/
+`healthcare-referral-portal-cost`/`api-integration-vs-middleware-cost` (all
+already show as checked above but are listed as still-open in the 2026-07-27
+note below — that note predates several since-published posts and is now
+stale; treat the checkbox state above as authoritative), and
+`home-services-field-service-software-seat-cost` (confirmed skip, no distinct
+angle without a new mechanic).
 
 ## Process note (2026-07-27)
 Two concurrent runs of this engine independently picked nearly the same 7
