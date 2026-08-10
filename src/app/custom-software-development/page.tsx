@@ -191,7 +191,7 @@ export default function CustomSoftwareDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your savings</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -411,7 +411,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <p className="lede">30-minute free call. We&rsquo;ll find the highest-leverage thing to build first and return a fixed quote within 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
-                <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
+                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See pricing</Link>
               </div>
             </div>
           </div>
