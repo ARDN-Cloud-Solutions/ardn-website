@@ -296,6 +296,40 @@ export default function CustomPartnerPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* THE MATH — concrete per-login cost example */}
+        <section className="section" id="the-math">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Put a number on it</span>
+                <h2 className="h1 mt-3">What a 500-partner network <em>costs on per-login licensing.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Partner Relationship Management is the most expensive external tier — which is exactly why the flat-fee swap saves the most here.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Scenario</th>
+                    <th>Roughly (list price)</th>
+                    <th>Grows with your network?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">500 partners on PRM (~$25/member)</td><td>~$12,500/mo &middot; ~$150K/yr</td><td className="is-no">Yes — every partner adds cost</td></tr>
+                  <tr><td className="feat">500 partners on Community Plus (~$15/member)</td><td>~$7,500/mo &middot; ~$90K/yr</td><td className="is-no">Yes — every partner adds cost</td></tr>
+                  <tr><td className="feat">Flat-fee custom portal (Ardn)</td><td>One monthly fee, from $3,000/mo</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No — same at 500 or 5,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Figures use Salesforce&apos;s publicly listed member-based list prices (~$25/member for Partner Relationship Management, ~$15/member for Customer Community Plus), shown for illustration only — not a quote. Your actual rate depends on edition, volume, and negotiated contract; login-based pricing differs again. Run the <Link href="/savings-calculator" className="link">savings calculator</Link> for your own partner count and rate, or see the <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">full Experience Cloud cost breakdown</Link>.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">

@@ -244,6 +244,9 @@ export default function AiForMembershipOrganizationsPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">
                 Cut per-seat association software costs →
               </Link>
+              <Link href="/custom-portal-development" className="link">
+                Give light members &amp; volunteers a flat-fee portal →
+              </Link>
               <Link href="/savings-calculator" className="link">
                 Calculate your per-member savings →
               </Link>

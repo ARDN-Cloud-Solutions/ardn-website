@@ -17,6 +17,9 @@ export default function LandingPageContent() {
                 <span className="badge is-emerald">Flat fee, not per-seat</span>
                 <span className="badge">Cut CRM per-seat costs</span>
               </div>
+              <p className="body reveal reveal-d2" style={{ marginTop: "14px", fontWeight: 600 }}>
+                Already on Salesforce or HubSpot? Keep it — we move light users to a <Link href="/reduce-crm-licensing-costs" className="link">flat-fee custom portal and cut the per-seat bill</Link>.
+              </p>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                 <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>

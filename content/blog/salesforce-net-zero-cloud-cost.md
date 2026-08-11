@@ -32,7 +32,7 @@ image_alt: "Salesforce Net Zero Cloud edition pricing explained — ARDN Cloud S
 </table>
 
 <h2>Where the fix actually lives</h2>
-<p>For a sustainability or compliance team whose reporting needs are narrower than the full ESG data model Net Zero Cloud provides, a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built reporting and data-collection layer</a> — synced to existing operational and utility data via API — can carry that workflow on a flat monthly fee, independent of a bundled license count or edition-tier jump. See <a href="https://cms.ardncloudsolutions.com/salesforce-nonprofit-cloud-cost/">Salesforce Nonprofit Cloud's licensing ceiling</a> for a similar industry-edition mechanic, and <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM and industry-cloud licensing costs</a> for the broader pattern.</p>
+<p>For a sustainability or compliance team whose reporting needs are narrower than the full ESG data model Net Zero Cloud provides, a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built reporting and data-collection layer</a> — synced to existing operational and utility data via API — can carry that workflow on a flat monthly fee, independent of a bundled license count or edition-tier jump. See <a href="https://ardncloudsolutions.com/blog/salesforce-nonprofit-cloud-cost">Salesforce Nonprofit Cloud's licensing ceiling</a> for a similar industry-edition mechanic, and <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM and industry-cloud licensing costs</a> for the broader pattern.</p>
 
 <h2>Frequently asked questions</h2>
 

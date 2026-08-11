@@ -232,7 +232,7 @@ export default function Header() {
                   rounded="full"
                   rightIcon={ArrowRight}
                 >
-                  Book a Free Call
+                  Book a Free 30-Min Call
                 </Button>
 
                 {/* Search circle button */}
@@ -389,7 +389,7 @@ export default function Header() {
               onClick={() => setDrawerOpen(false)}
               className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 text-base font-medium border-2 rounded-full bg-btn-primary text-white border-btn-primary hover:bg-btn-primary-hover hover:border-btn-primary-hover transition-all duration-200"
             >
-              Book a Free Call
+              Book a Free 30-Min Call
               <ArrowRight size={20} />
             </Link>
           </div>

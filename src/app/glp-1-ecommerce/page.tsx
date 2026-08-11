@@ -222,8 +222,9 @@ export default function Glp1EcommercePage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/custom-ecommerce-development" className="link">Selling something other than treatments? See custom ecommerce →</Link>
+              <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees for support staff? Move them to a flat-fee portal →</Link>
             </div>
           </div>
         </section>

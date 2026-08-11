@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import Testimonial from "@/components/common/Testimonial";
 import LeadForm from "@/components/common/LeadForm";
 
 // Solution page anchored to a real delivered build: custom seller + operations
@@ -329,6 +330,8 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        <Testimonial />
+
         <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
@@ -342,7 +345,10 @@ export default function CustomPortalDevelopmentPage() {
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
-              <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+              <p style={{ marginTop: "16px", color: "rgba(255,255,255,0.9)", fontSize: "14px", fontWeight: 600 }}>
+                New customers: we build it free &middot; Fixed quote in 48 hours &middot; Flat monthly fee, cancel in 30 days — no lock-in.
+              </p>
+              <p style={{ marginTop: "10px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
                 Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
               </p>
               <p style={{ marginTop: "8px" }}>

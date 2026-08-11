@@ -17,7 +17,7 @@ image_alt: "HubSpot custom objects and the forced Enterprise-tier jump — ARDN 
 </ul>
 
 <h2>Why this is a distinct problem from the seat-cost conversation</h2>
-<p>Most HubSpot cost conversations focus on paying for seats people don't fully use. This is a different mechanic: a team can have exactly the right number of seats, all fully active, and still be forced into a materially more expensive tier because one specific data-modeling need (a custom object) doesn't exist at all below Enterprise. It's a feature-gate problem, not a seat-utilization problem — closer to the tier-cliff pattern already documented for <a href="https://cms.ardncloudsolutions.com/hubspot-cms-hub-cost/">HubSpot CMS Hub's Professional-to-Enterprise jump</a> than to a seat-optimization fix.</p>
+<p>Most HubSpot cost conversations focus on paying for seats people don't fully use. This is a different mechanic: a team can have exactly the right number of seats, all fully active, and still be forced into a materially more expensive tier because one specific data-modeling need (a custom object) doesn't exist at all below Enterprise. It's a feature-gate problem, not a seat-utilization problem — closer to the tier-cliff pattern already documented for <a href="https://ardncloudsolutions.com/blog/hubspot-cms-hub-cost">HubSpot CMS Hub's Professional-to-Enterprise jump</a> than to a seat-optimization fix.</p>
 
 <h2>Professional vs. Enterprise, for this specific need</h2>
 <table>

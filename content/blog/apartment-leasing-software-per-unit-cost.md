@@ -6,7 +6,7 @@ categories: "Software Cost Strategy"
 tags: "apartment leasing software, resident portal, per-unit cost, property technology, custom software"
 image_alt: "Apartment leasing and resident portal software per-unit costs — ARDN Cloud Solutions"
 ---
-<p><a href="https://cms.ardncloudsolutions.com/property-management-software-per-unit-cost/">Property management software's per-unit pricing</a> covers the owner-facing side of the platform — accounting, maintenance dispatch, owner reporting. The leasing and resident-facing layer on top of it — online applications, resident communication, maintenance requests, the resident portal itself — is billed separately in a lot of these platforms, and it has its own per-unit pricing quirks worth understanding on their own terms.</p>
+<p><a href="https://ardncloudsolutions.com/blog/property-management-software-per-unit-cost">Property management software's per-unit pricing</a> covers the owner-facing side of the platform — accounting, maintenance dispatch, owner reporting. The leasing and resident-facing layer on top of it — online applications, resident communication, maintenance requests, the resident portal itself — is billed separately in a lot of these platforms, and it has its own per-unit pricing quirks worth understanding on their own terms.</p>
 
 <h2>How leasing/resident-portal pricing tends to work</h2>
 <ul>
@@ -32,7 +32,7 @@ image_alt: "Apartment leasing and resident portal software per-unit costs — AR
 </table>
 
 <h2>Where a custom build fits</h2>
-<p>The resident-facing layer — applications, a maintenance request queue, resident messaging, payment status — is a well-scoped, buildable function on its own, separate from the accounting core a portfolio may prefer to keep on established, audited software. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built resident portal</a> replaces the per-unit-plus-minimum-fee structure with one flat monthly fee that doesn't move with portfolio size, and doesn't carry a separate per-transaction charge layered on top by the portal itself (payment processor fees are a separate, negotiated relationship either way). See the owner-side comparison at <a href="https://cms.ardncloudsolutions.com/property-management-software-per-unit-cost/">property management software per-unit costs</a>, and the broader build-vs-license framework at <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">reducing CRM and portal licensing costs</a>.</p>
+<p>The resident-facing layer — applications, a maintenance request queue, resident messaging, payment status — is a well-scoped, buildable function on its own, separate from the accounting core a portfolio may prefer to keep on established, audited software. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built resident portal</a> replaces the per-unit-plus-minimum-fee structure with one flat monthly fee that doesn't move with portfolio size, and doesn't carry a separate per-transaction charge layered on top by the portal itself (payment processor fees are a separate, negotiated relationship either way). See the owner-side comparison at <a href="https://ardncloudsolutions.com/blog/property-management-software-per-unit-cost">property management software per-unit costs</a>, and the broader build-vs-license framework at <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">reducing CRM and portal licensing costs</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

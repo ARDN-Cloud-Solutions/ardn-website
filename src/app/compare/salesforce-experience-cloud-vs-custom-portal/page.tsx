@@ -66,6 +66,10 @@ const FAQS = [
     a: "Experience Cloud (formerly Community Cloud) is Salesforce's way to give external users — partners, customers, members — a branded portal built on top of your Salesforce data. It's typically sold on either a login-based model (you pay per login, in blocks) or a member-based model (a monthly price per active external user). Either way, the cost still scales with how many people use it.",
   },
   {
+    q: "What is the difference between Experience Cloud member-based and login-based pricing?",
+    a: "Member-based pricing bills a flat monthly rate for every provisioned external user, whether or not they log in that month — best for users who log in most days. Login-based pricing bills per monthly login in blocks, and works out cheaper only for infrequent users; for daily users it typically costs several times a member seat. Publicly listed list prices land roughly at $5/member or $2/login for Customer Community, $15/member or $6/login for Customer Community Plus, and $25/member or $10/login for Partner Relationship Management (confirm your own edition and negotiated rate with Salesforce). A flat-fee custom portal removes the choice entirely — the same monthly cost no matter how many members or logins.",
+  },
+  {
     q: "Is Experience Cloud cheaper than full Salesforce seats?",
     a: "Yes — for external users, it's usually much cheaper than putting them on full internal Sales or Service Cloud licenses, and that's exactly what it's designed for. If your only alternative is full seats for partners and customers, Experience Cloud is a legitimate saving. The question this page answers is what happens beyond that: when the login or member fees themselves start to add up at scale.",
   },
@@ -204,15 +208,16 @@ export default function ExperienceCloudVsCustomPortalPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td className="feat">Full Sales/Service Cloud seat</td><td>~$150–$165/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
-                  <tr><td className="feat">Experience Cloud — login-based</td><td>~per-login blocks (list)</td><td className="is-no">Yes — per login</td></tr>
-                  <tr><td className="feat">Experience Cloud — member-based</td><td>monthly per active member (list)</td><td className="is-no">Yes — per member</td></tr>
+                  <tr><td className="feat">Full Sales/Service Cloud seat</td><td>~$165/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
+                  <tr><td className="feat">Customer Community</td><td>~$5/member or $2/login (list)</td><td className="is-no">Yes — per member/login</td></tr>
+                  <tr><td className="feat">Customer Community Plus</td><td>~$15/member or $6/login (list)</td><td className="is-no">Yes — per member/login</td></tr>
+                  <tr><td className="feat">Partner Relationship Management</td><td>~$25/member or $10/login (list)</td><td className="is-no">Yes — per member/login</td></tr>
                   <tr><td className="feat">Custom portal (Ardn)</td><td>Flat monthly fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No — same fee at any headcount</td></tr>
                 </tbody>
               </table>
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
-              Prices above are typical, publicly listed ranges as of this writing — not a quote. Salesforce sells Experience Cloud on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and use our <Link href="/savings-calculator" className="link">calculator</Link> to compare against a flat-fee portal for your own user counts.
+              Prices above are publicly listed list prices per Experience Cloud tier (Customer Community, Community Plus, Partner Relationship Management), shown for illustration — not a quote. Salesforce sells each on both login- and member-based models; the exact rate depends on edition, volume, and negotiated contract. Confirm current numbers with Salesforce, and use our <Link href="/savings-calculator" className="link">calculator</Link> to compare against a flat-fee portal for your own user counts.
             </p>
           </div>
         </section>

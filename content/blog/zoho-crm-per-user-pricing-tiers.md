@@ -33,7 +33,7 @@ image_alt: "Zoho CRM per-user pricing and bundle stacking explained — ARDN Clo
 </table>
 
 <h2>Where the fix actually lives</h2>
-<p>The reporting dashboards, request forms, and light-access workflows that surround a Zoho deployment don't need a full per-seat license, and definitely don't need to be priced against a company-wide Zoho One headcount. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built portal</a> synced to Zoho via API can carry that workload on one flat monthly fee. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce per-seat CRM licensing costs</a> and <a href="https://cms.ardncloudsolutions.com/hubspot-paid-vs-free-seats/">HubSpot paid vs. free seats</a> for how the same light-user cost pattern shows up on another CRM.</p>
+<p>The reporting dashboards, request forms, and light-access workflows that surround a Zoho deployment don't need a full per-seat license, and definitely don't need to be priced against a company-wide Zoho One headcount. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built portal</a> synced to Zoho via API can carry that workload on one flat monthly fee. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce per-seat CRM licensing costs</a> and <a href="https://ardncloudsolutions.com/blog/hubspot-paid-vs-free-seats">HubSpot paid vs. free seats</a> for how the same light-user cost pattern shows up on another CRM.</p>
 
 <p>Model the numbers for your own user count with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 

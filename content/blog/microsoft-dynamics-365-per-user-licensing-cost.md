@@ -35,7 +35,7 @@ image_alt: "Microsoft Dynamics 365 per-user licensing costs explained — ARDN C
 <h2>Where the fix actually lives</h2>
 <p>The light-user and self-service workload sitting around a Dynamics 365 deployment — status lookups, request forms, reporting dashboards for people who don't need full edit access — doesn't need a Team Member or Professional seat at all. A <a href="https://ardncloudsolutions.com/custom-portal-development">custom-built portal</a> synced to Dynamics via API can carry that workload on one flat monthly fee instead of licensing every occasional user. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce per-seat CRM licensing costs</a> and the <a href="https://ardncloudsolutions.com/compare/salesforce-seat-cost-vs-custom-portal">seat-cost-vs-custom-portal comparison</a> for the same pattern applied to another major CRM.</p>
 
-<p>Model the numbers for your own user count with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and see <a href="https://cms.ardncloudsolutions.com/hubspot-vs-salesforce-tco-mid-market/">HubSpot vs. Salesforce true cost of ownership</a> for how another CRM pair compares.</p>
+<p>Model the numbers for your own user count with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>, and see <a href="https://ardncloudsolutions.com/blog/hubspot-vs-salesforce-tco-mid-market">HubSpot vs. Salesforce true cost of ownership</a> for how another CRM pair compares.</p>
 
 <h2>Frequently asked questions</h2>
 

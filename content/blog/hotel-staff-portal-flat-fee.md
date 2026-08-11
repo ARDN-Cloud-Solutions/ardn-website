@@ -35,7 +35,7 @@ image_alt: "Rolling out a flat-fee staff portal for hotels — ARDN Cloud Soluti
 <h2>Why the rollout matters as much as the cost case</h2>
 <p>The cost argument for flat-fee software only pays off if the rollout doesn't disrupt operations during a season that's already running. High turnover means the portal has to be simple enough for a new hire to use on day one — a QR code or one-tap login rather than an IT ticket to provision an account — which is as much a design requirement as it is a cost one.</p>
 
-<p>See the underlying cost case in <a href="https://cms.ardncloudsolutions.com/hospitality-software-per-seat-costs/">why hospitality teams overpay for software seats</a> and the general pattern in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>. Explore what we build for operators at <a href="https://ardncloudsolutions.com/ai-for-hospitality">ARDN for hospitality</a>, and start a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal project</a> scoped to your specific property's departments and PMS.</p>
+<p>See the underlying cost case in <a href="https://ardncloudsolutions.com/blog/hospitality-software-per-seat-costs">why hospitality teams overpay for software seats</a> and the general pattern in <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a>. Explore what we build for operators at <a href="https://ardncloudsolutions.com/ai-for-hospitality">ARDN for hospitality</a>, and start a <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal project</a> scoped to your specific property's departments and PMS.</p>
 
 <h2>Frequently asked questions</h2>
 

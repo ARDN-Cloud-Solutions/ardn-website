@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import Testimonial from "@/components/common/Testimonial";
 import LeadForm from "@/components/common/LeadForm";
 
 // PILLAR page for the per-seat cost-reduction wedge. Targets the problem-intent
@@ -84,6 +85,14 @@ const FAQS = [
   {
     q: "How much can a custom portal actually save versus per-seat licenses?",
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
+  },
+  {
+    q: "Can you reduce your Salesforce license count mid-contract?",
+    a: "Usually not downward mid-term. Most Salesforce agreements let you add seats any time but only reduce the committed quantity at renewal, so the practical window to cut licensing cost is the renewal negotiation — which is why an audit and a plan should start 60–90 days before it. Some contracts include limited true-down rights; check your order form. A custom portal is different: because it isn't a Salesforce license at all, moving light users to it doesn't depend on the CRM's renewal terms — you stop needing those seats going forward.",
+  },
+  {
+    q: "Which users can move from a full Salesforce license to a cheaper tier?",
+    a: "Salesforce sells lower-cost tiers below a full ~$165/user/month Sales or Service Cloud seat — for example a Platform license (custom apps and core CRM objects, but not the full sales/service feature set) and, for external users, Experience Cloud member or login licenses. Users who never touch the features you'd be downgrading away — leads, opportunities, cases, forecasting — are candidates to move down. The catch is that every one of these is still per-seat and still capped in what you can build; a flat-fee portal is the option that removes the seat entirely rather than making it cheaper.",
   },
   {
     q: "How long does it take to stand up a portal, and what does it cost?",
@@ -409,6 +418,8 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        <Testimonial />
+
         <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
@@ -422,7 +433,10 @@ export default function ReduceCrmLicensingCostsPage() {
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/custom-portal-development" className="btn btn-outline-light btn-lg">Explore custom portals</Link>
               </div>
-              <p style={{ marginTop: "20px" }}>
+              <p style={{ marginTop: "16px", color: "rgba(255,255,255,0.9)", fontSize: "14px", fontWeight: 600 }}>
+                New customers: we build the portal free &middot; Fixed quote in 48 hours &middot; Flat monthly fee, cancel in 30 days — no lock-in.
+              </p>
+              <p style={{ marginTop: "16px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
               </p>
             </div>

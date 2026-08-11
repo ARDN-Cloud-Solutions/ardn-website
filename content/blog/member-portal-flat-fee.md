@@ -33,7 +33,7 @@ image_alt: "A member portal that doesn't bill per member — ARDN Cloud Solution
 </table>
 
 <h2>Why this differs from an internal AMS seat problem</h2>
-<p>This is the member-facing side of the equation, distinct from staff seat costs inside the AMS itself. If your association is also paying per-seat for internal staff users, that's a separate lever — see <a href="https://cms.ardncloudsolutions.com/association-ams-cost-reduction/">cutting AMS per-seat costs</a> for the internal-side fix. Chapters billing dues per member at the chapter level are a related but distinct problem covered in <a href="https://cms.ardncloudsolutions.com/chapter-management-per-member-fees/">chapter management and per-member fees</a>.</p>
+<p>This is the member-facing side of the equation, distinct from staff seat costs inside the AMS itself. If your association is also paying per-seat for internal staff users, that's a separate lever — see <a href="https://ardncloudsolutions.com/blog/association-ams-cost-reduction">cutting AMS per-seat costs</a> for the internal-side fix. Chapters billing dues per member at the chapter level are a related but distinct problem covered in <a href="https://ardncloudsolutions.com/blog/chapter-management-per-member-fees">chapter management and per-member fees</a>.</p>
 
 <h2>Rollout: what a build actually looks like</h2>
 <p>A member portal build starts with mapping which AMS fields and workflows the portal needs (dues status, event catalog, directory fields, document types), then building against the AMS's API in parallel with staff continuing to use the AMS unchanged. Cutover for members happens once the portal is validated against real account data — not a hard switch that risks member-facing downtime.</p>

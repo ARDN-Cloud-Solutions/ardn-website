@@ -32,7 +32,7 @@ image_alt: "PSA tool license costs for professional services firms explained —
 </table>
 <p>A <a href="https://ardncloudsolutions.com/custom-software-development">custom-built internal tool</a> covering time entry, utilization, and billing can replace a per-user PSA license with a flat monthly fee — and because it's built to the firm's actual rate cards and project structures, it avoids the workaround-heavy configuration that generic PSA tools often require for anything nonstandard.</p>
 
-<p>This is the internal-tooling counterpart to the client-facing problem covered in <a href="https://cms.ardncloudsolutions.com/agency-client-portal-per-seat-cost/">why agencies overpay for client-facing software seats</a> — most firms are carrying both costs at once. Model the numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
+<p>This is the internal-tooling counterpart to the client-facing problem covered in <a href="https://ardncloudsolutions.com/blog/agency-client-portal-per-seat-cost">why agencies overpay for client-facing software seats</a> — most firms are carrying both costs at once. Model the numbers with the <a href="https://ardncloudsolutions.com/savings-calculator">savings calculator</a>.</p>
 
 <h2>Frequently asked questions</h2>
 

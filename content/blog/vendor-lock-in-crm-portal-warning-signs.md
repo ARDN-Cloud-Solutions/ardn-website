@@ -17,7 +17,7 @@ image_alt: "Technical signs a CRM or portal locks you in — ARDN Cloud Solution
 </ul>
 
 <h2>Why this matters more than the contract's exit clause</h2>
-<p>A generous termination clause solves the legal problem. It doesn't solve the practical one: if your automation logic, custom data model, and configuration live entirely inside a proprietary runtime with limited export tooling, "you're free to leave" and "leaving is actually feasible in a reasonable timeframe" are two different things. <a href="https://cms.ardncloudsolutions.com/rfp-questions-for-crm-portal-vendor/">The right questions to ask a CRM or portal vendor before signing</a> cover the contractual side of this; the technical checks below are the part a contract review won't catch.</p>
+<p>A generous termination clause solves the legal problem. It doesn't solve the practical one: if your automation logic, custom data model, and configuration live entirely inside a proprietary runtime with limited export tooling, "you're free to leave" and "leaving is actually feasible in a reasonable timeframe" are two different things. <a href="https://ardncloudsolutions.com/blog/rfp-questions-for-crm-portal-vendor">The right questions to ask a CRM or portal vendor before signing</a> cover the contractual side of this; the technical checks below are the part a contract review won't catch.</p>
 
 <h2>SaaS platform vs. custom-built system: where lock-in actually lives</h2>
 <table>

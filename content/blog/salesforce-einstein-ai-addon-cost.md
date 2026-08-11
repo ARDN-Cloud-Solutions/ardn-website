@@ -32,7 +32,7 @@ image_alt: "Salesforce Einstein and Agentforce AI add-on costs for mid-market te
 </table>
 
 <h2>Where the fix actually lives</h2>
-<p>Not every AI-assisted workflow needs Salesforce's native AI stack underneath it. For a narrowly scoped use case — an automated summary, a triage step, a specific customer-facing assistant — a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built AI feature</a> reading from your Salesforce data via API can deliver that one workflow on a flat monthly fee, without the per-conversation meter running under the hood. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a> for the seat-based version of this pattern, and <a href="https://cms.ardncloudsolutions.com/salesforce-data-cloud-cost/">where the Salesforce Data Cloud bill comes from</a> for the consumption layer these AI features draw on.</p>
+<p>Not every AI-assisted workflow needs Salesforce's native AI stack underneath it. For a narrowly scoped use case — an automated summary, a triage step, a specific customer-facing assistant — a <a href="https://ardncloudsolutions.com/custom-software-development">custom-built AI feature</a> reading from your Salesforce data via API can deliver that one workflow on a flat monthly fee, without the per-conversation meter running under the hood. See <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">how to reduce CRM licensing costs</a> for the seat-based version of this pattern, and <a href="https://ardncloudsolutions.com/blog/salesforce-data-cloud-cost">where the Salesforce Data Cloud bill comes from</a> for the consumption layer these AI features draw on.</p>
 
 <h2>Frequently asked questions</h2>
 

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import Testimonial from "@/components/common/Testimonial";
 import LeadForm from "@/components/common/LeadForm";
 
 // Broad-money-keyword HUB page for the repositioned brand: "custom software /
@@ -400,6 +401,8 @@ export default function CustomSoftwareDevelopmentPage() {
           </div>
         </section>
 
+        <Testimonial />
+
         <LeadForm source="Custom Software Development page" heading="Tell us what you're trying to build" sub="A sentence or two about the problem is plenty. We'll reply within 4 business hours with a fixed quote — no obligation." />
 
         {/* FINAL CTA */}
@@ -413,6 +416,9 @@ export default function CustomSoftwareDevelopmentPage() {
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
               </div>
+              <p style={{ marginTop: "16px", color: "rgba(255,255,255,0.9)", fontSize: "14px", fontWeight: 600 }}>
+                New customers: we build it free &middot; Fixed quote in 48 hours &middot; Flat monthly fee, cancel in 30 days — no lock-in.
+              </p>
             </div>
           </div>
         </section>
