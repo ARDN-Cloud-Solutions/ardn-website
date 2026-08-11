@@ -365,7 +365,8 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce per-seat cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">HubSpot per-seat cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
             </div>
@@ -411,7 +412,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <p className="lede">30-minute free call. We&rsquo;ll find the highest-leverage thing to build first and return a fixed quote within 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
-                <Link href="/ai-forge" className="btn btn-outline-light btn-lg">See pricing</Link>
+                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
             </div>
           </div>

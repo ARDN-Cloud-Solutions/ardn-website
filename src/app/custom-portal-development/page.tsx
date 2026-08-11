@@ -199,6 +199,9 @@ export default function CustomPortalDevelopmentPage() {
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                   <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
                 </div>
+                <p className="reveal reveal-d3" style={{ fontSize: "13px", color: "#475467", marginTop: "14px", fontWeight: 500 }}>
+                  Free build for new customers &middot; fixed quote in 48 hrs &middot; no obligation
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -248,7 +251,10 @@ export default function CustomPortalDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? See the seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See the portal cost comparison →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Serving channel partners or dealers? See custom partner portals →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -329,7 +335,7 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Email me my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
@@ -340,7 +346,7 @@ export default function CustomPortalDevelopmentPage() {
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
-                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
+                <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See the flat-fee tiers (Launch / Scale / Enterprise)</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
                 Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.

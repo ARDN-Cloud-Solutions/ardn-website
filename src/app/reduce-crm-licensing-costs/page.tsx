@@ -86,6 +86,10 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "How do I reduce HubSpot seat costs specifically?",
+    a: "HubSpot's free view-only seats can look at records but can't edit them, so the moment a light user needs to update a deal, log an activity, or change a status, they need a paid Core seat. That write-access line is where the HubSpot bill climbs for users who otherwise barely touch the CRM. The same three levers apply — reclaim unused seats, keep genuine view-only users on free seats, and move the light users who need write access to a custom portal that writes back to HubSpot through its API on one flat fee.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -184,6 +188,9 @@ export default function ReduceCrmLicensingCostsPage() {
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                   <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your own numbers →</Link>
                 </div>
+                <p className="reveal reveal-d3" style={{ fontSize: "13px", color: "#475467", marginTop: "14px", fontWeight: 500 }}>
+                  Free build for new customers &middot; fixed quote in 48 hrs &middot; no obligation
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -379,8 +386,10 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? See the HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Channel partners on per-login seats? See custom partner portals →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>
@@ -409,7 +418,7 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers submitLabel="Email me my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

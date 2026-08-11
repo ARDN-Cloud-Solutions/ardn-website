@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge comparison spoke: HubSpot seat cost vs. a flat-fee custom
+        // portal. Consolidates existing HubSpot-seat-cost blog authority into a
+        // money page — the largest uncaptured commercial cluster in the wedge.
+        url: `${BASE_URL}/compare/hubspot-seat-cost-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
