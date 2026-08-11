@@ -314,8 +314,9 @@ export default function ExperienceCloudVsCustomPortalPage() {
               </Link>
             </div>
             <p className="body mt-4" style={{ textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce seat-cost math →</Link>
               <Link href="/custom-partner-portal-development" className="link">Cut per-login Partner Community costs →</Link>
+              <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee cost breakdown across every SaaS tool →</Link>
               <Link href="/custom-software-development" className="link">Explore custom software development →</Link>
             </p>
           </div>

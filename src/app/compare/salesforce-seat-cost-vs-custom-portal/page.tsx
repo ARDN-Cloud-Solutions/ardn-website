@@ -346,7 +346,9 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? See the HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Paying per-login Partner Community seats? See custom partner portals →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
             </div>
           </div>
@@ -375,7 +377,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
           </div>
         </section>
 
-        <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
+        <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers submitLabel="Email me my savings breakdown" sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

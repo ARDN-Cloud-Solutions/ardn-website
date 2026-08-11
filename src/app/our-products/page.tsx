@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "Custom AI Apps & Salesforce Cloud Products | Ardn",
   description:
-    "Six focused products: AI Forge custom AI development, Membership Management, Storefronts, License Guard, Salesforce Payments, and ReplyCX — built and run for you.",
+    "Six products built and run for you: AI Forge custom AI development, Membership Management, Storefronts, License Guard, Salesforce Payments & ReplyCX.",
   keywords: [
     "Ardn product suite",
     "Salesforce-native products",

@@ -32,12 +32,21 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     locale: "en_US",
     type: "article",
+    images: [
+      {
+        url: "/images/ardn-home-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "AI App Development for Business — 2026 Buyer's Guide by Ardn Cloud Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI App Development for Business: The Complete 2026 Buyer's Guide",
     description:
       "How much does an AI app cost? Build vs buy vs outsource? The complete 2026 buyer's guide for businesses adopting AI.",
+    images: ["/images/ardn-home-hero.webp"],
   },
 };
 
