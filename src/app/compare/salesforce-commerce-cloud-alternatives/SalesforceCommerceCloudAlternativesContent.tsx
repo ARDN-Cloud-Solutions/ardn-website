@@ -1009,6 +1009,12 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               If you’re nodding along thinking, “Yep, that’s exactly what we need,” then you’re ready for ARDN Storefronts.
             </p>
 
+            <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Related Reading</strong>
+            <ul className="list-disc pl-6 space-y-3 my-6 text-heading-dark">
+              <li>Selling outside Salesforce? Compare a <Link href="/custom-ecommerce-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">custom ecommerce build</Link> or the Salesforce-native <Link href="/storefronts" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Storefronts</Link> product.</li>
+              <li>Paying full CRM seats for light store-ops or support staff? Move them to a <Link href="/custom-portal-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">flat-fee custom portal</Link> and see the <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">per-seat vs. flat-fee cost math</Link>.</li>
+            </ul>
+
             <section className="bg-[#0D121F] rounded-2xl p-8 lg:p-12 my-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
               <h3 className="text-white text-xl lg:text-2xl font-bold m-0 max-w-xl leading-tight">Ready to see how it all fits together?</h3>
               <Button href="/contact-us" variant="orange" size="lg" rounded="full" className="whitespace-nowrap px-10">Get In Touch! →</Button>

@@ -9,9 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // concentrations.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Tampa, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting in Tampa, FL | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Tampa Bay-area businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services for Tampa Bay businesses. 30+ years of Salesforce expertise. Book a free 30-min call.",
   keywords: [
     "Salesforce consultant Tampa",
     "Salesforce consulting Tampa",
@@ -455,6 +455,20 @@ export default function SalesforceConsultingTampaPage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "20px", fontSize: "14px", color: "rgba(255,255,255,0.72)" }}>
+                Already on Salesforce and want to trim the bill?{" "}
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline" }}>Cut per-seat CRM licensing costs</Link>
+                {" · "}
+                <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline" }}>Calculate your savings</Link>
+              </p>
+              <p style={{ marginTop: "10px", fontSize: "14px", color: "rgba(255,255,255,0.72)" }}>
+                Elsewhere in Florida?{" "}
+                <Link href="/salesforce-consulting-orlando" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline" }}>Orlando</Link>
+                {" · "}
+                <Link href="/salesforce-consulting-miami" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline" }}>Miami</Link>
+                {" · "}
+                <Link href="/salesforce-consulting-jacksonville" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "underline" }}>Jacksonville</Link>
+              </p>
             </div>
           </div>
         </section>

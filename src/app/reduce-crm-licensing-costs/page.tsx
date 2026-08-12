@@ -239,8 +239,12 @@ export default function ReduceCrmLicensingCostsPage() {
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
               For scale: a full Salesforce Sales Cloud Enterprise seat lists at
               roughly $165/user/month, and Experience Cloud external users bill
-              per login or per member on top. A flat-fee portal costs the same at
-              10 light users or 400. (List prices shown for illustration only —{" "}
+              per login or per member on top. Salesforce also raised its list
+              prices about 6% from August 1, 2025, so a 2026 renewal compounds
+              that new baseline with any contractual uplift — which makes
+              right-sizing your seat count <em>before</em> you renew matter more,
+              not less. A flat-fee portal costs the same at 10 light users or
+              400. (List prices shown for illustration only —{" "}
               <Link href="/savings-calculator" className="link">run the calculator</Link> for your own negotiated rate.)
             </p>
           </div>
@@ -405,6 +409,25 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SOCIAL PROOF — real, already-published client testimonial (also on
+            the homepage & calculator). On-message: praises the cost-saving
+            approach. No new/fabricated claims. */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

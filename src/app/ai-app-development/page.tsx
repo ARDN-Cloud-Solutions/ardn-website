@@ -311,9 +311,12 @@ export default function AiAppDevelopmentPage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/ai-forge" className="link">
                 See full AI Forge pricing &amp; tiers →
+              </Link>
+              <Link href="/salesforce-agentforce-alternative" className="link">
+                Pricing Salesforce Agentforce? See the flat-fee alternative →
               </Link>
             </div>
           </div>
