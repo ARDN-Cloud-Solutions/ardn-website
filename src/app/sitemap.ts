@@ -120,6 +120,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // AI Forge spoke targeting "Salesforce Agentforce alternative / pricing"
+        // — flat-fee custom AI agent vs. consumption pricing. Hot 2026 term.
+        url: `${BASE_URL}/salesforce-agentforce-alternative`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Vertical AI landing page — insurance ICP (claims/underwriting).
         url: `${BASE_URL}/ai-for-insurance`,
         lastModified: new Date(),

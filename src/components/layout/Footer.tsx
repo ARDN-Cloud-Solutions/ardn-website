@@ -29,6 +29,7 @@ const ourProducts = [
 const solutions = [
   { label: "Custom Software Development", href: "/custom-software-development" },
   { label: "Custom AI App Development", href: "/ai-app-development" },
+  { label: "Salesforce Agentforce Alternative", href: "/salesforce-agentforce-alternative" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
   { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },

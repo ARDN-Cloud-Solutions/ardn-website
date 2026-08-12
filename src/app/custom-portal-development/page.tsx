@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -247,6 +247,7 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Onboarding partners or dealers? See custom partner portal development →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
@@ -325,6 +326,25 @@ export default function CustomPortalDevelopmentPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SOCIAL PROOF — real, already-published client testimonial (also on
+            the homepage & calculator). On-message: praises the cost-saving
+            approach this page sells. No new/fabricated claims. */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
