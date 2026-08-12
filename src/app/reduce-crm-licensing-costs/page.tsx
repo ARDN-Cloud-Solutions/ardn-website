@@ -86,6 +86,14 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "Isn't moving light users to a portal a way of dodging CRM licensing terms?",
+    a: "No. A custom portal reads and writes your CRM data through its API using a properly licensed integration — the same standard, supported mechanism every ISV and AppExchange integration relies on. Your CRM stays the system of record, and each user's access follows the permissions you already define there. We build the portal around a compliant integration layer, not a workaround. If your contract has any unusual entitlement constraints, we'll flag it honestly on the first call rather than after.",
+  },
+  {
+    q: "How is this different from a license-optimization tool like Zylo or Flexera?",
+    a: "Those tools give you visibility — they scan your estate and report which seats are inactive, duplicated, or under-used. That's genuinely useful for the reclaim lever. But a report can only recommend reclaim, right-size, or cancel; for every light user who stays, you keep paying per seat. A portal is the step reporting can't take: it removes the seat entirely for that segment. Many companies use both — a tool to find the dead seats, a portal to remove the light-user ones.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -381,6 +389,7 @@ export default function ReduceCrmLicensingCostsPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
+              <Link href="/compare/license-optimization-tools-vs-custom-portal" className="link">License-optimization tools vs. a portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>

@@ -115,6 +115,37 @@ export default function BlogSidebar({
                 <WidgetHeader title="Subscribe Newsletter" />
                 <NewsletterWidget />
             </div>
+
+            {/* Cut CRM Costs — persistent wedge CTA. Converts every blog reader
+                (many arrive on Salesforce / per-seat cost articles) from a
+                dead-end into a feed toward the money pages, independent of
+                whatever the WordPress post body links to. Keyword-rich anchors. */}
+            <div className="border border-gray-100 overflow-hidden">
+                <WidgetHeader title="Cut Your CRM Bill" />
+                <div className="p-4 space-y-3">
+                    <p className="text-sm text-paragraph leading-snug">
+                        Paying full per-seat CRM licenses for users who barely
+                        touch the platform? Keep your CRM — cut the bill.
+                    </p>
+                    <ul className="space-y-2">
+                        <li>
+                            <Link href="/reduce-crm-licensing-costs" className="text-sm font-semibold text-primary hover:underline">
+                                How to cut CRM licensing costs →
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/custom-portal-development" className="text-sm font-semibold text-primary hover:underline">
+                                Move light users to a flat-fee portal →
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/savings-calculator" className="text-sm font-semibold text-primary hover:underline">
+                                Calculate your per-seat savings →
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </aside>
     );
 }

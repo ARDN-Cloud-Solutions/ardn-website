@@ -99,6 +99,10 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Isn't moving users to a portal a way of dodging Salesforce or CRM licensing terms?",
+    a: "No. The portal reads and writes your CRM data through its API using a properly licensed integration — the same standard, supported mechanism every ISV and AppExchange integration uses. Your CRM stays the system of record, and each user's access follows the permissions you already define there. We build the portal around a compliant integration layer, not a workaround. If your contract has any unusual entitlement constraints, we'll flag it honestly on the first call.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -249,6 +253,7 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/license-optimization-tools-vs-custom-portal" className="link">Reporting tools vs. removing the seat →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>

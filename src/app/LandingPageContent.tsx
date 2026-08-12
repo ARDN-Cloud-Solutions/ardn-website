@@ -19,8 +19,12 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/reduce-crm-licensing-costs" className="btn btn-secondary btn-lg">Cut your CRM per-seat costs</Link>
               </div>
+              <p className="body reveal reveal-d3" style={{ marginTop: "14px", fontSize: "14px", color: "#6b7280" }}>
+                Paying full per-seat CRM licenses for light users?{" "}
+                <Link href="/savings-calculator" style={{ color: "var(--indigo)", fontWeight: 600 }}>See what you could save →</Link>
+              </p>
             </div>
             <aside className="hero-aside reveal reveal-d4">
               {/* AI-first hero card: spotlights AI Forge (the flagship) with the

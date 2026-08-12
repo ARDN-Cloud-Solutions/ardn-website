@@ -297,6 +297,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge comparison spoke: license-optimization tools (Zylo/Zluri/Sonar/
+        // Flexera/CloudEagle) vs. a flat-fee custom portal. Owns the unoccupied
+        // "reporting vs. removing" angle — reporting tools surface seat waste;
+        // a portal removes the seat for light users. Preempts the licensing-
+        // compliance objection. High commercial intent, distinct from the
+        // seat-cost math and Experience Cloud comparisons.
+        url: `${BASE_URL}/compare/license-optimization-tools-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

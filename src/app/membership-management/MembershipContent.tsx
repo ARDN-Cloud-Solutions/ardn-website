@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
+import LeadForm from "@/components/common/LeadForm";
 
 /*
  * COPYWRITING / POSITIONING NOTES (Category 2 — AI-built, CRM-agnostic):
@@ -297,6 +298,8 @@ export default function MembershipContent() {
         </div>
       </section>
 
+      <LeadForm source="Membership Management page" heading="Get a free scope & quote" sub="Tell us what you run today — YMCA, gym, studio, club, or association — and what's not working. We'll reply within 4 business hours with a fixed quote, no obligation." />
+
       {/* FINAL CTA */}
       <section className="section" id="demo">
         <div className="container">
@@ -314,7 +317,11 @@ export default function MembershipContent() {
             </p>
             <p style={{ marginTop: "10px" }}>
               Still paying per-seat AMS or CRM fees for occasional staff and volunteers?{" "}
+              <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See how to stop paying per-seat license fees →</Link>
+              {" · "}
               <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See how a member portal cuts those costs →</Link>
+              {" · "}
+              <Link href="/license-guard" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Audit unused Salesforce seats free →</Link>
               {" · "}
               <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See what per-member fees are costing you →</Link>
             </p>

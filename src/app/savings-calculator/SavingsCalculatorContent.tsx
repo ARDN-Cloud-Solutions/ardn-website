@@ -115,7 +115,7 @@ export default function SavingsCalculatorContent() {
             <div className="sc-hero-checks">
               {[
                 "No per-user, per-seat, or per-location fees",
-                "Built in 3–4 weeks · Fixed quote within 48 hours",
+                "Built in 2–6 weeks · Fixed quote within 48 hours",
                 "HIPAA-ready architecture included",
                 "30+ years enterprise software experience",
                 "You own the IP and data outright",
@@ -257,7 +257,7 @@ export default function SavingsCalculatorContent() {
               {
                 num: "Step 02",
                 title: "Build",
-                desc: "Our team builds your custom platform in 3–4 weeks with weekly demos. You're never in the dark.",
+                desc: "Our team builds your custom platform in 2–6 weeks with weekly demos. You're never in the dark.",
               },
               {
                 num: "Step 03",
@@ -455,7 +455,7 @@ export default function SavingsCalculatorContent() {
               </p>
               <div className="sc-testimonial-name">Jay Vashi</div>
               <div className="sc-testimonial-role">
-                Salesforce Delivery Manager — Fortune 500 Insurance Company
+                Senior Delivery Manager — Fortune 500 Insurance Company
               </div>
             </div>
           </div>
@@ -517,7 +517,7 @@ export default function SavingsCalculatorContent() {
                 "All locations covered — no per-location fees ever",
                 "Unlimited users — no per-seat charges",
                 "HIPAA-ready architecture built in",
-                "Built in 3–4 weeks from signed agreement",
+                "Built in 2–6 weeks from signed agreement",
                 "Weekly demos — never a month of silence",
                 "Hosting, updates & security all included",
                 "You own the IP and all your data outright",
@@ -690,6 +690,13 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              <a
+                href="#quote"
+                className="sc-modal-alt"
+                onClick={() => setModalOpen(false)}
+              >
+                Not ready to talk? Email me this breakdown instead →
+              </a>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +905,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-alt { display: block; text-align: center; color: var(--sc-cta-btn); font-size: 14px; font-weight: 600; padding: 4px 0 10px; text-decoration: none; font-family: inherit; }
+        .sc-modal-alt:hover { text-decoration: underline; }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */

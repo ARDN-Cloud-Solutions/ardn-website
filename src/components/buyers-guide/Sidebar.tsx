@@ -178,16 +178,28 @@ export default function Sidebar() {
         {/* Wedge cross-link — surfaces the per-seat cost-reduction angle to
             every buyer's-guide reader, most of whom are already evaluating
             Salesforce-native tooling and are the exact ICP for this pitch. */}
-        <div className="rounded-md p-4 lg:p-5 border border-[#e5e7eb] bg-white">
-          <p className="text-[#1c2045] text-sm leading-snug m-0">
-            Paying per-seat for Salesforce licenses?{" "}
-            <Link
-              href="/compare/salesforce-seat-cost-vs-custom-portal"
-              className="text-[#FF7A00] font-semibold no-underline hover:underline"
-            >
-              See the seat-cost math →
-            </Link>
+        <div className="rounded-md p-4 lg:p-5 border border-[#e5e7eb] bg-white flex flex-col gap-2.5">
+          <p className="text-[#1c2045] text-sm leading-snug m-0 font-semibold">
+            Paying per-seat for Salesforce licenses?
           </p>
+          <Link
+            href="/reduce-crm-licensing-costs"
+            className="text-[#FF7A00] text-sm font-semibold no-underline hover:underline"
+          >
+            How to cut per-seat Salesforce costs →
+          </Link>
+          <Link
+            href="/compare/salesforce-seat-cost-vs-custom-portal"
+            className="text-[#FF7A00] text-sm font-semibold no-underline hover:underline"
+          >
+            See the seat-cost math →
+          </Link>
+          <Link
+            href="/savings-calculator"
+            className="text-[#FF7A00] text-sm font-semibold no-underline hover:underline"
+          >
+            Estimate your seat savings →
+          </Link>
         </div>
       </div>
     </aside>
