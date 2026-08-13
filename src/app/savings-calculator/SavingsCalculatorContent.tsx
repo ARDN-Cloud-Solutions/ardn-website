@@ -73,7 +73,10 @@ function fmt(n: number): string {
 // ─── Component ─────────────────────────────────────────────────────────────
 
 export default function SavingsCalculatorContent() {
-  const [selectedIndustry, setSelectedIndustry] = useState("medspa");
+  // Default to the professional-services preset (Salesforce/HubSpot CRM +
+  // per-user tools): the wedge pages route per-seat CRM buyers here, so the
+  // first scenario they see should match that intent, not a med-spa stack.
+  const [selectedIndustry, setSelectedIndustry] = useState("proservices");
   const [budget, setBudget] = useState(4500);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -572,6 +575,8 @@ export default function SavingsCalculatorContent() {
           </p>
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
             <Link href="/custom-portal-development">See how a custom portal replaces those seats →</Link>
+            {" · "}
+            <Link href="/custom-partner-portal-development">Cut per-login partner &amp; dealer portal costs →</Link>
             {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
             {" · "}
