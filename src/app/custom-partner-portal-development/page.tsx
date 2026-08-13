@@ -240,6 +240,8 @@ export default function CustomPartnerPortalDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Compare Experience Cloud vs. a custom portal →</Link>
               <Link href="/custom-portal-development" className="link">Also see internal seller, ops &amp; customer portals →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the full Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/license-guard" className="link">Reclaim dormant Salesforce seats first →</Link>
             </div>
           </div>
         </section>

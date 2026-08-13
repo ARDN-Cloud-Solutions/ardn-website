@@ -14,7 +14,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "Reduce Per-Seat CRM Licensing Costs | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Cut CRM Licensing Costs | Ardn",
+    title: "Reduce Per-Seat CRM Licensing Costs | Ardn",
     description:
       "Three honest ways to reduce per-seat CRM licensing costs — reclaim, right-size, or move light users to a flat-fee custom portal.",
     images: ["/images/ardn-home-hero.webp"],
@@ -382,6 +382,7 @@ export default function ReduceCrmLicensingCostsPage() {
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cut per-login partner &amp; dealer portal costs →</Link>
             </div>
           </div>
         </section>

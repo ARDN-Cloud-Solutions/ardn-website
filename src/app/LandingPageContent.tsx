@@ -19,7 +19,7 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">

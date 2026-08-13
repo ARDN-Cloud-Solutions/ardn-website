@@ -71,6 +71,10 @@ const FAQS = [
     a: "Most CRM platforms charge a full per-seat license for every user — even people who only need a narrow slice of it, like sellers checking inventory, ops staff updating orders, or partners submitting requests. We build a custom portal that gives those users exactly what they need, integrated live with your CRM, on one flat fee instead of a per-seat license each. Your core CRM and data stay exactly where they are; you simply stop paying premium seats for light users.",
   },
   {
+    q: "Can a custom portal replace Salesforce seats?",
+    a: "Yes — for light users. A custom portal reads and writes your Salesforce data live through its API, so people who only need a slice of the CRM (checking a record, updating a status, submitting a request) do their work in the portal instead of consuming a full seat. Your power users stay in Salesforce and Salesforce stays the system of record; you simply remove the seats you were paying for light users, not the platform itself. There's no per-seat or per-login meter on the portal, so the cost stops scaling with how many light users you add.",
+  },
+  {
     q: "Do we have to leave Salesforce or our current CRM?",
     a: "No — that is the whole point. You keep your CRM and everything in it. The portal connects to it through its API and stays in sync both ways, so your power users keep working in the CRM while lighter users move to the portal. Nothing gets ripped out and nothing gets migrated.",
   },
@@ -197,7 +201,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">

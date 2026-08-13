@@ -11,9 +11,9 @@ import LeadForm from "@/components/common/LeadForm";
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
 // capability, not the whole pitch.
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | Ardn",
+  title: "Custom Software Development Company — Flat Fee | Ardn",
   description:
-    "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
+    "Custom software development company that builds & runs your software, platforms & portals — replace or connect your tools in weeks, one flat fee. No per-seat.",
   keywords: [
     "custom software development",
     "custom software development company",
