@@ -19,7 +19,7 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
@@ -74,6 +74,8 @@ export default function LandingPageContent() {
             <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
             <Link href="/custom-partner-portal-development" className="link">Cut per-login partner &amp; dealer portal costs →</Link>
             <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs — the full guide →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot per-seat cost math →</Link>
+            <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut your seat costs →</Link>
           </div>
         </div>
       </section>

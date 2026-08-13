@@ -73,7 +73,10 @@ function fmt(n: number): string {
 // ─── Component ─────────────────────────────────────────────────────────────
 
 export default function SavingsCalculatorContent() {
-  const [selectedIndustry, setSelectedIndustry] = useState("medspa");
+  // Default to the CRM-led "Professional Services" preset (Salesforce/HubSpot
+  // stack): most visitors reach this tool from the per-seat cost-reduction wedge
+  // pages, so the default should reflect that buyer, not a med-spa stack.
+  const [selectedIndustry, setSelectedIndustry] = useState("proservices");
   const [budget, setBudget] = useState(4500);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -108,9 +111,10 @@ export default function SavingsCalculatorContent() {
               <em>Own Your Stack.</em>
             </h1>
             <p className="sc-hero-sub">
-              Ardn Cloud Solutions replaces Mindbody, Zenoti, Salesforce, and your entire
-              fragmented software stack with one custom platform. Flat monthly rate. No
-              per-user fees. You own it forever.
+              Ardn Cloud Solutions replaces Salesforce, HubSpot, and your entire
+              fragmented per-seat software stack with one custom platform — or moves
+              your light users onto it while your CRM stays put. Flat monthly rate.
+              No per-user fees. You own it forever.
             </p>
             <div className="sc-hero-checks">
               {[

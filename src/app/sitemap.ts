@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge conversion spoke: HubSpot mirror of the Salesforce seat-cost
+        // cluster. Captures "reduce/cut HubSpot seat costs" commercial intent —
+        // roughly half the ICP had no conversion page for it before this.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

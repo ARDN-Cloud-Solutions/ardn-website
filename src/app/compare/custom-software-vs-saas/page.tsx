@@ -165,7 +165,7 @@ export default function CustomSoftwareVsSaasPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software vs. SaaS</span>
                 <h1 className="display reveal">
-                  Do the math <em>before you renew.</em>
+                  Custom software vs. SaaS: <em>do the math before you renew.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Per-seat SaaS pricing climbs every time you hire, open a

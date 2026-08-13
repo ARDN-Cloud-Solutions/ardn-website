@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import WedgeTestimonial from "@/components/common/WedgeTestimonial";
 
 // Solution page anchored to a real delivered build: custom seller + operations
 // portals that integrate with the client's CRM and offload light users from
@@ -197,7 +198,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See what you&apos;d save</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -306,6 +307,8 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        <WedgeTestimonial />
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">
@@ -336,7 +339,7 @@ export default function CustomPortalDevelopmentPage() {
           <div className="container">
             <div className="final-cta">
               <span className="eyebrow on-dark">Get started</span>
-              <h2 className="display mt-4">See what you&apos;re overpaying. <em>Then keep it.</em></h2>
+              <h2 className="display mt-4">See what you&apos;re overpaying — <em>then keep your CRM and cut the bill.</em></h2>
               <p className="lede">30-minute free call. We&apos;ll look at how your users actually use your CRM, show where a portal cuts the per-seat bill, and give you a fixed quote in 48 hours.</p>
               <div className="hero-ctas">
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>

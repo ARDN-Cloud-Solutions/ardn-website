@@ -188,6 +188,14 @@ export default function Sidebar() {
               See the seat-cost math →
             </Link>
           </p>
+          <p className="text-[#1c2045] text-sm leading-snug mt-2 mb-0">
+            <Link
+              href="/reduce-crm-licensing-costs"
+              className="text-[#FF7A00] font-semibold no-underline hover:underline"
+            >
+              How to cut CRM licensing costs — the full guide →
+            </Link>
+          </p>
         </div>
       </div>
     </aside>

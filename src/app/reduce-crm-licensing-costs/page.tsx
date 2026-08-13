@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import WedgeTestimonial from "@/components/common/WedgeTestimonial";
 
 // PILLAR page for the per-seat cost-reduction wedge. Targets the problem-intent
 // head terms ("reduce/cut CRM licensing costs", "reduce per-seat license
@@ -306,6 +307,58 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* THREE-WAY: full seat vs cheaper tier vs flat-fee portal — the
+            Platform/cheaper-tier rebuttal + the recurring-vs-recurring reframe.
+            Most cost-cutting advice online stops at "downgrade the license,"
+            which is a one-time trim that is still per-seat; the portal is the
+            only lever that ends the per-head line item. */}
+        <section className="section" id="seat-vs-tier-vs-portal">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The lever most guides skip</span>
+                <h2 className="h1 mt-3">Downgrading a seat <em>isn&apos;t the same as ending the per-seat bill.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Most advice stops at &ldquo;move users to a cheaper tier.&rdquo; That&apos;s a real one-time trim — but it&apos;s still per-seat, and it still climbs with headcount. Here&apos;s the honest three-way.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Full per-seat license</th>
+                    <th>Cheaper / Platform tier</th>
+                    <th>Flat-fee custom portal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">Billing model</td><td>Per user</td><td>Per user (lower rate)</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>One flat fee, any headcount</td></tr>
+                  <tr><td className="feat">Cost as you add users</td><td className="is-no">Climbs with every seat</td><td className="is-no">Still climbs, just slower</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Stays the same</td></tr>
+                  <tr><td className="feat">Upfront build cost</td><td>None</td><td>None</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>None — build included, new customers free</td></tr>
+                  <tr><td className="feat">Fits the user&apos;s exact workflow</td><td className="is-no">Generic platform</td><td className="is-no">Stripped-down platform view</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Built to the job</td></tr>
+                  <tr><td className="feat">Keeps your CRM as source of truth</td><td>Yes</td><td>Yes</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Yes — synced two-way</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4">
+              The reframe that matters: custom software used to mean a big upfront
+              project and a six-month wait, so &ldquo;downgrade the license&rdquo;
+              looked safer. Our model removes that trade-off — the build is
+              included in the flat monthly fee (free for new customers), so it&apos;s
+              recurring-versus-recurring, not capex-versus-recurring. The break-even
+              isn&apos;t two years out; it starts the month the portal goes live.
+            </p>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Cheaper-tier examples: Salesforce Platform licenses and HubSpot
+              lower-tier or View-Only seats each cut cost once, but remain
+              per-seat and capped in what that user can do. Figures are
+              illustrative — <Link href="/savings-calculator" className="link">run the calculator</Link> for your own rate.
+            </p>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
         <section className="section is-canvas">
           <div className="container">
@@ -380,11 +433,14 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
           </div>
         </section>
+
+        <WedgeTestimonial />
 
         {/* FAQ */}
         <section className="section is-canvas" id="faq">
