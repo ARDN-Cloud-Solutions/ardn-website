@@ -335,7 +335,7 @@ export default function ReduceCrmLicensingCostsPage() {
                     <div className="fl-num !text-black">B</div>
                     <div>
                       <div className="fl-head !text-black">Then move the light users</div>
-                      <p className="fl-body">The seats that are used, but lightly, are where a <Link href="/custom-portal-development" className="link">custom portal</Link> makes the biggest, most durable dent.</p>
+                      <p className="fl-body">The seats that are used, but lightly, are where a <Link href="/custom-portal-development" className="link">custom portal</Link> makes the biggest, most durable dent — and external <Link href="/custom-partner-portal-development" className="link">partners on per-login seats</Link> are their own bucket.</p>
                     </div>
                   </li>
                   <li>
@@ -379,6 +379,7 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>

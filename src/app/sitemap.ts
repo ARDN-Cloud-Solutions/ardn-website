@@ -297,6 +297,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke — the HubSpot twin of /reduce-crm-licensing-costs: cut
+        // HubSpot seat costs by moving light editors off paid Core Seats onto a
+        // flat-fee custom portal. Captures the "reduce/cut HubSpot license
+        // costs" seat intent the Salesforce pages don't cover.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -577,7 +577,7 @@ export default function AiForgeContent() {
               className="af-btn af-btn-lg af-btn-white af-offer-banner-btn"
               onClick={() => track("book_call_click", { location: "offer_banner" })}
             >
-              Claim Your Spot →
+              Get my free build →
             </Link>
           </div>
 
@@ -784,7 +784,7 @@ export default function AiForgeContent() {
           </p>
           <div className="af-cta-buttons">
             <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="af-btn af-btn-lg af-btn-white" onClick={() => track("book_call_click", { location: "final_cta" })}>
-              Claim Your Spot — Book a Free Call
+              Book a Free Call
             </Link>
           </div>
           <p style={{ marginTop: "20px" }}>

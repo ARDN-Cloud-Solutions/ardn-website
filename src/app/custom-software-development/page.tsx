@@ -191,7 +191,7 @@ export default function CustomSoftwareDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
+                  <Link href="#quote" className="btn btn-secondary btn-lg">Get a fixed quote — free</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -363,6 +363,7 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">Cut HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
