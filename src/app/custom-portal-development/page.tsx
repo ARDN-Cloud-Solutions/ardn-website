@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="#quote" className="btn btn-secondary btn-lg">See what you&apos;d save — free quote</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -247,6 +247,8 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Partners or channel on per-login seats? Custom partner portals →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
