@@ -126,6 +126,9 @@ export default function ReduceCrmLicensingCostsPage() {
         url,
         mainEntityOfPage: { "@id": url },
         inLanguage: "en-US",
+        image: "https://ardncloudsolutions.com/images/ardn-home-hero.webp",
+        datePublished: "2026-02-10",
+        dateModified: "2026-08-14",
         author: { "@id": "https://ardncloudsolutions.com/#organization" },
         publisher: { "@id": "https://ardncloudsolutions.com/#organization" },
         about: [

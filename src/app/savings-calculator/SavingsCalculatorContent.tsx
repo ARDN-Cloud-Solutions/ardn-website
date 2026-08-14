@@ -67,7 +67,11 @@ const INDUSTRIES = [
 ];
 
 function fmt(n: number): string {
-  return "$" + Math.abs(Math.round(n)).toLocaleString();
+  // No Math.abs: a negative value must never be shown as a positive "savings"
+  // number. Every call site that could go negative (monthly/yr1/yr2/yr3) is
+  // guarded to only render fmt() when the value is > 0; total/baseline/
+  // additionalSpend are always non-negative.
+  return "$" + Math.round(n).toLocaleString();
 }
 
 // ─── Component ─────────────────────────────────────────────────────────────
@@ -604,11 +608,21 @@ export default function SavingsCalculatorContent() {
             </button>
             <div className="sc-modal-header">
               <div className="sc-modal-tag">Your Savings Report</div>
-              <div className="sc-modal-headline">
-                You could save{" "}
-                <span>{yr1 > 0 ? fmt(yr1) : fmt(yr2)}</span>/year
-              </div>
-              <div className="sc-modal-sub">Based on your estimated current software spend</div>
+              {monthly > 0 ? (
+                <>
+                  <div className="sc-modal-headline">
+                    You could save <span>{fmt(yr1)}</span>/year
+                  </div>
+                  <div className="sc-modal-sub">Based on your estimated current software spend</div>
+                </>
+              ) : (
+                <>
+                  <div className="sc-modal-headline">
+                    A custom platform starts at <span>{fmt(baseline)}/mo</span>
+                  </div>
+                  <div className="sc-modal-sub">Your current spend is already close to our flat tier &mdash; here the win is owning your stack and killing per-seat fees, not a big monthly cut. Let&rsquo;s find the right fit.</div>
+                </>
+              )}
             </div>
             <div className="sc-modal-body">
               <div className="sc-modal-metrics">

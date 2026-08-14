@@ -207,6 +207,9 @@ export default function CustomSoftwareDevelopmentPage() {
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
+                  <p className="body" style={{ marginTop: "14px" }}>
+                    <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
+                  </p>
                 </div>
               </aside>
             </div>

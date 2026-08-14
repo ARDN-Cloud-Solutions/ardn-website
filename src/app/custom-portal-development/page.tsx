@@ -306,6 +306,42 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* CATEGORY CAPTURE — targets "customer portal software" / "client
+            portal software" head terms with a productized-vs-custom contrast. */}
+        <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Portal software, without the per-seat meter</span>
+                <h2 className="h1 mt-3">Customer &amp; client portal software &mdash; <em>built and owned, not licensed.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Most &ldquo;customer portal software&rdquo; and &ldquo;client portal software&rdquo; products bill per user or per login on top of the CRM seats you already pay for. A custom portal flips the model: one flat fee, unlimited users, shaped to your exact workflow.</p>
+              </div>
+            </div>
+            <div className="grid-3">
+              <div className="card">
+                <div className="card-num">01</div>
+                <h3 className="h3">Productized portal software</h3>
+                <p className="body">Off-the-shelf client-portal tools and CRM community licenses charge per user or per login, cap what you can build, and still leave you assembling and maintaining the thing yourself.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">02</div>
+                <h3 className="h3">A custom portal from Ardn</h3>
+                <p className="body">Built and run for you, wired two-way into your CRM, and shaped to your process &mdash; on one flat monthly fee you own, with no per-seat or per-login meter stacked on top.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">03</div>
+                <h3 className="h3">Why it wins on cost</h3>
+                <p className="body">Per-user portal software scales its bill with every customer, partner, and light user you add. A flat-fee custom portal costs the same at 20 users or 2,000 &mdash; the savings compound as you grow.</p>
+              </div>
+            </div>
+            <div style={{ marginTop: "28px", textAlign: "center" }}>
+              <Link href="/reduce-crm-licensing-costs" className="link">See the three ways to cut CRM licensing costs &rarr;</Link>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">

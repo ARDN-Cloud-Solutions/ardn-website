@@ -10,9 +10,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // in-person engagement available for FL-based clients.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services Miami | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Miami and South Florida businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services for Miami & South Florida businesses. 30+ years' expertise. Book a free call.",
   keywords: [
     "Salesforce consultant Miami",
     "Salesforce consulting Miami",
@@ -452,6 +452,12 @@ export default function SalesforceConsultingMiamiPage() {
                   Or send a message
                 </Link>
               </div>
+              <p style={{ marginTop: "16px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                Serving Salesforce clients across Florida:{" "}
+                <Link href="/salesforce-consulting-orlando" style={{ color: "#fff", textDecoration: "underline" }}>Orlando</Link>{" · "}
+                <Link href="/salesforce-consulting-tampa" style={{ color: "#fff", textDecoration: "underline" }}>Tampa</Link>{" · "}
+                <Link href="/salesforce-consulting-jacksonville" style={{ color: "#fff", textDecoration: "underline" }}>Jacksonville</Link>
+              </p>
             </div>
           </div>
         </section>
