@@ -87,6 +87,10 @@ export default function SalesforcePaymentContent() {
               <Link href="/our-products" className="btn btn-secondary btn-lg">Browse other products</Link>
             </div>
           </div>
+          <p className="body mt-4" style={{ fontSize: "15px" }}>
+            Paying full Salesforce seats for light users too?{" "}
+            <Link href="/reduce-salesforce-license-costs" style={{ color: "var(--indigo)", fontWeight: 600 }}>See how to reduce your Salesforce license costs →</Link>
+          </p>
         </div>
       </section>
 

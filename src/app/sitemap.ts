@@ -290,6 +290,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge money page — Salesforce-BRANDED "reduce Salesforce license
+        // costs" / "Salesforce license optimization" head term. The SERP is all
+        // audit consultancies that keep users inside Salesforce; this page owns
+        // the missing angle (down-tiering has a floor; a flat-fee portal takes
+        // light users to $0 seat cost). Highest-volume commercial term in the
+        // wedge — priority pegged with the generic CRM pillar.
+        url: `${BASE_URL}/reduce-salesforce-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,
