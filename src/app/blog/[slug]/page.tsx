@@ -247,6 +247,43 @@ export default async function BlogPostPage({ params }: PageProps) {
                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                         />
 
+                        {/* Wedge related-links block — funnels every post's
+                            readers into the per-seat cost-reduction money pages
+                            with keyword-rich anchors. One template, all posts. */}
+                        <aside
+                            className="mt-10 rounded-2xl border border-gray-100 bg-[#f7f8fc] p-6 md:p-7"
+                            aria-label="Cut your per-seat CRM costs"
+                        >
+                            <p className="text-sm font-semibold uppercase tracking-wide text-[#6b5dff]">
+                                Paying per-seat CRM fees?
+                            </p>
+                            <h2 className="mt-2 text-xl font-bold text-[#14142B]">
+                                Cut your per-seat CRM costs — without switching CRMs
+                            </h2>
+                            <ul className="mt-4 grid gap-2 text-[15px]">
+                                <li>
+                                    <Link href="/reduce-crm-licensing-costs" className="font-medium text-primary hover:underline">
+                                        How to cut CRM &amp; per-seat license costs — the full playbook →
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="font-medium text-primary hover:underline">
+                                        See the Salesforce &amp; HubSpot seat-cost math →
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/custom-portal-development" className="font-medium text-primary hover:underline">
+                                        Move light users to a custom portal (flat fee, not per-seat) →
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/savings-calculator" className="font-medium text-primary hover:underline">
+                                        Calculate your per-seat savings →
+                                    </Link>
+                                </li>
+                            </ul>
+                        </aside>
+
                         {/* Back link */}
                         <div className="mt-10 pt-8 border-t border-gray-100">
                             <Link

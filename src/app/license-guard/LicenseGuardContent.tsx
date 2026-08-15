@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import LeadForm from "@/components/common/LeadForm";
 
 export default function LicenseGuardContent() {
   return (
@@ -20,7 +21,7 @@ export default function LicenseGuardContent() {
                 <span className="badge is-canvas">Pays for itself in Q1</span>
               </div>
               <div className="hero-ctas reveal reveal-d3">
-                <Link href="#install" className="btn btn-primary btn-lg btn-arrow">Get License Guard</Link>
+                <Link href="#scan" className="btn btn-primary btn-lg btn-arrow">Get your free inactive-seat scan</Link>
                 <Link href="#math" className="btn btn-secondary btn-lg">See the math</Link>
               </div>
             </div>
@@ -211,6 +212,18 @@ export default function LicenseGuardContent() {
         </div>
       </section>
 
+      {/* LEAD CAPTURE — the hero + final CTA both anchor here so the primary
+          action is a real, low-friction form rather than a dead-end step. */}
+      <div id="scan">
+        <LeadForm
+          source="License Guard page"
+          heading="Get your free inactive-seat scan"
+          sub="Tell us which CRM you run and roughly how many seats. We'll show you what License Guard would flag as dormant — and what reclaiming it would save."
+          cta="Send my free scan request"
+          showSeatQualifiers
+        />
+      </div>
+
       {/* FINAL CTA */}
       <section className="section">
         <div className="container">
@@ -219,9 +232,15 @@ export default function LicenseGuardContent() {
             <h2 className="display mt-4">Reclaim your <em>Salesforce budget.</em></h2>
             <p className="lede">Free 30-minute scan of your inactive-user posture. We will show you what License Guard would flag, what it would save, and how fast it would pay back.</p>
             <div className="hero-ctas">
-              <a href="/contact-us" className="btn btn-on-dark btn-lg btn-arrow">Run a free scan</a>
+              <Link href="#scan" className="btn btn-on-dark btn-lg btn-arrow">Run a free scan</Link>
               <Link href="/our-products" className="btn btn-outline-light btn-lg">See the suite</Link>
             </div>
+            <p style={{ marginTop: "14px" }}>
+              <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Reclaiming seats is step one — see all three ways to cut CRM licensing costs →</Link>
+            </p>
+            <p style={{ marginTop: "8px" }}>
+              <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>For light users you can&apos;t just deactivate, move them to a flat-fee custom portal →</Link>
+            </p>
           </div>
         </div>
       </section>
