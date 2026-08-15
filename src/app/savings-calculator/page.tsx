@@ -8,7 +8,7 @@ import SavingsCalculatorContent from "./SavingsCalculatorContent";
 // buyer searches.
 export const metadata: Metadata = {
   title:
-    "Free Software Savings Calculator | Ardn",
+    "Per-Seat Software Cost Savings Calculator | Ardn",
   description:
     "Free 60-second calculator. See what you overpay for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a flat-fee custom platform costs instead.",
   keywords: [

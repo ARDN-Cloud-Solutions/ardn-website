@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Salesforce Consulting & Managed Services in Orlando, FL | Ardn Cloud Solutions",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services from a Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform for YMCAs, gyms, and clubs. Book a free 30-minute call with an Orlando senior consultant — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services in Orlando from a Florida team with 30+ years of expertise. Book a free 30-min call.",
   keywords: [
     "Salesforce consultant Orlando",
     "Salesforce consulting Florida",

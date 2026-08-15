@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="#quote" className="btn btn-secondary btn-lg">Get a fixed quote →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -306,6 +306,50 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* COST — answers "how much does a custom portal cost" honestly with
+            the real flat-fee model (no fabricated build ranges). Wins the
+            cost-intent query and pre-empts sticker shock before the call. */}
+        <section className="section" id="cost">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">What it costs</span>
+                <h2 className="h1 mt-3">How much does a <em>custom portal cost?</em></h2>
+              </div>
+              <div>
+                <p className="lede">One flat monthly fee covers the build, hosting, and ongoing changes — no per-seat licensing, and new customers pay nothing for the one-time build. Here is exactly how the pricing works.</p>
+              </div>
+            </div>
+            <div className="grid-3">
+              <div className="card">
+                <div className="kicker">Launch</div>
+                <p className="h2 mt-2" style={{ color: "var(--indigo)" }}>$3,000<span style={{ fontSize: "16px", fontWeight: 500, color: "#6b7280" }}>/mo</span></p>
+                <p className="body mt-3">A focused portal for one user group — sellers, ops, partners, or customers — synced to your CRM. Month-to-month.</p>
+              </div>
+              <div className="card">
+                <div className="kicker">Scale</div>
+                <p className="h2 mt-2" style={{ color: "var(--indigo)" }}>$4,500<span style={{ fontSize: "16px", fontWeight: 500, color: "#6b7280" }}>/mo</span></p>
+                <p className="body mt-3">Multiple portals or workflows, deeper two-way integration, and a faster iteration cadence as you move more users off seats.</p>
+              </div>
+              <div className="card">
+                <div className="kicker">Enterprise</div>
+                <p className="h2 mt-2" style={{ color: "var(--indigo)" }}>From $12K<span style={{ fontSize: "16px", fontWeight: 500, color: "#6b7280" }}>/mo</span></p>
+                <p className="body mt-3">Complex, multi-system portals with dedicated capacity and negotiated rates. Typically a 12-month commitment.</p>
+              </div>
+            </div>
+            <div className="split" style={{ marginTop: "32px" }}>
+              <div>
+                <h3 className="h3">No per-seat fees — ever</h3>
+                <p className="body mt-3">Add as many portal users as you want without the bill climbing. That is the whole point: you replace a cost that scales with headcount with a fixed line item. For most mid-market teams, the monthly fee is less than the per-seat licenses it takes off the table — the more light users you move, the wider the gap.</p>
+              </div>
+              <div>
+                <h3 className="h3">Free build for new customers</h3>
+                <p className="body mt-3">The one-time build is on us for new customers — your subscription only starts once the portal is live. You get a fixed quote within 48 hours of the first call, so there is no open-ended project bill. <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">
@@ -329,7 +373,7 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" cta="Send my savings estimate" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

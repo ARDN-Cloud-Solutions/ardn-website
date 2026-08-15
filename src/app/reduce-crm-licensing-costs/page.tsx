@@ -14,7 +14,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "How to Cut CRM & Per-Seat License Costs | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Cut CRM Licensing Costs | Ardn",
+    title: "How to Cut CRM & Per-Seat License Costs | Ardn",
     description:
       "Three honest ways to reduce per-seat CRM licensing costs — reclaim, right-size, or move light users to a flat-fee custom portal.",
     images: ["/images/ardn-home-hero.webp"],
@@ -409,7 +409,7 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" cta="Send my cost breakdown" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
