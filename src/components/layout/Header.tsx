@@ -30,6 +30,7 @@ const products = [
   },
   { label: "Salesforce Payments", href: "/salesforce-payments" },
   { label: "License Guard", href: "/license-guard" },
+  { label: "Reduce Salesforce License Costs", href: "/reduce-salesforce-license-costs" },
   { label: "AI-Powered Support", href: "/ai-powered-support" },
   { label: "Membership Management", href: "/membership-management" },
   // { label: "Signup Dance Studio", href: "/signup-dance-studio" },

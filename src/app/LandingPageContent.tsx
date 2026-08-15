@@ -72,6 +72,7 @@ export default function LandingPageContent() {
           <div style={{ marginTop: "28px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/ai-forge" className="link">AI Forge is our flagship example — see how it works →</Link>
             <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">The real per-seat cost of Salesforce vs. a custom portal →</Link>
             <Link href="/custom-partner-portal-development" className="link">Cut per-login partner &amp; dealer portal costs →</Link>
             <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs — the full guide →</Link>
           </div>
@@ -154,10 +155,10 @@ export default function LandingPageContent() {
           <div className="section-head">
             <div>
               <span className="eyebrow">More ways to grow</span>
-              <h2 className="h1 mt-3">Start with AI. <em>Add what you need.</em></h2>
+              <h2 className="h1 mt-3">Start where it hurts most. <em>Add what you need.</em></h2>
             </div>
             <div>
-              <p className="lede">Beyond AI Forge, six focused products — each replacing a category of third-party tooling and paying for itself. No bloated platform, no forced bundle. Add one only when you need it.</p>
+              <p className="lede">Focused products — from cutting per-seat CRM costs with a custom portal to custom AI via AI Forge — each replacing a category of third-party tooling and paying for itself. No bloated platform, no forced bundle. Add one only when you need it.</p>
             </div>
           </div>
 
