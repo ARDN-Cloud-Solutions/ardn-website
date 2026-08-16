@@ -197,8 +197,11 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your savings numbers →</Link>
                 </div>
+                <p className="reveal reveal-d3" style={{ marginTop: "14px", fontSize: "13px", color: "#6b7280", fontWeight: 500 }}>
+                  Fixed quote in 48 hrs &middot; We reply within 4 business hours &middot; No lock-in — cancel in 30 days
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -247,9 +250,43 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Running a partner, dealer, or reseller network? Cut per-login Partner Community costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* MID-PAGE CTA — the long page previously ran hero → features → why →
+            FAQ with no conversion action until the bottom form. This compact
+            wedge-focused strip catches visitors sold by the features section. */}
+        <section className="section-tight">
+          <div className="container">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "28px",
+                flexWrap: "wrap",
+                background: "linear-gradient(135deg, #4840E0 0%, #2A2580 100%)",
+                borderRadius: "16px",
+                padding: "32px 40px",
+                color: "white",
+              }}
+            >
+              <div style={{ maxWidth: "620px" }}>
+                <h2 className="h2" style={{ color: "white", marginBottom: "8px" }}>
+                  See what you&rsquo;re overpaying in <em>per-seat licenses.</em>
+                </h2>
+                <p className="body" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  Plug in your seat count and rate — the calculator shows the flat-fee comparison in about 30 seconds. No email required.
+                </p>
+              </div>
+              <Link href="/savings-calculator" className="btn btn-on-dark btn-lg btn-arrow" style={{ flexShrink: 0 }}>
+                Calculate your savings
+              </Link>
             </div>
           </div>
         </section>
@@ -325,6 +362,26 @@ export default function CustomPortalDevelopmentPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — real client, cost-savings focused (shared site asset) */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+              <p className="body mt-4">
+                <Link href="/case-studies" style={{ color: "var(--indigo)", fontWeight: 600 }}>See how we&rsquo;ve delivered for clients — read our case studies →</Link>
+              </p>
             </div>
           </div>
         </section>

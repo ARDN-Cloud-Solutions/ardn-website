@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge spoke — HubSpot-specific cost reduction. Every other commercial
+        // wedge page is Salesforce-centric; this captures HubSpot per-seat /
+        // view-only-seat cost intent and mirrors the Salesforce coverage.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

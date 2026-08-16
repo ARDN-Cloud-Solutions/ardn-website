@@ -255,7 +255,7 @@ export default function ReduceCrmLicensingCostsPage() {
                 <h2 className="h1 mt-3">Three ways to cut the bill. <em>Use them in order.</em></h2>
               </div>
               <div>
-                <p className="lede">Start with the cheapest, lowest-risk lever and work down. Each one addresses a different kind of overpayment.</p>
+                <p className="lede">Most cost-cutting guides stop at the first two — reclaim and right-size. The third lever, moving light users to a flat-fee portal, is the one that actually breaks the link between cost and headcount. Start with the cheapest and work down.</p>
               </div>
             </div>
             <div className="grid-3">
@@ -380,6 +380,8 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? See how to cut HubSpot seat costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Partner or dealer network? Cut per-login Partner Community costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -405,6 +407,26 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — real client, cost-savings focused (shared site asset) */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+              <p className="body mt-4">
+                <Link href="/case-studies" style={{ color: "var(--indigo)", fontWeight: 600 }}>See how we&rsquo;ve delivered for clients — read our case studies →</Link>
+              </p>
             </div>
           </div>
         </section>
