@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import SalesforceEcommerceContent from "./SalesforceEcommerceContent";
+import BuyersGuideRelated from "@/components/buyers-guide/BuyersGuideRelated";
 
 // SEO: Cat 1 buyers' guide for Salesforce-native ecommerce buyers. Keywords
 // kept narrow to the SF ecommerce intent the page is already ranking for.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce E-commerce Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Best Salesforce E-commerce Solutions (2026) | Ardn",
   description:
-    "Compare the best Salesforce-native ecommerce solutions for B2B and B2C in 2026 — Ardn Storefronts, Commerce Studio by 1440, StoreConnect, Fonteva, Nexternal, Shopify Plus, and Adobe Commerce. Features, fit, pitfalls, and pricing to guide your choice.",
+    "Compare the best Salesforce-native ecommerce solutions for 2026 — Ardn Storefronts, Commerce Studio by 1440, StoreConnect, Shopify Plus and more. Fit & pricing.",
   keywords: [
     "Salesforce ecommerce",
     "Salesforce ecommerce solutions",
@@ -197,6 +198,15 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SalesforceEcommerceContent />
+      <BuyersGuideRelated
+        heading="Explore your commerce options"
+        links={[
+          { href: "/custom-ecommerce-development", label: "Custom ecommerce development, built to your model" },
+          { href: "/storefronts", label: "Ardn Storefronts: all-in-one Salesforce-native commerce" },
+          { href: "/custom-software-development", label: "Custom software & platform development" },
+          { href: "/reduce-crm-licensing-costs", label: "Cut per-seat CRM licensing costs" },
+        ]}
+      />
     </>
   );
 }

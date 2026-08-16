@@ -32,9 +32,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ardncloudsolutions.com"),
   title:
-    "Ardn Cloud Solutions | Custom AI Apps, Cloud Products & Salesforce Services",
+    "Custom Software, Portals & Salesforce Services | Ardn",
   description:
-    "Orlando-based development team building custom AI applications and cloud products with the AI Forge Framework — backed by 30+ years of Salesforce expertise, consulting, and managed services. Salesforce-native products and AI-built, Salesforce-capable platforms under one roof.",
+    "Ardn builds & runs custom software, platforms & portals that cut per-seat CRM costs — in weeks, one flat fee. Plus 30+ years of Salesforce consulting.",
   keywords: [
     // Cat 2 — custom AI / dev agency intents
     "custom AI app development",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+      "Custom Software, Portals & Salesforce Services | Ardn",
     description:
-      "Florida-based development team. Custom AI applications via the AI Forge Framework, plus Salesforce-native cloud products and 30+ years of Salesforce consulting and managed services experience.",
+      "Ardn builds & runs custom software, platforms & portals that cut per-seat CRM costs — in weeks, one flat fee. Plus 30+ years of Salesforce consulting.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -93,9 +93,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@ardn_cloud_sol",
     title:
-      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+      "Custom Software, Portals & Salesforce Services | Ardn",
     description:
-      "Florida-based team. Custom AI applications via the AI Forge Framework, Salesforce-native cloud products, and 30+ years of Salesforce consulting & managed services.",
+      "Custom software, platforms & portals that cut per-seat CRM costs — in weeks, one flat fee. Plus 30+ years of Salesforce consulting & managed services.",
     images: ["/images/ardn-home-hero.webp"],
   },
   icons: {

@@ -1,14 +1,15 @@
 import { Metadata } from "next";
 import SalesforceWebflowAutomationContent from "./SalesforceWebflowAutomationContent";
+import BuyersGuideRelated from "@/components/buyers-guide/BuyersGuideRelated";
 
 // SEO: Cat 1 — Salesforce workflow automation buyers. Previously the page
 // had only a WebPage in its JSON-LD; enriched here with the full Article +
 // BreadcrumbList + ItemList pattern used across the rest of the buyers' guides.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce Workflow Automation Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Salesforce Workflow Automation Tools (2026) | Ardn",
   description:
-    "Compare the best Salesforce workflow automation tools in 2026 — Flow Builder, Process Builder alternatives, Mulesoft, Zapier, Workato, and more. Simplify processes, reduce manual effort, and keep your Salesforce org clean as you scale.",
+    "Compare the best Salesforce workflow automation tools for 2026 — Flow Builder, MuleSoft, Zapier, Workato and more. Cut manual effort and keep your org clean.",
   keywords: [
     "Salesforce workflow automation",
     "Salesforce automation tools",
@@ -150,6 +151,15 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SalesforceWebflowAutomationContent />
+      <BuyersGuideRelated
+        heading="Automate on a platform you own"
+        links={[
+          { href: "/custom-software-development", label: "Custom software & business process automation" },
+          { href: "/reduce-crm-licensing-costs", label: "Cut per-seat CRM licensing costs" },
+          { href: "/custom-portal-development", label: "Move light users to a flat-fee custom portal" },
+          { href: "/savings-calculator", label: "Calculate your per-seat savings" },
+        ]}
+      />
     </>
   );
 }
