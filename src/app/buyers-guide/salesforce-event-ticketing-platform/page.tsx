@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import SalesforceEventTicketingContent from "./SalesforceEventTicketingContent";
+import BuyersGuideRelated from "@/components/buyers-guide/BuyersGuideRelated";
 
 // SEO: Cat 1 — Salesforce event ticketing buyers. High-intent product
 // category for associations, nonprofits, and event-driven businesses.
 export const metadata: Metadata = {
   title:
-    "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn Cloud Solutions",
+    "Best Salesforce Event Ticketing Platforms (2026) | Ardn",
   description:
-    "Compare the top 7 Salesforce event ticketing platforms in 2026 — Ardn Storefronts, Blackthorn.io, Fonteva Events, AC Events Enterprise, EVA, Ticketbud, and Eventbrite. Native solutions for events, registrations, and payments inside Salesforce.",
+    "Compare the top 7 Salesforce event ticketing platforms for 2026 — Ardn Storefronts, Blackthorn.io, Fonteva Events, EVA, Eventbrite and more.",
   keywords: [
     "Salesforce event ticketing",
     "Salesforce event registration",
@@ -194,6 +195,15 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SalesforceEventTicketingContent />
+      <BuyersGuideRelated
+        heading="Run events & members without the per-seat bill"
+        links={[
+          { href: "/chapter-management-software", label: "Chapter & dues management software" },
+          { href: "/membership-management", label: "Membership management platform" },
+          { href: "/reduce-crm-licensing-costs", label: "Cut per-seat CRM licensing costs" },
+          { href: "/savings-calculator", label: "Calculate your per-seat savings" },
+        ]}
+      />
     </>
   );
 }

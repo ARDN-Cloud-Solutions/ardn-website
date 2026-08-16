@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SalesforceMembershipContent from "./SalesforceMembershipContent";
+import BuyersGuideRelated from "@/components/buyers-guide/BuyersGuideRelated";
 
 // SEO: This buyers' guide ranks for Salesforce-membership-tool buyer queries.
 // We deliberately keep the SF-membership keyword targeting intact (the page
@@ -9,9 +10,9 @@ import SalesforceMembershipContent from "./SalesforceMembershipContent";
 // entity graph stays coherent across the site.
 export const metadata: Metadata = {
   title:
-    "Top Salesforce Membership Management Tools: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Salesforce Membership Management Tools (2026) | Ardn",
   description:
-    "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow, and Ardn. Expert evaluation criteria, pitfalls to avoid, and buying questions that get you to the right fit.",
+    "Compare the best Salesforce membership management tools for 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow and Ardn. Criteria, pitfalls, fit.",
   keywords: [
     "Salesforce membership management tools",
     "Salesforce membership software",
@@ -205,6 +206,15 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SalesforceMembershipContent />
+      <BuyersGuideRelated
+        heading="A membership platform without per-member fees"
+        links={[
+          { href: "/membership-management", label: "Membership management platform" },
+          { href: "/reduce-crm-licensing-costs", label: "Cut per-seat CRM licensing costs" },
+          { href: "/custom-portal-development", label: "Member self-service portal, flat fee not per-seat" },
+          { href: "/savings-calculator", label: "Calculate your per-seat savings" },
+        ]}
+      />
     </>
   );
 }

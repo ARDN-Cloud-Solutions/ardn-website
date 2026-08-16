@@ -1,14 +1,15 @@
 import { Metadata } from "next";
 import SalesforceAppExchangeContent from "./SalesforceAppExchangeContent";
+import BuyersGuideRelated from "@/components/buyers-guide/BuyersGuideRelated";
 
 // SEO: Cat 1 — Salesforce AppExchange buyers searching for commerce apps.
 // High-intent SF-native query. Metadata sharpened with 2026, B2B/B2C
 // modifiers and the AppExchange-specific phrasing.
 export const metadata: Metadata = {
   title:
-    "Best Salesforce Commerce AppExchange Solutions: 2026 Buyer's Guide | Ardn Cloud Solutions",
+    "Salesforce Commerce AppExchange Solutions (2026) | Ardn",
   description:
-    "Compare the top Salesforce Commerce AppExchange solutions in 2026 — Ardn Storefronts, StoreConnect, Commerce Studio by 1440, EPOSLY, and more. Find the right Salesforce-native commerce app for B2B and B2C businesses.",
+    "Compare the top Salesforce Commerce AppExchange apps for 2026 — Ardn Storefronts, StoreConnect, Commerce Studio by 1440, EPOSLY and more, for B2B and B2C.",
   keywords: [
     "Salesforce Commerce AppExchange",
     "Salesforce ecommerce AppExchange",
@@ -170,6 +171,15 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SalesforceAppExchangeContent />
+      <BuyersGuideRelated
+        heading="Build commerce your way — and cut the seat bill"
+        links={[
+          { href: "/custom-ecommerce-development", label: "Custom ecommerce development, built to your model" },
+          { href: "/storefronts", label: "Ardn Storefronts: all-in-one Salesforce-native commerce" },
+          { href: "/compare/salesforce-seat-cost-vs-custom-portal", label: "Cut per-seat CRM costs with a custom portal" },
+          { href: "/custom-software-development", label: "Custom software & platform development" },
+        ]}
+      />
     </>
   );
 }

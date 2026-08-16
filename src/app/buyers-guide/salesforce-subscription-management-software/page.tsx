@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import SalesforceSubscriptionContent from "./SalesforceSubscriptionContent";
+import BuyersGuideRelated from "@/components/buyers-guide/BuyersGuideRelated";
 
 // SEO: Cat 1 — Salesforce subscription management buyers. Page already had a
 // FAQPage in its JSON-LD (kept and enriched).
 export const metadata: Metadata = {
   title:
-    "8 Best Salesforce Subscription Management Software Tools (2026) | Ardn Cloud Solutions",
+    "Salesforce Subscription Management Software (2026) | Ardn",
   description:
-    "Compare the 8 best Salesforce subscription management software tools in 2026 — Ardn Storefronts, Fonteva, StoreConnect, Chargebee, Stripe Billing, Recurly, Zuora, and Maxio. Pricing, fit, and pitfalls to guide your choice.",
+    "Compare the 8 best Salesforce subscription management tools for 2026 — Ardn Storefronts, Fonteva, Chargebee, Stripe Billing, Zuora and more. Pricing & fit.",
   keywords: [
     "Salesforce subscription management",
     "Salesforce subscription software",
@@ -230,6 +231,15 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SalesforceSubscriptionContent />
+      <BuyersGuideRelated
+        heading="Cut your subscription-software costs"
+        links={[
+          { href: "/reduce-crm-licensing-costs", label: "Cut per-seat CRM licensing costs" },
+          { href: "/savings-calculator", label: "Calculate your per-seat savings" },
+          { href: "/custom-software-development", label: "Custom software & platform development" },
+          { href: "/custom-ecommerce-development", label: "Custom subscription & billing systems" },
+        ]}
+      />
     </>
   );
 }

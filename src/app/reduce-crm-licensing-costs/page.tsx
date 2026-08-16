@@ -86,6 +86,10 @@ const FAQS = [
     a: "It depends entirely on how many light users you have and what you pay per seat, so we won't quote a fixed number here. The mechanism is simple: per-seat fees recur and grow with headcount, while a flat-fee portal costs the same at 10 users or 400. Our savings calculator lets you plug in your own seat count and rate to see the comparison for your situation.",
   },
   {
+    q: "When can I actually reduce my Salesforce seat count?",
+    a: "Salesforce license counts are contractual, so you generally can't drop paid seats mid-term — the reduction lands at renewal. That makes the renewal window the moment this all matters. The practical move is to baseline early: pull last-login and usage data a few months before renewal, identify the dormant seats and the light users, and have the portal plan ready so you walk into the negotiation with a concrete alternative to renewing every seat. Reclaiming and right-sizing take effect at renewal; the portal can be built in parallel so the light users are ready to move the day the new term starts.",
+  },
+  {
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
@@ -351,6 +355,51 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* RENEWAL TIMING — captures the time-bound "when can I cut Salesforce
+            seats" intent and frames the portal as renewal-negotiation leverage. */}
+        <section className="section" id="renewal">
+          <div className="container">
+            <div className="split">
+              <div>
+                <span className="eyebrow">Timing matters</span>
+                <h2 className="h1 mt-3">You cut seats <em>at renewal</em> — so prepare early.</h2>
+                <p className="body mt-4">
+                  CRM license counts are contractual, so the paid seats you drop
+                  usually come off at renewal, not mid-term. That makes the renewal
+                  window the moment this all pays off — and the reason to start
+                  before it arrives. Walk into the conversation with a concrete
+                  alternative to renewing every seat, and the negotiation changes.
+                </p>
+              </div>
+              <div>
+                <ul className="fl">
+                  <li>
+                    <div className="fl-num !text-black">1</div>
+                    <div>
+                      <div className="fl-head !text-black">Baseline ~120 days out</div>
+                      <p className="fl-body">Pull last-login and usage data early to see how many seats are dormant and how many are genuinely light.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="fl-num !text-black">2</div>
+                    <div>
+                      <div className="fl-head !text-black">Sort seats into the three levers</div>
+                      <p className="fl-body">Reclaim the dormant ones, right-size the occasional ones, and earmark the light users for a flat-fee portal.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="fl-num !text-black">3</div>
+                    <div>
+                      <div className="fl-head !text-black">Build the portal in parallel</div>
+                      <p className="fl-body">Stand up the <Link href="/custom-portal-development" className="link">custom portal</Link> before renewal so light users can move the day the new term starts — and you negotiate from a real option, not a threat.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CLUSTER LINKS */}
         <section className="section">
           <div className="container">
@@ -380,6 +429,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut Sales &amp; Service Hub seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
