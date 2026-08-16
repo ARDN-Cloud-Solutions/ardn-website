@@ -803,3 +803,9 @@
 .ardn-page .badge-vertical { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; }
 .ardn-page .signup-card .submit { color: #fff; width: 100%; justify-content: center; margin-top: 18px; border: none; cursor: pointer; }
 
+
+/* LeadForm responsive field rows — the name/email and CRM/seats pairs must
+   stack to a single column on phones (was hardcoded inline "1fr 1fr", which
+   forced two cramped columns on narrow viewports and hurt form completion). */
+.lf-grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 560px) { .lf-grid { grid-template-columns: 1fr; } }

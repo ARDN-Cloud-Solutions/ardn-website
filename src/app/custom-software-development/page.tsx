@@ -193,6 +193,9 @@ export default function CustomSoftwareDevelopmentPage() {
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
                   <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
                 </div>
+                <p className="reveal reveal-d3" style={{ marginTop: "14px", fontSize: "13px", color: "#6b7280", fontWeight: 500 }}>
+                  Fixed quote in 48 hrs &middot; We reply within 4 business hours &middot; No lock-in — cancel in 30 days
+                </p>
               </div>
               <aside className="hero-aside reveal reveal-d4">
                 <div className="card" style={{ padding: "28px" }}>
@@ -363,6 +366,7 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">Cut HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
@@ -396,6 +400,26 @@ export default function CustomSoftwareDevelopmentPage() {
                   )}
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL — real client, cost-savings focused (shared site asset) */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+              <p className="body mt-4">
+                <Link href="/case-studies" style={{ color: "var(--indigo)", fontWeight: 600 }}>See how we&rsquo;ve delivered for clients — read our case studies →</Link>
+              </p>
             </div>
           </div>
         </section>

@@ -9,9 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // concentrations.
 export const metadata: Metadata = {
   title:
-    "Salesforce Consulting & Managed Services in Tampa, FL | Ardn Cloud Solutions",
+    "Salesforce Consulting & Managed Services Tampa | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Tampa Bay-area businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services for Tampa Bay. A Florida team with 30+ years of expertise. Free 30-min strategy call.",
   keywords: [
     "Salesforce consultant Tampa",
     "Salesforce consulting Tampa",
