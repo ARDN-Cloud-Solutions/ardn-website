@@ -10,9 +10,12 @@ export const metadata: Metadata = {
   title:
     "Free Software Savings Calculator | Ardn",
   description:
-    "Free 60-second calculator. See what you overpay for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a flat-fee custom platform costs instead.",
+    "Free 60-second calculator: your per-seat CRM spend and 3-year total cost of ownership vs. a flat-fee custom platform — Salesforce, HubSpot, Mindbody & more.",
   keywords: [
     "software savings calculator",
+    "CRM total cost of ownership calculator",
+    "3-year CRM TCO",
+    "custom software vs Salesforce cost",
     "Salesforce cost calculator",
     "Salesforce license cost calculator",
     "CRM seat cost calculator",

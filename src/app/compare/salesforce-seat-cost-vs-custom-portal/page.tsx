@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import WedgeTestimonial from "@/components/common/WedgeTestimonial";
 
 // SEO: fills a validated content gap — buyers researching "reduce Salesforce
 // license costs" / "cut CRM per-seat costs" find either (a) license-audit
@@ -346,6 +347,8 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? See the HubSpot seat-cost math →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Cutting partner/reseller seat costs? See custom partner portals →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">On Experience Cloud? See how it compares →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
             </div>
@@ -374,6 +377,9 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
           </div>
         </section>
+
+        <WedgeTestimonial />
+
 
         <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
 

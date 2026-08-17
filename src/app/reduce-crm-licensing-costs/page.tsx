@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import WedgeTestimonial from "@/components/common/WedgeTestimonial";
 
 // PILLAR page for the per-seat cost-reduction wedge. Targets the problem-intent
 // head terms ("reduce/cut CRM licensing costs", "reduce per-seat license
@@ -271,6 +272,57 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* LICENSE OPTIMIZATION VS. REPLACING THE SEAT — the "4th lever" white
+            space no competitor leads with. Snippet-ready ordered list. */}
+        <section className="section" id="license-optimization">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">CRM license optimization</span>
+                <h2 className="h1 mt-3">License optimization gets you far. <em>Replacing the seat goes further.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Most Salesforce and CRM license optimization advice recites the same playbook. It works — but every step still leaves you paying per user. There&apos;s one more lever that doesn&apos;t.</p>
+              </div>
+            </div>
+            <div className="split">
+              <div>
+                <h3 className="h3">The standard license optimization checklist</h3>
+                <ol className="body" style={{ marginTop: "14px", paddingLeft: "20px", display: "grid", gap: "10px", lineHeight: 1.6 }}>
+                  <li><strong>Deactivate unused seats.</strong> Dormant, duplicate, and &ldquo;just in case&rdquo; licenses — the fastest, lowest-risk win.</li>
+                  <li><strong>Right-size license tiers.</strong> Move occasional users to Platform, limited-access, or login-based tiers below a full seat.</li>
+                  <li><strong>Kill redundant add-ons.</strong> Cut overlapping products and features nobody uses.</li>
+                  <li><strong>Renegotiate at renewal.</strong> Bring usage data and start the conversation ~12 months out.</li>
+                  <li><strong>Monitor usage continuously.</strong> Stop the seat count creeping back up after you&apos;ve trimmed it.</li>
+                </ol>
+                <p className="body" style={{ marginTop: "14px" }}>
+                  Optimization specialists typically claim 20–40% off the bill this way. It&apos;s real, and worth doing first. But notice what every step has in common: you&apos;re still renting a seat for each person, just a cheaper one.
+                </p>
+              </div>
+              <div>
+                <div className="card" style={{ padding: "28px", borderColor: "var(--indigo)" }}>
+                  <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>The lever nobody sells you</span>
+                  <h3 className="h3">Replace the seat entirely</h3>
+                  <p className="body mt-3">
+                    The five steps above optimize the seats you keep. A custom
+                    portal removes the ones a light user never needed: it gives
+                    them a purpose-built tool wired into your CRM on one flat fee,
+                    so that user costs the same whether you have 10 of them or 400.
+                    It&apos;s the only lever that breaks the link between cost and
+                    headcount — which is exactly why the consultancies whose model
+                    is per-seat optimization rarely lead with it.
+                  </p>
+                  <p className="body" style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #eceef5" }}>
+                    See the seat-cost math for{" "}
+                    <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce</Link>{" "}or{" "}
+                    <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">HubSpot</Link>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* DECISION TABLE */}
         <section className="section" id="decision">
           <div className="container">
@@ -379,7 +431,9 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Give partners &amp; resellers a portal instead of paid seats →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -408,6 +462,9 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
           </div>
         </section>
+
+        <WedgeTestimonial />
+
 
         <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 

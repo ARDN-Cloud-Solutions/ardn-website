@@ -73,6 +73,7 @@ const buyerGuides = [
   { label: "Salesforce Commerce Cloud Alternatives", href: "/compare/salesforce-commerce-cloud-alternatives" },
   { label: "How to Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
   { label: "Cut Salesforce/HubSpot Seat Costs", href: "/compare/salesforce-seat-cost-vs-custom-portal" },
+  { label: "Cut HubSpot Seat Costs", href: "/compare/hubspot-seat-cost-vs-custom-portal" },
   { label: "Experience Cloud vs. Custom Portal", href: "/compare/salesforce-experience-cloud-vs-custom-portal" },
   { label: "Custom Software vs. SaaS Cost", href: "/compare/custom-software-vs-saas" },
 ];
