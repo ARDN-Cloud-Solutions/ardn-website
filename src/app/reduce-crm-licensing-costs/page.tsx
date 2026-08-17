@@ -199,6 +199,9 @@ export default function ReduceCrmLicensingCostsPage() {
                   <p className="body" style={{ marginTop: "14px", paddingTop: "14px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build the portal free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
+                  <p className="body" style={{ marginTop: "14px" }}>
+                    <Link href="#quote" className="link">Prefer email? Get a fixed quote — no call needed →</Link>
+                  </p>
                 </div>
               </aside>
             </div>
@@ -380,6 +383,8 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? The HubSpot-specific seat-cost guide →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Replace per-login Partner Community seats with a custom partner portal →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>

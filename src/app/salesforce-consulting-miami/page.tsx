@@ -9,10 +9,9 @@ import CityBeyondSalesforce from "@/components/common/CityBeyondSalesforce";
 // real-estate verticals. Ardn delivers remote-first from Orlando, with
 // in-person engagement available for FL-based clients.
 export const metadata: Metadata = {
-  title:
-    "Salesforce Consulting & Managed Services in Miami, FL | Ardn Cloud Solutions",
+  title: "Miami Salesforce Consulting & Managed Services | Ardn",
   description:
-    "Salesforce consulting, implementation, license audits, and managed services for Miami and South Florida businesses. Florida-based team with 30+ years of Salesforce expertise. Also offering custom AI app development via the AI Forge Framework and a flexible membership management platform. Book a free 30-minute strategy call — reply within 4 business hours.",
+    "Salesforce consulting, implementation, license audits & managed services for Miami & South Florida — a team with 30+ years of Salesforce expertise. Free call.",
   keywords: [
     "Salesforce consultant Miami",
     "Salesforce consulting Miami",

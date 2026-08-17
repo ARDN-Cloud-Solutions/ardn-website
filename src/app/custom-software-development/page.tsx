@@ -11,9 +11,9 @@ import LeadForm from "@/components/common/LeadForm";
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
 // capability, not the whole pitch.
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | Ardn",
+  title: "Custom Software Development Company | Ardn",
   description:
-    "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
+    "A custom software development company that builds & runs custom software, platforms & portals to replace or connect your tools — live in weeks, one flat fee.",
   keywords: [
     "custom software development",
     "custom software development company",
@@ -248,10 +248,11 @@ export default function CustomSoftwareDevelopmentPage() {
                 <h2 className="h1 mt-3">Custom, <em>without the usual risk.</em></h2>
                 <p className="body mt-4">
                   Custom software has a bad reputation — expensive, slow, and the
-                  team vanishes after launch. We built our model to kill all three:
-                  a fixed quote in 48 hours, production in weeks on the AI Forge
-                  Framework, and one team that builds it AND runs it for a flat
-                  monthly fee. You own the result.
+                  team vanishes after launch. We built our model as a custom
+                  software development company to kill all three: a fixed quote in
+                  48 hours, production in weeks on the AI Forge Framework, and one
+                  team that builds it AND runs it for a flat monthly fee. You own
+                  the result.
                 </p>
               </div>
               <div>
@@ -363,11 +364,13 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">How to reduce HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
+              <Link href="/compare/salesforce-commerce-cloud-alternatives" className="link">Compare Salesforce Commerce Cloud alternatives →</Link>
             </div>
           </div>
         </section>

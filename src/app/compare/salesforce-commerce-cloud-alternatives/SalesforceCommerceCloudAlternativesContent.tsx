@@ -1013,6 +1013,13 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               <h3 className="text-white text-xl lg:text-2xl font-bold m-0 max-w-xl leading-tight">Ready to see how it all fits together?</h3>
               <Button href="/contact-us" variant="orange" size="lg" rounded="full" className="whitespace-nowrap px-10">Get In Touch! →</Button>
             </section>
+
+            <p className="text-heading-dark text-sm lg:text-base mt-4">
+              Keep exploring:{" "}
+              <Link href="/custom-software-development" className="underline decoration-[#FB7103] underline-offset-4">custom software &amp; platform development</Link>,{" "}
+              <Link href="/custom-ecommerce-development" className="underline decoration-[#FB7103] underline-offset-4">custom ecommerce development</Link>, or{" "}
+              <Link href="/savings-calculator" className="underline decoration-[#FB7103] underline-offset-4">run the per-seat savings calculator</Link>.
+            </p>
           </motion.main>
         </div>
       </div>

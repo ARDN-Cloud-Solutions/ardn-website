@@ -297,6 +297,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.8,
     },
+    {
+        // Wedge PILLAR (HubSpot): "how to reduce HubSpot seat costs" decision
+        // framework — the HubSpot-specific counterpart to reduce-crm-licensing-
+        // costs, anchoring the ~17-post HubSpot blog cluster. High renewal intent.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

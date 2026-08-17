@@ -577,6 +577,10 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             {" · "}
+            <Link href="/reduce-hubspot-seat-costs">On HubSpot? Reduce HubSpot seat costs →</Link>
+            {" · "}
+            <Link href="/custom-partner-portal-development">Partner &amp; dealer logins? Run the numbers on a custom partner portal →</Link>
+            {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
             <Link href="/custom-software-development">What we build to replace seats →</Link>

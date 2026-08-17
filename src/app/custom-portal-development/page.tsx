@@ -10,17 +10,18 @@ import LeadForm from "@/components/common/LeadForm";
 // No client names / specific numbers (no proof cleared yet) — value-prop framing.
 export const metadata: Metadata = {
   title:
-    "Custom Portal Development — Cut CRM Costs | Ardn",
+    "Client & Customer Portal Software — Cut CRM Seats | Ardn",
   description:
-    "Custom seller, ops, partner & customer portals synced to your CRM — move light users off per-seat licenses onto one flat fee. New customers: free build.",
+    "Custom client, customer, seller & ops portal software synced to your CRM — move light users off per-seat licenses onto one flat fee. New customers: free build.",
   keywords: [
+    "client portal software",
+    "customer portal software",
     "custom portal development",
+    "customer portal development",
+    "client portal development",
     "seller portal development",
     "operations portal",
     "partner portal development",
-    "customer portal development",
-    "client portal software",
-    "customer portal software",
     "reduce CRM licensing costs",
     "reduce per-seat license costs",
     "Salesforce portal integration",
@@ -197,7 +198,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -210,11 +211,16 @@ export default function CustomPortalDevelopmentPage() {
                     <li>Seller, ops, partner &amp; customer portals</li>
                     <li>We build it AND run it</li>
                   </ul>
-                  <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
+                  <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", color: "#475467" }}>
+                    Rough math: 50 light users at a ~$165/seat CRM list price is
+                    ~$99K a year. A flat-fee portal costs the same at 50 users or
+                    400. <em>Illustrative — <Link href="/savings-calculator" className="link">run the calculator</Link> for your own rate.</em>
+                  </p>
+                  <p className="body" style={{ marginTop: "14px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
-                    <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
+                    <Link href="#quote" className="link">Prefer email? Get a fixed quote — no call needed →</Link>
                   </p>
                 </div>
               </aside>
@@ -233,7 +239,7 @@ export default function CustomPortalDevelopmentPage() {
                 <h2 className="h1 mt-3">Portals for the users <em>who don&apos;t need a full seat.</em></h2>
               </div>
               <div>
-                <p className="lede">Each portal is built to one group&apos;s workflow and wired into your CRM — so the data stays in one place and the licensing bill stops climbing.</p>
+                <p className="lede">Custom client and customer portal software, built to one group&apos;s workflow and wired into your CRM — so the data stays in one place and the licensing bill stops climbing.</p>
               </div>
             </div>
             <div className="grid-3">
@@ -247,8 +253,11 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Selling through partners or dealers? Cut per-login partner portal costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? See the HubSpot seat-cost guide →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
