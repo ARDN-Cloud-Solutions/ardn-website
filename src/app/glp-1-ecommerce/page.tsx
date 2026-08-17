@@ -224,6 +224,7 @@ export default function Glp1EcommercePage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center" }}>
               <Link href="/custom-ecommerce-development" className="link">Selling something other than treatments? See custom ecommerce →</Link>
+              <Link href="/compare/salesforce-commerce-cloud-alternatives" className="link">Comparing platforms? See Salesforce Commerce Cloud alternatives →</Link>
             </div>
           </div>
         </section>

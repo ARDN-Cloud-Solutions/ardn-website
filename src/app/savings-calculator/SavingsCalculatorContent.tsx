@@ -110,7 +110,8 @@ export default function SavingsCalculatorContent() {
             <p className="sc-hero-sub">
               Ardn Cloud Solutions replaces Mindbody, Zenoti, Salesforce, and your entire
               fragmented software stack with one custom platform. Flat monthly rate. No
-              per-user fees. You own it forever.
+              per-user fees. You own it forever — and see your 3-year total cost of
+              ownership side by side.
             </p>
             <div className="sc-hero-checks">
               {[
@@ -575,7 +576,11 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
             {" · "}
-            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce seat-cost math →</Link>
+            {" · "}
+            <Link href="/compare/hubspot-seat-cost-vs-custom-portal">See the HubSpot seat-cost math →</Link>
+            {" · "}
+            <Link href="/custom-partner-portal-development">Replacing partner/reseller seats? See custom partner portals →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
