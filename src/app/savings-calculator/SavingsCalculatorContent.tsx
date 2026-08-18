@@ -76,6 +76,13 @@ export default function SavingsCalculatorContent() {
   const [selectedIndustry, setSelectedIndustry] = useState("medspa");
   const [budget, setBudget] = useState(4500);
   const [modalOpen, setModalOpen] = useState(false);
+  // Peak-intent email capture inside the results modal: the visitor has just
+  // seen their own computed savings — the highest-intent moment on the site —
+  // and previously the only exit was an outbound Calendly link. This captures
+  // the warm-but-not-ready majority and hands sales a pre-sized lead (the
+  // computed savings + industry + spend ride along in the message field).
+  const [leadStatus, setLeadStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [leadError, setLeadError] = useState("");
 
   const currentTools = TOOLS_DATA[selectedIndustry];
   const toolTotal = currentTools.reduce((s, t) => s + t.cost, 0);
@@ -94,6 +101,45 @@ export default function SavingsCalculatorContent() {
   const yr1 = monthly * 12;
   const yr2 = monthly * 24;
   const yr3 = monthly * 36;
+
+  const industryName =
+    INDUSTRIES.find((i) => i.id === selectedIndustry)?.name ?? selectedIndustry;
+
+  async function handleLeadSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("sc-lead-name") as HTMLInputElement)?.value?.trim();
+    const email = (form.elements.namedItem("sc-lead-email") as HTMLInputElement)?.value?.trim();
+    const savings = yr1 > 0 ? fmt(yr1) : yr2 > 0 ? fmt(yr2) : "break-even";
+    const payload = {
+      name,
+      email,
+      message: `Savings calculator result — Industry: ${industryName}; Current spend: ${fmt(total)}/mo; Ardn flat: ${fmt(baseline)}/mo; Est. Year 1 savings: ${savings}. Please send my full savings breakdown.`,
+      source: "Savings Calculator results modal",
+    };
+    setLeadStatus("sending");
+    setLeadError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j.error || "Something went wrong. Please try again.");
+      }
+      setLeadStatus("ok");
+      if (typeof window !== "undefined" && typeof (window as { gtag?: unknown }).gtag === "function") {
+        (window as unknown as { gtag: (...a: unknown[]) => void }).gtag("event", "generate_lead", {
+          source: "Savings Calculator results modal",
+        });
+      }
+    } catch (err) {
+      setLeadError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setLeadStatus("err");
+    }
+  }
 
   return (
     <div className="sc-page">
@@ -683,15 +729,69 @@ export default function SavingsCalculatorContent() {
                 ))}
               </div>
 
+              {leadStatus === "ok" ? (
+                <div className="sc-modal-lead-ok">
+                  <div style={{ fontSize: 32, marginBottom: 6 }}>✅</div>
+                  <div style={{ fontWeight: 700, fontSize: 17, marginBottom: 4 }}>
+                    On its way — thank you.
+                  </div>
+                  <div style={{ fontSize: 14, color: "var(--sc-text-2)" }}>
+                    We&apos;ll email your full savings breakdown within 4 business
+                    hours. Want to talk it through sooner?{" "}
+                    <Link
+                      href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
+                      target="_blank"
+                      style={{ color: "var(--sc-blue)", fontWeight: 600 }}
+                    >
+                      Book a 30-min call →
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <form className="sc-modal-lead" onSubmit={handleLeadSubmit}>
+                  <div className="sc-modal-lead-head">
+                    Email me this savings breakdown
+                  </div>
+                  <div className="sc-modal-lead-fields">
+                    <input
+                      name="sc-lead-name"
+                      type="text"
+                      required
+                      placeholder="Your name"
+                      aria-label="Your name"
+                      className="sc-modal-lead-input"
+                    />
+                    <input
+                      name="sc-lead-email"
+                      type="email"
+                      required
+                      placeholder="Work email"
+                      aria-label="Work email"
+                      className="sc-modal-lead-input"
+                    />
+                  </div>
+                  {leadStatus === "err" && (
+                    <div style={{ color: "#b42318", fontSize: 13 }}>{leadError}</div>
+                  )}
+                  <button
+                    type="submit"
+                    className="sc-modal-cta"
+                    disabled={leadStatus === "sending"}
+                    style={{ opacity: leadStatus === "sending" ? 0.7 : 1 }}
+                  >
+                    {leadStatus === "sending" ? "Sending…" : "Email me my savings breakdown →"}
+                  </button>
+                </form>
+              )}
               <Link
                 href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
                 target="_blank"
-                className="sc-modal-cta"
+                className="sc-modal-cta-secondary"
               >
-                Book a free 30-min call →
+                Or book a free 30-min call →
               </Link>
               <div className="sc-modal-fine">
-                No pressure. No sales deck. Just your actual numbers in 30 minutes.
+                No pressure. No sales deck. Just your actual numbers — we reply within 4 business hours.
               </div>
             </div>
           </div>
@@ -896,8 +996,17 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving { background: var(--sc-navy); border-radius: var(--sc-r-lg); padding: 1rem; text-align: center; }
         .sc-modal-saving-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
-        .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
+        .sc-modal-cta { display: block; width: 100%; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; border: none; cursor: pointer; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-lead { margin-bottom: 10px; }
+        .sc-modal-lead-head { font-size: 15px; font-weight: 700; color: var(--sc-text); text-align: center; margin-bottom: 10px; }
+        .sc-modal-lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        @media (max-width: 480px) { .sc-modal-lead-fields { grid-template-columns: 1fr; } }
+        .sc-modal-lead-input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--sc-border-2); font-size: 15px; font-family: inherit; color: var(--sc-text); background: #fff; }
+        .sc-modal-lead-input:focus { outline: none; border-color: var(--sc-blue); }
+        .sc-modal-lead-ok { text-align: center; padding: 8px 0 14px; }
+        .sc-modal-cta-secondary { display: block; text-align: center; color: var(--sc-blue); font-size: 14px; font-weight: 600; padding: 8px; text-decoration: none; margin-bottom: 6px; }
+        .sc-modal-cta-secondary:hover { text-decoration: underline; }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */

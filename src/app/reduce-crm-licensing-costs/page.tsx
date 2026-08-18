@@ -239,8 +239,11 @@ export default function ReduceCrmLicensingCostsPage() {
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
               For scale: a full Salesforce Sales Cloud Enterprise seat lists at
               roughly $165/user/month, and Experience Cloud external users bill
-              per login or per member on top. A flat-fee portal costs the same at
-              10 light users or 400. (List prices shown for illustration only —{" "}
+              on top — commonly around $2 per login or $5–$35 per member per
+              month depending on the SKU. HubSpot paid Sales/Service Hub seats
+              run roughly $20–$150/user/month by tier. A flat-fee portal costs
+              the same at 10 light users or 400 — one fee, not per authenticated
+              user. (List prices shown for illustration only —{" "}
               <Link href="/savings-calculator" className="link">run the calculator</Link> for your own negotiated rate.)
             </p>
           </div>
@@ -335,7 +338,7 @@ export default function ReduceCrmLicensingCostsPage() {
                     <div className="fl-num !text-black">B</div>
                     <div>
                       <div className="fl-head !text-black">Then move the light users</div>
-                      <p className="fl-body">The seats that are used, but lightly, are where a <Link href="/custom-portal-development" className="link">custom portal</Link> makes the biggest, most durable dent.</p>
+                      <p className="fl-body">The seats that are used, but lightly, are where a <Link href="/custom-portal-development" className="link">custom portal</Link> makes the biggest, most durable dent — and a <Link href="/custom-partner-portal-development" className="link">custom partner portal for external light users</Link> replaces the priciest per-login seats of all.</p>
                     </div>
                   </li>
                   <li>
@@ -379,7 +382,8 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">Reduce HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -409,7 +413,7 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers buttonLabel="Send me my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

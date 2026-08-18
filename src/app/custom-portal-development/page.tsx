@@ -99,6 +99,10 @@ const FAQS = [
     a: "The portal reads and writes your CRM through its API, so there is no second copy of your data drifting out of sync, and every user's access follows the permissions you already define in your CRM. You own the portal IP and your data outright; if you ever leave, you get a full export and complete documentation. No lock-in.",
   },
   {
+    q: "Won't a custom portal break when our CRM admin changes a field — and who maintains it?",
+    a: "This is the fear that keeps people on per-seat licenses, and our model is built to remove it. We don't hand you a portal to maintain yourself — we build it AND run it under one flat fee. That includes keeping the integration mapped to your CRM as fields and objects change, monitoring, security, and iterating as your process evolves. When your admin changes something, that's our job to absorb, not a fire drill for your team. The flat subscription covers that ongoing upkeep, so maintenance never becomes a hidden cost you own forever.",
+  },
+  {
     q: "How long does it take and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription that covers the build, hosting, and ongoing changes — and new customers pay nothing for the one-time build. The recurring license savings typically dwarf the subscription.",
   },
@@ -247,8 +251,10 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-partner-portal-development" className="link">Need external users? See custom partner portals →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">On HubSpot? See the HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -329,7 +335,7 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers buttonLabel="Send me my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
