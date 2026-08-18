@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import ProofQuote from "@/components/common/ProofQuote";
 
 // PILLAR page for the per-seat cost-reduction wedge. Targets the problem-intent
 // head terms ("reduce/cut CRM licensing costs", "reduce per-seat license
@@ -27,6 +28,9 @@ export const metadata: Metadata = {
     "CRM cost reduction",
     "custom portal to reduce CRM seats",
     "light user CRM license",
+    "reduce Salesforce seats",
+    "move users off Salesforce licenses",
+    "reduce number of Salesforce licenses",
   ],
   alternates: {
     canonical: "https://ardncloudsolutions.com/reduce-crm-licensing-costs",
@@ -171,9 +175,11 @@ export default function ReduceCrmLicensingCostsPage() {
                   Per-seat CRM pricing is built around power users, so the cost
                   piles up on everyone lighter than that — the sellers, ops staff,
                   partners, and customers who touch it for a handful of tasks.
-                  There are three honest ways to cut that bill, and only one of
-                  them requires building anything. Here&apos;s how to decide which
-                  lever fits which problem.
+                  There are three honest ways to reduce the number of Salesforce
+                  or HubSpot seats you pay for — and only one of them requires
+                  building anything. Here&apos;s how to decide which lever fits
+                  which group, including when to move light users off per-seat
+                  licenses entirely.
                 </p>
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
                   <span className="badge">Keep your CRM</span>
@@ -408,6 +414,8 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
           </div>
         </section>
+
+        <ProofQuote className="is-canvas" />
 
         <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 

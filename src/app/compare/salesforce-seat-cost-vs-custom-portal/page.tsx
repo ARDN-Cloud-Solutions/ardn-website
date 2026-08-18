@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import ProofQuote from "@/components/common/ProofQuote";
 
 // SEO: fills a validated content gap — buyers researching "reduce Salesforce
 // license costs" / "cut CRM per-seat costs" find either (a) license-audit
@@ -255,14 +256,15 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
                     <th>Access tier</th>
                     <th>Typical published price</th>
                     <th>Still scales with headcount?</th>
+                    <th>Trade-off for light users</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td className="feat">Full Sales/Service Cloud Enterprise seat</td><td>~$150–$165/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
-                  <tr><td className="feat">Salesforce Platform (limited-access) license</td><td>~$25–$30/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
-                  <tr><td className="feat">Login-based / Experience Cloud license</td><td>~$2–$10 per login (list)</td><td className="is-no">Yes — per login/user</td></tr>
-                  <tr><td className="feat">HubSpot seat above Starter tier</td><td>~$20–$90+/user/mo (list)</td><td className="is-no">Yes — per user</td></tr>
-                  <tr><td className="feat">Custom portal (Ardn)</td><td>Flat monthly fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No — same fee at any headcount</td></tr>
+                  <tr><td className="feat">Full Sales/Service Cloud Enterprise seat</td><td>~$150–$165/user/mo (list)</td><td className="is-no">Yes — per user</td><td>Full CRM — but you pay premium price for people who touch a fraction of it.</td></tr>
+                  <tr><td className="feat">Salesforce Platform (limited-access) license</td><td>~$25–$30/user/mo (list)</td><td className="is-no">Yes — per user</td><td>Cheaper, but drops standard CRM objects — Leads, Opportunities, Cases &amp; Campaigns — so it doesn&apos;t fit sales-facing light users.</td></tr>
+                  <tr><td className="feat">Login-based / Experience Cloud license</td><td>~$2–$10 per login (list)</td><td className="is-no">Yes — per login/user</td><td>Metered per login or per member; the bill climbs as portal usage grows.</td></tr>
+                  <tr><td className="feat">HubSpot seat above Starter tier</td><td>~$20–$90+/user/mo (list)</td><td className="is-no">Yes — per user</td><td>Full features nobody in this group uses — you still pay the paid-seat rate.</td></tr>
+                  <tr><td className="feat">Custom portal (Ardn)</td><td>Flat monthly fee</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>No — same fee at any headcount</td><td style={{ background: "rgba(27,111,201,0.06)" }}>Exactly the slice each user needs; your CRM stays the source of truth via live sync.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -374,6 +376,8 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
           </div>
         </section>
+
+        <ProofQuote className="is-canvas" />
 
         <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
 
