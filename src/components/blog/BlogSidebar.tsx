@@ -30,6 +30,37 @@ export default function BlogSidebar({
 }: BlogSidebarProps) {
     return (
         <aside className="space-y-6 lg:sticky lg:top-28 self-start">
+            {/* Wedge CTA — routes every blog reader to the per-seat cost-reduction
+                cluster (pillar + calculator + seat-cost proof). Sitewide inbound
+                links to the money pages from one place. */}
+            <div className="border border-gray-100 overflow-hidden">
+                <WidgetHeader title="Cut Your CRM Costs" />
+                <div className="p-4 space-y-3">
+                    <p className="text-sm text-paragraph leading-snug">
+                        Paying full per-seat CRM licenses for light users? Move
+                        them to a flat-fee custom portal &mdash; keep your CRM,
+                        cut the bill.
+                    </p>
+                    <ul className="space-y-2 text-sm">
+                        <li>
+                            <Link href="/reduce-crm-licensing-costs" className="font-semibold text-primary hover:underline">
+                                How to cut CRM licensing costs &rarr;
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/savings-calculator" className="font-semibold text-primary hover:underline">
+                                Calculate your per-seat savings &rarr;
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="font-semibold text-primary hover:underline">
+                                Seat-cost math: Salesforce vs. portal &rarr;
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             {/* Search */}
             <SidebarSearch />
 
