@@ -108,9 +108,10 @@ export default function SavingsCalculatorContent() {
               <em>Own Your Stack.</em>
             </h1>
             <p className="sc-hero-sub">
-              Ardn Cloud Solutions replaces Mindbody, Zenoti, Salesforce, and your entire
-              fragmented software stack with one custom platform. Flat monthly rate. No
-              per-user fees. You own it forever.
+              Ardn Cloud Solutions replaces your fragmented software stack &mdash; or
+              offloads light users off expensive per-seat CRMs like Salesforce and
+              HubSpot onto a custom portal &mdash; with one flat monthly platform you
+              own. No per-user fees. Keep the CRM you rely on; stop overpaying to run it.
             </p>
             <div className="sc-hero-checks">
               {[
@@ -376,14 +377,14 @@ export default function SavingsCalculatorContent() {
               {
                 icon: "💼",
                 name: "Professional Services",
-                replaces: "Replaces: Salesforce, HubSpot, Monday.com, tools",
+                replaces: "Replaces or offloads seats from: Salesforce, HubSpot, Monday.com",
                 desc: "Law firms, consultancies, and service businesses paying $50–$300/user/month across CRM, project management, billing, and automation tools.",
                 savings: "Save $5,000–$15,000/month",
               },
               {
                 icon: "⚡",
                 name: "Growing Companies",
-                replaces: "Replaces: Salesforce, Monday.com, HubSpot",
+                replaces: "Replaces or offloads seats from: Salesforce, Monday.com, HubSpot",
                 desc: "50–500 person companies where per-seat SaaS costs scale automatically with every new hire added.",
                 savings: "Save $60,000–$200,000/year",
               },
@@ -455,7 +456,7 @@ export default function SavingsCalculatorContent() {
               </p>
               <div className="sc-testimonial-name">Jay Vashi</div>
               <div className="sc-testimonial-role">
-                Salesforce Delivery Manager — Fortune 500 Insurance Company
+                Senior Delivery Manager, Fortune 500 insurance company
               </div>
             </div>
           </div>
@@ -546,6 +547,7 @@ export default function SavingsCalculatorContent() {
         source="Savings Calculator page"
         heading="Email me my savings breakdown"
         showSeatQualifiers
+        submitLabel="Email me my breakdown"
         sub="Not ready to book a call? Tell us which CRM you run and roughly how many users, and we'll send a written per-seat savings breakdown plus a fixed quote — no obligation."
       />
 
@@ -605,10 +607,17 @@ export default function SavingsCalculatorContent() {
             <div className="sc-modal-header">
               <div className="sc-modal-tag">Your Savings Report</div>
               <div className="sc-modal-headline">
-                You could save{" "}
-                <span>{yr1 > 0 ? fmt(yr1) : fmt(yr2)}</span>/year
+                {monthly > 0 ? (
+                  <>You could save <span>{fmt(yr1)}</span>/year</>
+                ) : (
+                  <>You&apos;re near <span>break even</span> at this spend</>
+                )}
               </div>
-              <div className="sc-modal-sub">Based on your estimated current software spend</div>
+              <div className="sc-modal-sub">
+                {monthly > 0
+                  ? "Based on your estimated current software spend"
+                  : "At this spend, a flat-fee platform is about the same — the savings grow as you add users and tools"}
+              </div>
             </div>
             <div className="sc-modal-body">
               <div className="sc-modal-metrics">

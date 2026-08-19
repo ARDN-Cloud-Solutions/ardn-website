@@ -217,6 +217,47 @@ export default function ExperienceCloudVsCustomPortalPage() {
           </div>
         </section>
 
+        {/* SIDE-BY-SIDE FEATURE TABLE — the axis-by-axis comparison the ranking
+            "vs" articles use, with the rows they omit: pricing model, who runs
+            it, and upfront cost (the objection Ardn's flat-fee build resolves). */}
+        <section className="section" id="side-by-side">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Side by side</span>
+                <h2 className="h1 mt-3">Experience Cloud vs. a custom portal, <em>axis by axis.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Both keep Salesforce as the source of truth. Where they differ is pricing model, ownership, and who carries the build and the run.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Salesforce Experience Cloud</th>
+                    <th>Custom portal (Ardn)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="feat">Pricing model</td><td>Per login or per active member</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Flat monthly fee, any headcount</td></tr>
+                  <tr><td className="feat">Cost as users grow</td><td>Climbs with usage</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Stays flat</td></tr>
+                  <tr><td className="feat">Time to first launch</td><td>Fast with out-of-the-box components</td><td>2&ndash;6 weeks, built to your workflow</td></tr>
+                  <tr><td className="feat">Customization</td><td>Salesforce component set &amp; templates</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Built to your exact process</td></tr>
+                  <tr><td className="feat">Salesforce data sync</td><td>Native</td><td>Two-way via the Salesforce API, real time</td></tr>
+                  <tr><td className="feat">Who runs it</td><td>Your admins</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Ardn builds AND operates it</td></tr>
+                  <tr><td className="feat">Upfront cost</td><td>License spend from day one</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>Flat monthly; new customers build free</td></tr>
+                  <tr><td className="feat">Ownership</td><td>Licensed access</td><td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>You own the portal &amp; IP</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Not anti-Salesforce — Experience Cloud is often the right first step for external users. This table is about which model costs less and fits better as user counts and workflow complexity grow. <Link href="/savings-calculator" className="link">Run your own numbers →</Link>
+            </p>
+          </div>
+        </section>
+
         {/* WHEN EACH WINS */}
         <section className="section is-canvas" id="when">
           <div className="container">

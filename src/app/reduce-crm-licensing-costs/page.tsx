@@ -89,6 +89,14 @@ const FAQS = [
     q: "How long does it take to stand up a portal, and what does it cost?",
     a: "Most portals go live in 2–6 weeks via our AI Forge Framework, with a fixed quote within 48 hours of the first call. It runs on one flat monthly subscription — tiers from $3,000–$12,000+/month depending on scope — that covers the build, hosting, and ongoing changes. New customers pay nothing for the one-time build.",
   },
+  {
+    q: "Aren't cheaper view-only or Platform license tiers enough to cut costs?",
+    a: "They help, but they're still per-seat and still limited. A HubSpot view-only seat or a Salesforce Platform license costs less than a full seat, but you keep paying per head and the user often can't do the one thing they actually need — submit a request, update a status, place an order. A custom portal removes the seat entirely and gives that light user a focused tool that reads and writes the CRM, so cost stops scaling with headcount instead of just scaling more slowly.",
+  },
+  {
+    q: "Does a custom portal stay in sync with my CRM in real time?",
+    a: "Yes. The portal integrates two-way with your CRM through its API and reads and writes the same records live, so there is no second copy of your data drifting out of sync. Your CRM stays the single source of truth and every user's access follows the permissions you already define there — the portal is just a tailored, flat-fee front end for the users who need less.",
+  },
 ];
 
 const levers = [
@@ -206,6 +214,60 @@ export default function ReduceCrmLicensingCostsPage() {
         </section>
 
         <TrustBar />
+
+        {/* SNIPPET / DEFINITION BLOCK — targets the featured-snippet + PAA real
+            estate for "move light users off Salesforce" / "cut CRM licensing
+            costs". The competing results only say "downgrade tiers" or "switch
+            CRMs"; this states the portal answer as a clean definition plus a
+            numbered how-it-works, which is what those SERP features reward. */}
+        <section className="section is-canvas" id="how">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The short answer</span>
+                <h2 className="h1 mt-3">How do you cut CRM costs <em>without switching CRMs?</em></h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Move your light users off per-seat licenses and onto a flat-fee
+                  custom portal that reads and writes your CRM through its API. Your
+                  CRM stays the system of record, your power users don&apos;t change
+                  anything, and the bill stops scaling with headcount.
+                </p>
+              </div>
+            </div>
+            <ul className="fl mt-4" style={{ maxWidth: "860px" }}>
+              <li>
+                <div className="fl-num !text-black">1</div>
+                <div>
+                  <div className="fl-head !text-black">Identify your light users</div>
+                  <p className="fl-body">List the people who touch the CRM for only a few tasks — sellers, ops staff, partners, customers. In most mid-market orgs they outnumber the power users.</p>
+                </div>
+              </li>
+              <li>
+                <div className="fl-num !text-black">2</div>
+                <div>
+                  <div className="fl-head !text-black">Keep power users in the CRM</div>
+                  <p className="fl-body">Everyone who lives in the platform stays exactly where they are. The CRM remains your single source of truth — nothing is migrated or ripped out.</p>
+                </div>
+              </li>
+              <li>
+                <div className="fl-num !text-black">3</div>
+                <div>
+                  <div className="fl-head !text-black">Build a flat-fee portal wired to your CRM</div>
+                  <p className="fl-body">A custom portal integrates two-way with your CRM through its API, giving light users the exact slice they need — on one flat monthly fee, no per-seat meter.</p>
+                </div>
+              </li>
+              <li>
+                <div className="fl-num !text-black">4</div>
+                <div>
+                  <div className="fl-head !text-black">Move light users over and drop the seats</div>
+                  <p className="fl-body">As light users shift to the portal, you deactivate or downgrade their CRM seats. Cost stops climbing with headcount, and the savings compound every renewal.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
 
         {/* WHY THE BILL CLIMBS */}
         <section className="section" id="why">
@@ -380,6 +442,7 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Reduce HubSpot seat costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
             </div>
@@ -422,7 +485,10 @@ export default function ReduceCrmLicensingCostsPage() {
                 <a href={CALENDLY} target="_blank" className="btn btn-on-dark btn-lg btn-arrow">Book your free call</a>
                 <Link href="/custom-portal-development" className="btn btn-outline-light btn-lg">Explore custom portals</Link>
               </div>
-              <p style={{ marginTop: "20px" }}>
+              <p style={{ marginTop: "16px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                Prefer to talk now? Call <a href="tel:+14078155303" style={{ color: "#fff", fontWeight: 600 }}>+1 (407) 815-5303</a>.
+              </p>
+              <p style={{ marginTop: "12px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
               </p>
             </div>
