@@ -690,6 +690,20 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              {/* Low-friction capture for the warm-but-not-ready majority: the
+                  savings number is the peak-intent moment, but a live call is
+                  a big first ask. This routes them to the name+email lead form
+                  (#quote) so we still capture the lead. */}
+              <button
+                type="button"
+                className="sc-modal-secondary"
+                onClick={() => {
+                  setModalOpen(false);
+                  document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Email me this savings breakdown →
+              </button>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
               </div>
@@ -898,6 +912,8 @@ export default function SavingsCalculatorContent() {
         .sc-modal-saving-val { font-size: 1.25rem; font-weight: 700; color: var(--sc-blue-mid); }
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
+        .sc-modal-secondary { display: block; width: 100%; text-align: center; background: transparent; color: var(--sc-cta-btn); font-size: 15px; font-weight: 600; padding: 12px; border-radius: var(--sc-r-pill); border: 1px solid var(--sc-border); cursor: pointer; transition: background 0.15s; margin-bottom: 10px; font-family: inherit; }
+        .sc-modal-secondary:hover { background: var(--sc-bg-2, #f4f6fb); }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
 
         /* RESPONSIVE */

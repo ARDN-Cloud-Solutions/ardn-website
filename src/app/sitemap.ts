@@ -290,6 +290,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge spoke: HubSpot-specific seat-cost reduction. Mirrors the CRM
+        // pillar for the commercial-intent HubSpot cluster ("reduce HubSpot
+        // seat costs", "HubSpot Core seat alternative") that had no dedicated
+        // page — Salesforce already has three.
+        url: `${BASE_URL}/reduce-hubspot-seat-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

@@ -186,12 +186,12 @@ export default function CustomSoftwareDevelopmentPage() {
                 </p>
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
                   <span className="badge">Weeks, not months</span>
-                  <span className="badge is-emerald">Cut CRM per-seat costs</span>
+                  <Link href="/reduce-crm-licensing-costs" className="badge is-emerald" style={{ textDecoration: "none" }}>Cut CRM per-seat costs →</Link>
                   <span className="badge is-canvas">You own it</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">See how much you&rsquo;d save →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -363,11 +363,13 @@ export default function CustomSoftwareDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">How to cut HubSpot seat costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
+              <Link href="/compare/salesforce-commerce-cloud-alternatives" className="link">Salesforce Commerce Cloud alternatives →</Link>
             </div>
           </div>
         </section>

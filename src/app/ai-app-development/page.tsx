@@ -311,10 +311,12 @@ export default function AiAppDevelopmentPage() {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: "32px", textAlign: "center" }}>
+            <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/ai-forge" className="link">
                 See full AI Forge pricing &amp; tiers →
               </Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">Cut per-seat CRM licensing costs →</Link>
+              <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
             </div>
           </div>
         </section>

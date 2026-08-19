@@ -224,6 +224,8 @@ export default function Glp1EcommercePage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center" }}>
               <Link href="/custom-ecommerce-development" className="link">Selling something other than treatments? See custom ecommerce →</Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">Cut your CRM per-seat licensing costs →</Link>
+              <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
             </div>
           </div>
         </section>

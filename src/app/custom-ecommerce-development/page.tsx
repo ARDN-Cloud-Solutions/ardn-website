@@ -164,7 +164,7 @@ export default function CustomEcommerceDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Ecommerce Development</span>
                 <h1 className="display reveal">
-                  A store that fits <em>your business — not a template.</em>
+                  Custom ecommerce that fits <em>your business — not a template.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   When your catalog, pricing, subscriptions, or memberships
@@ -229,6 +229,8 @@ export default function CustomEcommerceDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/storefronts" className="link">Already on Salesforce? See Storefronts — native ecommerce →</Link>
               <Link href="/glp-1-ecommerce" className="link">Selling GLP-1 or telehealth treatments? See that build →</Link>
+              <Link href="/reduce-crm-licensing-costs" className="link">Cut your CRM per-seat licensing costs →</Link>
+              <Link href="/savings-calculator" className="link">Calculate your per-seat CRM savings →</Link>
             </div>
           </div>
         </section>
