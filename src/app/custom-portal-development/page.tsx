@@ -213,6 +213,9 @@ export default function CustomPortalDevelopmentPage() {
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
                     🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
                   </p>
+                  <p className="body" style={{ marginTop: "14px", fontSize: "13px", color: "#6b7280" }}>
+                    For scale: a full Salesforce Sales Cloud Enterprise seat lists at roughly $165/user/month; a flat-fee portal costs the same at 10 light users or 400. (List price, illustrative only.)
+                  </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
                   </p>
@@ -247,6 +250,7 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/reduce-hubspot-seat-costs" className="link">On HubSpot? Cut HubSpot seat costs →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce &amp; HubSpot seat-cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
@@ -329,6 +333,25 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
+        {/* TESTIMONIAL — reuses the real, attributed client quote already live
+            on the homepage & calculator; adds proof at the decision point on a
+            high-intent wedge page. No new/fabricated claims. */}
+        <section className="section">
+          <div className="container">
+            <div className="testimonial">
+              <span className="eyebrow">What clients say</span>
+              <p className="quote mt-4">Ardn Cloud Solutions went beyond our expectations, implementing a hands-on, cost-saving approach that has been invaluable to our business.</p>
+              <div className="attribution">
+                <div className="avatar">JV</div>
+                <div>
+                  <div className="who">Jay Vashi</div>
+                  <div className="role">Senior Delivery Manager, Fortune 500 insurance company</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
@@ -344,6 +367,9 @@ export default function CustomPortalDevelopmentPage() {
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
                 Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
+              </p>
+              <p style={{ marginTop: "8px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                Prefer to talk now? Call <a href="tel:+14078155303" style={{ color: "#fff", fontWeight: 600 }}>+1 (407) 815-5303</a>.
               </p>
               <p style={{ marginTop: "8px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>

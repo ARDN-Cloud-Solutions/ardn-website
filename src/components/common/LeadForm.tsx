@@ -26,11 +26,15 @@ export default function LeadForm({
   heading = "Get a free scope & quote",
   sub = "Tell us what you're trying to build. We'll reply within 4 business hours with a fixed quote — no obligation.",
   showSeatQualifiers = false,
+  submitLabel = "Get my free quote",
 }: {
   source: string;
   heading?: string;
   sub?: string;
   showSeatQualifiers?: boolean;
+  /** Button copy — set to match the page's specific promise (e.g. a savings
+   *  breakdown rather than a build quote) so the CTA reads consistently. */
+  submitLabel?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [error, setError] = useState("");
@@ -161,7 +165,7 @@ export default function LeadForm({
                   disabled={status === "sending"}
                   style={{ width: "100%", opacity: status === "sending" ? 0.7 : 1 }}
                 >
-                  {status === "sending" ? "Sending…" : "Get my free quote"}
+                  {status === "sending" ? "Sending…" : submitLabel}
                 </button>
                 <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
                   Fixed quote within 48 hours &middot; We reply within 4 business hours &middot; No obligation
