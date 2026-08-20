@@ -122,7 +122,7 @@ export default function LeadForm({
                 <p className="body">{sub}</p>
               </div>
               <form onSubmit={handleSubmit} style={{ display: "grid", gap: "16px" }}>
-                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
                   <div>
                     <label style={labelStyle} htmlFor="lf-name">Name *</label>
                     <input id="lf-name" name="name" type="text" required style={inputStyle} placeholder="Your name" />
@@ -137,7 +137,7 @@ export default function LeadForm({
                   <input id="lf-company" name="company" type="text" style={inputStyle} placeholder="Company name (optional)" />
                 </div>
                 {showSeatQualifiers && (
-                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
                     <div>
                       <label style={labelStyle} htmlFor="lf-crm">Which CRM do you run?</label>
                       <input id="lf-crm" name="crm" type="text" style={inputStyle} placeholder="Salesforce, HubSpot… (optional)" />
@@ -165,6 +165,9 @@ export default function LeadForm({
                 </button>
                 <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
                   Fixed quote within 48 hours &middot; We reply within 4 business hours &middot; No obligation
+                </p>
+                <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
+                  No lock-in &middot; cancel anytime &middot; you own the IP
                 </p>
                 <p style={{ fontSize: "12px", color: "#98a2b3", textAlign: "center", margin: 0 }}>
                   We&apos;ll only use this to reply about your project. No spam, ever.
