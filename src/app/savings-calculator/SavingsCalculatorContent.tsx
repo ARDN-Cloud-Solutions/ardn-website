@@ -573,7 +573,11 @@ export default function SavingsCalculatorContent() {
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
             <Link href="/custom-portal-development">See how a custom portal replaces those seats →</Link>
             {" · "}
+            <Link href="/custom-partner-portal-development">Cut per-login partner portal costs →</Link>
+            {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
+            {" · "}
+            <Link href="/reduce-hubspot-seat-costs">Cut HubSpot seat costs →</Link>
             {" · "}
             <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
             {" · "}
@@ -605,10 +609,17 @@ export default function SavingsCalculatorContent() {
             <div className="sc-modal-header">
               <div className="sc-modal-tag">Your Savings Report</div>
               <div className="sc-modal-headline">
-                You could save{" "}
-                <span>{yr1 > 0 ? fmt(yr1) : fmt(yr2)}</span>/year
+                {monthly > 0 ? (
+                  <>You could save <span>{fmt(yr1)}</span>/year</>
+                ) : (
+                  <>A flat platform is <span>about break-even</span> here</>
+                )}
               </div>
-              <div className="sc-modal-sub">Based on your estimated current software spend</div>
+              <div className="sc-modal-sub">
+                {monthly > 0
+                  ? "Based on your estimated current software spend"
+                  : "The savings grow as you add users and seats — most companies clear this point fast."}
+              </div>
             </div>
             <div className="sc-modal-body">
               <div className="sc-modal-metrics">
