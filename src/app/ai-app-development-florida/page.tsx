@@ -7,10 +7,9 @@ import TrustBar from "@/components/common/TrustBar";
 // commercial pillars (Cat 1 Salesforce, Cat 2 Custom AI) for the local buyer.
 // Single CTA (Calendly), single conversion path.
 export const metadata: Metadata = {
-  title:
-    "AI App Development in Florida | Custom AI Built in Weeks — Ardn AI Forge",
+  title: "AI App Development in Florida — Custom AI in Weeks | Ardn",
   description:
-    "Custom AI application development by a Florida-based team. Our AI Forge Framework ships production-ready AI apps in 2–6 weeks — designed, built, deployed, and operated under one monthly subscription. Free 30-min strategy call.",
+    "Custom AI app development by a Florida-based team. Our AI Forge Framework ships production AI apps in 2–6 weeks on one flat monthly fee. Free strategy call.",
   keywords: [
     "AI app development Florida",
     "AI development Orlando",

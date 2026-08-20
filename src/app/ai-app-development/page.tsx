@@ -490,6 +490,8 @@ export default function AiAppDevelopmentPage() {
                 <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Building a portal instead? See Custom Portal Development →</Link>
                 {" · "}
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>
+                {" · "}
+                <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Cut CRM licensing costs →</Link>
               </p>
             </div>
           </div>

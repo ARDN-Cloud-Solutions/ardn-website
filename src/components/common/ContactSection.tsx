@@ -42,9 +42,11 @@ const ContactSection = () => {
             newErrors.email = "Please enter a valid email address";
         }
 
-        if (!formData.phone.trim()) {
-            newErrors.phone = "Phone number is required";
-        } else if (formData.phone.trim().length < 10) {
+        // Phone is optional — only validate format if the visitor provides one.
+        // Requiring a phone number is a well-known conversion killer, and the
+        // inline LeadForm used across the site already captures leads on name +
+        // email alone, so this keeps the primary contact form consistent.
+        if (formData.phone.trim() && formData.phone.trim().length < 10) {
             newErrors.phone = "Enter at least 10 digits";
         }
 
@@ -196,7 +198,7 @@ const ContactSection = () => {
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    placeholder="*Phone Number" 
+                                    placeholder="Phone Number (optional)"
                                     className={getInputClassName(errors.phone) + " placeholder-heading-dark"} 
                                 />
                                 {errors.phone && <span className="absolute bottom-1 left-4 text-red-500 text-xs font-medium">{errors.phone}</span>}

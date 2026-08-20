@@ -5,7 +5,7 @@ import SalesforceEventTicketingContent from "./SalesforceEventTicketingContent";
 // category for associations, nonprofits, and event-driven businesses.
 export const metadata: Metadata = {
   title:
-    "7 Best Salesforce Event Ticketing Platforms Compared (2026) | Ardn Cloud Solutions",
+    "Best Salesforce Event Ticketing Platforms (2026) | Ardn",
   description:
     "Compare the top 7 Salesforce event ticketing platforms in 2026 — Ardn Storefronts, Blackthorn.io, Fonteva Events, AC Events Enterprise, EVA, Ticketbud, and Eventbrite. Native solutions for events, registrations, and payments inside Salesforce.",
   keywords: [

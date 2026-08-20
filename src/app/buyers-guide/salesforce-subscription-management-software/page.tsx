@@ -5,7 +5,7 @@ import SalesforceSubscriptionContent from "./SalesforceSubscriptionContent";
 // FAQPage in its JSON-LD (kept and enriched).
 export const metadata: Metadata = {
   title:
-    "8 Best Salesforce Subscription Management Software Tools (2026) | Ardn Cloud Solutions",
+    "Best Salesforce Subscription Management Tools (2026) | Ardn",
   description:
     "Compare the 8 best Salesforce subscription management software tools in 2026 — Ardn Storefronts, Fonteva, StoreConnect, Chargebee, Stripe Billing, Recurly, Zuora, and Maxio. Pricing, fit, and pitfalls to guide your choice.",
   keywords: [

@@ -62,6 +62,14 @@ export default async function Page() {
         "name": "Ardn Cloud Solutions",
         "description": "Custom software, platforms, and portals — built and run for you.",
         "publisher": { "@id": "https://ardncloudsolutions.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://ardncloudsolutions.com/blog/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        },
         "inLanguage": "en-US"
       },
       {
