@@ -57,6 +57,7 @@ const TOOLS_DATA: Record<string, { name: string; cost: number }[]> = {
 };
 
 const INDUSTRIES = [
+  { id: "crmseats", icon: "🎟️", name: "CRM Seats / Light Users" },
   { id: "medspa", icon: "💉", name: "Med Spa" },
   { id: "fitness", icon: "🧘", name: "Fitness Studio" },
   { id: "healthcare", icon: "🏥", name: "Telehealth & Clinics" },
@@ -76,16 +77,25 @@ export default function SavingsCalculatorContent() {
   const [selectedIndustry, setSelectedIndustry] = useState("medspa");
   const [budget, setBudget] = useState(4500);
   const [modalOpen, setModalOpen] = useState(false);
+  // CRM seat mode — the wedge pages promise a "plug in your seat count and rate"
+  // per-seat calculation, so this mode delivers exactly that instead of an
+  // industry stack. Inputs are the user's own numbers (no invented rates).
+  const [lightUsers, setLightUsers] = useState(100);
+  const [seatRate, setSeatRate] = useState(150);
 
-  const currentTools = TOOLS_DATA[selectedIndustry];
-  const toolTotal = currentTools.reduce((s, t) => s + t.cost, 0);
-  const total = Math.max(toolTotal, budget);
+  const seatMode = selectedIndustry === "crmseats";
+  const currentTools = seatMode ? [] : TOOLS_DATA[selectedIndustry];
+  // In seat mode the "current spend" is the light-user seat math the wedge
+  // pages describe: number of light users × their per-seat monthly rate.
+  const seatSpend = lightUsers * seatRate;
+  const toolTotal = seatMode ? seatSpend : currentTools.reduce((s, t) => s + t.cost, 0);
+  const total = seatMode ? toolTotal : Math.max(toolTotal, budget);
   // When the user enters a budget that exceeds the preset tool stack, the
   // difference is surfaced as an "Additional tools / overhead" line so the
   // visible line items add up to the same total shown at the bottom.
   // Without this, the line items would still sum to the preset (~$1,950 for
   // medspa) while the total displays the user's actual $50,000 budget.
-  const additionalSpend = Math.max(0, budget - toolTotal);
+  const additionalSpend = seatMode ? 0 : Math.max(0, budget - toolTotal);
   // Baseline scales with the visitor's own spend so the comparison uses the
   // tier they'd realistically land in (see /ai-forge#pricing), instead of
   // always comparing against the cheapest Launch price regardless of scope.
@@ -170,46 +180,95 @@ export default function SavingsCalculatorContent() {
                 </div>
               </div>
 
-              {/* Budget input */}
-              <div className="sc-calc-row">
-                <div className="sc-calc-field">
-                  <label className="sc-calc-label">Monthly spend (est.)</label>
-                  <input
-                    type="number"
-                    className="sc-calc-input"
-                    value={budget}
-                    min={500}
-                    step={500}
-                    onChange={(e) => setBudget(parseInt(e.target.value) || 0)}
-                  />
-                </div>
-              </div>
-
-              <div className="sc-calc-sep" />
-
-              <div className="sc-calc-tools-label">Estimated current tool costs</div>
-              <div>
-                {currentTools.map((t) => (
-                  <div key={t.name} className="sc-calc-tool">
-                    <span className="sc-calc-tool-name">{t.name}</span>
-                    <span className="sc-calc-tool-cost">${t.cost.toLocaleString()}/mo</span>
+              {seatMode ? (
+                <>
+                  {/* Seat-mode inputs — the exact per-seat math the wedge pages
+                      promise: light-user count × per-seat monthly rate. */}
+                  <div className="sc-calc-row" style={{ display: "flex", gap: "12px" }}>
+                    <div className="sc-calc-field" style={{ flex: 1 }}>
+                      <label className="sc-calc-label">Light users (view-only / occasional)</label>
+                      <input
+                        type="number"
+                        className="sc-calc-input"
+                        value={lightUsers}
+                        min={1}
+                        step={5}
+                        onChange={(e) => setLightUsers(parseInt(e.target.value) || 0)}
+                      />
+                    </div>
+                    <div className="sc-calc-field" style={{ flex: 1 }}>
+                      <label className="sc-calc-label">Per-seat rate ($/user/mo)</label>
+                      <input
+                        type="number"
+                        className="sc-calc-input"
+                        value={seatRate}
+                        min={1}
+                        step={5}
+                        onChange={(e) => setSeatRate(parseInt(e.target.value) || 0)}
+                      />
+                    </div>
                   </div>
-                ))}
-                {/* Surface the gap between the user-entered monthly spend and
-                    the preset stack so line items sum to the displayed total. */}
-                {additionalSpend > 0 && (
-                  <div className="sc-calc-tool">
-                    <span className="sc-calc-tool-name">Additional tools / overhead</span>
-                    <span className="sc-calc-tool-cost">${additionalSpend.toLocaleString()}/mo</span>
+
+                  <div className="sc-calc-sep" />
+
+                  <div className="sc-calc-tools-label">What those seats cost today</div>
+                  <div>
+                    <div className="sc-calc-tool">
+                      <span className="sc-calc-tool-name">{lightUsers.toLocaleString()} light users × ${seatRate.toLocaleString()}/mo</span>
+                      <span className="sc-calc-tool-cost">${seatSpend.toLocaleString()}/mo</span>
+                    </div>
                   </div>
-                )}
-              </div>
-              <div className="sc-calc-total">
-                <span style={{ color: "var(--sc-text-2)" }}>Total monthly spend</span>
-                <span style={{ color: "var(--sc-text)", fontWeight: 700 }}>
-                  ${total.toLocaleString()}/mo
-                </span>
-              </div>
+                  <div className="sc-calc-total">
+                    <span style={{ color: "var(--sc-text-2)" }}>Per-seat license spend</span>
+                    <span style={{ color: "var(--sc-text)", fontWeight: 700 }}>
+                      ${total.toLocaleString()}/mo
+                    </span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Budget input */}
+                  <div className="sc-calc-row">
+                    <div className="sc-calc-field">
+                      <label className="sc-calc-label">Monthly spend (est.)</label>
+                      <input
+                        type="number"
+                        className="sc-calc-input"
+                        value={budget}
+                        min={500}
+                        step={500}
+                        onChange={(e) => setBudget(parseInt(e.target.value) || 0)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sc-calc-sep" />
+
+                  <div className="sc-calc-tools-label">Estimated current tool costs</div>
+                  <div>
+                    {currentTools.map((t) => (
+                      <div key={t.name} className="sc-calc-tool">
+                        <span className="sc-calc-tool-name">{t.name}</span>
+                        <span className="sc-calc-tool-cost">${t.cost.toLocaleString()}/mo</span>
+                      </div>
+                    ))}
+                    {/* Surface the gap between the user-entered monthly spend and
+                        the preset stack so line items sum to the displayed total. */}
+                    {additionalSpend > 0 && (
+                      <div className="sc-calc-tool">
+                        <span className="sc-calc-tool-name">Additional tools / overhead</span>
+                        <span className="sc-calc-tool-cost">${additionalSpend.toLocaleString()}/mo</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="sc-calc-total">
+                    <span style={{ color: "var(--sc-text-2)" }}>Total monthly spend</span>
+                    <span style={{ color: "var(--sc-text)", fontWeight: 700 }}>
+                      ${total.toLocaleString()}/mo
+                    </span>
+                  </div>
+                </>
+              )}
               <button className="sc-calc-submit" onClick={() => setModalOpen(true)}>
                 Calculate My Savings →
               </button>
@@ -573,6 +632,8 @@ export default function SavingsCalculatorContent() {
           <p className="sc-cta-note" style={{ marginTop: "10px" }}>
             <Link href="/custom-portal-development">See how a custom portal replaces those seats →</Link>
             {" · "}
+            <Link href="/custom-partner-portal-development">Replace partner community seats with a custom partner portal →</Link>
+            {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
             {" · "}
             <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
@@ -640,6 +701,15 @@ export default function SavingsCalculatorContent() {
                   </tr>
                 </thead>
                 <tbody>
+                  {seatMode && (
+                    <tr>
+                      <td>{lightUsers.toLocaleString()} light-user seats × ${seatRate.toLocaleString()}/mo</td>
+                      <td style={{ color: "var(--sc-red)", fontWeight: 600 }}>
+                        {fmt(seatSpend)}/mo
+                      </td>
+                      <td className="sc-td-inc">Moved to portal</td>
+                    </tr>
+                  )}
                   {currentTools.map((t) => (
                     <tr key={t.name}>
                       <td>{t.name}</td>

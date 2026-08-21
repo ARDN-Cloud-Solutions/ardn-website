@@ -8,9 +8,9 @@ import SavingsCalculatorContent from "./SavingsCalculatorContent";
 // buyer searches.
 export const metadata: Metadata = {
   title:
-    "Free Software Savings Calculator | Ardn",
+    "Free Per-Seat & Software Savings Calculator | Ardn",
   description:
-    "Free 60-second calculator. See what you overpay for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a flat-fee custom platform costs instead.",
+    "Free calculator: plug in your seat count and rate to see per-seat Salesforce, HubSpot & SaaS license overspend — and what a flat-fee platform costs instead.",
   keywords: [
     "software savings calculator",
     "Salesforce cost calculator",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Free Software Savings Calculator | Ardn",
+      "Free Per-Seat & Software Savings Calculator | Ardn",
     description:
       "Free 60-second calculator. See exactly what your business overpays for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a custom Ardn platform costs instead.",
     url: "https://ardncloudsolutions.com/savings-calculator",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Free Software Savings Calculator | Ardn",
+      "Free Per-Seat & Software Savings Calculator | Ardn",
     description:
       "Free 60-second calculator. See exactly what your business overpays for Mindbody, Zenoti, Salesforce, HubSpot, or Daxko — and what a custom Ardn platform costs instead.",
     site: "@ardn_cloud_sol",
