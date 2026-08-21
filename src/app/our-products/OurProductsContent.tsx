@@ -158,10 +158,20 @@ export default function OurProductsContent() {
             </div>
           </div>
           <div className="grid-3" style={{ marginTop: "8px" }}>
+            <Link href="/custom-software-development" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Custom Software &amp; Platform Development</h3>
+              <p className="body">Replace, connect, or rebuild your tech stack as custom software and platforms — live in weeks, one flat fee, built and run for you.</p>
+              <span className="link">Explore custom software development →</span>
+            </Link>
             <Link href="/ai-app-development" className="card" style={{ textDecoration: "none" }}>
               <h3 className="h3">Custom AI App Development</h3>
               <p className="body">We design, build, deploy, and run bespoke AI applications in 2–6 weeks under one monthly fee.</p>
               <span className="link">Explore custom AI development →</span>
+            </Link>
+            <Link href="/custom-partner-portal-development" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Custom Partner Portal Development</h3>
+              <p className="body">Replace per-login Partner Community or PRM seats with a flat-fee partner, vendor &amp; distributor portal wired into your CRM.</p>
+              <span className="link">Explore custom partner portals →</span>
             </Link>
             <Link href="/custom-portal-development" className="card" style={{ textDecoration: "none" }}>
               <h3 className="h3">Custom Portal Development</h3>
@@ -193,6 +203,7 @@ export default function OurProductsContent() {
               </ul>
             </div>
           </div>
+          <p className="body mt-4">Paying per seat for CRM users who barely log in? See how to <Link href="/reduce-crm-licensing-costs" style={{ color: "var(--indigo)", fontWeight: 600 }}>cut your CRM licensing costs</Link> or <Link href="/savings-calculator" style={{ color: "var(--indigo)", fontWeight: 600 }}>calculate your per-seat savings</Link>.</p>
         </div>
       </section>
 

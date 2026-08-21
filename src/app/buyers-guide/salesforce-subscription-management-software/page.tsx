@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Best Salesforce Subscription Management Tools (2026) | Ardn",
   description:
-    "Compare the 8 best Salesforce subscription management software tools in 2026 — Ardn Storefronts, Fonteva, StoreConnect, Chargebee, Stripe Billing, Recurly, Zuora, and Maxio. Pricing, fit, and pitfalls to guide your choice.",
+    "Compare the 8 best Salesforce subscription management tools for 2026 — Storefronts, Fonteva, Chargebee, Stripe Billing, Recurly, Zuora and Maxio.",
   keywords: [
     "Salesforce subscription management",
     "Salesforce subscription software",

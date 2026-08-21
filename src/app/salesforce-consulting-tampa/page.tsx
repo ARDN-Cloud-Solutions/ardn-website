@@ -429,6 +429,33 @@ export default function SalesforceConsultingTampaPage() {
           </div>
         </section>
 
+        {/* RELATED — route local Salesforce buyers into the per-seat
+            cost-reduction wedge and cross-link the sister Florida city pages
+            (these were footer-only near-orphans otherwise). */}
+        <section className="section is-canvas">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Cut your Salesforce bill</span>
+                <h2 className="h1 mt-3">Paying per seat for light Salesforce users?</h2>
+              </div>
+              <div>
+                <p className="lede">Before your next renewal, see how a custom portal moves light users off per-seat licenses onto one flat fee &mdash; without leaving Salesforce.</p>
+              </div>
+            </div>
+            <div style={{ marginTop: "24px", display: "flex", gap: "24px", flexWrap: "wrap" }}>
+              <Link href="/reduce-crm-licensing-costs" className="link">How to cut your Salesforce licensing costs &rarr;</Link>
+              <Link href="/custom-portal-development" className="link">Replace per-seat Salesforce seats with a custom portal &rarr;</Link>
+              <Link href="/savings-calculator" className="link">Calculate your per-seat Salesforce savings &rarr;</Link>
+            </div>
+            <p className="body mt-4">Salesforce consulting across Florida:{" "}
+              <Link href="/salesforce-consulting-orlando" className="link">Orlando</Link>,{" "}
+              <Link href="/salesforce-consulting-miami" className="link">Miami</Link>, and{" "}
+              <Link href="/salesforce-consulting-jacksonville" className="link">Jacksonville</Link>.
+            </p>
+          </div>
+        </section>
+
         <section className="section" id="book">
           <div className="container">
             <div className="final-cta">

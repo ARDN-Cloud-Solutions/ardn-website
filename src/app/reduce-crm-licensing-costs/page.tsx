@@ -78,6 +78,10 @@ const FAQS = [
     a: "No. Every lever on this page keeps your CRM as the system of record. A license audit right-sizes your existing contract; a custom portal sits alongside the CRM and syncs through its API. A full migration is a separate, larger decision that only makes sense if the platform itself no longer fits your power users — not something you should take on just to trim seat cost.",
   },
   {
+    q: "Won't a cheaper Salesforce license tier (Platform or view-only seats) solve this?",
+    a: "It helps, but only to a point. Downgrading a full Sales or Service Cloud seat to a limited tier is a real saving — Salesforce's list prices run roughly $165/user/month for Enterprise versus about $25/user/month for a Platform seat — and it's the right move for people who still work inside the CRM every day. But three things stay true: you're still billed per person, the cost still climbs every time you hire, and the limited tiers cap what those users can actually do. For the read-only reporting and occasional-use crowd, a flat-fee portal takes them off the seat schedule entirely instead of moving them to a cheaper rung of it, so the cost stops scaling with headcount. The rule of thumb: keep a CRM seat for users who live in it, and give a portal to the ones who only visit. (List prices are illustrative and change over time — check your own contract.)",
+  },
+  {
     q: "What is a 'light user' and why do they cost the most per unit of value?",
     a: "A light user touches the CRM for a narrow slice of work but gets billed the same (or nearly the same) as a power user who lives in it all day. Because per-seat pricing is built around the power user, the overpayment concentrates on everyone lighter than that — which in most companies is the majority of the seat count.",
   },
@@ -379,6 +383,7 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/move-light-users-off-salesforce" className="link">Which users to move off Salesforce →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
               <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
               <Link href="/custom-partner-portal-development" className="link">Replace per-login partner community seats with a custom partner portal →</Link>

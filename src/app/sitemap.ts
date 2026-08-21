@@ -290,6 +290,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge spoke — "which users to move" decision framework. Captures
+        // "move light users off Salesforce" / "Salesforce light user license"
+        // intent and funnels to the portal page + savings calculator.
+        url: `${BASE_URL}/move-light-users-off-salesforce`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,
