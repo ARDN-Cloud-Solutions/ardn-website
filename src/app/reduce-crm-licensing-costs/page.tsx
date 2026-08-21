@@ -78,6 +78,14 @@ const FAQS = [
     a: "No. Every lever on this page keeps your CRM as the system of record. A license audit right-sizes your existing contract; a custom portal sits alongside the CRM and syncs through its API. A full migration is a separate, larger decision that only makes sense if the platform itself no longer fits your power users — not something you should take on just to trim seat cost.",
   },
   {
+    q: "Can I reduce CRM licenses mid-contract, or only at renewal?",
+    a: "Most CRM contracts lock your seat count for the term, so you usually cannot remove paid seats and get money back mid-contract — reductions take effect at renewal. That makes timing the whole game: audit your usage 60–90 days before renewal so you go into the negotiation knowing exactly how many seats are dormant, how many users are light, and which groups could move to a portal. Walking in with that breakdown is what turns a renewal from an automatic uplift into a real reduction. Building the portal can start any time; the license savings land at the renewal date.",
+  },
+  {
+    q: "How is this different from a Salesforce license-optimization tool?",
+    a: "License-optimization tools (and manual audits) trim — they find dormant seats and downgrade over-licensed users to cheaper tiers. That's real savings, and it's lever one and two on this page. But an optimized seat is still a recurring per-seat seat: you keep paying for it, and the bill still grows when you hire. Moving a light user to a flat-fee portal is different in kind — it removes the seat entirely, and the cost stops scaling with headcount. Optimization shaves the bill; the portal changes the model. Most companies do both: optimize what stays on the CRM, and eliminate the seats that never needed to be there.",
+  },
+  {
     q: "What is a 'light user' and why do they cost the most per unit of value?",
     a: "A light user touches the CRM for a narrow slice of work but gets billed the same (or nearly the same) as a power user who lives in it all day. Because per-seat pricing is built around the power user, the overpayment concentrates on everyone lighter than that — which in most companies is the majority of the seat count.",
   },
@@ -101,7 +109,7 @@ const levers = [
   {
     tag: "Lever 2 — Right-size",
     title: "Move users to a cheaper tier",
-    body: "CRMs sell limited-access, platform, and login-based tiers below a full seat. Cheaper per head — but still per head, and still capped in what you can build for that user.",
+    body: "CRMs sell limited-access tiers below a full seat — a Salesforce Platform license lists around $25/user vs. roughly $165 for a full Sales Cloud Enterprise seat. Cheaper per head, but still per head, and still capped in what you can build for that user.",
     best: "Best for: occasional users who still need native CRM access.",
   },
   {
@@ -197,7 +205,7 @@ export default function ReduceCrmLicensingCostsPage() {
                     Only the third one breaks the link between cost and headcount.
                   </p>
                   <p className="body" style={{ marginTop: "14px", paddingTop: "14px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build the portal free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
+                    🎁 New customers: we build the portal free — you only start paying the flat monthly fee once it&apos;s live. Tiers from $3,000/mo, no per-seat pricing.
                   </p>
                 </div>
               </aside>
@@ -384,6 +392,8 @@ export default function ReduceCrmLicensingCostsPage() {
               <Link href="/custom-partner-portal-development" className="link">Replace per-login partner community seats with a custom partner portal →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
+              <Link href="/reduce-bi-dashboard-seat-costs" className="link">Same wedge for Tableau &amp; Power BI viewer seats →</Link>
+              <Link href="/compare/salesforce-commerce-cloud-alternatives" className="link">Salesforce Commerce Cloud alternatives →</Link>
             </div>
           </div>
         </section>

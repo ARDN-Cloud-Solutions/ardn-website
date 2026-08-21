@@ -124,6 +124,14 @@ const nextConfig: NextConfig = {
                 destination: "/membership-management",
                 permanent: true,
             },
+            // SEO consolidation: orphaned /ai-info-page ("Ardn Storefronts: AI
+            // Information Page") had zero inbound links and duplicated the
+            // canonical /storefronts intent. 301 folds its signal into it.
+            {
+                source: "/ai-info-page",
+                destination: "/storefronts",
+                permanent: true,
+            },
         ];
     },
     images: {

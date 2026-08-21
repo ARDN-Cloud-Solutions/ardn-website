@@ -34,6 +34,9 @@ export default function SalesforceCommerceCloudAlternativesContent() {
           >
             {/* Intro */}
             <section className="mb-12">
+              <h1 className="block lg:text-5xl text-3xl font-bold text-heading-dark mb-6 leading-tight">
+                Top Salesforce Commerce Cloud Alternatives (2026)
+              </h1>
               <div className="max-w-none text-black font-poppins space-y-4">
                 <p className="text-heading-dark text-sm lg:text-base">
                   Did you know nearly <strong>90% of e-commerce businesses fail within 120 days?</strong> Most don&apos;t fold because of bad products, but because their platforms can&apos;t keep up. The ones that get it right can see up to <strong>271% ROI in just three years.</strong>
@@ -1013,6 +1016,16 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               <h3 className="text-white text-xl lg:text-2xl font-bold m-0 max-w-xl leading-tight">Ready to see how it all fits together?</h3>
               <Button href="/contact-us" variant="orange" size="lg" rounded="full" className="whitespace-nowrap px-10">Get In Touch! →</Button>
             </section>
+
+            <div className="mt-10 border-t border-slate-200 pt-8">
+              <strong className="block text-lg font-semibold text-heading-dark mb-4">Keep reading</strong>
+              <ul className="list-disc pl-6 space-y-2 text-heading-dark">
+                <li><Link href="/custom-ecommerce-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Custom ecommerce development</Link> — build a store you own on a flat fee, no GMV cut.</li>
+                <li><Link href="/savings-calculator" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Calculate your commerce savings</Link> vs. a per-seat, per-transaction stack.</li>
+                <li><Link href="/custom-software-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Custom software &amp; platform builds</Link> — replace or connect your whole stack.</li>
+                <li><Link href="/compare/custom-software-vs-saas" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Custom software vs. SaaS: total cost</Link> broken down over three years.</li>
+              </ul>
+            </div>
           </motion.main>
         </div>
       </div>

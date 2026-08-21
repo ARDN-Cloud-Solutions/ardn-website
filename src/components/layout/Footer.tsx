@@ -32,6 +32,7 @@ const solutions = [
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
   { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
+  { label: "Cut BI Viewer Seat Costs", href: "/reduce-bi-dashboard-seat-costs" },
   { label: "GLP-1 & Telehealth Ecommerce", href: "/glp-1-ecommerce" },
   { label: "Chapter & Dues Management", href: "/chapter-management-software" },
   { label: "AI for Insurance", href: "/ai-for-insurance" },

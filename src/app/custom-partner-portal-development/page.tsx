@@ -202,7 +202,7 @@ export default function CustomPartnerPortalDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free.
+                    🎁 New customers: we build it free — you only start paying the flat monthly fee once it&apos;s live.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
@@ -239,6 +239,8 @@ export default function CustomPartnerPortalDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Compare Experience Cloud vs. a custom portal →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the per-seat Salesforce cost math →</Link>
+              <Link href="/license-guard" className="link">Find dormant partner &amp; community seats with License Guard →</Link>
               <Link href="/custom-portal-development" className="link">Also see internal seller, ops &amp; customer portals →</Link>
             </div>
           </div>
@@ -254,10 +256,13 @@ export default function CustomPartnerPortalDevelopmentPage() {
                 <p className="body mt-4">
                   Internal headcount is relatively stable. A partner network is
                   not — it turns over, spikes seasonally, and grows every time you
-                  sign a new region or channel. Under per-login pricing, every one
-                  of those swings is a licensing change. A flat-fee portal breaks
-                  that link: the cost is the same whether you have fifty partners
-                  or five hundred, so growth stops being a line-item negotiation.
+                  sign a new region or channel. Salesforce Partner Community and
+                  external-user licenses list in the ballpark of $10–$25 per login
+                  or member per month, so under per-login pricing every one of
+                  those swings is a licensing change. A flat-fee portal breaks that
+                  link: the cost is the same whether you have fifty partners or five
+                  hundred, so growth stops being a line-item negotiation. (List
+                  prices shown for illustration only.)
                 </p>
               </div>
               <div>

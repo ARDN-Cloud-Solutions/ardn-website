@@ -181,12 +181,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
-        url: `${BASE_URL}/ai-info-page`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.7,
-    },
-    {
         url: `${BASE_URL}/career`,
         lastModified: new Date(),
         changeFrequency: "monthly",
@@ -302,6 +296,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         // Captures "reduce HubSpot costs / HubSpot seat cost vs custom portal"
         // intent; mirrors the Salesforce seat-cost page for the other core CRM.
         url: `${BASE_URL}/compare/hubspot-seat-cost-vs-custom-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
+        // Wedge spoke — extends the per-seat cost wedge beyond CRM to BI /
+        // analytics VIEWER seats (Tableau Viewer, Power BI Pro). Read-only
+        // dashboard viewers are the purest light user; distinct commercial
+        // intent ("reduce Power BI license costs", "Tableau viewer seat cost").
+        url: `${BASE_URL}/reduce-bi-dashboard-seat-costs`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.85,

@@ -194,6 +194,7 @@ export default function CustomPortalDevelopmentPage() {
                   <span className="badge">Integrates with your CRM</span>
                   <span className="badge is-emerald">Flat fee, not per-seat</span>
                   <span className="badge is-canvas">No rip-and-replace</span>
+                  <span className="badge">Your data stays in your CRM</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free CRM cost review</Link>
@@ -211,7 +212,7 @@ export default function CustomPortalDevelopmentPage() {
                     <li>We build it AND run it</li>
                   </ul>
                   <p className="body" style={{ marginTop: "18px", paddingTop: "16px", borderTop: "1px solid #eceef5", fontWeight: 600, color: "var(--indigo)" }}>
-                    🎁 New customers: we build it free. Flat-fee tiers from $3,000/mo — no per-seat pricing.
+                    🎁 New customers: we build it free — you only start paying the flat monthly fee once it&apos;s live. Tiers from $3,000/mo, no per-seat pricing.
                   </p>
                   <p className="body" style={{ marginTop: "14px" }}>
                     <Link href="/savings-calculator" className="link">Run your own per-seat savings numbers →</Link>
@@ -251,6 +252,7 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
               <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
