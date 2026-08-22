@@ -315,6 +315,12 @@ export default function CustomSoftwareDevelopmentPage() {
                 <p className="body">Channel, dealer, broker &amp; vendor portals that replace per-login Partner Community seats.</p>
                 <span className="link">Custom partner portal development →</span>
               </Link>
+              <Link href="/employee-self-service-portal" className="card" style={{ textDecoration: "none", borderColor: "var(--indigo)" }}>
+                <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>Cut internal seats</span>
+                <h3 className="h3">Employee Self-Service Portal</h3>
+                <p className="body">Move internal light users who only read or approve off full CRM seats onto a flat fee.</p>
+                <span className="link">Employee self-service portal →</span>
+              </Link>
               <Link href="/custom-ecommerce-development" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">Custom Ecommerce</h3>
                 <p className="body">Merch stores, subscriptions, and complex catalogs built to your model.</p>
@@ -365,7 +371,8 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce per-seat cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">HubSpot per-seat cost math →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
             </div>

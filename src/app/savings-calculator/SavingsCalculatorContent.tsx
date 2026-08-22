@@ -108,9 +108,10 @@ export default function SavingsCalculatorContent() {
               <em>Own Your Stack.</em>
             </h1>
             <p className="sc-hero-sub">
-              Ardn Cloud Solutions replaces Mindbody, Zenoti, Salesforce, and your entire
-              fragmented software stack with one custom platform. Flat monthly rate. No
-              per-user fees. You own it forever.
+              Keep the CRM your team relies on — we move your light users (sellers, ops,
+              partners, customers) off pricey per-seat licenses onto one flat-fee portal
+              wired into it. Or replace a fragmented stack outright. Either way: flat
+              monthly rate, no per-user fees, you own it.
             </p>
             <div className="sc-hero-checks">
               {[
@@ -605,10 +606,22 @@ export default function SavingsCalculatorContent() {
             <div className="sc-modal-header">
               <div className="sc-modal-tag">Your Savings Report</div>
               <div className="sc-modal-headline">
-                You could save{" "}
-                <span>{yr1 > 0 ? fmt(yr1) : fmt(yr2)}</span>/year
+                {monthly > 0 ? (
+                  <>
+                    You could save <span>{fmt(yr1)}</span>/year
+                  </>
+                ) : (
+                  <>
+                    Your stack&apos;s already lean —{" "}
+                    <span>let&apos;s talk about what to build</span>
+                  </>
+                )}
               </div>
-              <div className="sc-modal-sub">Based on your estimated current software spend</div>
+              <div className="sc-modal-sub">
+                {monthly > 0
+                  ? "Based on your estimated current software spend"
+                  : "At this spend a flat-fee build is about even — the win is owning it and ending per-seat growth."}
+              </div>
             </div>
             <div className="sc-modal-body">
               <div className="sc-modal-metrics">

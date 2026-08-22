@@ -78,6 +78,14 @@ const FAQS = [
     a: "Built-in community, partner, or light-user license tiers (however a given CRM brands them) still bill per user and cap what you can build. A custom portal is yours outright, runs on one flat monthly fee no matter how many users you add, and is shaped to your exact workflow instead of a vendor's template.",
   },
   {
+    q: "Is Salesforce Experience Cloud member-based or login-based pricing cheaper?",
+    a: "It depends on how often each external user shows up. Login-based pricing bills per login per month, so it's cheaper for people who sign in only occasionally; member-based pricing is a flat rate per named user, so it's cheaper once someone logs in frequently. The rough crossover sits at a few logins a month — below that, login-based usually wins; above it, member-based does. Either way you're still metered per user, and both climb with headcount. A flat-fee portal removes that metering entirely, which is why it tends to win once you have a real population of light external users. Check Salesforce's current published rates and run your own counts through the savings calculator.",
+  },
+  {
+    q: "How much can license optimization save before I build anything?",
+    a: "Often a meaningful amount — reclaiming dormant seats and right-sizing over-provisioned tiers is real money and should always come first, since it changes nothing for active users. But an audit can only touch seats that are unused or on the wrong tier; it can't shrink a seat that's genuinely in use, just lightly. Those used-but-light seats are exactly where a custom portal takes over. Do the audit first, then move the remaining light users to a flat-fee portal — the two levers stack.",
+  },
+  {
     q: "Does this work with HubSpot, not just Salesforce?",
     a: "Yes. The pattern is the same regardless of which CRM sits behind it — Salesforce, HubSpot, Microsoft Dynamics, or something else. We integrate the portal with whatever system of record you already run.",
   },
@@ -268,6 +276,60 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
             </div>
             <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
               Prices above are typical, publicly listed ranges as of this writing — not a quote. Actual pricing varies by edition, region, and negotiated contract; confirm current numbers with your CRM vendor. Even the cheapest per-seat tier still bills per person and caps what you can build for them, which is the gap a custom portal closes.
+            </p>
+          </div>
+        </section>
+
+        {/* COST OVER TIME */}
+        <section className="section" id="cost-over-time">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The gap over time</span>
+                <h2 className="h1 mt-3">Per-seat compounds. <em>A flat fee doesn&apos;t.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Per-seat cost isn&apos;t just higher — it grows every year with renewals and every new hire. The flat fee is the same figure in year five as in year one, so the gap widens the longer you wait.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th>Cumulative cost (illustrative)</th>
+                    <th>Year 1</th>
+                    <th>Year 2</th>
+                    <th>Year 3</th>
+                    <th>Year 5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="feat">40 light users on full seats</td>
+                    <td className="is-no">$72k</td>
+                    <td className="is-no">$144k</td>
+                    <td className="is-no">$216k</td>
+                    <td className="is-no">$360k+</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Same 40 on a flat-fee portal</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>$54k</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>$108k</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>$162k</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>$270k</td>
+                  </tr>
+                  <tr style={{ fontWeight: 700 }}>
+                    <td className="feat">Cumulative saving</td>
+                    <td>$18k</td>
+                    <td>$36k</td>
+                    <td>$54k</td>
+                    <td>$90k+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              Illustration only, not a quote — 40 users at a ~$150/seat list rate versus one flat-fee tier, holding both rates constant. Real per-seat spend usually climbs faster because list prices rise at renewal and headcount grows, while the flat fee is contractually the same each year. Plug in your own seat count and rate in the <Link href="/savings-calculator" className="link">savings calculator</Link> for the comparison on your numbers.
             </p>
           </div>
         </section>

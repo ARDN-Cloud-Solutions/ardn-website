@@ -124,7 +124,7 @@ export default function LeadForm({
                 <p className="body">{sub}</p>
               </div>
               <form onSubmit={handleSubmit} style={{ display: "grid", gap: "16px" }}>
-                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}>
                   <div>
                     <label style={labelStyle} htmlFor="lf-name">Name *</label>
                     <input id="lf-name" name="name" type="text" required style={inputStyle} placeholder="Your name" />
@@ -139,7 +139,7 @@ export default function LeadForm({
                   <input id="lf-company" name="company" type="text" style={inputStyle} placeholder="Company name (optional)" />
                 </div>
                 {showSeatQualifiers && (
-                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}>
                     <div>
                       <label style={labelStyle} htmlFor="lf-crm">Which CRM do you run?</label>
                       <input id="lf-crm" name="crm" type="text" style={inputStyle} placeholder="Salesforce, HubSpot… (optional)" />
