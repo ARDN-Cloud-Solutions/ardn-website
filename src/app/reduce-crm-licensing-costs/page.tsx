@@ -306,6 +306,20 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* MID-PAGE CTA — capture intent right after the decision table */}
+        <section className="section">
+          <div className="container">
+            <div className="card" style={{ textAlign: "center", padding: "36px", maxWidth: "760px", margin: "0 auto", borderColor: "var(--indigo)" }}>
+              <h2 className="h2" style={{ marginBottom: "10px" }}>See which levers cut <em>your</em> bill.</h2>
+              <p className="body" style={{ marginBottom: "22px" }}>Plug in your seat count and rate for a 30-second estimate, or book a 15-minute cost review and we&apos;ll map your users to the right lever.</p>
+              <div className="hero-ctas" style={{ justifyContent: "center" }}>
+                <Link href="/savings-calculator" className="btn btn-primary btn-lg btn-arrow">Calculate your per-seat savings</Link>
+                <a href={CALENDLY} target="_blank" className="btn btn-secondary btn-lg">Book a free CRM cost review</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
         <section className="section is-canvas">
           <div className="container">
