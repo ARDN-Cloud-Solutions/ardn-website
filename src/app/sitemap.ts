@@ -158,6 +158,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.85,
     },
     {
+        // Wedge spoke — employee self-service portal for INTERNAL light users
+        // (read/look-up/approve) who overpay on full CRM seats or discounted
+        // Platform / Team Member tiers. Fills the internal half of the per-seat
+        // wedge; distinct from the external-facing portal pages.
+        url: `${BASE_URL}/employee-self-service-portal`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Solution page — chapter/dues management (fraternities, sororities,
         // clubs). Niche, low-competition, high-intent.
         url: `${BASE_URL}/chapter-management-software`,

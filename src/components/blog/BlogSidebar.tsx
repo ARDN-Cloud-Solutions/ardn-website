@@ -115,6 +115,29 @@ export default function BlogSidebar({
                 <WidgetHeader title="Subscribe Newsletter" />
                 <NewsletterWidget />
             </div>
+
+            {/* Cut CRM Costs — wedge CTA on every post */}
+            <div className="border border-gray-100 overflow-hidden">
+                <WidgetHeader title="Cut Your CRM Costs" />
+                <ul className="text-sm">
+                    {[
+                        { href: "/savings-calculator", label: "Calculate your per-seat CRM savings" },
+                        { href: "/compare/salesforce-seat-cost-vs-custom-portal", label: "Salesforce seat cost vs. a custom portal" },
+                        { href: "/compare/hubspot-seat-cost-vs-custom-portal", label: "HubSpot seat cost vs. a custom portal" },
+                        { href: "/reduce-crm-licensing-costs", label: "How to cut CRM licensing costs" },
+                    ].map((item, i, arr) => (
+                        <li key={item.href}>
+                            <Link
+                                href={item.href}
+                                className={`block px-4 py-3 text-paragraph hover:bg-gray-50 hover:text-primary transition-colors
+                                    ${i < arr.length - 1 ? "border-b border-gray-100" : ""}`}
+                            >
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </aside>
     );
 }

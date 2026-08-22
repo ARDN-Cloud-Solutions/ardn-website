@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free CRM cost review</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -345,7 +345,10 @@ export default function CustomPortalDevelopmentPage() {
                 <Link href="/ai-forge#pricing" className="btn btn-outline-light btn-lg">See flat-fee pricing tiers</Link>
               </div>
               <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
-                Same three flat-fee tiers power every build — Launch, Scale, and Enterprise. No per-seat pricing, ever.
+                New customers: we build it free — you only pay the flat monthly fee once it&apos;s live. Launch, Scale &amp; Enterprise tiers. No per-seat pricing, ever.
+              </p>
+              <p style={{ marginTop: "8px", color: "rgba(255,255,255,0.78)", fontSize: "14px" }}>
+                Prefer to talk now? +1 (407) 815-5303 &middot; contactus@ardncloudsolutions.com
               </p>
               <p style={{ marginTop: "8px" }}>
                 <Link href="/custom-software-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>See all custom software &amp; platform builds →</Link>

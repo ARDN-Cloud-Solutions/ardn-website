@@ -14,7 +14,7 @@ import LeadForm from "@/components/common/LeadForm";
 // explicitly labeled illustrative, and the calculator is offered for real
 // numbers. GEO-structured (H2/H3, decision table, FAQ + FAQPage schema).
 export const metadata: Metadata = {
-  title: "How to Cut CRM Licensing Costs | Ardn",
+  title: "How to Cut CRM Licensing & Per-Seat Costs | Ardn",
   description:
     "Three honest ways to reduce per-seat CRM licensing costs: reclaim unused seats, right-size license tiers, or move light users to a flat-fee custom portal.",
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Cut CRM Licensing Costs | Ardn",
+    title: "How to Cut CRM Licensing & Per-Seat Costs | Ardn",
     description:
       "Three honest ways to reduce per-seat CRM licensing costs — reclaim, right-size, or move light users to a flat-fee custom portal.",
     images: ["/images/ardn-home-hero.webp"],
@@ -306,8 +306,58 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
+        {/* SPOT THE LIGHT USERS */}
+        <section className="section is-canvas" id="spot-light-users">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Find the seats first</span>
+                <h2 className="h1 mt-3">How to spot a light user <em>in 60 seconds.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Before you can move anyone off a per-seat license, you have to find them. The more of these that describe a user, the more a full seat is overpaying for them.</p>
+              </div>
+            </div>
+            <div className="grid-3">
+              <div className="card">
+                <div className="card-num">01</div>
+                <h3 className="h3">Logs in rarely</h3>
+                <p className="body">Signs in weekly or less — and only to check or update one or two things when they do.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">02</div>
+                <h3 className="h3">Touches one or two screens</h3>
+                <p className="body">Lives in a single view — an order, a case, a record — and never uses the rest of the platform.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">03</div>
+                <h3 className="h3">Never builds anything</h3>
+                <p className="body">Doesn&apos;t create reports, dashboards, workflows, or automations. Consumes data, doesn&apos;t configure it.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">04</div>
+                <h3 className="h3">Is an external user</h3>
+                <p className="body">A partner, vendor, reseller, or customer who was handed a full seat only because nothing else existed.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">05</div>
+                <h3 className="h3">Was provisioned &ldquo;just in case&rdquo;</h3>
+                <p className="body">Given full access at setup or a role change, and never scaled back once the actual usage was clear.</p>
+              </div>
+              <div className="card">
+                <div className="card-num">06</div>
+                <h3 className="h3">Would be fine with less</h3>
+                <p className="body">Hand them a simple tool built for their one job and they&apos;d never miss the CRM behind it.</p>
+              </div>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "14px", color: "#475467" }}>
+              Every user who fits this profile is a seat a flat-fee <Link href="/custom-portal-development" className="link">custom portal</Link> can absorb — that&apos;s lever three above. Once you have a rough count, <Link href="/savings-calculator" className="link">run it through the savings calculator</Link> to see the per-seat-vs-flat-fee difference for your own numbers.
+            </p>
+          </div>
+        </section>
+
         {/* NOT A MIGRATION */}
-        <section className="section is-canvas">
+        <section className="section">
           <div className="container">
             <div className="split">
               <div>
