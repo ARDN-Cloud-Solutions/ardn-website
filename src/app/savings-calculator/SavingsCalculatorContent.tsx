@@ -575,7 +575,9 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
             {" · "}
-            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce seat-cost math →</Link>
+            {" · "}
+            <Link href="/compare/hubspot-seat-cost-vs-custom-portal">See the HubSpot seat-cost math →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}

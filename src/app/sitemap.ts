@@ -158,6 +158,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.85,
     },
     {
+        // Wedge spoke — "customer/client portal software" head term, targeted at
+        // the build-vs-buy sub-intent. Per-user SaaS vs flat-fee custom portal.
+        url: `${BASE_URL}/customer-portal-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Solution page — chapter/dues management (fraternities, sororities,
         // clubs). Niche, low-competition, high-intent.
         url: `${BASE_URL}/chapter-management-software`,

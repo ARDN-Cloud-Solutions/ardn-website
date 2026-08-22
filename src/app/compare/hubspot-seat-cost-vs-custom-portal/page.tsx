@@ -358,6 +358,7 @@ export default function HubspotSeatCostVsCustomPortalPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">The full guide: how to cut CRM licensing costs →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">On Salesforce instead? See the seat-cost math →</Link>
+              <Link href="/license-guard" className="link">Reclaim dormant CRM licenses first with License Guard →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full per-seat vs. flat-fee breakdown across every SaaS tool →</Link>
             </div>
           </div>

@@ -6,10 +6,9 @@ import ContactSection from "@/components/common/ContactSection";
 // OG image added so LinkedIn / Slack / Twitter previews render correctly when
 // the careers page is shared.
 export const metadata: Metadata = {
-  title:
-    "Careers at Ardn Cloud Solutions — Orlando AI & Salesforce Roles",
+  title: "Careers — Orlando AI & Salesforce Roles | Ardn",
   description:
-    "Join Ardn Cloud Solutions in Orlando, Florida. Open AI engineering, Salesforce, and custom development roles. Hybrid and remote-friendly culture, senior-led teams, and direct ownership from day one.",
+    "Open AI engineering, Salesforce & custom development roles at Ardn in Orlando, FL. Senior-led teams, hybrid/remote-friendly, real ownership from day one.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/career",
     languages: {

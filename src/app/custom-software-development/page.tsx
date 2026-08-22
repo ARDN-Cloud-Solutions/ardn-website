@@ -11,9 +11,9 @@ import LeadForm from "@/components/common/LeadForm";
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
 // capability, not the whole pitch.
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | Ardn",
+  title: "Custom Software Development Company | Ardn",
   description:
-    "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
+    "Custom software development company that designs, builds & runs custom software, platforms & portals — live in weeks, one flat fee. New customers build free.",
   keywords: [
     "custom software development",
     "custom software development company",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Software & Platform Development | Ardn",
+    title: "Custom Software Development Company | Ardn",
     description:
       "Custom software, platforms & portals that replace or connect your tools — built and run for you in weeks, one flat monthly fee. New customers build free.",
     url: "https://ardncloudsolutions.com/custom-software-development",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software & Platform Development | Ardn",
+    title: "Custom Software Development Company | Ardn",
     description:
       "Custom software, platforms & portals — built and run for you in weeks, one flat monthly fee. New customers build free.",
     site: "@ardn_cloud_sol",
@@ -175,7 +175,7 @@ export default function CustomSoftwareDevelopmentPage() {
               <div className="hero-copy">
                 <span className="eyebrow">Custom Software &amp; Platform Development</span>
                 <h1 className="display reveal">
-                  Custom software, built for <em>how you actually work.</em>
+                  Custom software development, built for <em>how you actually work.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Off-the-shelf tools make you bend your business to fit them,
@@ -365,7 +365,9 @@ export default function CustomSoftwareDevelopmentPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs →</Link>
               <Link href="/savings-calculator" className="link">Calculate your per-seat savings →</Link>
               <Link href="/license-guard" className="link">Reclaim dormant Salesforce licenses first →</Link>
-              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce &amp; HubSpot per-seat cost math →</Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce seat-cost math →</Link>
+              <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">HubSpot seat-cost math →</Link>
+              <Link href="/customer-portal-software" className="link">Customer portal software: build vs buy →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal cost →</Link>
             </div>
