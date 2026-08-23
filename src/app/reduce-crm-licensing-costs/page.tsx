@@ -379,6 +379,7 @@ export default function ReduceCrmLicensingCostsPage() {
               </Link>
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/reduce-salesforce-license-costs" className="link">On Salesforce? See the Salesforce-specific playbook →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
               <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
               <Link href="/custom-partner-portal-development" className="link">Replace per-login partner community seats with a custom partner portal →</Link>
@@ -411,7 +412,7 @@ export default function ReduceCrmLicensingCostsPage() {
           </div>
         </section>
 
-        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
+        <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers submitLabel="Send my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
