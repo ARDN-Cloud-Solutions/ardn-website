@@ -306,6 +306,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.85,
     },
+    {
+        // Wedge spoke — intercepts the "Salesforce alternative" query family
+        // with the honest counter-frame: don't migrate, move LIGHT users off
+        // per-seat licenses onto a flat-fee portal and keep Salesforce. Thin,
+        // un-owned commercial intent that maps exactly to the cost wedge.
+        url: `${BASE_URL}/salesforce-alternative-for-light-users`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -247,6 +247,40 @@ export default async function BlogPostPage({ params }: PageProps) {
                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                         />
 
+                        {/* Related solutions — connects every post to the money
+                            pages (hub + per-seat cost-reduction wedge). The blog
+                            body is WordPress HTML with no editorial links into
+                            the cluster, so this template block passes link equity
+                            from the site's largest organic surface to the pages
+                            that convert. */}
+                        <div className="mt-10 pt-8 border-t border-gray-100">
+                            <h2 className="text-lg font-semibold text-heading-dark mb-3">
+                                Related solutions from Ardn
+                            </h2>
+                            <ul className="flex flex-col gap-2 text-[15px]">
+                                <li>
+                                    <Link href="/reduce-crm-licensing-costs" className="text-primary font-medium hover:underline">
+                                        How to cut per-seat CRM licensing costs →
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/custom-portal-development" className="text-primary font-medium hover:underline">
+                                        Custom portal development — keep your CRM, cut the bill →
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/custom-software-development" className="text-primary font-medium hover:underline">
+                                        Custom software &amp; platform development →
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/savings-calculator" className="text-primary font-medium hover:underline">
+                                        Calculate your per-seat software savings →
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+
                         {/* Back link */}
                         <div className="mt-10 pt-8 border-t border-gray-100">
                             <Link
