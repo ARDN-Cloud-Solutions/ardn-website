@@ -115,7 +115,7 @@ export default function SavingsCalculatorContent() {
             <div className="sc-hero-checks">
               {[
                 "No per-user, per-seat, or per-location fees",
-                "Built in 3–4 weeks · Fixed quote within 48 hours",
+                "Built in 2–6 weeks · Fixed quote within 48 hours",
                 "HIPAA-ready architecture included",
                 "30+ years enterprise software experience",
                 "You own the IP and data outright",
@@ -224,7 +224,7 @@ export default function SavingsCalculatorContent() {
           {[
             { val: "30", em: "+", label: "Years enterprise experience" },
             { val: "0", em: "", label: "Per-seat or per-user fees" },
-            { val: "3", em: "–4", label: "Weeks from spec to live" },
+            { val: "2", em: "–6", label: "Weeks from spec to live" },
             { val: "48", em: " hrs", label: "Fixed quote turnaround" },
           ].map((s) => (
             <div key={s.label} className="sc-stat-item">
@@ -257,7 +257,7 @@ export default function SavingsCalculatorContent() {
               {
                 num: "Step 02",
                 title: "Build",
-                desc: "Our team builds your custom platform in 3–4 weeks with weekly demos. You're never in the dark.",
+                desc: "Our team builds your custom platform in 2–6 weeks with weekly demos. You're never in the dark.",
               },
               {
                 num: "Step 03",
@@ -517,7 +517,7 @@ export default function SavingsCalculatorContent() {
                 "All locations covered — no per-location fees ever",
                 "Unlimited users — no per-seat charges",
                 "HIPAA-ready architecture built in",
-                "Built in 3–4 weeks from signed agreement",
+                "Built in 2–6 weeks from signed agreement",
                 "Weekly demos — never a month of silence",
                 "Hosting, updates & security all included",
                 "You own the IP and all your data outright",
@@ -690,8 +690,22 @@ export default function SavingsCalculatorContent() {
               >
                 Book a free 30-min call →
               </Link>
+              {/* CRO: capture the not-ready-to-book majority at peak intent.
+                  Closes the modal and scrolls to the on-page LeadForm (#quote)
+                  so a savings reveal produces a lead instead of a dead end. */}
+              <button
+                type="button"
+                className="sc-btn-outline"
+                style={{ width: "100%", marginTop: "10px", justifyContent: "center" }}
+                onClick={() => {
+                  setModalOpen(false);
+                  document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Email me this breakdown instead →
+              </button>
               <div className="sc-modal-fine">
-                No pressure. No sales deck. Just your actual numbers in 30 minutes.
+                Prefer email? We&apos;ll send your breakdown plus a fixed quote — no call required.
               </div>
             </div>
           </div>

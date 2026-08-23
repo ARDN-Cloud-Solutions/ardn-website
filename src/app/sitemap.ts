@@ -290,6 +290,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Wedge SPOKE: Salesforce-specific cost-reduction money page off the
+        // reduce-crm-licensing-costs pillar. Targets brand-named intent
+        // ("reduce Salesforce license costs" / "Salesforce license optimization").
+        url: `${BASE_URL}/reduce-salesforce-license-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Wedge comparison spoke: Salesforce Experience Cloud vs. a flat-fee
         // custom portal. Captures Experience Cloud / Community Cloud cost intent.
         url: `${BASE_URL}/compare/salesforce-experience-cloud-vs-custom-portal`,

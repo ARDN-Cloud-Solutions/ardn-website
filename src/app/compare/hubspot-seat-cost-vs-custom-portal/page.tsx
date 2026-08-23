@@ -386,7 +386,7 @@ export default function HubspotSeatCostVsCustomPortalPage() {
           </div>
         </section>
 
-        <LeadForm source="HubSpot Seat Cost vs Custom Portal page" heading="See what your HubSpot seats are costing" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us roughly how many HubSpot users you have and how many are light users. We'll come back with where a portal cuts the seat bill — and a fixed quote." />
+        <LeadForm source="HubSpot Seat Cost vs Custom Portal page" heading="See what your HubSpot seats are costing" showSeatQualifiers submitLabel="Send my savings breakdown" sub="Tell us roughly how many HubSpot users you have and how many are light users. We'll come back with where a portal cuts the seat bill — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

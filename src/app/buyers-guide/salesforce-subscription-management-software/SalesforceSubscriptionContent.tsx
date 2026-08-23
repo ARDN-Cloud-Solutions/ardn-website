@@ -6,6 +6,7 @@ import ProductFAQ from "@/components/products/ProductFAQ";
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SalesforceSubscriptionContent() {
   const fadeIn = {
@@ -204,6 +205,16 @@ export default function SalesforceSubscriptionContent() {
               <li>It is primarily for membership management. And the per-user licensing becomes expensive at scale.</li>
               <li>Some users find the platform complicated to use.</li>
             </ul>
+            <p className="text-heading-dark my-6">
+              If per-user licensing is what&apos;s driving your cost, that&apos;s often the bigger problem to solve first.{" "}
+              <Link href="/reduce-salesforce-license-costs" className="text-primary font-semibold hover:underline">
+                See how to reduce your Salesforce license costs
+              </Link>{" "}
+              — or{" "}
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="text-primary font-semibold hover:underline">
+                the Salesforce seat-cost vs. custom-portal breakdown
+              </Link>.
+            </p>
 
             {/* Tool #3 — StoreConnect */}
             <strong className="block text-2xl font-semibold text-heading-dark mt-8 mb-4">

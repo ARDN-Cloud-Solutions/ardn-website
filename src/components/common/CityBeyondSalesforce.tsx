@@ -131,12 +131,28 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             AI-focused entry point. */}
         <div style={{ marginTop: 40, textAlign: "center" }}>
           <p className="body" style={{ fontSize: 15 }}>
-            Want to see your own numbers?{" "}
+            Paying too much for Salesforce seats?{" "}
+            <Link
+              href="/reduce-salesforce-license-costs"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              How to cut your Salesforce license costs →
+            </Link>
+          </p>
+          <p className="body mt-2" style={{ fontSize: 15 }}>
+            Want to see the numbers?{" "}
+            <Link
+              href="/compare/salesforce-seat-cost-vs-custom-portal"
+              style={{ color: "var(--indigo)", fontWeight: 600 }}
+            >
+              See the Salesforce per-seat vs. custom-portal cost math →
+            </Link>{" "}
+            or{" "}
             <Link
               href="/savings-calculator"
               style={{ color: "var(--indigo)", fontWeight: 600 }}
             >
-              Run your per-seat savings calculator →
+              run your per-seat savings calculator →
             </Link>
           </p>
           <p className="body mt-2" style={{ fontSize: 15 }}>

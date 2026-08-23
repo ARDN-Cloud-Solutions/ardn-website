@@ -376,7 +376,7 @@ export default function SalesforceSeatCostVsCustomPortalPage() {
           </div>
         </section>
 
-        <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
+        <LeadForm source="Salesforce Seat Cost vs Custom Portal page" heading="See what your seats are costing" showSeatQualifiers submitLabel="Send my savings breakdown" sub="Tell us which CRM you run and roughly how many light users. We'll come back with where a portal cuts the per-seat bill — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">

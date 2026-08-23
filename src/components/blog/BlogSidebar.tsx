@@ -110,6 +110,34 @@ export default function BlogSidebar({
                 </div>
             )}
 
+            {/* Cut CRM Costs — wedge promo. Blog post bodies come from WordPress
+                HTML and can't carry in-repo links, so this sidebar card is the
+                only lever to route the large blog audience into the per-seat
+                cost-reduction cluster (pillar + calculator). Renders on every
+                post and the listing. */}
+            <div className="border border-gray-100 overflow-hidden">
+                <WidgetHeader title="Cut Your CRM Costs" />
+                <div className="p-4 space-y-3">
+                    <p className="text-sm text-paragraph leading-relaxed">
+                        Paying full per-seat Salesforce or HubSpot licenses for light
+                        users? A custom portal moves them to one flat fee — no
+                        migration, no rip-and-replace.
+                    </p>
+                    <Link
+                        href="/reduce-crm-licensing-costs"
+                        className="block text-sm font-semibold text-primary hover:underline"
+                    >
+                        Read the CRM cost-reduction playbook →
+                    </Link>
+                    <Link
+                        href="/savings-calculator"
+                        className="block text-sm font-semibold text-primary hover:underline"
+                    >
+                        Calculate your per-seat savings →
+                    </Link>
+                </div>
+            </div>
+
             {/* Newsletter */}
             <div className="border border-gray-100 overflow-hidden">
                 <WidgetHeader title="Subscribe Newsletter" />

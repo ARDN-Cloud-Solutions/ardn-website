@@ -197,7 +197,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free CRM cost review</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="#quote" className="btn btn-secondary btn-lg">See what you could save →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -331,7 +331,7 @@ export default function CustomPortalDevelopmentPage() {
           </div>
         </section>
 
-        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
+        <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Send my savings breakdown" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 
         {/* FINAL CTA */}
         <section className="section" id="book">
