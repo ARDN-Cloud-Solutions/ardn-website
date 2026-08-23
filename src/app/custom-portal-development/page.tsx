@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import Testimonial from "@/components/common/Testimonial";
 
 // Solution page anchored to a real delivered build: custom seller + operations
 // portals that integrate with the client's CRM and offload light users from
@@ -245,8 +246,17 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
               ))}
             </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280", maxWidth: "760px" }}>
+              For scale: a full Salesforce Sales Cloud Enterprise seat lists at
+              roughly $165/user/month, and Experience Cloud external users bill
+              per login or per member on top — while a flat-fee portal costs the
+              same at 10 light users or 400. (List prices shown for illustration
+              only —{" "}
+              <Link href="/savings-calculator" className="link">run the calculator</Link> for your own negotiated rate.)
+            </p>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/salesforce-alternative-for-light-users" className="link">The Salesforce alternative for light users →</Link>
               <Link href="/custom-partner-portal-development" className="link">Partner, vendor &amp; distributor portals →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
@@ -330,6 +340,8 @@ export default function CustomPortalDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <Testimonial />
 
         <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 

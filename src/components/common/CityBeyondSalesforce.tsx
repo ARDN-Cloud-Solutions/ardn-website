@@ -65,6 +65,11 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             <Link href="/custom-portal-development" className="link">
               Explore Custom Portal Development
             </Link>
+            <p className="body mt-2" style={{ fontSize: 14 }}>
+              <Link href="/reduce-crm-licensing-costs" className="link">
+                How to reduce CRM licensing costs — the full guide →
+              </Link>
+            </p>
           </article>
 
           {/* AI Forge — custom AI dev practice */}

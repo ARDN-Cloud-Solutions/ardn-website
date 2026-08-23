@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "Salesforce Commerce AppExchange Solutions (2026) | Ardn",
   description:
-    "Compare the top Salesforce Commerce AppExchange solutions in 2026 — Ardn Storefronts, StoreConnect, Commerce Studio by 1440, EPOSLY, and more. Find the right Salesforce-native commerce app for B2B and B2C businesses.",
+    "Compare the top Salesforce Commerce AppExchange solutions in 2026 — Ardn Storefronts, StoreConnect, Commerce Studio by 1440, EPOSLY & more. B2B and B2C.",
   keywords: [
     "Salesforce Commerce AppExchange",
     "Salesforce ecommerce AppExchange",
