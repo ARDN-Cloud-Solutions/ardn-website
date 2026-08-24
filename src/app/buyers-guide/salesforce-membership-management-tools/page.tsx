@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Top Salesforce Membership Management Tools (2026) | Ardn",
   description:
-    "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow, and Ardn. Expert evaluation criteria, pitfalls to avoid, and buying questions that get you to the right fit.",
+    "Compare the best Salesforce membership management tools in 2026 — Nimble AMS, Fonteva, AC MemberSmart, SubscriptionFlow, and Ardn. Criteria and pitfalls.",
   keywords: [
     "Salesforce membership management tools",
     "Salesforce membership software",

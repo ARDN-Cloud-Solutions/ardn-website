@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Best Salesforce Event Ticketing Platforms (2026) | Ardn",
   description:
-    "Compare the top 7 Salesforce event ticketing platforms in 2026 — Ardn Storefronts, Blackthorn.io, Fonteva Events, AC Events Enterprise, EVA, Ticketbud, and Eventbrite. Native solutions for events, registrations, and payments inside Salesforce.",
+    "Compare the top 7 Salesforce event ticketing platforms in 2026 — Ardn Storefronts, Blackthorn, Fonteva Events, AC Events, EVA, Ticketbud, Eventbrite.",
   keywords: [
     "Salesforce event ticketing",
     "Salesforce event registration",

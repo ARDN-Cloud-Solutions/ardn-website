@@ -19,8 +19,11 @@ export default function LandingPageContent() {
               </div>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai" target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                <Link href="#approach" className="btn btn-secondary btn-lg">How it works</Link>
+                <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
               </div>
+              <p className="body reveal reveal-d3" style={{ marginTop: "12px", fontSize: "14px" }}>
+                <Link href="#approach" style={{ color: "var(--indigo)", fontWeight: 600 }}>Or see how it works →</Link>
+              </p>
             </div>
             <aside className="hero-aside reveal reveal-d4">
               {/* AI-first hero card: spotlights AI Forge (the flagship) with the
@@ -74,7 +77,9 @@ export default function LandingPageContent() {
             <Link href="/custom-portal-development" className="link">Paying per-seat CRM fees? See how a custom portal cuts them →</Link>
             <Link href="/custom-partner-portal-development" className="link">Cut per-login partner &amp; dealer portal costs →</Link>
             <Link href="/reduce-crm-licensing-costs" className="link">How to cut CRM licensing costs — the full guide →</Link>
-            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the per-seat cost math →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">Salesforce seat-cost vs. custom portal →</Link>
+            <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">HubSpot seat-cost vs. custom portal →</Link>
+            <Link href="/compare/custom-software-vs-saas" className="link">Custom software vs. SaaS: total cost →</Link>
           </div>
         </div>
       </section>

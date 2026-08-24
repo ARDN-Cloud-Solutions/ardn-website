@@ -124,7 +124,10 @@ export default function LeadForm({
                 <p className="body">{sub}</p>
               </div>
               <form onSubmit={handleSubmit} style={{ display: "grid", gap: "16px" }}>
-                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                {/* auto-fit + minmax stacks these to one column on narrow
+                    phones (inline styles can't be hit by a media query), so
+                    the two inputs never cram side-by-side on ~360px screens. */}
+                <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
                   <div>
                     <label style={labelStyle} htmlFor="lf-name">Name *</label>
                     <input id="lf-name" name="name" type="text" required style={inputStyle} placeholder="Your name" />
@@ -139,7 +142,7 @@ export default function LeadForm({
                   <input id="lf-company" name="company" type="text" style={inputStyle} placeholder="Company name (optional)" />
                 </div>
                 {showSeatQualifiers && (
-                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
+                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
                     <div>
                       <label style={labelStyle} htmlFor="lf-crm">Which CRM do you run?</label>
                       <input id="lf-crm" name="crm" type="text" style={inputStyle} placeholder="Salesforce, HubSpot… (optional)" />

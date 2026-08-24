@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     "customer portal development",
     "client portal software",
     "customer portal software",
+    "custom customer portal software",
+    "portal software no per-seat fee",
     "reduce CRM licensing costs",
     "reduce per-seat license costs",
     "Salesforce portal integration",
@@ -251,6 +253,7 @@ export default function CustomPortalDevelopmentPage() {
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
               <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
+              <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">See the full per-seat vs. flat-fee cost breakdown →</Link>
             </div>
           </div>
@@ -305,6 +308,77 @@ export default function CustomPortalDevelopmentPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 3-WAY COMPARISON — the gap no competitor owns: custom flat-fee
+            portal vs. Salesforce Experience Cloud (per-login/member) vs.
+            off-the-shelf portal software (per-user). Also carries the
+            "customer portal software" head term in the H2. */}
+        <section className="section" id="compare">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">How the options compare</span>
+                <h2 className="h1 mt-3">Customer portal software, <em>three ways.</em></h2>
+              </div>
+              <div>
+                <p className="lede">Most &ldquo;customer portal software&rdquo; still meters you per user or per login. Here&apos;s how a custom flat-fee portal stacks up against the two common alternatives.</p>
+              </div>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="compare compare-vertical">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Custom portal (Ardn)</th>
+                    <th>Salesforce Experience Cloud</th>
+                    <th>Off-the-shelf portal software</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="feat">Cost model</td>
+                    <td className="is-yes" style={{ background: "rgba(27,111,201,0.06)" }}>One flat monthly fee</td>
+                    <td className="is-no">Per login or per member</td>
+                    <td className="is-no">Per user / per subscription</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Cost of adding users</td>
+                    <td className="is-yes">$0 — flat at any headcount</td>
+                    <td className="is-no">Climbs with logins/members</td>
+                    <td className="is-no">Climbs per seat</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Shaped to your workflow</td>
+                    <td className="is-yes">Built to your exact process</td>
+                    <td className="is-no">Configured within templates</td>
+                    <td className="is-no">Limited to the product</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">CRM integration</td>
+                    <td className="is-yes">Two-way, live via API</td>
+                    <td className="is-yes">Native (Salesforce only)</td>
+                    <td className="is-no">Connector-dependent</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">You own it</td>
+                    <td className="is-yes">You own the IP &amp; data</td>
+                    <td className="is-no">Licensed, not owned</td>
+                    <td className="is-no">Licensed, not owned</td>
+                  </tr>
+                  <tr>
+                    <td className="feat">Built &amp; run for you</td>
+                    <td className="is-yes">Built and operated by Ardn</td>
+                    <td className="is-no">You build &amp; maintain</td>
+                    <td className="is-no">You build &amp; maintain</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="body mt-4" style={{ fontSize: "13px", color: "#6b7280" }}>
+              A comparison of cost models, not a quote. See the underlying math on the <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. custom portal</Link> page, or <Link href="/savings-calculator" className="link">run your own numbers</Link>.
+            </p>
           </div>
         </section>
 

@@ -247,6 +247,38 @@ export default async function BlogPostPage({ params }: PageProps) {
                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                         />
 
+                        {/* Related-solutions CTA — funnels equity from the
+                            blog corpus into the per-seat cost-reduction wedge.
+                            Every post (many on CRM cost / per-seat / verticals)
+                            previously linked only to /blog and other posts. */}
+                        <aside className="mt-12 rounded-2xl border border-primary/15 bg-primary-light/60 p-6 md:p-8">
+                            <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
+                                Paying per seat for light CRM users?
+                            </p>
+                            <h3 className="text-xl md:text-2xl font-semibold text-heading-dark mb-3">
+                                Keep your CRM. Cut the bill.
+                            </h3>
+                            <p className="text-muted text-[15px] leading-relaxed mb-5">
+                                ARDN builds custom portals that move light users off per-seat
+                                licenses onto one flat monthly fee — integrated with your
+                                existing CRM, no rip-and-replace. See where the savings are.
+                            </p>
+                            <div className="flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-medium">
+                                <Link href="/reduce-crm-licensing-costs" className="text-primary hover:underline">
+                                    How to cut CRM licensing costs →
+                                </Link>
+                                <Link href="/savings-calculator" className="text-primary hover:underline">
+                                    Calculate your per-seat savings →
+                                </Link>
+                                <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="text-primary hover:underline">
+                                    Salesforce seat-cost vs. a custom portal →
+                                </Link>
+                                <Link href="/custom-portal-development" className="text-primary hover:underline">
+                                    Replace per-seat licenses with a custom portal →
+                                </Link>
+                            </div>
+                        </aside>
+
                         {/* Back link */}
                         <div className="mt-10 pt-8 border-t border-gray-100">
                             <Link
