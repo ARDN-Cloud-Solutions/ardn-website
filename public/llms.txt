@@ -13,7 +13,8 @@
 - [Salesforce Payments](https://ardncloudsolutions.com/salesforce-payments): Quote-to-cash inside Salesforce — branded checkout, real-time status, and automated reconciliation.
 - [License Guard](https://ardncloudsolutions.com/license-guard): Salesforce-native tool that detects and reclaims unused Salesforce licenses, typically paying back its annual cost within a quarter.
 - [AI-Powered Support (ReplyCX)](https://ardncloudsolutions.com/ai-powered-support): No-code AI agents that automate roughly 70% of routine customer queries across WhatsApp, email, live chat, and social — in one inbox.
-- [Membership Management](https://ardncloudsolutions.com/membership-management): A flexible membership platform for gyms, YMCAs, studios, clubs, and associations — recurring billing, class scheduling, attendance, and a branded member portal.
+- [Membership Management](https://ardncloudsolutions.com/membership-management): An all-in-one membership platform for gyms, studios, clubs, community centers, and associations — recurring billing, classes and programs, events, fundraising, marketing, and a branded member portal, for one flat monthly fee.
+- [YMCA Management Software](https://ardncloudsolutions.com/ymca-management-software): Membership, billing, front-desk check-in, programs, and a full fundraising CRM for multi-branch YMCAs, JCCs, and community nonprofits — members and donors in one record, flat monthly fee (never a percentage of revenue), free pilot in the organization's own branding.
 
 ## Company
 

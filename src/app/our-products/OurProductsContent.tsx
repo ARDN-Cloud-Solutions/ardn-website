@@ -183,6 +183,11 @@ export default function OurProductsContent() {
               <p className="body">Automatic dues, member records, and events for fraternities, sororities, and clubs.</p>
               <span className="link">Explore chapter management →</span>
             </Link>
+            <Link href="/ymca-management-software" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">YMCA Management Software</h3>
+              <p className="body">Membership, check-in, programs, and a full fundraising CRM for multi-branch Ys — members and donors in one record.</p>
+              <span className="link">Explore the Y edition →</span>
+            </Link>
             <div className="card">
               <h3 className="h3">AI by Industry</h3>
               <p className="body">Vertical AI built for specific businesses:</p>

@@ -48,6 +48,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Vertical landing page — owns the YMCA/Daxko-alternative keyword set.
+        url: `${BASE_URL}/ymca-management-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/ai-forge`,
         lastModified: new Date(),
         changeFrequency: "monthly",

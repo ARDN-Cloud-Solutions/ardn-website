@@ -32,6 +32,7 @@ const products = [
   { label: "License Guard", href: "/license-guard" },
   { label: "AI-Powered Support", href: "/ai-powered-support" },
   { label: "Membership Management", href: "/membership-management" },
+  { label: "YMCA Management Software", href: "/ymca-management-software" },
   // { label: "Signup Dance Studio", href: "/signup-dance-studio" },
   // { label: "Signup Fitness Studio", href: "/signup-fitness-studio" },
 ];

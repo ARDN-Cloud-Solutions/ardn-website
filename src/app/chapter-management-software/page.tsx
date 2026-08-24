@@ -228,6 +228,7 @@ export default function ChapterManagementSoftwarePage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/membership-management" className="link">Running a gym, studio, or association instead? See Membership Management →</Link>
+              <Link href="/ymca-management-software" className="link">Running a YMCA or community center? See YMCA management software →</Link>
               <Link href="/custom-portal-development" className="link">Paying per-seat AMS fees for volunteer officers? Give them a portal instead →</Link>
               <Link href="/savings-calculator" className="link">Calculate what per-member &amp; per-seat fees cost you →</Link>
             </div>
