@@ -105,6 +105,10 @@ const FAQS = [
     a: "No. The platform has its own full fundraising CRM — campaigns, pledges, gift batches, acknowledgments, grants, major-gift pipeline — but it also connects to Blackbaud Raiser's Edge NXT for constituent sync if your development office keeps it, and the integration store includes QuickBooks Online, Mailchimp, HubSpot, and more. You choose what stays.",
   },
   {
+    q: "What are the contract terms?",
+    a: "The standard agreement is a 12-month term — that commitment is what funds the partnership-level implementation pricing — with annual increases capped at CPI (maximum 4%) so renewals never surprise you. If you'd rather not commit, we offer a month-to-month option at a higher monthly rate. Either way, the 60-day go-live guarantee applies: if it isn't working in the first 60 days after go-live, you can exit with your subscription fees for that period refunded.",
+  },
+  {
     q: "Who owns our data?",
     a: "You do, unambiguously. Every record lives in your tenant, exportable to CSV from the app, and we'll never charge you a fee to take your own data with you. Tenant isolation is enforced at the database layer with row-level security, so your association's data is structurally separated from anyone else's.",
   },
@@ -287,7 +291,7 @@ export default function YmcaManagementSoftwarePage() {
           </div>
         </section>
 
-        <TrustBar />
+        <TrustBar signals={["US-based team", "30+ yrs building software", "4-hour response SLA", "60-day go-live guarantee"]} />
 
         {/* RISK REVERSAL — replaces the customer-logo bar */}
         <section className="section-tight section">
@@ -695,10 +699,12 @@ export default function YmcaManagementSoftwarePage() {
               your own Stripe account.
             </p>
             <p className="body mt-4" style={{ color: "var(--slate-2)" }}>
-              Annual increases are capped at CPI (maximum 4%) in your
-              agreement — no surprise renewal hikes — and every quote comes
-              with a board-ready summary of the numbers so your leadership can
-              decide with everything on one page.
+              Standard agreements run 12 months, with annual increases capped
+              at CPI (maximum 4%) in writing — no surprise renewal hikes. If
+              your board prefers not to commit, a month-to-month option is
+              available at a higher monthly rate. Every quote comes with a
+              board-ready summary so your leadership can decide with
+              everything on one page.
             </p>
             <p className="small mt-4" style={{ color: "var(--slate-3)" }}>
               60-day go-live guarantee: if the platform isn&apos;t working for

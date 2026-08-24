@@ -12,14 +12,22 @@ import { MapPin, Shield, Clock, Award } from "lucide-react";
  *     (not Salesforce-specific, so we don't read as a one-stack shop).
  *   - "4-hour response SLA" → reduces "will they ghost me?" friction.
  *   - "No lock-in — cancel in 30 days" → concrete risk reversal.
+ *
+ * `signals` prop: pages whose commercial terms differ from the default
+ * claims MUST override the 4th signal — Membership Management runs on a
+ * 12-month term, so "cancel in 30 days" would be false advertising there
+ * (owner correction 2026-08-24). Icons cycle MapPin/Award/Clock/Shield.
  */
-export default function TrustBar() {
-  const items = [
-    { Icon: MapPin, text: "US-based team" },
-    { Icon: Award, text: "30+ yrs building software" },
-    { Icon: Clock, text: "4-hour response SLA" },
-    { Icon: Shield, text: "No lock-in — cancel in 30 days" },
-  ];
+export default function TrustBar({ signals }: { signals?: string[] }) {
+  const ICONS = [MapPin, Award, Clock, Shield];
+  const items = (
+    signals ?? [
+      "US-based team",
+      "30+ yrs building software",
+      "4-hour response SLA",
+      "No lock-in — cancel in 30 days",
+    ]
+  ).map((text, i) => ({ Icon: ICONS[i % ICONS.length], text }));
 
   return (
     <aside

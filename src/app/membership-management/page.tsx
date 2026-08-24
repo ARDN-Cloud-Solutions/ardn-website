@@ -100,6 +100,10 @@ const FAQS = [
     a: "Yes. Stripe powers payments; email connects through SendGrid, Postmark, Resend, or Mailchimp; Google Analytics is built in; and the integration store includes HubSpot, QuickBooks Online, Google Calendar, Zoom, Blackbaud Raiser's Edge NXT, and more. Each connection is configured per organization with credentials stored encrypted — the platform is CRM-agnostic by design, so Salesforce and HubSpot stay systems you connect to, not systems you're locked into.",
   },
   {
+    q: "What are the contract terms?",
+    a: "The standard agreement is a 12-month term with annual increases capped at CPI (maximum 4%) — no surprise renewal hikes. Prefer not to commit? A month-to-month option is available at a higher monthly rate. Either way, the 60-day go-live guarantee applies: if it isn't working in the first 60 days after go-live, you can exit with your subscription fees for that period refunded.",
+  },
+  {
     q: "Who owns our data?",
     a: "You do. Every record lives in your own tenant, isolated at the database layer with Postgres row-level security, and exports to CSV from the app. We will never charge an exit fee for your own data.",
   },
@@ -287,7 +291,7 @@ export default function MembershipManagementPage() {
           </div>
         </section>
 
-        <TrustBar />
+        <TrustBar signals={["US-based team", "30+ yrs building software", "4-hour response SLA", "60-day go-live guarantee"]} />
 
         {/* RISK REVERSAL */}
         <section className="section-tight section">
@@ -576,6 +580,11 @@ export default function MembershipManagementPage() {
               a fixed written quote before you commit. No per-member fees, no
               per-seat fees, no commissions — and your payments settle in your
               own Stripe account.
+            </p>
+            <p className="body mt-4" style={{ color: "var(--slate-2)" }}>
+              Standard agreements run 12 months with annual increases capped
+              at CPI (maximum 4%) — or choose a month-to-month option at a
+              higher monthly rate.
             </p>
             <p className="small mt-4" style={{ color: "var(--slate-3)" }}>
               60-day go-live guarantee: if the platform isn&apos;t working for
