@@ -25,7 +25,10 @@ import LeadForm from "@/components/common/LeadForm";
 // - Truth guardrails: no claims of POS/day passes, childcare compliance,
 //   dunning/returned drafts, SilverSneakers, SMS, Nationwide reciprocity,
 //   GL export, mobile app, or production customers.
-// - $699/mo anchor: carried over from prior site copy; confirm before launch.
+// - Pricing (owner-confirmed 2026-08-24, matches the live St. Pete proposal):
+//   $9,000/mo subscription + $9,500 one-time implementation (vs $45k–55k
+//   standard), 36-month term, CPI-capped escalation (max 4%/yr).
+//   Guarantee: 60-day go-live money-back, subscription fees only.
 // All screenshots are real product UI from the seeded multi-branch demo
 // association (synthetic data only).
 export const metadata: Metadata = {
@@ -62,7 +65,7 @@ export const metadata: Metadata = {
         url: "/images/membership/ops-overview.webp",
         width: 1200,
         height: 630,
-        alt: "Ardn Membership Management operations dashboard for a multi-branch YMCA",
+        alt: "Ardn Membership Management operations dashboard for a multi-branch association",
       },
     ],
     locale: "en_US",
@@ -87,11 +90,11 @@ const FAQS = [
   },
   {
     q: "How is this priced?",
-    a: "A flat monthly subscription for your whole association — starting around $699/month depending on branches and modules — with a fixed quote in writing before you commit. It is never a percentage of your organization's revenue, and payments run through your own Stripe merchant account, so your processing relationship belongs to you, not to your software vendor. For most associations that puts the annual cost inside the range an executive director can approve without a full RFP cycle.",
+    a: "Partnership pricing: a flat monthly subscription from $9,000/month for the whole association — hosting, licenses, updates, and a dedicated support team included — plus a one-time implementation from $9,500, where a standard association-platform implementation typically runs $45,000–55,000 before integrations. Annual increases are capped at CPI (maximum 4%) in the agreement. It is never a percentage of your organization's revenue, and payments run through your own Stripe merchant account, so your processing relationship belongs to you, not to your software vendor.",
   },
   {
     q: "What is the money-back guarantee?",
-    a: "If the platform isn't working for your team in the first months after go-live, we refund your subscription fees for that period. Exact terms are written into your agreement before you sign — we'd rather put the risk on us than ask a nonprofit board to take it on faith.",
+    a: "If the platform isn't working for your team, cancel within 60 days of go-live and we refund the subscription fees paid for that period. It excludes third-party costs such as payment processing, and the full terms are written into your agreement before you sign — we'd rather put the risk on us than ask a nonprofit board to take it on faith.",
   },
   {
     q: "We budget on a July–June fiscal year. When should we start looking?",
@@ -259,7 +262,7 @@ export default function YmcaManagementSoftwarePage() {
                 <div className="card" style={{ padding: "16px" }}>
                   <Image
                     src="/images/membership/ops-overview.webp"
-                    alt="Operations dashboard for a multi-branch YMCA — active members, revenue by branch, donations, and check-ins in one live view"
+                    alt="Operations dashboard for a multi-branch association — active members, revenue by branch, donations, and check-ins in one live view"
                     width={1920}
                     height={1200}
                     priority
@@ -301,11 +304,12 @@ export default function YmcaManagementSoftwarePage() {
               </div>
               <div className="card">
                 <div className="card-num">02</div>
-                <h3 className="h3">Money-back guarantee</h3>
+                <h3 className="h3">60-day money-back guarantee</h3>
                 <p className="body">
-                  If it isn&apos;t working for your team after go-live, we
-                  refund the subscription for that period. The terms go in
-                  writing before you commit — the risk sits with us.
+                  If it isn&apos;t working for your team, cancel within 60
+                  days of go-live and we refund the subscription fees for that
+                  period. Terms in writing before you commit — the risk sits
+                  with us.
                 </p>
               </div>
               <div className="card">
@@ -391,6 +395,8 @@ export default function YmcaManagementSoftwarePage() {
                   gifts, pledges, and volunteer hours on one timeline your
                   membership team and your development office both see.
                 </p>
+              </div>
+              <div>
                 <p className="body mt-4">
                   That&apos;s the demo neither an operations-only platform nor
                   a fundraising-only CRM can give — and it&apos;s why the
@@ -400,24 +406,22 @@ export default function YmcaManagementSoftwarePage() {
                   grants, and a weighted major-gift pipeline.
                 </p>
               </div>
-              <div>
-                <Image
-                  src="/images/membership/gift-pipeline.webp"
-                  alt="Major-gift opportunities pipeline with weighted portfolio value, cultivation stages, and ask amounts"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-                <p
-                  className="small"
-                  style={{ marginTop: "10px", color: "var(--slate-2)" }}
-                >
-                  The development office&apos;s major-gift pipeline — weighted
-                  portfolio value, cultivation stages, and asks — inside the
-                  same platform the front desk uses.
-                </p>
-              </div>
             </div>
+            <Image
+              src="/images/membership/gift-pipeline.webp"
+              alt="Major-gift opportunities pipeline with weighted portfolio value, cultivation stages, and ask amounts"
+              width={1920}
+              height={1200}
+              style={{ ...shotFrame, marginTop: "32px" }}
+            />
+            <p
+              className="small"
+              style={{ marginTop: "10px", color: "var(--slate-2)" }}
+            >
+              The development office&apos;s major-gift pipeline — weighted
+              portfolio value, cultivation stages, and asks — inside the same
+              platform the front desk uses.
+            </p>
           </div>
         </section>
 
@@ -440,105 +444,89 @@ export default function YmcaManagementSoftwarePage() {
               </div>
             </div>
 
-            <div className="split mt-6">
-              <div>
-                <span className="eyebrow">Front desk</span>
-                <h3 className="h2 mt-2">
-                  Arrivals in seconds, <em>not clicks.</em>
-                </h3>
-                <p className="body mt-3">
-                  One scan screen handles barcodes, guest passes, and name
-                  lookup. Staff see the member&apos;s photo, status, and every
-                  valid destination — facility, the class starting now,
-                  today&apos;s program, a volunteer shift — plus a live
-                  who&apos;s-in-the-building roster for emergency headcounts.
-                </p>
-              </div>
-              <div>
-                <Image
-                  src="/images/membership/front-desk-checkin.webp"
-                  alt="Front-desk check-in screen with barcode scan, today's schedule, and a live in-building roster"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
+            <div className="mt-6">
+              <span className="eyebrow">Front desk</span>
+              <h3 className="h2 mt-2">
+                Arrivals in seconds, <em>not clicks.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                One scan screen handles barcodes, guest passes, and name
+                lookup. Staff see the member&apos;s photo, status, and every
+                valid destination — facility, the class starting now,
+                today&apos;s program, a volunteer shift — plus a live
+                who&apos;s-in-the-building roster for emergency headcounts.
+              </p>
+              <Image
+                src="/images/membership/front-desk-checkin.webp"
+                alt="Front-desk check-in screen with barcode scan, today's schedule, and a live in-building roster"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
 
-            <div className="split mt-7">
-              <div>
-                <Image
-                  src="/images/membership/membership-plans.webp"
-                  alt="Membership plan catalog with per-branch pricing, discount variants, financial assistance, and locked historical pricing"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
-              <div>
-                <span className="eyebrow">Membership &amp; billing</span>
-                <h3 className="h2 mt-2">
-                  Real Y pricing, <em>without the spreadsheet.</em>
-                </h3>
-                <p className="body mt-3">
-                  Family, age-banded, and per-branch plans with versioned
-                  pricing — existing members keep the rate they enrolled at
-                  when you raise prices. Households, split billing between
-                  payers, mid-term plan changes with automatic proration, and
-                  financial-assistance rates that follow the member to every
-                  charge point.
-                </p>
-              </div>
+            <div className="mt-7">
+              <span className="eyebrow">Membership &amp; billing</span>
+              <h3 className="h2 mt-2">
+                Real Y pricing, <em>without the spreadsheet.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                Family, age-banded, and per-branch plans with versioned
+                pricing — existing members keep the rate they enrolled at
+                when you raise prices. Households, split billing between
+                payers, mid-term plan changes with automatic proration, and
+                financial-assistance rates that follow the member to every
+                charge point.
+              </p>
+              <Image
+                src="/images/membership/membership-plans.webp"
+                alt="Membership plan catalog with per-branch pricing, discount variants, financial assistance, and locked historical pricing"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
 
-            <div className="split mt-7">
-              <div>
-                <span className="eyebrow">Reporting</span>
-                <h3 className="h2 mt-2">
-                  Board answers <em>without a SQL developer.</em>
-                </h3>
-                <p className="body mt-3">
-                  Certified datasets, a saved-report builder with charts,
-                  dashboards, and revenue rollups by branch and region.
-                  Attendance by program, donations by campaign, check-in volume
-                  by branch — the questions your board actually asks, answered
-                  by the person they ask.
-                </p>
-              </div>
-              <div>
-                <Image
-                  src="/images/membership/reporting.webp"
-                  alt="Reports and analytics library with attendance, donations, and check-in volume reports"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
+            <div className="mt-7">
+              <span className="eyebrow">Reporting</span>
+              <h3 className="h2 mt-2">
+                Board answers <em>without a SQL developer.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                Certified datasets, a saved-report builder with charts,
+                dashboards, and revenue rollups by branch and region.
+                Attendance by program, donations by campaign, check-in volume
+                by branch — the questions your board actually asks, answered
+                by the person they ask.
+              </p>
+              <Image
+                src="/images/membership/reporting.webp"
+                alt="Reports and analytics library with attendance, donations, and check-in volume reports"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
 
-            <div className="split mt-7">
-              <div>
-                <Image
-                  src="/images/membership/member-portal.webp"
-                  alt="Branded public member portal with membership join, program browsing, and camp registration"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
-              <div>
-                <span className="eyebrow">Member portal</span>
-                <h3 className="h2 mt-2">
-                  Your brand, <em>not ours.</em>
-                </h3>
-                <p className="body mt-3">
-                  Members join, register for programs and camps, book trainers,
-                  give, RSVP, and sign waivers on a portal that carries your
-                  Y&apos;s logo, colors, and voice. Theming is applied per
-                  tenant at provisioning — our tool reads your existing website
-                  and matches it, usually in minutes.
-                </p>
-              </div>
+            <div className="mt-7">
+              <span className="eyebrow">Member portal</span>
+              <h3 className="h2 mt-2">
+                Your brand, <em>not ours.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                Members join, register for programs and camps, book trainers,
+                give, RSVP, and sign waivers on a portal that carries your
+                Y&apos;s logo, colors, and voice. Theming is applied per
+                tenant at provisioning — our tool reads your existing website
+                and matches it, usually in minutes.
+              </p>
+              <Image
+                src="/images/membership/member-portal.webp"
+                alt="Branded public member portal with membership join, program browsing, and camp registration"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
           </div>
         </section>
@@ -694,20 +682,29 @@ export default function YmcaManagementSoftwarePage() {
           <div className="container container-narrow" style={{ textAlign: "center" }}>
             <span className="eyebrow">Pricing</span>
             <h2 className="h1 mt-3">
-              Flat. Predictable. <em>Board-approvable.</em>
+              Flat. Predictable. <em>In writing.</em>
             </h2>
             <p className="lede mx-auto mt-4">
-              One flat monthly subscription for the whole association —
-              starting around <strong>$699/month</strong>, sized by branches
-              and modules, with a fixed quote in writing before you commit.
-              Never a percentage of your revenue. Never a per-member tax on
-              growth. Payments settle in your own Stripe account.
+              Partnership pricing for the whole association: a flat
+              subscription from <strong>$9,000/month</strong> — hosting,
+              licenses, updates, and a dedicated support team included — plus
+              a one-time implementation from <strong>$9,500</strong>, where a
+              standard association-platform implementation runs
+              $45,000–55,000 before integrations. Never a percentage of your
+              revenue. Never a per-member tax on growth. Payments settle in
+              your own Stripe account.
             </p>
             <p className="body mt-4" style={{ color: "var(--slate-2)" }}>
-              For most associations that&apos;s inside the range an executive
-              director can approve without a full RFP — and we&apos;ll give you
-              a board-ready summary of the numbers to make that conversation
-              easy.
+              Annual increases are capped at CPI (maximum 4%) in your
+              agreement — no surprise renewal hikes — and every quote comes
+              with a board-ready summary of the numbers so your leadership can
+              decide with everything on one page.
+            </p>
+            <p className="small mt-4" style={{ color: "var(--slate-3)" }}>
+              60-day go-live guarantee: if the platform isn&apos;t working for
+              your team, cancel within 60 days of go-live and we refund the
+              subscription fees paid for that period. Excludes third-party
+              costs such as payment processing. Full terms in your agreement.
             </p>
             <div className="hero-ctas mt-5" style={{ justifyContent: "center" }}>
               <Link

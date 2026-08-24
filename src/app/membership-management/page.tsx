@@ -19,7 +19,9 @@ import LeadForm from "@/components/common/LeadForm";
 //
 // Offer (owner-approved 2026-08-24): free pilot sandbox in the org's branding
 // + money-back guarantee. NOT promised: free migration, month-to-month terms.
-// $699/mo anchor carried from prior site copy; confirm before launch.
+// Pricing (owner decision 2026-08-24): general page holds the $699/mo anchor;
+// the YMCA page carries the $9,000/mo + $9,500 partnership pricing.
+// Guarantee: 60-day go-live money-back, subscription fees only.
 // Truth guardrails: no POS/day-pass, childcare-compliance, dunning, SMS, or
 // mobile-app claims. Screenshots are real product UI on a seeded demo tenant.
 export const metadata: Metadata = {
@@ -91,7 +93,7 @@ const FAQS = [
   },
   {
     q: "What is the money-back guarantee?",
-    a: "If the platform isn't working for your team in the first months after go-live, we refund your subscription fees for that period. The exact terms are written into your agreement before you sign.",
+    a: "If the platform isn't working for your team, cancel within 60 days of go-live and we refund the subscription fees paid for that period. It excludes third-party costs such as payment processing, and the exact terms are written into your agreement before you sign.",
   },
   {
     q: "Does it integrate with the tools we already run?",
@@ -302,11 +304,11 @@ export default function MembershipManagementPage() {
               </div>
               <div className="card">
                 <div className="card-num">02</div>
-                <h3 className="h3">Money-back guarantee</h3>
+                <h3 className="h3">60-day money-back guarantee</h3>
                 <p className="body">
-                  If it isn&apos;t working for your team after go-live, we
-                  refund the subscription for that period — terms in writing
-                  before you commit.
+                  If it isn&apos;t working for your team, cancel within 60
+                  days of go-live and we refund the subscription fees for that
+                  period — terms in writing before you commit.
                 </p>
               </div>
               <div className="card">
@@ -392,99 +394,83 @@ export default function MembershipManagementPage() {
               </div>
             </div>
 
-            <div className="split mt-6">
-              <div>
-                <span className="eyebrow">Operations</span>
-                <h3 className="h2 mt-2">
-                  Today&apos;s numbers, <em>at a glance.</em>
-                </h3>
-                <p className="body mt-3">
-                  Active members, revenue run-rate, new joins, donations,
-                  check-ins, and a 90-day forecast — live, per location, with
-                  quick actions for the things staff reach for most.
-                </p>
-              </div>
-              <div>
-                <Image
-                  src="/images/membership/ops-overview.webp"
-                  alt="Operations dashboard with active members, revenue by location, and quick actions"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
+            <div className="mt-6">
+              <span className="eyebrow">Operations</span>
+              <h3 className="h2 mt-2">
+                Today&apos;s numbers, <em>at a glance.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                Active members, revenue run-rate, new joins, donations,
+                check-ins, and a 90-day forecast — live, per location, with
+                quick actions for the things staff reach for most.
+              </p>
+              <Image
+                src="/images/membership/ops-overview.webp"
+                alt="Operations dashboard with active members, revenue by location, and quick actions"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
 
-            <div className="split mt-7">
-              <div>
-                <Image
-                  src="/images/membership/front-desk-checkin.webp"
-                  alt="Front-desk check-in screen with barcode scan and live in-building roster"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
-              <div>
-                <span className="eyebrow">Front desk</span>
-                <h3 className="h2 mt-2">
-                  Arrivals in seconds, <em>not clicks.</em>
-                </h3>
-                <p className="body mt-3">
-                  Scan a barcode or type a name; staff see the member&apos;s
-                  photo, status, and every valid destination in one popup —
-                  plus a live who&apos;s-in-the-building roster and one-step
-                  walk-in registration.
-                </p>
-              </div>
+            <div className="mt-7">
+              <span className="eyebrow">Front desk</span>
+              <h3 className="h2 mt-2">
+                Arrivals in seconds, <em>not clicks.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                Scan a barcode or type a name; staff see the member&apos;s
+                photo, status, and every valid destination in one popup —
+                plus a live who&apos;s-in-the-building roster and one-step
+                walk-in registration.
+              </p>
+              <Image
+                src="/images/membership/front-desk-checkin.webp"
+                alt="Front-desk check-in screen with barcode scan and live in-building roster"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
 
-            <div className="split mt-7">
-              <div>
-                <span className="eyebrow">Member portal</span>
-                <h3 className="h2 mt-2">
-                  Your brand, <em>your members, your money.</em>
-                </h3>
-                <p className="body mt-3">
-                  Members join, register, book trainers, buy session packs,
-                  give, and RSVP on a portal themed to your organization — our
-                  provisioning tool reads your website and matches your logo,
-                  colors, and fonts automatically.
-                </p>
-              </div>
-              <div>
-                <Image
-                  src="/images/membership/member-portal.webp"
-                  alt="Branded public member portal with joining, program registration, and giving"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
+            <div className="mt-7">
+              <span className="eyebrow">Member portal</span>
+              <h3 className="h2 mt-2">
+                Your brand, <em>your members, your money.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                Members join, register, book trainers, buy session packs,
+                give, and RSVP on a portal themed to your organization — our
+                provisioning tool reads your website and matches your logo,
+                colors, and fonts automatically.
+              </p>
+              <Image
+                src="/images/membership/member-portal.webp"
+                alt="Branded public member portal with joining, program registration, and giving"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
 
-            <div className="split mt-7">
-              <div>
-                <Image
-                  src="/images/membership/reporting.webp"
-                  alt="Reports and analytics library with attendance, revenue, and donation reports"
-                  width={1920}
-                  height={1200}
-                  style={shotFrame}
-                />
-              </div>
-              <div>
-                <span className="eyebrow">Reporting</span>
-                <h3 className="h2 mt-2">
-                  Answers <em>without exports.</em>
-                </h3>
-                <p className="body mt-3">
-                  A report builder over certified datasets — attendance by
-                  program, revenue by location, donations by campaign — with
-                  dashboards and role-scoped KPIs, so the person asked the
-                  question can answer it.
-                </p>
-              </div>
+            <div className="mt-7">
+              <span className="eyebrow">Reporting</span>
+              <h3 className="h2 mt-2">
+                Answers <em>without exports.</em>
+              </h3>
+              <p className="body mt-3" style={{ maxWidth: "760px" }}>
+                A report builder over certified datasets — attendance by
+                program, revenue by location, donations by campaign — with
+                dashboards and role-scoped KPIs, so the person asked the
+                question can answer it.
+              </p>
+              <Image
+                src="/images/membership/reporting.webp"
+                alt="Reports and analytics library with attendance, revenue, and donation reports"
+                width={1920}
+                height={1200}
+                style={{ ...shotFrame, marginTop: "24px" }}
+              />
             </div>
           </div>
         </section>
@@ -590,6 +576,12 @@ export default function MembershipManagementPage() {
               a fixed written quote before you commit. No per-member fees, no
               per-seat fees, no commissions — and your payments settle in your
               own Stripe account.
+            </p>
+            <p className="small mt-4" style={{ color: "var(--slate-3)" }}>
+              60-day go-live guarantee: if the platform isn&apos;t working for
+              your team, cancel within 60 days of go-live and we refund the
+              subscription fees paid for that period. Excludes third-party
+              costs such as payment processing. Full terms in your agreement.
             </p>
             <div className="hero-ctas mt-5" style={{ justifyContent: "center" }}>
               <Link
