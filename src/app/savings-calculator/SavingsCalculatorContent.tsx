@@ -70,6 +70,87 @@ function fmt(n: number): string {
   return "$" + Math.abs(Math.round(n)).toLocaleString();
 }
 
+// ─── Modal lead capture ──────────────────────────────────────────────────────
+//
+// CRO: the results modal is the highest-intent moment on the site (the visitor
+// has just seen "you could save $X/year"). Previously the only exit was an
+// outbound Calendly link, so everyone not ready to book a live call left with
+// nothing captured. This optional email step posts to the same /api/contact
+// route the shared LeadForm uses, tagged source "Savings Calculator modal", with
+// the computed savings figure carried in the message so sales has context. The
+// "no email required to see results" promise is preserved — this is a second,
+// optional step AFTER the number is already on screen.
+function ModalLeadCapture({ summary }: { summary: string }) {
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value?.trim();
+    const crm = (form.elements.namedItem("crm") as HTMLInputElement)?.value?.trim();
+    if (!email) return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Savings report request",
+          email,
+          crm,
+          message: summary,
+          source: "Savings Calculator modal",
+        }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setStatus("ok");
+      if (typeof window !== "undefined" && typeof (window as { gtag?: unknown }).gtag === "function") {
+        (window as unknown as { gtag: (...a: unknown[]) => void }).gtag("event", "generate_lead", {
+          source: "Savings Calculator modal",
+        });
+      }
+    } catch {
+      setStatus("err");
+    }
+  }
+
+  if (status === "ok") {
+    return (
+      <div className="sc-modal-capture sc-modal-capture-ok">
+        ✅ Sent — we&apos;ll email your full breakdown shortly.
+      </div>
+    );
+  }
+
+  return (
+    <form className="sc-modal-capture" onSubmit={handleSubmit}>
+      <div className="sc-modal-capture-head">Email me this full breakdown</div>
+      <div className="sc-modal-capture-row">
+        <input
+          name="email"
+          type="email"
+          required
+          placeholder="Work email"
+          aria-label="Work email"
+        />
+        <input
+          name="crm"
+          type="text"
+          placeholder="Which CRM? (optional)"
+          aria-label="Which CRM do you run?"
+        />
+        <button type="submit" disabled={status === "sending"}>
+          {status === "sending" ? "Sending…" : "Send my savings report"}
+        </button>
+      </div>
+      {status === "err" && (
+        <div className="sc-modal-capture-err">Something went wrong — please try again.</div>
+      )}
+      <div className="sc-modal-capture-note">No spam — we&apos;ll only use it to send your report.</div>
+    </form>
+  );
+}
+
 // ─── Component ─────────────────────────────────────────────────────────────
 
 export default function SavingsCalculatorContent() {
@@ -575,7 +656,13 @@ export default function SavingsCalculatorContent() {
             {" · "}
             <Link href="/reduce-crm-licensing-costs">The full CRM cost-reduction playbook →</Link>
             {" · "}
-            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce &amp; HubSpot seat-cost math →</Link>
+            <Link href="/compare/salesforce-seat-cost-vs-custom-portal">See the Salesforce seat-cost math →</Link>
+            {" · "}
+            <Link href="/compare/hubspot-seat-cost-vs-custom-portal">See the HubSpot seat-cost math →</Link>
+            {" · "}
+            <Link href="/compare/salesforce-experience-cloud-vs-custom-portal">Experience Cloud vs. a custom portal →</Link>
+            {" · "}
+            <Link href="/reduce-dynamics-365-licensing-costs">On Dynamics 365? Cut those license costs →</Link>
             {" · "}
             <Link href="/compare/custom-software-vs-saas">Read the full custom-vs-SaaS cost breakdown →</Link>
             {" · "}
@@ -683,12 +770,16 @@ export default function SavingsCalculatorContent() {
                 ))}
               </div>
 
+              <ModalLeadCapture
+                summary={`Savings calculator result — current spend ${fmt(total)}/mo, Ardn flat ${fmt(baseline)}/mo, est. ${yr1 > 0 ? fmt(yr1) : fmt(yr2)}/year savings.`}
+              />
+
               <Link
                 href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
                 target="_blank"
                 className="sc-modal-cta"
               >
-                Book a free 30-min call →
+                Or book a free 30-min call →
               </Link>
               <div className="sc-modal-fine">
                 No pressure. No sales deck. Just your actual numbers in 30 minutes.
@@ -899,6 +990,19 @@ export default function SavingsCalculatorContent() {
         .sc-modal-cta { display: block; text-align: center; background: var(--sc-cta-btn); color: white; font-size: 16px; font-weight: 700; padding: 15px; border-radius: var(--sc-r-pill); text-decoration: none; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
         .sc-modal-cta:hover { background: #000; }
         .sc-modal-fine { font-size: 12px; color: var(--sc-text-3); text-align: center; }
+
+        /* Modal inline lead capture — highest-intent email grab */
+        .sc-modal-capture { background: var(--sc-blue-light); border: 1px solid var(--sc-blue-mid); border-radius: var(--sc-r-lg, 14px); padding: 16px; margin-bottom: 14px; }
+        .sc-modal-capture-head { font-size: 14px; font-weight: 700; color: var(--sc-text); margin-bottom: 10px; }
+        .sc-modal-capture-row { display: flex; flex-wrap: wrap; gap: 8px; }
+        .sc-modal-capture-row input { flex: 1 1 160px; min-width: 0; padding: 11px 12px; border: 1px solid var(--sc-border); border-radius: 10px; font-size: 14px; font-family: inherit; color: var(--sc-text); background: #fff; }
+        .sc-modal-capture-row input:focus { outline: none; border-color: var(--sc-blue); }
+        .sc-modal-capture-row button { flex: 1 1 100%; background: var(--sc-blue); color: #fff; font-size: 15px; font-weight: 700; padding: 12px; border: none; border-radius: var(--sc-r-pill); cursor: pointer; font-family: inherit; transition: background 0.15s; }
+        .sc-modal-capture-row button:hover { background: var(--sc-blue-2); }
+        .sc-modal-capture-row button:disabled { opacity: 0.7; cursor: default; }
+        .sc-modal-capture-note { font-size: 11px; color: var(--sc-text-3); margin-top: 8px; }
+        .sc-modal-capture-err { font-size: 12px; color: var(--sc-red); margin-top: 8px; }
+        .sc-modal-capture-ok { background: var(--sc-blue-light); border: 1px solid var(--sc-blue-mid); border-radius: var(--sc-r-lg, 14px); padding: 16px; margin-bottom: 14px; font-size: 14px; font-weight: 600; color: var(--sc-text); text-align: center; }
 
         /* RESPONSIVE */
         @media (max-width: 960px) {

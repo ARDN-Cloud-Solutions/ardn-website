@@ -306,6 +306,15 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.85,
     },
+    {
+        // Wedge spoke — Dynamics 365 per-user cost reduction. Extends the
+        // per-seat cost-reduction cluster to the third major CRM; validated
+        // keyword gap (blog demand exists, no conversion page did).
+        url: `${BASE_URL}/reduce-dynamics-365-licensing-costs`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
