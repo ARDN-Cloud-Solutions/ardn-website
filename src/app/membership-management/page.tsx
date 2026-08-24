@@ -509,6 +509,83 @@ export default function MembershipManagementPage() {
           </div>
         </section>
 
+        {/* MORE VISUALS — 2x2 screenshot grid (owner request 2026-08-24: more visuals) */}
+        <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">More of the platform</span>
+                <h2 className="h1 mt-3">
+                  Four more screens <em>your team will live in.</em>
+                </h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Same demo organization, no mockups — programs, the class
+                  calendar, giving, and the major-gift pipeline.
+                </p>
+              </div>
+            </div>
+            <div className="grid-2 mt-5">
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/classes.webp"
+                  alt="Weekly class calendar across locations with color-coded categories"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Classes</strong> — the whole week&apos;s schedule
+                  across every location, with rosters and attendance a click
+                  away.
+                </p>
+              </div>
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/programs.webp"
+                  alt="Programs catalog with leagues and clinics, member and non-member pricing, and status"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Programs</strong> — camps, leagues, and clinics with
+                  member/non-member pricing, capacity, and self-promoting
+                  waitlists.
+                </p>
+              </div>
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/donations.webp"
+                  alt="Donations workspace with collected totals, campaign filters, receipts, and refunds"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Giving</strong> — donations recorded, receipted, and
+                  refunded by location and campaign, in the same system as
+                  memberships.
+                </p>
+              </div>
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/gift-pipeline.webp"
+                  alt="Major-gift opportunities pipeline with weighted portfolio value and stages"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Major gifts</strong> — a weighted cultivation
+                  pipeline for the big asks, without buying a second CRM.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ARCHITECTURE / TRUST */}
         <section className="section">
           <div className="container">

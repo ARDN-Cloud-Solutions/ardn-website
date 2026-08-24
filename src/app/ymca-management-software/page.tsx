@@ -566,8 +566,85 @@ export default function YmcaManagementSoftwarePage() {
           </div>
         </section>
 
-        {/* ROLES + SECURITY — the "built for a real Y workforce" argument */}
+        {/* MORE VISUALS — 2x2 screenshot grid (owner request 2026-08-24: more visuals) */}
         <section className="section is-canvas">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">More of the platform</span>
+                <h2 className="h1 mt-3">
+                  Four more screens <em>your team will live in.</em>
+                </h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Same demo association, no mockups — the giving office, the
+                  program desk, and the group-ex calendar.
+                </p>
+              </div>
+            </div>
+            <div className="grid-2 mt-5">
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/donations.webp"
+                  alt="Donations workspace with collected totals, campaign filters, receipts, and refunds"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Donations</strong> — record, receipt, and refund by
+                  branch and campaign, with failed and refunded gifts tracked.
+                </p>
+              </div>
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/pledges.webp"
+                  alt="Pledges list with totals, paid amounts, remaining balances, and overdue installments"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Pledges</strong> — multi-year commitments with
+                  installment schedules and overdue flags your gift officers
+                  chase from one list.
+                </p>
+              </div>
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/programs.webp"
+                  alt="Programs catalog with camps and leagues, member and non-member pricing, and status"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Programs</strong> — camps, leagues, and clinics with
+                  member/non-member pricing, capacity, and waitlists that
+                  promote automatically.
+                </p>
+              </div>
+              <div className="card" style={{ padding: "16px" }}>
+                <Image
+                  src="/images/membership/classes.webp"
+                  alt="Weekly class calendar across branches with color-coded categories"
+                  width={1920}
+                  height={1200}
+                  style={{ width: "100%", height: "auto", borderRadius: "var(--r-md)", border: "1px solid var(--line-2)" }}
+                />
+                <p className="small mt-3" style={{ color: "var(--slate-2)" }}>
+                  <strong>Classes</strong> — the whole week&apos;s group-ex
+                  schedule across every branch, with rosters and attendance a
+                  click away.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ROLES + SECURITY — the "built for a real Y workforce" argument */}
+        <section className="section">
           <div className="container">
             <div className="split">
               <div>
