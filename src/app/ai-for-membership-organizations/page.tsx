@@ -247,6 +247,12 @@ export default function AiForMembershipOrganizationsPage() {
               <Link href="/savings-calculator" className="link">
                 Calculate your per-member savings →
               </Link>
+              <Link href="/custom-portal-development" className="link">
+                Give members a custom portal instead of a per-seat CRM →
+              </Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">
+                See the per-seat cost math →
+              </Link>
             </div>
           </div>
         </section>

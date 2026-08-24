@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import CostReductionTestimonial from "@/components/common/CostReductionTestimonial";
 
 // PILLAR page for the per-seat cost-reduction wedge. Targets the problem-intent
 // head terms ("reduce/cut CRM licensing costs", "reduce per-seat license
@@ -381,6 +382,7 @@ export default function ReduceCrmLicensingCostsPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
               <Link href="/compare/hubspot-seat-cost-vs-custom-portal" className="link">See the HubSpot seat-cost math →</Link>
+              <Link href="/custom-crm-development" className="link">Or own a custom CRM with no per-seat fees →</Link>
               <Link href="/custom-partner-portal-development" className="link">Replace per-login partner community seats with a custom partner portal →</Link>
               <Link href="/compare/salesforce-experience-cloud-vs-custom-portal" className="link">Experience Cloud vs. a custom portal →</Link>
               <Link href="/compare/custom-software-vs-saas" className="link">Full custom-vs-SaaS cost breakdown →</Link>
@@ -410,6 +412,8 @@ export default function ReduceCrmLicensingCostsPage() {
             </div>
           </div>
         </section>
+
+        <CostReductionTestimonial />
 
         <LeadForm source="Reduce CRM Licensing Costs page" heading="See where your CRM bill is leaking" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with which levers cut your cost the most — and a fixed quote." />
 

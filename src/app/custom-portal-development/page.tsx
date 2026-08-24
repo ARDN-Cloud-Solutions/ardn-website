@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import CostReductionTestimonial from "@/components/common/CostReductionTestimonial";
 
 // Solution page anchored to a real delivered build: custom seller + operations
 // portals that integrate with the client's CRM and offload light users from
@@ -197,7 +198,7 @@ export default function CustomPortalDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free CRM cost review</Link>
-                  <Link href="#features" className="btn btn-secondary btn-lg">How it works</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Run your per-seat numbers →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -247,6 +248,7 @@ export default function CustomPortalDevelopmentPage() {
             </div>
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/reduce-crm-licensing-costs" className="link">New here? Start with how to cut CRM licensing costs →</Link>
+              <Link href="/custom-crm-development" className="link">Want to own the whole CRM? Custom CRM development →</Link>
               <Link href="/custom-partner-portal-development" className="link">Partner, vendor &amp; distributor portals →</Link>
               <Link href="/license-guard" className="link">Also reclaim unused licenses with License Guard →</Link>
               <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">See the Salesforce seat-cost math →</Link>
@@ -330,6 +332,8 @@ export default function CustomPortalDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <CostReductionTestimonial />
 
         <LeadForm source="Custom Portal Development page" heading="See what you could save" showSeatQualifiers submitLabel="Show me my savings" sub="Tell us which CRM you run and roughly how many users. We'll come back with where a portal cuts your per-seat costs — and a fixed quote." />
 

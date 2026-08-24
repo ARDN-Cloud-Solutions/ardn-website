@@ -796,6 +796,8 @@ export default function AiForgeContent() {
             <Link href="/custom-portal-development" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Custom client &amp; partner portals that cut per-seat CRM costs →</Link>
             {" · "}
             <Link href="/reduce-crm-licensing-costs" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Cut your CRM licensing costs →</Link>
+            {" · "}
+            <Link href="/savings-calculator" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "underline" }}>Calculate your per-seat savings →</Link>
           </p>
         </div>
       </section>

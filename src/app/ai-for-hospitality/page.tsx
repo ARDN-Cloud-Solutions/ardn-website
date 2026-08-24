@@ -252,6 +252,9 @@ export default function AiForHospitalityPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">
                 How to cut per-seat software licensing costs →
               </Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">
+                See the per-seat cost math →
+              </Link>
             </div>
           </div>
         </section>

@@ -629,6 +629,9 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               <li>ARDN uses your existing <Link href="/reduce-crm-licensing-costs" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Salesforce license</Link> with no GMV-based fees.</li>
               <li>SFCC adds 1–2% GMV licensing, plus extra in setup and ongoing partner retainers.</li>
             </ul>
+            <p className="text-heading-dark text-sm lg:text-base mt-4">
+              Want the numbers for your own store? <Link href="/savings-calculator" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Run the savings calculator</Link>, compare a <Link href="/custom-ecommerce-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">custom ecommerce build</Link>, or see how a <Link href="/custom-portal-development" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">custom portal</Link> cuts per-seat CRM costs.
+            </p>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Scalability &amp; Fit</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
               <li>SFCC is built for global enterprises managing complex omnichannel operations and large storefront networks.</li>

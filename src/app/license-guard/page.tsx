@@ -6,9 +6,9 @@ import LicenseGuardContent from "./LicenseGuardContent";
 // queries. The product is free on AppExchange, so we lead with that hook.
 export const metadata: Metadata = {
   title:
-    "License Guard — Free Salesforce License Audit | Ardn",
+    "License Guard — Salesforce License Optimization | Ardn",
   description:
-    "Free Salesforce-native AppExchange tool that finds inactive seats, warns users & deactivates per policy. Reclaim unused licenses and cut renewal costs.",
+    "Free Salesforce license optimization tool. Finds inactive seats, warns users & deactivates per policy — reclaim unused licenses and cut renewal costs.",
   keywords: [
     "Salesforce license audit",
     "Salesforce license optimization",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "License Guard — Free Salesforce License Audit | Ardn",
+      "License Guard — Salesforce License Optimization | Ardn",
     description:
       "Free AppExchange tool. Detects inactive Salesforce users, sends warnings, and deactivates per your policy. Most customers reclaim 15–30% of license spend at renewal.",
     url: "https://ardncloudsolutions.com/license-guard",

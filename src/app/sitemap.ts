@@ -149,6 +149,16 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Wedge spoke — "custom CRM development / build your own CRM" head term.
+        // Distinct commercial query the broad hub can't rank for; frames a
+        // custom CRM as a flat-fee layer over (or replacement of) the CRM,
+        // funneling per-seat cost intent into the wedge cluster.
+        url: `${BASE_URL}/custom-crm-development`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    },
+    {
         // Wedge spoke — custom PARTNER/VENDOR/DISTRIBUTOR portals that replace
         // per-login Partner Community / PRM seats. Highest external per-seat
         // bill; distinct commercial intent from the general portal page.

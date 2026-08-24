@@ -229,6 +229,8 @@ export default function CustomEcommerceDevelopmentPage() {
             <div style={{ marginTop: "32px", textAlign: "center", display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/storefronts" className="link">Already on Salesforce? See Storefronts — native ecommerce →</Link>
               <Link href="/glp-1-ecommerce" className="link">Selling GLP-1 or telehealth treatments? See that build →</Link>
+              <Link href="/compare/salesforce-commerce-cloud-alternatives" className="link">Salesforce Commerce Cloud alternatives →</Link>
+              <Link href="/savings-calculator" className="link">Calculate your per-seat software savings →</Link>
             </div>
           </div>
         </section>

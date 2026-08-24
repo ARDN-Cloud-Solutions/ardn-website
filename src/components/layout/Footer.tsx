@@ -28,6 +28,7 @@ const ourProducts = [
 // discovery/indexing and passing link equity from established pages.
 const solutions = [
   { label: "Custom Software Development", href: "/custom-software-development" },
+  { label: "Custom CRM Development", href: "/custom-crm-development" },
   { label: "Custom AI App Development", href: "/ai-app-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
   { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },

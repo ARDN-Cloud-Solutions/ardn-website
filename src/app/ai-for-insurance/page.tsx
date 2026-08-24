@@ -253,6 +253,9 @@ export default function AiForInsurancePage() {
               <Link href="/reduce-crm-licensing-costs" className="link">
                 How to cut insurance software licensing costs →
               </Link>
+              <Link href="/compare/salesforce-seat-cost-vs-custom-portal" className="link">
+                See the per-seat cost math →
+              </Link>
             </div>
           </div>
         </section>

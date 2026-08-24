@@ -191,7 +191,7 @@ export default function CustomSoftwareDevelopmentPage() {
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">Book a free 30-min call</Link>
-                  <Link href="#services" className="btn btn-secondary btn-lg">What we build</Link>
+                  <Link href="/savings-calculator" className="btn btn-secondary btn-lg">Calculate your per-seat savings →</Link>
                 </div>
               </div>
               <aside className="hero-aside reveal reveal-d4">
@@ -314,6 +314,12 @@ export default function CustomSoftwareDevelopmentPage() {
                 <h3 className="h3">Custom Partner Portals</h3>
                 <p className="body">Channel, dealer, broker &amp; vendor portals that replace per-login Partner Community seats.</p>
                 <span className="link">Custom partner portal development →</span>
+              </Link>
+              <Link href="/custom-crm-development" className="card" style={{ textDecoration: "none", borderColor: "var(--indigo)" }}>
+                <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9", marginBottom: "10px", display: "inline-block" }}>End per-seat fees</span>
+                <h3 className="h3">Custom CRM Development</h3>
+                <p className="body">A custom CRM you own — a flat-fee layer over your CRM, or a full replacement.</p>
+                <span className="link">Custom CRM development →</span>
               </Link>
               <Link href="/custom-ecommerce-development" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">Custom Ecommerce</h3>

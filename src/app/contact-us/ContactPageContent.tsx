@@ -6,6 +6,8 @@ import { Phone, ArrowRight, Check } from "lucide-react";
 import styles from "./contact-page.module.css";
 
 const INTEREST_OPTIONS = [
+  "Cut CRM / per-seat costs",
+  "Custom portal",
   "Membership",
   "Storefronts",
   "AI Forge",
