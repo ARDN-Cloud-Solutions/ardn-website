@@ -13,7 +13,9 @@ import LeadForm from "@/components/common/LeadForm";
 // - The wedge: the incumbent Y platform (Daxko) prices as a PERCENTAGE OF THE
 //   ORGANIZATION'S TOTAL REVENUE per its own public Billing FAQ, with a
 //   single integrated payment processor. We sell the opposite: flat monthly
-//   fee, your own Stripe merchant account, your data.
+//   fee, your own merchant account (Payment Cloud), your data.
+//   GTM decision 2026-08-25: Payment Cloud (NMI) is THE payments story — no
+//   Stripe name-drops in customer-facing payment claims.
 // - The unmatched demo: a member and a donor are the SAME RECORD. Ys running
 //   Daxko for operations + Raiser's Edge for fundraising reconcile the two by
 //   hand; our fundraising module (pledges, gift batches with control totals,
@@ -90,7 +92,7 @@ const FAQS = [
   },
   {
     q: "How is this priced?",
-    a: "Partnership pricing: a flat monthly subscription from $9,000/month for the whole association — hosting, licenses, updates, and a dedicated support team included — plus a one-time implementation from $9,500, where a standard association-platform implementation typically runs $45,000–55,000 before integrations. Annual increases are capped at CPI (maximum 4%) in the agreement. It is never a percentage of your organization's revenue, and payments run through your own Stripe merchant account, so your processing relationship belongs to you, not to your software vendor.",
+    a: "Partnership pricing: a flat monthly subscription from $9,000/month for the whole association — hosting, licenses, updates, and a dedicated support team included — plus a one-time implementation from $9,500, where a standard association-platform implementation typically runs $45,000–55,000 before integrations. Annual increases are capped at CPI (maximum 4%) in the agreement. It is never a percentage of your organization's revenue, and payments run through Payment Cloud into your organization's own merchant account, so your processing relationship belongs to you, not to your software vendor.",
   },
   {
     q: "What is the money-back guarantee?",
@@ -318,11 +320,12 @@ export default function YmcaManagementSoftwarePage() {
               </div>
               <div className="card">
                 <div className="card-num">03</div>
-                <h3 className="h3">Flat fee. Your Stripe account.</h3>
+                <h3 className="h3">Flat fee. Your merchant account.</h3>
                 <p className="body">
                   One flat monthly subscription — never a percentage of your
-                  organization&apos;s revenue. Member and donor payments settle
-                  into your own Stripe merchant account, not ours.
+                  organization&apos;s revenue. Member and donor payments run
+                  through Payment Cloud into your own merchant account, not
+                  ours.
                 </p>
               </div>
             </div>
@@ -697,7 +700,7 @@ export default function YmcaManagementSoftwarePage() {
                     <h4>Money handled like money</h4>
                     <p>
                       Integer-cent accounting end to end, idempotent
-                      Stripe-verified webhooks, immutable posted gift batches,
+                      signature-verified payment webhooks, immutable posted gift batches,
                       and refunds locked behind finance-only permissions.
                     </p>
                     </div>
@@ -772,8 +775,8 @@ export default function YmcaManagementSoftwarePage() {
               a one-time implementation from <strong>$9,500</strong>, where a
               standard association-platform implementation runs
               $45,000–55,000 before integrations. Never a percentage of your
-              revenue. Never a per-member tax on growth. Payments settle in
-              your own Stripe account.
+              revenue. Never a per-member tax on growth. Payments run through
+              Payment Cloud into your own merchant account.
             </p>
             <p className="body mt-4" style={{ color: "var(--slate-2)" }}>
               Standard agreements run 12 months, with annual increases capped

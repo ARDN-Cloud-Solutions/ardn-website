@@ -89,7 +89,7 @@ const FAQS = [
   },
   {
     q: "How is it priced?",
-    a: "One flat monthly subscription — starting around $699/month depending on locations and modules — with a fixed written quote before you commit. There are no per-member fees, no per-seat fees, and no commission on bookings or sales made through your portal. Payments run through your own Stripe merchant account, so your processing relationship and your money stay yours.",
+    a: "One flat monthly subscription — starting around $699/month depending on locations and modules — with a fixed written quote before you commit. There are no per-member fees, no per-seat fees, and no commission on bookings or sales made through your portal. Payments run through Payment Cloud into your own merchant account, so your processing relationship and your money stay yours.",
   },
   {
     q: "What is the money-back guarantee?",
@@ -97,7 +97,7 @@ const FAQS = [
   },
   {
     q: "Does it integrate with the tools we already run?",
-    a: "Yes. Stripe powers payments; email connects through SendGrid, Postmark, Resend, or Mailchimp; Google Analytics is built in; and the integration store includes HubSpot, QuickBooks Online, Google Calendar, Zoom, Blackbaud Raiser's Edge NXT, and more. Each connection is configured per organization with credentials stored encrypted — the platform is CRM-agnostic by design, so Salesforce and HubSpot stay systems you connect to, not systems you're locked into.",
+    a: "Yes. Payment Cloud (NMI) powers payments into your own merchant account; email connects through SendGrid, Postmark, Resend, or Mailchimp; Google Analytics is built in; and the integration store includes HubSpot, QuickBooks Online, Google Calendar, Zoom, Blackbaud Raiser's Edge NXT, and more. Each connection is configured per organization with credentials stored encrypted — the platform is CRM-agnostic by design, so Salesforce and HubSpot stay systems you connect to, not systems you're locked into.",
   },
   {
     q: "What are the contract terms?",
@@ -109,7 +109,7 @@ const FAQS = [
   },
   {
     q: "How is this different from Mindbody or other studio software?",
-    a: "Three ways. Price structure: a flat monthly fee instead of per-location tiers plus marketplace commissions on your own customers. Scope: fundraising, volunteers, events, forms, and workflow automation are part of the platform, not missing or extra. Ownership: your branding on the portal, your Stripe account for the money, your data exportable any time.",
+    a: "Three ways. Price structure: a flat monthly fee instead of per-location tiers plus marketplace commissions on your own customers. Scope: fundraising, volunteers, events, forms, and workflow automation are part of the platform, not missing or extra. Ownership: your branding on the portal, your own merchant account for the money, your data exportable any time.",
   },
 ];
 
@@ -148,7 +148,7 @@ const MODULES = [
   },
   {
     title: "Integration store",
-    body: "Stripe, SendGrid, Postmark, Resend, Mailchimp, and Google Analytics ready to connect — plus HubSpot, QuickBooks, Zoom, Raiser's Edge NXT, and a growing catalog.",
+    body: "Payment Cloud, SendGrid, Postmark, Resend, Mailchimp, and Google Analytics ready to connect — plus HubSpot, QuickBooks, Zoom, Raiser's Edge NXT, and a growing catalog.",
   },
 ];
 
@@ -247,7 +247,7 @@ export default function MembershipManagementPage() {
                   <span className="badge is-emerald">
                     Flat fee — no per-member pricing
                   </span>
-                  <span className="badge is-canvas">Your brand, your Stripe</span>
+                  <span className="badge is-canvas">Your brand, your merchant account</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link
@@ -321,7 +321,8 @@ export default function MembershipManagementPage() {
                 <p className="body">
                   One flat monthly fee. No per-member pricing, no per-seat
                   pricing, no marketplace commission on your own customers —
-                  and payments settle in your own Stripe account.
+                  and payments run through Payment Cloud into your own
+                  merchant account.
                 </p>
               </div>
             </div>
@@ -621,7 +622,7 @@ export default function MembershipManagementPage() {
                     <div>
                     <h4>Money handled like money</h4>
                     <p>
-                      Integer-cent accounting, Stripe-verified idempotent
+                      Integer-cent accounting, signature-verified idempotent
                       webhooks, refunds gated behind finance-only permissions,
                       and a per-tenant audit log.
                     </p>
@@ -655,8 +656,8 @@ export default function MembershipManagementPage() {
               A flat monthly subscription starting around{" "}
               <strong>$699/month</strong>, sized by locations and modules, with
               a fixed written quote before you commit. No per-member fees, no
-              per-seat fees, no commissions — and your payments settle in your
-              own Stripe account.
+              per-seat fees, no commissions — and payments run through Payment
+              Cloud into your own merchant account.
             </p>
             <p className="body mt-4" style={{ color: "var(--slate-2)" }}>
               Standard agreements run 12 months with annual increases capped
