@@ -89,7 +89,7 @@ const FAQS = [
   },
   {
     q: "How is it priced?",
-    a: "One flat monthly subscription — starting around $699/month depending on locations and modules — with a fixed written quote before you commit. There are no per-member fees, no per-seat fees, and no commission on bookings or sales made through your portal. Payments run through Payment Cloud into your own merchant account, so your processing relationship and your money stay yours.",
+    a: "One flat monthly subscription — starting around $699/month depending on locations and modules — with a fixed written quote before you commit. There are no per-member fees, no per-seat fees, and no commission on bookings or sales made through your portal. Payments settle into your own merchant account through whichever major processor you already use, so your rates, your processing relationship and your money all stay yours.",
   },
   {
     q: "What is the money-back guarantee?",
@@ -97,7 +97,7 @@ const FAQS = [
   },
   {
     q: "Does it integrate with the tools we already run?",
-    a: "Yes. Payment Cloud (NMI) powers payments into your own merchant account; email connects through SendGrid, Postmark, Resend, or Mailchimp; Google Analytics is built in; and the integration store includes HubSpot, QuickBooks Online, Google Calendar, Zoom, Blackbaud Raiser's Edge NXT, and more. Each connection is configured per organization with credentials stored encrypted — the platform is CRM-agnostic by design, so Salesforce and HubSpot stay systems you connect to, not systems you're locked into.",
+    a: "Yes. We are processor-agnostic — payments settle into your own merchant account through the major US gateways, so you keep your existing rates and contracts; email connects through SendGrid, Postmark, Resend, or Mailchimp; Google Analytics is built in; and the integration store includes HubSpot, QuickBooks Online, Google Calendar, Zoom, Blackbaud Raiser's Edge NXT, and more. Each connection is configured per organization with credentials stored encrypted — the platform is CRM-agnostic by design, so Salesforce and HubSpot stay systems you connect to, not systems you're locked into.",
   },
   {
     q: "What are the contract terms?",
@@ -148,7 +148,7 @@ const MODULES = [
   },
   {
     title: "Integration store",
-    body: "Payment Cloud, SendGrid, Postmark, Resend, Mailchimp, and Google Analytics ready to connect — plus HubSpot, QuickBooks, Zoom, Raiser's Edge NXT, and a growing catalog.",
+    body: "Major payment gateways, SendGrid, Postmark, Resend, Mailchimp, and Google Analytics ready to connect — plus HubSpot, QuickBooks, Zoom, Raiser's Edge NXT, and a growing catalog.",
   },
 ];
 
@@ -321,8 +321,8 @@ export default function MembershipManagementPage() {
                 <p className="body">
                   One flat monthly fee. No per-member pricing, no per-seat
                   pricing, no marketplace commission on your own customers —
-                  and payments run through Payment Cloud into your own
-                  merchant account.
+                  and payments settle into your own merchant account, through
+                  whichever processor you already use.
                 </p>
               </div>
             </div>
@@ -656,8 +656,8 @@ export default function MembershipManagementPage() {
               A flat monthly subscription starting around{" "}
               <strong>$699/month</strong>, sized by locations and modules, with
               a fixed written quote before you commit. No per-member fees, no
-              per-seat fees, no commissions — and payments run through Payment
-              Cloud into your own merchant account.
+              per-seat fees, no commissions — and payments settle into your own
+              merchant account, through whichever processor you already use.
             </p>
             <p className="body mt-4" style={{ color: "var(--slate-2)" }}>
               Standard agreements run 12 months with annual increases capped
