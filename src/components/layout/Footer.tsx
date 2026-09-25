@@ -34,6 +34,7 @@ const solutions = [
   { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
   { label: "GLP-1 & Telehealth Ecommerce", href: "/glp-1-ecommerce" },
   { label: "Chapter & Dues Management", href: "/chapter-management-software" },
+  { label: "Golf & Private Club Management", href: "/golf-club-management-software" },
   { label: "AI for Insurance", href: "/ai-for-insurance" },
   { label: "AI for Hospitality", href: "/ai-for-hospitality" },
   { label: "AI for Membership Orgs", href: "/ai-for-membership-organizations" },

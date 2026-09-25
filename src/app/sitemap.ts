@@ -127,6 +127,14 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Vertical landing page — golf & private club ICP. Highest-intent
+        // commercial query for the membership platform's club vertical.
+        url: `${BASE_URL}/golf-club-management-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // Vertical AI landing page — insurance ICP (claims/underwriting).
         url: `${BASE_URL}/ai-for-insurance`,
         lastModified: new Date(),
