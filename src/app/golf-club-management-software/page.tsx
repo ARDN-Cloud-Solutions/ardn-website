@@ -94,7 +94,7 @@ const FAQ_LD = {
     },
     {
       q: "Can members pay by card and bank transfer?",
-      a: "Both. Card and ACH, saved per payer, captured inline on your branded pages. Payments run through Payment Cloud into your club's own merchant account, so the processing relationship and the money stay yours.",
+      a: "Both. Card and ACH, saved per payer, captured inline on your branded pages. Dues, tournament tickets, clinic fees and pro shop charges are all handled in the platform. Money settles into your club's own merchant account, so the processing relationship and the funds stay yours.",
     },
     {
       q: "What does it cost, and what is the contract?",

@@ -14,8 +14,9 @@ import TrustBar from "@/components/common/TrustBar";
  * FR-* requirement in that spec — households with split payers (FR-HH-004),
  * versioned plans with grandfathered pricing (FR-SUB-001/003), programs and
  * waitlists (FR-PROG-*), events with QR ticketing (FR-EVT-*), barcode check-in
- * with block rules (FR-CHK-*), payments via Payment Cloud (NMI) into the club's own
- * merchant account, the
+ * with block rules (FR-CHK-*), full payment capture settling into the club's
+ * own merchant account (FR-PAY-*) — customer-facing copy names NO payment
+ * provider, by request; keep it capability-framed. The
  * 9-step workflow builder (FR-WF-003), the report builder (FR-REP-*), waivers
  * bound to signed versions (FR-WAV-001/002), per-tenant branding (FR-BRAND-*).
  *
@@ -242,7 +243,7 @@ const FAQS = [
   },
   {
     q: "Can members pay by card and bank transfer?",
-    a: "Both. Card and ACH, saved per payer, captured inline on your branded pages rather than bouncing the member out to a third-party checkout. Payments run through Payment Cloud into your club's own merchant account, so the processing relationship and the money stay yours — they never pass through us.",
+    a: "Both. Card and ACH, saved per payer, captured inline on your branded pages rather than bouncing the member out to a third-party checkout. Dues, tournament tickets, clinic fees and pro shop charges are all handled in the platform. Money settles into your club's own merchant account — the processing relationship and the funds stay yours, and nothing passes through us.",
   },
   {
     q: "What does it cost, and what is the contract?",
