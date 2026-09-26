@@ -1,505 +1,326 @@
-"use client";
-
-import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import LeadForm from "@/components/common/LeadForm";
 import TrustBar from "@/components/common/TrustBar";
+import { FAQS } from "./faqs";
 
 /**
- * Golf & private club vertical landing page.
+ * Golf & country club vertical landing page — Clubhouse360.
  *
- * Positioning: this is the SAME multi-tenant membership platform documented in
- * ARDN-Cloud-Solutions/membership (docs/REQUIREMENTS.md), re-told for the golf /
- * private club buyer. Every feature claim on this page traces back to a real
- * FR-* requirement in that spec — households with split payers (FR-HH-004),
- * versioned plans with grandfathered pricing (FR-SUB-001/003), programs and
- * waitlists (FR-PROG-*), events with QR ticketing (FR-EVT-*), barcode check-in
- * with block rules (FR-CHK-*), full payment capture settling into the club's
- * own merchant account (FR-PAY-*) — customer-facing copy names NO payment
- * provider, by request; keep it capability-framed. The
- * 9-step workflow builder (FR-WF-003), the report builder (FR-REP-*), waivers
- * bound to signed versions (FR-WAV-001/002), per-tenant branding (FR-BRAND-*).
+ * Rebuilt 2026-09-26 on the Clubhouse360 Marketing Kit (product overview,
+ * competitive comparison and INTERNAL claims guardrails, dated 2026-09-25).
+ * The kit supersedes the earlier version of this page, which was written
+ * from the generic membership spec — Clubhouse360 DOES ship a tee sheet,
+ * carts, pro shop and golf performance reporting, so the old "On property:
+ * keep your tee sheet" positioning is gone. Brand name approved by the owner
+ * 2026-09-26.
  *
- * DO NOT add client names or client metrics to this page. "Invited Clubs" is a
- * real customer under contract and nothing has been cleared for public use.
- * Keep everything capability-framed.
+ * Truth guardrails (from the kit — re-check it before loosening any of this):
+ * - Nothing is in production yet: "built and demonstrable", never "live at N
+ *   clubs". No customer names, logos, metrics or testimonials.
+ * - Accounting is PREVIEW (interface complete, engine merging, sample
+ *   figures). POS till, court booking, member statements, Wallet passes,
+ *   F&B minimums and gift cards are ROADMAP.
+ * - Never "only all-in-one", "only multi-club" or "only cloud"; never claim
+ *   competitors lack a CRM. Competitors are NOT named — several comparison
+ *   rows are still marked "verify before publishing".
+ * - "A standard report library", not a report count. Don't list integrations.
+ * - No pricing, flat-fee, guarantee or contract-term claims: none has been
+ *   approved for Clubhouse360 (those belonged to the generic platform).
+ * - Name NO payment provider in customer-facing copy (8a76690 / 6ea8cef).
  *
- * CRO: single conversion path is the inline LeadForm (posts /api/contact, fires
- * GA4 generate_lead) with Calendly as the secondary CTA, matching the other
- * vertical pages.
+ * DO NOT add client names or client metrics. Screenshots are real product UI
+ * from the verification environment, rebranded at capture time; every club,
+ * person and figure in them is sample data.
+ *
+ * CRO: single conversion path is the inline LeadForm (posts /api/contact,
+ * fires GA4 generate_lead) with Calendly as the secondary CTA.
  */
 
 const CALENDLY = "https://calendly.com/deep-ardncloudsolutions/30min";
 
-/* ---------------------------------------------------------------------------
-   Cost model
-   ------------------------------------------------------------------------ */
-
-// Typical published list price for a mid-tier seat-based CRM. Used only as the
-// slider's starting position — the visitor overwrites it with their own number,
-// so we never publish a cost claim of our own that we'd have to defend.
-const DEFAULT_PER_SEAT = 165;
-
-// Seat-based vendors raise list price over a renewal cycle. 7%/yr is the
-// conservative end of what clubs actually see. Disclosed under the chart.
-const ANNUAL_UPLIFT = 0.07;
-
-const usd = (n: number) =>
-  "$" + Math.round(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
-
-const usdCompact = (n: number) =>
-  n >= 1_000_000
-    ? "$" + (n / 1_000_000).toFixed(n >= 10_000_000 ? 0 : 1) + "M"
-    : "$" + Math.round(n / 1000) + "k";
-
-/* ---------------------------------------------------------------------------
-   Static content
-   ------------------------------------------------------------------------ */
+const STATS = [
+  { value: "1", label: "member record shared by every module and every club" },
+  { value: "6", label: "steps from “Choose a plan” to a signed, paid, active membership" },
+  { value: "400+", label: "permissions, grantable per role or per person, per club" },
+  { value: "0", label: "data re-keyed between sales, contracts, billing and the member record" },
+];
 
 const PAINS = [
   {
-    label: "Membership",
-    text: "Dues, categories and roster live in one system. Nobody outside the office can see them.",
+    label: "Tee sheet & POS",
+    text: "From one vendor, with its own member list that has to be kept in step with everything else.",
   },
   {
-    label: "Billing",
-    text: "Statements are assembled by hand every month because no tool understands a family account.",
+    label: "Back office",
+    text: "From another — often a different product generation from the same parent company.",
   },
   {
-    label: "Events",
-    text: "Tournament signups run on a form, a spreadsheet and three follow-up emails.",
+    label: "Websites",
+    text: "An agency per club, with prices on the site that drift from the prices in the back office.",
   },
   {
-    label: "Comms",
-    text: "A separate marketing tool that has never once matched the roster it is emailing.",
+    label: "Sales & contracts",
+    text: "A separate CRM for membership sales and a separate e-signature tool for the agreement.",
   },
   {
-    label: "Reporting",
-    text: "The board asks for retention by category. It takes four days and two people.",
+    label: "The portfolio",
+    text: "Reciprocal access in a spreadsheet, and a nightly export to the accounting package.",
   },
 ];
 
-const CAPABILITIES = [
+const PROMISES = [
+  {
+    title: "The price on the website is the price in the back office",
+    body: "Promotions, director pricing and “Inquire for Pricing” plans are read from one price book by the website, the join flow and the Director's product builder.",
+  },
+  {
+    title: "Nobody pays before they sign",
+    body: "The contract is signed against the exact version shown, and the server refuses payment until it is — online and in a Director's in-person checkout.",
+  },
+  {
+    title: "A benefit is used up when it is used",
+    body: "Booking a tee time draws down the allowance the member saw while booking, across every club they can play.",
+  },
+  {
+    title: "A lead cannot be lost",
+    body: "Unclaimed enquiries escalate, idle deals return to the pool, nurtures come back on their date, and guest rounds turn into leads.",
+  },
+];
+
+const TOUR = [
+  {
+    kicker: "Club websites & online join",
+    title: "From the website to a signed, paid membership — without a phone call.",
+    body: "Every club gets its own branded site with live prices from the back office. Plans sold online show “Join Online”; director-sold plans show “Inquire for Pricing” and the price never reaches the browser. The six-step join runs in the club's own look, and a waitlist replaces “Join” when a plan reaches its cap.",
+    points: ["Plan, household, dues & add-ons, sign, autopay, pay", "Prorated first period and promotions", "Old web addresses redirect — rankings carry over"],
+    img: "/images/golf/online-join-plans.webp",
+    url: "yourclub.com/join",
+    alt: "Six-step online join showing membership categories, what each plan includes, and director-sold plans marked Inquire for Pricing",
+  },
+  {
+    kicker: "Membership sales desk",
+    title: "A real sales desk, inside the system that runs the club.",
+    body: "Enquiries land in a per-club shared pool with first-claim-wins routing; unclaimed leads get a due-dated task and escalate to the GM or VP. Directors see their own remaining discount authority as they sell, anything over it routes for approval, and the customer only ever sees the approved price.",
+    points: ["Pipeline by stage with guidance at every stage", "Tour board and nurture follow-ups", "“Present to Customer” tablet checkout"],
+    img: "/images/golf/sales-pipeline.webp",
+    url: "Membership sales · Pipeline",
+    alt: "Membership sales pipeline with opportunities by stage",
+  },
+  {
+    kicker: "Contracts & e-signature",
+    title: "Signed before money moves. No third-party signing tool.",
+    body: "A versioned template library with clauses that switch on by the club's state, configurable signers and an optional club countersignature. A fingerprint of the exact text signed is recorded, and publishing a new version never invalidates old signatures.",
+    points: ["Created from your Word or PDF agreements", "Sent → signed → countersigned tracking", "Signed documents in the member's portal"],
+    img: "/images/golf/contracts-esign.webp",
+    url: "Contracts · Envelopes",
+    alt: "Contracts list tracked through awaiting signature, awaiting countersignature and signed",
+  },
+  {
+    kicker: "Benefits & reciprocal access",
+    title: "What a membership includes — enforced across every club.",
+    body: "Benefits are quantified, not bullet points. Each resets monthly, yearly or on the anniversary, can be capped per club, per network of clubs, or both, and applies at home, when travelling, or both. Members see used and remaining for every benefit, shared across the household.",
+    points: ["Granted automatically on approval", "Tee-time bookings draw down the golf allowance", "Utilization reporting per club and benefit"],
+    img: "/images/golf/member-benefits.webp",
+    url: "members.yourclub.com/benefits",
+    alt: "Member portal showing each benefit with used, remaining and reset date, shared across the household",
+  },
+  {
+    kicker: "Tee sheet & carts",
+    title: "A full tee sheet, with the member's allowance live while booking.",
+    body: "A day tee sheet per course with block times, moves and party edits; rate grids for peak, off-peak, guest, twilight, member and public; booking windows by tier; cancellation and no-show policies; and a numbered cart fleet with seats priced at assignment.",
+    points: ["Members-only windows and holds", "Suspended members refused automatically", "Pro-shop items pre-ordered to the tee time"],
+    img: "/images/golf/tee-sheet.webp",
+    url: "Golf · Tee sheet",
+    alt: "Day tee sheet for a course with booked groups and open times",
+  },
+  {
+    kicker: "Golf performance",
+    title: "The numbers a golf operator actually runs on.",
+    body: "Tee-sheet utilization, average ticket per round, revenue per available tee time, no-show rate, member/guest/public mix, booking lead time and cart attach rate — calculated from the bookings themselves, with an occupancy calendar that shows where each day landed.",
+    points: ["By course, month and rate type", "Needs-attention list for no-shows", "CSV export for the finance team"],
+    img: "/images/golf/golf-performance.webp",
+    url: "Golf · Performance",
+    alt: "Golf performance dashboard with utilization, average ticket, revenue per available tee time, rounds, no-show rate and an occupancy calendar",
+  },
+];
+
+const MODULES = [
   {
     n: "01",
-    title: "Membership categories & dues",
-    body: "Full Golf, Social, Corporate, Junior, Non-Resident — each its own category with its own price, eligibility rules, included benefits and billing frequency. Categories are versioned: change the rate and existing members keep the price they joined on until you explicitly migrate them.",
+    title: "Club websites & online join",
+    body: "A branded microsite for every club from one system, 39 content blocks and 17 templates, a new-club wizard, and a six-step join with e-signature and payment.",
   },
   {
     n: "02",
-    title: "Family accounts that bill correctly",
-    body: "A household holds any number of people and any number of payers. Single payer, split by percentage, alternating months, or an explicit month-by-month schedule. Each payer keeps their own cards and their own statement history.",
+    title: "Membership sales CRM",
+    body: "Shared lead pool with SLA escalation, pipeline by stage, tour board, product builder with discount authority, approvals, and in-person tablet checkout.",
   },
   {
     n: "03",
-    title: "Dues, minimums & statements",
-    body: "Per-club sequential invoice numbering, line items that trace to a subscription period, an event ticket, a clinic enrollment or a manual charge, plus full and partial refunds against specific lines. Statements are viewable by the member and the office, and generate as PDF on demand.",
+    title: "Contracts & e-signature",
+    body: "Versioned templates, state-based clauses, signer roles and countersignature, word-level version comparison, and payment blocked until signed.",
   },
   {
     n: "04",
-    title: "Tournaments & club events",
-    body: "Ticket types with per-household caps and member-only tiers, capacity enforced atomically so you cannot oversell a field, QR tickets emailed on purchase, and a check-in view with a scanner and walk-in add.",
+    title: "Dues, billing & payments",
+    body: "Card and ACH autopay, prorated first periods, step-up promotional dues, automatic retries, a compliant credit-only card fee, and staff refunds with a reason.",
   },
   {
     n: "05",
-    title: "Clinics, leagues & junior programs",
-    body: "Sessions and seasons with age ranges, prerequisites, early-bird windows, capacity and waitlists. Waitlist promotion can charge a saved card automatically. Guests can register and pay without creating an account.",
+    title: "Onboarding",
+    body: "Active the moment they pay. Up to seven setup steps, reminders at days 2, 5 and 10, and a task for the GM and Director at day 12 if a member stalls.",
   },
   {
     n: "06",
-    title: "Lesson booking & packs",
-    body: "Recurring templates with per-occurrence instructor substitution, configurable cancellation windows with late-cancel and no-show policy, and lesson packs that carry a remaining balance and an expiry and decrement on attendance.",
+    title: "Member portal & golf app",
+    body: "Digital card with QR code for every household member, benefits remaining, bills, bookings, and a per-club installable golf app with digital scorecards.",
   },
   {
     n: "07",
-    title: "Gate & pro shop check-in",
-    body: "Barcode, QR or manual lookup. The moment a member resolves, staff see photo, category, status and any hold — and check them in with one tap. Check-in blocks on an expired waiver, a lapsed category or an unpaid balance, with a reason-logged staff override.",
+    title: "Tee sheet & golf operations",
+    body: "Rate grids, booking windows, cart sheet and fleet, and seven golf staff roles — head pro, shop, superintendent, member services, bag room, caddie, concierge.",
   },
   {
     n: "08",
-    title: "Member CRM, not a bolt-on",
-    body: "Every member and prospect has one timeline: emails opened, forms submitted, payments, enrollments, attendance, notes and logged calls. Smart lists re-evaluate themselves — members with no attendance in 30 days is a rule, not a monthly export.",
+    title: "Pro shop & online store",
+    body: "Shelf, pre-order and member prices, inventory kept as a ledger of movements across clubs, reorder lists, and orders waiting on the member's cart.",
   },
   {
     n: "09",
-    title: "Email & SMS from the roster",
-    body: "Campaigns target a list or a live filter, merge tags resolve from the member record with fallbacks, suppression for unsubscribed and bounced is automatic, and quiet hours are enforced on SMS. Consent updates in real time.",
+    title: "Events & private events",
+    body: "Club events with RSVP, plus a private-events sales pool with room calendars and first- and second-option holds that promote automatically.",
   },
   {
     n: "10",
-    title: "Automation you can actually see",
-    body: "A visual builder with nine step types — email, SMS, wait, update a property, add or remove from a list, create a staff task, branch on a condition, emit an event. Triggered by a payment failing, a category changing, a form landing or a schedule. Every run keeps a log.",
+    title: "Reporting & the corporate view",
+    body: "A standard report library over governed datasets that runs as the viewer, scheduled email delivery, 13-month trends, and every club side by side.",
   },
   {
     n: "11",
-    title: "Waivers bound to what was signed",
-    body: "Versioned templates. Editing the text creates a new version and old signatures stay attached to the version they signed, captured with signer, timestamp, IP and a hash of the consent text. Expiring waivers surface at check-in as a block until re-signed.",
+    title: "Ask, in plain English",
+    body: "Staff type a question and get the number back with a citation that opens as a normal report — read-only, run as the signed-in user, and audited.",
   },
   {
     n: "12",
-    title: "Reporting without a SQL request",
-    body: "Fifteen governed datasets — members, invoices, payments, subscriptions, enrollments, attendance, events and more. Build a report by picking columns, filters and grouping; render it as a table, chart or KPI tile; compose tiles into a dashboard. Every list exports to CSV with your filters applied.",
+    title: "Built for many clubs",
+    body: "Switch modules on or off per club, stand up a new club from a template with a preview first, and go live against a pass-or-fail readiness checklist.",
   },
 ];
 
-const COMPARE = [
+const GALLERY = [
   {
-    feat: "How it is priced",
-    them: "Per staff seat, per month",
-    suite: "Per module, individually negotiated",
-    ardn: "One flat monthly fee for the club",
+    img: "/images/golf/cart-sheet.webp",
+    title: "Cart sheet",
+    body: "Numbered carts, seats priced at assignment, auto-assignment and rider swaps.",
+    alt: "Cart sheet with numbered carts, assigned riders and seat pricing",
   },
   {
-    feat: "Published price you can compare",
-    them: "Yes — per seat",
-    suite: "Typically no public rate card",
-    ardn: "Fixed written quote before you commit",
+    img: "/images/golf/dues-standing.webp",
+    title: "Dues & standing",
+    body: "Past due, retrying, autopay off, fee terms pending and next charge — across the membership.",
+    alt: "Dues and standing view showing past-due, retrying and autopay-off members",
   },
   {
-    feat: "Cost of adding 20 front-desk staff",
-    them: "20 × seat price × 12, every year",
-    suite: "Varies with the licence model",
-    ardn: "Nothing",
+    img: "/images/golf/pro-shop.webp",
+    title: "Pro shop",
+    body: "An online store per club — collect at the counter or find it waiting on your cart.",
+    alt: "Club online pro shop with products, member pricing and basket",
   },
   {
-    feat: "Adding a capability in year two",
-    them: "An add-on SKU or more licences",
-    suite: "A separately negotiated module",
-    ardn: "Part of the managed service",
+    img: "/images/golf/private-events.webp",
+    title: "Private events",
+    body: "Room calendar with first- and second-option holds that promote automatically.",
+    alt: "Private events room calendar with first- and second-option holds",
   },
   {
-    feat: "Renewal increases",
-    them: "At the vendor's discretion",
-    suite: "Negotiated at renewal",
-    ardn: "Capped at CPI, maximum 4%, in the agreement",
+    img: "/images/golf/report-library.webp",
+    title: "Report library",
+    body: "One library: a GM sees their club, a VP their region, corporate every club.",
+    alt: "Report library with governed datasets, saved reports and scheduled delivery",
   },
   {
-    feat: "Family accounts with multiple payers",
-    them: "Custom objects and a consultant",
-    suite: "Depends on the modules you licence",
-    ardn: "Native — four billing arrangements",
+    img: "/images/golf/member-billing.webp",
+    title: "Member billing",
+    body: "Dues, autopay, next charge and receipts — in the member's own club-branded account.",
+    alt: "Member portal billing page with monthly dues, autopay status, last payment and saved payment method",
+  },
+];
+
+const SECURITY = [
+  {
+    title: "Isolation enforced in the database",
+    body: "Row-level security on every table — a club's staff cannot query another club's records. Enforced by the database, not by hiding rows on a screen.",
   },
   {
-    feat: "Grandfathered dues rates",
-    them: "Custom build",
-    suite: "Depends on the modules you licence",
-    ardn: "Versioned plans, price snapshot per member",
+    title: "A permission for every capability",
+    body: "400+ permissions granted per role and per club, individual grants or denials with an expiry and a reason, and a “Who Can Do What” view across every club.",
   },
   {
-    feat: "Member portal on your brand",
-    them: "Separate product, separate licence",
-    suite: "Often a separate module",
-    ardn: "Included, themed from your logo and colours",
+    title: "Money fields disappear, not blur",
+    body: "Anyone without permission to see money gets reports with money fields left out entirely — not masked.",
   },
   {
-    feat: "Who runs it day to day",
-    them: "Your admin, or a partner on retainer",
-    suite: "Your admin, plus vendor support",
-    ardn: "We do — it is a managed service",
-  },
-  {
-    feat: "If it is not working",
-    them: "You are in the term",
-    suite: "You are in the term",
-    ardn: "60-day go-live guarantee — exit, fees for that period refunded",
+    title: "Nothing important can vanish",
+    body: "Field history on every tracked field, an audit log of staff actions, and a 30-day recycle bin. Members and anything with money or signatures behind it can never be deleted.",
   },
 ];
 
 const STEPS = [
   {
-    title: "Roster & money audit",
-    body: "We take an export of your current members, categories, balances and payment methods, and reconcile it before anything moves. You get a written gap list — duplicates, broken households, dues that do not match the category.",
+    title: "A 30-minute walkthrough",
+    body: "We take your leadership through a live multi-club demo portfolio — website and join, sales, contracts, tee sheet, benefits and the corporate view — mapped to how your clubs run today.",
   },
   {
-    title: "Your club, configured",
-    body: "Categories, dues rates, billing arrangements, waiver text, refund and freeze policy, staff roles by department. The portal and the admin console are themed from your logo, colours and typeface — no Ardn branding in front of your members.",
+    title: "Map your portfolio",
+    body: "Clubs, regions, plans, benefits and reciprocal rules, roles and approval authority — configured in settings, not code, with a preview before any defaults are applied.",
   },
   {
-    title: "Parallel run",
-    body: "One full billing cycle runs in both systems. We reconcile line by line and show you the difference before you rely on it. Nothing is cut over on a promise.",
+    title: "Stand up each club",
+    body: "A new club's site, roles, routing and settings come from a template club, so rolling out across a portfolio is a repeatable process, not a new project each time.",
   },
   {
-    title: "Cutover & we run it",
-    body: "Members are invited to the portal on your domain. After go-live it stays a managed service: we operate it, patch it, and build what you ask for next — inside the same flat fee.",
+    title: "Go live on a checklist",
+    body: "Each club goes live against a readiness checklist with pass or fail for every item and a link to fix it, and old web addresses redirect so rankings carry over.",
   },
 ];
 
-const FAQS = [
-  {
-    q: "We are on Salesforce today. Is this a rip-and-replace?",
-    a: "Not necessarily. Plenty of clubs keep Salesforce where it genuinely earns its licence — usually a small finance or development team — and move the hundred-plus front-desk, pro shop and food-and-beverage staff onto this platform, where they cost nothing per head. That alone is usually where the savings are. We are a Salesforce consultancy as well, so we are not talking you out of it for sport.",
-  },
-  {
-    q: "What happens to our historical member data?",
-    a: "It migrates. Members, households, categories, subscription history, invoices, payments and status history all come across, and the lifecycle history stays queryable and exportable per member. We reconcile the migration against your current system for a full billing cycle before cutover.",
-  },
-  {
-    q: "Is it really no per-user fee?",
-    a: "Yes. The commercial model is one flat monthly fee for the club. Front desk, pro shop, starters, F&B, instructors, the GM and the board can all have their own logins with their own permissions, and none of them change the invoice.",
-  },
-  {
-    q: "How is member data kept separate from other clubs?",
-    a: "Every record carries a tenant identifier and isolation is enforced in the database itself with Postgres row-level security, running under a role that cannot bypass it. It is not application logic that a bug can step around. Every create, update and delete is also written to an immutable audit log.",
-  },
-  {
-    q: "Can members pay by card and bank transfer?",
-    a: "Both. Card and ACH, saved per payer, captured inline on your branded pages rather than bouncing the member out to a third-party checkout. Dues, tournament tickets, clinic fees and pro shop charges are all handled in the platform. Money settles into your club's own merchant account — the processing relationship and the funds stay yours, and nothing passes through us.",
-  },
-  {
-    q: "What does it cost, and what is the contract?",
-    a: "One flat monthly subscription plus a one-time implementation, quoted in writing before you commit — never a percentage of your club's revenue and never a per-member or per-seat fee. The standard agreement is a 12-month term with annual increases capped at CPI (maximum 4%), so renewals do not surprise the finance committee. If your board would rather not commit, a month-to-month option is available at a higher monthly rate.",
-  },
-  {
-    q: "What if it does not work out?",
-    a: "There is a 60-day go-live guarantee. If it is not working in the first 60 days after go-live, you can exit and have your subscription fees for that period refunded. That is in the agreement, not a sales promise.",
-  },
-  {
-    q: "How does this compare to Jonas or Clubessential?",
-    a: "Those suites cover a genuinely wide surface and are well established in the category. The difference is how you buy. Neither publishes a rate card, and capability tends to arrive as separately negotiated modules — accounting, booking, dining POS, member CRM, mobile — so a club that adds one thing a year is negotiating each addition without a published ceiling to negotiate against. Our model is the opposite: one flat fee, a fixed written quote up front, and new capability built as part of the managed service rather than sold as the next module.",
-  },
-  {
-    q: "Who supports it after launch?",
-    a: "We do. This is sold as a managed service, not a licence with a support portal. The same team that builds it runs it, and ongoing changes are part of the monthly fee rather than a change order.",
-  },
-];
-
-/* ---------------------------------------------------------------------------
-   Five-year cost chart — grouped bars, two series
-   Palette: indigo #4840E0 / heritage green #0F9870.
-   Validated (light surface): deutan ΔE 26.3, normal-vision ΔE 31.7, both
-   series ≥ 3:1 against the surface. All six checks pass.
-   ------------------------------------------------------------------------ */
-
-type YearRow = { label: string; current: number; ardn: number };
-
-function CostChart({ rows }: { rows: YearRow[] }) {
-  const [hover, setHover] = useState<{ i: number; s: "current" | "ardn" } | null>(
-    null
-  );
-
-  const W = 720;
-  const H = 300;
-  const PAD_L = 58;
-  const PAD_R = 14;
-  const PAD_T = 26;
-  const PAD_B = 38;
-
-  const plotW = W - PAD_L - PAD_R;
-  const plotH = H - PAD_T - PAD_B;
-
-  const max = Math.max(...rows.map((r) => Math.max(r.current, r.ardn)), 1);
-  // Round the scale ceiling up to a clean step so gridline labels read well.
-  const step = Math.pow(10, Math.floor(Math.log10(max))) / 2;
-  const ceil = Math.ceil(max / step) * step;
-
-  const groupW = plotW / rows.length;
-  const barW = Math.min(46, (groupW - 26) / 2);
-  const y = (v: number) => PAD_T + plotH - (v / ceil) * plotH;
-
-  const ticks = [0, 0.25, 0.5, 0.75, 1].map((f) => f * ceil);
-
+/** A real screenshot inside the page's browser-frame chrome. */
+function Shot({
+  src,
+  alt,
+  url,
+  priority,
+  tilt,
+}: {
+  src: string;
+  alt: string;
+  url: string;
+  priority?: boolean;
+  tilt?: boolean;
+}) {
   return (
-    <figure className="gc-figure">
-      <figcaption className="gc-figcap">
-        <span className="gc-figtitle">Five-year cost of ownership</span>
-        <span className="gc-legend">
-          <span className="gc-key">
-            <i style={{ background: "#4840E0" }} aria-hidden="true" />
-            Per-seat licensing
-          </span>
-          <span className="gc-key">
-            <i style={{ background: "#0F9870" }} aria-hidden="true" />
-            Ardn flat fee
-          </span>
-        </span>
-      </figcaption>
-
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        className="gc-svg"
-        role="img"
-        aria-label={`Grouped bar chart comparing five years of per-seat licensing cost against a flat monthly fee. Per-seat licensing rises from ${usd(
-          rows[0].current
-        )} in year one to ${usd(
-          rows[rows.length - 1].current
-        )} in year five, while the flat fee stays at ${usd(rows[0].ardn)}.`}
-      >
-        {ticks.map((t) => (
-          <g key={t}>
-            <line
-              x1={PAD_L}
-              x2={W - PAD_R}
-              y1={y(t)}
-              y2={y(t)}
-              stroke="#E6E8F2"
-              strokeWidth={1}
-            />
-            <text
-              x={PAD_L - 10}
-              y={y(t) + 4}
-              textAnchor="end"
-              className="gc-tick"
-            >
-              {t === 0 ? "0" : usdCompact(t)}
-            </text>
-          </g>
-        ))}
-
-        {rows.map((r, i) => {
-          const gx = PAD_L + i * groupW;
-          // 2px surface gap between the two adjacent fills.
-          const x1 = gx + groupW / 2 - barW - 1;
-          const x2 = gx + groupW / 2 + 1;
-          const isLast = i === rows.length - 1;
-          const showLabel = i === 0 || isLast;
-
-          return (
-            <g key={r.label}>
-              <rect
-                x={x1}
-                y={y(r.current)}
-                width={barW}
-                height={Math.max(PAD_T + plotH - y(r.current), 2)}
-                rx={4}
-                fill="#4840E0"
-                opacity={hover && !(hover.i === i && hover.s === "current") ? 0.45 : 1}
-                onMouseEnter={() => setHover({ i, s: "current" })}
-                onMouseLeave={() => setHover(null)}
-              />
-              <rect
-                x={x2}
-                y={y(r.ardn)}
-                width={barW}
-                height={Math.max(PAD_T + plotH - y(r.ardn), 2)}
-                rx={4}
-                fill="#0F9870"
-                opacity={hover && !(hover.i === i && hover.s === "ardn") ? 0.45 : 1}
-                onMouseEnter={() => setHover({ i, s: "ardn" })}
-                onMouseLeave={() => setHover(null)}
-              />
-
-              {showLabel && (
-                <>
-                  <text
-                    x={x1 + barW / 2}
-                    y={y(r.current) - 8}
-                    textAnchor="middle"
-                    className="gc-vallabel"
-                  >
-                    {usdCompact(r.current)}
-                  </text>
-                  <text
-                    x={x2 + barW / 2}
-                    y={y(r.ardn) - 8}
-                    textAnchor="middle"
-                    className="gc-vallabel"
-                  >
-                    {usdCompact(r.ardn)}
-                  </text>
-                </>
-              )}
-
-              <text
-                x={gx + groupW / 2}
-                y={H - 14}
-                textAnchor="middle"
-                className="gc-axlabel"
-              >
-                {r.label}
-              </text>
-            </g>
-          );
-        })}
-
-        <line
-          x1={PAD_L}
-          x2={W - PAD_R}
-          y1={PAD_T + plotH}
-          y2={PAD_T + plotH}
-          stroke="#D8DBE8"
-          strokeWidth={1}
-        />
-      </svg>
-
-      <div className="gc-hoverline" role="status" aria-live="polite">
-        {hover ? (
-          <>
-            <strong>{rows[hover.i].label}</strong>
-            <span className="gc-dot" style={{ background: hover.s === "current" ? "#4840E0" : "#0F9870" }} aria-hidden="true" />
-            {hover.s === "current" ? "Per-seat licensing" : "Ardn flat fee"}
-            <strong>
-              {usd(hover.s === "current" ? rows[hover.i].current : rows[hover.i].ardn)}
-            </strong>
-          </>
-        ) : (
-          <span className="gc-hoverhint">Tap or hover a bar for the exact figure</span>
-        )}
+    <div className={tilt ? "gc-mock gc-shot" : "gc-mock gc-shot gc-shot-flat"}>
+      <div className="gc-mock-bar">
+        <span className="gc-mock-dot" />
+        <span className="gc-mock-dot" />
+        <span className="gc-mock-dot" />
+        <span className="gc-mock-url">{url}</span>
       </div>
-
-      <details className="gc-table">
-        <summary>View as a table</summary>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Year</th>
-              <th scope="col">Per-seat licensing</th>
-              <th scope="col">Ardn flat fee</th>
-              <th scope="col">Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.label}>
-                <th scope="row">{r.label}</th>
-                <td>{usd(r.current)}</td>
-                <td>{usd(r.ardn)}</td>
-                <td>{usd(r.current - r.ardn)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </details>
-    </figure>
+      <Image
+        src={src}
+        alt={alt}
+        width={1920}
+        height={1200}
+        priority={priority}
+        sizes="(max-width: 900px) 100vw, 60vw"
+        className="gc-shot-img"
+      />
+    </div>
   );
 }
 
-/* ---------------------------------------------------------------------------
-   Page
-   ------------------------------------------------------------------------ */
-
 export default function GolfClubContent() {
-  const [members, setMembers] = useState(2200);
-  const [seats, setSeats] = useState(45);
-  const [perSeat, setPerSeat] = useState(DEFAULT_PER_SEAT);
-  const [retainer, setRetainer] = useState(60000);
-  const [flatMonthly, setFlatMonthly] = useState(4500);
-
-  const model = useMemo(() => {
-    const licenceY1 = seats * perSeat * 12;
-    const currentY1 = licenceY1 + retainer;
-    const ardnY1 = flatMonthly * 12;
-
-    const rows: YearRow[] = Array.from({ length: 5 }, (_, i) => ({
-      label: `Year ${i + 1}`,
-      current: currentY1 * Math.pow(1 + ANNUAL_UPLIFT, i),
-      ardn: ardnY1,
-    }));
-
-    const currentTotal = rows.reduce((s, r) => s + r.current, 0);
-    const ardnTotal = rows.reduce((s, r) => s + r.ardn, 0);
-
-    return {
-      rows,
-      licenceY1,
-      currentY1,
-      ardnY1,
-      currentTotal,
-      ardnTotal,
-      delta: currentTotal - ardnTotal,
-      perMember: members > 0 ? currentY1 / members : 0,
-    };
-  }, [members, seats, perSeat, retainer, flatMonthly]);
-
   return (
     <main className="ardn-page gc">
       {/* ---------------------------------------------------------------
@@ -511,100 +332,52 @@ export default function GolfClubContent() {
         <div className="container">
           <div className="gc-hero-grid">
             <div className="gc-hero-copy">
-              <span className="gc-eyebrow">Golf &amp; private club</span>
+              <span className="gc-eyebrow">Clubhouse360 · Golf &amp; country clubs</span>
               <h1 className="gc-display">
-                Your club is not a{" "}
-                <em>sales pipeline</em>.
-                <br />
-                Stop paying for one.
+                Every club in your portfolio. <em>One member record.</em>
               </h1>
               <p className="gc-lede">
-                One platform for membership, dues, families, tournaments,
-                clinics, check-in and member communications — built for how a
-                club actually runs, on your brand, for one flat monthly fee. No
-                per-seat licence. Renewal increases capped at CPI in the
-                agreement. Built and run by us.
+                Clubhouse360 runs a multi-club golf and country club operation
+                from the first website visit to the 18th green — club websites,
+                online join, membership sales, e-signed contracts, dues,
+                onboarding, the member app, the tee sheet, the pro shop, events
+                and reporting. One price book, one set of permissions, one audit
+                trail, across every club.
               </p>
 
               <div className="gc-ctas">
-                <a className="gc-btn gc-btn-gold" href="#estimate">
-                  See what per-seat is costing you
-                </a>
                 <a
-                  className="gc-btn gc-btn-ghost"
+                  className="gc-btn gc-btn-gold"
                   href={CALENDLY}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Book a 30-minute walkthrough
                 </a>
+                <a className="gc-btn gc-btn-ghost" href="#tour">
+                  See the product first
+                </a>
               </div>
 
               <ul className="gc-hero-proof">
-                <li>Unlimited staff logins</li>
-                <li>Funds settle to your own merchant account</li>
-                <li>Migration reconciled before cutover</li>
+                <li>Built for multi-club operators</li>
+                <li>Contracts &amp; e-signature built in</li>
+                <li>Benefits that follow the member</li>
               </ul>
             </div>
 
-            {/* Member-360 mock. Illustrative UI, not a screenshot — no real
-                club, member or balance is depicted. */}
-            <div className="gc-hero-visual" aria-hidden="true">
-              <div className="gc-mock">
-                <div className="gc-mock-bar">
-                  <span className="gc-mock-dot" />
-                  <span className="gc-mock-dot" />
-                  <span className="gc-mock-dot" />
-                  <span className="gc-mock-url">members.yourclub.com</span>
-                </div>
-                <div className="gc-mock-body">
-                  <div className="gc-mock-head">
-                    <div className="gc-mock-avatar">MH</div>
-                    <div>
-                      <div className="gc-mock-name">Household — Hargrove</div>
-                      <div className="gc-mock-sub">Full Golf · Member since 2011</div>
-                    </div>
-                    <span className="gc-chip gc-chip-green">Active</span>
-                  </div>
-
-                  <div className="gc-mock-rows">
-                    <div className="gc-mock-row">
-                      <span>Dues rate</span>
-                      <b>
-                        Grandfathered
-                        <i className="gc-chip gc-chip-gold">2011 rate</i>
-                      </b>
-                    </div>
-                    <div className="gc-mock-row">
-                      <span>Billing</span>
-                      <b>Split 60 / 40 · two payers</b>
-                    </div>
-                    <div className="gc-mock-row">
-                      <span>Waiver</span>
-                      <b>Signed · v4</b>
-                    </div>
-                    <div className="gc-mock-row">
-                      <span>Last check-in</span>
-                      <b>Gate · 2 days ago</b>
-                    </div>
-                  </div>
-
-                  <div className="gc-mock-foot">
-                    <div className="gc-mock-stat">
-                      <span>Household members</span>
-                      <b>4</b>
-                    </div>
-                    <div className="gc-mock-stat">
-                      <span>Open balance</span>
-                      <b>$0</b>
-                    </div>
-                    <div className="gc-mock-stat">
-                      <span>Staff seats billed</span>
-                      <b className="gc-zero">0</b>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="gc-hero-visual">
+              <Shot
+                src="/images/golf/corporate-dashboard.webp"
+                alt="Clubhouse360 corporate dashboard comparing every club side by side — enquiries, new members, conversion, SLA compliance and pipeline value"
+                url="Clubhouse360 · Corporate · All clubs"
+                priority
+                tilt
+              />
+              <p className="gc-hero-caption">
+                The corporate view: every club side by side. The same report
+                scopes itself to each regional VP and GM.
+              </p>
             </div>
           </div>
         </div>
@@ -615,9 +388,25 @@ export default function GolfClubContent() {
           "US-based team",
           "30+ yrs building software",
           "4-hour response SLA",
-          "60-day go-live guarantee",
+          "Club-level data isolation",
         ]}
       />
+
+      {/* ---------------------------------------------------------------
+          AT A GLANCE
+          --------------------------------------------------------------- */}
+      <section className="gc-figures-band">
+        <div className="container">
+          <div className="gc-figures">
+            {STATS.map((s) => (
+              <div className="gc-figure-stat" key={s.label}>
+                <b>{s.value}</b>
+                <span>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ---------------------------------------------------------------
           PROBLEM
@@ -625,17 +414,15 @@ export default function GolfClubContent() {
       <section className="gc-section gc-canvas">
         <div className="container">
           <div className="gc-head">
-            <span className="gc-kicker">The real cost</span>
+            <span className="gc-kicker">The patchwork</span>
             <h2 className="gc-h2">
-              Most clubs are running five systems that were never designed for a
-              club.
+              Club technology was assembled one club at a time. Multi-club
+              operators inherit the result.
             </h2>
             <p className="gc-sub">
-              A general-purpose CRM can be bent into a club system. It takes a
-              consultant, a year, and a per-seat bill that grows every time you
-              hire a starter. Meanwhile the parts a club actually needs —
-              families, dues, minimums, a portal members will use — are the parts
-              you end up building yourself.
+              Every hand-off between these systems is a place where data is
+              re-keyed, prices drift, prospects fall through the cracks, and the
+              controller spends the first week of every month reconciling.
             </p>
           </div>
 
@@ -651,147 +438,135 @@ export default function GolfClubContent() {
       </section>
 
       {/* ---------------------------------------------------------------
-          ESTIMATE / CALCULATOR
+          THE CONNECTED DIFFERENCE
           --------------------------------------------------------------- */}
-      <section className="gc-section" id="estimate">
+      <section className="gc-section">
         <div className="container">
           <div className="gc-head">
-            <span className="gc-kicker">Your numbers</span>
+            <span className="gc-kicker">One flow</span>
             <h2 className="gc-h2">
-              What is per-seat licensing actually costing your club?
+              From first enquiry to first round, on one member record.
             </h2>
             <p className="gc-sub">
-              Set the sliders to your club. Nothing is sent anywhere and
-              nothing is stored — this runs entirely in your browser.
+              In Clubhouse360 the website, the lead, the tour, the product
+              builder, the signed contract, the payment and onboarding happen in
+              one system. That changes what an operator can promise.
             </p>
           </div>
 
-          <div className="gc-calc">
-            <div className="gc-calc-inputs">
-              <Slider
-                label="Members"
-                value={members}
-                min={300}
-                max={8000}
-                step={50}
-                onChange={setMembers}
-                display={members.toLocaleString("en-US")}
-              />
-              <Slider
-                label="Staff who need a login"
-                value={seats}
-                min={5}
-                max={250}
-                step={1}
-                onChange={setSeats}
-                display={String(seats)}
-                hint="Front desk, pro shop, starters, F&B, instructors, management, board."
-              />
-              <Slider
-                label="Cost per seat, per month"
-                value={perSeat}
-                min={25}
-                max={400}
-                step={5}
-                onChange={setPerSeat}
-                display={usd(perSeat)}
-                hint="Your CRM's list price per user. Starting value is a typical mid-tier seat."
-              />
-              <Slider
-                label="Annual admin / consultant retainer"
-                value={retainer}
-                min={0}
-                max={250000}
-                step={5000}
-                onChange={setRetainer}
-                display={usd(retainer)}
-                hint="What you pay a partner or in-house admin to keep it configured."
-              />
-
-              <div className="gc-calc-divider" />
-
-              <Slider
-                label="Ardn flat fee, per month"
-                value={flatMonthly}
-                min={699}
-                max={25000}
-                step={100}
-                onChange={setFlatMonthly}
-                display={usd(flatMonthly)}
-                hint="Illustrative until we scope your club — the real number is a fixed written quote, and it is never per member or per seat. Set it to your quote to see your true position."
-                accent
-              />
-            </div>
-
-            <div className="gc-calc-out">
-              <div className="gc-readout">
-                <span className="gc-readout-label">
-                  Five-year difference at these numbers
-                </span>
-                <span
-                  className={
-                    model.delta >= 0 ? "gc-readout-value" : "gc-readout-value gc-neg"
-                  }
-                >
-                  {model.delta >= 0 ? usd(model.delta) : "−" + usd(Math.abs(model.delta))}
-                </span>
-                <span className="gc-readout-note">
-                  {model.delta >= 0
-                    ? "Stays with the club instead of going to licences."
-                    : "At this flat fee you would be paying more — worth a conversation before anything else."}
-                </span>
-              </div>
-
-              <div className="gc-stats">
-                <div className="gc-stat">
-                  <span>Seat licences, year one</span>
-                  <b>{usd(model.licenceY1)}</b>
-                </div>
-                <div className="gc-stat">
-                  <span>All-in, year one</span>
-                  <b>{usd(model.currentY1)}</b>
-                </div>
-                <div className="gc-stat">
-                  <span>Per member, per year</span>
-                  <b>{usd(model.perMember)}</b>
-                </div>
-                <div className="gc-stat">
-                  <span>Cost of your next 10 hires</span>
-                  <b>{usd(perSeat * 12 * 10)}</b>
-                </div>
-              </div>
-
-              <CostChart rows={model.rows} />
-
-              <p className="gc-footnote">
-                Per-seat column compounds at {Math.round(ANNUAL_UPLIFT * 100)}% a
-                year, the conservative end of typical renewal uplift. The flat
-                fee is held constant. Figures are your inputs, not a quote —
-                the only way to get a real number is to scope the club.
-              </p>
-            </div>
+          <div className="gc-onprop gc-promises">
+            {PROMISES.map((p) => (
+              <article key={p.title}>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ---------------------------------------------------------------
-          CAPABILITIES
+          PRODUCT TOUR — real UI, alternating rows
           --------------------------------------------------------------- */}
-      <section className="gc-section gc-canvas">
+      <section className="gc-section gc-canvas" id="tour">
         <div className="container">
           <div className="gc-head">
-            <span className="gc-kicker">What you get</span>
-            <h2 className="gc-h2">
-              Twelve things a club needs, in one platform, on your brand.
-            </h2>
+            <span className="gc-kicker">See it, don&rsquo;t take our word</span>
+            <h2 className="gc-h2">The real product, running a portfolio of clubs.</h2>
             <p className="gc-sub">
-              Not a CRM with a club-shaped hat on it. These are the primitives
-              the platform is built from.
+              Every screen on this page is the actual platform running a
+              multi-club demo portfolio — sample clubs and people, no mockups.
+            </p>
+          </div>
+
+          <div className="gc-tour">
+            {TOUR.map((t, i) => (
+              <div className={i % 2 ? "gc-tour-row is-flip" : "gc-tour-row"} key={t.kicker}>
+                <div className="gc-tour-copy">
+                  <span className="gc-kicker">{t.kicker}</span>
+                  <h3 className="gc-h3">{t.title}</h3>
+                  <p>{t.body}</p>
+                  <ul className="gc-ticks gc-ticks-light">
+                    {t.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                </div>
+                <Shot src={t.img} alt={t.alt} url={t.url} />
+              </div>
+            ))}
+          </div>
+
+          <div className="gc-inline-cta">
+            <p>
+              <strong>Want to see it on a portfolio like yours?</strong>{" "}
+              We&rsquo;ll
+              walk through the whole flow — website to first tee time — in 30
+              minutes.
+            </p>
+            <a
+              className="gc-btn gc-btn-gold"
+              href={CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a walkthrough
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          MEMBER EXPERIENCE
+          --------------------------------------------------------------- */}
+      <section className="gc-section gc-dark">
+        <div className="container">
+          <div className="gc-split">
+            <div>
+              <span className="gc-kicker gc-on-dark">Member experience</span>
+              <h2 className="gc-h2">
+                A portal and golf app your members will actually open — in each
+                club&rsquo;s brand.
+              </h2>
+              <p className="gc-sub gc-on-dark">
+                Members are active the moment they pay, and onboarding walks them
+                through the rest with reminders. From then on, everything about
+                their membership is in one club-branded account.
+              </p>
+              <ul className="gc-ticks">
+                <li>Digital membership card with QR code for every household member</li>
+                <li>Benefits used and remaining, with reset dates</li>
+                <li>Dues, next charge, autopay status and the signed agreement</li>
+                <li>Hold, cancel or change plan — billing follows automatically</li>
+                <li>A per-club installable golf app with tee times and digital scorecards</li>
+              </ul>
+            </div>
+            <Shot
+              src="/images/golf/member-home.webp"
+              alt="Member portal home with digital membership card, plan details, benefits and quick actions"
+              url="members.yourclub.com"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          MODULES
+          --------------------------------------------------------------- */}
+      <section className="gc-section" id="modules">
+        <div className="container">
+          <div className="gc-head">
+            <span className="gc-kicker">One platform, every department</span>
+            <h2 className="gc-h2">Everything the club runs on, in one login.</h2>
+            <p className="gc-sub">
+              Around 250 purpose-built screens across the staff back office, the
+              member portal and platform administration — each module switchable
+              on or off per club.
             </p>
           </div>
 
           <div className="gc-cards">
-            {CAPABILITIES.map((c) => (
+            {MODULES.map((c) => (
               <article className="gc-card" key={c.n}>
                 <span className="gc-card-n">{c.n}</span>
                 <h3>{c.title}</h3>
@@ -803,196 +578,142 @@ export default function GolfClubContent() {
       </section>
 
       {/* ---------------------------------------------------------------
-          PORTAL / BRAND
+          GALLERY
           --------------------------------------------------------------- */}
-      <section className="gc-section gc-dark">
+      <section className="gc-section gc-canvas">
         <div className="container">
-          <div className="gc-split">
+          <div className="gc-head">
+            <span className="gc-kicker">More of the platform</span>
+            <h2 className="gc-h2">Six more screens your team will live in.</h2>
+          </div>
+
+          <div className="gc-gallery">
+            {GALLERY.map((g) => (
+              <figure className="gc-gallery-item" key={g.title}>
+                <Image
+                  src={g.img}
+                  alt={g.alt}
+                  width={1920}
+                  height={1200}
+                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                />
+                <figcaption>
+                  <strong>{g.title}</strong>
+                  <span>{g.body}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          ROLES & SECURITY
+          --------------------------------------------------------------- */}
+      <section className="gc-section">
+        <div className="container">
+          <div className="gc-split gc-split-top">
             <div>
-              <span className="gc-kicker gc-on-dark">Member experience</span>
-              <h2 className="gc-h2">
-                A portal your members will actually use — and it says your name,
-                not ours.
-              </h2>
-              <p className="gc-sub gc-on-dark">
-                Logo, favicon, colours, typeface and hero imagery are per-club
-                tokens. No component in the system carries a hard-coded colour,
-                so the admin console your staff use and the portal your members
-                see are both your club&rsquo;s. It runs on your own domain with
-                SSL issued automatically once DNS verifies, and it is built to
-                WCAG 2.2 AA.
-              </p>
-              <ul className="gc-ticks">
-                <li>Member dashboard — bookings, statements, category, household, saved cards</li>
-                <li>Join and signup flow with the waiver captured inline</li>
-                <li>Events, clinics and lessons browsable and bookable</li>
-                <li>Household management and payment methods per payer</li>
-                <li>Responsive on mobile web — no app store, no download</li>
-              </ul>
+              <div className="gc-head">
+                <span className="gc-kicker">From ownership to the bag room</span>
+                <h2 className="gc-h2">
+                  Everyone sees exactly their slice — enforced by the database.
+                </h2>
+                <p className="gc-sub">
+                  Corporate sees every club with region subtotals. Regional VPs
+                  get the same reports limited to their region, growing as clubs
+                  are added. GMs get their club&rsquo;s home. Membership
+                  directors, controllers, events directors and seven golf roles
+                  each get their own workspace.
+                </p>
+              </div>
+              <Shot
+                src="/images/golf/permissions.webp"
+                alt="Who Can Do What screen showing which people hold a given permission across every club"
+                url="Settings · Who can do what"
+              />
             </div>
-            <div className="gc-portal-mock" aria-hidden="true">
-              <div className="gc-portal-nav">
-                <span className="gc-portal-logo">YOUR CLUB</span>
-                <span className="gc-portal-links">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-              </div>
-              <div className="gc-portal-hero">
-                <span className="gc-chip gc-chip-gold">Member portal</span>
-                <h4>Good afternoon, Marcus</h4>
-                <p>Your next event is the Member-Guest on Saturday.</p>
-              </div>
-              <div className="gc-portal-tiles">
-                <div>
-                  <span>Statement</span>
-                  <b>Paid</b>
-                </div>
-                <div>
-                  <span>Lesson pack</span>
-                  <b>6 left</b>
-                </div>
-                <div>
-                  <span>Household</span>
-                  <b>4 members</b>
-                </div>
-                <div>
-                  <span>Waiver</span>
-                  <b>Current</b>
-                </div>
-              </div>
+            <div className="gc-onprop gc-onprop-stack">
+              {SECURITY.map((s) => (
+                <article key={s.title}>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* ---------------------------------------------------------------
-          ON-PROPERTY SYSTEMS
-
-          ⚠️  PENDING CONFIRMATION FROM DEEP — DO NOT PUBLISH CLAIMS HERE
-          WITHOUT IT. The canonical spec (ARDN-Cloud-Solutions/membership,
-          docs/REQUIREMENTS.md) contains NO tee sheet, NO GHIN / handicap
-          sync and NO F&B minimum-spend tracking. The copy below is written
-          to be true as it stands — it positions the platform as the member
-          and revenue layer that sits ALONGSIDE those systems.
-
-          If Deep confirms any of the three are built, replace that card's
-          `body` with the real capability and move it into CAPABILITIES
-          above. If he confirms they are roadmap, say so explicitly with no
-          date. Until then this section ships as written and claims nothing
-          that is not in the spec.
+          ACCOUNTING — PREVIEW. Keep the Preview label and the sample-figures
+          note until the accounting engine is merged into the platform.
           --------------------------------------------------------------- */}
-      <section className="gc-section">
+      <section className="gc-section gc-canvas" id="accounting">
         <div className="container">
           <div className="gc-head">
-            <span className="gc-kicker">On property</span>
-            <h2 className="gc-h2">
-              The member and revenue layer — alongside what is already on
-              property.
-            </h2>
+            <span className="gc-kicker">
+              Accounting &amp; financial reporting
+              <span className="gc-chip gc-chip-gold">Preview</span>
+            </span>
+            <h2 className="gc-h2">A general ledger fed by the club, not re-keyed from it.</h2>
             <p className="gc-sub">
-              We are deliberate about this. The platform owns membership, money
-              and the member relationship. Where you already run a system that
-              your staff know and your members like, the answer is usually to
-              connect to it, not to rip it out in year one.
+              Dues billing, tee-time fees, pro-shop sales, events and payroll
+              imports post with their account, department, revenue centre and
+              club already attached — per club, or consolidated across all of
+              them.
             </p>
           </div>
 
-          <div className="gc-onprop">
-            <article>
-              <h3>Tee sheet</h3>
-              <p>
-                Keep the tee sheet your pro shop already runs. What the platform
-                supplies is the authoritative member record behind it — who is
-                current, what category they hold, and whether there is a hold on
-                the account.
-              </p>
-            </article>
-            <article>
-              <h3>Handicap &amp; scoring</h3>
-              <p>
-                Handicap computation is a governing-body service and stays
-                there. The platform is the membership system of record that
-                tells it who is an active member of your club.
-              </p>
-            </article>
-            <article>
-              <h3>Food &amp; beverage</h3>
-              <p>
-                Your F&amp;B point of sale keeps taking orders. Member identity,
-                household and account standing come from the platform, so the
-                dining room is looking at the same roster as the office.
-              </p>
-            </article>
+          <div className="gc-gallery gc-gallery-2">
+            <figure className="gc-gallery-item">
+              <Image
+                src="/images/golf/accounting-overview.webp"
+                alt="Accounting overview consolidated across all clubs, with revenue against budget, operating margin, cash and receivables"
+                width={1920}
+                height={1200}
+                sizes="(max-width: 700px) 100vw, 50vw"
+              />
+              <figcaption>
+                <strong>Accounting overview</strong>
+                <span>Revenue against budget, margin, cash, receivables and deferred dues — any club or all clubs.</span>
+              </figcaption>
+            </figure>
+            <figure className="gc-gallery-item">
+              <Image
+                src="/images/golf/financial-statements.webp"
+                alt="Profit and loss by department with month columns against budget and prior year"
+                width={1920}
+                height={1200}
+                sizes="(max-width: 700px) 100vw, 50vw"
+              />
+              <figcaption>
+                <strong>Financial statements</strong>
+                <span>P&amp;L by department against budget and prior year, balance sheet and cash flow, PDF and CSV export.</span>
+              </figcaption>
+            </figure>
           </div>
 
           <p className="gc-onprop-note">
-            Scoping a specific integration is part of the discovery call — bring
-            the names of what you run today and we will tell you plainly what
-            connects, what we would build, and what we would not.
+            Preview: the accounting interface — general ledger, AR/AP, bank
+            reconciliation with payout matching, budgets and period close — is
+            complete, and the engine is being merged into the platform. Screens
+            show sample figures.
           </p>
         </div>
       </section>
 
       {/* ---------------------------------------------------------------
-          COMPARISON
-          --------------------------------------------------------------- */}
-      <section className="gc-section gc-canvas">
-        <div className="container">
-          <div className="gc-head">
-            <span className="gc-kicker">Side by side</span>
-            <h2 className="gc-h2">
-              Coming off a seat-based CRM — or a module-priced club suite
-            </h2>
-            <p className="gc-sub">
-              Clubs overpay in two different ways. A seat-based CRM charges you
-              for every person who needs a login. A club suite charges you for
-              every capability, one negotiated module at a time, with no
-              published ceiling to negotiate against. We build on Salesforce
-              ourselves, so read this as a fit question rather than a takedown —
-              both are good products, bought on terms that work against a club.
-            </p>
-          </div>
-
-          <div className="gc-table-wrap">
-            <table className="gc-compare">
-              <thead>
-                <tr>
-                  <th scope="col">&nbsp;</th>
-                  <th scope="col">Seat-based CRM</th>
-                  <th scope="col">Club suite, module-priced</th>
-                  <th scope="col" className="is-ardn">
-                    Ardn club platform
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARE.map((r) => (
-                  <tr key={r.feat}>
-                    <th scope="row">{r.feat}</th>
-                    <td>{r.them}</td>
-                    <td>{r.suite}</td>
-                    <td className="is-ardn">{r.ardn}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------------------
-          MIGRATION
+          HOW IT WORKS
           --------------------------------------------------------------- */}
       <section className="gc-section">
         <div className="container">
           <div className="gc-head">
             <span className="gc-kicker">Getting there</span>
-            <h2 className="gc-h2">Nobody cuts a club over on a promise.</h2>
+            <h2 className="gc-h2">Rolled out club by club, on a checklist.</h2>
             <p className="gc-sub">
-              Dues are the club&rsquo;s revenue. The migration is designed so
-              that you see it reconcile before you depend on it.
+              A portfolio rollout should be a repeatable process. Every step is
+              configured in settings and previewed before it changes anything.
             </p>
           </div>
 
@@ -1015,7 +736,7 @@ export default function GolfClubContent() {
         <div className="container gc-narrow">
           <div className="gc-head">
             <span className="gc-kicker">Questions</span>
-            <h2 className="gc-h2">What GMs ask us first</h2>
+            <h2 className="gc-h2">What club operators ask us first</h2>
           </div>
           <div className="gc-faqs">
             {FAQS.map((f) => (
@@ -1035,10 +756,9 @@ export default function GolfClubContent() {
         <div className="container gc-narrow">
           <LeadForm
             source="golf-club-management-software"
-            heading="Get a club-specific scope and a flat-fee quote"
-            sub="Tell us your club size, what you run today and what hurts most. We reply within 4 business hours with a written scope and a fixed monthly number — no obligation."
-            showSeatQualifiers
-            submitLabel="Get my club quote"
+            heading="See Clubhouse360 on a live multi-club portfolio"
+            sub="Tell us how many clubs you run, what you use today and what hurts most. We reply within 4 business hours to set up your walkthrough."
+            submitLabel="Request my walkthrough"
           />
         </div>
       </section>
@@ -1050,12 +770,11 @@ export default function GolfClubContent() {
         <div className="gc-hero-glow" aria-hidden="true" />
         <div className="container gc-narrow">
           <h2 className="gc-display gc-display-sm">
-            One platform. One flat fee. <em>Every</em> login included.
+            More clubs. <em>Not more systems.</em>
           </h2>
           <p className="gc-lede">
-            Bring your roster, your dues structure and your current bill. We will
-            show you exactly what moves, what it costs, and what your club stops
-            paying for.
+            See one member record carry a prospect from your website to a
+            signed, paid membership — and on to their first tee time.
           </p>
           <div className="gc-ctas gc-ctas-center">
             <a
@@ -1067,18 +786,13 @@ export default function GolfClubContent() {
               Book a 30-minute walkthrough
             </a>
             <a className="gc-btn gc-btn-ghost" href="#talk">
-              Send us your numbers instead
+              Send us your details instead
             </a>
           </div>
           <p className="gc-final-links">
             Related:{" "}
             <Link href="/membership-management">Membership management platform</Link>{" "}
-            ·{" "}
-            <Link href="/ai-for-membership-organizations">
-              AI for membership organizations
-            </Link>{" "}
-            · <Link href="/reduce-crm-licensing-costs">Reduce CRM licensing costs</Link>{" "}
-            · <Link href="/custom-portal-development">Custom portal development</Link>{" "}
+            · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
             ·{" "}
             <Link href="/blog/country-club-management-software-cost">
               Why club software pricing is so opaque
@@ -1087,52 +801,5 @@ export default function GolfClubContent() {
         </div>
       </section>
     </main>
-  );
-}
-
-/* ---------------------------------------------------------------------------
-   Slider
-   ------------------------------------------------------------------------ */
-
-function Slider({
-  label,
-  value,
-  min,
-  max,
-  step,
-  onChange,
-  display,
-  hint,
-  accent,
-}: {
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  step: number;
-  onChange: (n: number) => void;
-  display: string;
-  hint?: string;
-  accent?: boolean;
-}) {
-  const pct = ((value - min) / (max - min)) * 100;
-  return (
-    <div className={accent ? "gc-slider gc-slider-accent" : "gc-slider"}>
-      <div className="gc-slider-top">
-        <label htmlFor={`s-${label}`}>{label}</label>
-        <output htmlFor={`s-${label}`}>{display}</output>
-      </div>
-      <input
-        id={`s-${label}`}
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        style={{ ["--pct" as string]: `${pct}%` }}
-      />
-      {hint && <p className="gc-slider-hint">{hint}</p>}
-    </div>
   );
 }
