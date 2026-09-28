@@ -1,0 +1,276 @@
+/* Pre-booking qualifier (site-wide modal + inline contact-page version). */
+
+.bq-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(560px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  height: fit-content;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  overflow: visible;
+}
+
+.bq-dialog::backdrop {
+  background: rgba(10, 14, 36, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.bq-panel {
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  padding: 24px 28px 28px;
+  border-radius: 22px;
+  background: #fff;
+  color: #0e1538;
+  box-shadow: 0 40px 100px rgba(10, 14, 36, 0.35);
+  font-family: inherit;
+}
+
+.bq-panel.is-inline {
+  box-shadow: none;
+  border: 1px solid #e6e8f2;
+  max-height: none;
+}
+
+.bq-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+}
+
+.bq-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4840e0;
+}
+
+.bq-back,
+.bq-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: none;
+  padding: 6px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5170;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.bq-close {
+  margin-left: auto;
+}
+
+.bq-back:hover,
+.bq-close:hover {
+  background: #f3f4fa;
+}
+
+.bq-progress {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.bq-progress span {
+  height: 5px;
+  border-radius: 4px;
+  background: #e6e8f2;
+  transition: background 0.2s ease;
+}
+
+.bq-progress span.is-on {
+  background: #4840e0;
+}
+
+.bq-count {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: #6b7090;
+}
+
+.bq-panel h2 {
+  color: #0e1538;
+  margin: 6px 0 18px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.bq-options {
+  display: grid;
+  gap: 10px;
+}
+
+.bq-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid #e1e3ee;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.bq-option:hover {
+  border-color: #4840e0;
+  transform: translateY(-1px);
+}
+
+.bq-option.is-on {
+  border-color: #4840e0;
+  background: #f0eefc;
+}
+
+.bq-option b {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.bq-option small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #6b7090;
+}
+
+.bq-option i {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #d8dbe8;
+  color: #fff;
+}
+
+.bq-option.is-on i {
+  border-color: #4840e0;
+  background: #4840e0;
+}
+
+.bq-option:focus-visible,
+.bq-submit:focus-visible,
+.bq-fields input:focus-visible,
+.bq-fields textarea:focus-visible {
+  outline: 2px solid #4840e0;
+  outline-offset: 2px;
+}
+
+.bq-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.bq-fields label {
+  display: grid;
+  gap: 6px;
+}
+
+.bq-fields .bq-wide {
+  grid-column: 1 / -1;
+}
+
+.bq-fields span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5170;
+}
+
+.bq-fields input,
+.bq-fields textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d8dbe8;
+  font: inherit;
+  font-size: 15px;
+  color: #0e1538;
+  background: #fff;
+  resize: vertical;
+}
+
+.bq-error {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: #b42318;
+}
+
+.bq-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 18px;
+  padding: 15px;
+  border: 0;
+  border-radius: 999px;
+  background: #4840e0;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bq-submit:hover {
+  background: #2d24b0;
+}
+
+.bq-fine {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  text-align: center;
+  color: #6b7090;
+}
+
+.bq-iframe {
+  display: block;
+  width: 100%;
+  min-height: 720px;
+  border: 0;
+  border-radius: 16px;
+}
+
+@media (max-width: 520px) {
+  .bq-panel {
+    padding: 20px 18px 22px;
+  }
+
+  .bq-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .bq-panel h2 {
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bq-option {
+    transition: none;
+  }
+}
