@@ -1,5 +1,5 @@
 // Homepage FAQ data — single source of truth shared by the visible FAQ
-// section (LandingPageContent) and the FAQPage JSON-LD (page.tsx). Google
+// section (HomeContent) and the FAQPage JSON-LD (page.tsx). Google
 // requires the rendered Q&A and the structured data to match exactly, so both
 // import from here. Answers are written to be quotable by AI search engines
 // (GEO) — concise, factual, and self-contained.

@@ -93,7 +93,7 @@ const stat = (st, at) => {
 
 // Screenshot canvas with optional interactions: a cursor that moves and
 // clicks, text typed into a real field on the screenshot, and scrolling.
-const CANVAS_W = 1260, CANVAS_H = 1260 * (1800 / 2880);
+const CANVAS_H = 1260 * (1800 / 2880);
 function canvas(s, at) {
   const a = s.act || {};
   const pct = (t) => Math.min(100, Math.max(0, (t / s.dur) * 100)).toFixed(2);
