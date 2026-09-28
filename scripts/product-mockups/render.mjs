@@ -27,6 +27,8 @@ const SHOTS = [
   ["partner-register", "services/partner-portal-register"],
   ["ecom-store", "services/ecommerce-store"],
   ["ecom-admin", "services/ecommerce-admin"],
+  ["ap-catalogue", "approach/process-catalogue"],
+  ["ap-roadmap", "approach/roadmap"],
 ];
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "mockups-"));

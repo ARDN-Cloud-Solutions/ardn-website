@@ -128,14 +128,15 @@ export default function HomeContent() {
           <div className="hm-hero-grid">
             <div className="pp-hero-copy">
               <h1 className="pp-h1">
-                <span className="pp-eyebrow">Ardn · Software products &amp; managed services</span>
+                <span className="pp-eyebrow">Ardn · AI-first platform partner</span>
                 <span className="pp-display">
                   Software built for your industry. <em>Run for you.</em>
                 </span>
               </h1>
               <p className="pp-lede">
-                Ready-to-run products for golf and country clubs, nonprofits and member organizations, plus custom
-                software and AI built around how you work. Our US team builds it, hosts it and keeps improving it.
+                We build AI-first platforms instead of bolting AI onto legacy systems. Ready-to-run products for golf
+                clubs, nonprofits and member organizations, plus custom software and AI, built, hosted and improved by
+                one US team.
               </p>
               <div className="pp-ctas">
                 <TrackedCta className="pp-btn pp-btn-gold" cta={{ label: "Book a free 30-minute call", href: CALL }} page="home" location="hero" />
@@ -211,8 +212,8 @@ export default function HomeContent() {
         <div className="container">
           <div className="pp-head">
             <span className="pp-kicker">How we work</span>
-            <h2 className="pp-h2">We don&rsquo;t hand you software and walk away.</h2>
-            <p className="pp-sub">Whether you start with a product or a custom build, the same team is accountable for it after launch.</p>
+            <h2 className="pp-h2">We&rsquo;re not a product company. We&rsquo;re your platform partner.</h2>
+            <p className="pp-sub">We provide the technology, the product and the support behind it, so technology enables your business instead of restricting it. <Link href="/approach" className="hm-link" style={{ marginTop: 0 }}>See our approach →</Link></p>
           </div>
           <div className="pp-onprop pp-promises hm-three">
             {[

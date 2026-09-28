@@ -16,7 +16,7 @@ light, not stressed. Smile slightly on the last line.
 | 0 | Title card | 0.0–4.6 | If you run more than one club, this is for you. |
 | 1 | Corporate dashboard | 4.2–12.2 | This is Club Steward. Every club in your portfolio, side by side. And the same view narrows itself to each regional VP and GM. |
 | 2 | Online join | 11.4–19.4 | It starts on the club's own website. A prospect picks a plan, adds the family, signs and pays in six steps, without a phone call. |
-| 3 | Sales pipeline | 18.6–26.6 | Every enquiry lands in a shared pool for your membership directors. If nobody claims it, it escalates. Nothing slips through. |
+| 3 | Sales pipeline | 18.6–26.6 | Every inquiry lands in a shared pool for your membership directors. If nobody claims it, it escalates. Nothing slips through. |
 | 4 | Contracts | 25.8–33.8 | Contracts are signed inside the platform, against the exact version they read. And no money moves until they do. |
 | 5 | Member benefits | 33.0–41.0 | Benefits are real numbers, not bullet points. Rounds, guest passes, discounts, tracked across every club they can play. |
 | 6 | Tee sheet | 40.2–48.2 | Book a tee time, and the allowance comes down on its own. Rate grids, booking windows and carts, all in one sheet. |

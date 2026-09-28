@@ -49,11 +49,11 @@ const legal = [
 
 const company = [
   { label: "About Ardn", href: "/about-ardn" },
+  { label: "Our Approach", href: "/approach" },
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Free Savings Calculator", href: "/savings-calculator" },
-  { label: "Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
   { label: "Custom Software vs. SaaS", href: "/compare/custom-software-vs-saas" },
   { label: "Orlando, FL", href: "/salesforce-consulting-orlando" },
   { label: "Careers", href: "/career" },

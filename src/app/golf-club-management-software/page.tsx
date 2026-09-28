@@ -95,7 +95,7 @@ const VIDEO_TRANSCRIPT = [
   "Six systems that never talk to each other, replaced by one platform and one member record.",
   "See every club side by side. And every regional VP and GM sees exactly their slice.",
   "Prospects join online in six steps. Signed, paid, and active, without a phone call.",
-  "Every enquiry gets claimed or escalated, and guest rounds turn into leads.",
+  "Every inquiry gets claimed or escalated, and guest rounds turn into leads.",
   "Contracts are e-signed in the platform, and no money moves until they are.",
   "Dues run on autopay, with automatic retries that never charge twice.",
   "Benefits follow members to every club, and each tee time draws down their allowance.",

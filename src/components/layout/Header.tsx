@@ -60,7 +60,7 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
 ];
 
 const navLinks = [
-  { label: "Cut CRM Costs", href: "/reduce-crm-licensing-costs" },
+  { label: "Our Approach", href: "/approach" },
   { label: "Pricing", href: "/pricing" },
   { label: "Calculate Savings", href: "/savings-calculator" },
   { label: "About Ardn", href: "/about-ardn" },
