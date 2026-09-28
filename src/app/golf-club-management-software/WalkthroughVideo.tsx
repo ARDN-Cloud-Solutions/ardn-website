@@ -9,9 +9,10 @@ const POSTER = "/videos/clubhouse360-walkthrough-poster.webp";
 
 /**
  * Hero "watch the walkthrough" button and its modal player. The video is
- * silent with on-screen captions (built from the real product screens), so
- * it works muted in an office; a narrated cut can replace the file later.
- * preload="none" keeps the 15 MB file off the network until someone asks.
+ * built from the real product screens with on-screen captions and a
+ * voiceover (scripts/clubhouse360-video). It plays with sound because it
+ * only starts from the visitor's click; captions carry it if they mute.
+ * preload="none" keeps the ~19 MB file off the network until someone asks.
  */
 export default function WalkthroughVideo({ className }: { className?: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -32,7 +33,7 @@ export default function WalkthroughVideo({ className }: { className?: string }) 
     <>
       <button type="button" className={className} onClick={open}>
         <Play size={16} strokeWidth={2.25} aria-hidden="true" />
-        Watch the 1-minute walkthrough
+        Watch the walkthrough · 1:23
       </button>
       <dialog
         ref={dialog}
@@ -53,7 +54,6 @@ export default function WalkthroughVideo({ className }: { className?: string }) 
             poster={POSTER}
             controls
             playsInline
-            muted
             preload="none"
             width={1920}
             height={1080}
