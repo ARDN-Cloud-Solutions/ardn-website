@@ -190,6 +190,12 @@ After completing all required changes in the project files, run the following co
 npm run build
 ```
 
+> **Why `--webpack`:** Next.js 16 builds with Turbopack by default, and
+> Turbopack runs PostCSS (Tailwind) in a separate Node worker process.
+> Hostinger's build environment kills that worker ("node process exited
+> before we could connect to it"), so the build uses webpack, which
+> processes CSS in-process. Output is identical.
+
 ### Step 2 — Verify Build Status
 - If there are no errors, the build process will complete successfully.
 - If there are any code, TypeScript, or lint errors, the build will fail.
