@@ -40,7 +40,7 @@ const products = [
 
 const navLinks = [
   { label: "Cut CRM Costs", href: "/reduce-crm-licensing-costs" },
-  { label: "Pricing", href: "/ai-forge#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Calculate Savings", href: "/savings-calculator" },
   { label: "About Ardn", href: "/about-ardn" },
   { label: "Blog", href: "/blog" },

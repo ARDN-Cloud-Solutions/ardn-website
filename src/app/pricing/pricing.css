@@ -1,0 +1,478 @@
+/* /pricing — scoped under .pr, built on the ardn-design.css tokens. */
+
+.pr [id] {
+  scroll-margin-top: 110px;
+}
+
+/* ---------------- hero ---------------- */
+
+.pr .pr-hero {
+  position: relative;
+  padding: clamp(140px, 16vw, 200px) 0 clamp(64px, 8vw, 96px);
+  background:
+    radial-gradient(70% 90% at 90% 0%, var(--indigo-50) 0%, transparent 60%),
+    linear-gradient(180deg, var(--paper), var(--canvas));
+  border-bottom: 1px solid var(--line);
+}
+
+.pr .pr-title {
+  margin: 18px 0 0;
+  max-width: 16ch;
+  font-size: clamp(40px, 5.6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.pr .pr-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--indigo);
+}
+
+.pr .pr-lede {
+  margin-top: 22px;
+  max-width: 60ch;
+}
+
+.pr .pr-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.pr .pr-proposal {
+  padding: 28px;
+  border-radius: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 70px -30px rgba(14, 21, 56, 0.25);
+}
+
+.pr .pr-proposal h2 {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate-2);
+}
+
+.pr .pr-proposal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.pr .pr-proposal li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  font-size: 15.5px;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.pr .pr-proposal li span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--indigo);
+}
+
+.pr .pr-proposal li small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13.5px;
+  color: var(--slate);
+}
+
+.pr .pr-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.pr .pr-head {
+  max-width: 720px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+/* ---------------- product grid ---------------- */
+
+/* Groups sit side by side as columns (same grouping as the header menu). */
+.pr .pr-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.pr .pr-group-title {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-2);
+}
+
+.pr .pr-cards {
+  display: grid;
+  gap: 12px;
+}
+
+.pr .pr-card {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  column-gap: 14px;
+  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.pr .pr-card:hover {
+  border-color: var(--indigo-100);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.pr .pr-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  grid-row: 1 / span 3;
+  border-radius: 11px;
+  color: var(--indigo);
+  background: var(--indigo-50);
+}
+
+.pr .pr-card h3 {
+  margin: 2px 0 0;
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.pr .pr-card > p {
+  margin: 3px 0 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--slate);
+}
+
+.pr .pr-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.pr .pr-btn {
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--indigo);
+  background: var(--indigo);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.pr .pr-btn:hover {
+  background: var(--indigo-dark);
+}
+
+.pr .pr-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.pr .pr-link:hover {
+  color: var(--indigo);
+}
+
+/* ---------------- request ---------------- */
+
+.pr .pr-request {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.pr .pr-steps {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+}
+
+.pr .pr-steps li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+}
+
+.pr .pr-step-n {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--indigo);
+}
+
+.pr .pr-steps h3 {
+  margin: 4px 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pr .pr-steps p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
+.pr .pr-form {
+  display: grid;
+  gap: 22px;
+  padding: clamp(22px, 3vw, 34px);
+  border-radius: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 70px -30px rgba(14, 21, 56, 0.25);
+}
+
+.pr .pr-picks {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.pr .pr-picks legend {
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pr .pr-pick-group > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate-2);
+}
+
+.pr .pr-pick-group > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pr .pr-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  color: var(--navy);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pr .pr-chip:hover {
+  border-color: var(--indigo);
+}
+
+.pr .pr-chip.is-on {
+  border-color: var(--indigo);
+  background: var(--indigo-50);
+  color: var(--indigo-deep);
+  font-weight: 600;
+}
+
+.pr .pr-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pr .pr-fields label {
+  display: grid;
+  gap: 6px;
+}
+
+.pr .pr-fields .pr-wide {
+  grid-column: 1 / -1;
+}
+
+.pr .pr-fields span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate);
+}
+
+.pr .pr-fields input,
+.pr .pr-fields textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  color: var(--navy);
+  font: inherit;
+  font-size: 15px;
+  resize: vertical;
+}
+
+.pr .pr-fields input:focus-visible,
+.pr .pr-fields textarea:focus-visible,
+.pr .pr-chip:focus-visible,
+.pr .pr-btn:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
+}
+
+.pr .pr-submit {
+  width: 100%;
+}
+
+.pr .pr-error {
+  margin: 0;
+  font-size: 14px;
+  color: #b42318;
+}
+
+.pr .pr-fine {
+  margin: -8px 0 0;
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--slate-2);
+}
+
+.pr .pr-done {
+  justify-items: center;
+  text-align: center;
+  padding: 48px 32px;
+}
+
+.pr .pr-done-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--indigo);
+}
+
+.pr .pr-done h3 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--navy);
+}
+
+.pr .pr-done p {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--slate);
+}
+
+.pr .pr-done a {
+  color: var(--indigo);
+  font-weight: 600;
+}
+
+/* ---------------- faq ---------------- */
+
+.pr .pr-faq {
+  max-width: 860px;
+}
+
+.pr .pr-faqs {
+  display: grid;
+  gap: 12px;
+}
+
+.pr .pr-faqs details {
+  padding: 20px 24px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.pr .pr-faqs summary {
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pr .pr-faqs p {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--slate);
+}
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width: 1000px) {
+  .pr .pr-hero-grid,
+  .pr .pr-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .pr .pr-request {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pr .pr-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .pr .pr-hero-ctas .btn {
+    width: 100%;
+  }
+}
