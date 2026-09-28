@@ -46,7 +46,7 @@ export const PRODUCT_GROUPS: { title: string; items: Product[] }[] = [
     items: [
       { id: "membership", name: "Membership Management", blurb: "Gyms, studios, clubs and associations", href: "/membership-management", icon: Users },
       { id: "ymca", name: "YMCA Management Software", blurb: "Members and donors in one record", href: "/ymca-management-software", icon: HeartHandshake },
-      { id: "clubhouse360", name: "Clubhouse360", blurb: "Golf and country club management", href: "/golf-club-management-software", icon: Flag },
+      { id: "club-steward", name: "Club Steward", blurb: "Golf and country club management", href: "/golf-club-management-software", icon: Flag },
     ],
   },
 ];

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { track } from "./TrackedLink";
 
-const BRIEF_URL = "/downloads/clubhouse360-executive-brief.pdf";
+const BRIEF_URL = "/downloads/club-steward-executive-brief.pdf";
 
 /**
  * Soft-gated executive brief: for the executive who won't book a call yet
@@ -33,7 +33,7 @@ export default function BriefForm() {
           email: value("email"),
           company: value("company"),
           message: [
-            "Downloaded the Clubhouse360 executive brief.",
+            "Downloaded the Club Steward executive brief.",
             clubs ? `Clubs operated: ${clubs}` : "",
           ]
             .filter(Boolean)
@@ -97,7 +97,7 @@ export default function BriefForm() {
       </button>
       <p className="gc-brief-fine">
         Instant download. We&rsquo;ll only use your email to follow up about
-        Clubhouse360.
+        Club Steward.
       </p>
     </form>
   );

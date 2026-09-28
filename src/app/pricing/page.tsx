@@ -8,7 +8,7 @@ import "./pricing.css";
 // "Pricing" link used to jump to the AI Forge pricing section, which
 // confused visitors looking at any other product. This page prices nothing
 // itself; it routes each visitor to a quote for the product they care about.
-// Don't state or imply prices here: Clubhouse360 pricing is undecided, and
+// Don't state or imply prices here: Club Steward pricing is undecided, and
 // the other product pages own their own published numbers.
 
 const URL = "https://ardncloudsolutions.com/pricing";

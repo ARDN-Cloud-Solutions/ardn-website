@@ -190,8 +190,8 @@ export default function OurProductsContent() {
             </Link>
             <Link href="/golf-club-management-software" className="card" style={{ textDecoration: "none" }}>
               <h3 className="h3">Golf &amp; Country Club Software</h3>
-              <p className="body">Clubhouse360: websites, online join, membership sales, contracts, dues, tee sheet and pro shop for multi-club operators — one member record.</p>
-              <span className="link">Explore Clubhouse360 →</span>
+              <p className="body">Club Steward: websites, online join, membership sales, contracts, dues, tee sheet and pro shop for multi-club operators — one member record.</p>
+              <span className="link">Explore Club Steward →</span>
             </Link>
             <div className="card">
               <h3 className="h3">AI by Industry</h3>

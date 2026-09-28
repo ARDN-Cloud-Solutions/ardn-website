@@ -29,12 +29,12 @@ import TrustBar from "@/components/common/TrustBar";
 import { FAQS } from "./faqs";
 
 /**
- * Golf & country club vertical landing page — Clubhouse360.
+ * Golf & country club vertical landing page — Club Steward.
  *
- * Rebuilt 2026-09-26 on the Clubhouse360 Marketing Kit (product overview,
+ * Rebuilt 2026-09-26 on the Club Steward Marketing Kit (product overview,
  * competitive comparison and INTERNAL claims guardrails, dated 2026-09-25).
  * The kit supersedes the earlier version of this page, which was written
- * from the generic membership spec — Clubhouse360 DOES ship a tee sheet,
+ * from the generic membership spec — Club Steward DOES ship a tee sheet,
  * carts, pro shop and golf performance reporting, so the old "On property:
  * keep your tee sheet" positioning is gone. Brand name approved by the owner
  * 2026-09-26.
@@ -49,7 +49,7 @@ import { FAQS } from "./faqs";
  *   competitors lack a CRM. Competitors are NOT named — several comparison
  *   rows are still marked "verify before publishing".
  * - "A standard report library", not a report count. Don't list integrations.
- * - No Clubhouse360 pricing, quotes or cost claims yet: pricing hasn't been
+ * - No Club Steward pricing, quotes or cost claims yet: pricing hasn't been
  *   decided (owner, 2026-09-28). Add it once it is. Also no guarantee or
  *   contract-term claims until approved.
  * - Name NO payment provider in customer-facing copy (8a76690 / 6ea8cef).
@@ -396,14 +396,14 @@ export default function GolfClubContent() {
                   without changing the design. */}
               <h1 className="gc-h1">
                 <span className="gc-eyebrow">
-                  Clubhouse360 · Golf &amp; country club management software
+                  Club Steward · Golf &amp; country club management software
                 </span>
                 <span className="gc-display">
                   Every club in your portfolio. <em>One member record.</em>
                 </span>
               </h1>
               <p className="gc-lede">
-                Clubhouse360 runs a multi-club golf and country club operation
+                Club Steward runs a multi-club golf and country club operation
                 from the first website visit to the 18th green — club websites,
                 online join, membership sales, e-signed contracts, dues,
                 onboarding, the member app, the tee sheet, the pro shop, events
@@ -434,8 +434,8 @@ export default function GolfClubContent() {
               <div className="gc-hero-shot">
                 <Shot
                   src="/images/golf/corporate-dashboard.webp"
-                  alt="Clubhouse360 corporate dashboard comparing every club side by side — enquiries, new members, conversion, SLA compliance and pipeline value"
-                  url="Clubhouse360 · Corporate · All clubs"
+                  alt="Club Steward corporate dashboard comparing every club side by side — enquiries, new members, conversion, SLA compliance and pipeline value"
+                  url="Club Steward · Corporate · All clubs"
                   priority
                   tilt
                 />
@@ -532,7 +532,7 @@ export default function GolfClubContent() {
               From first enquiry to first round, on one member record.
             </h2>
             <p className="gc-sub">
-              In Clubhouse360 the website, the lead, the tour, the product
+              In Club Steward the website, the lead, the tour, the product
               builder, the signed contract, the payment and onboarding happen in
               one system. That changes what an operator can promise.
             </p>
@@ -853,7 +853,7 @@ export default function GolfClubContent() {
             <p className="gc-onprop-note">
               Bring an export of your current members and plans to the
               walkthrough, and we&rsquo;ll show you how it maps into
-              Clubhouse360, club by club.
+              Club Steward, club by club.
             </p>
           </div>
         </div>
@@ -861,7 +861,7 @@ export default function GolfClubContent() {
 
       {/* ---------------------------------------------------------------
           EXECUTIVE BRIEF — soft-gated PDF for execs who won't book a call
-          yet. PDF source: scripts/clubhouse360-brief (regenerate after copy
+          yet. PDF source: scripts/club-steward-brief (regenerate after copy
           changes so it never contradicts the page).
           --------------------------------------------------------------- */}
       <section className="gc-section gc-dark" id="brief">
@@ -877,7 +877,7 @@ export default function GolfClubContent() {
               </p>
               <Image
                 src="/images/golf/brief-cover.webp"
-                alt="Cover of the Clubhouse360 executive brief"
+                alt="Cover of the Club Steward executive brief"
                 width={900}
                 height={1165}
                 className="gc-brief-cover"
@@ -916,7 +916,7 @@ export default function GolfClubContent() {
         <div className="container gc-narrow">
           <LeadForm
             source="golf-club-management-software"
-            heading="See Clubhouse360 on a live multi-club portfolio"
+            heading="See Club Steward on a live multi-club portfolio"
             sub="Tell us how many clubs you run, what you use today and what hurts most. We reply within 4 business hours to set up your walkthrough."
             submitLabel="Request my walkthrough"
             footnote="We reply within 4 business hours · No obligation"

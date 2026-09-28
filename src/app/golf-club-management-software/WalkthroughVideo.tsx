@@ -4,16 +4,16 @@ import { useEffect, useRef } from "react";
 import { Play, X } from "lucide-react";
 import { track } from "./TrackedLink";
 
-const SRC = "/videos/clubhouse360-walkthrough.mp4";
-const POSTER = "/videos/clubhouse360-walkthrough-poster.webp";
-const OPEN_EVENT = "c360:open-walkthrough";
-export const RUNTIME = "1:17";
+const SRC = "/videos/club-steward-walkthrough.mp4";
+const POSTER = "/videos/club-steward-walkthrough-poster.webp";
+const OPEN_EVENT = "cs:open-walkthrough";
+export const RUNTIME = "1:13";
 
 /**
  * Walkthrough video: one modal player (mounted once, by the hero) and any
  * number of triggers. Triggers dispatch OPEN_EVENT, so the player and the
  * buttons can live anywhere on the page. The video has captions, a
- * voiceover and music (scripts/clubhouse360-video); it plays with sound
+ * voiceover and music (scripts/club-steward-video); it plays with sound
  * because it only starts from a click. preload="none" keeps the file off
  * the network until someone asks.
  */
@@ -27,7 +27,7 @@ export function WalkthroughPlayer() {
       video.current?.play().catch(() => {});
       const from = (e as CustomEvent<string>).detail ?? "unknown";
       track("video_play", {
-        video: "clubhouse360-walkthrough",
+        video: "club-steward-walkthrough",
         location: from,
         page: "golf-club-management-software",
       });
@@ -45,7 +45,7 @@ export function WalkthroughPlayer() {
     <dialog
       ref={dialog}
       className="gc-video-dialog"
-      aria-label="Clubhouse360 walkthrough video"
+      aria-label="Club Steward walkthrough video"
       onClose={() => video.current?.pause()}
       onClick={(e) => {
         if (e.target === dialog.current) close();
@@ -65,7 +65,7 @@ export function WalkthroughPlayer() {
           width={1920}
           height={1080}
         >
-          <track kind="captions" src="/videos/clubhouse360-walkthrough.vtt" srcLang="en" label="English" />
+          <track kind="captions" src="/videos/club-steward-walkthrough.vtt" srcLang="en" label="English" />
         </video>
       </div>
     </dialog>
@@ -94,7 +94,7 @@ export function WalkthroughOverlay({ location }: { location: string }) {
       type="button"
       className="gc-play-overlay"
       onClick={() => openWalkthrough(location)}
-      aria-label={`Play the ${RUNTIME} Clubhouse360 walkthrough video`}
+      aria-label={`Play the ${RUNTIME} Club Steward walkthrough video`}
     >
       <span className="gc-play-ring" aria-hidden="true">
         <Play size={30} strokeWidth={0} fill="currentColor" />

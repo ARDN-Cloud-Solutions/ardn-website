@@ -65,7 +65,7 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
     items: [
       { label: "Membership Management", href: "/membership-management", blurb: "Gyms, studios, clubs and associations", icon: Users },
       { label: "YMCA Management Software", href: "/ymca-management-software", blurb: "Members and donors in one record", icon: HeartHandshake },
-      { label: "Clubhouse360", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
+      { label: "Club Steward", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
     ],
   },
 ];
