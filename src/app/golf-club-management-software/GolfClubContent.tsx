@@ -1,5 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  CalendarDays,
+  ChartColumn,
+  CreditCard,
+  Database,
+  EyeOff,
+  Flag,
+  Globe,
+  History,
+  Inbox,
+  KeyRound,
+  LayoutGrid,
+  ListChecks,
+  MessageSquareText,
+  PenLine,
+  ShoppingBag,
+  Smartphone,
+  Tag,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import LeadForm from "@/components/common/LeadForm";
 import TrustBar from "@/components/common/TrustBar";
 import { FAQS } from "./faqs";
@@ -70,20 +91,24 @@ const PAINS = [
   },
 ];
 
-const PROMISES = [
+const PROMISES: { icon: LucideIcon; title: string; body: string }[] = [
   {
+    icon: Tag,
     title: "The price on the website is the price in the back office",
     body: "Promotions, director-sold plans and online plans are all read from one price book by the website, the join flow and the Director's product builder.",
   },
   {
+    icon: PenLine,
     title: "Nobody pays before they sign",
     body: "The contract is signed against the exact version shown, and the server refuses payment until it is — online and in a Director's in-person checkout.",
   },
   {
+    icon: Flag,
     title: "A benefit is used up when it is used",
     body: "Booking a tee time draws down the allowance the member saw while booking, across every club they can play.",
   },
   {
+    icon: Inbox,
     title: "A lead cannot be lost",
     body: "Unclaimed enquiries escalate, idle deals return to the pool, nurtures come back on their date, and guest rounds turn into leads.",
   },
@@ -92,7 +117,7 @@ const PROMISES = [
 const TOUR = [
   {
     kicker: "Club websites & online join",
-    title: "From the website to a signed, paid membership — without a phone call.",
+    title: "From the website to a signed, paid membership, without a phone call.",
     body: "Every club gets its own branded site with live prices from the back office. Plans sold online show “Join Online”; director-sold plans show “Talk to a Membership Director” instead. The six-step join runs in the club's own look, and a waitlist replaces “Join” when a plan reaches its cap.",
     points: ["Plan, household, dues & add-ons, sign, autopay, pay", "Prorated first period and promotions", "Old web addresses redirect — rankings carry over"],
     img: "/images/golf/online-join-plans.webp",
@@ -119,7 +144,7 @@ const TOUR = [
   },
   {
     kicker: "Benefits & reciprocal access",
-    title: "What a membership includes — enforced across every club.",
+    title: "What a membership includes, enforced across every club.",
     body: "Benefits are quantified, not bullet points. Each resets monthly, yearly or on the anniversary, can be capped per club, per network of clubs, or both, and applies at home, when travelling, or both. Members see used and remaining for every benefit, shared across the household.",
     points: ["Granted automatically on approval", "Tee-time bookings draw down the golf allowance", "Utilization reporting per club and benefit"],
     img: "/images/golf/member-benefits.webp",
@@ -146,64 +171,64 @@ const TOUR = [
   },
 ];
 
-const MODULES = [
+const MODULES: { icon: LucideIcon; title: string; body: string }[] = [
   {
-    n: "01",
+    icon: Globe,
     title: "Club websites & online join",
     body: "A branded microsite for every club from one system, 39 content blocks and 17 templates, a new-club wizard, and a six-step join with e-signature and payment.",
   },
   {
-    n: "02",
+    icon: Users,
     title: "Membership sales CRM",
     body: "Shared lead pool with SLA escalation, pipeline by stage, tour board, product builder with discount authority, approvals, and in-person tablet checkout.",
   },
   {
-    n: "03",
+    icon: PenLine,
     title: "Contracts & e-signature",
     body: "Versioned templates, state-based clauses, signer roles and countersignature, word-level version comparison, and payment blocked until signed.",
   },
   {
-    n: "04",
+    icon: CreditCard,
     title: "Dues, billing & payments",
     body: "Card and ACH autopay, prorated first periods, step-up promotional dues, automatic retries, a compliant credit-only card fee, and staff refunds with a reason.",
   },
   {
-    n: "05",
+    icon: ListChecks,
     title: "Onboarding",
     body: "Active the moment they pay. Up to seven setup steps, reminders at days 2, 5 and 10, and a task for the GM and Director at day 12 if a member stalls.",
   },
   {
-    n: "06",
+    icon: Smartphone,
     title: "Member portal & golf app",
     body: "Digital card with QR code for every household member, benefits remaining, bills, bookings, and a per-club installable golf app with digital scorecards.",
   },
   {
-    n: "07",
+    icon: Flag,
     title: "Tee sheet & golf operations",
     body: "Rate grids, booking windows, cart sheet and fleet, and seven golf staff roles — head pro, shop, superintendent, member services, bag room, caddie, concierge.",
   },
   {
-    n: "08",
+    icon: ShoppingBag,
     title: "Pro shop & online store",
     body: "Shelf, pre-order and member prices, inventory kept as a ledger of movements across clubs, reorder lists, and orders waiting on the member's cart.",
   },
   {
-    n: "09",
+    icon: CalendarDays,
     title: "Events & private events",
     body: "Club events with RSVP, plus a private-events sales pool with room calendars and first- and second-option holds that promote automatically.",
   },
   {
-    n: "10",
+    icon: ChartColumn,
     title: "Reporting & the corporate view",
     body: "A standard report library over governed datasets that runs as the viewer, scheduled email delivery, 13-month trends, and every club side by side.",
   },
   {
-    n: "11",
+    icon: MessageSquareText,
     title: "Ask, in plain English",
     body: "Staff type a question and get the number back with a citation that opens as a normal report — read-only, run as the signed-in user, and audited.",
   },
   {
-    n: "12",
+    icon: LayoutGrid,
     title: "Built for many clubs",
     body: "Switch modules on or off per club, stand up a new club from a template with a preview first, and go live against a pass-or-fail readiness checklist.",
   },
@@ -248,20 +273,24 @@ const GALLERY = [
   },
 ];
 
-const SECURITY = [
+const SECURITY: { icon: LucideIcon; title: string; body: string }[] = [
   {
+    icon: Database,
     title: "Isolation enforced in the database",
     body: "Row-level security on every table — a club's staff cannot query another club's records. Enforced by the database, not by hiding rows on a screen.",
   },
   {
+    icon: KeyRound,
     title: "A permission for every capability",
     body: "400+ permissions granted per role and per club, individual grants or denials with an expiry and a reason, and a “Who Can Do What” view across every club.",
   },
   {
+    icon: EyeOff,
     title: "Money fields disappear, not blur",
     body: "Anyone without permission to see money gets reports with money fields left out entirely — not masked.",
   },
   {
+    icon: History,
     title: "Nothing important can vanish",
     body: "Field history on every tracked field, an audit log of staff actions, and a 30-day recycle bin. Members and anything with money or signatures behind it can never be deleted.",
   },
@@ -375,9 +404,24 @@ export default function GolfClubContent() {
                 priority
                 tilt
               />
+              <div className="gc-hero-float" aria-hidden="true">
+                <span className="gc-float-label">
+                  <Flag size={13} strokeWidth={2} /> Golf performance · this month
+                </span>
+                <div className="gc-float-row">
+                  <div>
+                    <b>46%</b>
+                    <span>Tee-sheet utilization</span>
+                  </div>
+                  <div>
+                    <b>$170</b>
+                    <span>Revenue per available tee time</span>
+                  </div>
+                </div>
+              </div>
               <p className="gc-hero-caption">
-                The corporate view: every club side by side. The same report
-                scopes itself to each regional VP and GM.
+                Real screens from a sample multi-club portfolio. The corporate
+                view scopes itself to each regional VP and GM.
               </p>
             </div>
           </div>
@@ -458,6 +502,9 @@ export default function GolfClubContent() {
           <div className="gc-onprop gc-promises">
             {PROMISES.map((p) => (
               <article key={p.title}>
+                <span className="gc-icon" aria-hidden="true">
+                  <p.icon size={20} strokeWidth={1.75} />
+                </span>
                 <h3>{p.title}</h3>
                 <p>{p.body}</p>
               </article>
@@ -526,8 +573,7 @@ export default function GolfClubContent() {
             <div>
               <span className="gc-kicker gc-on-dark">Member experience</span>
               <h2 className="gc-h2">
-                A portal and golf app your members will actually open — in each
-                club&rsquo;s brand.
+                A portal and golf app your members will actually open.
               </h2>
               <p className="gc-sub gc-on-dark">
                 Members are active the moment they pay, and onboarding walks them
@@ -568,8 +614,10 @@ export default function GolfClubContent() {
 
           <div className="gc-cards">
             {MODULES.map((c) => (
-              <article className="gc-card" key={c.n}>
-                <span className="gc-card-n">{c.n}</span>
+              <article className="gc-card" key={c.title}>
+                <span className="gc-icon" aria-hidden="true">
+                  <c.icon size={20} strokeWidth={1.75} />
+                </span>
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
               </article>
@@ -618,7 +666,7 @@ export default function GolfClubContent() {
               <div className="gc-head">
                 <span className="gc-kicker">From ownership to the bag room</span>
                 <h2 className="gc-h2">
-                  Everyone sees exactly their slice — enforced by the database.
+                  Everyone sees exactly their slice, enforced by the database.
                 </h2>
                 <p className="gc-sub">
                   Corporate sees every club with region subtotals. Regional VPs
@@ -637,6 +685,9 @@ export default function GolfClubContent() {
             <div className="gc-onprop gc-onprop-stack">
               {SECURITY.map((s) => (
                 <article key={s.title}>
+                  <span className="gc-icon" aria-hidden="true">
+                    <s.icon size={20} strokeWidth={1.75} />
+                  </span>
                   <h3>{s.title}</h3>
                   <p>{s.body}</p>
                 </article>
