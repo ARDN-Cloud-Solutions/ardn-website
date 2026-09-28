@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clubhouse360 Walkthrough Scene</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Public+Sans:wght@500;600;700&display=block" rel="stylesheet">
+<style>
+  :root { --ink-0:#050b16; --ink-1:#0a1226; --gold:#d4b25a; --gold-soft:#e8ce8f; --turf:#0f9870; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body { font-family: "Public Sans", Arial, sans-serif; color: #eef1fb;
+    background:
+      radial-gradient(90% 80% at 88% 8%, rgba(72,64,224,.45) 0%, transparent 55%),
+      radial-gradient(80% 70% at 4% 96%, rgba(15,152,112,.38) 0%, transparent 58%),
+      linear-gradient(168deg, var(--ink-1) 0%, var(--ink-0) 60%, #07100c 100%); }
+  .scene { position: absolute; inset: 0; display: grid; grid-template-columns: 560px 1fr; gap: 64px;
+           align-items: center; padding: 0 0 0 110px; }
+  .copy { display: grid; gap: 22px; }
+  .step { font-size: 15px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-soft);
+          display: flex; align-items: center; gap: 12px; }
+  .step::before { content: ""; width: 34px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--turf)); }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 70px; line-height: 1.02;
+       letter-spacing: -.01em; color: #fff; text-wrap: balance; }
+  h1 em { font-style: italic; font-weight: 500; color: var(--gold-soft); }
+  p { font-size: 25px; line-height: 1.5; color: rgba(226,232,248,.78); max-width: 30ch; }
+  .shot { margin-right: -140px; border-radius: 22px; overflow: hidden; background: #111a33;
+          border: 1px solid rgba(212,178,90,.25); box-shadow: 0 60px 120px rgba(0,0,0,.55); }
+  .bar { display: flex; gap: 9px; align-items: center; padding: 15px 20px; background: #111a33; }
+  .bar i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.2); }
+  .bar span { margin-left: 12px; font-size: 16px; color: rgba(226,232,248,.5); }
+  .shot img { display: block; width: 100%; }
+  .brand { position: absolute; left: 110px; bottom: 64px; font-family: "Cormorant Garamond", serif; font-size: 30px;
+           font-weight: 600; color: rgba(255,255,255,.85); }
+  .brand small { font-family: "Public Sans", sans-serif; font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+                 color: rgba(226,232,248,.45); margin-left: 14px; font-weight: 700; }
+  /* title / end cards */
+  .card { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 28px; padding: 0 200px; }
+  .card h1 { font-size: 104px; }
+  .card p { margin: 0 auto; max-width: 44ch; font-size: 28px; }
+  .card .step { justify-content: center; }
+  .card .step::after { content: ""; width: 34px; height: 2px; background: linear-gradient(90deg, var(--turf), var(--gold)); }
+  .pill { justify-self: center; margin-top: 12px; padding: 22px 44px; border-radius: 999px; font-size: 26px; font-weight: 700;
+          color: #241c07; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); box-shadow: 0 16px 50px rgba(212,178,90,.35); }
+  .url { font-size: 20px; color: rgba(226,232,248,.55); letter-spacing: .02em; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const kind = q.get("kind");
+  const root = document.getElementById("root");
+  if (kind === "title") {
+    root.innerHTML = `<div class="card"><span class="step">Clubhouse360 · Golf &amp; country clubs</span>
+      <h1>Every club in your portfolio. <em>One member record.</em></h1>
+      <p>A one-minute walkthrough, from the first website visit to the 18th green.</p></div>`;
+  } else if (kind === "end") {
+    root.innerHTML = `<div class="card"><span class="step">See it on a portfolio like yours</span>
+      <h1>More clubs. <em>Not more systems.</em></h1>
+      <span class="pill">Book a 30-minute walkthrough</span>
+      <span class="url">ardncloudsolutions.com/golf-club-management-software</span></div>`;
+  } else {
+    root.innerHTML = `<div class="scene"><div class="copy"><span class="step">${q.get("step")}</span>
+      <h1>${q.get("title")}</h1><p>${q.get("body")}</p></div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>${q.get("url")}</span></div>
+      <img src="${q.get("img")}" alt=""></div></div>
+      <div class="brand">Clubhouse360<small>Sample portfolio</small></div>`;
+  }
+</script>
+</body>
+</html>

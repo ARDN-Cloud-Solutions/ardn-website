@@ -22,6 +22,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import LeadForm from "@/components/common/LeadForm";
+import TrackedLink from "./TrackedLink";
+import BriefForm from "./BriefForm";
+import WalkthroughVideo from "./WalkthroughVideo";
 import TrustBar from "@/components/common/TrustBar";
 import { FAQS } from "./faqs";
 
@@ -315,6 +318,29 @@ const STEPS = [
   },
 ];
 
+const SAFEGUARDS: { icon: LucideIcon; title: string; body: string }[] = [
+  {
+    icon: LayoutGrid,
+    title: "Nothing switches all at once",
+    body: "Modules turn on per club, so each club moves at the pace you set. One club can go live while the rest of the portfolio carries on as it is today.",
+  },
+  {
+    icon: ListChecks,
+    title: "No club goes live on a guess",
+    body: "Every club passes a go-live readiness checklist, item by item, with a link to fix anything that fails. Portfolio defaults are previewed before they apply, and they never overwrite what a club has customised.",
+  },
+  {
+    icon: Globe,
+    title: "Search rankings carry over",
+    body: "Permanent redirects from each club's old web addresses mean the traffic and rankings your sites have earned follow them to the new ones.",
+  },
+  {
+    icon: Database,
+    title: "Your data stays yours",
+    body: "Reports and lists export to CSV, scheduled reports arrive by email, and every staff action is in the audit log from the first day.",
+  },
+];
+
 /** A real screenshot inside the page's browser-frame chrome. */
 function Shot({
   src,
@@ -379,17 +405,15 @@ export default function GolfClubContent() {
               </p>
 
               <div className="gc-ctas">
-                <a
+                <TrackedLink
                   className="gc-btn gc-btn-gold"
                   href={CALENDLY}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  event="book_walkthrough_click"
+                  location="hero"
                 >
                   Book a 30-minute walkthrough
-                </a>
-                <a className="gc-btn gc-btn-ghost" href="#tour">
-                  See the product first
-                </a>
+                </TrackedLink>
+                <WalkthroughVideo className="gc-btn gc-btn-ghost" />
               </div>
 
               <ul className="gc-hero-proof">
@@ -564,14 +588,14 @@ export default function GolfClubContent() {
               walk through the whole flow — website to first tee time — in 30
               minutes.
             </p>
-            <a
+            <TrackedLink
               className="gc-btn gc-btn-gold"
               href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+              event="book_walkthrough_click"
+              location="after-tour"
             >
               Book a walkthrough
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -794,6 +818,59 @@ export default function GolfClubContent() {
               </li>
             ))}
           </ol>
+
+          <div className="gc-switch" id="switching">
+            <div className="gc-head">
+              <span className="gc-kicker">Switching without risk</span>
+              <h2 className="gc-h2">The migration is the part executives worry about. So it is designed around control.</h2>
+            </div>
+            <div className="gc-onprop gc-promises">
+              {SAFEGUARDS.map((g) => (
+                <article key={g.title}>
+                  <span className="gc-icon" aria-hidden="true">
+                    <g.icon size={20} strokeWidth={1.75} />
+                  </span>
+                  <h3>{g.title}</h3>
+                  <p>{g.body}</p>
+                </article>
+              ))}
+            </div>
+            <p className="gc-onprop-note">
+              Bring an export of your current members and plans to the
+              walkthrough, and we&rsquo;ll show you how it maps into
+              Clubhouse360, club by club.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          EXECUTIVE BRIEF — soft-gated PDF for execs who won't book a call
+          yet. PDF source: scripts/clubhouse360-brief (regenerate after copy
+          changes so it never contradicts the page).
+          --------------------------------------------------------------- */}
+      <section className="gc-section gc-dark" id="brief">
+        <div className="container">
+          <div className="gc-brief">
+            <div className="gc-brief-copy">
+              <span className="gc-kicker gc-on-dark">Executive brief</span>
+              <h2 className="gc-h2">Take it to your CFO and your board.</h2>
+              <p className="gc-sub gc-on-dark">
+                Four pages covering the platform, the rollout and the controls,
+                with real product screens. Ready to forward before anyone books
+                a call.
+              </p>
+              <Image
+                src="/images/golf/brief-cover.webp"
+                alt="Cover of the Clubhouse360 executive brief"
+                width={900}
+                height={1165}
+                className="gc-brief-cover"
+                sizes="(max-width: 1040px) 60vw, 280px"
+              />
+            </div>
+            <BriefForm />
+          </div>
         </div>
       </section>
 
@@ -828,6 +905,26 @@ export default function GolfClubContent() {
             sub="Tell us how many clubs you run, what you use today and what hurts most. We reply within 4 business hours to set up your walkthrough."
             submitLabel="Request my walkthrough"
             footnote="We reply within 4 business hours · No obligation"
+            qualifiers={[
+              { name: "clubs", label: "How many clubs do you operate?", placeholder: "e.g. 12", numeric: true },
+              { name: "system", label: "What do you run today?", placeholder: "Club software, tee sheet, CRM…" },
+            ]}
+            messageLabel="What would you most like to fix first?"
+            successMessage={
+              <p className="body">
+                We&rsquo;ll reply within 4 business hours to set up your
+                walkthrough on a live multi-club portfolio. Want to pick a
+                time now?{" "}
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--indigo)", fontWeight: 600 }}
+                >
+                  Book a 30-minute walkthrough →
+                </a>
+              </p>
+            }
           />
         </div>
       </section>
@@ -846,14 +943,14 @@ export default function GolfClubContent() {
             signed, paid membership — and on to their first tee time.
           </p>
           <div className="gc-ctas gc-ctas-center">
-            <a
+            <TrackedLink
               className="gc-btn gc-btn-gold"
               href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+              event="book_walkthrough_click"
+              location="final"
             >
               Book a 30-minute walkthrough
-            </a>
+            </TrackedLink>
             <a className="gc-btn gc-btn-ghost" href="#talk">
               Send us your details instead
             </a>

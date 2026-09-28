@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clubhouse360 Executive Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Public+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
+<style>
+  @page { size: Letter; margin: 0; }
+  :root {
+    --ink-0: #050b16; --ink-1: #0a1226; --navy: #14142b; --slate: #4a5170;
+    --slate-2: #6b7090; --line: #e6e8f2; --canvas: #f7f7f9; --paper: #ffffff;
+    --turf: #0f9870; --turf-deep: #073d2e; --gold: #d4b25a; --gold-soft: #e8ce8f;
+    --indigo: #4840e0;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); }
+  body { font-family: var(--sans); color: var(--navy); font-size: 10.5pt; line-height: 1.55;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always;
+          padding: 0.7in 0.75in 0.6in; display: flex; flex-direction: column; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; margin: 0; text-wrap: balance; }
+  h2 { font-size: 30pt; line-height: 1.04; letter-spacing: -0.01em; }
+  h3 { font-size: 15pt; line-height: 1.15; }
+  p { margin: 0; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 7.5pt; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--turf); margin-bottom: 10px; }
+  .kicker::before { content: ""; width: 18px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--turf)); }
+  .sub { margin-top: 10px; color: var(--slate); font-size: 11pt; max-width: 62ch; }
+  .foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex;
+          justify-content: space-between; font-size: 7.5pt; color: var(--slate-2); letter-spacing: 0.02em; }
+  .shot { border-radius: 10px; overflow: hidden; background: var(--ink-1);
+          box-shadow: 0 18px 40px -18px rgba(10,18,38,.45); border: 1px solid rgba(212,178,90,.18); }
+  .shot .bar { display: flex; gap: 5px; align-items: center; padding: 7px 10px; background: #111a33; }
+  .shot .bar i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.22); }
+  .shot .bar span { margin-left: 8px; font-size: 6.5pt; color: rgba(226,232,248,.55); }
+  .shot img { display: block; width: 100%; height: auto; }
+
+  /* cover */
+  .cover { background:
+      radial-gradient(120% 80% at 85% 10%, rgba(72,64,224,.5) 0%, transparent 55%),
+      radial-gradient(90% 70% at 5% 95%, rgba(15,152,112,.42) 0%, transparent 58%),
+      linear-gradient(168deg, var(--ink-1) 0%, var(--ink-0) 58%, #07100c 100%);
+    color: #eef1fb; }
+  .brand { display: flex; justify-content: space-between; align-items: center; font-size: 8pt;
+           letter-spacing: .16em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
+  .brand b { font-family: var(--serif); font-size: 16pt; letter-spacing: 0; text-transform: none; color: #fff; font-weight: 600; }
+  .cover h1 { margin-top: 0.85in; font-size: 50pt; line-height: .98; letter-spacing: -.015em; color: #fff; }
+  .cover h1 em { font-style: italic; font-weight: 500; color: var(--gold-soft); }
+  .cover .lede { margin-top: 18px; font-size: 12pt; line-height: 1.6; color: rgba(226,232,248,.8); max-width: 54ch; }
+  .cover .shot { margin-top: 0.4in; }
+  .cover .foot { border-top-color: rgba(255,255,255,.12); color: rgba(226,232,248,.55); }
+
+  /* figures */
+  .figures { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; }
+  .fig { padding-left: 12px; border-left: 2px solid var(--turf); }
+  .fig b { display: block; font-variant-numeric: lining-nums; font-family: var(--serif); font-size: 30pt; line-height: 1; font-weight: 600; }
+  .fig span { display: block; margin-top: 6px; font-size: 8.5pt; color: var(--slate); line-height: 1.4; }
+
+  .pains { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 16px; }
+  .pain { background: var(--canvas); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+  .pain b { display: block; font-size: 6.8pt; letter-spacing: .12em; text-transform: uppercase; color: #c2410c; margin-bottom: 5px; }
+  .pain p { font-size: 8.3pt; line-height: 1.4; color: var(--navy); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; margin-top: 16px; }
+  .item h3 { font-family: var(--sans); font-size: 10.5pt; font-weight: 700; margin-bottom: 4px; }
+  .item p { font-size: 9pt; line-height: 1.5; color: var(--slate); }
+  .item { padding-top: 10px; border-top: 1px solid var(--line); }
+
+  .modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 18px; margin-top: 14px; }
+  .modules .item h3 { font-size: 9.5pt; }
+  .modules .item p { font-size: 8.3pt; }
+
+  .shots2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .cap { margin-top: 6px; font-size: 7.8pt; color: var(--slate-2); }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+  .step { background: var(--canvas); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+  .step .n { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; font-size: 8pt;
+             font-weight: 700; color: #241c07; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); margin-bottom: 6px; }
+  .step h3 { font-family: var(--sans); font-size: 9pt; font-weight: 700; margin-bottom: 3px; }
+  .step p { font-size: 8pt; line-height: 1.42; color: var(--slate); }
+
+  .cta { margin-top: 18px; border-radius: 12px; padding: 18px 22px; color: #eef1fb;
+         background: linear-gradient(135deg, var(--ink-1), var(--ink-0)); border: 1px solid rgba(212,178,90,.3);
+         display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; align-items: center; }
+  .cta h3 { color: #fff; font-size: 19pt; }
+  .cta h3 em { color: var(--gold-soft); font-weight: 500; }
+  .cta p { margin-top: 6px; font-size: 9pt; color: rgba(226,232,248,.75); }
+  .cta dl { margin: 0; display: grid; gap: 6px; font-size: 8.5pt; }
+  .cta dt { font-size: 6.8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
+  .cta dd { margin: 0; color: #fff; }
+  .note { margin-top: 10px; font-size: 7.6pt; color: var(--slate-2); }
+  .preview { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 99px; font-size: 6.5pt;
+             letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: #6b5210;
+             background: rgba(212,178,90,.2); border: 1px solid rgba(212,178,90,.55); vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- 1 — COVER -->
+<section class="page cover">
+  <div class="brand"><b>Clubhouse360</b><span>Executive brief · Golf &amp; country clubs</span></div>
+  <h1>Every club in your portfolio. <em>One member record.</em></h1>
+  <p class="lede">Clubhouse360 runs a multi-club golf and country club operation on one platform, from the first website visit to the 18th green: club websites, online join, membership sales, e-signed contracts, dues, onboarding, the member app, the tee sheet, the pro shop, events and reporting.</p>
+  <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Clubhouse360 · Corporate · All clubs</span></div><img src="../../public/images/golf/corporate-dashboard.webp" alt=""></div>
+  <div class="foot"><span>Real product screens from a sample multi-club portfolio.</span><span>ardncloudsolutions.com/golf-club-management-software</span></div>
+</section>
+
+<!-- 2 — PROBLEM + ONE FLOW -->
+<section class="page">
+  <span class="kicker">The patchwork</span>
+  <h2>Club technology was assembled one club at a time. Multi-club operators inherit the result.</h2>
+  <p class="sub">Every hand-off between systems is a place where data is re-keyed, prices drift, prospects fall through the cracks, and the controller spends the first week of every month reconciling.</p>
+  <div class="pains">
+    <div class="pain"><b>Tee sheet &amp; POS</b><p>From one vendor, with its own member list to keep in step.</p></div>
+    <div class="pain"><b>Back office</b><p>From another, often a different product generation.</p></div>
+    <div class="pain"><b>Websites</b><p>An agency per club, with prices that drift from the back office.</p></div>
+    <div class="pain"><b>Sales &amp; contracts</b><p>A separate CRM and a separate e-signature tool.</p></div>
+    <div class="pain"><b>The portfolio</b><p>Reciprocal access in a spreadsheet; a nightly export to accounting.</p></div>
+  </div>
+
+  <div style="margin-top:34px"><span class="kicker">One flow</span>
+  <h2>From first enquiry to first round, on one member record.</h2></div>
+  <div class="grid2">
+    <div class="item"><h3>The price on the website is the price in the back office</h3><p>Promotions, director-sold plans and online plans are read from one price book by the website, the join flow and the Director's product builder.</p></div>
+    <div class="item"><h3>Nobody pays before they sign</h3><p>The contract is signed against the exact version shown, and the server refuses payment until it is, online and in a Director's in-person checkout.</p></div>
+    <div class="item"><h3>A benefit is used up when it is used</h3><p>Booking a tee time draws down the allowance the member saw while booking, across every club they can play.</p></div>
+    <div class="item"><h3>A lead cannot be lost</h3><p>Unclaimed enquiries escalate, idle deals return to the pool, nurtures come back on their date, and guest rounds turn into leads.</p></div>
+  </div>
+  <div class="figures">
+    <div class="fig"><b>1</b><span>member record shared by every module and every club</span></div>
+    <div class="fig"><b>6</b><span>steps from "Choose a plan" to a signed, paid, active membership</span></div>
+    <div class="fig"><b>400+</b><span>permissions, grantable per role or per person, per club</span></div>
+    <div class="fig"><b>0</b><span>data re-keyed between sales, contracts, billing and the member record</span></div>
+  </div>
+  <div class="foot"><span>Clubhouse360 · Executive brief</span><span>2</span></div>
+</section>
+
+<!-- 3 — PLATFORM -->
+<section class="page">
+  <span class="kicker">One platform, every department</span>
+  <h2>Everything the club runs on, in one login.</h2>
+  <p class="sub">Around 250 purpose-built screens across the staff back office, the member portal and platform administration. Each module switches on or off per club.</p>
+  <div class="modules">
+    <div class="item"><h3>Club websites &amp; online join</h3><p>A branded site for every club, live plans from the back office, and a six-step join with e-signature and payment.</p></div>
+    <div class="item"><h3>Membership sales CRM</h3><p>Shared lead pool with escalation, pipeline by stage, tour board, discount authority and approvals.</p></div>
+    <div class="item"><h3>Contracts &amp; e-signature</h3><p>Versioned templates, state-based clauses, countersignature, and payment blocked until signed.</p></div>
+    <div class="item"><h3>Dues, billing &amp; payments</h3><p>Card and ACH autopay, prorated first periods, automatic retries and a compliant credit-only card fee.</p></div>
+    <div class="item"><h3>Onboarding</h3><p>Active the moment they pay, with reminders and a task for the GM and Director if a member stalls.</p></div>
+    <div class="item"><h3>Member portal &amp; golf app</h3><p>Digital card for every household member, benefits remaining, bills, bookings and scorecards.</p></div>
+    <div class="item"><h3>Tee sheet &amp; golf operations</h3><p>Rate grids, booking windows, cart sheet and fleet, and seven golf staff roles.</p></div>
+    <div class="item"><h3>Pro shop &amp; online store</h3><p>Inventory kept as a ledger across clubs, and orders waiting on the member's cart.</p></div>
+    <div class="item"><h3>Events &amp; private events</h3><p>RSVP, a private-events sales pool, and first- and second-option room holds.</p></div>
+    <div class="item"><h3>Reporting &amp; the corporate view</h3><p>Reports that run as the viewer: a GM sees their club, a VP their region, corporate every club.</p></div>
+    <div class="item"><h3>Benefits &amp; reciprocal access</h3><p>Quantified benefits with resets and caps per club or per network, drawn down automatically.</p></div>
+    <div class="item"><h3>Accounting <span class="preview">Preview</span></h3><p>A general ledger fed by the club's own transactions. Interface complete; engine being merged.</p></div>
+  </div>
+  <div class="shots2">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span>Golf · Tee sheet</span></div><img src="../../public/images/golf/tee-sheet.webp" alt=""></div><p class="cap">The day tee sheet, with booking windows, rate grids and cart assignment.</p></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span>Golf · Performance</span></div><img src="../../public/images/golf/golf-performance.webp" alt=""></div><p class="cap">Utilization, average ticket and revenue per available tee time, from the bookings.</p></div>
+  </div>
+  <div class="foot"><span>Clubhouse360 · Executive brief</span><span>3</span></div>
+</section>
+
+<!-- 4 — CONTROL + NEXT STEP -->
+<section class="page">
+  <span class="kicker">Control &amp; switching without risk</span>
+  <h2>Everyone sees exactly their slice, and nothing switches on a guess.</h2>
+  <div class="grid2">
+    <div class="item"><h3>Isolation enforced in the database</h3><p>Row-level security on every table: a club's staff cannot query another club's records.</p></div>
+    <div class="item"><h3>A permission for every capability</h3><p>400+ permissions per role and per club, per-person grants with an expiry and a reason.</p></div>
+    <div class="item"><h3>Nothing important can vanish</h3><p>Field history, an audit log of staff actions, and a 30-day recycle bin. Members and anything with money or signatures behind it can never be deleted.</p></div>
+    <div class="item"><h3>Nothing switches all at once</h3><p>Modules turn on per club, so each club moves at the pace you set while the rest carry on as today.</p></div>
+    <div class="item"><h3>No club goes live on a guess</h3><p>A readiness checklist, item by item. Defaults are previewed first and never overwrite what a club has customised.</p></div>
+    <div class="item"><h3>Search rankings carry over</h3><p>Permanent redirects from each club's old web addresses keep the traffic your sites have earned.</p></div>
+  </div>
+
+  <div style="margin-top:28px"><span class="kicker">Getting there</span>
+  <h2 style="font-size:24pt">Rolled out club by club, on a checklist.</h2></div>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h3>A 30&#8209;minute walkthrough</h3><p>A live multi-club demo portfolio, mapped to how your clubs run today.</p></div>
+    <div class="step"><span class="n">2</span><h3>Map your portfolio</h3><p>Clubs, regions, plans, benefits, roles and approval authority, in settings.</p></div>
+    <div class="step"><span class="n">3</span><h3>Stand up each club</h3><p>Each club's site, roles and routing come from a template club.</p></div>
+    <div class="step"><span class="n">4</span><h3>Go live on a checklist</h3><p>Pass or fail for every item, and redirects for every old web address.</p></div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <h3>More clubs. <em>Not more systems.</em></h3>
+      <p>See one member record carry a prospect from your website to a signed, paid membership, and on to their first tee time.</p>
+    </div>
+    <dl>
+      <div><dt>Book a walkthrough</dt><dd>calendly.com/deep-ardncloudsolutions/30min</dd></div>
+      <div><dt>Email</dt><dd>contactus@ardncloudsolutions.com</dd></div>
+      <div><dt>Phone</dt><dd>+1 (407) 815-5303</dd></div>
+    </dl>
+  </div>
+  <p class="note">Accounting is in Preview. Court booking and a point-of-sale till are on the roadmap. Screens show a sample portfolio; clubs, people and figures are sample data.</p>
+  <div class="foot"><span>Clubhouse360 by Ardn Cloud Solutions</span><span>4</span></div>
+</section>
+
+</body>
+</html>
