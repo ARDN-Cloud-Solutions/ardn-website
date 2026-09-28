@@ -24,7 +24,7 @@ import {
 import LeadForm from "@/components/common/LeadForm";
 import TrackedLink from "./TrackedLink";
 import BriefForm from "./BriefForm";
-import WalkthroughVideo from "./WalkthroughVideo";
+import { WalkthroughButton, WalkthroughOverlay, WalkthroughPlayer } from "./WalkthroughVideo";
 import TrustBar from "@/components/common/TrustBar";
 import { FAQS } from "./faqs";
 
@@ -251,10 +251,10 @@ const GALLERY = [
     alt: "Dues and standing view showing past-due, retrying and autopay-off members",
   },
   {
-    img: "/images/golf/pro-shop.webp",
-    title: "Pro shop",
-    body: "An online store per club — collect at the counter or find it waiting on your cart.",
-    alt: "Club online pro shop with products and basket",
+    img: "/images/golf/pro-shop-tee-time.webp",
+    title: "Pro shop: ready at your tee time",
+    body: "Members order balls, gloves and tees with their round, and they're waiting on the cart when they arrive.",
+    alt: "Club online pro shop section 'Ready at your tee time' with golf balls, range balls and a leather glove to pre-order with a round",
   },
   {
     img: "/images/golf/private-events.webp",
@@ -420,7 +420,7 @@ export default function GolfClubContent() {
                 >
                   Book a 30-minute walkthrough
                 </TrackedLink>
-                <WalkthroughVideo className="gc-btn gc-btn-ghost" />
+                <WalkthroughButton className="gc-btn gc-btn-light" location="hero-button" />
               </div>
 
               <ul className="gc-hero-proof">
@@ -431,13 +431,16 @@ export default function GolfClubContent() {
             </div>
 
             <div className="gc-hero-visual">
-              <Shot
-                src="/images/golf/corporate-dashboard.webp"
-                alt="Clubhouse360 corporate dashboard comparing every club side by side — enquiries, new members, conversion, SLA compliance and pipeline value"
-                url="Clubhouse360 · Corporate · All clubs"
-                priority
-                tilt
-              />
+              <div className="gc-hero-shot">
+                <Shot
+                  src="/images/golf/corporate-dashboard.webp"
+                  alt="Clubhouse360 corporate dashboard comparing every club side by side — enquiries, new members, conversion, SLA compliance and pipeline value"
+                  url="Clubhouse360 · Corporate · All clubs"
+                  priority
+                  tilt
+                />
+                <WalkthroughOverlay location="hero-overlay" />
+              </div>
               <div className="gc-hero-float" aria-hidden="true">
                 <span className="gc-float-label">
                   <Flag size={13} strokeWidth={2} /> Golf performance · this month
@@ -461,6 +464,8 @@ export default function GolfClubContent() {
           </div>
         </div>
       </section>
+
+      <WalkthroughPlayer />
 
       <TrustBar
         signals={[
@@ -595,7 +600,9 @@ export default function GolfClubContent() {
               walk through the whole flow — website to first tee time — in 30
               minutes.
             </p>
-            <TrackedLink
+            <div className="gc-inline-actions">
+              <WalkthroughButton className="gc-btn gc-btn-ghost" location="after-tour" />
+              <TrackedLink
               className="gc-btn gc-btn-gold"
               href={CALENDLY}
               event="book_walkthrough_click"
@@ -603,6 +610,7 @@ export default function GolfClubContent() {
             >
               Book a walkthrough
             </TrackedLink>
+            </div>
           </div>
         </div>
       </section>

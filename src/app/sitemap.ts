@@ -143,9 +143,9 @@ const staticRoutes: MetadataRoute.Sitemap = [
                 title: "Clubhouse360 walkthrough",
                 thumbnail_loc: `${BASE_URL}/videos/clubhouse360-walkthrough-poster.webp`,
                 description:
-                    "A 1:23 walkthrough of Clubhouse360 golf and country club management software on a sample multi-club portfolio.",
+                    "A 1:17 walkthrough of Clubhouse360 golf and country club management software on a sample multi-club portfolio.",
                 content_loc: `${BASE_URL}/videos/clubhouse360-walkthrough.mp4`,
-                duration: 83,
+                duration: 77,
                 publication_date: "2026-09-28",
             },
         ],

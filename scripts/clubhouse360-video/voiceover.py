@@ -1,7 +1,7 @@
 """Generate the walkthrough voiceover with Kokoro (Apache-2.0, runs locally).
 
 One WAV per scene line (vo-00.wav ... vo-09.wav) plus vo-durations.json,
-which render.mjs reads to time each scene to its narration.
+which motion.mjs reads to time each scene to its narration.
 
 Setup (Python 3.10-3.12; keep the venv on a short path, espeak-ng
 truncates long data paths):
@@ -23,26 +23,22 @@ VOICE = "af_heart"  # chosen by the owner, 2026-09-28
 SPEED = 0.95
 SR = 24000
 
-# Keep in sync with voiceover-script.md and SCENES in render.mjs.
+# One line per scene of the motion cut (motion.mjs SCENES). Benefit-led,
+# every claim from the product kit; no prices, savings or customer claims.
 LINES = [
-    "If you run more than one club, this is for you.",
-    "This is Clubhouse three-sixty. Every club in your portfolio, side by side. "
-    "And the same view narrows itself to each regional VP and GM.",
-    "It starts on the club's own website. A prospect picks a plan, adds the family, "
-    "signs, and pays, in six steps, without a phone call.",
-    "Every enquiry lands in a shared pool for your membership directors. "
-    "If nobody claims it, it escalates. Nothing slips through.",
-    "Contracts are signed inside the platform, against the exact version they read. "
-    "And no money moves until they do.",
-    "Benefits are real numbers, not bullet points. Rounds, guest passes, discounts, "
-    "tracked across every club they can play.",
-    "Book a tee time, and the allowance comes down on its own. "
-    "Rate grids, booking windows, and carts, all in one sheet.",
-    "Then you see what every round is worth. Utilization, average ticket, "
-    "and revenue per available tee time.",
-    "And your members get one app, in their club's brand. "
-    "Their card, their benefits, their bills, their tee times.",
-    "More clubs. Not more systems. Book a thirty-minute walkthrough.",
+    "Running more than one club? Meet Clubhouse three-sixty.",
+    "Six systems that never talk to each other, replaced by one platform and one member record.",
+    "See every club side by side. And every regional VP and GM sees exactly their slice.",
+    "Prospects join online in six steps. Signed, paid, and active, without a phone call.",
+    "Every enquiry gets claimed or escalated, and guest rounds turn into leads.",
+    "Contracts are e-signed in the platform, and no money moves until they are.",
+    "Dues run on autopay, with automatic retries that never charge twice.",
+    "Benefits follow members to every club, and each tee time draws down their allowance.",
+    "Know what every round is worth, right down to revenue per available tee time.",
+    "The pro shop sells online, and orders are waiting on the cart at tee time.",
+    "Every table is isolated per club, with over four hundred permissions you control.",
+    "And members get one app, in their own club's brand.",
+    "More clubs. Not more systems. Book a walkthrough, and ask us about pricing.",
 ]
 
 
