@@ -1,6 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+
+/** A page-specific qualifier field. Answers are folded into the message
+ *  sent to /api/contact, so the API and email template don't change. */
+export type LeadQualifier = {
+  name: string;
+  label: string;
+  placeholder?: string;
+  numeric?: boolean;
+};
 
 /**
  * Inline lead-capture form for the solution / vertical landing pages.
@@ -27,12 +36,23 @@ export default function LeadForm({
   sub = "Tell us what you're trying to build. We'll reply within 4 business hours with a fixed quote — no obligation.",
   showSeatQualifiers = false,
   submitLabel = "Get my free quote",
+  footnote = "Fixed quote within 48 hours · We reply within 4 business hours · No obligation",
+  qualifiers,
+  messageLabel,
+  successMessage,
 }: {
   source: string;
   heading?: string;
   sub?: string;
   showSeatQualifiers?: boolean;
   submitLabel?: string;
+  /** Line under the submit button. Override on pages that must not promise a quote. */
+  footnote?: string;
+  /** Replaces the CRM/seat qualifiers with page-specific fields. */
+  qualifiers?: LeadQualifier[];
+  messageLabel?: string;
+  /** Replaces the default thank-you copy (which promises a quote). */
+  successMessage?: ReactNode;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [error, setError] = useState("");
@@ -49,6 +69,16 @@ export default function LeadForm({
       message: (form.elements.namedItem("message") as HTMLTextAreaElement)?.value?.trim(),
       source,
     };
+    if (qualifiers?.length) {
+      const answers = qualifiers
+        .map((q) => {
+          const v = (form.elements.namedItem(`q-${q.name}`) as HTMLInputElement)?.value?.trim();
+          return v ? `${q.label.replace(/\?$/, "")}: ${v}` : "";
+        })
+        .filter(Boolean)
+        .join("\n");
+      if (answers) payload.message = [answers, payload.message].filter(Boolean).join("\n\n");
+    }
 
     setStatus("sending");
     setError("");
@@ -103,18 +133,20 @@ export default function LeadForm({
             <div style={{ textAlign: "center", padding: "16px 0" }}>
               <div style={{ fontSize: "40px", marginBottom: "8px" }}>✅</div>
               <h2 className="h2" style={{ marginBottom: "8px" }}>Got it — thank you.</h2>
-              <p className="body">
-                Your request is in. We&apos;ll get back to you within 4 business
-                hours with next steps and a fixed quote. Need to talk sooner?{" "}
-                <a
-                  href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "var(--indigo)", fontWeight: 600 }}
-                >
-                  Book a call →
-                </a>
-              </p>
+              {successMessage ?? (
+                <p className="body">
+                  Your request is in. We&apos;ll get back to you within 4 business
+                  hours with next steps and a fixed quote. Need to talk sooner?{" "}
+                  <a
+                    href="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "var(--indigo)", fontWeight: 600 }}
+                  >
+                    Book a call →
+                  </a>
+                </p>
+              )}
             </div>
           ) : (
             <>
@@ -138,7 +170,24 @@ export default function LeadForm({
                   <label style={labelStyle} htmlFor="lf-company">Company</label>
                   <input id="lf-company" name="company" type="text" style={inputStyle} placeholder="Company name (optional)" />
                 </div>
-                {showSeatQualifiers && (
+                {qualifiers?.length ? (
+                  <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
+                    {qualifiers.map((q) => (
+                      <div key={q.name}>
+                        <label style={labelStyle} htmlFor={`lf-q-${q.name}`}>{q.label}</label>
+                        <input
+                          id={`lf-q-${q.name}`}
+                          name={`q-${q.name}`}
+                          type="text"
+                          inputMode={q.numeric ? "numeric" : undefined}
+                          style={inputStyle}
+                          placeholder={q.placeholder}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+                {!qualifiers?.length && showSeatQualifiers && (
                   <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}>
                     <div>
                       <label style={labelStyle} htmlFor="lf-crm">Which CRM do you run?</label>
@@ -151,7 +200,7 @@ export default function LeadForm({
                   </div>
                 )}
                 <div>
-                  <label style={labelStyle} htmlFor="lf-message">{showSeatQualifiers ? "What are you trying to cut costs on?" : "What do you want to build?"}</label>
+                  <label style={labelStyle} htmlFor="lf-message">{messageLabel ?? (showSeatQualifiers ? "What are you trying to cut costs on?" : "What do you want to build?")}</label>
                   <textarea id="lf-message" name="message" rows={3} style={{ ...inputStyle, resize: "vertical" }} placeholder="A sentence or two is plenty (optional)" />
                 </div>
                 {status === "err" && (
@@ -166,7 +215,7 @@ export default function LeadForm({
                   {status === "sending" ? "Sending…" : submitLabel}
                 </button>
                 <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
-                  Fixed quote within 48 hours &middot; We reply within 4 business hours &middot; No obligation
+                  {footnote}
                 </p>
                 <p style={{ fontSize: "12px", color: "#98a2b3", textAlign: "center", margin: 0 }}>
                   We&apos;ll only use this to reply about your project. No spam, ever.

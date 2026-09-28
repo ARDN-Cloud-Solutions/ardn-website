@@ -1,6 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  CalendarDays,
+  ChartColumn,
+  CreditCard,
+  Database,
+  EyeOff,
+  Flag,
+  Globe,
+  History,
+  Inbox,
+  KeyRound,
+  LayoutGrid,
+  ListChecks,
+  MessageSquareText,
+  PenLine,
+  ShoppingBag,
+  Smartphone,
+  Tag,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import LeadForm from "@/components/common/LeadForm";
+import TrackedLink from "./TrackedLink";
+import BriefForm from "./BriefForm";
+import WalkthroughVideo from "./WalkthroughVideo";
 import TrustBar from "@/components/common/TrustBar";
 import { FAQS } from "./faqs";
 
@@ -25,8 +49,9 @@ import { FAQS } from "./faqs";
  *   competitors lack a CRM. Competitors are NOT named — several comparison
  *   rows are still marked "verify before publishing".
  * - "A standard report library", not a report count. Don't list integrations.
- * - No pricing, flat-fee, guarantee or contract-term claims: none has been
- *   approved for Clubhouse360 (those belonged to the generic platform).
+ * - No Clubhouse360 pricing, quotes or cost claims yet: pricing hasn't been
+ *   decided (owner, 2026-09-28). Add it once it is. Also no guarantee or
+ *   contract-term claims until approved.
  * - Name NO payment provider in customer-facing copy (8a76690 / 6ea8cef).
  *
  * DO NOT add client names or client metrics. Screenshots are real product UI
@@ -69,20 +94,24 @@ const PAINS = [
   },
 ];
 
-const PROMISES = [
+const PROMISES: { icon: LucideIcon; title: string; body: string }[] = [
   {
+    icon: Tag,
     title: "The price on the website is the price in the back office",
-    body: "Promotions, director pricing and “Inquire for Pricing” plans are read from one price book by the website, the join flow and the Director's product builder.",
+    body: "Promotions, director-sold plans and online plans are all read from one price book by the website, the join flow and the Director's product builder.",
   },
   {
+    icon: PenLine,
     title: "Nobody pays before they sign",
     body: "The contract is signed against the exact version shown, and the server refuses payment until it is — online and in a Director's in-person checkout.",
   },
   {
+    icon: Flag,
     title: "A benefit is used up when it is used",
     body: "Booking a tee time draws down the allowance the member saw while booking, across every club they can play.",
   },
   {
+    icon: Inbox,
     title: "A lead cannot be lost",
     body: "Unclaimed enquiries escalate, idle deals return to the pool, nurtures come back on their date, and guest rounds turn into leads.",
   },
@@ -91,12 +120,12 @@ const PROMISES = [
 const TOUR = [
   {
     kicker: "Club websites & online join",
-    title: "From the website to a signed, paid membership — without a phone call.",
-    body: "Every club gets its own branded site with live prices from the back office. Plans sold online show “Join Online”; director-sold plans show “Inquire for Pricing” and the price never reaches the browser. The six-step join runs in the club's own look, and a waitlist replaces “Join” when a plan reaches its cap.",
+    title: "From the website to a signed, paid membership, without a phone call.",
+    body: "Every club gets its own branded site with live prices from the back office. Plans sold online show “Join Online”; director-sold plans show “Talk to a Membership Director” instead. The six-step join runs in the club's own look, and a waitlist replaces “Join” when a plan reaches its cap.",
     points: ["Plan, household, dues & add-ons, sign, autopay, pay", "Prorated first period and promotions", "Old web addresses redirect — rankings carry over"],
     img: "/images/golf/online-join-plans.webp",
     url: "yourclub.com/join",
-    alt: "Six-step online join showing membership categories, what each plan includes, and director-sold plans marked Inquire for Pricing",
+    alt: "Six-step online join showing membership categories, what each plan includes, and director-sold plans offered after a visit with a director",
   },
   {
     kicker: "Membership sales desk",
@@ -118,7 +147,7 @@ const TOUR = [
   },
   {
     kicker: "Benefits & reciprocal access",
-    title: "What a membership includes — enforced across every club.",
+    title: "What a membership includes, enforced across every club.",
     body: "Benefits are quantified, not bullet points. Each resets monthly, yearly or on the anniversary, can be capped per club, per network of clubs, or both, and applies at home, when travelling, or both. Members see used and remaining for every benefit, shared across the household.",
     points: ["Granted automatically on approval", "Tee-time bookings draw down the golf allowance", "Utilization reporting per club and benefit"],
     img: "/images/golf/member-benefits.webp",
@@ -145,64 +174,64 @@ const TOUR = [
   },
 ];
 
-const MODULES = [
+const MODULES: { icon: LucideIcon; title: string; body: string }[] = [
   {
-    n: "01",
+    icon: Globe,
     title: "Club websites & online join",
     body: "A branded microsite for every club from one system, 39 content blocks and 17 templates, a new-club wizard, and a six-step join with e-signature and payment.",
   },
   {
-    n: "02",
+    icon: Users,
     title: "Membership sales CRM",
     body: "Shared lead pool with SLA escalation, pipeline by stage, tour board, product builder with discount authority, approvals, and in-person tablet checkout.",
   },
   {
-    n: "03",
+    icon: PenLine,
     title: "Contracts & e-signature",
     body: "Versioned templates, state-based clauses, signer roles and countersignature, word-level version comparison, and payment blocked until signed.",
   },
   {
-    n: "04",
+    icon: CreditCard,
     title: "Dues, billing & payments",
     body: "Card and ACH autopay, prorated first periods, step-up promotional dues, automatic retries, a compliant credit-only card fee, and staff refunds with a reason.",
   },
   {
-    n: "05",
+    icon: ListChecks,
     title: "Onboarding",
     body: "Active the moment they pay. Up to seven setup steps, reminders at days 2, 5 and 10, and a task for the GM and Director at day 12 if a member stalls.",
   },
   {
-    n: "06",
+    icon: Smartphone,
     title: "Member portal & golf app",
     body: "Digital card with QR code for every household member, benefits remaining, bills, bookings, and a per-club installable golf app with digital scorecards.",
   },
   {
-    n: "07",
+    icon: Flag,
     title: "Tee sheet & golf operations",
     body: "Rate grids, booking windows, cart sheet and fleet, and seven golf staff roles — head pro, shop, superintendent, member services, bag room, caddie, concierge.",
   },
   {
-    n: "08",
+    icon: ShoppingBag,
     title: "Pro shop & online store",
     body: "Shelf, pre-order and member prices, inventory kept as a ledger of movements across clubs, reorder lists, and orders waiting on the member's cart.",
   },
   {
-    n: "09",
+    icon: CalendarDays,
     title: "Events & private events",
     body: "Club events with RSVP, plus a private-events sales pool with room calendars and first- and second-option holds that promote automatically.",
   },
   {
-    n: "10",
+    icon: ChartColumn,
     title: "Reporting & the corporate view",
     body: "A standard report library over governed datasets that runs as the viewer, scheduled email delivery, 13-month trends, and every club side by side.",
   },
   {
-    n: "11",
+    icon: MessageSquareText,
     title: "Ask, in plain English",
     body: "Staff type a question and get the number back with a citation that opens as a normal report — read-only, run as the signed-in user, and audited.",
   },
   {
-    n: "12",
+    icon: LayoutGrid,
     title: "Built for many clubs",
     body: "Switch modules on or off per club, stand up a new club from a template with a preview first, and go live against a pass-or-fail readiness checklist.",
   },
@@ -213,7 +242,7 @@ const GALLERY = [
     img: "/images/golf/cart-sheet.webp",
     title: "Cart sheet",
     body: "Numbered carts, seats priced at assignment, auto-assignment and rider swaps.",
-    alt: "Cart sheet with numbered carts, assigned riders and seat pricing",
+    alt: "Cart sheet with numbered carts and assigned riders",
   },
   {
     img: "/images/golf/dues-standing.webp",
@@ -225,7 +254,7 @@ const GALLERY = [
     img: "/images/golf/pro-shop.webp",
     title: "Pro shop",
     body: "An online store per club — collect at the counter or find it waiting on your cart.",
-    alt: "Club online pro shop with products, member pricing and basket",
+    alt: "Club online pro shop with products and basket",
   },
   {
     img: "/images/golf/private-events.webp",
@@ -247,20 +276,24 @@ const GALLERY = [
   },
 ];
 
-const SECURITY = [
+const SECURITY: { icon: LucideIcon; title: string; body: string }[] = [
   {
+    icon: Database,
     title: "Isolation enforced in the database",
     body: "Row-level security on every table — a club's staff cannot query another club's records. Enforced by the database, not by hiding rows on a screen.",
   },
   {
+    icon: KeyRound,
     title: "A permission for every capability",
     body: "400+ permissions granted per role and per club, individual grants or denials with an expiry and a reason, and a “Who Can Do What” view across every club.",
   },
   {
+    icon: EyeOff,
     title: "Money fields disappear, not blur",
     body: "Anyone without permission to see money gets reports with money fields left out entirely — not masked.",
   },
   {
+    icon: History,
     title: "Nothing important can vanish",
     body: "Field history on every tracked field, an audit log of staff actions, and a 30-day recycle bin. Members and anything with money or signatures behind it can never be deleted.",
   },
@@ -285,6 +318,29 @@ const STEPS = [
   },
 ];
 
+const SAFEGUARDS: { icon: LucideIcon; title: string; body: string }[] = [
+  {
+    icon: LayoutGrid,
+    title: "Nothing switches all at once",
+    body: "Modules turn on per club, so each club moves at the pace you set. One club can go live while the rest of the portfolio carries on as it is today.",
+  },
+  {
+    icon: ListChecks,
+    title: "No club goes live on a guess",
+    body: "Every club passes a go-live readiness checklist, item by item, with a link to fix anything that fails. Portfolio defaults are previewed before they apply, and they never overwrite what a club has customised.",
+  },
+  {
+    icon: Globe,
+    title: "Search rankings carry over",
+    body: "Permanent redirects from each club's old web addresses mean the traffic and rankings your sites have earned follow them to the new ones.",
+  },
+  {
+    icon: Database,
+    title: "Your data stays yours",
+    body: "Reports and lists export to CSV, scheduled reports arrive by email, and every staff action is in the audit log from the first day.",
+  },
+];
+
 /** A real screenshot inside the page's browser-frame chrome. */
 function Shot({
   src,
@@ -292,12 +348,14 @@ function Shot({
   url,
   priority,
   tilt,
+  sizes = "(max-width: 1040px) 100vw, 60vw",
 }: {
   src: string;
   alt: string;
   url: string;
   priority?: boolean;
   tilt?: boolean;
+  sizes?: string;
 }) {
   return (
     <div className={tilt ? "gc-mock gc-shot" : "gc-mock gc-shot gc-shot-flat"}>
@@ -310,10 +368,11 @@ function Shot({
       <Image
         src={src}
         alt={alt}
-        width={1920}
-        height={1200}
+        width={2880}
+        height={1800}
         priority={priority}
-        sizes="(max-width: 900px) 100vw, 60vw"
+        quality={90}
+        sizes={sizes}
         className="gc-shot-img"
       />
     </div>
@@ -346,17 +405,15 @@ export default function GolfClubContent() {
               </p>
 
               <div className="gc-ctas">
-                <a
+                <TrackedLink
                   className="gc-btn gc-btn-gold"
                   href={CALENDLY}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  event="book_walkthrough_click"
+                  location="hero"
                 >
                   Book a 30-minute walkthrough
-                </a>
-                <a className="gc-btn gc-btn-ghost" href="#tour">
-                  See the product first
-                </a>
+                </TrackedLink>
+                <WalkthroughVideo className="gc-btn gc-btn-ghost" />
               </div>
 
               <ul className="gc-hero-proof">
@@ -374,9 +431,24 @@ export default function GolfClubContent() {
                 priority
                 tilt
               />
+              <div className="gc-hero-float" aria-hidden="true">
+                <span className="gc-float-label">
+                  <Flag size={13} strokeWidth={2} /> Golf performance · this month
+                </span>
+                <div className="gc-float-row">
+                  <div>
+                    <b>46%</b>
+                    <span>Tee-sheet utilization</span>
+                  </div>
+                  <div>
+                    <b>$170</b>
+                    <span>Revenue per available tee time</span>
+                  </div>
+                </div>
+              </div>
               <p className="gc-hero-caption">
-                The corporate view: every club side by side. The same report
-                scopes itself to each regional VP and GM.
+                Real screens from a sample multi-club portfolio. The corporate
+                view scopes itself to each regional VP and GM.
               </p>
             </div>
           </div>
@@ -457,6 +529,9 @@ export default function GolfClubContent() {
           <div className="gc-onprop gc-promises">
             {PROMISES.map((p) => (
               <article key={p.title}>
+                <span className="gc-icon" aria-hidden="true">
+                  <p.icon size={20} strokeWidth={1.75} />
+                </span>
                 <h3>{p.title}</h3>
                 <p>{p.body}</p>
               </article>
@@ -469,7 +544,7 @@ export default function GolfClubContent() {
           PRODUCT TOUR — real UI, alternating rows
           --------------------------------------------------------------- */}
       <section className="gc-section gc-canvas" id="tour">
-        <div className="container">
+        <div className="container gc-wide">
           <div className="gc-head">
             <span className="gc-kicker">See it, don&rsquo;t take our word</span>
             <h2 className="gc-h2">The real product, running a portfolio of clubs.</h2>
@@ -480,19 +555,28 @@ export default function GolfClubContent() {
           </div>
 
           <div className="gc-tour">
-            {TOUR.map((t, i) => (
-              <div className={i % 2 ? "gc-tour-row is-flip" : "gc-tour-row"} key={t.kicker}>
+            {TOUR.map((t) => (
+              <div className="gc-tour-row" key={t.kicker}>
                 <div className="gc-tour-copy">
-                  <span className="gc-kicker">{t.kicker}</span>
-                  <h3 className="gc-h3">{t.title}</h3>
-                  <p>{t.body}</p>
-                  <ul className="gc-ticks gc-ticks-light">
-                    {t.points.map((pt) => (
-                      <li key={pt}>{pt}</li>
-                    ))}
-                  </ul>
+                  <div>
+                    <span className="gc-kicker">{t.kicker}</span>
+                    <h3 className="gc-h3">{t.title}</h3>
+                  </div>
+                  <div>
+                    <p>{t.body}</p>
+                    <ul className="gc-ticks gc-ticks-light">
+                      {t.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <Shot src={t.img} alt={t.alt} url={t.url} />
+                <Shot
+                  src={t.img}
+                  alt={t.alt}
+                  url={t.url}
+                  sizes="(max-width: 1400px) 100vw, 1320px"
+                />
               </div>
             ))}
           </div>
@@ -504,14 +588,14 @@ export default function GolfClubContent() {
               walk through the whole flow — website to first tee time — in 30
               minutes.
             </p>
-            <a
+            <TrackedLink
               className="gc-btn gc-btn-gold"
               href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+              event="book_walkthrough_click"
+              location="after-tour"
             >
               Book a walkthrough
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -525,8 +609,7 @@ export default function GolfClubContent() {
             <div>
               <span className="gc-kicker gc-on-dark">Member experience</span>
               <h2 className="gc-h2">
-                A portal and golf app your members will actually open — in each
-                club&rsquo;s brand.
+                A portal and golf app your members will actually open.
               </h2>
               <p className="gc-sub gc-on-dark">
                 Members are active the moment they pay, and onboarding walks them
@@ -545,6 +628,7 @@ export default function GolfClubContent() {
               src="/images/golf/member-home.webp"
               alt="Member portal home with digital membership card, plan details, benefits and quick actions"
               url="members.yourclub.com"
+              sizes="(max-width: 1040px) 100vw, 55vw"
             />
           </div>
         </div>
@@ -567,8 +651,10 @@ export default function GolfClubContent() {
 
           <div className="gc-cards">
             {MODULES.map((c) => (
-              <article className="gc-card" key={c.n}>
-                <span className="gc-card-n">{c.n}</span>
+              <article className="gc-card" key={c.title}>
+                <span className="gc-icon" aria-hidden="true">
+                  <c.icon size={20} strokeWidth={1.75} />
+                </span>
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
               </article>
@@ -593,9 +679,10 @@ export default function GolfClubContent() {
                 <Image
                   src={g.img}
                   alt={g.alt}
-                  width={1920}
-                  height={1200}
-                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                  width={2880}
+                  height={1800}
+                  quality={90}
+                  sizes="(max-width: 700px) 100vw, 50vw"
                 />
                 <figcaption>
                   <strong>{g.title}</strong>
@@ -617,7 +704,7 @@ export default function GolfClubContent() {
               <div className="gc-head">
                 <span className="gc-kicker">From ownership to the bag room</span>
                 <h2 className="gc-h2">
-                  Everyone sees exactly their slice — enforced by the database.
+                  Everyone sees exactly their slice, enforced by the database.
                 </h2>
                 <p className="gc-sub">
                   Corporate sees every club with region subtotals. Regional VPs
@@ -636,6 +723,9 @@ export default function GolfClubContent() {
             <div className="gc-onprop gc-onprop-stack">
               {SECURITY.map((s) => (
                 <article key={s.title}>
+                  <span className="gc-icon" aria-hidden="true">
+                    <s.icon size={20} strokeWidth={1.75} />
+                  </span>
                   <h3>{s.title}</h3>
                   <p>{s.body}</p>
                 </article>
@@ -670,8 +760,9 @@ export default function GolfClubContent() {
               <Image
                 src="/images/golf/accounting-overview.webp"
                 alt="Accounting overview consolidated across all clubs, with revenue against budget, operating margin, cash and receivables"
-                width={1920}
-                height={1200}
+                width={2880}
+                height={1800}
+                quality={90}
                 sizes="(max-width: 700px) 100vw, 50vw"
               />
               <figcaption>
@@ -683,8 +774,9 @@ export default function GolfClubContent() {
               <Image
                 src="/images/golf/financial-statements.webp"
                 alt="Profit and loss by department with month columns against budget and prior year"
-                width={1920}
-                height={1200}
+                width={2880}
+                height={1800}
+                quality={90}
                 sizes="(max-width: 700px) 100vw, 50vw"
               />
               <figcaption>
@@ -726,6 +818,59 @@ export default function GolfClubContent() {
               </li>
             ))}
           </ol>
+
+          <div className="gc-switch" id="switching">
+            <div className="gc-head">
+              <span className="gc-kicker">Switching without risk</span>
+              <h2 className="gc-h2">The migration is the part executives worry about. So it is designed around control.</h2>
+            </div>
+            <div className="gc-onprop gc-promises">
+              {SAFEGUARDS.map((g) => (
+                <article key={g.title}>
+                  <span className="gc-icon" aria-hidden="true">
+                    <g.icon size={20} strokeWidth={1.75} />
+                  </span>
+                  <h3>{g.title}</h3>
+                  <p>{g.body}</p>
+                </article>
+              ))}
+            </div>
+            <p className="gc-onprop-note">
+              Bring an export of your current members and plans to the
+              walkthrough, and we&rsquo;ll show you how it maps into
+              Clubhouse360, club by club.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          EXECUTIVE BRIEF — soft-gated PDF for execs who won't book a call
+          yet. PDF source: scripts/clubhouse360-brief (regenerate after copy
+          changes so it never contradicts the page).
+          --------------------------------------------------------------- */}
+      <section className="gc-section gc-dark" id="brief">
+        <div className="container">
+          <div className="gc-brief">
+            <div className="gc-brief-copy">
+              <span className="gc-kicker gc-on-dark">Executive brief</span>
+              <h2 className="gc-h2">Take it to your CFO and your board.</h2>
+              <p className="gc-sub gc-on-dark">
+                Four pages covering the platform, the rollout and the controls,
+                with real product screens. Ready to forward before anyone books
+                a call.
+              </p>
+              <Image
+                src="/images/golf/brief-cover.webp"
+                alt="Cover of the Clubhouse360 executive brief"
+                width={900}
+                height={1165}
+                className="gc-brief-cover"
+                sizes="(max-width: 1040px) 60vw, 280px"
+              />
+            </div>
+            <BriefForm />
+          </div>
         </div>
       </section>
 
@@ -759,6 +904,27 @@ export default function GolfClubContent() {
             heading="See Clubhouse360 on a live multi-club portfolio"
             sub="Tell us how many clubs you run, what you use today and what hurts most. We reply within 4 business hours to set up your walkthrough."
             submitLabel="Request my walkthrough"
+            footnote="We reply within 4 business hours · No obligation"
+            qualifiers={[
+              { name: "clubs", label: "How many clubs do you operate?", placeholder: "e.g. 12", numeric: true },
+              { name: "system", label: "What do you run today?", placeholder: "Club software, tee sheet, CRM…" },
+            ]}
+            messageLabel="What would you most like to fix first?"
+            successMessage={
+              <p className="body">
+                We&rsquo;ll reply within 4 business hours to set up your
+                walkthrough on a live multi-club portfolio. Want to pick a
+                time now?{" "}
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--indigo)", fontWeight: 600 }}
+                >
+                  Book a 30-minute walkthrough →
+                </a>
+              </p>
+            }
           />
         </div>
       </section>
@@ -777,14 +943,14 @@ export default function GolfClubContent() {
             signed, paid membership — and on to their first tee time.
           </p>
           <div className="gc-ctas gc-ctas-center">
-            <a
+            <TrackedLink
               className="gc-btn gc-btn-gold"
               href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+              event="book_walkthrough_click"
+              location="final"
             >
               Book a 30-minute walkthrough
-            </a>
+            </TrackedLink>
             <a className="gc-btn gc-btn-ghost" href="#talk">
               Send us your details instead
             </a>
@@ -793,10 +959,6 @@ export default function GolfClubContent() {
             Related:{" "}
             <Link href="/membership-management">Membership management platform</Link>{" "}
             · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
-            ·{" "}
-            <Link href="/blog/country-club-management-software-cost">
-              Why club software pricing is so opaque
-            </Link>
           </p>
         </div>
       </section>

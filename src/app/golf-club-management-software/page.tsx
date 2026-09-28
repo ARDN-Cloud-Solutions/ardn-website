@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Cormorant_Garamond } from "next/font/google";
 import GolfClubContent from "./GolfClubContent";
 import { FAQS } from "./faqs";
 import "./golf.css";
@@ -14,6 +15,17 @@ import "./golf.css";
  * and its INTERNAL claims guardrails — see the header comment in
  * GolfClubContent before changing copy. No client names or client metrics.
  */
+
+// Display serif for headlines only — the same family Clubhouse360's member
+// portal uses, so the marketing page reads like the product. Scoped to this
+// page via a CSS variable consumed in golf.css.
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
+  variable: "--gc-serif",
+  display: "swap",
+});
 
 const URL = "https://ardncloudsolutions.com/golf-club-management-software";
 const TITLE = "Golf & Country Club Management Software | Clubhouse360";
@@ -115,7 +127,9 @@ export default function GolfClubManagementSoftwarePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
       />
-      <GolfClubContent />
+      <div className={serif.variable}>
+        <GolfClubContent />
+      </div>
     </>
   );
 }
