@@ -82,4 +82,22 @@ args.push("-filter_complex", parts.join(";"), "-map", "[vout]", ...audioArgs,
   "-c:v", "libx264", "-preset", "slow", "-crf", "21", "-profile:v", "high", "-pix_fmt", "yuv420p",
   "-movflags", "+faststart", ...(vo ? ["-shortest"] : ["-an"]), process.argv[2]);
 execFileSync("ffmpeg", args, { stdio: ["ignore", "ignore", "inherit"] });
+
+// Captions (WebVTT) alongside the MP4, timed exactly as the audio was laid in.
+if (vo && fs.existsSync(path.join(voDir, "vo-lines.json"))) {
+  const lines = JSON.parse(fs.readFileSync(path.join(voDir, "vo-lines.json"), "utf8"));
+  const starts = [0];
+  for (let i = 1; i < files.length; i++) starts.push(starts[i - 1] + files[i - 1].dur - XF);
+  const ts = (t) => {
+    const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), sec = (t % 60).toFixed(3).padStart(6, "0");
+    return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${sec}`;
+  };
+  const cues = lines.map((text, i) => {
+    const a = starts[i] + lead(i), b = a + vo[i];
+    return `${i + 1}\n${ts(a)} --> ${ts(b)}\n${text}\n`;
+  });
+  const vtt = process.argv[2].replace(/\.mp4$/, ".vtt");
+  fs.writeFileSync(vtt, `WEBVTT\n\n${cues.join("\n")}`);
+  console.log("wrote", vtt);
+}
 console.log("total seconds", (offset + XF).toFixed(1));

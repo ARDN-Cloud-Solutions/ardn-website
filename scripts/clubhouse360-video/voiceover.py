@@ -59,6 +59,13 @@ def main(out: Path) -> None:
         durations.append(round(len(audio) / SR, 3))
         print(f"vo-{i:02d}  {durations[-1]:5.2f}s  {line[:48]}")
     (out / "vo-durations.json").write_text(json.dumps(durations))
+    # Display text for captions: spelled the way it reads on screen, not
+    # the way it's written for pronunciation.
+    captions = [
+        l.replace("Clubhouse three-sixty", "Clubhouse360").replace("thirty-minute", "30-minute")
+        for l in LINES
+    ]
+    (out / "vo-lines.json").write_text(json.dumps(captions))
 
 
 if __name__ == "__main__":

@@ -35,6 +35,9 @@ image_alt: "Country club and private club management software pricing — ARDN C
 <h2>Where a flat-fee custom build changes this</h2>
 <p>The features a club actually uses — member billing, tee-time or court booking, dining reservations, a member-facing app — can be built as one system on one flat monthly fee, without the module-by-module negotiation that defines the enterprise suite category. That doesn't require replacing point-of-sale hardware or renegotiating existing merchant relationships; it means the member-facing and staff-facing software layered on top runs on a fee that doesn't grow every time the club adds a capability it was previously paying separately for. This is the same pattern behind <a href="https://ardncloudsolutions.com/custom-portal-development">custom portal development</a> for other membership-driven organizations — see <a href="https://cms.ardncloudsolutions.com/member-portal-flat-fee/">a flat-fee member portal</a> for the association/chapter version of this same argument — and it's the core case for <a href="https://ardncloudsolutions.com/reduce-crm-licensing-costs">moving off stacked per-module licensing</a> generally.</p>
 
+<h2>If you operate more than one club</h2>
+<p>Multi-club operators feel the module problem twice: every club multiplies it, and the pieces still have to agree with each other across the portfolio. <a href="https://ardncloudsolutions.com/golf-club-management-software">Clubhouse360</a>, our golf and country club platform, was built for that case: one member record across every club, with the website and online join, membership sales, e-signed contracts, dues, the tee sheet, the pro shop and reporting in a single system rather than a stack of separately bought modules.</p>
+
 <h2>Frequently asked questions</h2>
 
 <h3>Does a custom build replace our existing POS hardware?</h3>

@@ -127,12 +127,28 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
-        // Vertical landing page — golf & private club ICP. Highest-intent
-        // commercial query for the membership platform's club vertical.
+        // Vertical landing page — Clubhouse360, golf & country clubs.
+        // Images and the walkthrough video are listed so Google Images and
+        // video search can index them against this page.
         url: `${BASE_URL}/golf-club-management-software`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.9,
+        images: [
+            "corporate-dashboard", "online-join-plans", "sales-pipeline", "contracts-esign",
+            "member-benefits", "tee-sheet", "golf-performance", "member-home",
+        ].map((f) => `${BASE_URL}/images/golf/${f}.webp`),
+        videos: [
+            {
+                title: "Clubhouse360 walkthrough",
+                thumbnail_loc: `${BASE_URL}/videos/clubhouse360-walkthrough-poster.webp`,
+                description:
+                    "A 1:23 walkthrough of Clubhouse360 golf and country club management software on a sample multi-club portfolio.",
+                content_loc: `${BASE_URL}/videos/clubhouse360-walkthrough.mp4`,
+                duration: 83,
+                publication_date: "2026-09-28",
+            },
+        ],
     },
     {
         // Vertical AI landing page — insurance ICP (claims/underwriting).

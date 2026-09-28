@@ -391,9 +391,16 @@ export default function GolfClubContent() {
         <div className="container">
           <div className="gc-hero-grid">
             <div className="gc-hero-copy">
-              <span className="gc-eyebrow">Clubhouse360 · Golf &amp; country clubs</span>
-              <h1 className="gc-display">
-                Every club in your portfolio. <em>One member record.</em>
+              {/* The eyebrow sits inside the H1 so the heading carries the
+                  target query ("golf & country club management software")
+                  without changing the design. */}
+              <h1 className="gc-h1">
+                <span className="gc-eyebrow">
+                  Clubhouse360 · Golf &amp; country club management software
+                </span>
+                <span className="gc-display">
+                  Every club in your portfolio. <em>One member record.</em>
+                </span>
               </h1>
               <p className="gc-lede">
                 Clubhouse360 runs a multi-club golf and country club operation

@@ -57,7 +57,14 @@ export default function WalkthroughVideo({ className }: { className?: string }) 
             preload="none"
             width={1920}
             height={1080}
-          />
+          >
+            <track
+              kind="captions"
+              src="/videos/clubhouse360-walkthrough.vtt"
+              srcLang="en"
+              label="English"
+            />
+          </video>
         </div>
       </dialog>
     </>

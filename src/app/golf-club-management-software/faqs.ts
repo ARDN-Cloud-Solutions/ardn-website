@@ -6,6 +6,10 @@
 // keep payments capability-framed.
 export const FAQS = [
   {
+    q: "What is Clubhouse360?",
+    a: "Clubhouse360 is golf and country club management software from Ardn Cloud Solutions, a software company based in Orlando, Florida. It runs a multi-club operation on one platform and one member record: club websites and online join, membership sales, e-signed contracts, dues and payments, onboarding, the member portal and golf app, benefits and reciprocal access, the tee sheet and carts, the pro shop, events, and reporting from a single club up to the whole portfolio.",
+  },
+  {
     q: "Who is Clubhouse360 built for?",
     a: "Operators who run many golf and country clubs — ownership groups, management companies and multi-club portfolios. It was designed from day one around a portfolio: every club gets its own branded website and settings, while corporate, regional VPs and general managers each see the same reports automatically scoped to the clubs they are responsible for. A single club runs on exactly the same platform.",
   },
