@@ -25,8 +25,9 @@ import { FAQS } from "./faqs";
  *   competitors lack a CRM. Competitors are NOT named — several comparison
  *   rows are still marked "verify before publishing".
  * - "A standard report library", not a report count. Don't list integrations.
- * - No pricing, flat-fee, guarantee or contract-term claims: none has been
- *   approved for Clubhouse360 (those belonged to the generic platform).
+ * - No Clubhouse360 pricing, quotes or cost claims yet: pricing hasn't been
+ *   decided (owner, 2026-09-28). Add it once it is. Also no guarantee or
+ *   contract-term claims until approved.
  * - Name NO payment provider in customer-facing copy (8a76690 / 6ea8cef).
  *
  * DO NOT add client names or client metrics. Screenshots are real product UI
@@ -72,7 +73,7 @@ const PAINS = [
 const PROMISES = [
   {
     title: "The price on the website is the price in the back office",
-    body: "Promotions, director pricing and “Inquire for Pricing” plans are read from one price book by the website, the join flow and the Director's product builder.",
+    body: "Promotions, director-sold plans and online plans are all read from one price book by the website, the join flow and the Director's product builder.",
   },
   {
     title: "Nobody pays before they sign",
@@ -92,11 +93,11 @@ const TOUR = [
   {
     kicker: "Club websites & online join",
     title: "From the website to a signed, paid membership — without a phone call.",
-    body: "Every club gets its own branded site with live prices from the back office. Plans sold online show “Join Online”; director-sold plans show “Inquire for Pricing” and the price never reaches the browser. The six-step join runs in the club's own look, and a waitlist replaces “Join” when a plan reaches its cap.",
+    body: "Every club gets its own branded site with live prices from the back office. Plans sold online show “Join Online”; director-sold plans show “Talk to a Membership Director” instead. The six-step join runs in the club's own look, and a waitlist replaces “Join” when a plan reaches its cap.",
     points: ["Plan, household, dues & add-ons, sign, autopay, pay", "Prorated first period and promotions", "Old web addresses redirect — rankings carry over"],
     img: "/images/golf/online-join-plans.webp",
     url: "yourclub.com/join",
-    alt: "Six-step online join showing membership categories, what each plan includes, and director-sold plans marked Inquire for Pricing",
+    alt: "Six-step online join showing membership categories, what each plan includes, and director-sold plans offered after a visit with a director",
   },
   {
     kicker: "Membership sales desk",
@@ -213,7 +214,7 @@ const GALLERY = [
     img: "/images/golf/cart-sheet.webp",
     title: "Cart sheet",
     body: "Numbered carts, seats priced at assignment, auto-assignment and rider swaps.",
-    alt: "Cart sheet with numbered carts, assigned riders and seat pricing",
+    alt: "Cart sheet with numbered carts and assigned riders",
   },
   {
     img: "/images/golf/dues-standing.webp",
@@ -225,7 +226,7 @@ const GALLERY = [
     img: "/images/golf/pro-shop.webp",
     title: "Pro shop",
     body: "An online store per club — collect at the counter or find it waiting on your cart.",
-    alt: "Club online pro shop with products, member pricing and basket",
+    alt: "Club online pro shop with products and basket",
   },
   {
     img: "/images/golf/private-events.webp",
@@ -759,6 +760,7 @@ export default function GolfClubContent() {
             heading="See Clubhouse360 on a live multi-club portfolio"
             sub="Tell us how many clubs you run, what you use today and what hurts most. We reply within 4 business hours to set up your walkthrough."
             submitLabel="Request my walkthrough"
+            footnote="We reply within 4 business hours · No obligation"
           />
         </div>
       </section>
@@ -793,10 +795,6 @@ export default function GolfClubContent() {
             Related:{" "}
             <Link href="/membership-management">Membership management platform</Link>{" "}
             · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
-            ·{" "}
-            <Link href="/blog/country-club-management-software-cost">
-              Why club software pricing is so opaque
-            </Link>
           </p>
         </div>
       </section>

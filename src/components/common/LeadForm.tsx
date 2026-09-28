@@ -27,12 +27,15 @@ export default function LeadForm({
   sub = "Tell us what you're trying to build. We'll reply within 4 business hours with a fixed quote — no obligation.",
   showSeatQualifiers = false,
   submitLabel = "Get my free quote",
+  footnote = "Fixed quote within 48 hours · We reply within 4 business hours · No obligation",
 }: {
   source: string;
   heading?: string;
   sub?: string;
   showSeatQualifiers?: boolean;
   submitLabel?: string;
+  /** Line under the submit button. Override on pages that must not promise a quote. */
+  footnote?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [error, setError] = useState("");
@@ -166,7 +169,7 @@ export default function LeadForm({
                   {status === "sending" ? "Sending…" : submitLabel}
                 </button>
                 <p style={{ fontSize: "13px", color: "#475467", textAlign: "center", margin: 0, fontWeight: 500 }}>
-                  Fixed quote within 48 hours &middot; We reply within 4 business hours &middot; No obligation
+                  {footnote}
                 </p>
                 <p style={{ fontSize: "12px", color: "#98a2b3", textAlign: "center", margin: 0 }}>
                   We&apos;ll only use this to reply about your project. No spam, ever.
