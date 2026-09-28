@@ -19,6 +19,14 @@ const SHOTS = [
   ["af-claims", "ai-forge/claims-intake-assistant"],
   ["af-docs", "ai-forge/invoice-extraction"],
   ["af-ops", "ai-forge/monthly-report"],
+  ["cs-dispatch", "services/custom-software-dispatch"],
+  ["cs-approvals", "services/custom-software-approvals"],
+  ["portal-customer", "services/customer-portal"],
+  ["portal-seller", "services/seller-portal"],
+  ["partner-deals", "services/partner-portal-deals"],
+  ["partner-register", "services/partner-portal-register"],
+  ["ecom-store", "services/ecommerce-store"],
+  ["ecom-admin", "services/ecommerce-admin"],
 ];
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "mockups-"));
