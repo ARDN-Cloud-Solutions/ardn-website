@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Free Software Savings Calculator from Ardn Cloud Solutions — calculate Salesforce, Mindbody, and HubSpot overspend",

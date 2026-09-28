@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         // Outcome-focused alt describing what AI Forge does for the searcher.
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     description:
       "80% of AI projects fail. Ours don't — because we build them AND run them. New customers: free custom AI build.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

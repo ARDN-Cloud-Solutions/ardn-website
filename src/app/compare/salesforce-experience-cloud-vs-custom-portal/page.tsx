@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Salesforce Experience Cloud vs. a flat-fee custom portal — Ardn Cloud Solutions",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Salesforce Experience Cloud vs. Custom Portal | Ardn",
     description:
       "Experience Cloud bills per login or member. See how a flat-fee custom portal compares for light users.",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

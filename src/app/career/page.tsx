@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Careers at Ardn Cloud Solutions — Orlando-based AI and Salesforce engineering roles",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description:
       "Join Ardn Cloud Solutions in Orlando, Florida. Senior-led AI engineering and Salesforce roles.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

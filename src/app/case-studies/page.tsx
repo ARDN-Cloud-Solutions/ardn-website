@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         siteName: "Ardn Cloud Solutions",
         images: [
             {
-                url: "/images/ardn-home-hero.webp",
+                url: "/images/ardn-share.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Ardn Cloud Solutions customer case studies — Salesforce transformation and AI implementation outcomes",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         description:
             "Real-world Salesforce transformation and AI implementation case studies.",
         site: "@ardn_cloud_sol",
-        images: ["/images/ardn-home-hero.webp"],
+        images: ["/images/ardn-share.jpg"],
     },
 };
 

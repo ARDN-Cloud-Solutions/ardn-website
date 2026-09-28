@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "HubSpot seat costs vs. a custom portal — Ardn Cloud Solutions",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "HubSpot Seat Costs vs. a Custom Portal | Ardn",
     description:
       "Full HubSpot seats for light users add up fast. See the cost math for a flat-fee custom portal instead.",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         siteName: "Ardn Cloud Solutions",
         images: [
             {
-                url: "/images/ardn-home-hero.webp",
+                url: "/images/ardn-share.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Ardn Cloud Solutions Blog — Salesforce, AI app development, and digital transformation perspectives",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         description:
             "Expert perspectives on Salesforce, AI app development, and digital transformation.",
         site: "@ardn_cloud_sol",
-        images: ["/images/ardn-home-hero.webp"],
+        images: ["/images/ardn-share.jpg"],
     },
 };
 

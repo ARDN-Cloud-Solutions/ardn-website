@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Chapter and dues management software for fraternities, sororities, and clubs by Ardn",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description:
       "Custom chapter software — automatic dues, member tracking, less admin. New customers: free build.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

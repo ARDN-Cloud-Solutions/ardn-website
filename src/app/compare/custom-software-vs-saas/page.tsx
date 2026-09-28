@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Custom software vs. SaaS total cost comparison — Ardn Cloud Solutions",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Custom Software vs. SaaS: Total Cost Compared | Ardn",
     description:
       "Per-seat SaaS fees climb every time you hire. A flat monthly fee doesn't.",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 
