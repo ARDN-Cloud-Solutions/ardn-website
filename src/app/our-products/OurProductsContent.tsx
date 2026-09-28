@@ -4,20 +4,64 @@ import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 
 /*
- * COPYWRITING / POSITIONING NOTES (Dual-pillar product hub):
- *
- * 1. AI Forge is now added to the product suite (it was previously missing).
- *    The suite count is updated everywhere from 5 → 6.
- * 2. Products are presented in two clearly-labelled sections:
- *      Section A — Custom development & AI-built (Salesforce-capable)
- *      Section B — Salesforce-native cloud products
- *    This makes the hybrid model legible to visitors AND signals to search
- *    engines that the page covers both intent categories.
- * 3. Membership Management is repositioned away from "Run your members inside
- *    Salesforce" to the standalone / AI-built / SF-capable framing.
- * 4. The roadmap section keeps its Salesforce-native framing because all the
- *    upcoming products in development are Salesforce-native AppExchange tools.
+ * Product hub, organised the way the site now presents Ardn: named products
+ * first, then services, then industries, then one section that gathers the
+ * Salesforce-specific offerings (menu, footer and old /salesforce-payments
+ * links land on #salesforce). Keep Salesforce out of the top sections.
  */
+
+const PRODUCTS = [
+  {
+    eyebrow: "Club Steward · Golf & country clubs",
+    title: "Every club in your portfolio. One member record.",
+    body: "Websites and online join, membership sales, contracts, dues, the tee sheet, the pro shop and reporting for multi-club golf and country club operators.",
+    href: "/golf-club-management-software",
+    cta: "Explore Club Steward",
+    accent: "#0F9870",
+  },
+  {
+    eyebrow: "Nonprofit Management",
+    title: "Members and donors in one record.",
+    body: "Membership, billing, check-in, programs and a full fundraising CRM for YMCAs, JCCs, community centers and member-based nonprofits.",
+    href: "/nonprofit-management-software",
+    cta: "Explore Nonprofit Management",
+    accent: "#C2185B",
+  },
+  {
+    eyebrow: "Membership Management",
+    title: "Run your members on one flexible platform.",
+    body: "Sign-ups, dues, classes, attendance and a branded member portal for gyms, studios, clubs and associations.",
+    href: "/membership-management",
+    cta: "Explore Membership Management",
+    accent: "#4840E0",
+  },
+  {
+    eyebrow: "ReplyCX · AI customer support",
+    title: "AI support that feels human.",
+    body: "No-code AI agents trained on your own knowledge base answer routine questions across WhatsApp, email, chat and social, in one inbox.",
+    href: "/ai-powered-support",
+    cta: "Explore ReplyCX",
+    accent: "#B45309",
+  },
+];
+
+const SERVICES = [
+  { title: "AI Forge", body: "Custom AI applications designed, built, hosted and improved for you under one monthly subscription.", href: "/ai-forge", link: "Explore AI Forge" },
+  { title: "Custom Software Development", body: "Software shaped around exactly how your business works, built and run by one accountable team.", href: "/custom-software-development", link: "Explore custom software" },
+  { title: "Custom AI App Development", body: "From discovery to a production AI app in weeks, then hosted and iterated for you.", href: "/ai-app-development", link: "Explore AI app development" },
+  { title: "Custom Portal Development", body: "Customer, member and staff portals that connect to the systems you already run.", href: "/custom-portal-development", link: "Explore custom portals" },
+  { title: "Partner Portal Development", body: "Portals for partners, dealers and resellers without a per-login bill.", href: "/custom-partner-portal-development", link: "Explore partner portals" },
+  { title: "Custom Ecommerce Development", body: "Stores, subscriptions and complex catalogs built to your model and run for you.", href: "/custom-ecommerce-development", link: "Explore custom ecommerce" },
+];
+
+const INDUSTRIES = [
+  { title: "Golf & Country Clubs", body: "Club Steward for multi-club operators.", href: "/golf-club-management-software" },
+  { title: "Nonprofits & Community Centers", body: "Nonprofit Management for YMCAs, JCCs and community centers.", href: "/nonprofit-management-software" },
+  { title: "GLP-1 & Telehealth", body: "Intake, provider workflow, subscriptions and refills on one platform.", href: "/glp-1-ecommerce" },
+  { title: "Chapters & Associations", body: "Automatic dues, member records and events.", href: "/chapter-management-software" },
+  { title: "Insurance", body: "AI for carriers and agencies, with people in the loop.", href: "/ai-for-insurance" },
+  { title: "Hospitality", body: "AI concierge, booking automation and service routing.", href: "/ai-for-hospitality" },
+];
 
 export default function OurProductsContent() {
   return (
@@ -28,29 +72,23 @@ export default function OurProductsContent() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-copy">
-              <span className="eyebrow">Products</span>
-              <h1 className="display reveal">The Ardn <em>product suite.</em></h1>
-              {/* Lede now covers both pillars — custom AI builds AND
-                  Salesforce-native products. */}
-              <p className="lede reveal reveal-d2">Six focused products from a Florida-based team. Custom AI applications via the AI Forge Framework, an AI-built membership platform that runs anywhere, and four Salesforce-native cloud products that install in days.</p>
+              <span className="eyebrow">Products &amp; services</span>
+              <h1 className="display reveal">Software built for <em>the industries we know.</em></h1>
+              <p className="lede reveal reveal-d2">Named products for golf and country clubs, nonprofits and member organizations, plus custom software and AI built around how you work. Every one of them run for you as a managed service.</p>
               <div className="hero-ctas reveal reveal-d3">
-                <Link href="#suite" className="btn btn-primary btn-lg btn-arrow">Explore the suite</Link>
-                <Link href="#roadmap" className="btn btn-secondary btn-lg">See what is coming</Link>
+                <Link href="#suite" className="btn btn-primary btn-lg btn-arrow">See the products</Link>
+                <Link href="#services" className="btn btn-secondary btn-lg">Our services</Link>
               </div>
             </div>
             <aside className="hero-aside reveal reveal-d4">
               <div className="card" style={{ padding: "28px" }}>
-                <div className="kicker">Suite at a glance</div>
-                {/* AI Forge added; Membership Management repositioned. The
-                    descriptors mirror each product's true Cat 1/Cat 2
-                    framing. */}
+                <div className="kicker">At a glance</div>
                 <ul className="features mt-3">
-                  <li>AI Forge — custom AI apps, built in weeks</li>
-                  <li>Membership Management — YMCAs, gyms, clubs (AI-built)</li>
-                  <li>Storefronts — Salesforce-native commerce</li>
-                  <li>License Guard — detect and reclaim inactive Salesforce seats</li>
-                  <li>Salesforce Payments — quote-to-cash inside Salesforce</li>
-                  <li>ReplyCX — AI support across every channel</li>
+                  <li>Club Steward — golf &amp; country club management</li>
+                  <li>Nonprofit Management — members and donors in one record</li>
+                  <li>Membership Management — gyms, studios, clubs</li>
+                  <li>ReplyCX — AI customer support</li>
+                  <li>AI Forge &amp; custom software — built and run for you</li>
                 </ul>
               </div>
             </aside>
@@ -58,151 +96,116 @@ export default function OurProductsContent() {
         </div>
       </section>
 
-      {/* Trust bar reinforces Florida/SF credibility under the hero. */}
       <TrustBar />
 
-      {/* ============================================================
-          SECTION A — CUSTOM DEVELOPMENT & AI-BUILT (Salesforce-capable)
-          ============================================================
-          Lead with the new Cat 2 pillar. Two products, both AI-built and
-          CRM-agnostic, both Salesforce-capable.
-      */}
+      {/* PRODUCTS */}
       <section className="section" id="suite">
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Custom development &amp; AI-built</span>
-              <h2 className="h1 mt-3">Built fresh. <em>Salesforce-capable.</em></h2>
+              <span className="eyebrow">Products</span>
+              <h2 className="h1 mt-3">Built for one job. <em>Run for you.</em></h2>
             </div>
             <div>
-              <p className="lede">Standalone products and custom builds powered by our proprietary AI Forge Framework. CRM-agnostic by default, with deep Salesforce, HubSpot, and Microsoft Dynamics integrations when you need them.</p>
+              <p className="lede">Each product is built for a specific kind of organization, so it fits on day one instead of after a year of configuration.</p>
             </div>
           </div>
-
           <div className="grid-2">
-            <article className="product-card" style={{ "--accent": "#7C3AED" } as React.CSSProperties}>
-              <div className="product-eyebrow">AI Forge · Custom development</div>
-              <h3 className="h2">Custom AI apps, shipped in weeks.</h3>
-              <p className="body">Design, build, deploy, and operate a custom AI application under one monthly subscription. Three tiers — Launch ($3,000/mo), Scale ($4,500/mo), and Enterprise (from $12K/mo). Production in 2–6 weeks.</p>
-              <Link href="/ai-forge" className="btn btn-primary btn-arrow mt-auto">Explore AI Forge</Link>
-            </article>
-            <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>
-              <div className="product-eyebrow">Membership Management · AI-built</div>
-              <h3 className="h2">Run your members on one flexible platform.</h3>
-              <p className="body">An AI-built membership platform for YMCAs, gyms, studios, clubs, and associations. Sign-ups, billing, class scheduling, and a member portal — runs standalone or alongside Salesforce, HubSpot, and your existing back-office tools.</p>
-              <Link href="/membership-management" className="btn btn-primary btn-arrow mt-auto">Explore Membership Management</Link>
-            </article>
+            {PRODUCTS.map((p) => (
+              <article key={p.href} className="product-card" style={{ "--accent": p.accent } as React.CSSProperties}>
+                <div className="product-eyebrow">{p.eyebrow}</div>
+                <h3 className="h2">{p.title}</h3>
+                <p className="body">{p.body}</p>
+                <Link href={p.href} className="btn btn-primary btn-arrow mt-auto">{p.cta}</Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ============================================================
-          SECTION B — SALESFORCE-NATIVE CLOUD PRODUCTS
-          ============================================================
-          Cat 1 products keep their Salesforce-native framing intact. Storefronts,
-          License Guard, Salesforce Payments, ReplyCX.
-      */}
-      <section className="section is-canvas">
+      {/* SERVICES */}
+      <section className="section is-canvas" id="services">
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Salesforce-native cloud products</span>
-              <h2 className="h1 mt-3">Native by design. <em>Install in days.</em></h2>
+              <span className="eyebrow">Services</span>
+              <h2 className="h1 mt-3">Need something <em>built for you?</em></h2>
             </div>
             <div>
-              <p className="lede">Productized AppExchange-grade tools that live inside your Salesforce org. No middleware, no syncing, no per-user fees that scale against you. Most pay back in a single quarter.</p>
+              <p className="lede">When no product fits, our team designs, builds and runs custom software with the <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link>, backed by 30+ years of technology and consulting experience.</p>
             </div>
           </div>
-
-          <div className="grid-2">
-            <article className="product-card" style={{ "--accent": "#4840E0" } as React.CSSProperties}>
-              <div className="product-eyebrow">Storefronts</div>
-              <h3 className="h2">Run your store inside Salesforce.</h3>
-              <p className="body">Catalog, inventory, checkout, orders, memberships, appointments, events — all native commerce without leaving your CRM. Launch in days, not quarters.</p>
-              <Link href="/storefronts" className="btn btn-primary btn-arrow mt-auto">Explore Storefronts</Link>
-            </article>
-            <article className="product-card" style={{ "--accent": "#0F9870" } as React.CSSProperties}>
-              <div className="product-eyebrow">License Guard</div>
-              <h3 className="h2">Stop paying for inactive Salesforce users.</h3>
-              <p className="body">Detect dormant seats, warn users, and deactivate per policy — automatically. ROI in one quarter. Pure Salesforce-native, no code.</p>
-              <Link href="/license-guard" className="btn btn-primary btn-arrow mt-auto">Explore License Guard</Link>
-            </article>
-            <article className="product-card" style={{ "--accent": "#38A0F8" } as React.CSSProperties}>
-              <div className="product-eyebrow">Salesforce Payments</div>
-              <h3 className="h2">Quote to cash inside Salesforce.</h3>
-              <p className="body">Cards, ACH, digital wallets. Bring your processor or use ours for lower rates. PCI-compliant, audit-ready, fully native to your Salesforce org.</p>
-              <Link href="/salesforce-payments" className="btn btn-primary btn-arrow mt-auto">Explore Salesforce Payments</Link>
-            </article>
-            <article className="product-card" style={{ "--accent": "#B45309" } as React.CSSProperties}>
-              <div className="product-eyebrow">ReplyCX · AI-Powered Support</div>
-              <h3 className="h2">AI support that feels human.</h3>
-              <p className="body">Around 70% of routine queries automated across WhatsApp, email, chat, and social. No-code agent builder on your existing knowledge base. Salesforce-native, live in one sprint.</p>
-              <Link href="/ai-powered-support" className="btn btn-primary btn-arrow mt-auto">Explore ReplyCX</Link>
-            </article>
+          <div className="grid-3">
+            {SERVICES.map((sv) => (
+              <Link key={sv.href} href={sv.href} className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">{sv.title}</h3>
+                <p className="body">{sv.body}</p>
+                <span className="link">{sv.link} →</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CUSTOM SOLUTIONS — in-content links to the AI Forge solution &
-           vertical landing pages. Passes link equity from this established
-           hub page to the newer pages and gives visitors a path to them. */}
-      <section className="section" id="solutions">
+      {/* INDUSTRIES */}
+      <section className="section" id="industries">
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Built for you</span>
-              <h2 className="h1 mt-3">Custom solutions <em>we build.</em></h2>
-            </div>
-            <div>
-              <p className="lede">Beyond the productized suite, our team builds and runs custom applications with the <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link>. A few of the things we&apos;re asked for most:</p>
+              <span className="eyebrow">Industries</span>
+              <h2 className="h1 mt-3">Find your <em>industry.</em></h2>
             </div>
           </div>
-          <div className="grid-3" style={{ marginTop: "8px" }}>
-            <Link href="/ai-app-development" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">Custom AI App Development</h3>
-              <p className="body">We design, build, deploy, and run bespoke AI applications in 2–6 weeks under one monthly fee.</p>
-              <span className="link">Explore custom AI development →</span>
+          <div className="grid-3">
+            {INDUSTRIES.map((ind) => (
+              <Link key={ind.href} href={ind.href} className="card" style={{ textDecoration: "none" }}>
+                <h3 className="h3">{ind.title}</h3>
+                <p className="body">{ind.body}</p>
+                <span className="link">Explore →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SALESFORCE SOLUTIONS — the one place Salesforce-specific offerings
+          live. Menu, footer and retired /salesforce-payments links land here. */}
+      <section className="section is-canvas" id="salesforce">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Salesforce solutions</span>
+              <h2 className="h1 mt-3">Already run on <em>Salesforce?</em></h2>
+            </div>
+            <div>
+              <p className="lede">Native Salesforce products and a Florida-based consulting team for implementation, integration, license audits and managed services.</p>
+            </div>
+          </div>
+          <div className="grid-3">
+            <Link href="/storefronts" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">Storefronts</h3>
+              <p className="body">Ecommerce that runs inside your Salesforce org: catalog, checkout, orders and memberships.</p>
+              <span className="link">Explore Storefronts →</span>
             </Link>
-            <Link href="/custom-portal-development" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">Custom Portal Development</h3>
-              <p className="body">Cut CRM costs by moving light users to integrated portals — keep your tech, drop the per-seat bill.</p>
-              <span className="link">Explore custom portals →</span>
-            </Link>
-            <Link href="/custom-ecommerce-development" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">Custom Ecommerce Development</h3>
-              <p className="body">Merch stores, subscriptions, and complex catalogs built to your model and run for you.</p>
-              <span className="link">Explore custom ecommerce →</span>
-            </Link>
-            <Link href="/glp-1-ecommerce" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">GLP-1 &amp; Telehealth Ecommerce</h3>
-              <p className="body">Intake, provider workflow, subscriptions, and refills as one connected, compliance-ready platform.</p>
-              <span className="link">Explore telehealth ecommerce →</span>
-            </Link>
-            <Link href="/chapter-management-software" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">Chapter &amp; Dues Management</h3>
-              <p className="body">Automatic dues, member records, and events for fraternities, sororities, and clubs.</p>
-              <span className="link">Explore chapter management →</span>
-            </Link>
-            <Link href="/ymca-management-software" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">YMCA Management Software</h3>
-              <p className="body">Membership, check-in, programs, and a full fundraising CRM for multi-branch Ys — members and donors in one record.</p>
-              <span className="link">Explore the Y edition →</span>
-            </Link>
-            <Link href="/golf-club-management-software" className="card" style={{ textDecoration: "none" }}>
-              <h3 className="h3">Golf &amp; Country Club Software</h3>
-              <p className="body">Club Steward: websites, online join, membership sales, contracts, dues, tee sheet and pro shop for multi-club operators — one member record.</p>
-              <span className="link">Explore Club Steward →</span>
+            <Link href="/license-guard" className="card" style={{ textDecoration: "none" }}>
+              <h3 className="h3">License Guard</h3>
+              <p className="body">Finds inactive Salesforce users, warns them, and deactivates them on your schedule.</p>
+              <span className="link">Explore License Guard →</span>
             </Link>
             <div className="card">
-              <h3 className="h3">AI by Industry</h3>
-              <p className="body">Vertical AI built for specific businesses:</p>
+              <h3 className="h3">Salesforce consulting</h3>
+              <p className="body">Implementation, integration and managed services from a Florida team:</p>
               <ul className="features">
-                <li><Link href="/ai-for-insurance" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI for insurance</Link></li>
-                <li><Link href="/ai-for-hospitality" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI for hospitality</Link></li>
-                <li><Link href="/ai-for-membership-organizations" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI for membership orgs</Link></li>
+                <li><Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Orlando</Link></li>
+                <li><Link href="/salesforce-consulting-tampa" style={{ color: "var(--indigo)", fontWeight: 600 }}>Tampa Bay</Link></li>
+                <li><Link href="/salesforce-consulting-miami" style={{ color: "var(--indigo)", fontWeight: 600 }}>Miami</Link></li>
+                <li><Link href="/salesforce-consulting-jacksonville" style={{ color: "var(--indigo)", fontWeight: 600 }}>Jacksonville</Link></li>
               </ul>
             </div>
           </div>
+          <p className="body mt-5" style={{ textAlign: "center" }}>
+            <Link href="/reduce-crm-licensing-costs" className="link">Paying for CRM seats people barely use? Read the guide to cutting licensing costs →</Link>
+          </p>
         </div>
       </section>
 

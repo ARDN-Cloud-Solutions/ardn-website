@@ -11,30 +11,33 @@ import {
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-// Footer product list now reflects the full 6-product suite (was missing
-// Membership Management and AI Forge). Ordered by Cat 2 first (the newer
-// products that need internal-link weight), then Cat 1.
+// Footer columns follow the products + services split used in the header
+// menu. Salesforce-specific pages are grouped behind one "Salesforce
+// solutions" link (and the Orlando consulting page) instead of being listed
+// individually, so the footer doesn't read as a Salesforce shop.
 const ourProducts = [
-  { label: "AI Forge — Custom AI Development", href: "/ai-forge" },
+  { label: "Club Steward", href: "/golf-club-management-software" },
+  { label: "Nonprofit Management", href: "/nonprofit-management-software" },
   { label: "Membership Management", href: "/membership-management" },
-  { label: "Storefronts: All-in-one Ecommerce Solution", href: "/storefronts" },
-  { label: "Salesforce Payments", href: "/salesforce-payments" },
-  { label: "License Guard", href: "/license-guard" },
-  { label: "AI-Powered Support (ReplyCX)", href: "/ai-powered-support" },
+  { label: "ReplyCX AI Support", href: "/ai-powered-support" },
+  { label: "All products", href: "/our-products" },
 ];
 
-// AI Forge solution + vertical landing pages. Surfacing them in the footer
-// gives every page on the site an internal link to each — accelerating
-// discovery/indexing and passing link equity from established pages.
-const solutions = [
+const services = [
+  { label: "AI Forge", href: "/ai-forge" },
   { label: "Custom Software Development", href: "/custom-software-development" },
   { label: "Custom AI App Development", href: "/ai-app-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
-  { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
+  { label: "Partner Portal Development", href: "/custom-partner-portal-development" },
   { label: "Custom Ecommerce Development", href: "/custom-ecommerce-development" },
-  { label: "GLP-1 & Telehealth Ecommerce", href: "/glp-1-ecommerce" },
-  { label: "Chapter & Dues Management", href: "/chapter-management-software" },
-  { label: "Golf & Country Club Management", href: "/golf-club-management-software" },
+  { label: "Salesforce Solutions", href: "/our-products#salesforce" },
+];
+
+const industries = [
+  { label: "Golf & Country Clubs", href: "/golf-club-management-software" },
+  { label: "Nonprofits & Community Centers", href: "/nonprofit-management-software" },
+  { label: "GLP-1 & Telehealth", href: "/glp-1-ecommerce" },
+  { label: "Chapters & Associations", href: "/chapter-management-software" },
   { label: "AI for Insurance", href: "/ai-for-insurance" },
   { label: "AI for Hospitality", href: "/ai-for-hospitality" },
   { label: "AI for Membership Orgs", href: "/ai-for-membership-organizations" },
@@ -44,39 +47,17 @@ const legal = [
   { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
-// Quick Links expanded to include:
-//   - /savings-calculator (lead-magnet free tool)
-//   - /salesforce-consulting-orlando + /ai-app-development-florida
-//     (local-intent landing pages — internal links boost crawl + ranking)
-const quickLinks = [
-  { label: "About Us", href: "/about-ardn" },
-  { label: "Our Products", href: "/our-products" },
-  { label: "Free Savings Calculator", href: "/savings-calculator" },
-  { label: "Salesforce Consulting (Orlando)", href: "/salesforce-consulting-orlando" },
-  { label: "Salesforce Consulting (Miami)", href: "/salesforce-consulting-miami" },
-  { label: "Salesforce Consulting (Tampa)", href: "/salesforce-consulting-tampa" },
-  { label: "Salesforce Consulting (Jacksonville)", href: "/salesforce-consulting-jacksonville" },
-  { label: "AI App Development (Florida)", href: "/ai-app-development-florida" },
-  { label: "Contact Us", href: "/contact-us" },
-  { label: "Careers", href: "/career" },
-  { label: "Blog", href: "/blog" },
+const company = [
+  { label: "About Ardn", href: "/about-ardn" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
-];
-
-const buyerGuides = [
-  { label: "Salesforce E-commerce Solutions", href: "/buyers-guide/salesforce-ecommerce-solutions" },
-  { label: "Salesforce Membership Management Solutions", href: "/buyers-guide/salesforce-membership-management-tools" },
-  { label: "Salesforce Subscription Management Tools", href: "/buyers-guide/salesforce-subscription-management-software" },
-  { label: "Salesforce Event and Ticketing Platforms", href: "/buyers-guide/salesforce-event-ticketing-platform" },
-  { label: "Salesforce Commerce AppExchange Solutions", href: "/buyers-guide/salesforce-commerce-appexchange-solutions" },
-  { label: "Salesforce Workflow Automation Tools", href: "/buyers-guide/salesforce-workflow-automation-tools" },
-  { label: "AI App Development", href: "/buyers-guide/ai-app-development" },
-  { label: "Salesforce Commerce Cloud Alternatives", href: "/compare/salesforce-commerce-cloud-alternatives" },
-  { label: "How to Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
-  { label: "Cut Salesforce Seat Costs", href: "/compare/salesforce-seat-cost-vs-custom-portal" },
-  { label: "Cut HubSpot Seat Costs", href: "/compare/hubspot-seat-cost-vs-custom-portal" },
-  { label: "Experience Cloud vs. Custom Portal", href: "/compare/salesforce-experience-cloud-vs-custom-portal" },
-  { label: "Custom Software vs. SaaS Cost", href: "/compare/custom-software-vs-saas" },
+  { label: "Blog", href: "/blog" },
+  { label: "Free Savings Calculator", href: "/savings-calculator" },
+  { label: "Cut CRM Licensing Costs", href: "/reduce-crm-licensing-costs" },
+  { label: "Custom Software vs. SaaS", href: "/compare/custom-software-vs-saas" },
+  { label: "Orlando, FL", href: "/salesforce-consulting-orlando" },
+  { label: "Careers", href: "/career" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const socials = [
@@ -137,17 +118,11 @@ export default function Footer() {
               />
             </Link>
 
-            {/* Description rewritten as hybrid identity. Lead pillar:
-                custom AI / development practice powered by the AI Forge
-                Framework. Supporting pillar: Salesforce consulting and
-                managed services backed by 30+ years of expertise. */}
-            <p className="text-white font-poppins text-[15px] leading-[1.6] ]">
-              Ardn Cloud Solutions is an Orlando, Florida custom AI and
-              software development team. We build AI-powered products and
-              bespoke applications using our proprietary AI Forge Framework,
-              ship a suite of Salesforce-native cloud products, and provide
-              Salesforce consulting and managed services backed by 30+ years
-              of expertise.
+            <p className="text-white font-poppins text-[15px] leading-[1.6]">
+              Ardn Cloud Solutions builds software products for the
+              industries we know, and runs them for you as a managed service.
+              A US-based team with 30+ years of technology and consulting
+              experience, from AI applications to enterprise platforms.
             </p>
 
             {/* Company Info — Orlando, FL address now visible in footer to
@@ -229,11 +204,11 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Solutions — AI Forge solution & vertical landing pages */}
+              {/* Services */}
               <div>
-                <FooterHeading>Solutions</FooterHeading>
+                <FooterHeading>Services</FooterHeading>
                 <ul className="flex flex-col gap-3">
-                  {solutions.map((item) => (
+                  {services.map((item) => (
                     <FooterLink key={item.href} href={item.href}>
                       {item.label}
                     </FooterLink>
@@ -241,11 +216,11 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Quick Links */}
+              {/* Industries */}
               <div>
-                <FooterHeading>Quick Links</FooterHeading>
+                <FooterHeading>Industries</FooterHeading>
                 <ul className="flex flex-col gap-3">
-                  {quickLinks.map((item) => (
+                  {industries.map((item) => (
                     <FooterLink key={item.href} href={item.href}>
                       {item.label}
                     </FooterLink>
@@ -253,11 +228,11 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Buyer Guides */}
+              {/* Company */}
               <div>
-                <FooterHeading>Buyer Guides</FooterHeading>
+                <FooterHeading>Company</FooterHeading>
                 <ul className="flex flex-col gap-3">
-                  {buyerGuides.map((item) => (
+                  {company.map((item) => (
                     <FooterLink key={item.href} href={item.href}>
                       {item.label}
                     </FooterLink>

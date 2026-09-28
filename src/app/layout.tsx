@@ -21,20 +21,16 @@ const poppins = Poppins({
   display: "swap",
 });
 
-// SEO: Hybrid homepage and site-wide defaults. The homepage and the business
-// itself span TWO pillars:
-//   1. Custom AI + custom development (AI Forge Framework, Cat 2 products).
-//   2. Salesforce-native products and Salesforce managed services / consulting.
-// Both keyword sets are intentionally present in title, description, and keywords
-// so the homepage continues to win Salesforce-managed-services and Salesforce-
-// consulting queries while also ranking for the new Custom AI / Custom Software
-// development intents.
+// SEO: site-wide defaults. Since 2026-09-28 Ardn presents as products +
+// managed services: named industry products first, then custom software/AI.
+// Salesforce stays in the keywords (consulting is still a service line) but
+// out of the title and description.
 export const metadata: Metadata = {
   metadataBase: new URL("https://ardncloudsolutions.com"),
   title:
-    "Ardn Cloud Solutions | Custom AI Apps, Cloud Products & Salesforce Services",
+    "Ardn Cloud Solutions | Industry Software, Custom AI & Managed Services",
   description:
-    "Orlando-based development team building custom AI applications and cloud products with the AI Forge Framework — backed by 30+ years of Salesforce expertise, consulting, and managed services. Salesforce-native products and AI-built, Salesforce-capable platforms under one roof.",
+    "Industry software like Club Steward and Nonprofit Management, plus custom software and AI, all run for you by a US team with 30+ years of experience.",
   keywords: [
     // Cat 2 — custom AI / dev agency intents
     "custom AI app development",
@@ -60,9 +56,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+      "Ardn Cloud Solutions | Industry Software, Custom AI & Managed Services",
     description:
-      "Florida-based development team. Custom AI applications via the AI Forge Framework, plus Salesforce-native cloud products and 30+ years of Salesforce consulting and managed services experience.",
+      "Industry software like Club Steward and Nonprofit Management, plus custom software and AI, all run for you by a US team with 30+ years of experience.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -71,7 +67,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         // SEO: outcome-focused alt covering both pillars of the business.
-        alt: "Ardn Cloud Solutions — Orlando-based team building custom AI applications, Salesforce-native cloud products, and managed Salesforce services",
+        alt: "Ardn Cloud Solutions — industry software products, custom AI and managed services",
       },
     ],
     locale: "en_US",
@@ -93,9 +89,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@ardn_cloud_sol",
     title:
-      "Ardn Cloud Solutions — Custom AI Apps, Cloud Products & Salesforce Services",
+      "Ardn Cloud Solutions | Industry Software, Custom AI & Managed Services",
     description:
-      "Florida-based team. Custom AI applications via the AI Forge Framework, Salesforce-native cloud products, and 30+ years of Salesforce consulting & managed services.",
+      "Industry software like Club Steward and Nonprofit Management, plus custom software and AI, all run for you by a US team with 30+ years of experience.",
     images: ["/images/ardn-home-hero.webp"],
   },
   icons: {
@@ -119,7 +115,7 @@ const organizationSchema = {
     url: "https://ardncloudsolutions.com/logo/favicon.jpeg",
   },
   description:
-    "Orlando-based development team. We build custom AI applications and bespoke software using our proprietary AI Forge Framework, deliver a suite of Salesforce-native cloud products (Storefronts, License Guard, Salesforce Payments), and provide Salesforce consulting and managed services backed by 30+ years of expertise.",
+    "Orlando-based software company. Ardn builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management, Membership Management and ReplyCX), designs custom software and AI with its AI Forge Framework, and runs them as managed services, backed by 30+ years of technology and consulting experience.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Orlando",

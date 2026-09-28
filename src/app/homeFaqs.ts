@@ -6,7 +6,7 @@
 export const HOME_FAQS = [
   {
     q: "What does Ardn Cloud Solutions do?",
-    a: "Ardn Cloud Solutions is an Orlando, Florida-based team that builds custom AI applications with our proprietary AI Forge Framework, ships a suite of Salesforce-native cloud products, and provides Salesforce consulting and managed services — backed by 30+ years of combined Salesforce experience. We design, build, host, and operate software for one predictable monthly fee.",
+    a: "Ardn Cloud Solutions is an Orlando, Florida-based software company. We build products for specific industries (Club Steward for golf and country clubs, Nonprofit Management, Membership Management and ReplyCX), design custom software and AI with our AI Forge Framework, and run everything we build as a managed service. The team brings 30+ years of technology and consulting experience.",
   },
   {
     q: "Where are you based, and do you work with clients outside Florida?",
@@ -14,15 +14,15 @@ export const HOME_FAQS = [
   },
   {
     q: "What products and services do you offer?",
-    a: "Six products: AI Forge (custom AI apps built and run for you), Storefronts (Salesforce-native ecommerce), Salesforce Payments (quote-to-cash inside Salesforce), License Guard (reclaim unused Salesforce licenses), AI-Powered Support / ReplyCX (no-code AI customer support), and Membership Management (for gyms, YMCAs, clubs, and associations). We also offer Salesforce consulting and managed services.",
+    a: "Four products: Club Steward (golf and country club management), Nonprofit Management (members and donors in one record for YMCAs, JCCs and community centers), Membership Management (gyms, studios, clubs and associations) and ReplyCX (AI customer support). Alongside them we build custom software and AI applications with AI Forge. Teams that run on Salesforce can also use Storefronts and License Guard.",
   },
   {
     q: "Do I have to use Salesforce to work with you?",
-    a: "No. AI Forge and Membership Management are standalone and integrate with whatever stack you run — Salesforce, HubSpot, or other tools. Products like Storefronts, Salesforce Payments, and License Guard are Salesforce-native. We meet you wherever your business already runs.",
+    a: "No. Our products and custom builds are standalone and connect to whatever you already run, including Salesforce, HubSpot and other tools. Storefronts and License Guard are the only offerings that require Salesforce.",
   },
   {
     q: "How does pricing work?",
-    a: "Our products run on predictable monthly subscriptions that include building, hosting, and ongoing iteration — so there are no surprise bills. Salesforce consulting and managed services are scoped per engagement. The fastest way to get an exact quote is to book a free 30-minute demo.",
+    a: "Our products run on predictable monthly subscriptions that include building, hosting, and ongoing iteration — so there are no surprise bills. Consulting and managed services are scoped per engagement. The fastest way to get an exact quote is to book a free 30-minute demo.",
   },
   {
     q: "How do I get started?",

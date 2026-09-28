@@ -91,7 +91,13 @@ const nextConfig: NextConfig = {
             // One-offs.
             { source: "/about-us", destination: "/about-ardn", permanent: true },
             { source: "/get-storefronts", destination: "/storefronts", permanent: true },
-            { source: "/salesforce-transacts", destination: "/salesforce-payments", permanent: true },
+            // Salesforce Payments page retired 2026-09-28 (the product is
+            // Paymentus-only and no longer promoted). Old URLs land on the
+            // Salesforce solutions section of Our Products.
+            { source: "/salesforce-transacts", destination: "/our-products#salesforce", permanent: true },
+            { source: "/salesforce-payments", destination: "/our-products#salesforce", permanent: true },
+            // YMCA page renamed to nonprofit management software, 2026-09-28.
+            { source: "/ymca-management-software", destination: "/nonprofit-management-software", permanent: true },
             { source: "/salesforce-ecommerce-integration-boost-sal", destination: "/storefronts", permanent: true },
             {
                 source: "/buyers-guide/salesforce-event-and-ticketing-platforms",

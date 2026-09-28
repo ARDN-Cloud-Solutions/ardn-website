@@ -1,6 +1,6 @@
 # ARDN Cloud Solutions
 
-> ARDN Cloud Solutions is a US-based custom AI app development company. We design, build, deploy, and operate bespoke AI applications for one predictable monthly fee — production-ready in 2–6 weeks via our proprietary AI Forge Framework. Backed by 30+ years of enterprise software experience, we also offer a focused suite of cloud products and consulting for teams that run on Salesforce. New customers get the one-time custom AI build free and pay only the monthly subscription.
+> ARDN Cloud Solutions is a US-based software company in Orlando, Florida. It builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management for YMCAs and community nonprofits, Membership Management and ReplyCX AI support), designs custom software and AI applications with its AI Forge Framework, and runs everything it builds as a managed service. The team has 30+ years of technology and consulting experience.
 
 ## Products & Services
 
@@ -10,16 +10,15 @@
 - [AI for Hospitality](https://ardncloudsolutions.com/ai-for-hospitality): Custom AI for hotels, resorts, and hospitality groups — 24/7 guest concierge, booking automation, and service routing across every channel.
 - [AI for Membership Organizations](https://ardncloudsolutions.com/ai-for-membership-organizations): Custom AI for YMCAs, gyms, studios, clubs, and associations — onboarding, renewals, failed-payment recovery, and retention early-warning.
 - [Storefronts](https://ardncloudsolutions.com/storefronts): Salesforce-native ecommerce — products, memberships, subscriptions, events, and ticketing without leaving Salesforce.
-- [Salesforce Payments](https://ardncloudsolutions.com/salesforce-payments): Quote-to-cash inside Salesforce — branded checkout, real-time status, and automated reconciliation.
 - [License Guard](https://ardncloudsolutions.com/license-guard): Salesforce-native tool that detects and reclaims unused Salesforce licenses, typically paying back its annual cost within a quarter.
 - [AI-Powered Support (ReplyCX)](https://ardncloudsolutions.com/ai-powered-support): No-code AI agents that automate roughly 70% of routine customer queries across WhatsApp, email, live chat, and social — in one inbox.
 - [Membership Management](https://ardncloudsolutions.com/membership-management): An all-in-one membership platform for gyms, studios, clubs, community centers, and associations — recurring billing, classes and programs, events, fundraising, marketing, and a branded member portal, for one flat monthly fee.
 - [Club Steward: Golf & Country Club Management Software](https://ardncloudsolutions.com/golf-club-management-software): Club Steward is golf and country club management software for multi-club operators. One platform and one member record for club websites and online join, membership sales CRM, e-signed contracts, dues and payments (card and ACH), onboarding, member portal and golf app, benefits and reciprocal access across clubs, tee sheet and carts, pro shop, private events, and reporting scoped to club, region or corporate. Club-level data isolation is enforced in the database. Accounting is in preview.
-- [YMCA Management Software](https://ardncloudsolutions.com/ymca-management-software): Membership, billing, front-desk check-in, programs, and a full fundraising CRM for multi-branch YMCAs, JCCs, and community nonprofits — members and donors in one record, flat monthly fee (never a percentage of revenue), free pilot in the organization's own branding.
+- [Nonprofit Management Software](https://ardncloudsolutions.com/nonprofit-management-software): Membership, billing, front-desk check-in, programs, and a full fundraising CRM for YMCAs, JCCs, community centers and other member-based nonprofits: members and donors in one record, flat monthly fee (never a percentage of revenue), free pilot in the organization's own branding.
 
 ## Company
 
-- [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of combined Salesforce expertise.
+- [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of technology and consulting experience.
 - [Our Products](https://ardncloudsolutions.com/our-products): Full product suite overview.
 - [Pricing](https://ardncloudsolutions.com/pricing): Request pricing for any Ardn product; replies within 4 business hours.
 - [Savings Calculator](https://ardncloudsolutions.com/savings-calculator): Estimate what you could save.
