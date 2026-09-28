@@ -153,8 +153,8 @@ export default function AboutContent() {
                 SF-capable) products. */}
             <div className="card">
               <div className="card-num">01 / Products</div>
-              <h3 className="h3">Six-product line</h3>
-              <p className="body">AI Forge (custom AI development), Membership Management (AI-built platform for YMCAs, gyms, clubs), Storefronts, License Guard, Salesforce Payments, and ReplyCX — Salesforce-native where it counts, flexible where it does not.</p>
+              <h3 className="h3">Products for your industry</h3>
+              <p className="body">Club Steward for golf and country clubs, Nonprofit Management, and Membership Management, each run for you as a managed service. For teams on Salesforce, Storefronts and License Guard.</p>
             </div>
             <div className="card">
               <div className="card-num">02 / Consulting</div>
