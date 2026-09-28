@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import LandingPageContent from "./LandingPageContent";
+import HomeContent from "./HomeContent";
 import { HOME_FAQS } from "./homeFaqs";
 
 export const metadata: Metadata = {
@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   // software / platforms / portals — NOT generic "AI app development"
   // (which draws free-seeker traffic that never converts). AI stays a
   // capability, surfaced on /ai-forge, not the homepage's primary term.
-  title: "Ardn Cloud Solutions — Custom Tech, Built & Run for You",
+  title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
   description:
-    "Custom software, portals, ecommerce & AI apps — designed, built, and run for you under one flat monthly fee. Live in weeks, not months.",
+    "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Ardn Cloud Solutions — Custom Tech, Built & Run for You",
-    description: "Custom software, portals, ecommerce & AI apps built and run for you — live in weeks under one flat monthly fee. New customers build free.",
+    title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
+    description: "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@ardn_cloud_sol",
-    title: "Ardn Cloud Solutions — Custom Tech, Built & Run for You",
+    title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
     description:
-      "Custom software, portals, ecommerce & AI apps built and run for you — live in weeks, one flat monthly fee. New customers build free.",
+      "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
     images: ["/images/ardn-home-hero.webp"],
   },
 };
@@ -51,8 +51,8 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Custom Software & Platforms — Built & Run for You | ARDN Cloud Solutions",
-        "description": "We design, build, and run custom software, portals, and platforms that replace or connect the tools you already use — live in weeks, one flat monthly fee.",
+        "name": "Industry Software, Built & Run for You | ARDN Cloud Solutions",
+        "description": "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
         "inLanguage": "en-US"
       },
       {
@@ -117,7 +117,7 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <LandingPageContent />
+      <HomeContent />
     </>
   );
 }

@@ -1,0 +1,245 @@
+/* Homepage-only layout on top of the product-page kit (.pp). */
+
+.hm .hm-hero-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(40px, 5vw, 72px);
+  align-items: center;
+}
+
+/* Fanned stack of product screens */
+.hm .hm-stack {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  margin-top: 40px;
+  margin-right: calc(-1 * min(12vw, 200px));
+}
+
+.hm .hm-card {
+  position: absolute;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111a33;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+}
+
+.hm .hm-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hm .hm-card-back1 {
+  width: 64%;
+  left: 0;
+  top: 2%;
+  transform: rotate(-6deg);
+  opacity: 0.82;
+}
+
+.hm .hm-card-back2 {
+  width: 62%;
+  right: 0;
+  top: 0;
+  transform: rotate(5deg);
+  opacity: 0.82;
+}
+
+.hm .hm-card-front {
+  width: 84%;
+  left: 8%;
+  top: 20%;
+  border-color: rgba(var(--pp-accent-rgb), 0.35);
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(var(--pp-accent-rgb), 0.12) inset;
+}
+
+/* Product showcase */
+.hm .hm-products {
+  display: grid;
+  gap: clamp(64px, 8vw, 112px);
+}
+
+.hm .hm-product {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.hm .hm-product.is-flip {
+  grid-template-columns: 1.28fr 0.72fr;
+}
+
+.hm .hm-product.is-flip .hm-product-copy {
+  order: 2;
+}
+
+.hm .hm-product-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.hm .hm-product-kicker::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--hm-accent);
+}
+
+.hm .hm-product-copy .pp-h3 {
+  margin-top: 14px;
+}
+
+.hm .hm-product-copy > p {
+  margin: 14px 0 0;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.hm .hm-link {
+  display: inline-block;
+  margin-top: 22px;
+  font-weight: 700;
+  color: var(--pp-accent-2);
+  text-decoration: none;
+}
+
+.hm .hm-link:hover {
+  text-decoration: underline;
+}
+
+.hm .pp-onprop.hm-three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Services + industries (dark band) */
+.hm .hm-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.hm .hm-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.hm .hm-service {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eef1fb;
+  text-decoration: none;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.hm .hm-service:hover {
+  border-color: rgba(var(--pp-accent-rgb), 0.5);
+  background: rgba(var(--pp-accent-rgb), 0.06);
+}
+
+.hm .hm-service .pp-icon {
+  margin-bottom: 4px;
+  color: var(--pp-accent-soft);
+  background: rgba(var(--pp-accent-rgb), 0.12);
+  border-color: rgba(var(--pp-accent-rgb), 0.3);
+}
+
+.hm .hm-service b {
+  font-size: 16px;
+}
+
+.hm .hm-service span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(226, 232, 248, 0.7);
+}
+
+.hm .hm-industries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.hm .hm-industries a {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.hm .hm-industries a span {
+  color: var(--pp-accent-soft);
+  transition: transform 0.18s ease;
+}
+
+.hm .hm-industries a:hover span {
+  transform: translateX(4px);
+}
+
+/* Quote */
+.hm .hm-quote {
+  text-align: center;
+}
+
+.hm .hm-quote .pp-kicker {
+  justify-content: center;
+}
+
+.hm .hm-quote blockquote {
+  margin: 10px auto 0;
+  max-width: 30ch;
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.15;
+  font-weight: 500;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.hm .hm-quote-who {
+  margin-top: 20px;
+  color: var(--slate);
+}
+
+@media (max-width: 1040px) {
+  .hm .hm-hero-grid,
+  .hm .hm-product,
+  .hm .hm-product.is-flip,
+  .hm .hm-split,
+  .hm .pp-onprop.hm-three {
+    grid-template-columns: 1fr;
+  }
+
+  .hm .hm-product.is-flip .hm-product-copy {
+    order: 0;
+  }
+
+  .hm .hm-stack {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hm .hm-services {
+    grid-template-columns: 1fr;
+  }
+}
