@@ -21,6 +21,7 @@
 
 - [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of combined Salesforce expertise.
 - [Our Products](https://ardncloudsolutions.com/our-products): Full product suite overview.
+- [Pricing](https://ardncloudsolutions.com/pricing): Request pricing for any Ardn product; replies within 4 business hours.
 - [Savings Calculator](https://ardncloudsolutions.com/savings-calculator): Estimate what you could save.
 - [Blog](https://ardncloudsolutions.com/blog): Articles and insights on AI and Salesforce.
 - [Contact](https://ardncloudsolutions.com/contact-us): Book a free 30-minute demo.

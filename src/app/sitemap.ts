@@ -18,6 +18,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // One page to request pricing for every product (header "Pricing").
+        url: `${BASE_URL}/pricing`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/our-products`,
         lastModified: new Date(),
         changeFrequency: "monthly",
