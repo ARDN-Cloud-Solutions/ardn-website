@@ -253,7 +253,7 @@ export default function AiAppDevelopmentFloridaPage() {
                 <p className="lede reveal reveal-d2">
                   Our Orlando-based development team uses the proprietary AI
                   Forge Framework to design, build, deploy, and operate custom AI
-                  applications in 2–6 weeks. Backed by 30+ years of Salesforce
+                  applications in 2–6 weeks. Backed by 30+ years of technology and consulting
                   expertise so the integrations are deep from day one.
                 </p>
                 <div
@@ -400,7 +400,7 @@ export default function AiAppDevelopmentFloridaPage() {
                         Deep Salesforce + HubSpot integrations
                       </div>
                       <p className="fl-body">
-                        30+ years of Salesforce expertise feeds every AI build —
+                        30+ years of technology and consulting experience feeds every AI build —
                         if your AI needs to live inside your CRM, we make it work.
                       </p>
                     </div>

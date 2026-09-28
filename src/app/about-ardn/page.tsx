@@ -8,9 +8,9 @@ import AboutContent from "./AboutContent";
 // "Salesforce consulting Florida" AND "AI development Orlando" searches.
 export const metadata: Metadata = {
   title:
-    "About Ardn — Custom AI & Salesforce Experts",
+    "About Ardn — Industry Software, Custom AI & Consulting",
   description:
-    "Ardn Cloud Solutions is an Orlando, FL custom software & AI development team with 30+ years of Salesforce consulting expertise and managed services.",
+    "Ardn Cloud Solutions is an Orlando, FL custom software & AI development team with 30+ years of technology and consulting experience and managed services.",
   keywords: [
     "Ardn Cloud Solutions",
     "Salesforce consultant Florida",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "About Ardn — Custom AI & Salesforce Experts",
+      "About Ardn — Industry Software, Custom AI & Consulting",
     description:
-      "Orlando, FL custom AI and software development with 30+ years of Salesforce expertise. AI Forge Framework + Salesforce-native products + consulting under one roof.",
+      "Orlando, FL custom AI and software development with 30+ years of technology and consulting experience. Industry software products, custom software and AI, and consulting under one roof.",
     url: "https://ardncloudsolutions.com/about-ardn",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "/images/about-ardn-hero.webp",
         width: 1200,
         height: 630,
-        alt: "About Ardn Cloud Solutions — Orlando-based custom AI development and Salesforce consulting team",
+        alt: "About Ardn Cloud Solutions — Orlando-based software, AI and consulting team",
       },
     ],
     locale: "en_US",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "About Ardn — Custom AI & Salesforce Experts",
+      "About Ardn — Industry Software, Custom AI & Consulting",
     description:
-      "Orlando, FL custom AI and software development with 30+ years of Salesforce expertise. AI Forge Framework + Salesforce-native products + consulting.",
+      "Orlando, FL custom AI and software development with 30+ years of technology and consulting experience. AI Forge Framework + Salesforce-native products + consulting.",
     site: "@ardn_cloud_sol",
   },
 };
@@ -70,7 +70,7 @@ export default function AboutArdnPage() {
         url: "https://ardncloudsolutions.com/about-ardn",
         name: "About Ardn Cloud Solutions",
         description:
-          "Ardn Cloud Solutions is an Orlando, FL custom AI and software development team with 30+ years of Salesforce consulting expertise. We build AI-powered products using the AI Forge Framework and deliver Salesforce-native cloud products and managed services.",
+          "Ardn Cloud Solutions is an Orlando, FL custom AI and software development team with 30+ years of technology and consulting experience. We build software products for specific industries, design custom software and AI with the AI Forge Framework, and run everything as a managed service.",
         mainEntity: {
           "@id": "https://ardncloudsolutions.com/#organization",
         },
@@ -96,15 +96,15 @@ export default function AboutArdnPage() {
             name: "What does Ardn Cloud Solutions do?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Two pillars. (1) Custom AI applications and bespoke software, built and operated by our Florida-based team using the proprietary AI Forge Framework. (2) Salesforce-native cloud products (Storefronts, License Guard, Salesforce Payments), Salesforce consulting, implementation, and managed services backed by 30+ years of expertise.",
+              text: "Three things. (1) Software products for specific industries: Club Steward for golf and country clubs, Nonprofit Management, Membership Management and ReplyCX. (2) Custom software and AI applications, built and operated by our Florida-based team using the AI Forge Framework. (3) Technology consulting, implementation and managed services, including for teams that run on Salesforce.",
             },
           },
           {
             "@type": "Question",
-            name: "How long has Ardn been doing Salesforce work?",
+            name: "How much experience does the Ardn team have?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Our team has 30+ years of combined Salesforce design, build, integration, and deployment experience. Most engagements are led directly by partners, not handed to junior staff or offshore teams.",
+              text: "Our team has 30+ years of combined experience designing, building, integrating and running business software, from AI applications to enterprise platforms such as Salesforce. Most engagements are led directly by partners, not handed to junior staff or offshore teams.",
             },
           },
           {

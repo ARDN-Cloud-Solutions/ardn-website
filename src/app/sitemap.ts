@@ -37,12 +37,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
-        url: `${BASE_URL}/salesforce-payments`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.8,
-    },
-    {
         url: `${BASE_URL}/license-guard`,
         lastModified: new Date(),
         changeFrequency: "monthly",
@@ -55,8 +49,8 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
-        // Vertical landing page — owns the YMCA/Daxko-alternative keyword set.
-        url: `${BASE_URL}/ymca-management-software`,
+        // Nonprofit management software (was /ymca-management-software).
+        url: `${BASE_URL}/nonprofit-management-software`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,

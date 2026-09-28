@@ -4,42 +4,38 @@ import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
 
-// VERTICAL page for the YMCA / community-nonprofit wedge of Ardn Membership
-// Management. This page OWNS the "YMCA management software" / "YMCA membership
-// software" / "Daxko alternative" keyword set — /membership-management (the
-// general product page) deliberately cedes those terms to avoid cannibalization.
+// Nonprofit management software: the Ardn membership platform for YMCAs,
+// JCCs, community centers and other member-based nonprofits (renamed from
+// /ymca-management-software on 2026-09-28; the old URL 301s here). It owns the
+// "nonprofit management software" / "nonprofit membership software" keyword
+// set and keeps YMCA terms as secondary keywords. /membership-management (the
+// general product page) cedes these terms to avoid cannibalization.
 //
-// Positioning is evidence-led, verified against the product KT docs (2026-07):
-// - The wedge: the incumbent Y platform (Daxko) prices as a PERCENTAGE OF THE
-//   ORGANIZATION'S TOTAL REVENUE per its own public Billing FAQ, with a
-//   single integrated payment processor. We sell the opposite: flat monthly
-//   fee, your own merchant account, your data.
-//   GTM decision 2026-09-25 (supersedes 2026-08-25): customer-facing payment
-//   copy names NO single processor. Ardn is processor-agnostic and being tied
-//   to one gateway reads as small. Frame it as: settles into YOUR merchant
-//   account, through whichever major processor you already use.
-// - The unmatched demo: a member and a donor are the SAME RECORD. Ys running
-//   Daxko for operations + Raiser's Edge for fundraising reconcile the two by
-//   hand; our fundraising module (pledges, gift batches with control totals,
-//   tiered acknowledgments, major-gift pipeline, grants, soft credits) is the
-//   deepest part of the build.
-// - Offer (owner-approved 2026-08-24): free pilot sandbox in the Y's own
-//   branding + money-back guarantee. Deliberately NOT promised: free data
-//   migration, month-to-month contract.
+// Positioning, verified against the product docs (2026-07):
+// - Incumbent platforms often price as a percentage of the organization's
+//   revenue. We sell the opposite: flat monthly fee, your own merchant
+//   account, your data. Name no single payment processor.
+// - The demo that lands: a member and a donor are the SAME RECORD, so
+//   operations and fundraising stop being reconciled by hand.
+// - Offer (owner-approved 2026-08-24): free pilot sandbox in the
+//   organization's branding + 60-day money-back guarantee. NOT promised: free
+//   data migration, month-to-month contract at the standard rate.
 // - Truth guardrails: no claims of POS/day passes, childcare compliance,
-//   dunning/returned drafts, SilverSneakers, SMS, Nationwide reciprocity,
-//   GL export, mobile app, or production customers.
-// - Pricing (owner-confirmed 2026-08-24, matches the live St. Pete proposal):
-//   $9,000/mo subscription + $9,500 one-time implementation (vs $45k–55k
-//   standard), 36-month term, CPI-capped escalation (max 4%/yr).
-//   Guarantee: 60-day go-live money-back, subscription fees only.
+//   dunning/returned drafts, SilverSneakers, SMS, nationwide reciprocity, GL
+//   export, mobile app, or production customers.
+// - Pricing (owner-confirmed 2026-08-24): $9,000/mo + $9,500 implementation,
+//   CPI-capped escalation (max 4%/yr).
+// - Screenshots come from a seeded demo. Branch names were re-lettered to
+//   fictional ones on 2026-09-28; never publish real client locations.
 // All screenshots are real product UI from the seeded multi-branch demo
 // association (synthetic data only).
 export const metadata: Metadata = {
-  title: "YMCA Management Software | Ardn",
+  title: "Nonprofit Management Software | Ardn",
   description:
-    "Membership, programs, check-in, and fundraising for multi-branch YMCAs in one platform — flat monthly fee, never a percentage of your revenue. Free pilot in your Y's branding.",
+    "Membership, programs, check-in, and fundraising for YMCAs, JCCs and community nonprofits in one platform — flat monthly fee, never a percentage of your revenue. Free pilot in your branding.",
   keywords: [
+    "nonprofit management software",
+    "nonprofit membership management software",
     "YMCA management software",
     "YMCA membership software",
     "Daxko alternative",
@@ -52,24 +48,24 @@ export const metadata: Metadata = {
     "membership and donor management in one system",
   ],
   alternates: {
-    canonical: "https://ardncloudsolutions.com/ymca-management-software",
+    canonical: "https://ardncloudsolutions.com/nonprofit-management-software",
     languages: {
-      "en-US": "https://ardncloudsolutions.com/ymca-management-software",
-      "x-default": "https://ardncloudsolutions.com/ymca-management-software",
+      "en-US": "https://ardncloudsolutions.com/nonprofit-management-software",
+      "x-default": "https://ardncloudsolutions.com/nonprofit-management-software",
     },
   },
   openGraph: {
-    title: "YMCA Management Software — Members & Donors in One System | Ardn",
+    title: "Nonprofit Management Software — Members & Donors in One System | Ardn",
     description:
-      "One platform for multi-branch YMCAs: membership, billing, check-in, programs, and a full fundraising CRM. Flat monthly fee — never a percentage of your revenue.",
-    url: "https://ardncloudsolutions.com/ymca-management-software",
+      "One platform for YMCAs, JCCs and community nonprofits: membership, billing, check-in, programs, and a full fundraising CRM. Flat monthly fee — never a percentage of your revenue.",
+    url: "https://ardncloudsolutions.com/nonprofit-management-software",
     siteName: "Ardn Cloud Solutions",
     images: [
       {
         url: "/images/membership/ops-overview.webp",
         width: 1200,
         height: 630,
-        alt: "Ardn Membership Management operations dashboard for a multi-branch association",
+        alt: "Ardn Nonprofit Management operations dashboard for a multi-branch association",
       },
     ],
     locale: "en_US",
@@ -77,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "YMCA Management Software | Ardn",
+    title: "Nonprofit Management Software | Ardn",
     description:
-      "Membership, programs, check-in, and fundraising for multi-branch YMCAs — flat monthly fee, never a percentage of your revenue.",
+      "Membership, programs, check-in, and fundraising for community nonprofits — flat monthly fee, never a percentage of your revenue.",
     images: ["/images/membership/ops-overview.webp"],
   },
 };
@@ -90,7 +86,7 @@ const CALENDLY =
 const FAQS = [
   {
     q: "What does the free pilot actually look like?",
-    a: "We stand up a private sandbox of the platform themed to your Y — our provisioning tool reads your public website and applies your logo, colors, and fonts automatically. You get your branches, your membership plan structure, and demo people to click through, so your front desk, membership director, and development office can each try their own workspace before anyone signs anything. There is no charge and no obligation for the pilot.",
+    a: "We stand up a private sandbox of the platform themed to your organization — our provisioning tool reads your public website and applies your logo, colors, and fonts automatically. You get your branches, your membership plan structure, and demo people to click through, so your front desk, membership director, and development office can each try their own workspace before anyone signs anything. There is no charge and no obligation for the pilot.",
   },
   {
     q: "How is this priced?",
@@ -102,7 +98,7 @@ const FAQS = [
   },
   {
     q: "We budget on a July–June fiscal year. When should we start looking?",
-    a: "Most Ys approve next year's budget in late spring, which makes February–May the natural evaluation window for a July start. But because the pilot is free and the fee is flat, many teams start the pilot earlier and simply hold go-live until the new fiscal year. We'll match your timeline either way.",
+    a: "Most community nonprofits approve next year's budget in late spring, which makes February–May the natural evaluation window for a July start. But because the pilot is free and the fee is flat, many teams start the pilot earlier and simply hold go-live until the new fiscal year. We'll match your timeline either way.",
   },
   {
     q: "Do we have to leave Raiser's Edge or our accounting system?",
@@ -118,7 +114,7 @@ const FAQS = [
   },
   {
     q: "Does it cover everything our current system does on day one?",
-    a: "The core is deep: membership lifecycle and billing, households and split billing, front-desk check-in, programs, classes and camps registration with waitlists, events and volunteers, forms, workflow automation, reporting, a branded member portal — and a fundraising suite that goes beyond what Y operations platforms offer. If your association depends on something outside that core, we scope it explicitly during the pilot so there are no surprises at go-live. That honesty is the point of the pilot.",
+    a: "The core is deep: membership lifecycle and billing, households and split billing, front-desk check-in, programs, classes and camps registration with waitlists, events and volunteers, forms, workflow automation, reporting, a branded member portal — and a fundraising suite that goes beyond what typical nonprofit operations platforms offer. If your association depends on something outside that core, we scope it explicitly during the pilot so there are no surprises at go-live. That honesty is the point of the pilot.",
   },
 ];
 
@@ -149,8 +145,8 @@ const MODULES = [
   },
 ];
 
-export default function YmcaManagementSoftwarePage() {
-  const url = "https://ardncloudsolutions.com/ymca-management-software";
+export default function NonprofitManagementSoftwarePage() {
+  const url = "https://ardncloudsolutions.com/nonprofit-management-software";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -158,8 +154,8 @@ export default function YmcaManagementSoftwarePage() {
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: "Ardn Membership Management for YMCAs",
-        serviceType: "YMCA management software",
+        name: "Ardn Nonprofit Management",
+        serviceType: "Nonprofit management software",
         description:
           "All-in-one membership, billing, check-in, program, and fundraising platform for multi-branch YMCAs, JCCs, and community centers, priced as a flat monthly fee.",
         provider: { "@id": "https://ardncloudsolutions.com/#organization" },
@@ -199,7 +195,7 @@ export default function YmcaManagementSoftwarePage() {
             name: "Membership Management",
             item: "https://ardncloudsolutions.com/membership-management",
           },
-          { "@type": "ListItem", position: 3, name: "YMCA Management Software", item: url },
+          { "@type": "ListItem", position: 3, name: "Nonprofit Management Software", item: url },
         ],
       },
     ],
@@ -225,16 +221,16 @@ export default function YmcaManagementSoftwarePage() {
           <div className="container">
             <div className="hero-grid">
               <div className="hero-copy">
-                <span className="eyebrow">YMCA Management Software</span>
+                <span className="eyebrow">Nonprofit Management Software</span>
                 <h1 className="display reveal">
                   Membership software your front desk won&apos;t fight —{" "}
                   <em>and your board can approve.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
-                  Most Ys run one system for members and another for donors, pay
-                  their software vendor a percentage of everything the Y earns,
+                  Most community nonprofits run one system for members and another for donors, pay
+                  their software vendor a percentage of everything the organization earns,
                   and ask part-time front-desk staff to wrestle click-heavy
-                  screens at peak hours. Ardn Membership Management is the other
+                  screens at peak hours. Ardn Nonprofit Management is the other
                   way: membership, billing, check-in, programs, and a full
                   fundraising CRM in one platform, for one flat monthly fee —
                   and you can try it in your own branding before you sign.
@@ -251,7 +247,7 @@ export default function YmcaManagementSoftwarePage() {
                   <span className="badge is-emerald">
                     Flat fee — never a % of your revenue
                   </span>
-                  <span className="badge is-canvas">Built for multi-branch Ys</span>
+                  <span className="badge is-canvas">Built for multi-branch nonprofits</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link
@@ -287,7 +283,7 @@ export default function YmcaManagementSoftwarePage() {
                     }}
                   >
                     🎁 See it in your own branding — we&apos;ll stand up a free
-                    pilot themed to your Y, no signature required.
+                    pilot themed to your organization, no signature required.
                   </p>
                 </div>
               </aside>
@@ -306,7 +302,7 @@ export default function YmcaManagementSoftwarePage() {
                 <h3 className="h3">Free pilot, in your branding</h3>
                 <p className="body">
                   Before you sign anything, we provision a private sandbox
-                  themed to your Y — your logo, your colors, your branch
+                  themed to your organization — your logo, your colors, your branch
                   structure — so every director can try their own workspace.
                 </p>
               </div>
@@ -341,13 +337,13 @@ export default function YmcaManagementSoftwarePage() {
               <div>
                 <span className="eyebrow">The problem</span>
                 <h2 className="h1 mt-3">
-                  The way Y software is sold today <em>works against the Y.</em>
+                  The way nonprofit software is sold today <em>works against the mission.</em>
                 </h2>
               </div>
               <div>
                 <p className="lede">
                   None of this is your team&apos;s fault. It&apos;s the standard
-                  operating model of legacy Y platforms — and every piece of it
+                  operating model of legacy nonprofit platforms — and every piece of it
                   is a choice a vendor made.
                 </p>
               </div>
@@ -357,7 +353,7 @@ export default function YmcaManagementSoftwarePage() {
                 <div className="card-num">01</div>
                 <h3 className="h3">A cut of your mission&apos;s growth</h3>
                 <p className="body">
-                  The dominant Y platform&apos;s own billing FAQ describes fees
+                  A leading incumbent platform&apos;s own billing FAQ describes fees
                   as a percentage of the organization&apos;s total revenue,
                   drafted from your bank account — so every campaign your team
                   wins raises your software bill with it.
@@ -376,7 +372,7 @@ export default function YmcaManagementSoftwarePage() {
                 <div className="card-num">03</div>
                 <h3 className="h3">Screens built for the vendor, not the desk</h3>
                 <p className="body">
-                  Public reviews of incumbent Y systems repeat the same themes:
+                  Public reviews of incumbent nonprofit systems repeat the same themes:
                   excessive clicks and re-entry, lag at peak hours, reports
                   staff can&apos;t find. Your front desk is mostly part-time —
                   the software should carry them, not test them.
@@ -397,7 +393,7 @@ export default function YmcaManagementSoftwarePage() {
                 </h2>
                 <p className="body mt-4">
                   The parent who pays for swim lessons, volunteers at the gala,
-                  and gives $500 to the annual campaign is one person. In a Y
+                  and gives $500 to the annual campaign is one person. In an organization
                   running separate operations and fundraising systems,
                   she&apos;s three database rows that never meet. Here she is
                   one record — her memberships, registrations, check-ins,
@@ -441,7 +437,7 @@ export default function YmcaManagementSoftwarePage() {
               <div>
                 <span className="eyebrow">See it, don&apos;t take our word</span>
                 <h2 className="h1 mt-3">
-                  The real product, <em>doing real Y work.</em>
+                  The real product, <em>doing real nonprofit work.</em>
                 </h2>
               </div>
               <div>
@@ -477,7 +473,7 @@ export default function YmcaManagementSoftwarePage() {
             <div className="mt-7">
               <span className="eyebrow">Membership &amp; billing</span>
               <h3 className="h2 mt-2">
-                Real Y pricing, <em>without the spreadsheet.</em>
+                Real membership pricing, <em>without the spreadsheet.</em>
               </h3>
               <p className="body mt-3" style={{ maxWidth: "760px" }}>
                 Family, age-banded, and per-branch plans with versioned
@@ -525,7 +521,7 @@ export default function YmcaManagementSoftwarePage() {
               <p className="body mt-3" style={{ maxWidth: "760px" }}>
                 Members join, register for programs and camps, book trainers,
                 give, RSVP, and sign waivers on a portal that carries your
-                Y&apos;s logo, colors, and voice. Theming is applied per
+                organization&apos;s logo, colors, and voice. Theming is applied per
                 tenant at provisioning — our tool reads your existing website
                 and matches it, usually in minutes.
               </p>
@@ -648,19 +644,19 @@ export default function YmcaManagementSoftwarePage() {
           </div>
         </section>
 
-        {/* ROLES + SECURITY — the "built for a real Y workforce" argument */}
+        {/* ROLES + SECURITY — the "built for a real nonprofit workforce" argument */}
         <section className="section">
           <div className="container">
             <div className="split">
               <div>
-                <span className="eyebrow">Built for a real Y workforce</span>
+                <span className="eyebrow">Built for a real nonprofit workforce</span>
                 <h2 className="h1 mt-3">
                   From executive director <em>to lifeguard.</em>
                 </h2>
                 <p className="body mt-4">
-                  A Y runs on a handful of full-time power users and hundreds
+                  A community nonprofit runs on a handful of full-time power users and hundreds
                   of part-timers who need one narrow screen. The platform ships
-                  with roles modeled on the jobs a Y actually hires — front
+                  with roles modeled on the jobs a community nonprofit actually hires — front
                   desk, membership director, aquatics director, camp director,
                   development director, finance, HR, volunteer coordinator —
                   each seeing exactly their slice, scoped to their branch.
@@ -725,7 +721,7 @@ export default function YmcaManagementSoftwarePage() {
               </div>
               <div>
                 <p className="lede">
-                  Y platform switches fail on surprise, not software. The pilot
+                  Platform switches fail on surprise, not software. The pilot
                   exists so every stakeholder — front desk to board — has seen
                   their own workflow before anyone commits.
                 </p>
@@ -738,7 +734,7 @@ export default function YmcaManagementSoftwarePage() {
                 <p className="body">
                   We walk your leadership through the platform on a live
                   multi-branch demo association — membership, front desk,
-                  fundraising, reporting — and map it to how your Y runs today.
+                  fundraising, reporting — and map it to how your organization runs today.
                 </p>
               </div>
               <div className="card">
@@ -839,7 +835,7 @@ export default function YmcaManagementSoftwarePage() {
               <div>
                 <span className="eyebrow">FAQ</span>
                 <h2 className="h1 mt-3">
-                  Questions Ys <em>actually ask.</em>
+                  Questions nonprofits <em>actually ask.</em>
                 </h2>
               </div>
               <div>
@@ -879,8 +875,8 @@ export default function YmcaManagementSoftwarePage() {
         </section>
 
         <LeadForm
-          source="YMCA Management Software page"
-          heading="Start with a free pilot in your Y's branding"
+          source="Nonprofit Management Software page"
+          heading="Start with a free pilot in your branding"
           sub="Tell us about your association — branches, current system, what hurts most. We'll reply within 4 business hours with pilot next steps and a fixed quote."
           submitLabel="Request my free pilot"
         />
@@ -895,7 +891,7 @@ export default function YmcaManagementSoftwarePage() {
               </h2>
               <p className="lede">
                 Book a 15-minute demo. If it looks right, we&apos;ll stand up a
-                free pilot in your Y&apos;s branding — and you decide with your
+                free pilot in your organization&apos;s branding — and you decide with your
                 whole team, on your timeline.
               </p>
               <div className="hero-ctas">
@@ -918,7 +914,7 @@ export default function YmcaManagementSoftwarePage() {
                     textDecoration: "underline",
                   }}
                 >
-                  Not a Y? See the full membership platform →
+                  Not a nonprofit? See the full membership platform →
                 </Link>
               </p>
             </div>

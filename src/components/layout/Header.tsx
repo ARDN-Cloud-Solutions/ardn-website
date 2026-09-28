@@ -19,9 +19,6 @@ import {
   LayoutDashboard,
   Handshake,
   MessagesSquare,
-  ShoppingBag,
-  CreditCard,
-  ShieldCheck,
   Users,
   HeartHandshake,
   Flag,
@@ -43,29 +40,21 @@ type ProductLink = {
 // groups as columns; the mobile drawer shows them as labelled sections.
 const productGroups: { title: string; items: ProductLink[] }[] = [
   {
-    title: "Custom software & AI",
+    title: "Products",
+    items: [
+      { label: "Club Steward", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
+      { label: "Nonprofit Management", href: "/nonprofit-management-software", blurb: "Members and donors in one record", icon: HeartHandshake },
+      { label: "Membership Management", href: "/membership-management", blurb: "Gyms, studios, clubs and associations", icon: Users },
+      { label: "ReplyCX", href: "/ai-powered-support", blurb: "AI agents for routine customer questions", icon: MessagesSquare },
+    ],
+  },
+  {
+    title: "Services",
     items: [
       { label: "AI Forge", href: "/ai-forge", blurb: "Custom AI apps, built and run for you", icon: Sparkles, tag: "Flagship" },
       { label: "Custom Software Development", href: "/custom-software-development", blurb: "Software shaped around your workflow", icon: Code2 },
       { label: "Custom Portal Development", href: "/custom-portal-development", blurb: "Customer and member portals", icon: LayoutDashboard },
       { label: "Partner Portal Development", href: "/custom-partner-portal-development", blurb: "Portals for partners and resellers", icon: Handshake },
-      { label: "AI-Powered Support", href: "/ai-powered-support", blurb: "AI agents for routine customer queries", icon: MessagesSquare },
-    ],
-  },
-  {
-    title: "Salesforce products",
-    items: [
-      { label: "Storefronts", href: "/storefronts", blurb: "Ecommerce native to Salesforce", icon: ShoppingBag },
-      { label: "Salesforce Payments", href: "/salesforce-payments", blurb: "Quote-to-cash inside Salesforce", icon: CreditCard },
-      { label: "License Guard", href: "/license-guard", blurb: "Find and reclaim unused licenses", icon: ShieldCheck },
-    ],
-  },
-  {
-    title: "Industry platforms",
-    items: [
-      { label: "Membership Management", href: "/membership-management", blurb: "Gyms, studios, clubs and associations", icon: Users },
-      { label: "YMCA Management Software", href: "/ymca-management-software", blurb: "Members and donors in one record", icon: HeartHandshake },
-      { label: "Club Steward", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
     ],
   },
 ];
@@ -255,8 +244,8 @@ export default function Header() {
                       : "invisible opacity-0 -translate-y-1 pointer-events-none"
                   }`}
                 >
-                  <div className="w-[880px] max-w-[calc(100vw-48px)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_24px_60px_-12px_rgba(20,20,43,0.25)]">
-                    <div className="grid grid-cols-[1.25fr_1fr_1fr] gap-2 p-5">
+                  <div className="w-[720px] max-w-[calc(100vw-48px)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_24px_60px_-12px_rgba(20,20,43,0.25)]">
+                    <div className="grid grid-cols-2 gap-2 p-5">
                       {productGroups.map((group) => (
                         <div key={group.title}>
                           <p className="px-3 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400 font-public-sans">
@@ -293,13 +282,20 @@ export default function Header() {
                         </div>
                       ))}
                     </div>
-                    <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/70 px-8 py-3.5">
+                    <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-slate-100 bg-slate-50/70 px-8 py-3.5">
                       <Link
                         href="/our-products"
                         onClick={() => setProductsOpen(false)}
                         className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-heading-dark hover:text-primary font-poppins"
                       >
                         See all products <ArrowRight size={14} />
+                      </Link>
+                      <Link
+                        href="/our-products#salesforce"
+                        onClick={() => setProductsOpen(false)}
+                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-heading-dark hover:text-primary font-poppins"
+                      >
+                        Salesforce solutions <ArrowRight size={14} />
                       </Link>
                       <Link
                         href="/contact-us"
@@ -479,6 +475,13 @@ export default function Header() {
                   className="mx-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary font-poppins"
                 >
                   See all products <ArrowRight size={14} />
+                </Link>
+                <Link
+                  href="/our-products#salesforce"
+                  onClick={() => setDrawerOpen(false)}
+                  className="mx-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-heading-dark font-poppins"
+                >
+                  Salesforce solutions <ArrowRight size={14} />
                 </Link>
               </div>
             </div>

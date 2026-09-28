@@ -32,7 +32,7 @@ export default function LandingPageContent() {
                 <p className="body" style={{ fontWeight: 600, color: "var(--indigo)", marginBottom: "18px" }}>🎁 New customers: we build it free.</p>
                 <Link href="/ai-forge" className="link" style={{ color: "var(--indigo)", fontWeight: 600, display: "inline-block" }}>Explore AI Forge →</Link>
                 <p className="body" style={{ marginTop: "20px", paddingTop: "18px", borderTop: "1px solid #eceef5", fontSize: "13px", color: "#6b7280" }}>
-                  Plus a full suite — Storefronts, Payments, License Guard, Membership &amp; ReplyCX. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
+                  Plus products for golf clubs, nonprofits and member organizations. <Link href="#products" style={{ color: "var(--indigo)", fontWeight: 600 }}>See all →</Link>
                 </p>
               </div>
             </aside>
@@ -92,8 +92,8 @@ export default function LandingPageContent() {
               <div className="label">per-seat fees — every engagement is measured against an outcome, not an hour count.</div>
             </div>
             <div className="metric">
-              <div className="number">6</div>
-              <div className="label">products in market today, each replacing a category of third-party tooling.</div>
+              <div className="number">4</div>
+              <div className="label">products built for specific industries, plus custom software for everything else.</div>
             </div>
           </div>
         </div>
@@ -154,11 +154,11 @@ export default function LandingPageContent() {
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="eyebrow">More ways to grow</span>
-              <h2 className="h1 mt-3">Start with AI. <em>Add what you need.</em></h2>
+              <span className="eyebrow">Products</span>
+              <h2 className="h1 mt-3">Built for your industry. <em>Run for you.</em></h2>
             </div>
             <div>
-              <p className="lede">Beyond AI Forge, six focused products — each replacing a category of third-party tooling and paying for itself. No bloated platform, no forced bundle. Add one only when you need it.</p>
+              <p className="lede">Products made for the way specific organizations run, and custom software for everything else. No bloated platform, no forced bundle.</p>
             </div>
           </div>
 
@@ -194,67 +194,52 @@ export default function LandingPageContent() {
               <Link href="/custom-portal-development" className="link">Explore Custom Portals</Link>
             </article>
 
-            {/* Membership Management — standalone, AI-built; SF/HubSpot capable
-                in the feature list to keep buyer-intent traffic. */}
-            <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#FCE4EC", color: "#C2185B" }}>Membership</span>
-              <h3 className="h3">Membership Management</h3>
-              <p className="body">A flexible, AI-built membership platform for YMCAs, gyms, studios, clubs, and associations. Run sign-ups, dues, classes, attendance, and retention from one system that integrates cleanly with Salesforce, HubSpot, and your existing back-office tools.</p>
+            <article className="product-card" style={{ "--accent": "#0F9870" } as React.CSSProperties}>
+              <span className="pill" style={{ background: "#E5F5EE", color: "#0F9870" }}>Golf &amp; country clubs</span>
+              <h3 className="h3">Club Steward</h3>
+              <p className="body">Every club in your portfolio on one member record: websites and online join, membership sales, contracts, dues, the tee sheet and the pro shop.</p>
               <ul className="features">
-                <li>Recurring billing &amp; dunning out of the box</li>
-                <li>Class scheduling &amp; attendance tracking</li>
+                <li>Built for multi-club operators</li>
+                <li>Benefits that follow members to every club</li>
+                <li>Contracts and e-signature built in</li>
+              </ul>
+              <Link href="/golf-club-management-software" className="link">Explore Club Steward</Link>
+            </article>
+
+            <article className="product-card" style={{ "--accent": "#C2185B" } as React.CSSProperties}>
+              <span className="pill" style={{ background: "#FCE4EC", color: "#C2185B" }}>Nonprofits</span>
+              <h3 className="h3">Nonprofit Management</h3>
+              <p className="body">Membership, check-in, programs and a full fundraising CRM for YMCAs, JCCs and community centers, with members and donors in one record.</p>
+              <ul className="features">
+                <li>One flat fee, never a percentage of revenue</li>
+                <li>Front-desk check-in and program registration</li>
+                <li>Donations, pledges and gift batches</li>
+              </ul>
+              <Link href="/nonprofit-management-software" className="link">Explore Nonprofit Management</Link>
+            </article>
+
+            <article className="product-card" style={{ "--accent": "#4840E0" } as React.CSSProperties}>
+              <span className="pill">Membership</span>
+              <h3 className="h3">Membership Management</h3>
+              <p className="body">Sign-ups, dues, classes, attendance and retention for gyms, studios, clubs and associations, from one system with a branded member portal.</p>
+              <ul className="features">
+                <li>Recurring billing built in</li>
+                <li>Class scheduling and attendance</li>
                 <li>Branded member self-service portal</li>
-                <li>Salesforce, HubSpot, and CRM-agnostic integrations</li>
               </ul>
               <Link href="/membership-management" className="link">Explore Membership Management</Link>
             </article>
 
-            <article className="product-card" style={{ "--accent": "#4840E0" } as React.CSSProperties}>
-              <span className="pill">Flagship · Commerce</span>
-              <h3 className="h3">Storefronts</h3>
-              <p className="body">Salesforce-native ecommerce. Run your store — products, memberships, subscriptions, events, appointments — without leaving Salesforce.</p>
-              <ul className="features">
-                <li>Memberships, subscriptions, events, ticketing</li>
-                <li>Stripe, Paymentus, Apple Pay, Google Pay, Venmo</li>
-                <li>Launch in days, not quarters</li>
-              </ul>
-              <Link href="/storefronts" className="link">Explore Storefronts</Link>
-            </article>
-
-            <article className="product-card" style={{ "--accent": "#0F9870" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#E5F5EE", color: "#0F9870" }}>Pays for itself</span>
-              <h3 className="h3">License Guard</h3>
-              <p className="body">Salesforce-native watchdog for unused licenses. Detects inactivity, warns the user, deactivates per your rules — no code.</p>
-              <ul className="features">
-                <li>Inactivity rules by role, profile, permission set</li>
-                <li>Pre-warning emails before any action</li>
-                <li>Typically pays back its annual cost in one quarter</li>
-              </ul>
-              <Link href="/license-guard" className="link">Explore License Guard</Link>
-            </article>
-
-            <article className="product-card" style={{ "--accent": "#38A0F8" } as React.CSSProperties}>
-              <span className="pill" style={{ background: "#E4F1FF", color: "#1B6FC9" }}>Payments</span>
-              <h3 className="h3">Salesforce Payments</h3>
-              <p className="body">From quote to cash inside Salesforce. Branded checkout, real-time status, automated reconciliation — no tab-switching.</p>
-              <ul className="features">
-                <li>Cards, ACH, digital wallets out of the box</li>
-                <li>Bring your processor or use ours for lower rates</li>
-                <li>PCI-compliant, audit-ready</li>
-              </ul>
-              <Link href="/salesforce-payments" className="link">Explore Payments</Link>
-            </article>
-
             <article className="product-card" style={{ "--accent": "#B45309" } as React.CSSProperties}>
               <span className="pill" style={{ background: "#FEF3E2", color: "#B45309" }}>Customer service</span>
-              <h3 className="h3">AI-Powered Support</h3>
+              <h3 className="h3">ReplyCX</h3>
               <p className="body">ReplyCX automates ~70% of routine queries across WhatsApp, email, chat, and social — in one no-code workspace.</p>
               <ul className="features">
                 <li>No-code AI agents from your existing docs</li>
                 <li>One inbox: WhatsApp, SMS, email, social, live chat</li>
                 <li>Auto-routing, priority logic, CRM sync</li>
               </ul>
-              <Link href="/ai-powered-support" className="link">Explore AI Support</Link>
+              <Link href="/ai-powered-support" className="link">Explore ReplyCX</Link>
             </article>
 
           </div>
@@ -285,7 +270,7 @@ export default function LandingPageContent() {
               {/* Stale "Big Salesforce experience" replaced with hybrid framing
                   that covers both pillars (AI Forge custom dev + 30+ yrs SF). */}
               <h2 className="h1 mt-3">A small Florida team. <em>Big experience.</em></h2>
-              <p className="body mt-4">Ardn Cloud Solutions is a US-based team. We design, build, and run custom AI applications with our proprietary <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link> — and back every build with 30+ years of enterprise software expertise, plus a focused suite of cloud products and consulting for teams that run on Salesforce. Same team from first call through implementation.</p>
+              <p className="body mt-4">Ardn Cloud Solutions is a US-based team. We design, build, and run custom AI applications with our proprietary <Link href="/ai-forge" style={{ color: "var(--indigo)", fontWeight: 600 }}>AI Forge Framework</Link> — and back every build with 30+ years of technology and consulting experience, from AI applications to enterprise platforms. Same team from first call through implementation.</p>
               {/* Internal link hub — passes homepage authority to the AI
                   landing pages (national hub + verticals) and the local pages.
                   These were orphan pages otherwise (0 inbound body links). */}
@@ -302,7 +287,7 @@ export default function LandingPageContent() {
                 <Link href="/chapter-management-software" style={{ color: "var(--indigo)", fontWeight: 600 }}>chapter &amp; dues management</Link>.
               </p>
               <p className="body mt-3">Based in Florida? Talk to a local team:{" "}
-                <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>Salesforce consulting in Orlando</Link>
+                <Link href="/salesforce-consulting-orlando" style={{ color: "var(--indigo)", fontWeight: 600 }}>technology consulting in Orlando</Link>
                 {" "}or{" "}
                 <Link href="/ai-app-development-florida" style={{ color: "var(--indigo)", fontWeight: 600 }}>custom AI app development in Florida</Link>.
               </p>
@@ -313,9 +298,7 @@ export default function LandingPageContent() {
             </div>
             <div>
               <ul className="fl">
-                {/* Stale "Four" Salesforce-native products updated to the
-                    current 6-product hybrid suite. */}
-                <li><span className="n">01</span><div><h4>Innovative products</h4><p>Six products in market — AI Forge, Membership Management, Storefronts, License Guard, Salesforce Payments, and ReplyCX.</p></div></li>
+                <li><span className="n">01</span><div><h4>Products for your industry</h4><p>Club Steward, Nonprofit Management, Membership Management and ReplyCX, each run for you as a managed service.</p></div></li>
                 <li><span className="n">02</span><div><h4>Strategy &amp; consulting</h4><p>30+ years of expertise focused on the cheapest, fastest path to your outcome.</p></div></li>
                 <li><span className="n">03</span><div><h4>Implementation &amp; AI Forge builds</h4><p>We collaborate with your team or run the entire build with the AI Forge Framework — your call.</p></div></li>
               </ul>

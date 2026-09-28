@@ -6,14 +6,11 @@ import {
   ArrowRight,
   Check,
   Code2,
-  CreditCard,
   Flag,
   Handshake,
   HeartHandshake,
   LayoutDashboard,
   MessagesSquare,
-  ShieldCheck,
-  ShoppingBag,
   Sparkles,
   Users,
   type LucideIcon,
@@ -21,32 +18,24 @@ import {
 
 type Product = { id: string; name: string; blurb: string; href: string; icon: LucideIcon };
 
-// Same groups as the header's Our Products menu.
+// Same Products / Services split as the header menu.
 export const PRODUCT_GROUPS: { title: string; items: Product[] }[] = [
   {
-    title: "Custom software & AI",
+    title: "Products",
+    items: [
+      { id: "club-steward", name: "Club Steward", blurb: "Golf and country club management", href: "/golf-club-management-software", icon: Flag },
+      { id: "nonprofit", name: "Nonprofit Management", blurb: "Members and donors in one record", href: "/nonprofit-management-software", icon: HeartHandshake },
+      { id: "membership", name: "Membership Management", blurb: "Gyms, studios, clubs and associations", href: "/membership-management", icon: Users },
+      { id: "replycx", name: "ReplyCX", blurb: "AI agents for routine customer questions", href: "/ai-powered-support", icon: MessagesSquare },
+    ],
+  },
+  {
+    title: "Services",
     items: [
       { id: "ai-forge", name: "AI Forge", blurb: "Custom AI apps, built and run for you", href: "/ai-forge", icon: Sparkles },
       { id: "custom-software", name: "Custom Software Development", blurb: "Software shaped around your workflow", href: "/custom-software-development", icon: Code2 },
       { id: "custom-portal", name: "Custom Portal Development", blurb: "Customer and member portals", href: "/custom-portal-development", icon: LayoutDashboard },
       { id: "partner-portal", name: "Partner Portal Development", blurb: "Portals for partners and resellers", href: "/custom-partner-portal-development", icon: Handshake },
-      { id: "ai-support", name: "AI-Powered Support", blurb: "AI agents for routine customer queries", href: "/ai-powered-support", icon: MessagesSquare },
-    ],
-  },
-  {
-    title: "Salesforce products",
-    items: [
-      { id: "storefronts", name: "Storefronts", blurb: "Ecommerce native to Salesforce", href: "/storefronts", icon: ShoppingBag },
-      { id: "salesforce-payments", name: "Salesforce Payments", blurb: "Quote-to-cash inside Salesforce", href: "/salesforce-payments", icon: CreditCard },
-      { id: "license-guard", name: "License Guard", blurb: "Find and reclaim unused licenses", href: "/license-guard", icon: ShieldCheck },
-    ],
-  },
-  {
-    title: "Industry platforms",
-    items: [
-      { id: "membership", name: "Membership Management", blurb: "Gyms, studios, clubs and associations", href: "/membership-management", icon: Users },
-      { id: "ymca", name: "YMCA Management Software", blurb: "Members and donors in one record", href: "/ymca-management-software", icon: HeartHandshake },
-      { id: "club-steward", name: "Club Steward", blurb: "Golf and country club management", href: "/golf-club-management-software", icon: Flag },
     ],
   },
 ];

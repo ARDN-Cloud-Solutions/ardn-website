@@ -241,8 +241,8 @@ export default function AiForMembershipOrganizationsPage() {
               <Link href="/membership-management" className="link">
                 Need the full platform too? See Membership Management →
               </Link>
-              <Link href="/ymca-management-software" className="link">
-                Running a YMCA or community nonprofit? See the Y edition →
+              <Link href="/nonprofit-management-software" className="link">
+                Running a YMCA or community nonprofit? See nonprofit management →
               </Link>
               <Link href="/reduce-crm-licensing-costs" className="link">
                 Cut per-seat association software costs →

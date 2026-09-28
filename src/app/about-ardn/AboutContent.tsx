@@ -35,7 +35,7 @@ export default function AboutContent() {
                   Ardn") for explicit on-page relevance, while keeping the
                   Florida + dual-pillar framing. */}
               <h1 className="display reveal">About Ardn — a small Florida team. <em>Big experience.</em></h1>
-              <p className="lede reveal reveal-d2">Ardn Cloud Solutions is an Orlando-based development team. We build custom AI applications using our proprietary AI Forge Framework, ship a focused suite of Salesforce-native cloud products, and provide Salesforce consulting and managed services backed by 30+ years of expertise.</p>
+              <p className="lede reveal reveal-d2">Ardn Cloud Solutions is an Orlando-based development team. We build software products for specific industries, design custom software and AI with our AI Forge Framework, and run everything we build as a managed service, backed by 30+ years of technology and consulting experience.</p>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="#approach" className="btn btn-primary btn-lg btn-arrow">How we work</Link>
                 <Link href="#leadership" className="btn btn-secondary btn-lg">Meet the team</Link>
@@ -49,7 +49,7 @@ export default function AboutContent() {
                     Forge Framework brand. */}
                 <ul className="features mt-3">
                   <li>Orlando, FL · serving the US &amp; globally</li>
-                  <li>30+ years of Salesforce expertise</li>
+                  <li>30+ years of technology and consulting experience</li>
                   <li>6 products live in market — Cat 1 SF-native + Cat 2 AI-built</li>
                   <li>AI Forge Framework — production in 2–6 weeks</li>
                   <li>Same partners from first call through delivery</li>
@@ -67,12 +67,9 @@ export default function AboutContent() {
       <section className="section-tight">
         <div className="container">
           <div className="metric-row">
-            <div className="metric"><div className="number">30+</div><div className="label">years of combined Salesforce design, build, and deployment experience.</div></div>
+            <div className="metric"><div className="number">30+</div><div className="label">years of combined technology and consulting experience, from AI apps to enterprise platforms.</div></div>
             <div className="metric"><div className="number">100%</div><div className="label">customer-focused — every engagement measured against an outcome.</div></div>
-            {/* Stat updated: 6 products (added AI Forge). Framing now covers
-                both Salesforce-native AND AI-built / Salesforce-capable
-                product categories. */}
-            <div className="metric"><div className="number">6</div><div className="label">products in market — Salesforce-native and AI-built, Salesforce-capable.</div></div>
+            <div className="metric"><div className="number">4</div><div className="label">products built for specific industries, plus custom software for everything else.</div></div>
           </div>
         </div>
       </section>
@@ -162,7 +159,7 @@ export default function AboutContent() {
             <div className="card">
               <div className="card-num">02 / Consulting</div>
               <h3 className="h3">Salesforce &amp; AI strategy</h3>
-              <p className="body">30+ years of Salesforce expertise plus the AI Forge Framework. Implementation, license audits, integrations, managed services — and AI applications that work inside the systems you already run.</p>
+              <p className="body">30+ years of technology and consulting experience plus the AI Forge Framework. Implementation, license audits, integrations, managed services — and AI applications that work inside the systems you already run.</p>
             </div>
             <div className="card">
               <div className="card-num">03 / Custom builds</div>

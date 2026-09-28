@@ -15,7 +15,7 @@ import LeadForm from "@/components/common/LeadForm";
 //
 // Keyword split (deliberate, 2026-08): this page OWNS "membership management
 // software/platform", gym/studio/club terms. It CEDES all YMCA terms to
-// /ymca-management-software — do not re-add "YMCA membership software" here.
+// /nonprofit-management-software — do not re-add "YMCA membership software" here.
 // Golf / country / private club terms belong to /golf-club-management-software
 // (Club Steward) — keep them off this page too.
 //
@@ -696,8 +696,8 @@ export default function MembershipManagementPage() {
                 flexWrap: "wrap",
               }}
             >
-              <Link href="/ymca-management-software" className="link">
-                Running a YMCA, JCC, or community center? See the Y edition →
+              <Link href="/nonprofit-management-software" className="link">
+                Running a YMCA, JCC, or community center? See nonprofit management →
               </Link>
               <Link href="/golf-club-management-software" className="link">
                 Running golf or country clubs? See Club Steward →
@@ -795,7 +795,7 @@ export default function MembershipManagementPage() {
               </div>
               <p style={{ marginTop: "20px" }}>
                 <Link
-                  href="/ymca-management-software"
+                  href="/nonprofit-management-software"
                   style={{
                     color: "rgba(255,255,255,0.78)",
                     textDecoration: "underline",
