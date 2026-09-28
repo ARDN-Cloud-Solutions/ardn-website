@@ -1,0 +1,1665 @@
+/* ============================================================
+   Product page kit — shared by every product/service page.
+   Generated from the Club Steward page (golf.css) with colours turned into
+   tokens: --pp-accent (primary, e.g. gold), --pp-accent-2 (secondary, e.g.
+   turf) and their -rgb/-soft/-ink variants. Scoped under .pp.
+   ============================================================ */
+
+
+.pp {
+  /* Accent tokens — set per product via ProductPage's `theme`. Defaults are
+     Club Steward's gold + turf. */
+  --pp-accent: #d4b25a;
+  --pp-accent-soft: #e8ce8f;
+  --pp-accent-rgb: 212, 178, 90;
+  --pp-accent-ink: #241c07;
+  --pp-accent-2: #0f9870;
+  --pp-accent-2-deep: #073d2e;
+  --pp-accent-2-rgb: 15, 152, 112;
+  --ink-0: #050b16;
+  --ink-1: #0a1226;
+  --ink-2: #111a33;
+
+  background: var(--paper);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+.pp *,
+.pp *::before,
+.pp *::after {
+  box-sizing: border-box;
+}
+
+/* The site header is sticky — keep in-page anchor jumps from landing
+   underneath it. */
+.pp [id] {
+  scroll-margin-top: 110px;
+}
+
+/* ---------------- shared section furniture ---------------- */
+
+.pp .pp-section {
+  padding: clamp(72px, 9vw, 130px) 0;
+  position: relative;
+}
+
+.pp .pp-canvas {
+  background: var(--canvas);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.pp .pp-narrow {
+  max-width: 860px;
+}
+
+.pp .pp-head {
+  max-width: 760px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.pp .pp-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pp-accent-2);
+  margin-bottom: 18px;
+}
+
+.pp .pp-kicker::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--pp-accent), var(--pp-accent-2));
+}
+
+.pp .pp-kicker.pp-on-dark {
+  color: var(--pp-accent-soft);
+}
+
+.pp .pp-h2 {
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
+.pp .pp-dark .pp-h2 {
+  color: #fff;
+}
+
+.pp .pp-sub {
+  margin-top: 20px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.pp .pp-sub.pp-on-dark {
+  color: rgba(226, 232, 248, 0.76);
+}
+
+/* ---------------- buttons ---------------- */
+
+.pp .pp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease, border-color 0.18s ease;
+}
+
+.pp .pp-btn-gold {
+  background: linear-gradient(135deg, var(--pp-accent-soft), var(--pp-accent));
+  color: var(--pp-accent-ink);
+  box-shadow: 0 10px 30px rgba(var(--pp-accent-rgb), 0.32);
+}
+
+.pp .pp-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(var(--pp-accent-rgb), 0.45);
+}
+
+.pp .pp-btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.pp .pp-btn-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.pp .pp-section .pp-btn-ghost {
+  color: var(--navy);
+  border-color: var(--line-2);
+  background: #fff;
+}
+
+.pp .pp-section .pp-btn-ghost:hover {
+  border-color: var(--navy);
+}
+
+.pp .pp-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.pp .pp-ctas-center {
+  justify-content: center;
+}
+
+/* ---------------- hero ---------------- */
+
+.pp .pp-hero {
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(
+      120% 90% at 82% 8%,
+      rgba(72, 64, 224, 0.5) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 80% at 6% 92%,
+      rgba(var(--pp-accent-2-rgb), 0.42) 0%,
+      transparent 58%
+    ),
+    linear-gradient(168deg, var(--ink-1) 0%, var(--ink-0) 58%, #07100c 100%);
+  color: #eef1fb;
+  padding: clamp(110px, 15vw, 180px) 0 clamp(80px, 10vw, 128px);
+  border-bottom: 1px solid rgba(var(--pp-accent-rgb), 0.22);
+}
+
+.pp .pp-hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    60% 50% at 50% 0%,
+    rgba(var(--pp-accent-rgb), 0.16) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.pp .pp-hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.028) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    70% 60% at 50% 40%,
+    #000 0%,
+    transparent 100%
+  );
+}
+
+.pp .pp-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.pp .pp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 16px 7px 13px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--pp-accent-soft);
+  background: rgba(var(--pp-accent-rgb), 0.1);
+  border: 1px solid rgba(var(--pp-accent-rgb), 0.3);
+}
+
+.pp .pp-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pp-accent);
+  box-shadow: 0 0 12px var(--pp-accent);
+}
+
+.pp .pp-display {
+  margin: 26px 0 0;
+  font-size: clamp(38px, 5.6vw, 70px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  color: #fff;
+}
+
+.pp .pp-display em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(100deg, var(--pp-accent-soft), var(--pp-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pp .pp-display-sm {
+  font-size: clamp(30px, 4.2vw, 52px);
+}
+
+.pp .pp-lede {
+  margin-top: 26px;
+  font-size: clamp(16px, 1.45vw, 19px);
+  line-height: 1.66;
+  color: rgba(226, 232, 248, 0.8);
+  max-width: 60ch;
+}
+
+.pp .pp-hero-proof {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+}
+
+.pp .pp-hero-proof li {
+  position: relative;
+  padding-left: 25px;
+  font-size: 13.5px;
+  color: rgba(226, 232, 248, 0.66);
+}
+
+.pp .pp-hero-proof li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(var(--pp-accent-2-rgb), 0.18);
+  border: 1px solid rgba(var(--pp-accent-2-rgb), 0.62);
+}
+
+.pp .pp-hero-proof li::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 6px;
+  height: 3px;
+  border-left: 1.5px solid #7ee8c0;
+  border-bottom: 1.5px solid #7ee8c0;
+  transform: translateY(-70%) rotate(-45deg);
+}
+
+/* ---------------- hero mock ---------------- */
+
+.pp .pp-hero-visual {
+  perspective: 1400px;
+}
+
+.pp .pp-mock {
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(12, 19, 40, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(var(--pp-accent-rgb), 0.1) inset;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  transform: rotateY(-7deg) rotateX(3deg);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pp .pp-hero-visual:hover .pp-mock {
+  transform: rotateY(-2deg) rotateX(1deg) translateY(-6px);
+}
+
+.pp .pp-mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.045);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pp .pp-mock-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pp .pp-mock-url {
+  margin-left: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: rgba(226, 232, 248, 0.45);
+}
+
+.pp .pp-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+.pp .pp-chip-gold {
+  color: #f0e0b8;
+  background: rgba(var(--pp-accent-rgb), 0.16);
+  border: 1px solid rgba(var(--pp-accent-rgb), 0.4);
+  margin-left: 8px;
+}
+
+/* ---------------- pains ---------------- */
+
+.pp .pp-pains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.pp .pp-pain {
+  padding: 24px 22px;
+  border-radius: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pp .pp-pain:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.pp .pp-pain-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 11px;
+}
+
+.pp .pp-pain p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: var(--navy);
+}
+
+/* ---------------- calculator ---------------- */
+
+/* readout */
+
+.pp .pp-footnote {
+  margin-top: 18px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--slate-2);
+}
+
+/* ---------------- chart ---------------- */
+
+/* ---------------- capability cards ---------------- */
+
+.pp .pp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 18px;
+}
+
+.pp .pp-card {
+  position: relative;
+  padding: 30px 26px 28px;
+  border-radius: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pp .pp-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--indigo), var(--pp-accent-2), var(--pp-accent));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.pp .pp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--line-2);
+}
+
+.pp .pp-card:hover::before {
+  opacity: 1;
+}
+
+
+.pp .pp-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.pp .pp-card p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--slate);
+}
+
+/* ---------------- dark split / portal ---------------- */
+
+.pp .pp-dark {
+  background: radial-gradient(
+      100% 90% at 10% 0%,
+      rgba(var(--pp-accent-2-rgb), 0.2) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 80% at 95% 100%,
+      rgba(72, 64, 224, 0.34) 0%,
+      transparent 58%
+    ),
+    linear-gradient(160deg, var(--ink-1), var(--ink-0));
+  color: #eef1fb;
+}
+
+.pp .pp-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+
+.pp .pp-dark .pp-split {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.pp .pp-split .pp-head {
+  margin-bottom: 0;
+}
+
+.pp .pp-ticks {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0;
+}
+
+.pp .pp-ticks li {
+  position: relative;
+  padding: 13px 0 13px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(226, 232, 248, 0.84);
+}
+
+.pp .pp-ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 13px;
+  height: 7px;
+  border-left: 2px solid var(--pp-accent);
+  border-bottom: 2px solid var(--pp-accent);
+  transform: rotate(-45deg);
+}
+
+/* ---------------- on-property ---------------- */
+
+.pp .pp-onprop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.pp .pp-onprop article {
+  padding: 28px 26px;
+  border-radius: 16px;
+  background: var(--canvas);
+  border: 1px solid var(--line);
+}
+
+.pp .pp-onprop h3 {
+  margin: 0 0 11px;
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--navy);
+}
+
+.pp .pp-onprop p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--slate);
+}
+
+.pp .pp-onprop-note {
+  margin-top: 26px;
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: rgba(72, 64, 224, 0.05);
+  border: 1px solid rgba(72, 64, 224, 0.16);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+/* ---------------- comparison table ---------------- */
+
+/* ---------------- steps ---------------- */
+
+.pp .pp-steps {
+  list-style: none;
+  counter-reset: gcstep;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 20px;
+}
+
+.pp .pp-steps li {
+  position: relative;
+  padding: 30px 24px 26px;
+  border-radius: 16px;
+  background: var(--canvas);
+  border: 1px solid var(--line);
+}
+
+.pp .pp-step-n {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pp-accent-ink);
+  background: linear-gradient(135deg, var(--pp-accent-soft), var(--pp-accent));
+  margin-bottom: 16px;
+}
+
+.pp .pp-steps h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--navy);
+}
+
+.pp .pp-steps p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--slate);
+}
+
+/* ---------------- faq ---------------- */
+
+.pp .pp-faqs {
+  border-top: 1px solid var(--line-2);
+}
+
+.pp .pp-faq {
+  border-bottom: 1px solid var(--line-2);
+}
+
+.pp .pp-faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 44px 22px 0;
+  position: relative;
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--navy);
+  transition: color 0.15s ease;
+}
+
+.pp .pp-faq summary:hover {
+  color: var(--indigo);
+}
+
+.pp .pp-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.pp .pp-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--pp-accent);
+  line-height: 1;
+}
+
+.pp .pp-faq[open] summary::after {
+  content: "−";
+}
+
+.pp .pp-faq-a {
+  padding: 0 44px 26px 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--slate);
+}
+
+/* ---------------- final cta ---------------- */
+
+.pp .pp-final {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  padding: clamp(80px, 11vw, 140px) 0;
+  color: #fff;
+  background: radial-gradient(
+      100% 120% at 50% 0%,
+      rgba(72, 64, 224, 0.5) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      80% 90% at 50% 100%,
+      rgba(var(--pp-accent-2-rgb), 0.34) 0%,
+      transparent 62%
+    ),
+    linear-gradient(170deg, var(--ink-1), var(--ink-0));
+}
+
+.pp .pp-final .pp-lede {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pp .pp-final-links {
+  margin-top: 44px;
+  font-size: 13px;
+  color: rgba(226, 232, 248, 0.46);
+}
+
+.pp .pp-final-links a {
+  color: rgba(226, 232, 248, 0.78);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pp .pp-final-links a:hover {
+  color: var(--pp-accent-soft);
+}
+
+/* ---------------- real screenshots in browser chrome ---------------- */
+
+/* Reuses the .pp-mock frame; the flat variant drops the 3D tilt for
+   in-page screenshots so only the hero leans. */
+.pp .pp-shot-flat {
+  transform: none;
+  background: var(--ink-1);
+  border-radius: 20px;
+  box-shadow: 0 50px 100px -30px rgba(10, 18, 38, 0.45),
+    0 24px 48px -24px rgba(10, 18, 38, 0.3),
+    0 0 0 1px rgba(var(--pp-accent-rgb), 0.14) inset;
+}
+
+/* Screenshots are captured on a pale UI; a light lift keeps them from
+   reading washed out against the page. */
+.pp .pp-shot-img,
+.pp .pp-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(1.12) contrast(1.04);
+}
+
+.pp .pp-hero-caption {
+  margin: 18px 4px 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(226, 232, 248, 0.6);
+}
+
+/* ---------------- at-a-glance figures ---------------- */
+
+.pp .pp-figures-band {
+  padding: clamp(40px, 5vw, 64px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pp .pp-figures {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.pp .pp-figure-stat {
+  padding: 6px 0 6px 22px;
+  border-left: 2px solid;
+  border-image: linear-gradient(180deg, var(--pp-accent), var(--pp-accent-2)) 1;
+}
+
+.pp .pp-figure-stat b {
+  display: block;
+  font-size: clamp(38px, 4.4vw, 56px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--navy);
+}
+
+.pp .pp-figure-stat span {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--slate);
+  max-width: 26ch;
+}
+
+/* ---------------- promises (reuses .pp-onprop cards) ---------------- */
+
+.pp .pp-promises article {
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.pp .pp-promises {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pp .pp-onprop-stack {
+  grid-template-columns: 1fr;
+}
+
+/* .pp-split zeroes .pp-head's margin; this split stacks a screenshot
+   under the head, so it needs the gap back. */
+.pp .pp-split-top .pp-head {
+  margin-bottom: 36px;
+}
+
+.pp .pp-split-top {
+  align-items: start;
+}
+
+/* ---------------- product tour ---------------- */
+
+.pp .pp-tour {
+  display: grid;
+  gap: clamp(64px, 8vw, 112px);
+}
+
+/* Wider track for full-width screenshots. */
+.pp .pp-wide {
+  max-width: 1320px;
+}
+
+.pp .pp-tour-row {
+  display: grid;
+  gap: clamp(28px, 3.5vw, 44px);
+}
+
+.pp .pp-tour-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 4vw, 64px);
+  align-items: start;
+}
+
+.pp .pp-tour-copy > div > p {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.pp .pp-h3 {
+  margin: 0;
+  font-size: clamp(22px, 2.3vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.pp .pp-tour-copy .pp-h3 {
+  margin-top: 4px;
+}
+
+.pp .pp-ticks-light {
+  margin-top: 20px;
+}
+
+.pp .pp-ticks-light li {
+  padding: 10px 0 10px 30px;
+  color: var(--navy);
+  border-bottom-color: var(--line);
+}
+
+.pp .pp-ticks-light li::before {
+  top: 15px;
+  border-color: var(--pp-accent-2);
+}
+
+/* Gold chip on a light surface needs darker ink for contrast. */
+.pp .pp-kicker .pp-chip-gold {
+  color: #6b5210;
+  background: rgba(var(--pp-accent-rgb), 0.2);
+  border-color: rgba(var(--pp-accent-rgb), 0.55);
+  letter-spacing: 0.08em;
+}
+
+/* ---------------- mid-page CTA ---------------- */
+
+.pp .pp-inline-cta {
+  margin-top: clamp(64px, 8vw, 104px);
+  padding: 28px 32px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 32px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--ink-1), var(--ink-0));
+  border: 1px solid rgba(var(--pp-accent-rgb), 0.28);
+  box-shadow: 0 24px 60px rgba(10, 18, 38, 0.2);
+}
+
+.pp .pp-inline-cta p {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(226, 232, 248, 0.78);
+}
+
+.pp .pp-inline-cta strong {
+  color: #fff;
+}
+
+/* ---------------- screenshot gallery ---------------- */
+
+.pp .pp-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.pp .pp-gallery-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pp .pp-gallery-item {
+  margin: 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pp .pp-gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.pp .pp-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.pp .pp-gallery-item figcaption {
+  padding: 16px 6px 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
+.pp .pp-gallery-item strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: var(--navy);
+}
+
+/* H1 wraps the eyebrow pill and the display line. */
+.pp .pp-h1 {
+  margin: 0;
+  font: inherit;
+}
+
+.pp .pp-h1 .pp-display {
+  display: block;
+}
+
+/* ---------------- display serif ----------------
+   Cormorant Garamond (loaded in page.tsx as --pp-serif) for headlines only;
+   body copy stays in the site sans. It sets smaller than a grotesque at the
+   same size, so the display scale is bumped and tracking relaxed. */
+
+.pp .pp-display,
+.pp .pp-h2,
+.pp .pp-h3 {
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.pp .pp-display {
+  font-size: clamp(44px, 5vw, 70px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.pp .pp-display-sm {
+  font-size: clamp(36px, 4.8vw, 62px);
+}
+
+.pp .pp-h2 {
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+}
+
+.pp .pp-h3 {
+  font-size: clamp(27px, 2.7vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.pp .pp-figure-stat b {
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 5.2vw, 68px);
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* ---------------- icon chips (replace numbering and accent rails) ---------------- */
+
+.pp .pp-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  border-radius: 11px;
+  color: var(--pp-accent-2-deep);
+  background: linear-gradient(145deg, rgba(var(--pp-accent-2-rgb), 0.12), rgba(var(--pp-accent-rgb), 0.16));
+  border: 1px solid rgba(var(--pp-accent-2-rgb), 0.22);
+}
+
+/* ---------------- hero stat card ---------------- */
+
+.pp .pp-hero-visual {
+  position: relative;
+}
+
+/* Desktop: let the dashboard run off the right edge so it reads large.
+   .pp clips horizontal overflow, so this never causes a sideways scroll. */
+@media (min-width: 1041px) {
+  .pp .pp-hero-visual {
+    margin-right: calc(-1 * min(16vw, 260px));
+  }
+
+  .pp .pp-hero-caption {
+    max-width: 52ch;
+  }
+}
+
+.pp .pp-hero-float {
+  position: absolute;
+  left: -28px;
+  bottom: 64px;
+  padding: 16px 20px 18px;
+  border-radius: 16px;
+  background: rgba(10, 18, 38, 0.72);
+  border: 1px solid rgba(var(--pp-accent-rgb), 0.34);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  color: #eef1fb;
+}
+
+.pp .pp-float-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pp-accent-soft);
+}
+
+.pp .pp-float-row {
+  display: flex;
+  gap: 26px;
+  margin-top: 12px;
+}
+
+.pp .pp-float-row b {
+  display: block;
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: #fff;
+}
+
+.pp .pp-float-row span {
+  display: block;
+  margin-top: 6px;
+  max-width: 15ch;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(226, 232, 248, 0.66);
+}
+
+/* ---------------- switching without risk ---------------- */
+
+.pp .pp-switch {
+  margin-top: clamp(72px, 9vw, 120px);
+  padding-top: clamp(56px, 7vw, 88px);
+  border-top: 1px solid var(--line);
+}
+
+/* ---------------- executive brief ---------------- */
+
+.pp .pp-brief {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 480px);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.pp .pp-brief-copy {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 40px;
+  align-items: end;
+}
+
+/* Kicker and headline span the row; the paragraph and cover share the
+   row beneath, so the headline never gets squeezed. */
+.pp .pp-brief-copy > .pp-kicker,
+.pp .pp-brief-copy > .pp-h2 {
+  grid-column: 1 / -1;
+}
+
+.pp .pp-brief-copy > .pp-sub {
+  grid-column: 1;
+  align-self: start;
+}
+
+.pp .pp-brief-cover {
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: 28px;
+  width: 240px;
+  height: auto;
+  border-radius: 8px;
+  transform: rotate(3deg);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(var(--pp-accent-rgb), 0.25);
+}
+
+.pp .pp-brief-form,
+.pp .pp-brief-done {
+  display: grid;
+  gap: 18px;
+  padding: clamp(24px, 3vw, 34px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(var(--pp-accent-rgb), 0.28);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+.pp .pp-brief-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pp .pp-brief-fields label {
+  display: grid;
+  gap: 7px;
+}
+
+.pp .pp-brief-fields span {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(226, 232, 248, 0.72);
+}
+
+.pp .pp-brief-fields input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(5, 11, 22, 0.55);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+}
+
+.pp .pp-brief-fields input::placeholder {
+  color: rgba(226, 232, 248, 0.35);
+}
+
+.pp .pp-brief-fields input:focus-visible {
+  outline: 2px solid var(--pp-accent);
+  outline-offset: 1px;
+}
+
+.pp .pp-brief-form .pp-btn,
+.pp .pp-brief-done .pp-btn {
+  width: 100%;
+}
+
+.pp .pp-brief-error {
+  margin: 0;
+  font-size: 14px;
+  color: #fca5a5;
+}
+
+.pp .pp-brief-fine {
+  margin: 0;
+  font-size: 12.5px;
+  text-align: center;
+  color: rgba(226, 232, 248, 0.5);
+}
+
+.pp .pp-brief-done p {
+  margin: 0;
+  color: rgba(226, 232, 248, 0.75);
+}
+
+.pp .pp-brief-done .pp-brief-done-title {
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ---------------- walkthrough video ---------------- */
+
+.pp .pp-video-dialog {
+  /* The site reset zeroes margins; a modal dialog centres via auto margins. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  width: min(1180px, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.pp .pp-video-dialog::backdrop {
+  background: rgba(5, 11, 22, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.pp .pp-video-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(var(--pp-accent-rgb), 0.3);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+}
+
+.pp .pp-video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.pp .pp-video-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(5, 11, 22, 0.7);
+  color: #fff;
+  cursor: pointer;
+}
+
+.pp .pp-video-close:focus-visible,
+.pp .pp-btn:focus-visible {
+  outline: 2px solid var(--pp-accent);
+  outline-offset: 3px;
+}
+
+/* ---------------- walkthrough triggers ---------------- */
+
+/* Solid light button: the hero's second CTA, readable on the dark hero. */
+.pp .pp-btn-light {
+  background: #fff;
+  color: var(--ink-1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pp .pp-btn-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+}
+
+.pp .pp-play-dot {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--pp-accent-ink);
+  background: linear-gradient(135deg, var(--pp-accent-soft), var(--pp-accent));
+}
+
+.pp .pp-play-dot svg {
+  margin-left: 2px;
+}
+
+.pp .pp-hero-shot {
+  position: relative;
+}
+
+.pp .pp-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  border: 0;
+  border-radius: 18px;
+  background: radial-gradient(60% 60% at 50% 48%, rgba(5, 11, 22, 0.45), rgba(5, 11, 22, 0.05));
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.pp .pp-play-overlay:hover {
+  background: radial-gradient(60% 60% at 50% 48%, rgba(5, 11, 22, 0.6), rgba(5, 11, 22, 0.12));
+}
+
+.pp .pp-play-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  color: var(--pp-accent-ink);
+  background: linear-gradient(135deg, var(--pp-accent-soft), var(--pp-accent));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), 0 0 0 10px rgba(var(--pp-accent-rgb), 0.22);
+  transition: transform 0.25s ease;
+}
+
+.pp .pp-play-ring svg {
+  margin-left: 5px;
+}
+
+.pp .pp-play-ring::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px solid rgba(232, 206, 143, 0.7);
+  animation: pp-pulse 2.4s ease-out infinite;
+}
+
+.pp .pp-play-overlay:hover .pp-play-ring {
+  transform: scale(1.07);
+}
+
+@keyframes pp-pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+.pp .pp-play-label {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: rgba(5, 11, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pp .pp-play-overlay:focus-visible {
+  outline: 2px solid var(--pp-accent);
+  outline-offset: 4px;
+}
+
+.pp .pp-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width: 1040px) {
+  .pp .pp-tour-copy,
+  .pp .pp-dark .pp-split {
+    grid-template-columns: 1fr;
+  }
+
+  .pp .pp-figures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1040px) {
+  .pp .pp-brief {
+    grid-template-columns: 1fr;
+  }
+
+  .pp .pp-hero-float {
+    left: 16px;
+    bottom: 76px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pp .pp-brief-fields,
+  .pp .pp-brief-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .pp .pp-brief-cover {
+    grid-column: 1;
+    grid-row: auto;
+    width: 180px;
+    margin-top: 28px;
+  }
+
+  .pp .pp-hero-float {
+    position: static;
+    margin-top: 16px;
+  }
+
+  .pp .pp-gallery,
+  .pp .pp-gallery-2,
+  .pp .pp-promises {
+    grid-template-columns: 1fr;
+  }
+
+  .pp .pp-figures {
+    gap: 28px 16px;
+  }
+
+  .pp .pp-figure-stat {
+    padding-left: 14px;
+  }
+}
+
+
+
+@media (max-width: 1040px) {
+  .pp .pp-hero-grid,
+  .pp .pp-split {
+    grid-template-columns: 1fr;
+  }
+
+  .pp .pp-mock {
+    transform: none;
+  }
+
+  .pp .pp-hero-visual:hover .pp-mock {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 640px) {
+  .pp .pp-hero {
+    padding-top: 96px;
+  }
+
+  .pp .pp-ctas .pp-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp *,
+  .pp *::before,
+  .pp *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .pp .pp-mock {
+    transform: none;
+  }
+}
+
+/* ---------------- kit additions ---------------- */
+
+.pp .pp-sample-note {
+  margin-top: 28px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--slate-2);
+}
+
+/* ---------------- comparison table ---------------- */
+
+.pp .pp-compare-wrap {
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.pp .pp-compare {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.pp .pp-compare th,
+.pp .pp-compare td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.pp .pp-compare thead th {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate-2);
+  background: var(--canvas);
+}
+
+.pp .pp-compare tbody th {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.pp .pp-compare td {
+  color: var(--slate);
+}
+
+.pp .pp-compare .is-ours {
+  background: rgba(var(--pp-accent-2-rgb), 0.07);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.pp .pp-compare thead .is-ours {
+  color: var(--pp-accent-2);
+}
+
+.pp .pp-compare tbody tr:last-child th,
+.pp .pp-compare tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------------- pricing plans ---------------- */
+
+.pp .pp-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.pp .pp-plan {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 30px 26px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eef1fb;
+}
+
+.pp .pp-plan.is-featured {
+  background: rgba(var(--pp-accent-rgb), 0.08);
+  border-color: rgba(var(--pp-accent-rgb), 0.5);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.pp .pp-plan-flag {
+  position: absolute;
+  top: -12px;
+  left: 26px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pp-accent-ink);
+  background: linear-gradient(135deg, var(--pp-accent-soft), var(--pp-accent));
+}
+
+.pp .pp-plan h3 {
+  margin: 0;
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.pp .pp-plan-for {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(226, 232, 248, 0.72);
+}
+
+.pp .pp-plan-price b {
+  display: block;
+  font-family: var(--pp-serif), "Cormorant Garamond", Georgia, serif;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--pp-accent-soft);
+  font-variant-numeric: lining-nums;
+}
+
+.pp .pp-plan-price span {
+  font-size: 13px;
+  color: rgba(226, 232, 248, 0.66);
+}
+
+.pp .pp-plan-extra {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.pp .pp-plan .pp-ticks {
+  margin-top: 4px;
+}
+
+.pp .pp-plan .pp-btn {
+  width: 100%;
+}
+
+.pp .pp-plan-note {
+  margin-top: 26px;
+  font-size: 13.5px;
+  text-align: center;
+  color: rgba(226, 232, 248, 0.62);
+}
+
+@media (max-width: 1040px) {
+  .pp .pp-plans {
+    grid-template-columns: 1fr;
+  }
+}
