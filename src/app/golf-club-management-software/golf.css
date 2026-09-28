@@ -970,6 +970,16 @@
   color: var(--navy);
 }
 
+/* H1 wraps the eyebrow pill and the display line. */
+.gc .gc-h1 {
+  margin: 0;
+  font: inherit;
+}
+
+.gc .gc-h1 .gc-display {
+  display: block;
+}
+
 /* ---------------- display serif ----------------
    Cormorant Garamond (loaded in page.tsx as --gc-serif) for headlines only;
    body copy stays in the site sans. It sets smaller than a grotesque at the
