@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BookingQualifierInline } from "@/components/booking/BookingQualifier";
 import toast from "react-hot-toast";
 import { Phone, ArrowRight, Check } from "lucide-react";
 import styles from "./contact-page.module.css";
@@ -372,14 +373,9 @@ export default function ContactPageContent() {
             </ul>
           </div>
           <div className={styles.calendlyEmbedWrap}>
-            {/* Calendly inline iframe — keeps the embed lightweight and
-                CSP-friendly without pulling in the Calendly JS widget. */}
-            <iframe
-              src="https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai?hide_event_type_details=0&hide_gdpr_banner=1"
-              title="Book a free strategy call with Ardn Cloud Solutions"
-              className={styles.calendlyIframe}
-              loading="lazy"
-            />
+            {/* Short intake first, then the Calendly embed with the
+                answers prefilled into the booking notes. */}
+            <BookingQualifierInline />
           </div>
         </div>
       </section>

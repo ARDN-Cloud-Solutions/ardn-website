@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCta from "@/components/layout/FloatingCta";
+import { BookingQualifierHost } from "@/components/booking/BookingQualifier";
 import { Toaster } from "react-hot-toast";
 
 const publicSans = Public_Sans({
@@ -206,6 +207,7 @@ export default function RootLayout({
             page except /contact-us. Drives Calendly bookings without requiring
             users to scroll back to the header. */}
         <FloatingCta />
+        <BookingQualifierHost />
         <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { borderRadius: '10px', padding: '16px 24px', fontSize: '14px', fontWeight: 500, color: '#1e293b', backgroundColor: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' } }} />
       </body>
     </html>
