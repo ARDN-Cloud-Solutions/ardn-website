@@ -6,11 +6,11 @@
 // keep payments capability-framed.
 export const FAQS = [
   {
-    q: "What is Clubhouse360?",
-    a: "Clubhouse360 is golf and country club management software from Ardn Cloud Solutions, a software company based in Orlando, Florida. It runs a multi-club operation on one platform and one member record: club websites and online join, membership sales, e-signed contracts, dues and payments, onboarding, the member portal and golf app, benefits and reciprocal access, the tee sheet and carts, the pro shop, events, and reporting from a single club up to the whole portfolio.",
+    q: "What is Club Steward?",
+    a: "Club Steward is golf and country club management software from Ardn Cloud Solutions, a software company based in Orlando, Florida. It runs a multi-club operation on one platform and one member record: club websites and online join, membership sales, e-signed contracts, dues and payments, onboarding, the member portal and golf app, benefits and reciprocal access, the tee sheet and carts, the pro shop, events, and reporting from a single club up to the whole portfolio.",
   },
   {
-    q: "Who is Clubhouse360 built for?",
+    q: "Who is Club Steward built for?",
     a: "Operators who run many golf and country clubs — ownership groups, management companies and multi-club portfolios. It was designed from day one around a portfolio: every club gets its own branded website and settings, while corporate, regional VPs and general managers each see the same reports automatically scoped to the clubs they are responsible for. A single club runs on exactly the same platform.",
   },
   {
@@ -19,7 +19,7 @@ export const FAQS = [
   },
   {
     q: "Do we still need a separate CRM, website agency or e-signature tool?",
-    a: "No. The membership sales desk (lead pool, pipeline, tours, product builder and approvals), each club's website and online join, and contracts with built-in e-signature are all part of Clubhouse360 and share one member record. A website visitor can go from choosing a plan to a signed, paid, active membership without talking to anyone — or a Membership Director can close the same deal in person on a tablet.",
+    a: "No. The membership sales desk (lead pool, pipeline, tours, product builder and approvals), each club's website and online join, and contracts with built-in e-signature are all part of Club Steward and share one member record. A website visitor can go from choosing a plan to a signed, paid, active membership without talking to anyone — or a Membership Director can close the same deal in person on a tablet.",
   },
   {
     q: "How are dues and payments handled?",
@@ -27,7 +27,7 @@ export const FAQS = [
   },
   {
     q: "Does it include accounting?",
-    a: "A full general ledger, accounts receivable and payable, bank reconciliation, budgets, period close and financial statements are in Preview: the interface is complete and the accounting engine is being merged into the platform. Every charge in Clubhouse360 already carries its general-ledger account, department, revenue centre and club, so the ledger is fed by the club rather than re-keyed from it.",
+    a: "A full general ledger, accounts receivable and payable, bank reconciliation, budgets, period close and financial statements are in Preview: the interface is complete and the accounting engine is being merged into the platform. Every charge in Club Steward already carries its general-ledger account, department, revenue centre and club, so the ledger is fed by the club rather than re-keyed from it.",
   },
   {
     q: "What about point of sale and court booking?",
@@ -39,6 +39,6 @@ export const FAQS = [
   },
   {
     q: "Will our club websites lose their search rankings?",
-    a: "Clubhouse360 sets up permanent redirects from each club's old web addresses so existing rankings carry over. Each club's site is then managed without an agency: a block-based page editor, menus, media, and brand and theme settings, with editing and publishing as separate permissions so a GM can edit without publishing.",
+    a: "Club Steward sets up permanent redirects from each club's old web addresses so existing rankings carry over. Each club's site is then managed without an agency: a block-based page editor, menus, media, and brand and theme settings, with editing and publishing as separate permissions so a GM can edit without publishing.",
   },
 ];

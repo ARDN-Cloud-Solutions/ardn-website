@@ -5,18 +5,18 @@ import { FAQS } from "./faqs";
 import "./golf.css";
 
 /**
- * /golf-club-management-software — Clubhouse360, the golf & country club
+ * /golf-club-management-software — Club Steward, the golf & country club
  * vertical page.
  *
  * Slug chosen for the highest-intent commercial query a club GM/COO actually
  * searches. Cross-linked from the footer Solutions column and the sitemap.
  *
- * Product truth for every claim: the Clubhouse360 Marketing Kit (2026-09-25)
+ * Product truth for every claim: the Club Steward Marketing Kit (2026-09-25)
  * and its INTERNAL claims guardrails — see the header comment in
  * GolfClubContent before changing copy. No client names or client metrics.
  */
 
-// Display serif for headlines only — the same family Clubhouse360's member
+// Display serif for headlines only — the same family Club Steward's member
 // portal uses, so the marketing page reads like the product. Scoped to this
 // page via a CSS variable consumed in golf.css.
 const serif = Cormorant_Garamond({
@@ -28,7 +28,7 @@ const serif = Cormorant_Garamond({
 });
 
 const URL = "https://ardncloudsolutions.com/golf-club-management-software";
-const TITLE = "Golf & Country Club Management Software | Clubhouse360";
+const TITLE = "Golf & Country Club Management Software | Club Steward";
 const DESC =
   "Golf and country club management software for multi-club operators: websites, online join, sales, e-signed contracts, dues, tee sheet and pro shop in one.";
 
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "tee sheet software",
     "reciprocal club access software",
     "club dues billing software",
-    "Clubhouse360",
+    "Club Steward",
   ],
   alternates: {
     canonical: URL,
@@ -57,17 +57,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Clubhouse360 — Every club in your portfolio, one member record",
+    title: "Club Steward — Every club in your portfolio, one member record",
     description:
       "One platform for multi-club golf and country club operators, from the first website visit to the 18th green: websites, join, sales, contracts, dues, tee sheet, pro shop, events and reporting.",
     url: URL,
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/golf/og-clubhouse360.jpg",
+        url: "/images/golf/og-club-steward.jpg",
         width: 1200,
         height: 630,
-        alt: "Clubhouse360: every club in your portfolio, one member record",
+        alt: "Club Steward: every club in your portfolio, one member record",
       },
     ],
     locale: "en_US",
@@ -79,28 +79,31 @@ export const metadata: Metadata = {
     description:
       "Websites, online join, membership sales, contracts, dues, tee sheet, pro shop and reporting — one system for every club in your portfolio.",
     site: "@ardn_cloud_sol",
-    images: ["/images/golf/og-clubhouse360.jpg"],
+    images: ["/images/golf/og-club-steward.jpg"],
   },
 };
 
 // One connected graph: every node links by @id, and the provider is the
 // site-wide Organization from layout.tsx (#organization), so search engines
-// and AI answer engines resolve Clubhouse360 as an Ardn product. No `offers`:
+// and AI answer engines resolve Club Steward as an Ardn product. No `offers`:
 // pricing isn't decided, and nothing about price goes public until it is.
 const ORG = { "@id": "https://ardncloudsolutions.com/#organization" };
 const IMG = (f: string) => `https://ardncloudsolutions.com/images/golf/${f}.webp`;
 
 const VIDEO_TRANSCRIPT = [
-  "If you run more than one club, this is for you.",
-  "This is Clubhouse360. Every club in your portfolio, side by side. And the same view narrows itself to each regional VP and GM.",
-  "It starts on the club's own website. A prospect picks a plan, adds the family, signs, and pays, in six steps, without a phone call.",
-  "Every enquiry lands in a shared pool for your membership directors. If nobody claims it, it escalates. Nothing slips through.",
-  "Contracts are signed inside the platform, against the exact version they read. And no money moves until they do.",
-  "Benefits are real numbers, not bullet points. Rounds, guest passes, discounts, tracked across every club they can play.",
-  "Book a tee time, and the allowance comes down on its own. Rate grids, booking windows, and carts, all in one sheet.",
-  "Then you see what every round is worth. Utilization, average ticket, and revenue per available tee time.",
-  "And your members get one app, in their club's brand. Their card, their benefits, their bills, their tee times.",
-  "More clubs. Not more systems. Book a thirty-minute walkthrough.",
+  "Running more than one club? Meet Club Steward.",
+  "Six systems that never talk to each other, replaced by one platform and one member record.",
+  "See every club side by side. And every regional VP and GM sees exactly their slice.",
+  "Prospects join online in six steps. Signed, paid, and active, without a phone call.",
+  "Every enquiry gets claimed or escalated, and guest rounds turn into leads.",
+  "Contracts are e-signed in the platform, and no money moves until they are.",
+  "Dues run on autopay, with automatic retries that never charge twice.",
+  "Benefits follow members to every club, and each tee time draws down their allowance.",
+  "Know what every round is worth, right down to revenue per available tee time.",
+  "The pro shop sells online, and orders are waiting on the cart at tee time.",
+  "Every table is isolated per club, with over four hundred permissions you control.",
+  "And members get one app, in their own club's brand.",
+  "More clubs. Not more systems. Book a walkthrough, and ask us about pricing.",
 ].join(" ");
 
 const JSON_LD = {
@@ -132,8 +135,8 @@ const JSON_LD = {
     {
       "@type": "SoftwareApplication",
       "@id": `${URL}#software`,
-      name: "Clubhouse360",
-      alternateName: "Clubhouse360 by Ardn",
+      name: "Club Steward",
+      alternateName: "Club Steward by Ardn",
       description:
         "Golf and country club management software for multi-club operators: club websites, online join, membership sales CRM, e-signed contracts, dues and payments, onboarding, member portal and golf app, benefits and reciprocal access, tee sheet and carts, pro shop, events, and reporting on one member record.",
       applicationCategory: "BusinessApplication",
@@ -169,13 +172,13 @@ const JSON_LD = {
     {
       "@type": "VideoObject",
       "@id": `${URL}#video`,
-      name: "Clubhouse360 walkthrough",
+      name: "Club Steward walkthrough",
       description:
-        "A 1:23 walkthrough of Clubhouse360 on a sample multi-club portfolio, from the club website and online join to the tee sheet, golf performance and the member app.",
-      thumbnailUrl: "https://ardncloudsolutions.com/videos/clubhouse360-walkthrough-poster.webp",
-      contentUrl: "https://ardncloudsolutions.com/videos/clubhouse360-walkthrough.mp4",
+        "A 1:13 walkthrough of Club Steward on a sample multi-club portfolio: online join, membership sales, contracts, dues, cross-club benefits, the tee sheet, the pro shop, security and the member app.",
+      thumbnailUrl: "https://ardncloudsolutions.com/videos/club-steward-walkthrough-poster.webp",
+      contentUrl: "https://ardncloudsolutions.com/videos/club-steward-walkthrough.mp4",
       uploadDate: "2026-09-28",
-      duration: "PT1M23S",
+      duration: "PT1M13S",
       inLanguage: "en-US",
       transcript: VIDEO_TRANSCRIPT,
       publisher: ORG,

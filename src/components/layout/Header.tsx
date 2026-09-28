@@ -14,33 +14,65 @@ import {
   ArrowRight,
   MailOpen,
   Box,
+  Sparkles,
+  Code2,
+  LayoutDashboard,
+  Handshake,
+  MessagesSquare,
+  ShoppingBag,
+  CreditCard,
+  ShieldCheck,
+  Users,
+  HeartHandshake,
+  Flag,
+  type LucideIcon,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-const products = [
-  { label: "AI Forge", href: "/ai-forge" },
-  { label: "Custom Portal Development", href: "/custom-portal-development" },
-  { label: "Custom Partner Portal Development", href: "/custom-partner-portal-development" },
-  { label: "Custom Software Development", href: "/custom-software-development" },
+type ProductLink = {
+  label: string;
+  href: string;
+  blurb: string;
+  icon: LucideIcon;
+  tag?: string;
+};
+
+// Grouped by what the buyer is shopping for. The desktop menu shows the
+// groups as columns; the mobile drawer shows them as labelled sections.
+const productGroups: { title: string; items: ProductLink[] }[] = [
   {
-    label: "Storefronts: All-In-One ECommerce Solution",
-    href: "/storefronts",
+    title: "Custom software & AI",
+    items: [
+      { label: "AI Forge", href: "/ai-forge", blurb: "Custom AI apps, built and run for you", icon: Sparkles, tag: "Flagship" },
+      { label: "Custom Software Development", href: "/custom-software-development", blurb: "Software shaped around your workflow", icon: Code2 },
+      { label: "Custom Portal Development", href: "/custom-portal-development", blurb: "Customer and member portals", icon: LayoutDashboard },
+      { label: "Partner Portal Development", href: "/custom-partner-portal-development", blurb: "Portals for partners and resellers", icon: Handshake },
+      { label: "AI-Powered Support", href: "/ai-powered-support", blurb: "AI agents for routine customer queries", icon: MessagesSquare },
+    ],
   },
-  { label: "Salesforce Payments", href: "/salesforce-payments" },
-  { label: "License Guard", href: "/license-guard" },
-  { label: "AI-Powered Support", href: "/ai-powered-support" },
-  { label: "Membership Management", href: "/membership-management" },
-  { label: "YMCA Management Software", href: "/ymca-management-software" },
-  { label: "Golf & Country Club Software", href: "/golf-club-management-software" },
-  // { label: "Signup Dance Studio", href: "/signup-dance-studio" },
-  // { label: "Signup Fitness Studio", href: "/signup-fitness-studio" },
+  {
+    title: "Salesforce products",
+    items: [
+      { label: "Storefronts", href: "/storefronts", blurb: "Ecommerce native to Salesforce", icon: ShoppingBag },
+      { label: "Salesforce Payments", href: "/salesforce-payments", blurb: "Quote-to-cash inside Salesforce", icon: CreditCard },
+      { label: "License Guard", href: "/license-guard", blurb: "Find and reclaim unused licenses", icon: ShieldCheck },
+    ],
+  },
+  {
+    title: "Industry platforms",
+    items: [
+      { label: "Membership Management", href: "/membership-management", blurb: "Gyms, studios, clubs and associations", icon: Users },
+      { label: "YMCA Management Software", href: "/ymca-management-software", blurb: "Members and donors in one record", icon: HeartHandshake },
+      { label: "Club Steward", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
+    ],
+  },
 ];
 
 const navLinks = [
   { label: "Cut CRM Costs", href: "/reduce-crm-licensing-costs" },
-  { label: "Pricing", href: "/ai-forge#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Calculate Savings", href: "/savings-calculator" },
   { label: "About Ardn", href: "/about-ardn" },
   { label: "Blog", href: "/blog" },
@@ -61,6 +93,18 @@ export default function Header() {
   const router = useRouter();
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Hover intent: open at once, close after a short grace period so the
+  // pointer can travel from the trigger to the panel without it vanishing.
+  const openProducts = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setProductsOpen(true);
+  };
+  const closeProductsSoon = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setProductsOpen(false), 220);
+  };
 
   // Shadow on scroll
   useEffect(() => {
@@ -108,7 +152,10 @@ export default function Header() {
   // Close overlay on Escape
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSearchOpen(false);
+      if (e.key === "Escape") {
+        setSearchOpen(false);
+        setProductsOpen(false);
+      }
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
@@ -158,7 +205,7 @@ export default function Header() {
           className={`bg-white transition-shadow duration-300 ${scrolled ? "shadow-md" : "shadow-sm"
             }`}
         >
-          <div className="container flex items-center justify-between h-[72px] md:h-[80px] lg:h-[90px]">
+          <div className="container relative flex items-center justify-between h-[72px] md:h-[80px] lg:h-[90px]">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
@@ -173,44 +220,97 @@ export default function Header() {
 
             {/* ── Desktop right side: nav links + actions ── */}
             <div className="hidden lg:flex items-center gap-8 ml-auto">
-              {/* Our Products dropdown trigger */}
-              <div className="relative" ref={dropdownRef}>
-                                  
-                {/* BUTTON */}
+              {/* Our Products — grouped mega menu */}
+              <div
+                ref={dropdownRef}
+                onMouseEnter={openProducts}
+                onMouseLeave={closeProductsSoon}
+                onFocus={openProducts}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) closeProductsSoon();
+                }}
+              >
                 <Link
                   href="/our-products"
-                  onMouseEnter={() => setProductsOpen(true)}
                   className="flex items-center text-heading-dark gap-1.5 text-base font-poppins hover:text-primary transition-colors cursor-pointer"
                   aria-expanded={productsOpen}
                   aria-haspopup="true"
+                  aria-controls="products-menu"
                 >
                   Our Products
-                  {productsOpen ? (
-                    <ChevronUp size={16} />
-                  ) : (
-                    <ChevronDown size={16} />
-                  )}
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
+                  />
                 </Link>
 
-                {/* Dropdown */}
-                {productsOpen && (
-                  <div
-                    className="absolute left-0 top-full mt-8 w-[340px] bg-heading-dark shadow-2xl py-3 border border-white/5 z-50"
-                    onMouseLeave={() => setProductsOpen(false)}
-                  >
-                    {products.map((product) => (
+                <div
+                  id="products-menu"
+                  // Positioned against the nav container (not the trigger) and
+                  // centred in it, so the panel never runs off-screen at
+                  // narrower desktop widths.
+                  className={`absolute inset-x-0 top-full z-50 flex justify-center pt-2 transition-all duration-200 ${
+                    productsOpen
+                      ? "visible opacity-100 translate-y-0"
+                      : "invisible opacity-0 -translate-y-1 pointer-events-none"
+                  }`}
+                >
+                  <div className="w-[880px] max-w-[calc(100vw-48px)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_24px_60px_-12px_rgba(20,20,43,0.25)]">
+                    <div className="grid grid-cols-[1.25fr_1fr_1fr] gap-2 p-5">
+                      {productGroups.map((group) => (
+                        <div key={group.title}>
+                          <p className="px-3 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400 font-public-sans">
+                            {group.title}
+                          </p>
+                          <ul className="flex flex-col">
+                            {group.items.map((item) => (
+                              <li key={item.href}>
+                                <Link
+                                  href={item.href}
+                                  onClick={() => setProductsOpen(false)}
+                                  className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-50 focus-visible:bg-slate-50 focus-visible:outline-none"
+                                >
+                                  <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-slate-200 bg-white text-primary transition-colors group-hover:border-primary/40 group-hover:bg-primary group-hover:text-white">
+                                    <item.icon size={17} strokeWidth={1.9} />
+                                  </span>
+                                  <span className="min-w-0">
+                                    <span className="flex items-center gap-2 text-[14px] font-semibold leading-5 text-heading-dark font-poppins">
+                                      {item.label}
+                                      {item.tag && (
+                                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                                          {item.tag}
+                                        </span>
+                                      )}
+                                    </span>
+                                    <span className="mt-0.5 block text-[12.5px] leading-[1.35] text-slate-500 font-public-sans">
+                                      {item.blurb}
+                                    </span>
+                                  </span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/70 px-8 py-3.5">
                       <Link
-                        key={product.label}
-                        href={product.href}
+                        href="/our-products"
                         onClick={() => setProductsOpen(false)}
-                        className="group flex items-center gap-3 px-4 py-2 text-sm text-white/80 hover:text-white transition-all"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-heading-dark hover:text-primary font-poppins"
                       >
-                        <span className="w-0 group-hover:w-5 h-[2px] bg-white transition-all duration-300" />
-                        {product.label}
+                        See all products <ArrowRight size={14} />
                       </Link>
-                    ))}
+                      <Link
+                        href="/contact-us"
+                        onClick={() => setProductsOpen(false)}
+                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline font-poppins"
+                      >
+                        Not sure which fits? Book a free call <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Regular nav links */}
@@ -351,20 +451,35 @@ export default function Header() {
 
             {/* Product sub-items */}
             <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileProductsOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileProductsOpen ? "max-h-[1400px] opacity-100" : "max-h-0 opacity-0"
                 }`}
             >
-              <div className="pl-4 pb-3 flex flex-col gap-0.5">
-                {products.map((product) => (
-                  <Link
-                    key={product.label}
-                    href={product.href}
-                    onClick={() => setDrawerOpen(false)}
-                    className="block px-3 py-3 text-[13px] font-medium font-poppins text-heading-dark hover:text-primary hover:bg-slate-50 rounded-lg transition-colors"
-                  >
-                    {product.label}
-                  </Link>
+              <div className="pb-3 flex flex-col gap-4">
+                {productGroups.map((group) => (
+                  <div key={group.title}>
+                    <p className="px-3 pb-1 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-slate-400 font-public-sans">
+                      {group.title}
+                    </p>
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setDrawerOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13.5px] font-medium font-poppins text-heading-dark hover:text-primary hover:bg-slate-50 transition-colors"
+                      >
+                        <item.icon size={16} strokeWidth={1.9} className="flex-none text-primary" />
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 ))}
+                <Link
+                  href="/our-products"
+                  onClick={() => setDrawerOpen(false)}
+                  className="mx-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary font-poppins"
+                >
+                  See all products <ArrowRight size={14} />
+                </Link>
               </div>
             </div>
           </div>

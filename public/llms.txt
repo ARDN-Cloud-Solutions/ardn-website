@@ -14,13 +14,14 @@
 - [License Guard](https://ardncloudsolutions.com/license-guard): Salesforce-native tool that detects and reclaims unused Salesforce licenses, typically paying back its annual cost within a quarter.
 - [AI-Powered Support (ReplyCX)](https://ardncloudsolutions.com/ai-powered-support): No-code AI agents that automate roughly 70% of routine customer queries across WhatsApp, email, live chat, and social — in one inbox.
 - [Membership Management](https://ardncloudsolutions.com/membership-management): An all-in-one membership platform for gyms, studios, clubs, community centers, and associations — recurring billing, classes and programs, events, fundraising, marketing, and a branded member portal, for one flat monthly fee.
-- [Clubhouse360: Golf & Country Club Management Software](https://ardncloudsolutions.com/golf-club-management-software): Clubhouse360 is golf and country club management software for multi-club operators. One platform and one member record for club websites and online join, membership sales CRM, e-signed contracts, dues and payments (card and ACH), onboarding, member portal and golf app, benefits and reciprocal access across clubs, tee sheet and carts, pro shop, private events, and reporting scoped to club, region or corporate. Club-level data isolation is enforced in the database. Accounting is in preview.
+- [Club Steward: Golf & Country Club Management Software](https://ardncloudsolutions.com/golf-club-management-software): Club Steward is golf and country club management software for multi-club operators. One platform and one member record for club websites and online join, membership sales CRM, e-signed contracts, dues and payments (card and ACH), onboarding, member portal and golf app, benefits and reciprocal access across clubs, tee sheet and carts, pro shop, private events, and reporting scoped to club, region or corporate. Club-level data isolation is enforced in the database. Accounting is in preview.
 - [YMCA Management Software](https://ardncloudsolutions.com/ymca-management-software): Membership, billing, front-desk check-in, programs, and a full fundraising CRM for multi-branch YMCAs, JCCs, and community nonprofits — members and donors in one record, flat monthly fee (never a percentage of revenue), free pilot in the organization's own branding.
 
 ## Company
 
 - [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of combined Salesforce expertise.
 - [Our Products](https://ardncloudsolutions.com/our-products): Full product suite overview.
+- [Pricing](https://ardncloudsolutions.com/pricing): Request pricing for any Ardn product; replies within 4 business hours.
 - [Savings Calculator](https://ardncloudsolutions.com/savings-calculator): Estimate what you could save.
 - [Blog](https://ardncloudsolutions.com/blog): Articles and insights on AI and Salesforce.
 - [Contact](https://ardncloudsolutions.com/contact-us): Book a free 30-minute demo.

@@ -18,6 +18,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // One page to request pricing for every product (header "Pricing").
+        url: `${BASE_URL}/pricing`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/our-products`,
         lastModified: new Date(),
         changeFrequency: "monthly",
@@ -127,7 +134,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
-        // Vertical landing page — Clubhouse360, golf & country clubs.
+        // Vertical landing page — Club Steward, golf & country clubs.
         // Images and the walkthrough video are listed so Google Images and
         // video search can index them against this page.
         url: `${BASE_URL}/golf-club-management-software`,
@@ -140,12 +147,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
         ].map((f) => `${BASE_URL}/images/golf/${f}.webp`),
         videos: [
             {
-                title: "Clubhouse360 walkthrough",
-                thumbnail_loc: `${BASE_URL}/videos/clubhouse360-walkthrough-poster.webp`,
+                title: "Club Steward walkthrough",
+                thumbnail_loc: `${BASE_URL}/videos/club-steward-walkthrough-poster.webp`,
                 description:
-                    "A 1:23 walkthrough of Clubhouse360 golf and country club management software on a sample multi-club portfolio.",
-                content_loc: `${BASE_URL}/videos/clubhouse360-walkthrough.mp4`,
-                duration: 83,
+                    "A 1:13 walkthrough of Club Steward golf and country club management software on a sample multi-club portfolio.",
+                content_loc: `${BASE_URL}/videos/club-steward-walkthrough.mp4`,
+                duration: 73,
                 publication_date: "2026-09-28",
             },
         ],

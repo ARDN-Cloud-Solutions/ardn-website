@@ -17,7 +17,7 @@ import LeadForm from "@/components/common/LeadForm";
 // software/platform", gym/studio/club terms. It CEDES all YMCA terms to
 // /ymca-management-software — do not re-add "YMCA membership software" here.
 // Golf / country / private club terms belong to /golf-club-management-software
-// (Clubhouse360) — keep them off this page too.
+// (Club Steward) — keep them off this page too.
 //
 // Offer (owner-approved 2026-08-24): free pilot sandbox in the org's branding
 // + money-back guarantee. NOT promised: free migration, month-to-month terms.
@@ -700,7 +700,7 @@ export default function MembershipManagementPage() {
                 Running a YMCA, JCC, or community center? See the Y edition →
               </Link>
               <Link href="/golf-club-management-software" className="link">
-                Running golf or country clubs? See Clubhouse360 →
+                Running golf or country clubs? See Club Steward →
               </Link>
               <Link href="/ai-for-membership-organizations" className="link">
                 AI for membership organizations →
