@@ -322,12 +322,14 @@ function Shot({
   url,
   priority,
   tilt,
+  sizes = "(max-width: 1040px) 100vw, 60vw",
 }: {
   src: string;
   alt: string;
   url: string;
   priority?: boolean;
   tilt?: boolean;
+  sizes?: string;
 }) {
   return (
     <div className={tilt ? "gc-mock gc-shot" : "gc-mock gc-shot gc-shot-flat"}>
@@ -340,10 +342,11 @@ function Shot({
       <Image
         src={src}
         alt={alt}
-        width={1920}
-        height={1200}
+        width={2880}
+        height={1800}
         priority={priority}
-        sizes="(max-width: 900px) 100vw, 60vw"
+        quality={90}
+        sizes={sizes}
         className="gc-shot-img"
       />
     </div>
@@ -517,7 +520,7 @@ export default function GolfClubContent() {
           PRODUCT TOUR — real UI, alternating rows
           --------------------------------------------------------------- */}
       <section className="gc-section gc-canvas" id="tour">
-        <div className="container">
+        <div className="container gc-wide">
           <div className="gc-head">
             <span className="gc-kicker">See it, don&rsquo;t take our word</span>
             <h2 className="gc-h2">The real product, running a portfolio of clubs.</h2>
@@ -528,19 +531,28 @@ export default function GolfClubContent() {
           </div>
 
           <div className="gc-tour">
-            {TOUR.map((t, i) => (
-              <div className={i % 2 ? "gc-tour-row is-flip" : "gc-tour-row"} key={t.kicker}>
+            {TOUR.map((t) => (
+              <div className="gc-tour-row" key={t.kicker}>
                 <div className="gc-tour-copy">
-                  <span className="gc-kicker">{t.kicker}</span>
-                  <h3 className="gc-h3">{t.title}</h3>
-                  <p>{t.body}</p>
-                  <ul className="gc-ticks gc-ticks-light">
-                    {t.points.map((pt) => (
-                      <li key={pt}>{pt}</li>
-                    ))}
-                  </ul>
+                  <div>
+                    <span className="gc-kicker">{t.kicker}</span>
+                    <h3 className="gc-h3">{t.title}</h3>
+                  </div>
+                  <div>
+                    <p>{t.body}</p>
+                    <ul className="gc-ticks gc-ticks-light">
+                      {t.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <Shot src={t.img} alt={t.alt} url={t.url} />
+                <Shot
+                  src={t.img}
+                  alt={t.alt}
+                  url={t.url}
+                  sizes="(max-width: 1400px) 100vw, 1320px"
+                />
               </div>
             ))}
           </div>
@@ -592,6 +604,7 @@ export default function GolfClubContent() {
               src="/images/golf/member-home.webp"
               alt="Member portal home with digital membership card, plan details, benefits and quick actions"
               url="members.yourclub.com"
+              sizes="(max-width: 1040px) 100vw, 55vw"
             />
           </div>
         </div>
@@ -642,9 +655,10 @@ export default function GolfClubContent() {
                 <Image
                   src={g.img}
                   alt={g.alt}
-                  width={1920}
-                  height={1200}
-                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                  width={2880}
+                  height={1800}
+                  quality={90}
+                  sizes="(max-width: 700px) 100vw, 50vw"
                 />
                 <figcaption>
                   <strong>{g.title}</strong>
@@ -722,8 +736,9 @@ export default function GolfClubContent() {
               <Image
                 src="/images/golf/accounting-overview.webp"
                 alt="Accounting overview consolidated across all clubs, with revenue against budget, operating margin, cash and receivables"
-                width={1920}
-                height={1200}
+                width={2880}
+                height={1800}
+                quality={90}
                 sizes="(max-width: 700px) 100vw, 50vw"
               />
               <figcaption>
@@ -735,8 +750,9 @@ export default function GolfClubContent() {
               <Image
                 src="/images/golf/financial-statements.webp"
                 alt="Profit and loss by department with month columns against budget and prior year"
-                width={1920}
-                height={1200}
+                width={2880}
+                height={1800}
+                quality={90}
                 sizes="(max-width: 700px) 100vw, 50vw"
               />
               <figcaption>

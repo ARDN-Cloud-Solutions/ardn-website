@@ -127,6 +127,8 @@ const nextConfig: NextConfig = {
         ];
     },
     images: {
+        // 90 is used for full-resolution product screenshots (golf page).
+        qualities: [75, 90],
         remotePatterns: [
             {
                 protocol: "https",

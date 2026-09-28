@@ -220,7 +220,7 @@
 
 .gc .gc-hero-grid {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
@@ -516,6 +516,10 @@
   align-items: center;
 }
 
+.gc .gc-dark .gc-split {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
 .gc .gc-split .gc-head {
   margin-bottom: 0;
 }
@@ -738,14 +742,20 @@
 .gc .gc-shot-flat {
   transform: none;
   background: var(--ink-1);
-  box-shadow: 0 30px 70px rgba(10, 18, 38, 0.22),
-    0 0 0 1px rgba(212, 178, 90, 0.1) inset;
+  border-radius: 20px;
+  box-shadow: 0 50px 100px -30px rgba(10, 18, 38, 0.45),
+    0 24px 48px -24px rgba(10, 18, 38, 0.3),
+    0 0 0 1px rgba(212, 178, 90, 0.14) inset;
 }
 
-.gc .gc-shot-img {
+/* Screenshots are captured on a pale UI; a light lift keeps them from
+   reading washed out against the page. */
+.gc .gc-shot-img,
+.gc .gc-gallery-item img {
   display: block;
   width: 100%;
   height: auto;
+  filter: saturate(1.12) contrast(1.04);
 }
 
 .gc .gc-hero-caption {
@@ -824,15 +834,28 @@
   gap: clamp(64px, 8vw, 112px);
 }
 
-.gc .gc-tour-row {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
+/* Wider track for full-width screenshots. */
+.gc .gc-wide {
+  max-width: 1320px;
 }
 
-.gc .gc-tour-row.is-flip .gc-tour-copy {
-  order: 2;
+.gc .gc-tour-row {
+  display: grid;
+  gap: clamp(28px, 3.5vw, 44px);
+}
+
+.gc .gc-tour-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 4vw, 64px);
+  align-items: start;
+}
+
+.gc .gc-tour-copy > div > p {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--slate);
 }
 
 .gc .gc-h3 {
@@ -844,11 +867,8 @@
   color: var(--navy);
 }
 
-.gc .gc-tour-copy > p {
-  margin: 16px 0 0;
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--slate);
+.gc .gc-tour-copy .gc-h3 {
+  margin-top: 4px;
 }
 
 .gc .gc-ticks-light {
@@ -906,8 +926,8 @@
 
 .gc .gc-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
 
 .gc .gc-gallery-2 {
@@ -964,7 +984,7 @@
 }
 
 .gc .gc-display {
-  font-size: clamp(44px, 5.6vw, 76px);
+  font-size: clamp(44px, 5vw, 70px);
   line-height: 0.98;
   letter-spacing: -0.02em;
 }
@@ -1010,6 +1030,18 @@
 
 .gc .gc-hero-visual {
   position: relative;
+}
+
+/* Desktop: let the dashboard run off the right edge so it reads large.
+   .gc clips horizontal overflow, so this never causes a sideways scroll. */
+@media (min-width: 1041px) {
+  .gc .gc-hero-visual {
+    margin-right: calc(-1 * min(16vw, 260px));
+  }
+
+  .gc .gc-hero-caption {
+    max-width: 52ch;
+  }
 }
 
 .gc .gc-hero-float {
@@ -1065,16 +1097,12 @@
 /* ---------------- responsive ---------------- */
 
 @media (max-width: 1040px) {
-  .gc .gc-tour-row {
+  .gc .gc-tour-copy,
+  .gc .gc-dark .gc-split {
     grid-template-columns: 1fr;
   }
 
-  .gc .gc-tour-row.is-flip .gc-tour-copy {
-    order: 0;
-  }
-
-  .gc .gc-figures,
-  .gc .gc-gallery {
+  .gc .gc-figures {
     grid-template-columns: repeat(2, 1fr);
   }
 }
