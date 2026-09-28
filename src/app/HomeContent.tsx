@@ -54,7 +54,7 @@ const PRODUCTS = [
     points: ["Never a percentage of your revenue", "Check-in, programs and classes", "Donations, pledges and gift batches"],
     href: "/nonprofit-management-software",
     cta: "Explore Nonprofit Management",
-    img: "/images/membership/ops-overview.webp",
+    img: "/images/nonprofit/operations-overview-dashboard.webp",
     url: "Nonprofit Management · Operations",
     alt: "Nonprofit Management operations overview with members, revenue, donations and check-ins",
     accent: "#e58fb3",
@@ -78,7 +78,7 @@ const PRODUCTS = [
     points: ["Recurring billing built in", "Classes and attendance", "Branded member self-service"],
     href: "/membership-management",
     cta: "Explore Membership Management",
-    img: "/images/membership/classes.webp",
+    img: "/images/nonprofit/classes-calendar.webp",
     url: "Membership Management · Classes",
     alt: "Membership Management weekly class calendar across locations",
     accent: "#7cc4ff",
@@ -154,7 +154,7 @@ export default function HomeContent() {
                 <Image src="/images/ai-forge/claims-intake-assistant.webp" alt="" width={2880} height={1800} quality={85} sizes="40vw" />
               </div>
               <div className="hm-card hm-card-back2">
-                <Image src="/images/membership/ops-overview.webp" alt="" width={1920} height={1200} quality={85} sizes="40vw" />
+                <Image src="/images/nonprofit/operations-overview-dashboard.webp" alt="" width={2880} height={1800} quality={85} sizes="40vw" />
               </div>
               <div className="hm-card hm-card-front">
                 <div className="pp-mock-bar">
