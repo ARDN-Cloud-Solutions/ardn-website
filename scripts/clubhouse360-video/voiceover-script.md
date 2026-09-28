@@ -6,7 +6,7 @@ an announcer. About 150 words per minute, with a breath between scenes.
 The published voiceover is Kokoro's `af_heart` voice (Apache-2.0, generated
 locally by `voiceover.py`), chosen by the owner on 2026-09-28. Scene
 lengths are fitted to each line automatically, so the times below are a
-guide for a human re-record, not hard limits. The current cut runs 1:23.
+guide for a human re-record, not hard limits. The current cut runs 1:17; the live line list is `LINES` in voiceover.py.
 
 Delivery notes: say "Clubhouse three-sixty". Keep "tee sheet" and "tee time"
 light, not stressed. Smile slightly on the last line.
@@ -31,4 +31,4 @@ lines 1 and 8 before cutting anything else.
 
 One WAV or MP3 per line (`vo-00.wav` … `vo-09.wav`), or one continuous
 take with a clean second of silence between lines. Room-tone-free, peaks
-around -3 dB. `render.mjs` places each line at its scene's start time.
+around -3 dB. `motion.mjs` places each line at its scene's start time.

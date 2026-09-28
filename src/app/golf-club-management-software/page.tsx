@@ -91,16 +91,19 @@ const ORG = { "@id": "https://ardncloudsolutions.com/#organization" };
 const IMG = (f: string) => `https://ardncloudsolutions.com/images/golf/${f}.webp`;
 
 const VIDEO_TRANSCRIPT = [
-  "If you run more than one club, this is for you.",
-  "This is Clubhouse360. Every club in your portfolio, side by side. And the same view narrows itself to each regional VP and GM.",
-  "It starts on the club's own website. A prospect picks a plan, adds the family, signs, and pays, in six steps, without a phone call.",
-  "Every enquiry lands in a shared pool for your membership directors. If nobody claims it, it escalates. Nothing slips through.",
-  "Contracts are signed inside the platform, against the exact version they read. And no money moves until they do.",
-  "Benefits are real numbers, not bullet points. Rounds, guest passes, discounts, tracked across every club they can play.",
-  "Book a tee time, and the allowance comes down on its own. Rate grids, booking windows, and carts, all in one sheet.",
-  "Then you see what every round is worth. Utilization, average ticket, and revenue per available tee time.",
-  "And your members get one app, in their club's brand. Their card, their benefits, their bills, their tee times.",
-  "More clubs. Not more systems. Book a thirty-minute walkthrough.",
+  "Running more than one club? Meet Clubhouse360.",
+  "Six systems that never talk to each other, replaced by one platform and one member record.",
+  "See every club side by side. And every regional VP and GM sees exactly their slice.",
+  "Prospects join online in six steps. Signed, paid, and active, without a phone call.",
+  "Every enquiry gets claimed or escalated, and guest rounds turn into leads.",
+  "Contracts are e-signed in the platform, and no money moves until they are.",
+  "Dues run on autopay, with automatic retries that never charge twice.",
+  "Benefits follow members to every club, and each tee time draws down their allowance.",
+  "Know what every round is worth, right down to revenue per available tee time.",
+  "The pro shop sells online, and orders are waiting on the cart at tee time.",
+  "Every table is isolated per club, with over four hundred permissions you control.",
+  "And members get one app, in their own club's brand.",
+  "More clubs. Not more systems. Book a walkthrough, and ask us about pricing.",
 ].join(" ");
 
 const JSON_LD = {
@@ -171,11 +174,11 @@ const JSON_LD = {
       "@id": `${URL}#video`,
       name: "Clubhouse360 walkthrough",
       description:
-        "A 1:23 walkthrough of Clubhouse360 on a sample multi-club portfolio, from the club website and online join to the tee sheet, golf performance and the member app.",
+        "A 1:17 walkthrough of Clubhouse360 on a sample multi-club portfolio: online join, membership sales, contracts, dues, cross-club benefits, the tee sheet, the pro shop, security and the member app.",
       thumbnailUrl: "https://ardncloudsolutions.com/videos/clubhouse360-walkthrough-poster.webp",
       contentUrl: "https://ardncloudsolutions.com/videos/clubhouse360-walkthrough.mp4",
       uploadDate: "2026-09-28",
-      duration: "PT1M23S",
+      duration: "PT1M17S",
       inLanguage: "en-US",
       transcript: VIDEO_TRANSCRIPT,
       publisher: ORG,
