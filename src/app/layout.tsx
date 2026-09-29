@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         // SEO: outcome-focused alt covering both pillars of the business.
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
       "Ardn Cloud Solutions | Industry Software, Custom AI & Managed Services",
     description:
       "Industry software like Club Steward and Nonprofit Management, plus custom software and AI, all run for you by a US team with 30+ years of experience.",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
   icons: {
     icon: "/logo/favicon.jpeg",

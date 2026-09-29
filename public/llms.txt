@@ -18,6 +18,7 @@
 
 ## Company
 
+- [Our Approach](https://ardncloudsolutions.com/approach): AI-first development. Ardn catalogues a business's systems, stakeholders and processes, builds a phased roadmap, and delivers and runs an AI-first platform as a platform-as-a-service partner.
 - [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of technology and consulting experience.
 - [Our Products](https://ardncloudsolutions.com/our-products): Full product suite overview.
 - [Pricing](https://ardncloudsolutions.com/pricing): Request pricing for any Ardn product; replies within 4 business hours.

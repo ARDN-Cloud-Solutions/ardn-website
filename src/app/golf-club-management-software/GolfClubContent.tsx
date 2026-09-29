@@ -113,7 +113,7 @@ const PROMISES: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Inbox,
     title: "A lead cannot be lost",
-    body: "Unclaimed enquiries escalate, idle deals return to the pool, nurtures come back on their date, and guest rounds turn into leads.",
+    body: "Unclaimed inquiries escalate, idle deals return to the pool, nurtures come back on their date, and guest rounds turn into leads.",
   },
 ];
 
@@ -130,7 +130,7 @@ const TOUR = [
   {
     kicker: "Membership sales desk",
     title: "A real sales desk, inside the system that runs the club.",
-    body: "Enquiries land in a per-club shared pool with first-claim-wins routing; unclaimed leads get a due-dated task and escalate to the GM or VP. Directors see their own remaining discount authority as they sell, anything over it routes for approval, and the customer only ever sees the approved price.",
+    body: "Inquiries land in a per-club shared pool with first-claim-wins routing; unclaimed leads get a due-dated task and escalate to the GM or VP. Directors see their own remaining discount authority as they sell, anything over it routes for approval, and the customer only ever sees the approved price.",
     points: ["Pipeline by stage with guidance at every stage", "Tour board and nurture follow-ups", "“Present to Customer” tablet checkout"],
     img: "/images/golf/sales-pipeline.webp",
     url: "Membership sales · Pipeline",
@@ -434,7 +434,7 @@ export default function GolfClubContent() {
               <div className="gc-hero-shot">
                 <Shot
                   src="/images/golf/corporate-dashboard.webp"
-                  alt="Club Steward corporate dashboard comparing every club side by side — enquiries, new members, conversion, SLA compliance and pipeline value"
+                  alt="Club Steward corporate dashboard comparing every club side by side — inquiries, new members, conversion, SLA compliance and pipeline value"
                   url="Club Steward · Corporate · All clubs"
                   priority
                   tilt
@@ -529,7 +529,7 @@ export default function GolfClubContent() {
           <div className="gc-head">
             <span className="gc-kicker">One flow</span>
             <h2 className="gc-h2">
-              From first enquiry to first round, on one member record.
+              From first inquiry to first round, on one member record.
             </h2>
             <p className="gc-sub">
               In Club Steward the website, the lead, the tour, the product

@@ -49,7 +49,7 @@ export default function ContactUsPage() {
         "@id": "https://ardncloudsolutions.com/#localbusiness",
         name: "Ardn Cloud Solutions",
         url: "https://ardncloudsolutions.com",
-        image: "https://ardncloudsolutions.com/images/ardn-home-hero.webp",
+        image: "https://ardncloudsolutions.com/images/ardn-share.jpg",
         logo: "https://ardncloudsolutions.com/logo/favicon.jpeg",
         description:
           "Orlando-based software products, custom software and AI development, and managed services, backed by 30+ years of technology and consulting experience.",

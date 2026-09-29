@@ -35,7 +35,7 @@ export default function AboutContent() {
                   Ardn") for explicit on-page relevance, while keeping the
                   Florida + dual-pillar framing. */}
               <h1 className="display reveal">About Ardn — a small Florida team. <em>Big experience.</em></h1>
-              <p className="lede reveal reveal-d2">Ardn Cloud Solutions is an Orlando-based development team. We build software products for specific industries, design custom software and AI with our AI Forge Framework, and run everything we build as a managed service, backed by 30+ years of technology and consulting experience.</p>
+              <p className="lede reveal reveal-d2">Ardn Cloud Solutions is an Orlando-based development team. We&apos;re an AI-first platform-as-a-service partner: we map how your business works, build AI-first platforms instead of bolting AI onto legacy systems, and provide the technology, the product and the support behind it, backed by 30+ years of technology and consulting experience.</p>
               <div className="hero-ctas reveal reveal-d3">
                 <Link href="#approach" className="btn btn-primary btn-lg btn-arrow">How we work</Link>
                 <Link href="#leadership" className="btn btn-secondary btn-lg">Meet the team</Link>

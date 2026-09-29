@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Custom AI app development company — Ardn AI Forge Framework",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     description:
       "Production-ready custom AI apps in 2–6 weeks under one monthly fee. New customers: free custom AI build.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Custom AI for hospitality — guest service automation by Ardn AI Forge",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description:
       "Custom AI for hotels, built and run in 2–6 weeks under one monthly fee. New customers: free build.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

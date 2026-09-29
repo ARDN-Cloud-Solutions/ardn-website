@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Custom AI for membership organizations — onboarding and retention by Ardn AI Forge",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description:
       "Custom AI for clubs, gyms, and associations, built and run in 2–6 weeks. New customers: free build.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

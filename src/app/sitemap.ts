@@ -18,6 +18,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Our Approach: AI-first, platform-as-a-service model (header nav).
+        url: `${BASE_URL}/approach`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
         // One page to request pricing for every product (header "Pricing").
         url: `${BASE_URL}/pricing`,
         lastModified: new Date(),

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Ardn Cloud Solutions Homepage",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
     description:
       "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 

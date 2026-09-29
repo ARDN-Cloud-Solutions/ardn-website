@@ -30,8 +30,8 @@ const SCENES = [
     stats: [{ n: 1, label: "view of every club" }, { t: "Auto-scoped", label: "to each regional VP and GM" }] },
   { kind: "screen", img: "online-join-plans", act: { cursor: [[60, 62, 0.9], [38, 55, 2.0]], scroll: [14, 2.2] }, url: "yourclub.com/join", kicker: "Online join", title: "Join online in six steps.",
     stats: [{ n: 6, label: "steps to a paid member" }, { n: 0, label: "phone calls needed" }, { t: "Signed · paid · active", label: "in one flow" }] },
-  { kind: "screen", img: "sales-pipeline", act: { cursor: [[42, 30, 0.9], [15, 43.7, 1.5], [34, 58, 2.1]], clicks: [1.6], type: { box: [9.2, 42.1, 32, 45.2], text: "Whitfield", at: 1.8 } }, url: "Membership sales", kicker: "Membership sales", title: "No enquiry left behind.",
-    stats: [{ t: "Claimed or escalated", label: "every enquiry, automatically" }, { t: "Guest rounds → leads", label: "your warmest prospects" }] },
+  { kind: "screen", img: "sales-pipeline", act: { cursor: [[42, 30, 0.9], [15, 43.7, 1.5], [34, 58, 2.1]], clicks: [1.6], type: { box: [9.2, 42.1, 32, 45.2], text: "Whitfield", at: 1.8 } }, url: "Membership sales", kicker: "Membership sales", title: "No inquiry left behind.",
+    stats: [{ t: "Claimed or escalated", label: "every inquiry, automatically" }, { t: "Guest rounds → leads", label: "your warmest prospects" }] },
   { kind: "screen", img: "contracts-esign", act: { cursor: [[50, 62, 0.9], [91.4, 31.2, 2.2]], clicks: [2.35] }, url: "Contracts", kicker: "Contracts", title: "Signed before money moves.",
     stats: [{ n: 100, suf: "%", label: "signed before payment" }, { t: "Built-in e-sign", label: "no third-party tool" }] },
   { kind: "screen", img: "dues-standing", act: { cursor: [[60, 70, 0.9], [18, 43.4, 1.6], [48, 62, 2.2]], clicks: [1.7], type: { box: [10.4, 41.9, 42, 44.9], text: "Taylor Brooks", at: 1.9 } }, url: "Billing · Dues", kicker: "Dues & payments", title: "Dues that collect themselves.",
@@ -184,7 +184,6 @@ function sceneHTML(s, i) {
 }
 
 const body = SCENES.map(sceneHTML).join("\n");
-const chapterTicks = SCENES.slice(1, -1).map((s) => `<i style="left:${(s.start / TOTAL) * 100}%"></i>`).join("");
 const html = `<!doctype html><html><head><meta charset="utf-8"><title>Club Steward Motion</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Public+Sans:wght@500;600;700;800&display=block" rel="stylesheet">
 <style>
@@ -255,18 +254,10 @@ h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:80px
 .pill{margin-top:10px;padding:28px 60px;border-radius:999px;font-size:34px;font-weight:800;color:#241c07;background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 20px 70px rgba(212,178,90,.45)}
 .ask{font-size:28px;font-weight:700;color:#fff}
 .url{font-size:22px;color:rgba(226,232,248,.55)}
-.brand{position:absolute;left:120px;bottom:52px;font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600;color:rgba(255,255,255,.9)}
-.brand small{font-family:"Public Sans";font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:rgba(226,232,248,.45);margin-left:16px;font-weight:700}
-.prog{position:absolute;left:120px;right:120px;bottom:34px;height:4px;border-radius:4px;background:rgba(255,255,255,.1)}
-.prog b{position:absolute;inset:0;border-radius:4px;background:linear-gradient(90deg,var(--turf),var(--gold));transform-origin:left;animation:prog ${TOTAL}s linear 0s both}
-.prog i{position:absolute;top:-3px;width:2px;height:10px;background:rgba(255,255,255,.35)}
-@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 ${kf}${css}
 </style></head><body>
 <div class="bg"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grain"></div>
 ${body}
-<div class="brand">Club Steward<small>Sample portfolio</small></div>
-<div class="prog"><b></b>${chapterTicks}</div>
 </body></html>`;
 
 // ---------------------------------------------------------------- render frames

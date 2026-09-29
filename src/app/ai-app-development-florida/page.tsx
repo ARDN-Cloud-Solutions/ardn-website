@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Ardn Cloud Solutions",
     images: [
       {
-        url: "/images/ardn-home-hero.webp",
+        url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
         alt: "Custom AI app development in Florida — Ardn AI Forge Framework, Orlando-based team",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     description:
       "Florida-based team. AI Forge Framework ships production AI apps in 2–6 weeks. Free 30-min strategy call.",
     site: "@ardn_cloud_sol",
-    images: ["/images/ardn-home-hero.webp"],
+    images: ["/images/ardn-share.jpg"],
   },
 };
 
