@@ -1,5 +1,95 @@
 [
  {
+  "id": 900001,
+  "slug": "rx-dr-white-label-telehealth-platform",
+  "date": "2026-09-28T09:00:00",
+  "modified": "2026-09-28T09:00:00",
+  "title": {
+   "rendered": "Rx-Dr: A White-Label Telehealth Platform, Built and Run by Ardn"
+  },
+  "excerpt": {
+   "rendered": "<p>How Ardn built a multi-tenant telehealth platform that lets brands launch online care under their own name, with intake, clinician review, pharmacy routing, payments and HIPAA controls built in.</p>"
+  },
+  "content": {
+   "rendered": "<h2>Introduction</h2>\n<p>Rx-Dr is a white-label telehealth platform. It lets a wellness brand, medical practice or clinic group launch online care under its own name: a patient chooses a treatment, completes an online intake, a licensed clinician reviews the case, and the prescription goes electronically to a partner pharmacy that ships it. Ardn designed and built the platform, and runs it as a managed service.</p>\n<h2>Challenge</h2>\n<p>Launching a compliant telehealth brand usually means stitching together five regulated systems, each hard to build on its own:</p>\n<ul>\n<li><b>Intake, clinician review, pharmacy e-prescribing, payments and patient messaging</b> all have to work together and stay HIPAA-compliant.</li>\n<li><b>Many brands, one platform.</b> Brands, clinics and referral partners each need their own branded experience, with their data kept strictly apart.</li>\n<li><b>Prescribing rules change by state and by drug</b>, and every decision needs an audit trail.</li>\n<li><b>Layered referral networks</b> (agencies, sales agents, clinics and creators) need commissions, refunds and payouts that are right every time.</li>\n<li><b>Subscriptions and refills</b> need renewals, shipments and pharmacy resubmissions to run on their own.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. One multi-tenant platform, many brands</h3>\n<p>Every brand gets its own domain, logo, colors and storefront, plus a separate test environment next to its live one. Tenant isolation is enforced in the data layer: a query that isn't scoped to a tenant fails instead of leaking data, and automated checks block code that would break the rule.</p>\n<h3>2. A portal for every role</h3>\n<p>Admins, operators, physicians, clinics, pharmacies, patients and referral partners each get their own portal, around 500 screens in total, all running on the same records.</p>\n<figure><img src=\"/media/case-studies/rx-dr/patient-journey.webp\" alt=\"Rx-Dr patient journey: from first question to treatment in days\" loading=\"lazy\" /><figcaption>The patient side: a five-step journey from first question to delivery.</figcaption></figure>\n<h3>3. Intake, review and prescribing compliance</h3>\n<ul>\n<li>Intake questionnaires built per treatment category, with conditional logic, clinician review flags and ID capture.</li>\n<li>State-by-state and drug-by-drug prescribing rules that fail closed: if an approved rule doesn't exist for a case, the order is denied rather than allowed by default.</li>\n<li>An external prescriber API so an outside clinician network can pick up cases and approve or decline them.</li>\n</ul>\n<h3>4. Pharmacy, payments and operations on autopilot</h3>\n<ul>\n<li>Electronic prescription transmission to partner pharmacies, with status synced back and cancellations and resubmissions handled.</li>\n<li>Split payments, memberships and subscriptions, with a commission ledger that handles clawbacks and payouts across referral tiers.</li>\n<li>54 scheduled background jobs run renewals, shipments, follow-up care and data-integrity checks.</li>\n<li>Patient messaging, video visits and appointment booking built in.</li>\n</ul>\n<h3>5. HIPAA built in, not bolted on</h3>\n<ul>\n<li>Workforce Business Associate Agreement attestations, logged access to patient records (\"minimum necessary\"), and break-glass access that requires a written reason.</li>\n<li>Field-level AES-256 encryption for sensitive identifiers, and automated checks that keep patient data out of logs.</li>\n<li>Two-person approval for sensitive admin actions, a full audit log, fraud flags and privacy tooling.</li>\n<li>AI helps with document reading and clinician triage. It never approves a prescription.</li>\n</ul>\n<figure><img src=\"/media/case-studies/rx-dr/mobile.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Rx-Dr consumer site on a phone\" loading=\"lazy\" /><figcaption>Mobile-first for patients.</figcaption></figure>\n<h2>Outcomes</h2>\n<ul>\n<li><b>A brand can launch without building a medical stack.</b> Intake, clinicians, pharmacy routing, payments and the patient portal come ready, under the brand's name.</li>\n<li><b>One platform, many brands.</b> Each brand is isolated and branded, with its own test environment.</li>\n<li><b>Compliance by design.</b> Prescribing rules fail closed, every read of a patient record is logged, and sensitive actions need a second approver.</li>\n<li><b>Operations that run themselves.</b> Renewals, refills, commissions and payouts run on schedule, with integrity checks that flag anything stuck.</li>\n<li><b>Built to scale:</b> about 300 data models, around 500 screens and 54 automated jobs, all run by Ardn as a managed service.</li>\n</ul>\n<h2>Want something like this?</h2>\n<p>Rx-Dr is an example of how Ardn works: we map the business, build an AI-first platform around it, and run it for you. See <a href=\"/approach\">our approach</a>, or <a href=\"/contact-us\">talk to us</a> about your idea.</p>"
+  },
+  "categories": [],
+  "case-study-categories": [],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Rx-Dr: A White-Label Telehealth Platform, Built and Run by Ardn | ARDN Cloud Solutions",
+   "description": "Case study: Ardn built and runs Rx-Dr, a multi-tenant, white-label telehealth platform with intake, clinician review, e-prescribing, payments and HIPAA safeguards.",
+   "og_title": "Rx-Dr: A White-Label Telehealth Platform, Built and Run by Ardn",
+   "og_description": "Case study: Ardn built and runs Rx-Dr, a multi-tenant, white-label telehealth platform with intake, clinician review, e-prescribing, payments and HIPAA safeguards.",
+   "og_image": [
+    {
+     "url": "https://ardncloudsolutions.com/media/case-studies/rx-dr/white-label.webp",
+     "width": 1920,
+     "height": 1200
+    }
+   ]
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/case-studies/rx-dr/white-label.webp",
+     "alt_text": "Rx-Dr white-label telehealth platform",
+     "media_details": {
+      "sizes": {}
+     }
+    }
+   ],
+   "wp:term": []
+  }
+ },
+ {
+  "id": 900002,
+  "slug": "research-only-compliance-first-ecommerce",
+  "date": "2026-09-28T09:00:00",
+  "modified": "2026-09-28T09:00:00",
+  "title": {
+   "rendered": "Research Only: A Compliance-First Store for a Regulated Category"
+  },
+  "excerpt": {
+   "rendered": "<p>How Ardn built a research-use-only store with lot-level Certificates of Analysis, a compliance layer on every page, resilient payments, a partner program and a full back office.</p>"
+  },
+  "content": {
+   "rendered": "<h2>Introduction</h2>\n<p>Research Only is a US online store for research-grade peptides and lab supplies, sold strictly for laboratory research use. Every lot is independently tested, and the signed Certificate of Analysis is published on the product page. Ardn designed and built the store and its back office, and runs it.</p>\n<h2>Challenge</h2>\n<ul>\n<li><b>A regulated category.</b> Everything has to be sold and described strictly as research-use-only, with clear legal positioning on every page.</li>\n<li><b>Trust has to be provable.</b> Buyers want to verify purity for the exact lot and size before they order.</li>\n<li><b>Payments are harder than usual.</b> The category needs resilient, multi-rail payments rather than a single provider.</li>\n<li><b>Real operational complexity.</b> Sizes and blends, tiered pricing, several fulfillment partners and a partner program with commissions.</li>\n<li><b>Organic visibility matters.</b> With limited paid-ad options, search and AI-answer visibility carry the growth.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. A compliance layer on every page</h3>\n<p>Visitors confirm they are 21+ and qualified researchers before entering. A research-use-only notice appears on every page and every product, and a dedicated compliance statement covers the store's regulatory position.</p>\n<figure><img src=\"/media/case-studies/research-only/gate.webp\" alt=\"Research Only entry confirmation for qualified researchers\" loading=\"lazy\" /><figcaption>Entry confirmation: 21+ and laboratory research use only.</figcaption></figure>\n<h3>2. Certificates of Analysis, per lot and per size</h3>\n<p>Each product page shows the verified purity, molecular weight, sequence and CAS number, with the independent lab report available to download for every size. Certificates are versioned in the database and tied to the lot they cover.</p>\n<figure><img src=\"/media/case-studies/research-only/product-2.webp\" alt=\"Certificate of Analysis panel showing total purity, sequence, molecular weight and downloadable lab reports\" loading=\"lazy\" /><figcaption>The Certificate of Analysis panel on every product page.</figcaption></figure>\n<h3>3. A storefront built to convert</h3>\n<ul>\n<li>Catalog with search, sorting and size options, plus \"frequently ordered together\" bundles.</li>\n<li>Automatic bundle discounts with no code to remember.</li>\n<li>Customer accounts with orders, addresses and notifications.</li>\n<li>PCI-friendly hosted card fields, so card data never touches the store's servers, plus resilient multi-rail payments.</li>\n</ul>\n<figure><img src=\"/media/case-studies/research-only/product.webp\" alt=\"Research Only product page with size options, View COA and add to cart\" loading=\"lazy\" /><figcaption>Product pages lead with purity and the lab report.</figcaption></figure>\n<h3>4. A back office that runs the business</h3>\n<p>More than 60 admin screens cover products, lots and inventory, pricing tiers and promotions, customers, the shipping queue and fulfillment routing, email templates, and a go-live checklist. Audit logging and a personal-data access log record who saw what.</p>\n<h3>5. Partner program</h3>\n<p>Partners get their own branded referral storefront links and portal, with automatic order credit and twice-monthly payout statements.</p>\n<h3>6. Search and AI-answer visibility</h3>\n<p>Every public page is pre-rendered, with structured data for products, articles and FAQs, a research library and buyer guides. A crawler policy welcomes search and AI answer engines and blocks AI training crawlers.</p>\n<figure><img src=\"/media/case-studies/research-only/mobile.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Research Only product page on a phone\" loading=\"lazy\" /><figcaption>Fast on mobile, served from a global edge network.</figcaption></figure>\n<h2>Outcomes</h2>\n<ul>\n<li><b>29 research compounds</b> live, each with lot-level Certificates of Analysis.</li>\n<li><b>59 indexed pages</b>, including a research library and buyer guides built for search and AI answers.</li>\n<li><b>About 0.1-second server response</b> on the home and product pages, served from the edge.</li>\n<li><b>Compliance built into the product:</b> the entry confirmation, research-use-only notices and the compliance statement ship with every page.</li>\n<li><b>One back office</b> for catalog, fulfillment, partners and payouts, run by Ardn as a managed service.</li>\n</ul>\n<h2>Want something like this?</h2>\n<p>Research Only shows how Ardn builds for regulated, complex categories: compliance, trust and operations designed in from day one. See <a href=\"/custom-software-development\">custom software</a>, or <a href=\"/contact-us\">talk to us</a> about your store.</p>"
+  },
+  "categories": [],
+  "case-study-categories": [],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Research Only: A Compliance-First Store for a Regulated Category | ARDN Cloud Solutions",
+   "description": "Case study: Ardn built and runs Research Only, a compliance-first e-commerce store with lot-level Certificates of Analysis, multi-rail payments and a full back office.",
+   "og_title": "Research Only: A Compliance-First Store for a Regulated Category",
+   "og_description": "Case study: Ardn built and runs Research Only, a compliance-first e-commerce store with lot-level Certificates of Analysis, multi-rail payments and a full back office.",
+   "og_image": [
+    {
+     "url": "https://ardncloudsolutions.com/media/case-studies/research-only/home.webp",
+     "width": 1920,
+     "height": 1200
+    }
+   ]
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/case-studies/research-only/home.webp",
+     "alt_text": "Research Only storefront",
+     "media_details": {
+      "sizes": {}
+     }
+    }
+   ],
+   "wp:term": []
+  }
+ },
+ {
   "id": 23694,
   "slug": "revolutionizing-airline-customer-service-with-salesforce-customer360-console",
   "date": "2026-04-16T05:00:16",
