@@ -116,7 +116,7 @@ const organizationSchema = {
     url: "https://ardncloudsolutions.com/logo/favicon.jpeg",
   },
   description:
-    "Orlando-based software company. Ardn builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management, Membership Management and ReplyCX), designs custom software and AI with its AI Forge Framework, and runs them as managed services, backed by 30+ years of technology and consulting experience.",
+    "Orlando-based software company. Ardn builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management and Membership Management), designs custom software and AI with its AI Forge Framework, and runs them as managed services, backed by 30+ years of technology and consulting experience.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Orlando",

@@ -49,6 +49,8 @@ const LEGACY_ROOT_POST_SLUGS = [
 const nextConfig: NextConfig = {
     async redirects() {
         return [
+            // ReplyCX retired (2026-09-28); AI Forge is the closest AI offer.
+            { source: "/ai-powered-support", destination: "/ai-forge", permanent: true },
             // ── Content cut in the WordPress migration (2026-09-28) ──
             // Posts and case studies that no longer match what Ardn sells.
             // 301 to the index so existing links and rankings aren't lost.

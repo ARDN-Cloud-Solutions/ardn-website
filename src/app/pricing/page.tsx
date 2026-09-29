@@ -14,7 +14,7 @@ import "./pricing.css";
 const URL = "https://ardncloudsolutions.com/pricing";
 const TITLE = "Pricing | Ardn Cloud Solutions";
 const DESC =
-  "Get pricing for any Ardn product or service: Club Steward, Nonprofit Management, Membership Management, ReplyCX, AI Forge and custom software. Reply in 4 business hours.";
+  "Get pricing for any Ardn product or service: Club Steward, Nonprofit Management, Membership Management, AI Forge and custom software. Reply in 4 business hours.";
 
 export const metadata: Metadata = {
   title: TITLE,

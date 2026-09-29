@@ -1,6 +1,6 @@
 # ARDN Cloud Solutions
 
-> ARDN Cloud Solutions is a US-based software company in Orlando, Florida. It builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management for YMCAs and community nonprofits, Membership Management and ReplyCX AI support), designs custom software and AI applications with its AI Forge Framework, and runs everything it builds as a managed service. The team has 30+ years of technology and consulting experience.
+> ARDN Cloud Solutions is a US-based software company in Orlando, Florida. It builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management for YMCAs and community nonprofits, and Membership Management), designs custom software and AI applications with its AI Forge Framework, and runs everything it builds as a managed service. The team has 30+ years of technology and consulting experience.
 
 ## Products & Services
 
@@ -11,7 +11,6 @@
 - [AI for Membership Organizations](https://ardncloudsolutions.com/ai-for-membership-organizations): Custom AI for YMCAs, gyms, studios, clubs, and associations — onboarding, renewals, failed-payment recovery, and retention early-warning.
 - [Storefronts](https://ardncloudsolutions.com/storefronts): Salesforce-native ecommerce — products, memberships, subscriptions, events, and ticketing without leaving Salesforce.
 - [License Guard](https://ardncloudsolutions.com/license-guard): Salesforce-native tool that detects and reclaims unused Salesforce licenses, typically paying back its annual cost within a quarter.
-- [AI-Powered Support (ReplyCX)](https://ardncloudsolutions.com/ai-powered-support): No-code AI agents that automate roughly 70% of routine customer queries across WhatsApp, email, live chat, and social — in one inbox.
 - [Membership Management](https://ardncloudsolutions.com/membership-management): An all-in-one membership platform for gyms, studios, clubs, community centers, and associations — recurring billing, classes and programs, events, fundraising, marketing, and a branded member portal, for one flat monthly fee.
 - [Club Steward: Golf & Country Club Management Software](https://ardncloudsolutions.com/golf-club-management-software): Club Steward is golf and country club management software for multi-club operators. One platform and one member record for club websites and online join, membership sales CRM, e-signed contracts, dues and payments (card and ACH), onboarding, member portal and golf app, benefits and reciprocal access across clubs, tee sheet and carts, pro shop, private events, and reporting scoped to club, region or corporate. Club-level data isolation is enforced in the database. Accounting is in preview.
 - [Nonprofit Management Software](https://ardncloudsolutions.com/nonprofit-management-software): Membership, billing, front-desk check-in, programs, and a full fundraising CRM for YMCAs, JCCs, community centers and other member-based nonprofits: members and donors in one record, flat monthly fee (never a percentage of revenue), free pilot in the organization's own branding.

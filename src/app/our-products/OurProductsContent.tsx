@@ -35,14 +35,6 @@ const PRODUCTS = [
     cta: "Explore Membership Management",
     accent: "#4840E0",
   },
-  {
-    eyebrow: "ReplyCX · AI customer support",
-    title: "AI support that feels human.",
-    body: "No-code AI agents trained on your own knowledge base answer routine questions across WhatsApp, email, chat and social, in one inbox.",
-    href: "/ai-powered-support",
-    cta: "Explore ReplyCX",
-    accent: "#B45309",
-  },
 ];
 
 const SERVICES = [
@@ -87,7 +79,6 @@ export default function OurProductsContent() {
                   <li>Club Steward — golf &amp; country club management</li>
                   <li>Nonprofit Management — members and donors in one record</li>
                   <li>Membership Management — gyms, studios, clubs</li>
-                  <li>ReplyCX — AI customer support</li>
                   <li>AI Forge &amp; custom software — built and run for you</li>
                 </ul>
               </div>
@@ -110,7 +101,7 @@ export default function OurProductsContent() {
               <p className="lede">Each product is built for a specific kind of organization, so it fits on day one instead of after a year of configuration.</p>
             </div>
           </div>
-          <div className="grid-2">
+          <div className="grid-3">
             {PRODUCTS.map((p) => (
               <article key={p.href} className="product-card" style={{ "--accent": p.accent } as React.CSSProperties}>
                 <div className="product-eyebrow">{p.eyebrow}</div>

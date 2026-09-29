@@ -19,7 +19,6 @@ const ourProducts = [
   { label: "Club Steward", href: "/golf-club-management-software" },
   { label: "Nonprofit Management", href: "/nonprofit-management-software" },
   { label: "Membership Management", href: "/membership-management" },
-  { label: "ReplyCX AI Support", href: "/ai-powered-support" },
   { label: "All products", href: "/our-products" },
 ];
 
