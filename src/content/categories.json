@@ -1,0 +1,114 @@
+[
+ {
+  "id": 79,
+  "name": "Buyer Guides",
+  "slug": "buyer-guides",
+  "count": 6,
+  "description": ""
+ },
+ {
+  "id": 78,
+  "name": "Comparisons",
+  "slug": "comparisons",
+  "count": 3,
+  "description": ""
+ },
+ {
+  "id": 18,
+  "name": "CRM Cost Reduction",
+  "slug": "crm-cost-reduction",
+  "count": 5,
+  "description": ""
+ },
+ {
+  "id": 108,
+  "name": "Healthcare Technology",
+  "slug": "healthcare-technology",
+  "count": 1,
+  "description": ""
+ },
+ {
+  "id": 30,
+  "name": "Hospitality Technology",
+  "slug": "hospitality-technology",
+  "count": 2,
+  "description": ""
+ },
+ {
+  "id": 6,
+  "name": "Industry Trends",
+  "slug": "industry-trends",
+  "count": 1,
+  "description": ""
+ },
+ {
+  "id": 2,
+  "name": "Integration Solutions",
+  "slug": "integration-solutions",
+  "count": 2,
+  "description": ""
+ },
+ {
+  "id": 88,
+  "name": "Membership & Associations",
+  "slug": "membership-associations",
+  "count": 1,
+  "description": ""
+ },
+ {
+  "id": 46,
+  "name": "Membership and Association Technology",
+  "slug": "membership-association-technology",
+  "count": 2,
+  "description": ""
+ },
+ {
+  "id": 135,
+  "name": "Nonprofit Technology",
+  "slug": "nonprofit-technology",
+  "count": 2,
+  "description": ""
+ },
+ {
+  "id": 4,
+  "name": "Product Innovations",
+  "slug": "product-innovations",
+  "count": 4,
+  "description": ""
+ },
+ {
+  "id": 70,
+  "name": "Salesforce Cost Optimization",
+  "slug": "salesforce-cost-optimization",
+  "count": 2,
+  "description": ""
+ },
+ {
+  "id": 3,
+  "name": "Salesforce Optimization",
+  "slug": "salesforce-optimization",
+  "count": 7,
+  "description": ""
+ },
+ {
+  "id": 24,
+  "name": "Software Cost Strategy",
+  "slug": "software-cost-strategy",
+  "count": 5,
+  "description": ""
+ },
+ {
+  "id": 14,
+  "name": "special-blog",
+  "slug": "special-blog",
+  "count": 3,
+  "description": ""
+ },
+ {
+  "id": 139,
+  "name": "Wellness Technology",
+  "slug": "wellness-technology",
+  "count": 1,
+  "description": ""
+ }
+]

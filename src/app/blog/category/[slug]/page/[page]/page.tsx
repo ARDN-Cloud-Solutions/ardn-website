@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
-import { fetchPosts, fetchCategories, fetchCategoryBySlug } from "@/lib/wordpress/api";
-import { cleanSeoTitle } from "@/lib/wordpress/utils";
+import { fetchPosts, fetchCategories, fetchCategoryBySlug } from "@/lib/content/api";
+import { cleanSeoTitle } from "@/lib/content/utils";
 import BlogListItem from "@/components/blog/BlogListItem";
 import Pagination from "@/components/blog/Pagination";
 import BlogSidebar from "@/components/blog/BlogSidebar";

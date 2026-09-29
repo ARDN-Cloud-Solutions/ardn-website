@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
-import { fetchPosts, fetchCategories } from "@/lib/wordpress/api";
+import { fetchPosts, fetchCategories } from "@/lib/content/api";
 import BlogListItem from "@/components/blog/BlogListItem";
 import Pagination from "@/components/blog/Pagination";
 import BlogSidebar from "@/components/blog/BlogSidebar";
@@ -17,7 +17,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { page } = await params;
     const pageNum = Number(page);
-    const siteUrl = process.env.NEXT_PUBLIC_WP_API_URL ?? "";
+    const siteUrl = "https://ardncloudsolutions.com";
 
     const title =
         pageNum === 1

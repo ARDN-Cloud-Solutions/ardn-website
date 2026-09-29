@@ -6,8 +6,8 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import type { WPPost, WPTerm } from "@/lib/wordpress/types";
-import { getFeaturedImageUrl, getExcerptText } from "@/lib/wordpress/utils";
+import type { WPPost, WPTerm } from "@/lib/content/types";
+import { getFeaturedImageUrl, getExcerptText } from "@/lib/content/utils";
 
 interface SuccessStoriesProps {
   posts: WPPost[];

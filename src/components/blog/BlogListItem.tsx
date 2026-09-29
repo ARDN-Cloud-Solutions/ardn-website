@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { User, MessageSquare, Tag, Calendar } from "lucide-react";
-import type { WPPost } from "@/lib/wordpress/types";
+import type { WPPost } from "@/lib/content/types";
 import {
     getExcerptText,
     getPostCategories,
@@ -9,7 +9,7 @@ import {
     getFeaturedImageUrl,
     getFeaturedImageAlt,
     formatDate,
-} from "@/lib/wordpress/utils";
+} from "@/lib/content/utils";
 
 interface BlogListItemProps {
     post: WPPost;

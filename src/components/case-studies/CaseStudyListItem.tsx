@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
-import type { WPPost } from "@/lib/wordpress/types";
+import type { WPPost } from "@/lib/content/types";
 import {
     getExcerptText,
     getFeaturedImageUrl,
     getFeaturedImageAlt,
     formatDate,
-} from "@/lib/wordpress/utils";
+} from "@/lib/content/utils";
 
 interface CaseStudyListItemProps {
     post: WPPost;

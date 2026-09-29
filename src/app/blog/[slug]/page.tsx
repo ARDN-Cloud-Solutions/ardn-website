@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, Tag } from "lucide-react";
-import { fetchPostBySlug, fetchAllPostSlugs, fetchCategories, fetchPosts } from "@/lib/wordpress/api";
+import { fetchPostBySlug, fetchAllPostSlugs, fetchCategories, fetchPosts } from "@/lib/content/api";
 import {
     cleanSeoTitle,
     getExcerptText,
@@ -11,7 +11,7 @@ import {
     getFeaturedImageAlt,
     getPostCategories,
     formatDate,
-} from "@/lib/wordpress/utils";
+} from "@/lib/content/utils";
 import BlogHero from "@/components/blog/BlogHero";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 

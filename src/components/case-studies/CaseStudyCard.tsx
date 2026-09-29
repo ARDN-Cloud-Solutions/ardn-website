@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { WPPost } from "@/lib/wordpress/types";
-import { getFeaturedImageUrl, getFeaturedImageAlt } from "@/lib/wordpress/utils";
+import type { WPPost } from "@/lib/content/types";
+import { getFeaturedImageUrl, getFeaturedImageAlt } from "@/lib/content/utils";
 
 interface CaseStudyCardProps {
     post: WPPost;

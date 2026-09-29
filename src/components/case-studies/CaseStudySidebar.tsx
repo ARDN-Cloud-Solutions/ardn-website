@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { WPPost } from "@/lib/wordpress/types";
+import type { WPPost } from "@/lib/content/types";
 import { Phone, Mail, Clock } from "lucide-react";
 
 interface CaseStudySidebarProps {

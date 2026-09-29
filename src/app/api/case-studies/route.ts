@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fetchCaseStudies } from "@/lib/wordpress/case-studies";
+import { fetchCaseStudies } from "@/lib/content/case-studies";
 
 export async function GET(request: NextRequest) {
     const { searchParams } = request.nextUrl;

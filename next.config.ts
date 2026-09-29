@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import cutContent from "./src/content/redirects.json";
+
+const CUT_BLOG = new Set(cutContent.blog);
 
 // Blog posts that lived at the domain root on the old WordPress site and now
 // live under /blog/ on the headless rebuild. Each target was verified live
@@ -46,17 +49,23 @@ const LEGACY_ROOT_POST_SLUGS = [
 const nextConfig: NextConfig = {
     async redirects() {
         return [
+            // ── Content cut in the WordPress migration (2026-09-28) ──
+            // Posts and case studies that no longer match what Ardn sells.
+            // 301 to the index so existing links and rankings aren't lost.
+            ...cutContent.blog.map((slug) => ({ source: `/blog/${slug}`, destination: "/blog", permanent: true })),
+            ...cutContent.caseStudies.map((slug) => ({ source: `/case-studies/${slug}`, destination: "/case-studies", permanent: true })),
+            ...cutContent.categories.map((slug) => ({ source: `/blog/category/${slug}/:rest*`, destination: "/blog", permanent: true })),
             // ── Legacy WordPress URL structure (GSC 404 cleanup, Aug 2026) ──
             // Old root-level posts → /blog/<slug>. Also catches their /feed/
             // children via the :suffix(feed) segment.
             ...LEGACY_ROOT_POST_SLUGS.map((slug) => ({
                 source: `/${slug}`,
-                destination: `/blog/${slug}`,
+                destination: CUT_BLOG.has(slug) ? "/blog" : `/blog/${slug}`,
                 permanent: true,
             })),
             ...LEGACY_ROOT_POST_SLUGS.map((slug) => ({
                 source: `/${slug}/feed`,
-                destination: `/blog/${slug}`,
+                destination: CUT_BLOG.has(slug) ? "/blog" : `/blog/${slug}`,
                 permanent: true,
             })),
             // Old category archives (incl. pagination and feeds) → new blog
@@ -135,24 +144,6 @@ const nextConfig: NextConfig = {
     images: {
         // 90 is used for full-resolution product screenshots (golf page).
         qualities: [75, 90],
-        remotePatterns: [
-            {
-                protocol: "https",
-                hostname: "darkslateblue-cat-374844.hostingersite.com",
-                pathname: "/wp-content/uploads/**",
-            },
-            // Fallback for any subdomain of hostingersite.com
-            {
-                protocol: "https",
-                hostname: "*.hostingersite.com",
-                pathname: "/wp-content/uploads/**",
-            },
-            {
-                protocol: "https",
-                hostname: "cms.ardncloudsolutions.com",
-                pathname: "/wp-content/uploads/**",
-            },
-        ],
     },
 };
 

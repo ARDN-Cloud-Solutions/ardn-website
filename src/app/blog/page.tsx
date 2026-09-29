@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fetchPosts, fetchCategories } from "@/lib/wordpress/api";
+import { fetchPosts, fetchCategories } from "@/lib/content/api";
 import BlogListItem from "@/components/blog/BlogListItem";
 import Pagination from "@/components/blog/Pagination";
 import BlogSidebar from "@/components/blog/BlogSidebar";
