@@ -96,7 +96,7 @@ export default function AboutArdnPage() {
             name: "What does Ardn Cloud Solutions do?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Three things. (1) Software products for specific industries: Club Steward for golf and country clubs, Nonprofit Management, Membership Management and ReplyCX. (2) Custom software and AI applications, built and operated by our Florida-based team using the AI Forge Framework. (3) Technology consulting, implementation and managed services, including for teams that run on Salesforce.",
+              text: "Three things. (1) Software products for specific industries: Club Steward for golf and country clubs, Nonprofit Management and Membership Management. (2) Custom software and AI applications, built and operated by our Florida-based team using the AI Forge Framework. (3) Technology consulting, implementation and managed services, including for teams that run on Salesforce.",
             },
           },
           {

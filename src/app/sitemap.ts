@@ -69,12 +69,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
-        url: `${BASE_URL}/ai-powered-support`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.7,
-    },
-    {
         // Free lead-magnet calculator — high-intent landing page.
         url: `${BASE_URL}/savings-calculator`,
         lastModified: new Date(),

@@ -4,7 +4,7 @@ import OurProductsContent from "./OurProductsContent";
 // Product hub: named products, services, industries, and one Salesforce
 // solutions section. Metadata leads with the products, not Salesforce.
 const DESC =
-  "Club Steward for golf clubs, Nonprofit Management, Membership Management and ReplyCX, plus custom software and AI built and run for you by a US team.";
+  "Club Steward for golf clubs, Nonprofit Management and Membership Management, plus custom software and AI built and run for you by a US team.";
 
 export const metadata: Metadata = {
   title: "Products & Services | Ardn Cloud Solutions",
@@ -80,7 +80,7 @@ export default function OurProductsPage() {
         "@id":
           "https://ardncloudsolutions.com/our-products#productlist",
         name: "Ardn Products & Services",
-        numberOfItems: 7,
+        numberOfItems: 6,
         // Products are pointers (name/url/description), with no offers: the
         // detail pages own pricing, and Club Steward pricing is undecided.
         itemListElement: [
@@ -124,18 +124,6 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 4,
             item: {
-              "@type": "SoftwareApplication",
-              name: "ReplyCX",
-              url: "https://ardncloudsolutions.com/ai-powered-support",
-              applicationCategory: "BusinessApplication",
-              description: "AI customer support across WhatsApp, email, chat and social in one inbox.",
-              provider: { "@id": "https://ardncloudsolutions.com/#organization" },
-            },
-          },
-          {
-            "@type": "ListItem",
-            position: 5,
-            item: {
               "@type": "Service",
               name: "AI Forge",
               url: "https://ardncloudsolutions.com/ai-forge",
@@ -145,7 +133,7 @@ export default function OurProductsPage() {
           },
           {
             "@type": "ListItem",
-            position: 6,
+            position: 5,
             item: {
               "@type": "SoftwareApplication",
               name: "Storefronts",
@@ -157,7 +145,7 @@ export default function OurProductsPage() {
           },
           {
             "@type": "ListItem",
-            position: 7,
+            position: 6,
             item: {
               "@type": "SoftwareApplication",
               name: "License Guard",

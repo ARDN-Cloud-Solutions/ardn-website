@@ -6,7 +6,7 @@
 export const HOME_FAQS = [
   {
     q: "What does Ardn Cloud Solutions do?",
-    a: "Ardn Cloud Solutions is an Orlando, Florida-based software company. We build products for specific industries (Club Steward for golf and country clubs, Nonprofit Management, Membership Management and ReplyCX), design custom software and AI with our AI Forge Framework, and run everything we build as a managed service. The team brings 30+ years of technology and consulting experience.",
+    a: "Ardn Cloud Solutions is an Orlando, Florida-based software company. We build products for specific industries (Club Steward for golf and country clubs, Nonprofit Management and Membership Management), design custom software and AI with our AI Forge Framework, and run everything we build as a managed service. The team brings 30+ years of technology and consulting experience.",
   },
   {
     q: "Where are you based, and do you work with clients outside Florida?",
@@ -14,7 +14,7 @@ export const HOME_FAQS = [
   },
   {
     q: "What products and services do you offer?",
-    a: "Four products: Club Steward (golf and country club management), Nonprofit Management (members and donors in one record for YMCAs, JCCs and community centers), Membership Management (gyms, studios, clubs and associations) and ReplyCX (AI customer support). Alongside them we build custom software and AI applications with AI Forge. Teams that run on Salesforce can also use Storefronts and License Guard.",
+    a: "Three products: Club Steward (golf and country club management), Nonprofit Management (members and donors in one record for YMCAs, JCCs and community centers) and Membership Management (gyms, studios, clubs and associations). Alongside them we build custom software and AI applications with AI Forge. Teams that run on Salesforce can also use Storefronts and License Guard.",
   },
   {
     q: "Do I have to use Salesforce to work with you?",

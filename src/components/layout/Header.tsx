@@ -18,7 +18,6 @@ import {
   Code2,
   LayoutDashboard,
   Handshake,
-  MessagesSquare,
   Users,
   HeartHandshake,
   Flag,
@@ -45,7 +44,6 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
       { label: "Club Steward", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
       { label: "Nonprofit Management", href: "/nonprofit-management-software", blurb: "Members and donors in one record", icon: HeartHandshake },
       { label: "Membership Management", href: "/membership-management", blurb: "Gyms, studios, clubs and associations", icon: Users },
-      { label: "ReplyCX", href: "/ai-powered-support", blurb: "AI agents for routine customer questions", icon: MessagesSquare },
     ],
   },
   {

@@ -10,7 +10,6 @@ import {
   Handshake,
   HeartHandshake,
   LayoutDashboard,
-  MessagesSquare,
   Sparkles,
   Users,
   type LucideIcon,
@@ -26,7 +25,6 @@ export const PRODUCT_GROUPS: { title: string; items: Product[] }[] = [
       { id: "club-steward", name: "Club Steward", blurb: "Golf and country club management", href: "/golf-club-management-software", icon: Flag },
       { id: "nonprofit", name: "Nonprofit Management", blurb: "Members and donors in one record", href: "/nonprofit-management-software", icon: HeartHandshake },
       { id: "membership", name: "Membership Management", blurb: "Gyms, studios, clubs and associations", href: "/membership-management", icon: Users },
-      { id: "replycx", name: "ReplyCX", blurb: "AI agents for routine customer questions", href: "/ai-powered-support", icon: MessagesSquare },
     ],
   },
   {
