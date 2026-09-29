@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import type { WPCategory } from "@/lib/wordpress/types";
+import type { WPCategory } from "@/lib/content/types";
 
 interface CategoryFilterProps {
     categories: WPCategory[];

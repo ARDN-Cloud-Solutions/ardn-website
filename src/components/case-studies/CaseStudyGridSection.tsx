@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import type { WPPost, WPTerm, FetchPostsResult } from "@/lib/wordpress/types";
+import type { WPPost, WPTerm, FetchPostsResult } from "@/lib/content/types";
 import CaseStudyCard from "./CaseStudyCard";
 
 interface CaseStudyGridSectionProps {

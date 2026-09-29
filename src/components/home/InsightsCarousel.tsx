@@ -6,8 +6,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import type { WPPost } from "@/lib/wordpress/types";
-import { getFeaturedImageUrl, getFeaturedImageAlt } from "@/lib/wordpress/utils";
+import type { WPPost } from "@/lib/content/types";
+import { getFeaturedImageUrl, getFeaturedImageAlt } from "@/lib/content/utils";
 
 interface InsightsCarouselProps {
   posts: WPPost[];

@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, ArrowUpRight } from "lucide-react";
-import type { WPPost } from "@/lib/wordpress/types";
+import type { WPPost } from "@/lib/content/types";
 import {
     getFeaturedImageUrl,
     getFeaturedImageAlt,
     getExcerptText,
     getPostCategories,
     formatDate,
-} from "@/lib/wordpress/utils";
+} from "@/lib/content/utils";
 
 interface BlogCardProps {
     post: WPPost;

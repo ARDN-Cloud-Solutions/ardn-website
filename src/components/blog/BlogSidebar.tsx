@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { WPCategory, WPPost } from "@/lib/wordpress/types";
-import { getFeaturedImageUrl, formatDate } from "@/lib/wordpress/utils";
+import type { WPCategory, WPPost } from "@/lib/content/types";
+import { getFeaturedImageUrl, formatDate } from "@/lib/content/utils";
 import SidebarSearch from "@/components/blog/SidebarSearch";
 import NewsletterWidget from "@/components/blog/NewsletterWidget";
 

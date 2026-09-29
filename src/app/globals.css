@@ -305,6 +305,14 @@ body {
     margin: 1.5em 0;
     font-size: 0.9rem;
 }
+/* Wide comparison tables scroll inside themselves on phones. */
+@media (max-width: 640px) {
+    .blog-content table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
 .blog-content thead { background: var(--color-primary-light); }
 .blog-content th,
 .blog-content td {

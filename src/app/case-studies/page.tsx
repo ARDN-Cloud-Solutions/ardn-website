@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fetchCaseStudies, fetchCaseStudyCategories } from "@/lib/wordpress/case-studies";
+import { fetchCaseStudies, fetchCaseStudyCategories } from "@/lib/content/case-studies";
 import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
 import CaseStudyGridSection from "@/components/case-studies/CaseStudyGridSection";
 

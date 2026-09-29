@@ -7,14 +7,14 @@ import {
     fetchCaseStudyBySlug,
     fetchAllCaseStudySlugs,
     fetchCaseStudies,
-} from "@/lib/wordpress/case-studies";
+} from "@/lib/content/case-studies";
 import {
     cleanSeoTitle,
     getExcerptText,
     getFeaturedImageUrl,
     getFeaturedImageAlt,
     formatDate,
-} from "@/lib/wordpress/utils";
+} from "@/lib/content/utils";
 import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
 import CaseStudySidebar from "@/components/case-studies/CaseStudySidebar";
 

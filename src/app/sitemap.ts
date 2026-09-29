@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { fetchAllPostSlugs } from "@/lib/wordpress/api";
-import { fetchAllCaseStudySlugs } from "@/lib/wordpress/case-studies";
+import { fetchAllPostSlugs } from "@/lib/content/api";
+import { fetchAllCaseStudySlugs } from "@/lib/content/case-studies";
 
 const BASE_URL = "https://ardncloudsolutions.com";
 
