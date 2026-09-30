@@ -19,10 +19,18 @@ import { MEMBERSHIP } from "./content";
 // (Club Steward) — keep them off this page too.
 //
 // Offer (owner-approved 2026-08-24): free pilot sandbox in the org's branding
-// + money-back guarantee. NOT promised: free migration, month-to-month terms.
+// + a 60-day go-live guarantee. NOT promised: free migration, month-to-month
+// terms, and — corrected 2026-09-30 — NOT a refund of any kind.
 // Pricing (owner decision 2026-08-24): general page holds the $699/mo anchor;
 // the YMCA page carries the $9,000/mo + $9,500 partnership pricing.
-// Guarantee: 60-day go-live money-back, subscription fees only.
+//
+// Guarantee (owner ruling 2026-09-29, CORRECTION): the 60-day go-live
+// guarantee is REAL but CONDITIONAL on agreed requirements and complexity. It
+// is a delivery commitment, NOT money-back. This page previously published
+// "60 day go-live money-back guarantee" and an FAQ promising refunded
+// subscription fees; neither is offered, and a published refund promise is
+// what gets quoted in a dispute. Do not reintroduce the word "refund" or
+// "money-back" here without a new owner ruling.
 // Truth guardrails: no POS/day-pass, childcare-compliance, dunning, SMS, or
 // mobile-app claims. Screenshots are real product UI on a seeded demo tenant.
 export const metadata: Metadata = {
