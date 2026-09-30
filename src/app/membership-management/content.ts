@@ -41,7 +41,7 @@ export const MEMBERSHIP: ProductPageContent = {
     { value: "$0", label: "per-member or per-seat fees" },
     { value: "0%", label: "commission on bookings or sales in your portal" },
     { value: "1", label: "platform for billing, classes, events and giving" },
-    { value: "60", label: "day go-live money-back guarantee" },
+    { value: "60", label: "day go-live guarantee" },
   ],
   pains: {
     kicker: "The problem",
