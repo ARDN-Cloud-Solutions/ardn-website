@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Briefcase,
+  Building2,
+  Calculator,
   CalendarDays,
   ChartColumn,
   CreditCard,
@@ -15,6 +18,8 @@ import {
   ListChecks,
   MessageSquareText,
   PenLine,
+  ReceiptText,
+  Sparkles,
   ShoppingBag,
   Smartphone,
   Tag,
@@ -174,66 +179,84 @@ const TOUR = [
   },
 ];
 
-const MODULES: { icon: LucideIcon; title: string; body: string }[] = [
+type Tier = "core" | "addon" | "soon";
+const TIER_LABEL: Record<Tier, string> = { core: "Core", addon: "Add-on", soon: "Coming soon" };
+
+// Owner's capability list and order (2026-09-30). Core = Membership Sales and
+// Members App; everything else is an add-on module. No prices on this page.
+const MODULES: { icon: LucideIcon; title: string; body: string; tier: Tier; tag?: string }[] = [
   {
     icon: Globe,
-    title: "Club websites & online join",
-    body: "A branded microsite for every club from one system, 39 content blocks and 17 templates, a new-club wizard, and a six-step join with e-signature and payment.",
+    title: "Website & Marketing",
+    tier: "addon",
+    body: "A branded microsite for every club from one system, 39 content blocks and 17 templates, a new-club wizard, and a six-step online join with e-signature and payment.",
+  },
+  {
+    icon: Briefcase,
+    title: "HR",
+    tier: "addon",
+    body: "Job postings and a club careers page, applicants ranked against the role with names hidden while scored, interviewer scorecards, plus staff shifts, availability and time off.",
   },
   {
     icon: Users,
-    title: "Membership sales CRM",
-    body: "Shared lead pool with SLA escalation, pipeline by stage, tour board, product builder with discount authority, approvals, and in-person tablet checkout.",
-  },
-  {
-    icon: PenLine,
-    title: "Contracts & e-signature",
-    body: "Versioned templates, state-based clauses, signer roles and countersignature, word-level version comparison, and payment blocked until signed.",
-  },
-  {
-    icon: CreditCard,
-    title: "Dues, billing & payments",
-    body: "Card and ACH autopay, prorated first periods, step-up promotional dues, automatic retries, a compliant credit-only card fee, and staff refunds with a reason.",
-  },
-  {
-    icon: ListChecks,
-    title: "Onboarding",
-    body: "Active the moment they pay. Up to seven setup steps, reminders at days 2, 5 and 10, and a task for the GM and Director at day 12 if a member stalls.",
+    title: "Membership Sales",
+    tier: "core",
+    body: "Shared lead pool with SLA escalation, pipeline by stage, tour board, contracts with built-in e-signature, payment blocked until signed, and onboarding the moment they pay.",
   },
   {
     icon: Smartphone,
-    title: "Member portal & golf app",
-    body: "Digital card with QR code for every household member, benefits remaining, bills, bookings, and a per-club installable golf app with digital scorecards.",
+    title: "Members App",
+    tier: "core",
+    body: "Digital card with QR code for every household member, benefits remaining, bills and bookings, and a per-club installable app in the club's own brand.",
   },
   {
     icon: Flag,
-    title: "Tee sheet & golf operations",
-    body: "Rate grids, booking windows, cart sheet and fleet, and seven golf staff roles — head pro, shop, superintendent, member services, bag room, caddie, concierge.",
-  },
-  {
-    icon: ShoppingBag,
-    title: "Pro shop & online store",
-    body: "Shelf, pre-order and member prices, inventory kept as a ledger of movements across clubs, reorder lists, and orders waiting on the member's cart.",
+    title: "Tee-Times",
+    tier: "addon",
+    body: "Rate grids, booking windows by membership tier, member allowances live while booking, the cart sheet and fleet, and revenue per available tee time.",
   },
   {
     icon: CalendarDays,
-    title: "Events & private events",
-    body: "Club events with RSVP, plus a private-events sales pool with room calendars and first- and second-option holds that promote automatically.",
+    title: "Events & Catering",
+    tier: "addon",
+    body: "Inquiry to invoice: room holds with setup and teardown, instant online quotes, one club-wide menu, a host planning portal, kitchen prep, staffing, vendors and the captain's phone on the night.",
   },
   {
-    icon: ChartColumn,
-    title: "Reporting & the corporate view",
-    body: "A standard report library over governed datasets that runs as the viewer, scheduled email delivery, 13-month trends, and every club side by side.",
+    icon: ReceiptText,
+    title: "Point of Sale",
+    tier: "addon",
+    body: "One checkout for the dining room, bar, pro shop and halfway house, charged straight to the member's account and posted to their statement the moment it's made.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "e-Commerce",
+    tier: "addon",
+    body: "An online pro shop with member prices and pre-orders waiting on the member's cart at tee time, with inventory tracked across clubs.",
+  },
+  {
+    icon: CreditCard,
+    title: "Subscription Billing & Dues",
+    tier: "addon",
+    body: "Card and ACH autopay, prorated first periods, step-up promotional dues, automatic retries that never charge twice, and a compliant credit-only card fee.",
   },
   {
     icon: MessageSquareText,
-    title: "Ask, in plain English",
-    body: "Staff type a question and get the number back with a citation that opens as a normal report — read-only, run as the signed-in user, and audited.",
+    title: "Member Service with Chatbot",
+    tier: "addon",
+    body: "A chat assistant on the club website and member portal that answers from the club's own answers, then live chat and cases with an owner and an answer-by time.",
   },
   {
-    icon: LayoutGrid,
-    title: "Built for many clubs",
-    body: "Switch modules on or off per club, stand up a new club from a template with a preview first, and go live against a pass-or-fail readiness checklist.",
+    icon: Calculator,
+    title: "Accounting Suite",
+    tier: "addon",
+    tag: "Preview",
+    body: "A general ledger fed by the club's own transactions, with receivables, payables, bank reconciliation, budgets, period close and financial statements.",
+  },
+  {
+    icon: Building2,
+    title: "Property Management",
+    tier: "soon",
+    body: "Club-owned residences and commercial space managed alongside the club, on the same member and billing records.",
   },
 ];
 
@@ -658,22 +681,40 @@ export default function GolfClubContent() {
             <span className="gc-kicker">One platform, every department</span>
             <h2 className="gc-h2">Everything the club runs on, in one login.</h2>
             <p className="gc-sub">
-              Around 250 purpose-built screens across the staff back office, the
-              member portal and platform administration — each module switchable
-              on or off per club.
+              Start with the core, Membership Sales and the Members App, then add the
+              modules each club needs. Every module switches on or off per club.
             </p>
           </div>
 
           <div className="gc-cards">
             {MODULES.map((c) => (
-              <article className="gc-card" key={c.title}>
-                <span className="gc-icon" aria-hidden="true">
-                  <c.icon size={20} strokeWidth={1.75} />
-                </span>
+              <article className={`gc-card gc-tier-${c.tier}`} key={c.title}>
+                <div className="gc-card-top">
+                  <span className="gc-icon" aria-hidden="true">
+                    <c.icon size={20} strokeWidth={1.75} />
+                  </span>
+                  <span className={`gc-tier gc-tier-tag-${c.tier}`}>{TIER_LABEL[c.tier]}</span>
+                  {c.tag && <span className="gc-tier gc-tier-tag-preview">{c.tag}</span>}
+                </div>
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
               </article>
             ))}
+          </div>
+
+          <div className="gc-ai">
+            <span className="gc-icon" aria-hidden="true">
+              <Sparkles size={22} strokeWidth={1.75} />
+            </span>
+            <div>
+              <span className="gc-kicker">Optional layer · Active AI</span>
+              <h3>Real-time AI across every flow.</h3>
+              <p>
+                Switch on Active AI and it plugs into every module: members, staff and prospects
+                get real-time answers instead of canned responses. Bring your own AI provider and
+                plug it in; usage runs on your own account.
+              </p>
+            </div>
           </div>
         </div>
       </section>
