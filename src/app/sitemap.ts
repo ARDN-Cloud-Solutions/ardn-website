@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { fetchAllPostSlugs } from "@/lib/content/api";
 import { fetchAllCaseStudySlugs } from "@/lib/content/case-studies";
+import { sitemapVideo } from "@/components/media/video-jsonld";
 
 const BASE_URL = "https://ardncloudsolutions.com";
 
@@ -32,6 +33,22 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Launches hub: what Ardn has built and runs (header "Our Work").
+        url: `${BASE_URL}/work`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Ardn CRM for construction and field service.
+        url: `${BASE_URL}/construction-crm`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+        images: ["dashboard", "pipeline", "quote", "service-desk", "dispatch", "reports"].map((f) => `${BASE_URL}/images/crm/${f}.webp`),
+        videos: [sitemapVideo("crmLeaveHubspot"), sitemapVideo("crmGrowYourTeam")],
+    },
+    {
         url: `${BASE_URL}/our-products`,
         lastModified: new Date(),
         changeFrequency: "monthly",
@@ -61,6 +78,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,
+        videos: [sitemapVideo("nonprofitOverview")],
     },
     {
         url: `${BASE_URL}/ai-forge`,
@@ -130,7 +148,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
     },
     {
         // Vertical landing page — Club Steward, golf & country clubs.
-        // Images and the walkthrough video are listed so Google Images and
+        // Images and the four product videos are listed so Google Images and
         // video search can index them against this page.
         url: `${BASE_URL}/golf-club-management-software`,
         lastModified: new Date(),
@@ -141,15 +159,10 @@ const staticRoutes: MetadataRoute.Sitemap = [
             "member-benefits", "tee-sheet", "golf-performance", "member-home",
         ].map((f) => `${BASE_URL}/images/golf/${f}.webp`),
         videos: [
-            {
-                title: "Club Steward walkthrough",
-                thumbnail_loc: `${BASE_URL}/videos/club-steward-walkthrough-poster.webp`,
-                description:
-                    "A 1:13 walkthrough of Club Steward golf and country club management software on a sample multi-club portfolio.",
-                content_loc: `${BASE_URL}/videos/club-steward-walkthrough.mp4`,
-                duration: 73,
-                publication_date: "2026-09-28",
-            },
+            sitemapVideo("clubStewardOverview"),
+            sitemapVideo("clubStewardEvents"),
+            sitemapVideo("clubStewardPos"),
+            sitemapVideo("clubStewardService"),
         ],
     },
     {
@@ -204,6 +217,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,
+        videos: [sitemapVideo("rxDrLaunch")],
     },
     {
         // Solution page — custom ecommerce (merch stores, subscriptions);

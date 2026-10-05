@@ -1,1 +1,44 @@
-[]
+[
+ {
+  "id": 9001,
+  "name": "Clubs & Hospitality",
+  "slug": "clubs-hospitality",
+  "taxonomy": "case-study-categories",
+  "count": 1
+ },
+ {
+  "id": 9002,
+  "name": "Nonprofits",
+  "slug": "nonprofits",
+  "taxonomy": "case-study-categories",
+  "count": 1
+ },
+ {
+  "id": 9003,
+  "name": "Construction & Field Service",
+  "slug": "construction-field-service",
+  "taxonomy": "case-study-categories",
+  "count": 1
+ },
+ {
+  "id": 9004,
+  "name": "Healthcare & Telehealth",
+  "slug": "healthcare-telehealth",
+  "taxonomy": "case-study-categories",
+  "count": 1
+ },
+ {
+  "id": 9005,
+  "name": "E-commerce",
+  "slug": "e-commerce",
+  "taxonomy": "case-study-categories",
+  "count": 1
+ },
+ {
+  "id": 9006,
+  "name": "Salesforce",
+  "slug": "salesforce",
+  "taxonomy": "case-study-categories",
+  "count": 7
+ }
+]

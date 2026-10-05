@@ -38,6 +38,12 @@ export const NONPROFIT: ProductPageContent = {
     caption: "Real product screens from a demo organization with fictional people and figures.",
   },
   trust: ["US-based team", "30+ yrs building software", "4-hour response SLA", "60-day go-live guarantee"],
+  video: {
+    video: "nonprofitOverview",
+    kicker: "Watch",
+    title: "One community. One record.",
+    sub: "Seventy seconds on members and donors living on the same record: households with split billing, one-scan check-in, programs and waitlists, campaigns beside membership, and board-ready numbers by branch.",
+  },
   figures: [
     { value: "1", label: "record for each member, donor and volunteer" },
     { value: "0%", label: "of your revenue paid to us, ever" },
@@ -167,6 +173,7 @@ export const NONPROFIT: ProductPageContent = {
     lede: "Book a 15-minute demo. If it looks right, we'll stand up a free pilot in your branding and you decide with your whole team.",
     cta: { label: "Book a 15-minute demo", href: CALL },
     links: [
+      { label: "Case study: a membership and fundraising platform for community nonprofits", href: "/case-studies/membership-and-fundraising-platform-community-nonprofits" },
       { label: "Membership Management", href: "/membership-management" },
       { label: "AI for membership organizations", href: "/ai-for-membership-organizations" },
       { label: "Pricing", href: "/pricing" },

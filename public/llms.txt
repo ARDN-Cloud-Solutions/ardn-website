@@ -15,7 +15,36 @@
 - [Club Steward: Golf & Country Club Management Software](https://ardncloudsolutions.com/golf-club-management-software): Club Steward is golf and country club management software for multi-club operators. Core: Membership Sales and the Members App. Add-on modules: Website & Marketing, HR, Tee-Times, Events & Catering, Point of Sale, e-Commerce, Subscription Billing & Dues, Member Service with Chatbot, and an Accounting Suite (in preview). Property Management is coming soon. An optional Active AI layer adds real-time AI across every flow, with the club's own AI provider. One member record across every club, with club-level data isolation enforced in the database.
 - [Nonprofit Management Software](https://ardncloudsolutions.com/nonprofit-management-software): Membership, billing, front-desk check-in, programs, and a full fundraising CRM for YMCAs, JCCs, community centers and other member-based nonprofits: members and donors in one record, flat monthly fee (never a percentage of revenue), free pilot in the organization's own branding.
 
+- [Construction CRM](https://ardncloudsolutions.com/construction-crm): Ardn CRM for roofing, windows and home improvement, residential and commercial general contractors, and real estate: business-health dashboard, pipeline, quotes that convert to jobs in one click, service desk with SLA clocks and automatic escalation, dispatch board, work orders, accounts with lifetime value and reports. Priced by modules and locations, never per seat; Ardn migrates data from the previous CRM. Product site: https://www.ardnai.com
+
+## What we've launched
+
+Ardn designs, builds and runs each of these products as a managed service. Overview: https://ardncloudsolutions.com/work
+
+- [Club Steward](https://ardncloudsolutions.com/golf-club-management-software): Golf and country club management for multi-club operators, with one member record across clubs, online join, e-signed contracts, autopay dues, a member app, tee sheet and portfolio reporting.
+- [Membership & Fundraising platform](https://ardncloudsolutions.com/nonprofit-management-software): Members and donors on one record for community nonprofits, with household billing, one-scan check-in, programs with waitlists, campaigns and board-ready reporting, for a flat fee.
+- [Ardn CRM for construction](https://ardncloudsolutions.com/construction-crm): A CRM built around jobs, work orders, service requests and dispatch for roofing, home improvement and general contractors. Never priced per seat.
+- [Rx-Dr](https://ardncloudsolutions.com/glp-1-ecommerce): A white-label telehealth platform that lets a brand launch online care under its own name, with intake, clinician review, pharmacy routing, payments and HIPAA controls. Built and run by Ardn.
+- [Research Only](https://ardncloudsolutions.com/custom-ecommerce-development): A compliance-first e-commerce storefront for a regulated product category, with a compliance layer on every page, multi-rail payments, a partner program and a full back office. Built and run by Ardn.
+
+## Case studies
+
+- https://ardncloudsolutions.com/case-studies/club-steward-multi-club-golf-platform
+- https://ardncloudsolutions.com/case-studies/membership-and-fundraising-platform-community-nonprofits
+- https://ardncloudsolutions.com/case-studies/construction-crm-jobs-service-dispatch
+- https://ardncloudsolutions.com/case-studies/rx-dr-white-label-telehealth-platform
+- https://ardncloudsolutions.com/case-studies/research-only-compliance-first-ecommerce
+- https://ardncloudsolutions.com/case-studies/revolutionizing-airline-customer-service-with-salesforce-customer360-console
+- https://ardncloudsolutions.com/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal
+- https://ardncloudsolutions.com/case-studies/transforming-the-timeshare-industry-with-a-digitized-tour-management-platform
+- https://ardncloudsolutions.com/case-studies/redefining-front-office-operations-to-realize-synergies-for-a-global-food-conglomerate
+- https://ardncloudsolutions.com/case-studies/transforming-retail-execution-across-latin-america-with-an-integrated-platform
+- https://ardncloudsolutions.com/case-studies/enabling-a-global-food-and-beverage-leaders-new-go-to-market-strategy
+- https://ardncloudsolutions.com/case-studies/digital-transformation-of-a-leading-global-professional-services-firms-front-office
+
 ## Company
+
+- [Our Work](https://ardncloudsolutions.com/work): Everything Ardn has built and launched, with links to each product page and case study.
 
 - [Our Approach](https://ardncloudsolutions.com/approach): AI-first development. Ardn catalogues a business's systems, stakeholders and processes, builds a phased roadmap, and delivers and runs an AI-first platform as a platform-as-a-service partner.
 - [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of technology and consulting experience.

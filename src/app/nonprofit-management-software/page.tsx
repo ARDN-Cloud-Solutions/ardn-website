@@ -83,7 +83,7 @@ export default function Page() {
   const jsonLd = productJsonLd(NONPROFIT, {
     path: "/nonprofit-management-software",
     name: "Ardn Nonprofit Management",
-    kind: "Service",
+    kind: "SoftwareApplication",
     category: "Nonprofit management software",
     description: "Membership, billing, check-in, programs and a fundraising CRM for YMCAs, JCCs and community nonprofits, for one flat monthly fee.",
     image: "/images/nonprofit/operations-overview-dashboard.webp",

@@ -3,11 +3,15 @@
 import { useEffect, useRef } from "react";
 import { Play, X } from "lucide-react";
 import { track } from "./TrackedLink";
+import { VIDEOS, runtime, videoCaptions, videoPoster, videoSrc } from "@/components/media/videos";
 
-const SRC = "/videos/club-steward-walkthrough.mp4";
-const POSTER = "/videos/club-steward-walkthrough-poster.webp";
+// The hero's modal plays the same overview cut that sits inline in #video.
+const VIDEO = VIDEOS.clubStewardOverview;
+const SRC = videoSrc(VIDEO);
+const POSTER = videoPoster(VIDEO);
+const CAPTIONS = videoCaptions(VIDEO);
 const OPEN_EVENT = "cs:open-walkthrough";
-export const RUNTIME = "1:13";
+export const RUNTIME = runtime(VIDEO.seconds);
 
 /**
  * Walkthrough video: one modal player (mounted once, by the hero) and any
@@ -27,7 +31,7 @@ export function WalkthroughPlayer() {
       video.current?.play().catch(() => {});
       const from = (e as CustomEvent<string>).detail ?? "unknown";
       track("video_play", {
-        video: "club-steward-walkthrough",
+        video: VIDEO.slug,
         location: from,
         page: "golf-club-management-software",
       });
@@ -65,7 +69,7 @@ export function WalkthroughPlayer() {
           width={1920}
           height={1080}
         >
-          <track kind="captions" src="/videos/club-steward-walkthrough.vtt" srcLang="en" label="English" />
+          <track kind="captions" src={CAPTIONS} srcLang="en" label="English" />
         </video>
       </div>
     </dialog>

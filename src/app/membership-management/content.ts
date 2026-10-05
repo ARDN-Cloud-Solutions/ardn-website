@@ -141,6 +141,7 @@ export const MEMBERSHIP: ProductPageContent = {
     lede: "Book a demo, then try the platform in your own branding before you decide.",
     cta: { label: "Book a demo", href: CALL },
     links: [
+      { label: "Case study: members and donors on one record", href: "/case-studies/membership-and-fundraising-platform-community-nonprofits" },
       { label: "Nonprofit Management", href: "/nonprofit-management-software" },
       { label: "Club Steward for golf clubs", href: "/golf-club-management-software" },
       { label: "Pricing", href: "/pricing" },

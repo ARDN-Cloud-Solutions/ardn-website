@@ -21,6 +21,7 @@ import {
   Users,
   HeartHandshake,
   Flag,
+  HardHat,
   type LucideIcon,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
@@ -44,6 +45,7 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
       { label: "Club Steward", href: "/golf-club-management-software", blurb: "Golf and country club management", icon: Flag },
       { label: "Nonprofit Management", href: "/nonprofit-management-software", blurb: "Members and donors in one record", icon: HeartHandshake },
       { label: "Membership Management", href: "/membership-management", blurb: "Gyms, studios, clubs and associations", icon: Users },
+      { label: "Construction CRM", href: "/construction-crm", blurb: "Jobs, service and dispatch for contractors", icon: HardHat },
     ],
   },
   {
@@ -58,6 +60,7 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
 ];
 
 const navLinks = [
+  { label: "Our Work", href: "/work" },
   { label: "Our Approach", href: "/approach" },
   { label: "Pricing", href: "/pricing" },
   { label: "Calculate Savings", href: "/savings-calculator" },
