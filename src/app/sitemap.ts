@@ -217,6 +217,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,
+        videos: [sitemapVideo("rxDrLaunch")],
     },
     {
         // Solution page — custom ecommerce (merch stores, subscriptions);

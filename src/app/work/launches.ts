@@ -77,6 +77,7 @@ export const LAUNCHES: Launch[] = [
     caseStudyHref: "/case-studies/rx-dr-white-label-telehealth-platform",
     externalHref: "https://rx-dr.com",
     externalLabel: "rx-dr.com",
+    videoHref: "/glp-1-ecommerce#video",
     category: "Telehealth platform",
   },
   {

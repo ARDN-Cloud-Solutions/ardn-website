@@ -131,6 +131,27 @@ export const VIDEOS = {
       { time: 55, label: "Your own merchant account" },
     ],
   },
+  rxDrLaunch: {
+    slug: "rx-dr-launch-your-own-telehealth-brand",
+    name: "Rx-Dr: launch your own telehealth brand without building a medical stack",
+    description:
+      "Rx-Dr, the white-label telehealth platform built and launched by Ardn, on a demo brand: a branded storefront and brand setup in minutes, adaptive online intake, licensed clinician review, one-click approval with e-prescribing to partner pharmacies and status synced back, payments, memberships, subscriptions and refills on autopilot, a portal for every role, and HIPAA controls built in with audited access, break-glass and two-person approval.",
+    seconds: 69,
+    uploadDate: "2026-10-05",
+    chapters: [
+      { time: 0, label: "Launch under your own brand" },
+      { time: 6, label: "Your storefront" },
+      { time: 9, label: "Brand setup" },
+      { time: 15, label: "Online intake" },
+      { time: 18, label: "Clinician review" },
+      { time: 25, label: "Approve and e-prescribe" },
+      { time: 29, label: "Pharmacy status" },
+      { time: 35, label: "Payments and payouts" },
+      { time: 41, label: "Patient portal" },
+      { time: 47, label: "Every role" },
+      { time: 53, label: "HIPAA built in" },
+    ],
+  },
 } as const satisfies Record<string, VideoMeta>;
 
 export type VideoKey = keyof typeof VIDEOS;

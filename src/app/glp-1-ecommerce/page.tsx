@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
+import ProductVideo from "@/components/media/ProductVideo";
+import { VIDEOS, videoProps } from "@/components/media/videos";
+import { videoObject } from "@/components/media/video-jsonld";
 
 // Solution page anchored to a real delivered build: a GLP-1 / telehealth
 // ecommerce site. Targets the hot "GLP-1 / telehealth ecommerce platform"
@@ -58,6 +61,7 @@ export const metadata: Metadata = {
 
 const CALENDLY =
   "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai";
+const URL = "https://ardncloudsolutions.com/glp-1-ecommerce";
 
 const FAQS = [
   {
@@ -145,6 +149,10 @@ export default function Glp1EcommercePage() {
           { "@type": "ListItem", position: 2, name: "GLP-1 & Telehealth Ecommerce", item: "https://ardncloudsolutions.com/glp-1-ecommerce" },
         ],
       },
+      // The self-hosted Rx-Dr walkthrough under the hero (#video). Name,
+      // description, duration and transcript come from the video registry
+      // and its .vtt, so they cannot drift from what plays.
+      videoObject("rxDrLaunch", URL, { "@id": `${URL}#service` }),
     ],
   };
 
@@ -195,6 +203,30 @@ export default function Glp1EcommercePage() {
                   </p>
                 </div>
               </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* VIDEO: the Rx-Dr walkthrough. /work's "Watch" link lands on #video. */}
+        <section className="section" id="video">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Watch it run</span>
+                <h2 className="h1 mt-3">One minute, <em>your brand live.</em></h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Rx-Dr, a white-label telehealth platform built and launched by
+                  Ardn, on a demo brand: storefront, intake, clinician review,
+                  pharmacy status, payments, a portal for every role and HIPAA
+                  controls. Captions are built in, and the chapters jump straight
+                  to a step.
+                </p>
+              </div>
+            </div>
+            <div className="mv-stage" style={{ marginTop: "32px" }}>
+              <ProductVideo {...videoProps(VIDEOS.rxDrLaunch)} page="glp-1-ecommerce" />
             </div>
           </div>
         </section>
