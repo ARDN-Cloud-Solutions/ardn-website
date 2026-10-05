@@ -38,6 +38,12 @@ export const NONPROFIT: ProductPageContent = {
     caption: "Real product screens from a demo organization with fictional people and figures.",
   },
   trust: ["US-based team", "30+ yrs building software", "4-hour response SLA", "60-day go-live guarantee"],
+  video: {
+    video: "nonprofitOverview",
+    kicker: "Watch",
+    title: "One community. One record.",
+    sub: "Seventy seconds on members and donors living on the same record: households with split billing, one-scan check-in, programs and waitlists, campaigns beside membership, and board-ready numbers by branch.",
+  },
   figures: [
     { value: "1", label: "record for each member, donor and volunteer" },
     { value: "0%", label: "of your revenue paid to us, ever" },

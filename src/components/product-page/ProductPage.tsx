@@ -4,8 +4,11 @@ import { Cormorant_Garamond } from "next/font/google";
 import type { CSSProperties } from "react";
 import LeadForm from "@/components/common/LeadForm";
 import TrustBar from "@/components/common/TrustBar";
+import ProductVideo from "@/components/media/ProductVideo";
+import LoopClip from "@/components/media/LoopClip";
+import { VIDEOS, loopClip, videoProps } from "@/components/media/videos";
 import TrackedCta from "./TrackedCta";
-import type { ProductPageContent, Shot as ShotData } from "./types";
+import type { ProductPageContent, Shot as ShotData, VideoSection } from "./types";
 import "./product-page.css";
 
 // Shared product/service page, built from the Club Steward page. One content
@@ -54,6 +57,20 @@ function Head({ kicker, title, sub, dark }: { kicker: string; title: string; sub
       <h2 className="pp-h2">{title}</h2>
       {sub && <p className={dark ? "pp-sub pp-on-dark" : "pp-sub"}>{sub}</p>}
     </div>
+  );
+}
+
+/** A self-hosted product video with its own heading; anchor defaults to #video. */
+function VideoBand({ s, slug, canvas }: { s: VideoSection; slug: string; canvas?: boolean }) {
+  return (
+    <section className={canvas ? "pp-section pp-canvas" : "pp-section"} id={s.id ?? "video"}>
+      <div className="container">
+        <Head kicker={s.kicker} title={s.title} sub={s.sub} />
+        <div className="mv-stage">
+          <ProductVideo {...videoProps(VIDEOS[s.video])} page={slug} />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -121,6 +138,8 @@ export default function ProductPage({ content: c }: { content: ProductPageConten
       </section>
 
       <TrustBar signals={c.trust} />
+
+      {c.video && <VideoBand s={c.video} slug={c.slug} />}
 
       {c.figures && (
         <section className="pp-figures-band">
@@ -208,6 +227,19 @@ export default function ProductPage({ content: c }: { content: ProductPageConten
         </section>
       )}
 
+      {c.loops && (
+        <section className="pp-section" id="loops">
+          <div className="container">
+            <Head kicker={c.loops.kicker} title={c.loops.title} sub={c.loops.sub} />
+            <div className="mv-row">
+              {c.loops.items.map((l, i) => (
+                <LoopClip key={l.clip} step={i + 1} {...loopClip(l.clip)} caption={l.caption} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {c.feature && (
         <section className="pp-section pp-dark">
           <div className="container">
@@ -244,6 +276,8 @@ export default function ProductPage({ content: c }: { content: ProductPageConten
           </div>
         </section>
       )}
+
+      {c.videoLower && <VideoBand s={c.videoLower} slug={c.slug} canvas={!c.gallery} />}
 
       {c.gallery && (
         <section className="pp-section pp-canvas">

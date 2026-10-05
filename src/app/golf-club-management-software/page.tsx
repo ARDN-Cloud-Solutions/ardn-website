@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
 import GolfClubContent from "./GolfClubContent";
 import { FAQS } from "./faqs";
+import { videoObject } from "@/components/media/video-jsonld";
 import "./golf.css";
 
 /**
@@ -90,21 +91,12 @@ export const metadata: Metadata = {
 const ORG = { "@id": "https://ardncloudsolutions.com/#organization" };
 const IMG = (f: string) => `https://ardncloudsolutions.com/images/golf/${f}.webp`;
 
-const VIDEO_TRANSCRIPT = [
-  "Running more than one club? Meet Club Steward.",
-  "Six systems that never talk to each other, replaced by one platform and one member record.",
-  "See every club side by side. And every regional VP and GM sees exactly their slice.",
-  "Prospects join online in six steps. Signed, paid, and active, without a phone call.",
-  "Every inquiry gets claimed or escalated, and guest rounds turn into leads.",
-  "Contracts are e-signed in the platform, and no money moves until they are.",
-  "Dues run on autopay, with automatic retries that never charge twice.",
-  "Benefits follow members to every club, and each tee time draws down their allowance.",
-  "Know what every round is worth, right down to revenue per available tee time.",
-  "The pro shop sells online, and orders are waiting on the cart at tee time.",
-  "Every table is isolated per club, with over four hundred permissions you control.",
-  "And members get one app, in their own club's brand.",
-  "More clubs. Not more systems. Book a walkthrough, and ask us about pricing.",
-].join(" ");
+// The four self-hosted videos on the page (overview first). Names,
+// descriptions, durations and transcripts come from the video registry and
+// the .vtt files, so they can't drift from what plays.
+const VIDEOS = (["clubStewardOverview", "clubStewardEvents", "clubStewardPos", "clubStewardService"] as const).map((k) =>
+  videoObject(k, URL, { "@id": `${URL}#software` }),
+);
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -120,7 +112,7 @@ const JSON_LD = {
       about: { "@id": `${URL}#software` },
       primaryImageOfPage: IMG("corporate-dashboard"),
       breadcrumb: { "@id": `${URL}#breadcrumb` },
-      video: { "@id": `${URL}#video` },
+      video: VIDEOS.map((v) => ({ "@id": v["@id"] })),
       publisher: ORG,
     },
     {
@@ -169,21 +161,7 @@ const JSON_LD = {
         "corporate-dashboard", "online-join-plans", "tee-sheet", "golf-performance", "member-home",
       ].map(IMG),
     },
-    {
-      "@type": "VideoObject",
-      "@id": `${URL}#video`,
-      name: "Club Steward walkthrough",
-      description:
-        "A 1:13 walkthrough of Club Steward on a sample multi-club portfolio: online join, membership sales, contracts, dues, cross-club benefits, the tee sheet, the pro shop, security and the member app.",
-      thumbnailUrl: "https://ardncloudsolutions.com/videos/club-steward-walkthrough-poster.webp",
-      contentUrl: "https://ardncloudsolutions.com/videos/club-steward-walkthrough.mp4",
-      uploadDate: "2026-09-28",
-      duration: "PT1M13S",
-      inLanguage: "en-US",
-      transcript: VIDEO_TRANSCRIPT,
-      publisher: ORG,
-      about: { "@id": `${URL}#software` },
-    },
+    ...VIDEOS,
     {
       "@type": "FAQPage",
       "@id": `${URL}#faq`,

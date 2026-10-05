@@ -26,6 +26,9 @@ import TrackedLink from "./TrackedLink";
 import BriefForm from "./BriefForm";
 import { WalkthroughButton, WalkthroughOverlay, WalkthroughPlayer } from "./WalkthroughVideo";
 import TrustBar from "@/components/common/TrustBar";
+import ProductVideo from "@/components/media/ProductVideo";
+import LoopClip from "@/components/media/LoopClip";
+import { VIDEOS, loopClip, videoProps } from "@/components/media/videos";
 import { FAQS } from "./faqs";
 
 /**
@@ -489,6 +492,62 @@ export default function GolfClubContent() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          WATCH IT RUN — the overview video inline (the hero's buttons open
+          the same file in a modal), three module walkthroughs and three
+          silent loops. /work's "Watch" link lands on #video.
+          --------------------------------------------------------------- */}
+      <section className="gc-section" id="video">
+        <div className="container">
+          <div className="gc-head">
+            <span className="gc-kicker">Watch it run</span>
+            <h2 className="gc-h2">Two minutes, the whole club.</h2>
+            <p className="gc-sub">
+              The product on a sample club: the membership sales and members
+              app core, then every add-on module. Captions are built in, and
+              the chapters below jump straight to a module.
+            </p>
+          </div>
+          <div className="mv-stage">
+            <ProductVideo {...videoProps(VIDEOS.clubStewardOverview)} page="golf-club-management-software" />
+          </div>
+
+          <p className="mv-row-head">More walkthroughs</p>
+          <div className="mv-row">
+            {[VIDEOS.clubStewardEvents, VIDEOS.clubStewardPos, VIDEOS.clubStewardService].map((v) => (
+              <ProductVideo
+                key={v.slug}
+                {...videoProps(v)}
+                chapters={undefined}
+                compact
+                caption={v.name}
+                page="golf-club-management-software"
+              />
+            ))}
+          </div>
+
+          <p className="mv-row-head">See it move</p>
+          <div className="mv-row">
+            <LoopClip
+              step={1}
+              {...loopClip("club-steward-tee-sheet")}
+              caption="The tee sheet: booking windows by membership tier, carts assigned from the same booking."
+            />
+            <LoopClip
+              step={2}
+              {...loopClip("club-steward-events")}
+              caption="An inquiry becomes an event with the room held; the final bill posts to the member's house account."
+            />
+            <LoopClip
+              step={3}
+              {...loopClip("club-steward-pos")}
+              caption="Point of sale: find the member, charge it to their account, and it lands on their statement."
+            />
+          </div>
+          <p className="gc-footnote">Screens show a sample club with fictional people and figures.</p>
         </div>
       </section>
 

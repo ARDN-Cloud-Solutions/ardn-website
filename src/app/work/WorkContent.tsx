@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Cormorant_Garamond } from "next/font/google";
 import type { CSSProperties } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 import TrackedCta from "@/components/product-page/TrackedCta";
 import { LAUNCHES, STEPS, CALL } from "./launches";
 import "@/components/product-page/product-page.css";
@@ -38,22 +38,38 @@ export default function WorkContent() {
         <div className="pp-hero-glow" aria-hidden="true" />
         <div className="pp-hero-grain" aria-hidden="true" />
         <div className="container">
-          <div className="pp-hero-copy wk-hero-copy">
-            <h1 className="pp-h1">
-              <span className="pp-eyebrow">Our work</span>
-              <span className="pp-display">
-                Products we&rsquo;ve built <em>and launched.</em>
-              </span>
-            </h1>
-            <p className="pp-lede">
-              Ardn builds industry software and runs it as a managed service. Each product below is live: designed, built and operated
-              by the same team, for a specific kind of organization. Here is what&rsquo;s running today.
-            </p>
-            <ul className="pp-hero-proof">
-              <li>Five launched products</li>
-              <li>Real screens, not mockups</li>
-              <li>Built and run by one accountable team</li>
-            </ul>
+          <div className="pp-hero-grid wk-hero-grid">
+            <div className="pp-hero-copy wk-hero-copy">
+              <h1 className="pp-h1">
+                <span className="pp-eyebrow">Our work</span>
+                <span className="pp-display">
+                  Products we&rsquo;ve built <em>and launched.</em>
+                </span>
+              </h1>
+              <p className="pp-lede">
+                Ardn builds industry software and runs it as a managed service. Each product below is live: designed, built and operated
+                by the same team, for a specific kind of organization. Here is what&rsquo;s running today.
+              </p>
+              <ul className="pp-hero-proof">
+                <li>Five launched products</li>
+                <li>Real screens, not mockups</li>
+                <li>Built and run by one accountable team</li>
+              </ul>
+            </div>
+            <div className="wk-hero-visual">
+              {/* Montage of the five launches on device frames; composed from
+                  the same product screens the cards below use. */}
+              <Image
+                src="/images/work/work-montage.webp"
+                alt="Five products built and launched by Ardn, shown on laptop and phone screens"
+                width={2400}
+                height={1350}
+                priority
+                quality={85}
+                sizes="(max-width: 1040px) 100vw, 60vw"
+                className="wk-montage"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -90,6 +106,11 @@ export default function WorkContent() {
                     <Link href={l.caseStudyHref} className="wk-link">
                       Case study &rarr;
                     </Link>
+                    {l.videoHref && (
+                      <Link href={l.videoHref} className="wk-link wk-link-watch">
+                        <Play size={12} strokeWidth={0} fill="currentColor" aria-hidden="true" /> Watch
+                      </Link>
+                    )}
                     {l.externalHref && (
                       <a href={l.externalHref} target="_blank" rel="noopener noreferrer" className="wk-link wk-link-ext">
                         {l.externalLabel} <ArrowUpRight size={14} strokeWidth={2} aria-hidden="true" />

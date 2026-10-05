@@ -33,3 +33,16 @@ video entry in `src/app/sitemap.ts`.
 The executive brief PDF is built from `scripts/club-steward-brief/brief.html`
 (`node scripts/club-steward-brief/render.mjs`). Regenerate both after copy
 changes so they never contradict the page.
+
+## 2026-10-05: page now plays the YouTube cuts
+
+`/golf-club-management-software` no longer ships the 1:13 render from this
+folder. It plays the final YouTube cuts, re-encoded for the web into
+`public/videos/` (`club-steward-run-the-whole-club`, `-events-catering`,
+`-point-of-sale`, `-member-service-hr`, each with a `.vtt` and a poster).
+Runtimes, descriptions and chapters live in one place,
+`src/components/media/videos.ts`; the page's VideoObject JSON-LD and the
+sitemap entries are generated from it (`src/components/media/video-jsonld.ts`
+reads the transcript from the `.vtt`). To swap a video: re-encode with the
+same stem, copy the `.vtt`, regenerate the poster, and update `seconds`,
+`uploadDate` and `chapters` in the registry.

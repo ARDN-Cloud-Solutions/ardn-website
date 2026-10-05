@@ -1,0 +1,226 @@
+/* Shared media components: ProductVideo (.mv) and LoopClip (.lc).
+   Colours lean on currentColor so the same markup reads correctly on the
+   light canvas and inside dark (.pp-dark / .gc-dark / hero) bands. */
+
+.mv,
+.lc {
+  margin: 0;
+}
+
+.mv-frame,
+.lc-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0b1024;
+  border: 1px solid rgba(14, 21, 56, 0.1);
+  box-shadow: 0 30px 70px rgba(14, 21, 56, 0.22);
+}
+
+.mv-frame video,
+.lc-frame video,
+.lc-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mv-compact .mv-frame {
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(14, 21, 56, 0.18);
+}
+
+/* ---------------- play overlay ---------------- */
+
+.mv-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  background: radial-gradient(60% 60% at 50% 48%, rgba(5, 11, 22, 0.42), rgba(5, 11, 22, 0.06));
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.mv-play:hover {
+  background: radial-gradient(60% 60% at 50% 48%, rgba(5, 11, 22, 0.58), rgba(5, 11, 22, 0.12));
+}
+
+.mv-play:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+
+.mv-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  color: #15104a;
+  background: linear-gradient(135deg, #ffffff, #d9d6ff);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), 0 0 0 10px rgba(255, 255, 255, 0.16);
+  transition: transform 0.25s ease;
+}
+
+.mv-ring svg {
+  margin-left: 4px;
+}
+
+.mv-play:hover .mv-ring {
+  transform: scale(1.07);
+}
+
+.mv-compact .mv-ring {
+  width: 52px;
+  height: 52px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 6px rgba(255, 255, 255, 0.16);
+}
+
+.mv-label {
+  max-width: 90%;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-align: center;
+  color: #fff;
+  background: rgba(5, 11, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.mv-compact .mv-label {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+/* ---------------- chapters ---------------- */
+
+.mv-chapters {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mv-chapters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px 7px 8px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.mv-chapters button:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  border-color: color-mix(in srgb, currentColor 32%, transparent);
+}
+
+.mv-chapters button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.mv-time {
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #fff;
+  background: #4840e0;
+}
+
+.mv-caption,
+.lc-caption {
+  margin: 12px 2px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.mv-caption {
+  font-weight: 600;
+}
+
+/* ---------------- layout helpers used by pages ---------------- */
+
+/* A single feature video: capped width, centred. */
+.mv-stage {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* 3-up rows: more walkthroughs, "see it move" loops. */
+.mv-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.mv-row-head {
+  margin: clamp(40px, 5vw, 64px) 0 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .mv-row {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+/* ---------------- loop clips ---------------- */
+
+.lc-frame {
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(14, 21, 56, 0.16);
+}
+
+.lc-caption {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.lc-step {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  background: #4840e0;
+}

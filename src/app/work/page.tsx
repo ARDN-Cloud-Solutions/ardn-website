@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     description: DESC,
     url: URL,
     siteName: "Ardn Cloud Solutions",
-    images: [{ url: "/images/product-hero.webp", width: 1200, height: 630, alt: "Software products built and launched by Ardn Cloud Solutions" }],
+    images: [{ url: "/images/work/work-montage-og.webp", width: 1200, height: 630, alt: "Five software products built and launched by Ardn Cloud Solutions, shown on laptop and phone screens" }],
     locale: "en_US",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: "Software We've Launched | Ardn", description: DESC, images: ["/images/product-hero.webp"] },
+  twitter: { card: "summary_large_image", title: "Software We've Launched | Ardn", description: DESC, images: ["/images/work/work-montage-og.webp"] },
 };
 
 export default function Page() {

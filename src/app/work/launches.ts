@@ -17,6 +17,8 @@ export type Launch = {
   caseStudyHref: string;
   externalHref?: string;
   externalLabel?: string;
+  /** Product page anchor of a self-hosted video, when one exists. */
+  videoHref?: string;
   /** schema.org applicationCategory for the ItemList. */
   category: string;
 };
@@ -32,6 +34,7 @@ export const LAUNCHES: Launch[] = [
     imageAlt: "Club Steward corporate dashboard across a multi-club portfolio",
     productHref: "/golf-club-management-software",
     caseStudyHref: "/case-studies/club-steward-multi-club-golf-platform",
+    videoHref: "/golf-club-management-software#video",
     category: "Golf and country club management software",
   },
   {
@@ -44,6 +47,7 @@ export const LAUNCHES: Launch[] = [
     imageAlt: "Operations overview dashboard for a multi-branch community nonprofit",
     productHref: "/nonprofit-management-software",
     caseStudyHref: "/case-studies/membership-and-fundraising-platform-community-nonprofits",
+    videoHref: "/nonprofit-management-software#video",
     category: "Nonprofit membership and fundraising software",
   },
   {
@@ -58,6 +62,7 @@ export const LAUNCHES: Launch[] = [
     caseStudyHref: "/case-studies/construction-crm-jobs-service-dispatch",
     externalHref: "https://www.ardnai.com",
     externalLabel: "Product site",
+    videoHref: "/construction-crm#video",
     category: "Construction and field service CRM",
   },
   {

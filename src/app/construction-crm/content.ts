@@ -65,6 +65,29 @@ export const CONSTRUCTION_CRM: ProductPageContent = {
     caption: "Real product screens from a demo company with fictional people and figures.",
   },
   trust: ["US-based team", "30+ yrs building software", "4-hour response SLA", "Optional managed service"],
+  video: {
+    video: "crmLeaveHubspot",
+    kicker: "Watch",
+    title: "Leave HubSpot. Keep everything.",
+    sub: "Ninety seconds on how a contractor's week runs in Ardn CRM: the pipeline, a quote that becomes a job, service on an SLA clock, and the migration we handle for you.",
+  },
+  loops: {
+    kicker: "See it move",
+    title: "Pipeline, quote, service: three short loops.",
+    sub: "Clips from the product on a demo company with fictional people. They play silently as you scroll.",
+    items: [
+      { clip: "crm-pipeline", caption: "Every open deal by stage, with business health one click away." },
+      { clip: "crm-quote", caption: "A quote from your own product list. The customer says yes, and it becomes a job." },
+      { clip: "crm-service", caption: "A service request on an SLA clock, escalated automatically before it slips." },
+    ],
+  },
+  videoLower: {
+    id: "video-grow",
+    video: "crmGrowYourTeam",
+    kicker: "One more minute",
+    title: "Grow your team, not your CRM bill.",
+    sub: "The short version: hire freely, because pricing follows the modules and locations you run rather than the people who log in.",
+  },
   figures: [
     { value: "1", label: "click from accepted quote to open job" },
     { value: "0", label: "per-seat fees, for the office or the field" },
