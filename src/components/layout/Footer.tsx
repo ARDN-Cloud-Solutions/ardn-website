@@ -19,6 +19,7 @@ const ourProducts = [
   { label: "Club Steward", href: "/golf-club-management-software" },
   { label: "Nonprofit Management", href: "/nonprofit-management-software" },
   { label: "Membership Management", href: "/membership-management" },
+  { label: "Construction CRM", href: "/construction-crm" },
   { label: "All products", href: "/our-products" },
 ];
 
@@ -48,6 +49,7 @@ const legal = [
 
 const company = [
   { label: "About Ardn", href: "/about-ardn" },
+  { label: "Our Work", href: "/work" },
   { label: "Our Approach", href: "/approach" },
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },

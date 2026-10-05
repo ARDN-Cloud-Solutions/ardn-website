@@ -32,6 +32,21 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        // Launches hub: what Ardn has built and runs (header "Our Work").
+        url: `${BASE_URL}/work`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+    },
+    {
+        // Ardn CRM for construction and field service.
+        url: `${BASE_URL}/construction-crm`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+        images: ["dashboard", "pipeline", "quote", "service-desk", "dispatch", "reports"].map((f) => `${BASE_URL}/images/crm/${f}.webp`),
+    },
+    {
         url: `${BASE_URL}/our-products`,
         lastModified: new Date(),
         changeFrequency: "monthly",

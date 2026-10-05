@@ -35,6 +35,14 @@ const PRODUCTS = [
     cta: "Explore Membership Management",
     accent: "#4840E0",
   },
+  {
+    eyebrow: "Ardn CRM · Construction & field service",
+    title: "From first call to finished job, on one record.",
+    body: "Pipeline, quotes that convert to jobs, a service desk with SLA clocks, dispatch and work orders for roofing, home improvement and general contractors. Never priced per seat.",
+    href: "/construction-crm",
+    cta: "Explore Construction CRM",
+    accent: "#2563EB",
+  },
 ];
 
 const SERVICES = [
@@ -79,6 +87,7 @@ export default function OurProductsContent() {
                   <li>Club Steward — golf &amp; country club management</li>
                   <li>Nonprofit Management — members and donors in one record</li>
                   <li>Membership Management — gyms, studios, clubs</li>
+                  <li>Construction CRM — jobs, service and dispatch</li>
                   <li>AI Forge &amp; custom software — built and run for you</li>
                 </ul>
               </div>
@@ -98,7 +107,7 @@ export default function OurProductsContent() {
               <h2 className="h1 mt-3">Built for one job. <em>Run for you.</em></h2>
             </div>
             <div>
-              <p className="lede">Each product is built for a specific kind of organization, so it fits on day one instead of after a year of configuration.</p>
+              <p className="lede">Each product is built for a specific kind of organization, so it fits on day one instead of after a year of configuration. <Link href="/work" style={{ color: "var(--indigo)", fontWeight: 600 }}>See it live: what we&rsquo;ve launched →</Link></p>
             </div>
           </div>
           <div className="grid-3">

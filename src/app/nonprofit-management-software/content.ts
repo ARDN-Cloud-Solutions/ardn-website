@@ -167,6 +167,7 @@ export const NONPROFIT: ProductPageContent = {
     lede: "Book a 15-minute demo. If it looks right, we'll stand up a free pilot in your branding and you decide with your whole team.",
     cta: { label: "Book a 15-minute demo", href: CALL },
     links: [
+      { label: "Case study: a membership and fundraising platform for community nonprofits", href: "/case-studies/membership-and-fundraising-platform-community-nonprofits" },
       { label: "Membership Management", href: "/membership-management" },
       { label: "AI for membership organizations", href: "/ai-for-membership-organizations" },
       { label: "Pricing", href: "/pricing" },

@@ -1,5 +1,233 @@
 [
  {
+  "id": 900003,
+  "slug": "club-steward-multi-club-golf-platform",
+  "date": "2026-10-05T09:00:00",
+  "modified": "2026-10-05T09:00:00",
+  "title": {
+   "rendered": "Club Steward: One Platform for Multi-Club Golf and Country Club Operators"
+  },
+  "excerpt": {
+   "rendered": "<p>How Ardn built Club Steward, a golf and country club platform that gives multi-club operators one member record, online join, e-signed contracts, autopay dues, a member app, the tee sheet and portfolio reporting.</p>"
+  },
+  "content": {
+   "rendered": "<h2>Introduction</h2>\n<p>Club Steward is golf and country club management software for operators that run more than one club. It gives a portfolio one platform and one member record for club websites and online join, membership sales, contracts, dues, the member app, the tee sheet, the pro shop, private events and reporting. Ardn designed and built Club Steward, and runs it as a managed service.</p>\n<h2>Challenge</h2>\n<p>Multi-club operators usually run each club on its own stack, and the gaps show up in the same places:</p>\n<ul>\n<li><b>One member, many records.</b> A member who belongs at one club and plays at another exists twice, with two balances and two histories.</li>\n<li><b>Joining takes paper.</b> Prospects fill in forms, wait for a contract, sign on a visit, and are billed by hand weeks later.</li>\n<li><b>Leads sit with whoever answered.</b> Nobody sees the whole sales pipeline, and a stalled lead has no one chasing it.</li>\n<li><b>Reports stop at the club.</b> Regional and corporate questions are answered by exporting from each club and pasting into a spreadsheet.</li>\n<li><b>Access is all or nothing.</b> Club staff either see too much or need head office for routine work.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. One member record across every club</h3>\n<p>A member is one record in the portfolio, with their membership, benefits, dues, standing and activity at every club on one timeline. Reciprocal access and benefits follow the member, not the club.</p>\n<figure><img src=\"/images/golf/corporate-dashboard.webp\" alt=\"Club Steward corporate dashboard across a multi-club portfolio\" loading=\"lazy\" /><figcaption>The corporate view: every club in the portfolio on one dashboard.</figcaption></figure>\n<h3>2. A website and a six-step online join</h3>\n<p>Each club gets a website on the platform, and prospects join online in six steps: choose a plan, add the household, review the agreement, sign, pay and set up the member app. The record, contract and billing are created as they go.</p>\n<figure><img src=\"/images/golf/online-join-plans.webp\" alt=\"Online join flow showing membership plans\" loading=\"lazy\" /><figcaption>Step one of online join: pick a plan.</figcaption></figure>\n<h3>3. A sales pipeline with a shared lead pool</h3>\n<p>Leads from every club land in one pipeline. A shared pool means a lead is never stuck with one person, and escalation rules move a stalled lead to a manager automatically.</p>\n<figure><img src=\"/images/golf/sales-pipeline.webp\" alt=\"Membership sales pipeline board\" loading=\"lazy\" /><figcaption>The membership sales pipeline.</figcaption></figure>\n<h3>4. Contracts, e-signature and dues</h3>\n<ul>\n<li>Contracts are generated from the plan and signed in the platform with built-in e-signature. Payment is blocked until the contract is signed.</li>\n<li>Dues run on card or ACH autopay, with standing visible on the member record.</li>\n</ul>\n<figure><img src=\"/images/golf/contracts-esign.webp\" alt=\"Contract with built-in e-signature\" loading=\"lazy\" /><figcaption>Built-in e-signature; payment waits for the signature.</figcaption></figure>\n<h3>5. The member app, the tee sheet and the club floor</h3>\n<ul>\n<li>A member app with a digital membership card, benefits and bookings.</li>\n<li>Tee sheet, cart assignments and the pro shop on the same records as membership.</li>\n<li>Private events and catering, from inquiry to the day.</li>\n</ul>\n<figure><img src=\"/images/golf/member-home.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Member app home screen with digital card\" loading=\"lazy\" /><figcaption>The member app, with the digital membership card.</figcaption></figure>\n<figure><img src=\"/images/golf/tee-sheet.webp\" alt=\"Tee sheet for a club day\" loading=\"lazy\" /><figcaption>The tee sheet.</figcaption></figure>\n<h3>6. Reporting and security for a portfolio</h3>\n<ul>\n<li>Reports scoped to club, region or corporate, from the same library.</li>\n<li>Per-club data isolation enforced in the database, so a query scoped to one club cannot read another.</li>\n<li>More than 400 permissions, grouped into roles, so a pro shop clerk and a regional director each see exactly their job.</li>\n</ul>\n<figure><img src=\"/images/golf/permissions.webp\" alt=\"Permissions matrix with roles\" loading=\"lazy\" /><figcaption>Roles built from more than 400 permissions.</figcaption></figure>\n<h2>Results</h2>\n<ul>\n<li><b>One record per member,</b> however many clubs they use.</li>\n<li><b>Joining without paper:</b> plan to signed contract to first payment, online, in six steps.</li>\n<li><b>A sales pipeline the whole operator can see,</b> with leads that escalate instead of stalling.</li>\n<li><b>Answers at club, region and corporate level</b> without a spreadsheet.</li>\n<li><b>Club data kept apart in the database,</b> with access shaped by role.</li>\n<li>Accounting is in preview. Ardn runs the platform as a managed service.</li>\n</ul>\n<h2>Related</h2>\n<p>See the product: <a href=\"/golf-club-management-software\">Club Steward golf and country club management software</a>. See everything Ardn has built and launched on <a href=\"/work\">our work</a>.</p>"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9001
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Club Steward: One Platform for Multi-Club Golf and Country Club Operators | ARDN Cloud Solutions",
+   "description": "Case study: Ardn built and runs Club Steward, golf and country club management software for multi-club operators, with one member record, six-step online join, e-signed contracts and per-club data isolation.",
+   "og_title": "Club Steward: One Platform for Multi-Club Golf and Country Club Operators",
+   "og_description": "Case study: Ardn built and runs Club Steward, golf and country club management software for multi-club operators, with one member record, six-step online join, e-signed contracts and per-club data isolation.",
+   "og_url": "https://ardncloudsolutions.com/case-studies/club-steward-multi-club-golf-platform",
+   "og_type": "article",
+   "og_site_name": "ARDN Cloud Solutions",
+   "og_image": [
+    {
+     "url": "https://ardncloudsolutions.com/images/golf/corporate-dashboard.webp",
+     "width": 2880,
+     "height": 1800
+    }
+   ],
+   "schema": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Club Steward: One Platform for Multi-Club Golf and Country Club Operators",
+    "description": "Case study: Ardn built and runs Club Steward, golf and country club management software for multi-club operators, with one member record, six-step online join, e-signed contracts and per-club data isolation.",
+    "datePublished": "2026-10-05T09:00:00",
+    "dateModified": "2026-10-05T09:00:00",
+    "image": "https://ardncloudsolutions.com/images/golf/corporate-dashboard.webp",
+    "mainEntityOfPage": "https://ardncloudsolutions.com/case-studies/club-steward-multi-club-golf-platform",
+    "author": {
+     "@id": "https://ardncloudsolutions.com/#organization"
+    },
+    "publisher": {
+     "@id": "https://ardncloudsolutions.com/#organization"
+    }
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/images/golf/corporate-dashboard.webp",
+     "alt_text": "Club Steward corporate dashboard",
+     "media_details": {
+      "sizes": {}
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 9001,
+      "name": "Clubs & Hospitality",
+      "slug": "clubs-hospitality",
+      "taxonomy": "case-study-categories",
+      "count": 1
+     }
+    ]
+   ]
+  }
+ },
+ {
+  "id": 900004,
+  "slug": "membership-and-fundraising-platform-community-nonprofits",
+  "date": "2026-10-05T09:00:00",
+  "modified": "2026-10-05T09:00:00",
+  "title": {
+   "rendered": "A Membership and Fundraising Platform for Community Nonprofits"
+  },
+  "excerpt": {
+   "rendered": "<p>How Ardn built a platform that puts members and donors on one record, with household billing, one-scan check-in, programs with waitlists and board-ready reporting, for a flat fee.</p>"
+  },
+  "content": {
+   "rendered": "<h2>Introduction</h2>\n<p>This is a membership and fundraising platform for community nonprofits: multi-branch organizations that run memberships, programs and a front desk, and raise money from the same community. Ardn designed and built the platform and runs it as a managed service. It is sold for a flat fee, never a percentage of the organization's revenue.</p>\n<h2>Challenge</h2>\n<ul>\n<li><b>Two systems for one person.</b> Operations lived in one platform and donors in another, reconciled by hand every month.</li>\n<li><b>Families are billed in messy ways.</b> Split payers, alternating months and assistance rates rarely fit a standard subscription.</li>\n<li><b>Peak hours at the front desk.</b> Part-time staff needed to check in members, guests and walk-ins in seconds, not clicks.</li>\n<li><b>Programs fill up.</b> Classes and camps needed capacity, waitlists and rosters by branch.</li>\n<li><b>The board asks by branch.</b> Reports were assembled from exports.</li>\n<li><b>Pricing that grows with the mission.</b> Incumbent platforms often take a percentage of revenue, so every successful campaign raises the software bill.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. Members and donors on one record</h3>\n<p>The parent who pays for swim lessons and gives to the annual campaign is one person in the system, with memberships, registrations, check-ins, gifts and volunteer hours on one timeline that the membership team and the development office both see.</p>\n<figure><img src=\"/images/nonprofit/operations-overview-dashboard.webp\" alt=\"Operations overview dashboard with members, revenue, donations and check-ins\" loading=\"lazy\" /><figcaption>Operations overview for a multi-branch organization.</figcaption></figure>\n<h3>2. Household billing with split payers</h3>\n<p>A household holds guardians and dependents with the billing arrangement that fits: one payer, a split, alternating months or a custom schedule. Every member has their own barcode.</p>\n<figure><img src=\"/images/nonprofit/household-record.webp\" alt=\"Household record with members and billing arrangement\" loading=\"lazy\" /><figcaption>A household, with its billing arrangement.</figcaption></figure>\n<h3>3. One-scan front-desk check-in</h3>\n<p>One screen for barcodes, guest passes and name search, showing today's classes at the location and who has arrived.</p>\n<figure><img src=\"/images/nonprofit/front-desk-check-in.webp\" alt=\"Front-desk check-in screen\" loading=\"lazy\" /><figcaption>Front-desk check-in.</figcaption></figure>\n<h3>4. Programs and classes with waitlists</h3>\n<p>Per-branch pricing, capacity, waitlists, rosters and attendance, with members booking from a branded portal.</p>\n<figure><img src=\"/images/nonprofit/classes-calendar.webp\" alt=\"Weekly class calendar across branches\" loading=\"lazy\" /><figcaption>The week's classes across branches.</figcaption></figure>\n<h3>5. Fundraising on the member record</h3>\n<p>Campaigns with goals and public giving pages, gifts recorded by branch and campaign, and donor records linked to the same people the front desk checks in.</p>\n<figure><img src=\"/images/nonprofit/fundraising-campaigns.webp\" alt=\"Fundraising campaigns with goals and progress\" loading=\"lazy\" /><figcaption>Campaigns, goals and progress.</figcaption></figure>\n<h3>6. Board-ready reporting by branch</h3>\n<p>A report library and dashboards scoped by branch and program, built so the person who is asked can answer.</p>\n<figure><img src=\"/images/nonprofit/reports-analytics.webp\" alt=\"Reports and analytics catalog\" loading=\"lazy\" /><figcaption>The report library.</figcaption></figure>\n<h3>7. Priced for a nonprofit</h3>\n<ul>\n<li>A flat fee, never a percentage of revenue.</li>\n<li>Payments settle to the organization's own merchant account.</li>\n<li>A free pilot in the organization's own branding before anyone signs.</li>\n<li>A 60-day go-live guarantee.</li>\n</ul>\n<h2>Results</h2>\n<ul>\n<li><b>One record per person,</b> whether they are a member, a donor, a volunteer or all three.</li>\n<li><b>Families billed the way they actually pay,</b> with split and alternating payers handled by the system.</li>\n<li><b>Check-in in one scan,</b> even at peak hours with part-time staff.</li>\n<li><b>Board questions answered by branch</b> from the same reports.</li>\n<li><b>A software bill that stays flat</b> as the mission grows, with money settling to the organization's own account.</li>\n</ul>\n<h2>Related</h2>\n<p>See the product: <a href=\"/nonprofit-management-software\">Nonprofit management software</a>. See everything Ardn has built and launched on <a href=\"/work\">our work</a>.</p>"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9002
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "A Membership and Fundraising Platform for Community Nonprofits | ARDN Cloud Solutions",
+   "description": "Case study: Ardn built and runs a membership and fundraising platform for multi-branch community nonprofits: one record per person, household billing, check-in, programs and campaigns, for a flat fee.",
+   "og_title": "A Membership and Fundraising Platform for Community Nonprofits",
+   "og_description": "Case study: Ardn built and runs a membership and fundraising platform for multi-branch community nonprofits: one record per person, household billing, check-in, programs and campaigns, for a flat fee.",
+   "og_url": "https://ardncloudsolutions.com/case-studies/membership-and-fundraising-platform-community-nonprofits",
+   "og_type": "article",
+   "og_site_name": "ARDN Cloud Solutions",
+   "og_image": [
+    {
+     "url": "https://ardncloudsolutions.com/images/nonprofit/operations-overview-dashboard.webp",
+     "width": 2880,
+     "height": 1800
+    }
+   ],
+   "schema": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A Membership and Fundraising Platform for Community Nonprofits",
+    "description": "Case study: Ardn built and runs a membership and fundraising platform for multi-branch community nonprofits: one record per person, household billing, check-in, programs and campaigns, for a flat fee.",
+    "datePublished": "2026-10-05T09:00:00",
+    "dateModified": "2026-10-05T09:00:00",
+    "image": "https://ardncloudsolutions.com/images/nonprofit/operations-overview-dashboard.webp",
+    "mainEntityOfPage": "https://ardncloudsolutions.com/case-studies/membership-and-fundraising-platform-community-nonprofits",
+    "author": {
+     "@id": "https://ardncloudsolutions.com/#organization"
+    },
+    "publisher": {
+     "@id": "https://ardncloudsolutions.com/#organization"
+    }
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/images/nonprofit/operations-overview-dashboard.webp",
+     "alt_text": "Operations overview dashboard for a community nonprofit",
+     "media_details": {
+      "sizes": {}
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 9002,
+      "name": "Nonprofits",
+      "slug": "nonprofits",
+      "taxonomy": "case-study-categories",
+      "count": 1
+     }
+    ]
+   ]
+  }
+ },
+ {
+  "id": 900005,
+  "slug": "construction-crm-jobs-service-dispatch",
+  "date": "2026-10-05T09:00:00",
+  "modified": "2026-10-05T09:00:00",
+  "title": {
+   "rendered": "Ardn CRM for Construction: Jobs, Service and Dispatch on One Record"
+  },
+  "excerpt": {
+   "rendered": "<p>How Ardn built a CRM for roofing, home improvement and general contractors around jobs, work orders, service requests and dispatch, priced by modules and locations rather than per seat.</p>"
+  },
+  "content": {
+   "rendered": "<h2>Introduction</h2>\n<p>Ardn CRM for construction is a CRM built around jobs, work orders, sites, service requests and bookings for roofing, windows and home improvement, residential and commercial general contractors, and real estate. Ardn designed and built it and launched it as its own product; it is priced by modules and locations, never per seat, with a setup fee and an optional managed service.</p>\n<h2>Challenge</h2>\n<ul>\n<li><b>Generic CRMs stop at the sale.</b> Contractors needed the deal to become a job, with sites, crews and work orders that follow.</li>\n<li><b>Per-seat pricing kept the field out.</b> Crew leads who needed to see a job were another license, so most of the team worked from texts.</li>\n<li><b>Service fell through.</b> Callbacks sat in an inbox until the customer called again.</li>\n<li><b>Dispatch by phone.</b> Who was where today was answered by calling around.</li>\n<li><b>Switching means moving history.</b> Nobody wants to lose years of accounts and notes to change tools.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. A business-health dashboard</h3>\n<p>Pipeline value, jobs in progress, open service requests and revenue on one screen, so the owner knows how the business is doing before the Monday meeting.</p>\n<figure><img src=\"/images/crm/dashboard.webp\" alt=\"Ardn CRM business-health dashboard\" loading=\"lazy\" /><figcaption>The business-health dashboard.</figcaption></figure>\n<h3>2. Pipeline board and deal pages</h3>\n<p>Leads from the website, referrals and calls land in one pipeline with stages the contractor defines. Each deal page shows every call, email, visit and quote on a timeline.</p>\n<figure><img src=\"/images/crm/pipeline.webp\" alt=\"Ardn CRM pipeline board\" loading=\"lazy\" /><figcaption>The pipeline board.</figcaption></figure>\n<h3>3. Quotes that become jobs in one click</h3>\n<p>Quotes are built from the product and service list, so pricing is consistent across estimators. When the customer accepts, one click converts the quote into a job with its line items, site and contact already in place.</p>\n<figure><img src=\"/images/crm/quote.webp\" alt=\"Ardn CRM quote with convert-to-job action\" loading=\"lazy\" /><figcaption>A quote built from the product list.</figcaption></figure>\n<h3>4. A service desk with SLA clocks</h3>\n<p>Every service request gets an SLA clock based on priority. Requests that are not picked up or resolved in time escalate automatically, and customers rate the visit when it closes.</p>\n<figure><img src=\"/images/crm/service-desk.webp\" alt=\"Ardn CRM service desk with SLA timers\" loading=\"lazy\" /><figcaption>The service desk, with SLA clocks.</figcaption></figure>\n<h3>5. Dispatch and work orders</h3>\n<p>A dispatch board shows crews, work orders and bookings by day and location. Assigning from the board updates the work order for the crew.</p>\n<figure><img src=\"/images/crm/dispatch.webp\" alt=\"Ardn CRM dispatch board\" loading=\"lazy\" /><figcaption>The dispatch board.</figcaption></figure>\n<h3>6. Accounts, reports and migration</h3>\n<ul>\n<li>Accounts hold sites, contacts, quotes, jobs and service requests for one customer, with lifetime value on the page.</li>\n<li>Reports cover the conversion funnel, revenue by source and service performance.</li>\n<li>Ardn migrates accounts, contacts, deals, job history and notes from the previous CRM as part of setup.</li>\n</ul>\n<figure><img src=\"/images/crm/reports.webp\" alt=\"Ardn CRM reports with conversion funnel and revenue by source\" loading=\"lazy\" /><figcaption>Conversion funnel and revenue by source.</figcaption></figure>\n<h2>Results</h2>\n<ul>\n<li><b>Sales, jobs and service on one record,</b> from the first call to the finished job.</li>\n<li><b>The whole team in the system,</b> because pricing follows modules and locations rather than head count.</li>\n<li><b>No service request forgotten:</b> SLA clocks, automatic escalation and a customer rating on every close.</li>\n<li><b>Dispatch everyone can see,</b> without a phone call.</li>\n<li><b>History carried over</b> from the previous CRM by Ardn, and an optional managed service to run it.</li>\n</ul>\n<h2>Related</h2>\n<p>See the product: <a href=\"/construction-crm\">Ardn CRM for construction</a>. See everything Ardn has built and launched on <a href=\"/work\">our work</a>.</p>"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9003
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Ardn CRM for Construction: Jobs, Service and Dispatch on One Record | ARDN Cloud Solutions",
+   "description": "Case study: Ardn built and launched a construction CRM with a pipeline, quotes that convert to jobs, a service desk with SLA clocks, dispatch and work orders. Never priced per seat.",
+   "og_title": "Ardn CRM for Construction: Jobs, Service and Dispatch on One Record",
+   "og_description": "Case study: Ardn built and launched a construction CRM with a pipeline, quotes that convert to jobs, a service desk with SLA clocks, dispatch and work orders. Never priced per seat.",
+   "og_url": "https://ardncloudsolutions.com/case-studies/construction-crm-jobs-service-dispatch",
+   "og_type": "article",
+   "og_site_name": "ARDN Cloud Solutions",
+   "og_image": [
+    {
+     "url": "https://ardncloudsolutions.com/images/crm/dashboard.webp",
+     "width": 1440,
+     "height": 900
+    }
+   ],
+   "schema": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ardn CRM for Construction: Jobs, Service and Dispatch on One Record",
+    "description": "Case study: Ardn built and launched a construction CRM with a pipeline, quotes that convert to jobs, a service desk with SLA clocks, dispatch and work orders. Never priced per seat.",
+    "datePublished": "2026-10-05T09:00:00",
+    "dateModified": "2026-10-05T09:00:00",
+    "image": "https://ardncloudsolutions.com/images/crm/dashboard.webp",
+    "mainEntityOfPage": "https://ardncloudsolutions.com/case-studies/construction-crm-jobs-service-dispatch",
+    "author": {
+     "@id": "https://ardncloudsolutions.com/#organization"
+    },
+    "publisher": {
+     "@id": "https://ardncloudsolutions.com/#organization"
+    }
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/images/crm/dashboard.webp",
+     "alt_text": "Ardn CRM business-health dashboard",
+     "media_details": {
+      "sizes": {}
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 9003,
+      "name": "Construction & Field Service",
+      "slug": "construction-field-service",
+      "taxonomy": "case-study-categories",
+      "count": 1
+     }
+    ]
+   ]
+  }
+ },
+ {
   "id": 900001,
   "slug": "rx-dr-white-label-telehealth-platform",
   "date": "2026-09-28T09:00:00",
@@ -11,10 +239,12 @@
    "rendered": "<p>How Ardn built a multi-tenant telehealth platform that lets brands launch online care under their own name, with intake, clinician review, pharmacy routing, payments and HIPAA controls built in.</p>"
   },
   "content": {
-   "rendered": "<h2>Introduction</h2>\n<p>Rx-Dr is a white-label telehealth platform. It lets a wellness brand, medical practice or clinic group launch online care under its own name: a patient chooses a treatment, completes an online intake, a licensed clinician reviews the case, and the prescription goes electronically to a partner pharmacy that ships it. Ardn designed and built the platform, and runs it as a managed service.</p>\n<h2>Challenge</h2>\n<p>Launching a compliant telehealth brand usually means stitching together five regulated systems, each hard to build on its own:</p>\n<ul>\n<li><b>Intake, clinician review, pharmacy e-prescribing, payments and patient messaging</b> all have to work together and stay HIPAA-compliant.</li>\n<li><b>Many brands, one platform.</b> Brands, clinics and referral partners each need their own branded experience, with their data kept strictly apart.</li>\n<li><b>Prescribing rules change by state and by drug</b>, and every decision needs an audit trail.</li>\n<li><b>Layered referral networks</b> (agencies, sales agents, clinics and creators) need commissions, refunds and payouts that are right every time.</li>\n<li><b>Subscriptions and refills</b> need renewals, shipments and pharmacy resubmissions to run on their own.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. One multi-tenant platform, many brands</h3>\n<p>Every brand gets its own domain, logo, colors and storefront, plus a separate test environment next to its live one. Tenant isolation is enforced in the data layer: a query that isn't scoped to a tenant fails instead of leaking data, and automated checks block code that would break the rule.</p>\n<h3>2. A portal for every role</h3>\n<p>Admins, operators, physicians, clinics, pharmacies, patients and referral partners each get their own portal, around 500 screens in total, all running on the same records.</p>\n<figure><img src=\"/media/case-studies/rx-dr/patient-journey.webp\" alt=\"Rx-Dr patient journey: from first question to treatment in days\" loading=\"lazy\" /><figcaption>The patient side: a five-step journey from first question to delivery.</figcaption></figure>\n<h3>3. Intake, review and prescribing compliance</h3>\n<ul>\n<li>Intake questionnaires built per treatment category, with conditional logic, clinician review flags and ID capture.</li>\n<li>State-by-state and drug-by-drug prescribing rules that fail closed: if an approved rule doesn't exist for a case, the order is denied rather than allowed by default.</li>\n<li>An external prescriber API so an outside clinician network can pick up cases and approve or decline them.</li>\n</ul>\n<h3>4. Pharmacy, payments and operations on autopilot</h3>\n<ul>\n<li>Electronic prescription transmission to partner pharmacies, with status synced back and cancellations and resubmissions handled.</li>\n<li>Split payments, memberships and subscriptions, with a commission ledger that handles clawbacks and payouts across referral tiers.</li>\n<li>54 scheduled background jobs run renewals, shipments, follow-up care and data-integrity checks.</li>\n<li>Patient messaging, video visits and appointment booking built in.</li>\n</ul>\n<h3>5. HIPAA built in, not bolted on</h3>\n<ul>\n<li>Workforce Business Associate Agreement attestations, logged access to patient records (\"minimum necessary\"), and break-glass access that requires a written reason.</li>\n<li>Field-level AES-256 encryption for sensitive identifiers, and automated checks that keep patient data out of logs.</li>\n<li>Two-person approval for sensitive admin actions, a full audit log, fraud flags and privacy tooling.</li>\n<li>AI helps with document reading and clinician triage. It never approves a prescription.</li>\n</ul>\n<figure><img src=\"/media/case-studies/rx-dr/mobile.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Rx-Dr consumer site on a phone\" loading=\"lazy\" /><figcaption>Mobile-first for patients.</figcaption></figure>\n<h2>Outcomes</h2>\n<ul>\n<li><b>A brand can launch without building a medical stack.</b> Intake, clinicians, pharmacy routing, payments and the patient portal come ready, under the brand's name.</li>\n<li><b>One platform, many brands.</b> Each brand is isolated and branded, with its own test environment.</li>\n<li><b>Compliance by design.</b> Prescribing rules fail closed, every read of a patient record is logged, and sensitive actions need a second approver.</li>\n<li><b>Operations that run themselves.</b> Renewals, refills, commissions and payouts run on schedule, with integrity checks that flag anything stuck.</li>\n<li><b>Built to scale:</b> about 300 data models, around 500 screens and 54 automated jobs, all run by Ardn as a managed service.</li>\n</ul>\n<h2>Want something like this?</h2>\n<p>Rx-Dr is an example of how Ardn works: we map the business, build an AI-first platform around it, and run it for you. See <a href=\"/approach\">our approach</a>, or <a href=\"/contact-us\">talk to us</a> about your idea.</p>"
+   "rendered": "<h2>Introduction</h2>\n<p>Rx-Dr is a white-label telehealth platform. It lets a wellness brand, medical practice or clinic group launch online care under its own name: a patient chooses a treatment, completes an online intake, a licensed clinician reviews the case, and the prescription goes electronically to a partner pharmacy that ships it. Ardn designed and built the platform, and runs it as a managed service.</p>\n<h2>Challenge</h2>\n<p>Launching a compliant telehealth brand usually means stitching together five regulated systems, each hard to build on its own:</p>\n<ul>\n<li><b>Intake, clinician review, pharmacy e-prescribing, payments and patient messaging</b> all have to work together and stay HIPAA-compliant.</li>\n<li><b>Many brands, one platform.</b> Brands, clinics and referral partners each need their own branded experience, with their data kept strictly apart.</li>\n<li><b>Prescribing rules change by state and by drug</b>, and every decision needs an audit trail.</li>\n<li><b>Layered referral networks</b> (agencies, sales agents, clinics and creators) need commissions, refunds and payouts that are right every time.</li>\n<li><b>Subscriptions and refills</b> need renewals, shipments and pharmacy resubmissions to run on their own.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. One multi-tenant platform, many brands</h3>\n<p>Every brand gets its own domain, logo, colors and storefront, plus a separate test environment next to its live one. Tenant isolation is enforced in the data layer: a query that isn't scoped to a tenant fails instead of leaking data, and automated checks block code that would break the rule.</p>\n<h3>2. A portal for every role</h3>\n<p>Admins, operators, physicians, clinics, pharmacies, patients and referral partners each get their own portal, around 500 screens in total, all running on the same records.</p>\n<figure><img src=\"/media/case-studies/rx-dr/patient-journey.webp\" alt=\"Rx-Dr patient journey: from first question to treatment in days\" loading=\"lazy\" /><figcaption>The patient side: a five-step journey from first question to delivery.</figcaption></figure>\n<h3>3. Intake, review and prescribing compliance</h3>\n<ul>\n<li>Intake questionnaires built per treatment category, with conditional logic, clinician review flags and ID capture.</li>\n<li>State-by-state and drug-by-drug prescribing rules that fail closed: if an approved rule doesn't exist for a case, the order is denied rather than allowed by default.</li>\n<li>An external prescriber API so an outside clinician network can pick up cases and approve or decline them.</li>\n</ul>\n<h3>4. Pharmacy, payments and operations on autopilot</h3>\n<ul>\n<li>Electronic prescription transmission to partner pharmacies, with status synced back and cancellations and resubmissions handled.</li>\n<li>Split payments, memberships and subscriptions, with a commission ledger that handles clawbacks and payouts across referral tiers.</li>\n<li>54 scheduled background jobs run renewals, shipments, follow-up care and data-integrity checks.</li>\n<li>Patient messaging, video visits and appointment booking built in.</li>\n</ul>\n<h3>5. HIPAA built in, not bolted on</h3>\n<ul>\n<li>Workforce Business Associate Agreement attestations, logged access to patient records (\"minimum necessary\"), and break-glass access that requires a written reason.</li>\n<li>Field-level AES-256 encryption for sensitive identifiers, and automated checks that keep patient data out of logs.</li>\n<li>Two-person approval for sensitive admin actions, a full audit log, fraud flags and privacy tooling.</li>\n<li>AI helps with document reading and clinician triage. It never approves a prescription.</li>\n</ul>\n<figure><img src=\"/media/case-studies/rx-dr/mobile.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Rx-Dr consumer site on a phone\" loading=\"lazy\" /><figcaption>Mobile-first for patients.</figcaption></figure>\n<h2>Outcomes</h2>\n<ul>\n<li><b>A brand can launch without building a medical stack.</b> Intake, clinicians, pharmacy routing, payments and the patient portal come ready, under the brand's name.</li>\n<li><b>One platform, many brands.</b> Each brand is isolated and branded, with its own test environment.</li>\n<li><b>Compliance by design.</b> Prescribing rules fail closed, every read of a patient record is logged, and sensitive actions need a second approver.</li>\n<li><b>Operations that run themselves.</b> Renewals, refills, commissions and payouts run on schedule, with integrity checks that flag anything stuck.</li>\n<li><b>Built to scale:</b> about 300 data models, around 500 screens and 54 automated jobs, all run by Ardn as a managed service.</li>\n</ul>\n<h2>Want something like this?</h2>\n<p>Rx-Dr is an example of how Ardn works: we map the business, build an AI-first platform around it, and run it for you. See <a href=\"/approach\">our approach</a>, or <a href=\"/contact-us\">talk to us</a> about your idea.</p>\n<h2>Related</h2>\n<p>See the product: <a href=\"/glp-1-ecommerce\">White-label telehealth and GLP-1 e-commerce platforms</a>. See everything Ardn has built and launched on <a href=\"/work\">our work</a>.</p>"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9004
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -41,7 +271,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9004,
+      "name": "Healthcare & Telehealth",
+      "slug": "healthcare-telehealth",
+      "taxonomy": "case-study-categories",
+      "count": 1
+     }
+    ]
+   ]
   }
  },
  {
@@ -56,10 +296,12 @@
    "rendered": "<p>How Ardn built a research-use-only store with lot-level Certificates of Analysis, a compliance layer on every page, resilient payments, a partner program and a full back office.</p>"
   },
   "content": {
-   "rendered": "<h2>Introduction</h2>\n<p>Research Only is a US online store for research-grade peptides and lab supplies, sold strictly for laboratory research use. Every lot is independently tested, and the signed Certificate of Analysis is published on the product page. Ardn designed and built the store and its back office, and runs it.</p>\n<h2>Challenge</h2>\n<ul>\n<li><b>A regulated category.</b> Everything has to be sold and described strictly as research-use-only, with clear legal positioning on every page.</li>\n<li><b>Trust has to be provable.</b> Buyers want to verify purity for the exact lot and size before they order.</li>\n<li><b>Payments are harder than usual.</b> The category needs resilient, multi-rail payments rather than a single provider.</li>\n<li><b>Real operational complexity.</b> Sizes and blends, tiered pricing, several fulfillment partners and a partner program with commissions.</li>\n<li><b>Organic visibility matters.</b> With limited paid-ad options, search and AI-answer visibility carry the growth.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. A compliance layer on every page</h3>\n<p>Visitors confirm they are 21+ and qualified researchers before entering. A research-use-only notice appears on every page and every product, and a dedicated compliance statement covers the store's regulatory position.</p>\n<figure><img src=\"/media/case-studies/research-only/gate.webp\" alt=\"Research Only entry confirmation for qualified researchers\" loading=\"lazy\" /><figcaption>Entry confirmation: 21+ and laboratory research use only.</figcaption></figure>\n<h3>2. Certificates of Analysis, per lot and per size</h3>\n<p>Each product page shows the verified purity, molecular weight, sequence and CAS number, with the independent lab report available to download for every size. Certificates are versioned in the database and tied to the lot they cover.</p>\n<figure><img src=\"/media/case-studies/research-only/product-2.webp\" alt=\"Certificate of Analysis panel showing total purity, sequence, molecular weight and downloadable lab reports\" loading=\"lazy\" /><figcaption>The Certificate of Analysis panel on every product page.</figcaption></figure>\n<h3>3. A storefront built to convert</h3>\n<ul>\n<li>Catalog with search, sorting and size options, plus \"frequently ordered together\" bundles.</li>\n<li>Automatic bundle discounts with no code to remember.</li>\n<li>Customer accounts with orders, addresses and notifications.</li>\n<li>PCI-friendly hosted card fields, so card data never touches the store's servers, plus resilient multi-rail payments.</li>\n</ul>\n<figure><img src=\"/media/case-studies/research-only/product.webp\" alt=\"Research Only product page with size options, View COA and add to cart\" loading=\"lazy\" /><figcaption>Product pages lead with purity and the lab report.</figcaption></figure>\n<h3>4. A back office that runs the business</h3>\n<p>More than 60 admin screens cover products, lots and inventory, pricing tiers and promotions, customers, the shipping queue and fulfillment routing, email templates, and a go-live checklist. Audit logging and a personal-data access log record who saw what.</p>\n<h3>5. Partner program</h3>\n<p>Partners get their own branded referral storefront links and portal, with automatic order credit and twice-monthly payout statements.</p>\n<h3>6. Search and AI-answer visibility</h3>\n<p>Every public page is pre-rendered, with structured data for products, articles and FAQs, a research library and buyer guides. A crawler policy welcomes search and AI answer engines and blocks AI training crawlers.</p>\n<figure><img src=\"/media/case-studies/research-only/mobile.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Research Only product page on a phone\" loading=\"lazy\" /><figcaption>Fast on mobile, served from a global edge network.</figcaption></figure>\n<h2>Outcomes</h2>\n<ul>\n<li><b>29 research compounds</b> live, each with lot-level Certificates of Analysis.</li>\n<li><b>59 indexed pages</b>, including a research library and buyer guides built for search and AI answers.</li>\n<li><b>About 0.1-second server response</b> on the home and product pages, served from the edge.</li>\n<li><b>Compliance built into the product:</b> the entry confirmation, research-use-only notices and the compliance statement ship with every page.</li>\n<li><b>One back office</b> for catalog, fulfillment, partners and payouts, run by Ardn as a managed service.</li>\n</ul>\n<h2>Want something like this?</h2>\n<p>Research Only shows how Ardn builds for regulated, complex categories: compliance, trust and operations designed in from day one. See <a href=\"/custom-software-development\">custom software</a>, or <a href=\"/contact-us\">talk to us</a> about your store.</p>"
+   "rendered": "<h2>Introduction</h2>\n<p>Research Only is a US online store for research-grade peptides and lab supplies, sold strictly for laboratory research use. Every lot is independently tested, and the signed Certificate of Analysis is published on the product page. Ardn designed and built the store and its back office, and runs it.</p>\n<h2>Challenge</h2>\n<ul>\n<li><b>A regulated category.</b> Everything has to be sold and described strictly as research-use-only, with clear legal positioning on every page.</li>\n<li><b>Trust has to be provable.</b> Buyers want to verify purity for the exact lot and size before they order.</li>\n<li><b>Payments are harder than usual.</b> The category needs resilient, multi-rail payments rather than a single provider.</li>\n<li><b>Real operational complexity.</b> Sizes and blends, tiered pricing, several fulfillment partners and a partner program with commissions.</li>\n<li><b>Organic visibility matters.</b> With limited paid-ad options, search and AI-answer visibility carry the growth.</li>\n</ul>\n<h2>Solution</h2>\n<h3>1. A compliance layer on every page</h3>\n<p>Visitors confirm they are 21+ and qualified researchers before entering. A research-use-only notice appears on every page and every product, and a dedicated compliance statement covers the store's regulatory position.</p>\n<figure><img src=\"/media/case-studies/research-only/gate.webp\" alt=\"Research Only entry confirmation for qualified researchers\" loading=\"lazy\" /><figcaption>Entry confirmation: 21+ and laboratory research use only.</figcaption></figure>\n<h3>2. Certificates of Analysis, per lot and per size</h3>\n<p>Each product page shows the verified purity, molecular weight, sequence and CAS number, with the independent lab report available to download for every size. Certificates are versioned in the database and tied to the lot they cover.</p>\n<figure><img src=\"/media/case-studies/research-only/product-2.webp\" alt=\"Certificate of Analysis panel showing total purity, sequence, molecular weight and downloadable lab reports\" loading=\"lazy\" /><figcaption>The Certificate of Analysis panel on every product page.</figcaption></figure>\n<h3>3. A storefront built to convert</h3>\n<ul>\n<li>Catalog with search, sorting and size options, plus \"frequently ordered together\" bundles.</li>\n<li>Automatic bundle discounts with no code to remember.</li>\n<li>Customer accounts with orders, addresses and notifications.</li>\n<li>PCI-friendly hosted card fields, so card data never touches the store's servers, plus resilient multi-rail payments.</li>\n</ul>\n<figure><img src=\"/media/case-studies/research-only/product.webp\" alt=\"Research Only product page with size options, View COA and add to cart\" loading=\"lazy\" /><figcaption>Product pages lead with purity and the lab report.</figcaption></figure>\n<h3>4. A back office that runs the business</h3>\n<p>More than 60 admin screens cover products, lots and inventory, pricing tiers and promotions, customers, the shipping queue and fulfillment routing, email templates, and a go-live checklist. Audit logging and a personal-data access log record who saw what.</p>\n<h3>5. Partner program</h3>\n<p>Partners get their own branded referral storefront links and portal, with automatic order credit and twice-monthly payout statements.</p>\n<h3>6. Search and AI-answer visibility</h3>\n<p>Every public page is pre-rendered, with structured data for products, articles and FAQs, a research library and buyer guides. A crawler policy welcomes search and AI answer engines and blocks AI training crawlers.</p>\n<figure><img src=\"/media/case-studies/research-only/mobile.webp\" style=\"max-width:340px;margin-left:auto;margin-right:auto\" alt=\"Research Only product page on a phone\" loading=\"lazy\" /><figcaption>Fast on mobile, served from a global edge network.</figcaption></figure>\n<h2>Outcomes</h2>\n<ul>\n<li><b>29 research compounds</b> live, each with lot-level Certificates of Analysis.</li>\n<li><b>59 indexed pages</b>, including a research library and buyer guides built for search and AI answers.</li>\n<li><b>About 0.1-second server response</b> on the home and product pages, served from the edge.</li>\n<li><b>Compliance built into the product:</b> the entry confirmation, research-use-only notices and the compliance statement ship with every page.</li>\n<li><b>One back office</b> for catalog, fulfillment, partners and payouts, run by Ardn as a managed service.</li>\n</ul>\n<h2>Want something like this?</h2>\n<p>Research Only shows how Ardn builds for regulated, complex categories: compliance, trust and operations designed in from day one. See <a href=\"/custom-software-development\">custom software</a>, or <a href=\"/contact-us\">talk to us</a> about your store.</p>\n<h2>Related</h2>\n<p>See the product: <a href=\"/custom-ecommerce-development\">Custom e-commerce development</a>. See everything Ardn has built and launched on <a href=\"/work\">our work</a>.</p>"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9005
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -86,7 +328,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9005,
+      "name": "E-commerce",
+      "slug": "e-commerce",
+      "taxonomy": "case-study-categories",
+      "count": 1
+     }
+    ]
+   ]
   }
  },
  {
@@ -104,7 +356,9 @@
    "rendered": "<h2><b>Introduction</b></h2>\n<p>A major airline recognized the need to enhance both customer and agent experiences through a centralized, efficient customer service system. To achieve this, they partnered with a leading consulting firm to implement the Salesforce Customer360 Service Console. This unified platform provided agents with seamless access to customer, loyalty, and flight data, improving service efficiency and customer satisfaction across multiple channels.</p>\n<h2 style=\"font-size: 28px;\"><b>Challenge</b></h2>\n<p>The airline faced fragmented systems and disjointed workflows in its customer service centers. Agents struggled to provide consistent, timely assistance due to the lack of an integrated solution, leading to slower issue resolution and reduced customer satisfaction. A scalable, multi-channel support platform was required to address these inefficiencies.</p>\n<h2 style=\"font-size: 28px;\"><b>Solution</b></h2>\n<h3 style=\"font-size: 16px;\"><b>1. Strategy &amp; Vision</b></h3>\n<p>The transformation journey began with a two-month discovery phase focused on:</p>\n<ul>\n<li>Analyzing the current state of operations.</li>\n<li>Identifying gaps in service delivery.</li>\n<li>Defining a future state vision for seamless customer and agent experiences.</li>\n</ul>\n<h3 style=\"font-size: 16px;\"><b>2. Design &amp; Pilot</b></h3>\n<p>A unified service console was developed to empower service representatives with:</p>\n<ul>\n<li>A consolidated view of crucial customer, loyalty, and flight data.</li>\n<li>An intuitive interface designed to enhance agent productivity.</li>\n</ul>\n<h3 style=\"font-size: 16px;\"><b>3. Launch &amp; Refine</b></h3>\n<p>Within four months, the airline introduced a <b>Mobile Live Chat</b> feature, adding a new support channel for its Southwest Rapid Rewards Members. This enabled real-time customer assistance while enhancing accessibility.</p>\n<p><b>4. Optimize &amp; Scale</b></p>\n<p>Plans were set in motion to expand the solution’s capabilities by:</p>\n<ul>\n<li>Rolling out the service console to <b>4,000 phone agents</b> across 11 customer service centers.</li>\n<li>Expanding access to <b>two additional departments</b> in future releases, further scaling the platform.</li>\n</ul>\n<h2 style=\"font-size: 28px;\"><b>Results</b></h2>\n<p>The implementation of the Salesforce Customer360 Service Console brought substantial improvements:</p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>180,000 chat interactions</b> recorded since the platform&#8217;s go-live.</li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>100% increase in the ability to support in-flight customers</b>, elevating service quality.</li>\n<li style=\"font-weight: 400;\" aria-level=\"1\">Support extended to <b>five channels</b>, including voice, email, web chat, social media, and mobile live chat.</li>\n</ul>\n<p><b>Impact Metrics:</b></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Customer Experience:</b> 5/5</li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Employee Engagement:</b> 5/5</li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Productivity:</b> 5/5</li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Growth:</b> 3/5</li>\n</ul>\n<h2 style=\"font-size: 28px;\"><b>Conclusion</b></h2>\n<p>This case study highlights how the Salesforce Customer360 Service Console transformed customer service operations for a major airline. By unifying data, introducing new support channels, and optimizing workflows, the airline significantly enhanced its ability to provide exceptional service. This initiative stands as a testament to the value of digital innovation in driving superior customer experiences in the aviation sector.</p>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -220,7 +474,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  },
  {
@@ -238,7 +502,9 @@
    "rendered": "<h2>\n<strong class=\"ardn-content-title\">Introduction</strong></h2>\n<p>A global airline leader aimed to transform its B2B engagement by modernizing its outdated centralized sales platform. The goal was to simplify travel management for corporate clients and travel agencies, streamline administrative processes, and enable advanced servicing capabilities. Collaborating with a global consulting firm, the airline implemented a centralized Salesforce-powered platform, creating a seamless experience for its B2B customers.</p>\n<h2><strong class=\"ardn-content-title\">Challenge</strong></h2>\n<p>The airline’s legacy systems lacked integration and scalability, causing inefficiencies for travel managers and agency partners. Administrative sales tasks consumed excessive time, and limited functionalities hindered effective customer servicing. A centralized sales solution was needed to improve usability, reduce manual tasks, and unlock new revenue opportunities.</p>\n<h2><strong class=\"ardn-content-title\">Solution</strong></h2>\n<p><strong class=\"ardn-content-subtile\">1. Strategy &amp; Vision</strong></p>\n<p><span style=\"font-weight: 400;\">The project began with a one-month discovery phase to:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Validate system requirements and align stakeholders on key objectives.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\">Develop a digital proof of concept and establish the technical environment for the centralized sales platform.</li>\n</ul>\n<p><strong class=\"ardn-content-subtile\">2. Design &amp; Pilot</strong></p>\n<p><span style=\"font-weight: 400;\">The consulting team collaborated with business SMEs to design a portal prototype for a smaller user group. Key features included:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Security controls</b><span style=\"font-weight: 400;\"> for user data and portal access.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>CRM foundation integration</b><span style=\"font-weight: 400;\"> to provide a unified view of customer data.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Initial reporting capabilities</b><span style=\"font-weight: 400;\"> to deliver actionable insights.</span></li>\n</ul>\n<p><strong class=\"ardn-content-subtile\">3. Launch &amp; Refine</strong></p>\n<p><span style=\"font-weight: 400;\">The portal was expanded to include:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Amenity banking:</b><span style=\"font-weight: 400;\"> Enabling easy management of additional services.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Servicing knowledge base:</b><span style=\"font-weight: 400;\"> Providing quick access to critical information for customer support.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Extended reporting capabilities:</b><span style=\"font-weight: 400;\"> Allowing detailed analysis of sales and customer engagement.</span></li>\n</ul>\n<p><strong class=\"ardn-content-subtile\">4. Optimize &amp; Scale</strong></p>\n<p><span style=\"font-weight: 400;\">The final phase focused on further enhancement and scalability by introducing:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Contract lifecycle management tools</b><span style=\"font-weight: 400;\"> for streamlined deal execution.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Advanced customer servicing capabilities</b><span style=\"font-weight: 400;\"> to meet diverse client needs efficiently.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Results</strong></h2>\n<p>The implementation of the centralized sales portal, known as Jetstream, delivered substantial improvements:</p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>150% increase in portal traffic</b><span style=\"font-weight: 400;\"> compared to the previous system.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>18% reduction</b><span style=\"font-weight: 400;\"> in weekly administrative sales activities, cutting hours down to minutes.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Over </span><b>$22 million in transactions</b><span style=\"font-weight: 400;\"> processed through the Jetstream platform.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Impact Metrics:</strong></h2>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Customer Experience:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Employee Engagement:</b><span style=\"font-weight: 400;\"> 3/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Productivity:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Growth:</b><span style=\"font-weight: 400;\"> 4/5</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Conclusion</strong></h2>\n<p>This case study demonstrates the transformative power of a centralized Salesforce solution in the airline industry. By modernizing its centralized sales platform, the airline enhanced its B2B customer experience, improved operational efficiency, and unlocked new revenue streams. The Jetstream platform stands as a testament to the value of digital innovation in optimizing corporate travel management and customer engagement.</p>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -359,7 +625,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  },
  {
@@ -377,7 +653,9 @@
    "rendered": "<h2><strong>Introduction</strong></h2>\n<p><span style=\"font-weight: 400;\">A leading company in the timeshare industry revolutionized its operations by digitizing its tour management platform. The goal was to eliminate outdated manual processes, enhance customer experiences, and empower leadership with a 360-degree view of guest and owner data. Collaborating with a global consulting firm, the company successfully implemented a Salesforce-powered solution that streamlined operations, reduced costs, and drove productivity.</span></p>\n<h2><strong class=\"ardn-content-title\">Challenge</strong></h2>\n<p><span style=\"font-weight: 400;\">Operating in a highly competitive industry, the company faced challenges stemming from legacy systems inherited through multiple acquisitions. These systems were inefficient, resulting in lengthy booking processes, increased marketing spend, and a lack of real-time data access. The need for a unified, paperless platform became critical to maintaining its market leadership.</span></p>\n<h2><strong class=\"ardn-content-title\">Solution</strong></h2>\n<ol>\n<li><b> Strategy &amp; Vision</b><b><br />\n</b><span style=\"font-weight: 400;\">The transformation began with a thorough assessment of the company&#8217;s business processes and legacy systems. This included:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Reviewing the architecture of inherited systems to identify inefficiencies.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Establishing a framework for digitization that prioritized scalability and ease of use.</span></li>\n</ul>\n<ol start=\"2\">\n<li><b> Design &amp; Pilot</b><b><br />\n</b><span style=\"font-weight: 400;\">A pilot program introduced cutting-edge functionality tailored to the company’s needs, including:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Real-time slot availability:</b><span style=\"font-weight: 400;\"> Allowing for instant updates on tour schedules.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Instant notifications for sales representatives:</b><span style=\"font-weight: 400;\"> Ensuring quick responses to customer needs.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Control of the tour life cycle:</b><span style=\"font-weight: 400;\"> Automating processes from booking to feedback collection.</span></li>\n</ul>\n<ol start=\"3\">\n<li><b> Launch &amp; Refine</b><b><br />\n</b><span style=\"font-weight: 400;\">The integrated tour management system was launched, offering:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Paperless processes:</b><span style=\"font-weight: 400;\"> Eliminating the need for manual documentation.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Dynamic dashboards:</b><span style=\"font-weight: 400;\"> Providing real-time insights for better decision-making.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Real-time availability updates:</b><span style=\"font-weight: 400;\"> Improving scheduling efficiency for guests and employees.</span></li>\n</ul>\n<ol start=\"4\">\n<li><b> Optimize &amp; Scale</b><b><br />\n</b><span style=\"font-weight: 400;\">Following the launch, the company conducted ongoing feedback analysis to:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Fine-tune processes and ensure seamless integration across multiple brands.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Maintain system efficiency and adapt to evolving business requirements.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Results</strong></h2>\n<p><span style=\"font-weight: 400;\">The digitized tour management platform delivered impressive results:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>85,000 leads generated</b><span style=\"font-weight: 400;\"> within six months of going live.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>5-minute reduction</b><span style=\"font-weight: 400;\"> in the time required to book a tour.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>18,000 tours booked</b><span style=\"font-weight: 400;\"> in a single month following the platform&#8217;s launch.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Impact Metrics:</strong></h2>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Customer Experience:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Employee Engagement:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Productivity:</b><span style=\"font-weight: 400;\"> 4/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Growth:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Conclusion</strong></h2>\n<p><span style=\"font-weight: 400;\">This case study demonstrates how digitizing a core business process can transform an entire industry. By leveraging Salesforce’s capabilities, the company not only enhanced its operational efficiency but also redefined the customer experience in the timeshare industry. This digital transformation serves as a blueprint for organizations looking to innovate and scale seamlessly.</span></p>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -503,7 +781,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  },
  {
@@ -521,7 +809,9 @@
    "rendered": "<h2>\n<strong class=\"ardn-content-title\">Introduction</strong></h2>\n<p>A Global Food Conglomerate sought to seamlessly integrate its commercial functions after acquiring another major brand. The challenge was to redefine its operating model for sales, marketing, and innovation teams while leveraging Salesforce multi-cloud solutions to achieve operational synergies and enhance customer engagement. This transformation would enable the company to deliver a flawless close and unlock significant value.</p>\n<h2><strong class=\"ardn-content-title\">Challenge</strong></h2>\n<p><span style=\"font-weight: 400;\">The integration of two large organizations presented several complexities, including:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Merging disparate systems and processes for sales, marketing, and consumer care.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Standardizing trade spend practices and renegotiating broker contracts.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Aligning strategic goals to achieve a seamless front office transformation at “deal speed.”</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Solution</strong></h2>\n<ol>\n<li><b> Strategy &amp; Vision</b><b><br />\n</b><span style=\"font-weight: 400;\">The project began by translating the company’s strategic goals into actionable integration design principles. Key steps included:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Conducting cost and capability benchmarking to identify opportunities for improvement.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Defining a roadmap to ensure that the front office transformation would align with the acquisition timeline.</span></li>\n</ul>\n<ol start=\"2\">\n<li><b> Design &amp; Pilot</b><b><br />\n</b><span style=\"font-weight: 400;\">To prepare for integration, the team developed a comprehensive plan for “Day 1” readiness, including:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Designing end-state operating models that aligned with long-term business objectives.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Mapping user journeys and conducting user testing to address pain points and ensure adoption of Minimum Viable Products (MVPs).</span></li>\n</ul>\n<ol start=\"3\">\n<li><b> Launch &amp; Refine</b><b><br />\n</b><span style=\"font-weight: 400;\">The team ensured a smooth transition by:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Supporting “Day 1” activities across sales, marketing, and service functions.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Deploying Salesforce-powered MVPs for Marketing, Sales, and Service within four months of kickoff, allowing immediate value capture.</span></li>\n</ul>\n<ol start=\"4\">\n<li><b> Optimize &amp; Scale</b><b><br />\n</b><span style=\"font-weight: 400;\">The integration culminated in the implementation of the end-state operating model, accompanied by ongoing enhancements to the B2B2C engagement model. These refinements included:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Streamlining workflows to improve productivity.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Enhancing customer engagement processes for retail and consumer care.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Results</strong></h2>\n<p>The transformation of this Global Food Conglomerate delivered measurable outcomes:</p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>$35 million</b><span style=\"font-weight: 400;\"> in front office deal synergies.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>20% reduction</b><span style=\"font-weight: 400;\"> in average handle times, improving efficiency across commercial functions.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>15% increase</b><span style=\"font-weight: 400;\"> in worker productivity, enabling teams to focus on high-value activities.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Impact Metrics:</strong></h2>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Customer Experience:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Employee Engagement:</b><span style=\"font-weight: 400;\"> 4/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Productivity:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Growth:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Conclusion</strong></h2>\n<p><span style=\"font-weight: 400;\">This case study illustrates how a comprehensive front office transformation powered by Salesforce multi-cloud solutions can drive integration success and unlock significant operational synergies. By focusing on strategic alignment, rapid deployment, and ongoing optimization, the company achieved a seamless transition and positioned itself for future growth.</span></p>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -637,7 +927,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  },
  {
@@ -655,7 +955,9 @@
    "rendered": "<h2>\n<strong class=\"ardn-content-title\">Introduction</strong></h2>\n<p>A global consumer goods leader in Latin America faced challenges with in-store execution, impacting productivity and sales growth. Fragmented processes, lack of real-time data access, and manual inefficiencies hindered the company’s ability to meet its ambitious growth targets. This LATAM productivity case study highlights how partnering with a leading global consulting firm, the company implemented a Salesforce-powered integrated platform and hybrid mobile application to revolutionize its retail execution capabilities.</p>\n<h2><strong class=\"ardn-content-title\">Challenge</strong></h2>\n<p><span style=\"font-weight: 400;\">The company required a robust solution to standardize and streamline retail processes across 16 countries in Latin America. Existing systems were inefficient and failed to accommodate diverse regional technology preferences, leading to inconsistent in-store execution and lost productivity.</span></p>\n<h2><strong class=\"ardn-content-title\">Solution</strong></h2>\n<ol>\n<li><b> Strategy &amp; Vision</b><b><br />\n</b><span style=\"font-weight: 400;\">To set the foundation for success, the project focused on:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Standardizing business processes across LATAM before technical design workshops.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Establishing a scalable and modular development framework to ensure the solution could be adapted for future growth.</span></li>\n</ul>\n<ol start=\"2\">\n<li><b> Design &amp; Pilot</b><b><br />\n</b><span style=\"font-weight: 400;\">User experience became a central focus during the design phase. The team developed a responsive mobile application optimized for both iOS and Android, considering the diverse technology landscapes across the region. Features included:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Offline optimization to ensure seamless functionality without internet connectivity.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">A user-friendly interface to enhance employee adoption.</span></li>\n</ul>\n<ol start=\"3\">\n<li><b> Launch &amp; Refine</b><b><br />\n</b><span style=\"font-weight: 400;\">The mobile application was integrated with the company’s Data Warehouse to provide real-time access to point-of-sale data. Automation of manual processes allowed for consistent execution and more time for sales development. Key features included:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Store auditing tools to ensure compliance and performance tracking.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Automated out-of-stock reviews to improve inventory management.</span></li>\n</ul>\n<ol start=\"4\">\n<li><b> Optimize &amp; Scale</b><b><br />\n</b><span style=\"font-weight: 400;\">The Salesforce platform was architected for standardization, minimizing the need for extensive customizations while allowing for localized configurations. This approach enabled:</span></li>\n</ol>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Efficient scaling across 16 countries.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Mobile and language localization tailored to regional needs.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Results</strong></h2>\n<p><span style=\"font-weight: 400;\">The integrated platform delivered remarkable outcomes:</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>20% increase in productivity</b><span style=\"font-weight: 400;\">, enabling employees to focus on value-adding activities.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>100% adoption</b><span style=\"font-weight: 400;\"> of the solution within 45 days of rollout.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Deployment across </span><b>16 countries</b><span style=\"font-weight: 400;\">, ensuring a consistent and scalable retail execution model.</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Impact Metrics:</strong></h2>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Customer Experience:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Employee Engagement:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Productivity:</b><span style=\"font-weight: 400;\"> 5/5</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><b>Growth:</b><span style=\"font-weight: 400;\"> 4/5</span></li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Conclusion</strong></h2>\n<p>This transformation demonstrates how an integrated Salesforce solution can enhance retail execution, optimize productivity, and drive sales growth. By focusing on user experience, standardization, and regional adaptability, the company successfully achieved consistent results across Latin America. This LATAM Productivity Case Study serves as a model for leveraging technology to overcome operational inefficiencies and achieve scalable growth.</p>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -781,7 +1083,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  },
  {
@@ -799,7 +1111,9 @@
    "rendered": "<h2>\n<strong>Introduction</strong></h2>\n<p>A global leader in the food and beverage industry needed to redefine its go-to-market (GTM) strategy. The main goals were to increase market share, improve sales processes, and achieve distribution savings. By using <strong>Salesforce</strong>, the company aimed to optimize its Direct Store Delivery (DSD) system. This change would drive productivity across its sales teams and enhance front office operations. To achieve these objectives, a leading global consulting firm partnered with the company to design and implement a comprehensive GTM strategy that would impact its entire sales function.</p>\n<h2><strong class=\"ardn-content-title\">Challenge</strong></h2>\n<p class=\"mb-2 mt-6 text-lg first:mt-3\">The company’s existing sales and distribution system lacked efficiency and scalability. Fragmented processes, slow in-store execution, and inadequate data analytics hindered operations and affected competitiveness. As a result, the company needed a solution that could optimize sales productivity, streamline retail execution, and provide real-time insights into operations.</p>\n<h2><strong>Solution</strong></h2>\n<ol class=\"marker:text-textOff list-decimal pl-8\">\n<li><strong>Strategy &amp; Vision</strong><br />\nThe consulting firm began with a 3-week blueprint phase. During this phase, they defined the strategic fit for DSD technology transformation. They carefully mapped out key program decisions—including strategy, processes, and IT framework—to ensure alignment with the company&#8217;s broader business goals.</li>\n<li><strong>Design &amp; Pilot</strong><br />\nNext, the consulting firm collaborated closely with the client. They used Salesforce’s global templates and agile methodologies to launch a pilot program in key regions such as Mexico, Brazil, and CASA. The team customized the solution for each region to meet local market needs. This pilot focused on streamlining retail execution and improving in-store efficiency through the Salesforce-powered system.</li>\n<li><strong>Launch &amp; Refine</strong><br />\nThe transformation continued with developing a mobile front end for MC1. Within 6 months, the minimum viable product (MVP) was released, which significantly decreased average visit time. Additionally, Salesforce CRM and Business Analytics Platform (BAP) were integrated to support the transformation. This integration allowed sales representatives to access real-time data and make informed decisions on the go.</li>\n<li><strong>Optimize &amp; Scale</strong><br />\nThe solution was then scaled across the region, extending its reach to over 15 countries in LATAM. With a focus on developing advanced capabilities in agile program increments, the company began to see savings from more efficient processes and optimized resources.</li>\n</ol>\n<h2><strong class=\"ardn-content-title\">Results</strong></h2>\n<p class=\"mb-2 mt-6 text-lg first:mt-3\">The Salesforce-powered solution delivered significant improvements across the organization:</p>\n<ul class=\"marker:text-textOff list-disc pl-8\">\n<li><strong>4% increase</strong> in incremental revenue through optimized credit management.</li>\n<li><strong>120 minutes saved daily</strong> for sales representatives, allowing them to focus on more valuable activities.</li>\n<li>Over <strong>7.8 million customer visits</strong> recorded on the platform to date, demonstrating wide adoption and success.</li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Impact Metrics:</strong></h2>\n<ul class=\"marker:text-textOff list-disc pl-8\">\n<li>Customer Experience: 5/5</li>\n<li>Employee Engagement: 5/5</li>\n<li>Productivity: 5/5</li>\n<li>Growth: 4/5</li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Conclusion</strong></h2>\n<p class=\"mb-2 mt-6 text-lg first:mt-3\">This case study highlights how leveraging Salesforce’s powerful suite of tools can transform sales operations and drive business growth. By implementing a comprehensive cloud-based solution across key regions, the company achieved impressive productivity gains while aligning its sales processes with its new go-to-market strategy. With a clear focus on agile development and localization, the company rapidly scaled and optimized its front office. As a result, it made significant strides toward achieving its global business objectives.</p>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -925,7 +1239,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  },
  {
@@ -943,7 +1267,9 @@
    "rendered": "<div class=\"ardn-global-content\">\n<div class=\"ardn-global-content\">\n<h2><strong class=\"ardn-content-title\">Introduction</strong></h2>\n<p>A prominent global professional services firm embarked on a bold journey of digital transformation to stay competitive in a rapidly evolving market. As part of its vision to become a digitally enabled organization, the firm aimed to unify its global network, streamline business processes, and equip employees with the tools necessary to thrive in an increasingly disruptive business environment.</p>\n<h2><strong class=\"ardn-content-title\">Challenge</strong></h2>\n<p>The firm faced several challenges that necessitated this transformation. With a global workforce and an extensive market reach across multiple countries, the existing systems and processes were not scalable or agile enough to keep up with the demands of a digital-first world. The need for an integrated, cloud-based platform to streamline operations and improve employee productivity and engagement became critical.</p>\n<h2><strong class=\"ardn-content-title\">Solution</strong></h2>\n<h3><strong>1. Strategy &amp; Vision</strong></h3>\n<p>To kickstart the transformation, the firm developed a comprehensive business case and a multi-year digital roadmap. Leadership alignment was crucial to ensure that the entire organization embraced the transformation vision. This roadmap focused on establishing a foundation of cloud technologies and leading business processes that would serve as the backbone for the front office transformation.</p>\n<h3><strong class=\"ardn-content-subtile\">2. Design &amp; Pilot</strong></h3>\n<p>The firm fostered a culture of continuous improvement and real-time feedback, supported by digital coaching and performance management tools. A new talent brand, The Professional, was launched, which emphasized a commitment to digital learning and growth. The pilot phase included the introduction of custom learning tools such as:</p>\n<ul>\n<li>Salesforce Digital Lab</li>\n<li>Digital Fitness Assessment app</li>\n<li>Learning Bursts</li>\n<li>Digital Quests</li>\n<li>PowerUp Trivia Challenges</li>\n</ul>\n<p>These tools helped employees engage with the digital transformation and adopt new processes more efficiently.</p>\n<h3><strong class=\"ardn-content-subtile\">3. Launch &amp; Refine</strong></h3>\n<p>The transformation was focused on leadership-driven change, incorporating leadership tools that encouraged engagement at every level of the organization. Custom learning modules, such as the Digital Academy and the Digital Accelerator Program, provided targeted training on priority technologies for specialists across various regions.</p>\n<h3><strong class=\"ardn-content-subtile\">4. Optimize &amp; Scale</strong></h3>\n<p>As the initiative progressed, the focus shifted to optimizing and scaling the new digital tools. Firmwide upskilling sessions like the Digital Academy were rolled out globally, helping employees continuously adapt to emerging technologies and processes.</p>\n<h2><strong class=\"ardn-content-title\">Results</strong></h2>\n<p>The transformation achieved significant results across the global network:</p>\n<ul>\n<li>100% adoption across the global network of employees.</li>\n<li>Successful implementation in 158 countries, impacting a workforce of over 236,000 employees.</li>\n<li>The new tools and systems fostered significant improvements in employee engagement, productivity, and overall business growth.</li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Impact Metrics:</strong></h2>\n<ul>\n<li>Customer Experience: 3/5</li>\n<li>Employee Engagement: 5/5</li>\n<li>Productivity: 5/5</li>\n<li>Growth: 5/5</li>\n</ul>\n<h2><strong class=\"ardn-content-title\">Conclusion</strong></h2>\n<p>This large-scale front office transformation illustrates how a global organization can leverage cloud-based technologies and innovative learning tools to create a unified, digitally enabled workforce. By focusing on leadership-driven change and employee upskilling, the firm has set the stage for continued success in a competitive, digital-first business landscape.</p>\n</div>\n</div>\n"
   },
   "categories": [],
-  "case-study-categories": [],
+  "case-study-categories": [
+   9006
+  ],
   "meta": {
    "faq_schema": ""
   },
@@ -1069,7 +1395,17 @@
      }
     }
    ],
-   "wp:term": []
+   "wp:term": [
+    [
+     {
+      "id": 9006,
+      "name": "Salesforce",
+      "slug": "salesforce",
+      "taxonomy": "case-study-categories",
+      "count": 7
+     }
+    ]
+   ]
   }
  }
 ]

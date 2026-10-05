@@ -88,7 +88,7 @@ export default function Page() {
   const jsonLd = productJsonLd(MEMBERSHIP, {
     path: "/membership-management",
     name: "Ardn Membership Management",
-    kind: "Service",
+    kind: "SoftwareApplication",
     category: "Membership management software",
     description: "Recurring billing, classes, check-in, events and a branded member portal for gyms, studios, clubs and associations, for one flat monthly fee.",
     image: "/images/nonprofit/classes-calendar.webp",

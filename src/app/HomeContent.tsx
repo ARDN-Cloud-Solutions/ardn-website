@@ -289,6 +289,9 @@ export default function HomeContent() {
           <p className="hm-quote-who">
             <b>Jay Vashi</b> · Senior Delivery Manager, Fortune 500 insurance company
           </p>
+          <Link href="/work" className="hm-link">
+            See what we&rsquo;ve launched →
+          </Link>{" "}
           <Link href="/case-studies" className="hm-link">
             Read our case studies →
           </Link>

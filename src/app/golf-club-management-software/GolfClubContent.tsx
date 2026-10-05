@@ -972,7 +972,9 @@ export default function GolfClubContent() {
           </div>
           <p className="gc-final-links">
             Related:{" "}
-            <Link href="/membership-management">Membership management platform</Link>{" "}
+            <Link href="/case-studies/club-steward-multi-club-golf-platform">Case study: Club Steward for multi-club operators</Link>{" "}
+            · <Link href="/work">Everything we&rsquo;ve launched</Link>{" "}
+            · <Link href="/membership-management">Membership management platform</Link>{" "}
             · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
           </p>
         </div>

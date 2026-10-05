@@ -80,7 +80,7 @@ export default function OurProductsPage() {
         "@id":
           "https://ardncloudsolutions.com/our-products#productlist",
         name: "Ardn Products & Services",
-        numberOfItems: 6,
+        numberOfItems: 7,
         // Products are pointers (name/url/description), with no offers: the
         // detail pages own pricing, and Club Steward pricing is undecided.
         itemListElement: [
@@ -124,6 +124,18 @@ export default function OurProductsPage() {
             "@type": "ListItem",
             position: 4,
             item: {
+              "@type": "SoftwareApplication",
+              name: "Ardn CRM for Construction",
+              url: "https://ardncloudsolutions.com/construction-crm",
+              applicationCategory: "BusinessApplication",
+              description: "CRM for roofing, home improvement and general contractors: pipeline, quotes to jobs, service desk, dispatch and work orders.",
+              provider: { "@id": "https://ardncloudsolutions.com/#organization" },
+            },
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            item: {
               "@type": "Service",
               name: "AI Forge",
               url: "https://ardncloudsolutions.com/ai-forge",
@@ -133,7 +145,7 @@ export default function OurProductsPage() {
           },
           {
             "@type": "ListItem",
-            position: 5,
+            position: 6,
             item: {
               "@type": "SoftwareApplication",
               name: "Storefronts",
@@ -145,7 +157,7 @@ export default function OurProductsPage() {
           },
           {
             "@type": "ListItem",
-            position: 6,
+            position: 7,
             item: {
               "@type": "SoftwareApplication",
               name: "License Guard",
