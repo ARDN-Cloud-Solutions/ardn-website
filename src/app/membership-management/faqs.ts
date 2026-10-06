@@ -2,7 +2,7 @@
 export const FAQS = [
   {
     q: "Who is Ardn Membership Management for?",
-    a: "Membership organizations that have outgrown spreadsheets and point tools: community centers, gyms and fitness studios, swim schools, sports clubs, associations, and multi-location nonprofits. If your organization is a community center, JCC, or youth and family nonprofit, we built a dedicated page for you (Nonprofit Management), but it's the same platform underneath.",
+    a: "Membership organizations that have outgrown spreadsheets and point tools: community centers, gyms and fitness studios, swim schools, sports clubs, associations, and multi-location nonprofits. If your organization is a community center, faith-based community center, or youth and family nonprofit, we built a dedicated page for you (Nonprofit Management), but it's the same platform underneath.",
   },
   {
     q: "What does the free pilot look like?",

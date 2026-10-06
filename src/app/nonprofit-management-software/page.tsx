@@ -4,7 +4,7 @@ import { productJsonLd } from "@/components/product-page/jsonld";
 import { NONPROFIT } from "./content";
 
 // Nonprofit management software: the Ardn membership platform for community
-// centers, JCCs and other member-based nonprofits (renamed on 2026-09-28; the
+// centers, faith-based community centers and other member-based nonprofits (renamed on 2026-09-28; the
 // old URL 301s here, see next.config.ts). It owns the
 // "nonprofit management software" / "nonprofit membership software" keyword
 // set and keeps community-center terms as secondary keywords. /membership-management (the
@@ -31,7 +31,7 @@ import { NONPROFIT } from "./content";
 export const metadata: Metadata = {
   title: "Nonprofit Management Software | Ardn",
   description:
-    "Membership, programs, check-in, and fundraising for community centers, JCCs and youth and family nonprofits in one platform — flat monthly fee, never a percentage of your revenue. Free pilot in your branding.",
+    "Membership, programs, check-in, and fundraising for community centers, faith-based community centers and youth and family nonprofits in one platform — flat monthly fee, never a percentage of your revenue. Free pilot in your branding.",
   keywords: [
     "nonprofit management software",
     "nonprofit membership management software",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "Daxko Operations alternative",
     "nonprofit fundraising and membership software",
     "community center management software",
-    "JCC management software",
+    "faith-based community center software",
     "nonprofit membership software",
     "community center fundraising software",
     "membership and donor management in one system",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nonprofit Management Software — Members & Donors in One System | Ardn",
     description:
-      "One platform for community centers, JCCs and youth and family nonprofits: membership, billing, check-in, programs, and a full fundraising CRM. Flat monthly fee — never a percentage of your revenue.",
+      "One platform for community centers, faith-based community centers and youth and family nonprofits: membership, billing, check-in, programs, and a full fundraising CRM. Flat monthly fee — never a percentage of your revenue.",
     url: "https://ardncloudsolutions.com/nonprofit-management-software",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -85,7 +85,7 @@ export default function Page() {
     name: "Ardn Nonprofit Management",
     kind: "SoftwareApplication",
     category: "Nonprofit management software",
-    description: "Membership, billing, check-in, programs and a fundraising CRM for community centers, JCCs and youth and family nonprofits, for one flat monthly fee.",
+    description: "Membership, billing, check-in, programs and a fundraising CRM for community centers, faith-based community centers and youth and family nonprofits, for one flat monthly fee.",
     image: "/images/nonprofit/operations-overview-dashboard.webp",
   });
   return (

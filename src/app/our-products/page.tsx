@@ -104,7 +104,7 @@ export default function OurProductsPage() {
               name: "Ardn Nonprofit Management",
               url: "https://ardncloudsolutions.com/nonprofit-management-software",
               applicationCategory: "BusinessApplication",
-              description: "Membership, billing, check-in, programs and fundraising for community centers, JCCs and youth and family nonprofits.",
+              description: "Membership, billing, check-in, programs and fundraising for community centers, faith-based community centers and youth and family nonprofits.",
               provider: { "@id": "https://ardncloudsolutions.com/#organization" },
             },
           },

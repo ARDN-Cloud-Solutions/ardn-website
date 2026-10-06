@@ -22,7 +22,7 @@ const DEFAULT_CAL = "https://calendly.com/ardncloudsolutions/ardn-cloud-solution
 type Interest = { id: string; label: string; hint: string };
 const INTERESTS: Interest[] = [
   { id: "club-steward", label: "Club Steward", hint: "Golf & country club software" },
-  { id: "nonprofit", label: "Nonprofit Management", hint: "Community centers, JCCs, youth and family nonprofits" },
+  { id: "nonprofit", label: "Nonprofit Management", hint: "Community centers, faith-based centers, youth and family nonprofits" },
   { id: "membership", label: "Membership Management", hint: "Gyms, studios, clubs, associations" },
   { id: "ai-forge", label: "AI Forge", hint: "A custom AI app, built and run for us" },
   { id: "custom-software", label: "Custom software or a portal", hint: "Portals, ecommerce, internal tools" },
