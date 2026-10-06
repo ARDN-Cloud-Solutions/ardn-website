@@ -14,7 +14,7 @@ export const HOME_FAQS = [
   },
   {
     q: "What products and services do you offer?",
-    a: "Three products: Club Steward (golf and country club management), Nonprofit Management (members and donors in one record for YMCAs, JCCs and community centers) and Membership Management (gyms, studios, clubs and associations). Alongside them we build custom software and AI applications with AI Forge. Teams that run on Salesforce can also use Storefronts and License Guard.",
+    a: "Three products: Club Steward (golf and country club management), Nonprofit Management (members and donors in one record for community centers, faith-based community centers and youth and family nonprofits) and Membership Management (gyms, studios, clubs and associations). Alongside them we build custom software and AI applications with AI Forge. Teams that run on Salesforce can also use Storefronts and License Guard.",
   },
   {
     q: "Do I have to use Salesforce to work with you?",

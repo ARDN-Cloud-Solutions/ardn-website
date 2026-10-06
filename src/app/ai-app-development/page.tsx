@@ -423,7 +423,7 @@ export default function AiAppDevelopmentPage() {
               </Link>
               <Link href="/ai-for-membership-organizations" className="card" style={{ textDecoration: "none" }}>
                 <h3 className="h3">AI for Membership Orgs</h3>
-                <p className="body">Cut admin for YMCAs, gyms, studios, and associations — onboarding, renewals, and member support on autopilot.</p>
+                <p className="body">Cut admin for community centers, gyms, studios, and associations — onboarding, renewals, and member support on autopilot.</p>
                 <span className="link">Explore AI for membership orgs →</span>
               </Link>
             </div>

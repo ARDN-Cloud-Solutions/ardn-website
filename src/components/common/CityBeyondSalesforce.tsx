@@ -109,13 +109,13 @@ export default function CityBeyondSalesforce({ city }: { city: string }) {
             </span>
             <h3 className="h3">Membership Management for {city}</h3>
             <p className="body">
-              A standalone, AI-built membership platform for {city}-area YMCAs,
-              gyms, studios, clubs, and associations. Sign-ups, recurring
+              A standalone, AI-built membership platform for {city}-area community
+              centers, gyms, studios, clubs, and associations. Sign-ups, recurring
               billing, class scheduling, attendance, and a self-service portal
               — runs alongside Salesforce, HubSpot, or whatever you already use.
             </p>
             <ul className="features">
-              <li>YMCAs, gyms, studios, clubs &amp; associations</li>
+              <li>Community centers, gyms, studios, clubs &amp; associations</li>
               <li>Recurring billing &amp; dunning out of the box</li>
               <li>Branded member self-service portal</li>
               <li>Salesforce, HubSpot, and CRM-agnostic integrations</li>

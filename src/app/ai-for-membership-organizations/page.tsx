@@ -4,14 +4,14 @@ import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
 
 // Vertical landing page targeting membership-organization AI buyer intent
-// (YMCAs, gyms, studios, clubs, associations). Matches the ICP outbound
+// (community centers, gyms, studios, clubs, associations). Matches the ICP outbound
 // research surfaces. Cross-links to the Membership Management product.
 // Non-geo; single conversion path (Calendly).
 export const metadata: Metadata = {
   title:
     "AI for Membership Organizations | Ardn",
   description:
-    "Custom AI for YMCAs, gyms, studios, clubs & associations — automate onboarding, renewals, support & retention. New customers: free build.",
+    "Custom AI for community centers, gyms, studios, clubs & associations — automate onboarding, renewals, support & retention. New customers: free build.",
   keywords: [
     "AI for membership organizations",
     "AI for associations",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title:
       "AI for Membership Organizations | Ardn",
     description:
-      "Custom AI for YMCAs, gyms, studios, clubs, and associations — onboarding, renewals, support, retention. Built and run in 2–6 weeks. New customers: free build.",
+      "Custom AI for community centers, gyms, studios, clubs, and associations — onboarding, renewals, support, retention. Built and run in 2–6 weeks. New customers: free build.",
     url: "https://ardncloudsolutions.com/ai-for-membership-organizations",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -121,7 +121,7 @@ export default function AiForMembershipOrganizationsPage() {
         name: "AI for Membership Organizations — Custom Development",
         serviceType: "Custom AI Application Development for Membership Organizations",
         description:
-          "Ardn builds and operates custom AI applications for YMCAs, gyms, studios, clubs, and associations — onboarding, renewals, retention, and member support — via the AI Forge Framework under one monthly subscription.",
+          "Ardn builds and operates custom AI applications for community centers, gyms, studios, clubs, and associations — onboarding, renewals, retention, and member support — via the AI Forge Framework under one monthly subscription.",
         url: "https://ardncloudsolutions.com/ai-for-membership-organizations",
         provider: { "@id": "https://ardncloudsolutions.com/#organization" },
         audience: { "@type": "Audience", audienceType: "Membership organizations, clubs, and associations" },
@@ -178,7 +178,7 @@ export default function AiForMembershipOrganizationsPage() {
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
                   <span className="badge">Onboarding · Renewals · Retention</span>
                   <span className="badge is-emerald">2–6 weeks to production</span>
-                  <span className="badge is-canvas">YMCAs · Gyms · Associations</span>
+                  <span className="badge is-canvas">Community Centers · Gyms · Associations</span>
                 </div>
                 <div className="hero-ctas reveal reveal-d3">
                   <Link href={CALENDLY} target="_blank" className="btn btn-primary btn-lg btn-arrow">
@@ -242,7 +242,7 @@ export default function AiForMembershipOrganizationsPage() {
                 Need the full platform too? See Membership Management →
               </Link>
               <Link href="/nonprofit-management-software" className="link">
-                Running a YMCA or community nonprofit? See nonprofit management →
+                Running a community center or nonprofit? See nonprofit management →
               </Link>
               <Link href="/reduce-crm-licensing-costs" className="link">
                 Cut per-seat association software costs →

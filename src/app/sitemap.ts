@@ -73,7 +73,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
-        // Nonprofit management software (was /ymca-management-software).
+        // Nonprofit management software (the old slug 301s here; see next.config.ts).
         url: `${BASE_URL}/nonprofit-management-software`,
         lastModified: new Date(),
         changeFrequency: "monthly",

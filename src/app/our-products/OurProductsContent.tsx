@@ -22,7 +22,7 @@ const PRODUCTS = [
   {
     eyebrow: "Nonprofit Management",
     title: "Members and donors in one record.",
-    body: "Membership, billing, check-in, programs and a full fundraising CRM for YMCAs, JCCs, community centers and member-based nonprofits.",
+    body: "Membership, billing, check-in, programs and a full fundraising CRM for community centers, faith-based community centers and member-based nonprofits.",
     href: "/nonprofit-management-software",
     cta: "Explore Nonprofit Management",
     accent: "#C2185B",
@@ -56,7 +56,7 @@ const SERVICES = [
 
 const INDUSTRIES = [
   { title: "Golf & Country Clubs", body: "Club Steward for multi-club operators.", href: "/golf-club-management-software" },
-  { title: "Nonprofits & Community Centers", body: "Nonprofit Management for YMCAs, JCCs and community centers.", href: "/nonprofit-management-software" },
+  { title: "Nonprofits & Community Centers", body: "Nonprofit Management for community centers, faith-based community centers and youth and family nonprofits.", href: "/nonprofit-management-software" },
   { title: "GLP-1 & Telehealth", body: "Intake, provider workflow, subscriptions and refills on one platform.", href: "/glp-1-ecommerce" },
   { title: "Chapters & Associations", body: "Automatic dues, member records and events.", href: "/chapter-management-software" },
   { title: "Insurance", body: "AI for carriers and agencies, with people in the loop.", href: "/ai-for-insurance" },

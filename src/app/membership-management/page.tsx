@@ -13,8 +13,8 @@ import { MEMBERSHIP } from "./content";
 // "Salesforce-native".
 //
 // Keyword split (deliberate, 2026-08): this page OWNS "membership management
-// software/platform", gym/studio/club terms. It CEDES all YMCA terms to
-// /nonprofit-management-software — do not re-add "YMCA membership software" here.
+// software/platform", gym/studio/club terms. It CEDES all nonprofit terms to
+// /nonprofit-management-software — do not re-add "nonprofit membership software" here.
 // Golf / country / private club terms belong to /golf-club-management-software
 // (Club Steward) — keep them off this page too.
 //
@@ -22,7 +22,7 @@ import { MEMBERSHIP } from "./content";
 // + a 60-day go-live guarantee. NOT promised: free migration, month-to-month
 // terms, and — corrected 2026-09-30 — NOT a refund of any kind.
 // Pricing (owner decision 2026-08-24): general page holds the $699/mo anchor;
-// the YMCA page carries the $9,000/mo + $9,500 partnership pricing.
+// the nonprofit page carries the $9,000/mo + $9,500 partnership pricing.
 //
 // Guarantee (owner ruling 2026-09-29, CORRECTION): the 60-day go-live
 // guarantee is REAL but CONDITIONAL on agreed requirements and complexity. It
