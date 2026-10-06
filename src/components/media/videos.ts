@@ -19,11 +19,14 @@ export type VideoMeta = {
   seconds: number;
   uploadDate: string;
   chapters: Chapter[];
+  /** The same cut on the Ardn YouTube channel (@ardn_cloud_solutions). */
+  youtubeId?: string;
 };
 
 export const VIDEOS = {
   clubStewardOverview: {
     slug: "club-steward-run-the-whole-club",
+    youtubeId: "_ypWvVbAkhQ",
     name: "Club Steward: run the whole club on one platform",
     description:
       "A two-minute tour of Club Steward golf and country club management software: website and marketing, HR, membership sales and the members app, tee times, events and catering, point of sale, e-commerce, subscription billing and dues, member service with a chatbot, the accounting suite (preview), Active AI and security.",
@@ -42,6 +45,7 @@ export const VIDEOS = {
   },
   clubStewardEvents: {
     slug: "club-steward-events-catering",
+    youtubeId: "iny5b0zibaU",
     name: "Events & Catering: every event, start to finish",
     description:
       "Club Steward Events & Catering, from the first inquiry to the final invoice: room holds, instant online quotes, one club-wide menu, the host's own planning portal, kitchen prep and ordering, staffing, vendors, event day on the captain's phone, and the final bill to the member's house account.",
@@ -58,6 +62,7 @@ export const VIDEOS = {
   },
   clubStewardPos: {
     slug: "club-steward-point-of-sale",
+    youtubeId: "PP5vk7zQm2Q",
     name: "Point of Sale: one checkout for the whole club",
     description:
       "Club Steward Point of Sale: the dining room, the bar, the pro shop and the halfway house on one checkout, charges straight to the member's account, purchases that travel with tee times and court bookings, and every charge on the member's statement the moment it is made.",
@@ -71,6 +76,7 @@ export const VIDEOS = {
   },
   clubStewardService: {
     slug: "club-steward-member-service-hr",
+    youtubeId: "c0Jj5PSEwRo",
     name: "Member Service & HR: every question answered, every role filled",
     description:
       "Club Steward Member Service and HR: a website assistant that answers from the club's own approved answers, live chats matched to the member record, cases with an owner and an answer-by time, a service dashboard for every team, and hiring with applicants ranked against the role while a person makes every decision.",
@@ -85,6 +91,7 @@ export const VIDEOS = {
   },
   crmLeaveHubspot: {
     slug: "ardn-crm-leave-hubspot",
+    youtubeId: "nQP5pO0KOkc",
     name: "Ardn CRM: leave HubSpot, keep everything",
     description:
       "Ardn CRM for contractors and field service teams: business health at a glance, every deal by stage, quotes built from your own product list that become jobs in one click, service requests on an SLA clock with automatic escalation, lifetime value on every account, pricing by modules and locations rather than per seat, and a migration off HubSpot handled by Ardn.",
@@ -101,6 +108,7 @@ export const VIDEOS = {
   },
   crmGrowYourTeam: {
     slug: "ardn-crm-grow-your-team",
+    youtubeId: "sIEMYaZgK1w",
     name: "Ardn CRM: grow your team, not your CRM bill",
     description:
       "A one-minute look at Ardn CRM: every deal on one board, quotes that turn into jobs in one click, service requests on the clock with customer ratings, pricing by modules and locations so you can hire freely, and data moved off HubSpot for you.",
@@ -115,6 +123,7 @@ export const VIDEOS = {
   },
   nonprofitOverview: {
     slug: "ardn-membership-fundraising",
+    youtubeId: "Ic4Whf_GKYY",
     name: "Ardn Membership & Fundraising: one community, one record",
     description:
       "Ardn's membership and fundraising platform for community nonprofits: members, revenue, donations and check-ins across every branch on one screen, households with split billing, one-scan front-desk check-in, classes and waitlists members book themselves, campaigns beside membership, and board-ready numbers by branch.",
@@ -133,6 +142,7 @@ export const VIDEOS = {
   },
   rxDrLaunch: {
     slug: "rx-dr-launch-your-own-telehealth-brand",
+    youtubeId: "8Z1K770lFjs",
     name: "Rx-Dr: launch your own telehealth brand without building a medical stack",
     description:
       "Rx-Dr, the white-label telehealth platform built and launched by Ardn, on a demo brand: a branded storefront and brand setup in minutes, adaptive online intake, licensed clinician review, one-click approval with e-prescribing to partner pharmacies and status synced back, payments, memberships, subscriptions and refills on autopilot, a portal for every role, and HIPAA controls built in with audited access, break-glass and two-person approval.",
