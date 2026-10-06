@@ -3,11 +3,11 @@ import ProductPage from "@/components/product-page/ProductPage";
 import { productJsonLd } from "@/components/product-page/jsonld";
 import { NONPROFIT } from "./content";
 
-// Nonprofit management software: the Ardn membership platform for YMCAs,
-// JCCs, community centers and other member-based nonprofits (renamed from
-// /ymca-management-software on 2026-09-28; the old URL 301s here). It owns the
+// Nonprofit management software: the Ardn membership platform for community
+// centers, JCCs and other member-based nonprofits (renamed on 2026-09-28; the
+// old URL 301s here, see next.config.ts). It owns the
 // "nonprofit management software" / "nonprofit membership software" keyword
-// set and keeps YMCA terms as secondary keywords. /membership-management (the
+// set and keeps community-center terms as secondary keywords. /membership-management (the
 // general product page) cedes these terms to avoid cannibalization.
 //
 // Positioning, verified against the product docs (2026-07):
@@ -31,19 +31,19 @@ import { NONPROFIT } from "./content";
 export const metadata: Metadata = {
   title: "Nonprofit Management Software | Ardn",
   description:
-    "Membership, programs, check-in, and fundraising for YMCAs, JCCs and community nonprofits in one platform — flat monthly fee, never a percentage of your revenue. Free pilot in your branding.",
+    "Membership, programs, check-in, and fundraising for community centers, JCCs and youth and family nonprofits in one platform — flat monthly fee, never a percentage of your revenue. Free pilot in your branding.",
   keywords: [
     "nonprofit management software",
     "nonprofit membership management software",
-    "YMCA management software",
-    "YMCA membership software",
+    "community center membership software",
+    "youth and family nonprofit software",
     "Daxko alternative",
     "Daxko Operations alternative",
-    "YMCA software",
+    "nonprofit fundraising and membership software",
     "community center management software",
     "JCC management software",
     "nonprofit membership software",
-    "YMCA fundraising software",
+    "community center fundraising software",
     "membership and donor management in one system",
   ],
   alternates: {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nonprofit Management Software — Members & Donors in One System | Ardn",
     description:
-      "One platform for YMCAs, JCCs and community nonprofits: membership, billing, check-in, programs, and a full fundraising CRM. Flat monthly fee — never a percentage of your revenue.",
+      "One platform for community centers, JCCs and youth and family nonprofits: membership, billing, check-in, programs, and a full fundraising CRM. Flat monthly fee — never a percentage of your revenue.",
     url: "https://ardncloudsolutions.com/nonprofit-management-software",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -85,7 +85,7 @@ export default function Page() {
     name: "Ardn Nonprofit Management",
     kind: "SoftwareApplication",
     category: "Nonprofit management software",
-    description: "Membership, billing, check-in, programs and a fundraising CRM for YMCAs, JCCs and community nonprofits, for one flat monthly fee.",
+    description: "Membership, billing, check-in, programs and a fundraising CRM for community centers, JCCs and youth and family nonprofits, for one flat monthly fee.",
     image: "/images/nonprofit/operations-overview-dashboard.webp",
   });
   return (

@@ -2,8 +2,8 @@ import { BarChart3, CalendarDays, CreditCard, HandCoins, HeartHandshake, KeyRoun
 import type { ProductPageContent } from "@/components/product-page/types";
 import { FAQS } from "./faqs";
 
-// Nonprofit Management page content (the Ardn membership platform for YMCAs,
-// JCCs, community centers and member-based nonprofits). Offer, pricing and
+// Nonprofit Management page content (the Ardn membership platform for community
+// centers, JCCs and member-based nonprofits). Offer, pricing and
 // guarantee are owner-approved (2026-08-24) and live in the FAQ.
 // Truth guardrails: no claims of POS/day passes, childcare compliance,
 // dunning/returned drafts, SilverSneakers, SMS, nationwide reciprocity, GL
@@ -29,7 +29,7 @@ export const NONPROFIT: ProductPageContent = {
     eyebrow: "Nonprofit Management Software",
     title: "Members and donors in one record.",
     titleEm: "One flat fee.",
-    lede: "Membership, billing, front-desk check-in, programs and a full fundraising CRM for YMCAs, JCCs and community nonprofits. Never a percentage of your revenue, and you can try it in your own branding before you sign.",
+    lede: "Membership, billing, front-desk check-in, programs and a full fundraising CRM for community centers, JCCs and youth and family nonprofits. Never a percentage of your revenue, and you can try it in your own branding before you sign.",
     primaryCta: { label: "Start a free pilot", href: "#talk" },
     secondaryCta: { label: "See the product", href: "#tour" },
     proof: ["Free pilot in your branding", "60-day go-live guarantee", "Built for multi-branch organizations"],

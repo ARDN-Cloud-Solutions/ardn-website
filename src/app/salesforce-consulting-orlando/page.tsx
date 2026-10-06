@@ -287,7 +287,7 @@ export default function SalesforceConsultingOrlandoPage() {
                   <div className="kicker">Who we work with</div>
                   <ul className="features mt-3">
                     <li>Mid-market &amp; enterprise Salesforce orgs</li>
-                    <li>YMCAs, gyms, studios &amp; associations</li>
+                    <li>Community centers, gyms, studios &amp; associations</li>
                     <li>Healthcare &amp; professional services</li>
                     <li>Fortune 500 insurance and finance teams</li>
                     <li>Companies migrating off legacy CRMs</li>

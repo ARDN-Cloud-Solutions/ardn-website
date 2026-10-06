@@ -48,9 +48,9 @@ const PRODUCTS = [
     accent: "#d4b25a",
   },
   {
-    kicker: "Nonprofit Management · YMCAs & community centers",
+    kicker: "Nonprofit Management · Community nonprofits & centers",
     title: "Members and donors in one record, for one flat fee.",
-    body: "Membership, billing, front-desk check-in, programs and a full fundraising CRM for YMCAs, JCCs and community nonprofits.",
+    body: "Membership, billing, front-desk check-in, programs and a full fundraising CRM for community centers, JCCs and youth and family nonprofits.",
     points: ["Never a percentage of your revenue", "Check-in, programs and classes", "Donations, pledges and gift batches"],
     href: "/nonprofit-management-software",
     cta: "Explore Nonprofit Management",

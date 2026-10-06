@@ -4,7 +4,7 @@ import { FAQS } from "./faqs";
 
 // Membership Management page content (the general product page for gyms,
 // studios, clubs and associations). Owns "membership management software";
-// nonprofit/YMCA terms belong to /nonprofit-management-software and golf
+// nonprofit/community-center terms belong to /nonprofit-management-software and golf
 // terms to /golf-club-management-software. Offer and pricing (from $699/mo,
 // free pilot, 60-day guarantee, 12-month term) are owner-approved and live in
 // the FAQ. Screens: local demo with fictional data, shared with the

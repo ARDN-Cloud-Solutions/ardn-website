@@ -35,7 +35,7 @@ export default function MembershipPage() {
             </h1>
 
             <p className="mt-7 text-xl text-slate-300">
-              One multi-tenant platform for YMCAs, community centers, wellness
+              One multi-tenant platform for community centers, youth and family nonprofits, wellness
               studios, and gyms.Memberships, classes, POS and facility booking,
               and member portals — on your brands, from day one.Way more
               capability for way less cost.
@@ -74,7 +74,7 @@ export default function MembershipPage() {
             <div className="flex items-center border-b border-white/10  mb-3 justify-between px-6 py-3">
               {/* Title */}
               <h3 className="text-base font-semibold text-white">
-                Demo YMCA — Sandbox
+                Demo Community Center — Sandbox
               </h3>
 
               {/* Live Badge */}
@@ -139,8 +139,8 @@ export default function MembershipPage() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-10 font-bold text-slate-600 text-center">
           <span className="w-full md:w-auto">BUILT FOR</span>
 
-          <span>YMCAs</span>
           <span>Community Centers</span>
+          <span>Youth &amp; Family Nonprofits</span>
           <span>Wellness Studios</span>
           <span>Boutique Gyms</span>
           <span>Rec Departments</span>
