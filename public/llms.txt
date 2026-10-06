@@ -54,6 +54,19 @@ Ardn designs, builds and runs each of these products as a managed service. Overv
 - [Blog](https://ardncloudsolutions.com/blog): Articles and insights on AI and Salesforce.
 - [Contact](https://ardncloudsolutions.com/contact-us): Book a free 30-minute demo.
 
+## Videos
+
+Product walkthroughs (screens show fictional organizations with sample data). Also on YouTube: https://www.youtube.com/@ardn_cloud_solutions
+
+- [Club Steward: run the whole club on one platform](https://www.youtube.com/watch?v=_ypWvVbAkhQ): golf and country club management software tour. On the site: https://ardncloudsolutions.com/golf-club-management-software#video
+- [Club Steward Events & Catering](https://www.youtube.com/watch?v=iny5b0zibaU): inquiry to invoice for club events.
+- [Club Steward Point of Sale](https://www.youtube.com/watch?v=PP5vk7zQm2Q): one checkout for every club outlet.
+- [Club Steward Member Service & HR](https://www.youtube.com/watch?v=c0Jj5PSEwRo): member cases, records and hiring.
+- [Ardn CRM: leave HubSpot, keep everything](https://www.youtube.com/watch?v=nQP5pO0KOkc): construction and field-service CRM. On the site: https://ardncloudsolutions.com/construction-crm#video
+- [Ardn CRM: grow your team, not your CRM bill](https://www.youtube.com/watch?v=sIEMYaZgK1w): no per-seat pricing.
+- [Membership and fundraising on one record](https://www.youtube.com/watch?v=Ic4Whf_GKYY): platform for community nonprofits. On the site: https://ardncloudsolutions.com/nonprofit-management-software
+- [Rx-Dr: launch your own telehealth brand](https://www.youtube.com/watch?v=8Z1K770lFjs): white-label telehealth platform built and launched by Ardn. On the site: https://ardncloudsolutions.com/glp-1-ecommerce#video
+
 ## Key facts
 
 - Location: Orlando, Florida, USA. Serves clients across the United States and globally (remote-friendly).

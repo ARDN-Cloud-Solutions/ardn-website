@@ -71,6 +71,7 @@ export function videoObject(key: VideoKey, pageUrl: string, about?: { "@id": str
     inLanguage: "en-US",
     transcript: transcript(v),
     publisher: ORG,
+    ...(v.youtubeId ? { sameAs: `https://www.youtube.com/watch?v=${v.youtubeId}` } : {}),
     ...(about ? { about } : {}),
   };
 }
