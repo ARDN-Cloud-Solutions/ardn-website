@@ -43,10 +43,18 @@ export function CoverageBar({ features }: { features: Feature[] }) {
   );
 }
 
-export default function CoverageExplorer({ apps }: { apps: AppArea[] }) {
+/**
+ * `catalog` is the marketing page's view: only what is built (Built and
+ * Configure), each card showing how many features it has instead of a percent.
+ */
+export default function CoverageExplorer({ apps: allApps, catalog = false }: { apps: AppArea[]; catalog?: boolean }) {
   const [open, setOpen] = useState<string | null>(null);
   const [filter, setFilter] = useState<Filter>("all");
   const panel = useRef<HTMLDivElement>(null);
+  const apps = useMemo(
+    () => (catalog ? allApps.map((a) => ({ ...a, features: a.features.filter((f) => f.status !== "Gap") })) : allApps),
+    [allApps, catalog],
+  );
   const app = apps.find((a) => a.key === open) ?? null;
 
   const shown = useMemo(() => {
@@ -82,18 +90,21 @@ export default function CoverageExplorer({ apps }: { apps: AppArea[] }) {
               >
                 <span className="cp-card-top">
                   <span className="cp-card-name">{a.name}</span>
-                  <span className="cp-card-pct">{c.percent}%</span>
+                  <span className="cp-card-pct">{catalog ? c.total : `${c.percent}%`}</span>
                 </span>
-                <CoverageBar features={a.features} />
-                <span className="cp-card-meta">
-                  {c.built + c.configure} of {c.total} covered
-                  {c.ai > 0 && (
-                    <>
-                      {" · "}
-                      <AiMark count={c.ai} />
-                    </>
-                  )}
-                </span>
+                {catalog ? <span className="cp-card-meta">{a.blurb}</span> : <CoverageBar features={a.features} />}
+                {/* The catalog's count is already the big number, so its meta line is only the AI mark. */}
+                {(!catalog || c.ai > 0) && (
+                  <span className="cp-card-meta">
+                    {!catalog && `${c.built + c.configure} of ${c.total} covered`}
+                    {c.ai > 0 && (
+                      <>
+                        {!catalog && " · "}
+                        <AiMark count={c.ai} />
+                      </>
+                    )}
+                  </span>
+                )}
                 <span className="cp-card-more">
                   {isOpen ? "Hide features" : "See features"}
                   <ChevronDown size={15} aria-hidden="true" className={isOpen ? "cp-flip" : ""} />
@@ -113,7 +124,15 @@ export default function CoverageExplorer({ apps }: { apps: AppArea[] }) {
                 <p className="cp-muted">{app.blurb}</p>
               </div>
               <p className="cp-breakdown-pct">
-                <b>{counts.percent}%</b> covered
+                {catalog ? (
+                  <>
+                    <b>{counts.total}</b> features
+                  </>
+                ) : (
+                  <>
+                    <b>{counts.percent}%</b> covered
+                  </>
+                )}
               </p>
             </div>
             <div className="cp-filters" role="group" aria-label="Show">

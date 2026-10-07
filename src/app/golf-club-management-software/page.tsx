@@ -154,7 +154,7 @@ const JSON_LD = {
         "e-Commerce: online pro shop with pre-orders to the tee time",
         "Subscription Billing & Dues: card and ACH autopay, statements with finance charges and food & beverage minimums",
         "Member Service with Chatbot: AI assistant that answers with the member's own account, AI inquiry triage, website chat and cases",
-        "Accounting Suite (preview): general ledger, payables and receivables, bank reconciliation, budgets and period close",
+        "Accounting Suite: general ledger, payables and receivables, bank reconciliation, budgets and period close",
         "Property Management (coming soon)",
         "Also included: multi-club rollups by region, report builder with scheduled reports, Microsoft sign-in",
         "Active AI: optional real-time AI across every flow, bring your own AI provider",

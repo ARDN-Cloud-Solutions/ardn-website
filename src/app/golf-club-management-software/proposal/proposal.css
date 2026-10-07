@@ -806,3 +806,10 @@
     margin-top: 24px;
   }
 }
+
+.cp .gc-also a {
+  color: var(--indigo);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

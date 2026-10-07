@@ -56,7 +56,7 @@ export const APPS: AppArea[] = [
         "name": "E-signature contracts with amendments, and waivers signed in the same ceremony",
         "status": "Built",
         "ai": false,
-        "note": "Members sign the agreement and every waiver in one signing session, with no DocuSign license needed."
+        "note": "Members sign the agreement and every waiver in one signing session, with no separate e-signature license."
       },
       {
         "id": "F05",
@@ -105,7 +105,7 @@ export const APPS: AppArea[] = [
         "name": "Member financing / payment plans with soft credit check",
         "status": "Configure",
         "ai": false,
-        "note": "Needs the club's credit bureau account (iSoftpull is connected; other bureaus need their own) and each club's interest rate."
+        "note": "Needs the club's credit bureau account and each club's interest rate."
       },
       {
         "id": "C33",
@@ -189,7 +189,7 @@ export const APPS: AppArea[] = [
         "name": "SMS marketing campaigns",
         "status": "Configure",
         "ai": false,
-        "note": "Campaigns send by SMS to opted-in members through the club's own number; it needs the club's Twilio (or Dialpad) account connected."
+        "note": "Campaigns send by text to opted-in members through the club's own number; it needs the club's texting account connected."
       },
       {
         "id": "C27",
@@ -487,10 +487,10 @@ export const APPS: AppArea[] = [
       },
       {
         "id": "C26",
-        "name": "Booking widget to embed on any existing website, Reserve with Google",
+        "name": "Booking widget to embed on any existing website, and booking from search results",
         "status": "Gap",
         "ai": false,
-        "note": "Only forms and chat can be embedded; there is no booking widget for an outside website and no Reserve with Google."
+        "note": "Only forms and chat can be embedded; there is no booking widget for an outside website and no booking from search results."
       }
     ]
   },

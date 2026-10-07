@@ -34,6 +34,9 @@ import ProductVideo from "@/components/media/ProductVideo";
 import LoopClip from "@/components/media/LoopClip";
 import { VIDEOS, loopClip, videoProps } from "@/components/media/videos";
 import { FAQS } from "./faqs";
+import CoverageExplorer from "./proposal/CoverageExplorer";
+import { APPS } from "./proposal/features";
+import "./proposal/proposal.css";
 
 /**
  * Golf & country club vertical landing page — Club Steward.
@@ -46,22 +49,23 @@ import { FAQS } from "./faqs";
  * keep your tee sheet" positioning is gone. Brand name approved by the owner
  * 2026-09-26.
  *
- * Truth guardrails (from the kit — re-check it before loosening any of this):
+ * Truth guardrails (owner, 2026-10-07: "the code is what matters"):
+ * - Claim what the product's code does. The feature catalog on this page and
+ *   on /proposal is features.ts, generated from the product's own feature
+ *   list and checked against its code; regenerate it rather than hand-writing
+ *   claims. Built = works end to end; Configure = built, needs the club's own
+ *   account or hardware; Gap = not built (shown only on /proposal).
  * - Nothing is in production yet: "built and demonstrable", never "live at N
  *   clubs". No customer names, logos, metrics or testimonials.
- * - Accounting is PREVIEW (interface complete, engine merging, sample
- *   figures) — keep the label. Built and claimable as of 2026-10-07: POS
- *   registers per outlet with close-out, member statements, Apple Wallet
- *   member cards and F&B minimums. Still NOT built (never claim): gift cards,
- *   property management (stays "Coming soon"), offline mode, court booking,
- *   and tap-to-pay card readers (in progress).
+ * - Not built (never claim): property management (stays "Coming soon"),
+ *   integrated tap-to-pay card readers, lodging, spa, marina, door access,
+ *   loyalty points, tee-time marketplaces and dynamic pricing. The full list
+ *   is the Gap rows on /proposal.
  * - Never "only all-in-one", "only multi-club" or "only cloud"; never claim
- *   competitors lack a CRM. Competitors are NOT named — several comparison
- *   rows are still marked "verify before publishing".
+ *   competitors lack a CRM. Competitors are NOT named.
  * - "A standard report library", not a report count. Don't list integrations.
  * - No Club Steward pricing, quotes or cost claims yet: pricing hasn't been
- *   decided (owner, 2026-09-28). Add it once it is. Also no guarantee or
- *   contract-term claims until approved.
+ *   decided (owner, 2026-09-28). Also no guarantee or contract-term claims.
  * - Name NO payment provider in customer-facing copy (8a76690 / 6ea8cef).
  *
  * DO NOT add client names or client metrics. Screenshots are real product UI
@@ -77,7 +81,7 @@ const CALENDLY = "https://calendly.com/deep-ardncloudsolutions/30min";
 const STATS = [
   { value: "1", label: "member record shared by every module and every club" },
   { value: "6", label: "steps from “Choose a plan” to a signed, paid, active membership" },
-  { value: "400+", label: "permissions, grantable per role or per person, per club" },
+  { value: "550+", label: "permissions, grantable per role or per person, per club" },
   { value: "0", label: "data re-keyed between sales, contracts, billing and the member record" },
 ];
 
@@ -204,6 +208,14 @@ const MODULES: {
     title: "Website & Marketing",
     tier: "addon",
     body: "A branded microsite for every club from one system, 39 content blocks and 17 templates, a new-club wizard, and a six-step online join with e-signature and payment.",
+    points: [
+      "Journeys with triggers, waits and branches, sent by email, push and the member inbox",
+      "Email in each club's own brand, with every email kept on the person's record",
+      "Revenue credited back to the campaigns that earned it",
+      "Surveys after a visit, with the answers on the member's record",
+      "Fundraising: donations, pledges, recurring gifts and gift batches",
+      "Text campaigns through the club's own texting account",
+    ],
   },
   {
     icon: Briefcase,
@@ -214,7 +226,9 @@ const MODULES: {
       "AI-ranked applicants, scored with names hidden",
       "Time clock with face check, timesheets, tip pools and commissions",
       "I-9 and new-hire onboarding on the phone, plus background checks",
+      "Shifts by place, each person's week on their phone, and time-off requests",
       "Labor-cost what-if before the schedule is published",
+      "Every payroll dollar posted to the books, with the payroll provider's file each period",
     ],
   },
   {
@@ -223,10 +237,12 @@ const MODULES: {
     tier: "core",
     body: "Shared lead pool with SLA escalation, pipeline by stage and a tour board, with onboarding the moment they pay.",
     points: [
-      "E-signed contracts, with payment blocked until signed",
-      "Credit checks inside the sale",
-      "Retention list that flags members likely to cancel",
-      "Upsell list of members running out of their benefits early",
+      "One dialog builds the whole sale: plan, household, add-ons and joining fee",
+      "E-signed contracts and waivers in one signing, with payment blocked until signed",
+      "Plan changes signed as amendments, with the fee difference worked out",
+      "Payment plans and financing with a soft credit check",
+      "One next step on every record, reassigned when someone leaves",
+      "Retention and upsell lists: members likely to cancel, or running out of benefits",
     ],
   },
   {
@@ -235,8 +251,12 @@ const MODULES: {
     tier: "core",
     body: "A per-club installable app in the club's own brand, with benefits remaining, bills and bookings.",
     points: [
-      "Member card with QR code, also in Apple Wallet",
-      "Household, statement and wallet pages",
+      "Member card with QR code, ready for Apple and Google Wallet",
+      "Book tee times, classes, sessions, dining and events, in one list for the whole household",
+      "Push alerts for bookings, day-before reminders, statements and club news",
+      "Calendar invites, and changing a booking without calling the club",
+      "Club wallet credit that pays anywhere in the club, and gift cards",
+      "Refer a friend, with a reward the club sets",
     ],
   },
   {
@@ -245,9 +265,13 @@ const MODULES: {
     tier: "addon",
     body: "Rate grids, booking windows by tier, member allowances live while booking, the cart fleet and revenue per available tee time.",
     points: [
-      "Starter, ranger and bag-room screens",
-      "Handicap and tournament-software sync",
-      "Agronomy log for the course team",
+      "Waitlist, standing tee times and a fair weekend lottery",
+      "Starter, ranger and bag-room screens, with pace of play",
+      "Rain checks and no-show rules applied on their own",
+      "Turn-stand ordering and the weather on the sheet",
+      "Group scorecard in the member app",
+      "Courts, classes, lessons and kids-club check-in on the same booking rules",
+      "Handicap and tournament-software sync, and an agronomy log",
     ],
   },
   {
@@ -257,7 +281,9 @@ const MODULES: {
     body: "Inquiry to invoice: room holds, instant online quotes, a host planning portal and the captain's phone on the night.",
     points: [
       "AI floor-plan scan of each room",
-      "Banquet event orders and proposals",
+      "Banquet event orders, proposals, guest lists, RSVPs and seating charts",
+      "One catalog of packages and menus for every club, each club free to set its own price",
+      "Booked-but-unpaid dates released after one reminder, with the team told",
       "Kitchen recipes, counts and purchasing",
       "Vendor portal",
     ],
@@ -268,10 +294,12 @@ const MODULES: {
     tier: "addon",
     body: "A register for every outlet (shop, dining, tee desk), charged to the member's account and on their statement the moment it's made.",
     points: [
-      "Card, cash and member-account payments",
+      "Card, cash and member-account payments, member pricing and promo codes",
       "Barcode and iPad-camera scanning, label printing",
-      "Member pricing and promo codes",
-      "Stock and reorder alerts",
+      "Kitchen and bar screens with course hold-and-fire",
+      "Dining keeps selling offline on cash and member account",
+      "Gift cards, special orders and a credit book",
+      "Stock as a ledger, cost by FIFO or LIFO, and profit by item",
       "Close-out with cash counts; receipts by print or email; returns and refunds",
     ],
   },
@@ -289,6 +317,9 @@ const MODULES: {
     points: [
       "Card and bank (ACH) payments",
       "Statements with finance charges and food & beverage minimums",
+      "Declined payments retried on a schedule, with card-expiry warnings",
+      "Split-payment refunds and refunds on cancellation",
+      "Card fee set per card brand",
     ],
   },
   {
@@ -297,21 +328,25 @@ const MODULES: {
     tier: "addon",
     body: "Live chat and cases with an owner and an answer-by time.",
     points: [
-      "AI assistant that answers with the member's own dues, bookings and balance",
+      "AI assistant that answers first, with the member's own dues, bookings and balance, then hands off to a person",
       "AI sorts and routes new inquiries",
-      "Chat on the club website and member portal",
+      "Chat on the club website and member portal; a visitor's chat becomes a lead",
+      "Two-way texting with members on one thread per person (Unified SMS)",
+      "Staff phone alerts for anything that needs action, including a member arriving",
+      "Report a Problem with a step recording, and every failure at every club caught automatically",
     ],
   },
   {
     icon: Calculator,
     title: "Accounting Suite",
     tier: "addon",
-    tag: "Preview",
-    body: "A general ledger fed by the club's own transactions, with financial statements per club or consolidated.",
+    body: "Each club keeps its own books, fed by the club's own transactions, with financial statements per club or consolidated.",
     points: [
-      "Payables and receivables",
-      "Bank reconciliation",
-      "Budgets and period close",
+      "General ledger, payables and receivables, per club or consolidated",
+      "Bank reconciliation with payout matching",
+      "Budgets, period close and financial statements",
+      "Purchasing with approval limits and three-way match",
+      "13-week cash forecast, debt, leases and the fixed-asset register",
     ],
   },
   {
@@ -370,7 +405,7 @@ const SECURITY: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: KeyRound,
     title: "A permission for every capability",
-    body: "400+ permissions granted per role and per club, individual grants or denials with an expiry and a reason, and a “Who Can Do What” view across every club.",
+    body: "550+ permissions granted per role and per club, each explained in plain words, individual grants or denials with an expiry and a reason, and a “Who Can Do What” view across every club.",
   },
   {
     icon: EyeOff,
@@ -829,7 +864,9 @@ export default function GolfClubContent() {
 
           <p className="gc-also">
             <strong>Also included:</strong> multi-club rollups by region, a report
-            builder with scheduled reports, and Microsoft sign-in.
+            builder with scheduled reports, guided step-by-step workflows on every
+            record, a plain-words explainer for every permission, person merge with a
+            preview, an audit trail on every record, and Microsoft sign-in.
           </p>
 
           <div className="gc-ai">
@@ -837,15 +874,44 @@ export default function GolfClubContent() {
               <Sparkles size={22} strokeWidth={1.75} />
             </span>
             <div>
-              <span className="gc-kicker">Optional layer · Active AI</span>
-              <h3>Real-time AI across every flow.</h3>
+              <span className="gc-kicker">Active AI</span>
+              <h3>AI that does the work, not a chat window bolted on.</h3>
               <p>
-                Switch on Active AI and it plugs into every module: members, staff and prospects
-                get real-time answers instead of canned responses. Bring your own AI provider and
-                plug it in; usage runs on your own account.
+                The assistant answers members and visitors first and hands off to a person.
+                Staff ask questions about the club in plain English and get answers with their
+                sources, limited to what they&rsquo;re allowed to see. New inquiries arrive
+                sorted by topic, applicants arrive ranked with names hidden, a photo of a floor
+                plan becomes a room layout, a receipt becomes an expense, an asset label becomes
+                an asset record, and the time clock knows faces. Bring your own AI provider for
+                chat; usage runs on your own account.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------
+          EVERY FEATURE. The catalog is proposal/features.ts, generated from
+          the product's code; catalog mode shows only what is built.
+          --------------------------------------------------------------- */}
+      <section className="gc-section cp" id="features">
+        <div className="container">
+          <div className="gc-head">
+            <span className="gc-kicker">Every feature, app by app</span>
+            <h2 className="gc-h2">Open any app to see everything it does.</h2>
+            <p className="gc-sub">
+              Features marked AI use an AI model. Configure means the feature is built and
+              needs only the club&rsquo;s own account, key or hardware.
+            </p>
+          </div>
+          <CoverageExplorer apps={APPS} catalog />
+          <p className="gc-also">
+            Comparing with what your club runs today?{" "}
+            <Link href="/golf-club-management-software/proposal">
+              See coverage and build a proposal with your costs
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
@@ -922,20 +988,19 @@ export default function GolfClubContent() {
       </section>
 
       {/* ---------------------------------------------------------------
-          ACCOUNTING — PREVIEW. Keep the Preview label and the sample-figures
-          note until the accounting engine is merged into the platform.
+          ACCOUNTING. Built: each club keeps its own books. The screenshots
+          use sample figures, so keep that note.
           --------------------------------------------------------------- */}
       <section className="gc-section gc-canvas" id="accounting">
         <div className="container">
           <div className="gc-head">
             <span className="gc-kicker">
               Accounting &amp; financial reporting
-              <span className="gc-chip gc-chip-gold">Preview</span>
             </span>
             <h2 className="gc-h2">A general ledger fed by the club, not re-keyed from it.</h2>
             <p className="gc-sub">
               Dues billing, tee-time fees, pro-shop sales, events and payroll
-              imports post with their account, department, revenue centre and
+              post with their account, department, revenue centre and
               club already attached — per club, or consolidated across all of
               them.
             </p>
@@ -973,10 +1038,10 @@ export default function GolfClubContent() {
           </div>
 
           <p className="gc-onprop-note">
-            Preview: the accounting interface — general ledger, AR/AP, bank
-            reconciliation with payout matching, budgets and period close — is
-            complete, and the engine is being merged into the platform. Screens
-            show sample figures.
+            Included: general ledger, payables and receivables, bank
+            reconciliation with payout matching, budgets, period close,
+            purchasing with three-way match, a 13-week cash forecast, debt,
+            leases and the fixed-asset register. Screens show sample figures.
           </p>
         </div>
       </section>
