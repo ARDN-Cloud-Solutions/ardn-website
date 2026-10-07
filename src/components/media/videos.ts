@@ -19,7 +19,7 @@ export type VideoMeta = {
   seconds: number;
   uploadDate: string;
   chapters: Chapter[];
-  /** The same cut on the Ardn YouTube channel (@ardn_cloud_solutions). */
+  /** The same cut on the Ardn YouTube channel (@ardncloudsolutions). */
   youtubeId?: string;
 };
 
