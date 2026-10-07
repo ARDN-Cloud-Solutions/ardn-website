@@ -232,10 +232,10 @@ function ProposalForm({
               <th scope="col" rowSpan={2} className="cp-ptable-app">
                 App
               </th>
-              <th scope="colgroup" colSpan={3} className="cp-ptable-group">
+              <th scope="colgroup" colSpan={4} className="cp-ptable-group">
                 Today, per year
               </th>
-              <th scope="colgroup" colSpan={3} className="cp-ptable-group cp-ptable-future cp-ptable-side">
+              <th scope="colgroup" colSpan={4} className="cp-ptable-group cp-ptable-future cp-ptable-side">
                 With Club Steward, per year
               </th>
             </tr>
@@ -243,15 +243,23 @@ function ProposalForm({
               <th scope="col" className="cp-ptable-systems">
                 Current systems
               </th>
-              <th scope="col">Costs</th>
+              <th scope="col" className="cp-ptable-money">
+                Platform
+              </th>
+              <th scope="col" className="cp-ptable-money">
+                Support
+              </th>
               <th scope="col" className="cp-ptable-num">
                 Total
               </th>
               <th scope="col" className="cp-ptable-future cp-ptable-side">
                 Turn on
               </th>
-              <th scope="col" className="cp-ptable-future">
-                Costs
+              <th scope="col" className="cp-ptable-money cp-ptable-future">
+                Platform
+              </th>
+              <th scope="col" className="cp-ptable-money cp-ptable-future">
+                Support
               </th>
               <th scope="col" className="cp-ptable-num cp-ptable-future">
                 Total
@@ -276,9 +284,6 @@ function ProposalForm({
                 const showError = missingIds.has(id) && (checked || touched.has(id));
                 return (
                   <div className="cp-cost">
-                    <label className="cp-cost-label" htmlFor={id}>
-                      {f.short.replace(" cost", "")}
-                    </label>
                     <span className={`cp-money${showError ? " cp-money-error" : ""}`}>
                       <span aria-hidden="true">$</span>
                       <input
@@ -353,10 +358,8 @@ function ProposalForm({
                         </button>
                       )}
                     </td>
-                    <td className="cp-ptable-costs">
-                      {costInput("currentPlatform")}
-                      {costInput("currentSupport")}
-                    </td>
+                    <td className="cp-ptable-money">{costInput("currentPlatform")}</td>
+                    <td className="cp-ptable-money">{costInput("currentSupport")}</td>
                     <td className="cp-ptable-num cp-ptable-sum">{today === null ? "—" : formatDollars(today)}</td>
                     <td className="cp-ptable-future cp-ptable-side">
                       <span className="cp-switch-wrap">
@@ -375,12 +378,14 @@ function ProposalForm({
                       </span>
                     </td>
                     {choice.move ? (
-                      <td className="cp-ptable-costs cp-ptable-future">
-                        {costInput("futurePlatform")}
-                        {costInput("futureSupport")}
-                      </td>
+                      <>
+                        <td className="cp-ptable-money cp-ptable-future">{costInput("futurePlatform")}</td>
+                        <td className="cp-ptable-money cp-ptable-future">{costInput("futureSupport")}</td>
+                      </>
                     ) : (
-                      <td className="cp-ptable-future cp-ptable-kept cp-ptable-stays">Stays on current system</td>
+                      <td colSpan={2} className="cp-ptable-future cp-ptable-kept cp-ptable-stays">
+                        Stays on current system
+                      </td>
                     )}
                     <td className="cp-ptable-num cp-ptable-future cp-ptable-sum">
                       <span className={choice.move ? undefined : "cp-ptable-kept"}>
@@ -402,7 +407,7 @@ function ProposalForm({
                   </tr>
                   {isOpen && (
                     <tr className="cp-ptable-detail" id={`detail-${a.key}`}>
-                      <td colSpan={7}>
+                      <td colSpan={9}>
                         <div className="cp-ptable-detail-inner">
                           <label className="cp-field">
                             <span className="cp-label">What {a.name} runs on today</span>
@@ -448,26 +453,14 @@ function ProposalForm({
               <th scope="row" colSpan={2} className="cp-ptable-app">
                 Total
               </th>
-              <td className="cp-ptable-costs">
-                <span className="cp-cost-sum">
-                  <span>Platform</span> {formatDollars(totals.currentPlatform)}
-                </span>
-                <span className="cp-cost-sum">
-                  <span>Support</span> {formatDollars(totals.currentSupport)}
-                </span>
-              </td>
+              <td className="cp-ptable-num">{formatDollars(totals.currentPlatform)}</td>
+              <td className="cp-ptable-num">{formatDollars(totals.currentSupport)}</td>
               <td className="cp-ptable-num">{formatDollars(totals.current)}</td>
               <td className="cp-ptable-future cp-ptable-side cp-ptable-count">
                 {totals.moved} of {apps.length} on
               </td>
-              <td className="cp-ptable-costs cp-ptable-future">
-                <span className="cp-cost-sum">
-                  <span>Platform</span> {formatDollars(totals.futurePlatform)}
-                </span>
-                <span className="cp-cost-sum">
-                  <span>Support</span> {formatDollars(totals.futureSupport)}
-                </span>
-              </td>
+              <td className="cp-ptable-num cp-ptable-future">{formatDollars(totals.futurePlatform)}</td>
+              <td className="cp-ptable-num cp-ptable-future">{formatDollars(totals.futureSupport)}</td>
               <td className="cp-ptable-num cp-ptable-future">
                 {formatDollars(totals.future)}
                 <span className="cp-ptable-diff">
@@ -483,7 +476,7 @@ function ProposalForm({
               </td>
             </tr>
             <tr className="cp-ptable-verdict">
-              <td colSpan={7}>
+              <td colSpan={9}>
                 {complete ? (
                   <p className={`cp-verdict${totals.saving < 0 ? " cp-saving-more" : ""}`}>
                     <CheckCircle2 size={16} aria-hidden="true" />

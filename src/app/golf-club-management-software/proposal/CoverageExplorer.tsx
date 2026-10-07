@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
+import { ChevronDown, Sparkles, X } from "lucide-react";
 import type { AppArea, Feature, FeatureStatus } from "./features";
 import { coverageOf } from "./proposal";
+import { SCREENS, screenSrc, type Screen } from "./screens";
 
 /**
  * Coverage by app: one card per app with its percent covered, and the
@@ -25,6 +27,34 @@ export function AiMark({ count }: { count?: number }) {
       <Sparkles size={13} aria-hidden="true" />
       {count === undefined ? "AI" : `${count} AI`}
     </span>
+  );
+}
+
+/** One screen at full width over the page; Escape, the button or the backdrop closes it. */
+function ScreenZoom({ screen, onClose }: { screen: Screen; onClose: () => void }) {
+  const close = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const back = document.activeElement as HTMLElement | null;
+    close.current?.focus();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      back?.focus();
+    };
+  }, [onClose]);
+  return (
+    <div className="cp-zoom" role="dialog" aria-modal="true" aria-label={screen.title} onClick={onClose}>
+      <figure onClick={(e) => e.stopPropagation()}>
+        <Image src={screenSrc(screen.file)} alt={screen.alt} width={2880} height={1800} sizes="95vw" />
+        <figcaption>
+          <b>{screen.title}</b> {screen.alt}
+        </figcaption>
+      </figure>
+      <button ref={close} type="button" className="cp-zoom-close" onClick={onClose} aria-label="Close">
+        <X size={20} aria-hidden="true" />
+      </button>
+    </div>
   );
 }
 
@@ -50,6 +80,7 @@ export function CoverageBar({ features }: { features: Feature[] }) {
 export default function CoverageExplorer({ apps: allApps, catalog = false }: { apps: AppArea[]; catalog?: boolean }) {
   const [open, setOpen] = useState<string | null>(null);
   const [filter, setFilter] = useState<Filter>("all");
+  const [zoom, setZoom] = useState<Screen | null>(null);
   const panel = useRef<HTMLDivElement>(null);
   const apps = useMemo(
     () => (catalog ? allApps.map((a) => ({ ...a, features: a.features.filter((f) => f.status !== "Gap") })) : allApps),
@@ -72,6 +103,7 @@ export default function CoverageExplorer({ apps: allApps, catalog = false }: { a
   }
 
   const counts = app ? coverageOf(app.features) : null;
+  const screens = app ? (SCREENS[app.key] ?? []) : [];
 
   return (
     <>
@@ -135,6 +167,26 @@ export default function CoverageExplorer({ apps: allApps, catalog = false }: { a
                 )}
               </p>
             </div>
+            {screens.length > 0 && (
+              <ul className="cp-shots" role="list" aria-label={`${app.name} screens`}>
+                {screens.map((s) => (
+                  <li key={s.file}>
+                    <figure className="cp-shot">
+                      <button type="button" onClick={() => setZoom(s)} aria-label={`Enlarge: ${s.title}`}>
+                        <Image
+                          src={screenSrc(s.file)}
+                          alt={s.alt}
+                          width={2880}
+                          height={1800}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        />
+                      </button>
+                      <figcaption>{s.title}</figcaption>
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            )}
             <div className="cp-filters" role="group" aria-label="Show">
               {(
                 [
@@ -178,6 +230,7 @@ export default function CoverageExplorer({ apps: allApps, catalog = false }: { a
           </>
         )}
       </div>
+      {zoom && <ScreenZoom screen={zoom} onClose={() => setZoom(null)} />}
     </>
   );
 }

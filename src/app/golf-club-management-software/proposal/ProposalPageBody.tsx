@@ -51,6 +51,47 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
         </div>
       </section>
 
+      <section className="cp-purpose" aria-labelledby="cp-purpose-title">
+        <div className="container">
+          <div className="cp-purpose-head">
+            <p className="gc-kicker">{preset ? `Prepared for ${preset.preparedFor}` : "What this page is for"}</p>
+            <h2 id="cp-purpose-title" className="cp-purpose-title">
+              Decide what {preset ? preset.preparedFor : "your club"} moves to Club Steward, and what it would cost.
+            </h2>
+          </div>
+          <ol className="cp-purpose-steps" role="list">
+            <li>
+              <a href="#coverage">
+                <span className="cp-purpose-n">1</span>
+                <b>See what each app covers</b>
+                <span>Open an app for its features and real screens: what is built, what needs only an account, and what is still a gap.</span>
+              </a>
+            </li>
+            <li>
+              <a href="#compare">
+                <span className="cp-purpose-n">2</span>
+                <b>Compare with other club software</b>
+                <span>Every feature side by side, with the public source behind each rating.</span>
+              </a>
+            </li>
+            <li>
+              <a href="#proposal">
+                <span className="cp-purpose-n">3</span>
+                <b>Build the proposal</b>
+                <span>
+                  {preset
+                    ? `${preset.preparedFor}'s current systems are filled in for each app. Add today's costs, turn on the apps to move, and enter the Club Steward costs to see the yearly difference.`
+                    : "List what you use today and what it costs, turn on the apps to move, and enter the Club Steward costs to see the yearly difference."}
+                </span>
+              </a>
+            </li>
+          </ol>
+          <p className="cp-purpose-note">
+            Nothing you type leaves this browser. Print or save the proposal as a PDF when it is ready.
+          </p>
+        </div>
+      </section>
+
       <section className="gc-section" id="coverage">
         <div className="container">
           <div className="gc-head">
