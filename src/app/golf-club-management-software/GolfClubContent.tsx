@@ -5,7 +5,6 @@ import {
   Building2,
   Calculator,
   CalendarDays,
-  ChartColumn,
   CreditCard,
   Database,
   EyeOff,
