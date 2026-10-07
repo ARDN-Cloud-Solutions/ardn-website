@@ -56,7 +56,7 @@ Ardn designs, builds and runs each of these products as a managed service. Overv
 
 ## Videos
 
-Product walkthroughs (screens show fictional organizations with sample data). Also on YouTube: https://www.youtube.com/@ardn_cloud_solutions
+Product walkthroughs (screens show fictional organizations with sample data). Also on YouTube: https://www.youtube.com/@ardncloudsolutions
 
 - [Club Steward: run the whole club on one platform](https://www.youtube.com/watch?v=_ypWvVbAkhQ): golf and country club management software tour. On the site: https://ardncloudsolutions.com/golf-club-management-software#video
 - [Club Steward Events & Catering](https://www.youtube.com/watch?v=iny5b0zibaU): inquiry to invoice for club events.
