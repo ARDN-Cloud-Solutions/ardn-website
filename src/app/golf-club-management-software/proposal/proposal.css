@@ -17,6 +17,12 @@
   --cp-radius: 14px;
 }
 
+/* This page is tables a club works through, so it uses the whole screen
+   instead of the site's 1600px column; the hero text keeps its own measure. */
+main.cp .container {
+  max-width: none;
+}
+
 .cp .cp-sr {
   position: absolute;
   width: 1px;

@@ -16,6 +16,7 @@ import {
   systemNames,
   totalsOf,
   typedDollars,
+  type AppChoice,
   type Choices,
   type CostKey,
   type ProposalPreset,
@@ -39,6 +40,12 @@ const STORE = "club-steward-proposal-v2";
 interface Saved {
   preparedFor: string;
   choices: Choices;
+  /**
+   * Set once a save keeps only the systems the person changed. Without it the
+   * save is older and its systems are the preset's text of the day, so the
+   * current preset wins and a corrected list reaches everyone.
+   */
+  editedSystemsOnly?: boolean;
 }
 
 function storeKey(preset?: ProposalPreset) {
@@ -57,7 +64,7 @@ function readSaved(apps: AppArea[], preset?: ProposalPreset): Saved | null {
         choices[a.key] = {
           move: Boolean(c.move),
           costs: { ...EMPTY_COSTS, ...c.costs },
-          systems: typeof c.systems === "string" ? c.systems : choices[a.key].systems,
+          systems: saved.editedSystemsOnly && typeof c.systems === "string" ? c.systems : choices[a.key].systems,
         };
     }
     return { preparedFor: String(saved.preparedFor ?? ""), choices };
@@ -67,9 +74,18 @@ function readSaved(apps: AppArea[], preset?: ProposalPreset): Saved | null {
   }
 }
 
-function writeSaved(saved: Saved, preset?: ProposalPreset) {
+function writeSaved(saved: Saved, apps: AppArea[], preset?: ProposalPreset) {
+  const start = startingChoices(apps, preset);
+  const choices: Record<string, Partial<AppChoice>> = {};
+  for (const [key, c] of Object.entries(saved.choices)) {
+    // A systems list the person never touched is not kept, so it follows the preset.
+    choices[key] = c.systems === start[key]?.systems ? { move: c.move, costs: c.costs } : c;
+  }
   try {
-    window.localStorage.setItem(storeKey(preset), JSON.stringify(saved));
+    window.localStorage.setItem(
+      storeKey(preset),
+      JSON.stringify({ preparedFor: saved.preparedFor, choices, editedSystemsOnly: true }),
+    );
   } catch {
     // Storage blocked (private window): the proposal still works, it just won't survive a refresh.
   }
@@ -119,8 +135,8 @@ function ProposalForm({
   const summary = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (persist) writeSaved({ preparedFor, choices }, preset);
-  }, [persist, preparedFor, choices, preset]);
+    if (persist) writeSaved({ preparedFor, choices }, apps, preset);
+  }, [persist, preparedFor, choices, apps, preset]);
 
   const missing = useMemo(() => missingCosts(apps, choices), [apps, choices]);
   const totals = useMemo(() => totalsOf(apps, choices), [apps, choices]);
