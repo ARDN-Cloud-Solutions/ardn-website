@@ -1513,3 +1513,8 @@
 @media (max-width: 640px) { .gc .gc-ai { flex-direction: column; padding: 22px; } }
 .gc .gc-tier-tag-preview { background: #fdf3e1; color: #8a5a00; border: 1px solid #f0d49a; }
 .gc .gc-ai .gc-icon { background: rgba(212, 178, 90, .16); color: var(--gold-soft); border-color: rgba(212, 178, 90, .4); }
+.gc .gc-card-points { list-style: none; padding: 0; margin: 14px 0 0; border-top: 1px solid var(--line); }
+.gc .gc-card-points li { position: relative; padding: 7px 0 7px 20px; font-size: 13.5px; line-height: 1.45; color: var(--navy); }
+.gc .gc-card-points li::before { content: ""; position: absolute; left: 1px; top: 12px; width: 9px; height: 5px; border-left: 2px solid var(--turf); border-bottom: 2px solid var(--turf); transform: rotate(-45deg); }
+.gc .gc-also { margin: 22px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--slate); text-align: center; }
+.gc .gc-also strong { color: var(--navy); }

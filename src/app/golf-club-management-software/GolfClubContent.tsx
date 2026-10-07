@@ -51,8 +51,11 @@ import { FAQS } from "./faqs";
  * - Nothing is in production yet: "built and demonstrable", never "live at N
  *   clubs". No customer names, logos, metrics or testimonials.
  * - Accounting is PREVIEW (interface complete, engine merging, sample
- *   figures). POS till, court booking, member statements, Wallet passes,
- *   F&B minimums and gift cards are ROADMAP.
+ *   figures) — keep the label. Built and claimable as of 2026-10-07: POS
+ *   registers per outlet with close-out, member statements, Apple Wallet
+ *   member cards and F&B minimums. Still NOT built (never claim): gift cards,
+ *   property management (stays "Coming soon"), offline mode, court booking,
+ *   and tap-to-pay card readers (in progress).
  * - Never "only all-in-one", "only multi-club" or "only cloud"; never claim
  *   competitors lack a CRM. Competitors are NOT named — several comparison
  *   rows are still marked "verify before publishing".
@@ -187,7 +190,16 @@ const TIER_LABEL: Record<Tier, string> = { core: "Core", addon: "Add-on", soon: 
 
 // Owner's capability list and order (2026-09-30). Core = Membership Sales and
 // Members App; everything else is an add-on module. No prices on this page.
-const MODULES: { icon: LucideIcon; title: string; body: string; tier: Tier; tag?: string }[] = [
+// `points` are short, buyer-facing bullets of shipped capability (verified in
+// the product code 2026-10-07) — keep them outcomes-first and brief.
+const MODULES: {
+  icon: LucideIcon;
+  title: string;
+  body: string;
+  points?: string[];
+  tier: Tier;
+  tag?: string;
+}[] = [
   {
     icon: Globe,
     title: "Website & Marketing",
@@ -198,37 +210,71 @@ const MODULES: { icon: LucideIcon; title: string; body: string; tier: Tier; tag?
     icon: Briefcase,
     title: "HR",
     tier: "addon",
-    body: "Job postings and a club careers page, applicants ranked against the role with names hidden while scored, interviewer scorecards, plus staff shifts, availability and time off.",
+    body: "Hire, onboard, schedule and pay staff without a second system.",
+    points: [
+      "AI-ranked applicants, scored with names hidden",
+      "Time clock with face check, timesheets, tip pools and commissions",
+      "I-9 and new-hire onboarding on the phone, plus background checks",
+      "Labor-cost what-if before the schedule is published",
+    ],
   },
   {
     icon: Users,
     title: "Membership Sales",
     tier: "core",
-    body: "Shared lead pool with SLA escalation, pipeline by stage, tour board, contracts with built-in e-signature, payment blocked until signed, and onboarding the moment they pay.",
+    body: "Shared lead pool with SLA escalation, pipeline by stage and a tour board, with onboarding the moment they pay.",
+    points: [
+      "E-signed contracts, with payment blocked until signed",
+      "Credit checks inside the sale",
+      "Retention list that flags members likely to cancel",
+      "Upsell list of members running out of their benefits early",
+    ],
   },
   {
     icon: Smartphone,
     title: "Members App",
     tier: "core",
-    body: "Digital card with QR code for every household member, benefits remaining, bills and bookings, and a per-club installable app in the club's own brand.",
+    body: "A per-club installable app in the club's own brand, with benefits remaining, bills and bookings.",
+    points: [
+      "Member card with QR code, also in Apple Wallet",
+      "Household, statement and wallet pages",
+    ],
   },
   {
     icon: Flag,
     title: "Tee-Times",
     tier: "addon",
-    body: "Rate grids, booking windows by membership tier, member allowances live while booking, the cart sheet and fleet, and revenue per available tee time.",
+    body: "Rate grids, booking windows by tier, member allowances live while booking, the cart fleet and revenue per available tee time.",
+    points: [
+      "Starter, ranger and bag-room screens",
+      "Handicap and tournament-software sync",
+      "Agronomy log for the course team",
+    ],
   },
   {
     icon: CalendarDays,
     title: "Events & Catering",
     tier: "addon",
-    body: "Inquiry to invoice: room holds with setup and teardown, instant online quotes, one club-wide menu, a host planning portal, kitchen prep, staffing, vendors and the captain's phone on the night.",
+    body: "Inquiry to invoice: room holds, instant online quotes, a host planning portal and the captain's phone on the night.",
+    points: [
+      "AI floor-plan scan of each room",
+      "Banquet event orders and proposals",
+      "Kitchen recipes, counts and purchasing",
+      "Vendor portal",
+    ],
   },
   {
     icon: ReceiptText,
     title: "Point of Sale",
     tier: "addon",
-    body: "One checkout for the dining room, bar, pro shop and halfway house, charged straight to the member's account and posted to their statement the moment it's made.",
+    body: "A register for every outlet (shop, dining, tee desk), charged to the member's account and on their statement the moment it's made.",
+    points: [
+      "Card, cash and member-account payments",
+      "Barcode and iPad-camera scanning, label printing",
+      "Member pricing and promo codes",
+      "Stock and reorder alerts",
+      "Close-out with cash counts; receipts by print or email; returns and refunds",
+    ],
   },
   {
     icon: ShoppingBag,
@@ -240,20 +286,34 @@ const MODULES: { icon: LucideIcon; title: string; body: string; tier: Tier; tag?
     icon: CreditCard,
     title: "Subscription Billing & Dues",
     tier: "addon",
-    body: "Card and ACH autopay, prorated first periods, step-up promotional dues, automatic retries that never charge twice, and a compliant credit-only card fee.",
+    body: "Autopay, prorated first periods, step-up promotional dues, retries that never charge twice, and a compliant credit-only card fee.",
+    points: [
+      "Card and bank (ACH) payments",
+      "Statements with finance charges and food & beverage minimums",
+    ],
   },
   {
     icon: MessageSquareText,
     title: "Member Service with Chatbot",
     tier: "addon",
-    body: "A chat assistant on the club website and member portal that answers from the club's own answers, then live chat and cases with an owner and an answer-by time.",
+    body: "Live chat and cases with an owner and an answer-by time.",
+    points: [
+      "AI assistant that answers with the member's own dues, bookings and balance",
+      "AI sorts and routes new inquiries",
+      "Chat on the club website and member portal",
+    ],
   },
   {
     icon: Calculator,
     title: "Accounting Suite",
     tier: "addon",
     tag: "Preview",
-    body: "A general ledger fed by the club's own transactions, with receivables, payables, bank reconciliation, budgets, period close and financial statements.",
+    body: "A general ledger fed by the club's own transactions, with financial statements per club or consolidated.",
+    points: [
+      "Payables and receivables",
+      "Bank reconciliation",
+      "Budgets and period close",
+    ],
   },
   {
     icon: Building2,
@@ -714,7 +774,7 @@ export default function GolfClubContent() {
                 their membership is in one club-branded account.
               </p>
               <ul className="gc-ticks">
-                <li>Digital membership card with QR code for every household member</li>
+                <li>Digital membership card with QR code for every household member, also in Apple Wallet</li>
                 <li>Benefits used and remaining, with reset dates</li>
                 <li>Dues, next charge, autopay status and the signed agreement</li>
                 <li>Hold, cancel or change plan — billing follows automatically</li>
@@ -757,9 +817,21 @@ export default function GolfClubContent() {
                 </div>
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
+                {c.points && (
+                  <ul className="gc-card-points">
+                    {c.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                )}
               </article>
             ))}
           </div>
+
+          <p className="gc-also">
+            <strong>Also included:</strong> multi-club rollups by region, a report
+            builder with scheduled reports, and Microsoft sign-in.
+          </p>
 
           <div className="gc-ai">
             <span className="gc-icon" aria-hidden="true">
