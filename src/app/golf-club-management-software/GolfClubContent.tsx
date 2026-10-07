@@ -62,7 +62,8 @@ import "./proposal/proposal.css";
  *   loyalty points, tee-time marketplaces and dynamic pricing. The full list
  *   is the Gap rows on /proposal.
  * - Never "only all-in-one", "only multi-club" or "only cloud"; never claim
- *   competitors lack a CRM. Competitors are NOT named.
+ *   competitors lack a CRM. Competitors are NOT named on this page; they
+ *   appear only in the sourced side-by-side on proposal/ (competitors.ts).
  * - "A standard report library", not a report count. Don't list integrations.
  * - No Club Steward pricing, quotes or cost claims yet: pricing hasn't been
  *   decided (owner, 2026-09-28). Also no guarantee or contract-term claims.
@@ -908,7 +909,7 @@ export default function GolfClubContent() {
           <p className="gc-also">
             Comparing with what your club runs today?{" "}
             <Link href="/golf-club-management-software/proposal">
-              See coverage and build a proposal with your costs
+              See coverage, compare side by side, and build a proposal with your costs
             </Link>
             .
           </p>

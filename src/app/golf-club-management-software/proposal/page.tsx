@@ -5,6 +5,8 @@ import { APPS } from "./features";
 import { coverageOf } from "./proposal";
 import CoverageExplorer, { StatusPill } from "./CoverageExplorer";
 import ProposalBuilder from "./ProposalBuilder";
+import CompareTable from "./CompareTable";
+import { COMPETITORS, RESEARCHED } from "./competitors";
 import "../golf.css";
 import "./proposal.css";
 
@@ -97,6 +99,20 @@ export default function ClubProposalPage() {
             </li>
           </ul>
           <CoverageExplorer apps={APPS} />
+        </div>
+      </section>
+
+      <section className="gc-section" id="compare">
+        <div className="container">
+          <div className="gc-head">
+            <p className="gc-kicker">Side by side</p>
+            <h2 className="gc-h2">Every feature, next to the other club software</h2>
+            <p className="gc-sub">
+              Search, narrow to one app, choose which products to compare, and open any feature to see the note
+              behind each rating and the page it came from.
+            </p>
+          </div>
+          <CompareTable apps={APPS} competitors={COMPETITORS} researched={RESEARCHED} />
         </div>
       </section>
 

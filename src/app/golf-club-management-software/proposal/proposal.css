@@ -813,3 +813,359 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* ---------------- side-by-side comparison ---------------- */
+
+.cp .cp-compare-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+}
+
+.cp .cp-compare-tools .cp-filters {
+  margin: 12px 0;
+}
+
+.cp .cp-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 280px;
+  max-width: 420px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  padding: 0 14px;
+  background: var(--paper);
+  color: var(--slate);
+}
+
+.cp .cp-search:focus-within {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 1px var(--indigo);
+}
+
+.cp .cp-search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  color: var(--navy);
+  padding: 10px 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.cp .cp-compare-apps {
+  margin-top: 0;
+}
+
+.cp .cp-compare-pick {
+  border: 0;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.cp .cp-compare-pick legend {
+  float: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 6px;
+}
+
+.cp .cp-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px dashed var(--line-2);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--slate);
+}
+
+.cp .cp-pick-on {
+  border-style: solid;
+  border-color: var(--indigo);
+  color: var(--navy);
+  background: var(--cp-ai-soft);
+}
+
+.cp .cp-pick input {
+  accent-color: var(--indigo);
+  margin: 0;
+}
+
+.cp .cp-compare-count {
+  margin: 16px 0 10px;
+  font-size: 14px;
+}
+
+.cp .cp-compare-scroll {
+  overflow: auto;
+  max-height: 78vh;
+  border: 1px solid var(--line-2);
+  border-radius: var(--cp-radius);
+  background: var(--paper);
+}
+
+.cp .cp-compare-scroll:focus-visible {
+  outline: 3px solid var(--indigo);
+  outline-offset: 2px;
+}
+
+.cp .cp-compare-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.cp .cp-compare-table th,
+.cp .cp-compare-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+  background: var(--paper);
+}
+
+.cp .cp-compare-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 118px;
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--line-2);
+}
+
+.cp .cp-compare-tally {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--slate);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.cp .cp-compare-table .cp-compare-feature {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 300px;
+  max-width: 360px;
+  box-shadow: 1px 0 0 var(--line-2);
+}
+
+.cp .cp-compare-table thead .cp-compare-feature {
+  z-index: 3;
+}
+
+.cp .cp-compare-table .cp-compare-us {
+  background: #f6f8ff;
+}
+
+.cp .cp-compare-feature button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+.cp .cp-compare-feature button:focus-visible {
+  outline: 3px solid var(--indigo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.cp .cp-compare-feature button svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--indigo);
+}
+
+.cp .cp-compare-app {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--slate);
+  margin-top: 2px;
+}
+
+.cp .cp-compare-table tbody tr:hover > * {
+  background: #fafbfd;
+}
+
+.cp .cp-compare-open > * {
+  background: #f4f5fe !important;
+}
+
+.cp .cp-rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.cp .cp-rate-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  flex: none;
+}
+
+.cp .cp-rate-yes {
+  color: var(--turf-deep);
+}
+
+.cp .cp-rate-yes .cp-rate-dot {
+  background: var(--turf);
+  border-color: var(--turf);
+}
+
+.cp .cp-rate-partial {
+  color: #8a5a12;
+}
+
+.cp .cp-rate-partial .cp-rate-dot {
+  border-color: var(--amber);
+  background: linear-gradient(90deg, var(--amber) 50%, transparent 50%);
+}
+
+.cp .cp-rate-no {
+  color: #a3243f;
+}
+
+.cp .cp-rate-no .cp-rate-dot {
+  border-color: var(--coral);
+}
+
+.cp .cp-rate-unknown {
+  color: var(--slate);
+}
+
+.cp .cp-rate-unknown .cp-rate-dot {
+  border-style: dotted;
+  border-color: #a7afbf;
+}
+
+.cp .cp-compare-why td {
+  background: #f4f5fe;
+  padding: 4px 16px 18px;
+}
+
+.cp .cp-compare-why dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px 24px;
+  max-width: 1100px;
+  position: sticky;
+  left: 16px;
+}
+
+.cp .cp-compare-why dt {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.cp .cp-compare-why dd {
+  margin: 0;
+  color: var(--slate);
+  line-height: 1.5;
+}
+
+.cp .cp-compare-why dd .cp-status,
+.cp .cp-compare-why dd .cp-rate {
+  margin-right: 4px;
+}
+
+.cp .cp-compare-why a {
+  color: var(--indigo);
+  font-weight: 600;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.cp .cp-compare-fine {
+  font-size: 13px;
+  margin-top: 14px;
+  max-width: 820px;
+}
+
+@media (max-width: 640px) {
+  .cp .cp-compare-table .cp-compare-feature {
+    min-width: 170px;
+    max-width: 190px;
+  }
+
+  .cp .cp-compare-table thead th {
+    min-width: 104px;
+  }
+
+  .cp .cp-compare-scroll {
+    max-height: 72vh;
+  }
+
+  /* One row each that scrolls sideways, so the table stays near the top. */
+  .cp .cp-compare-apps,
+  .cp .cp-compare-tools .cp-filters,
+  .cp .cp-compare-pick {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .cp .cp-compare-apps .cp-chip,
+  .cp .cp-compare-tools .cp-chip,
+  .cp .cp-pick {
+    flex: none;
+    white-space: nowrap;
+  }
+
+  .cp .cp-compare-pick legend {
+    float: none;
+    flex: none;
+  }
+
+  .cp .cp-compare-why dl {
+    max-width: calc(100vw - 72px);
+  }
+}
+
+@media print {
+  .cp .cp-compare-tools,
+  .cp .cp-compare-apps,
+  .cp .cp-compare-pick {
+    display: none;
+  }
+
+  .cp .cp-compare-scroll {
+    max-height: none;
+    overflow: visible;
+  }
+}
