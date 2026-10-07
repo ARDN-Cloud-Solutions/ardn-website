@@ -66,7 +66,7 @@ const socials = [
   { icon: Twitter, href:"https://x.com/ardn_cloud_sol", label: "Twitter" },
   { icon: Instagram, href:"https://www.instagram.com/ardncloudsolutions/", label: "Instagram" },
   { icon: Linkedin, href:"https://www.linkedin.com/company/ardn-cloud-solutions/", label: "LinkedIn" },
-  { icon: Youtube, href:"https://www.youtube.com/@ardn_cloud_solutions", label: "YouTube" },
+  { icon: Youtube, href:"https://www.youtube.com/@ardncloudsolutions", label: "YouTube" },
 ];
 
 // ─── Sub-components ─────────────────────────────────────────────────────────
