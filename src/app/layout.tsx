@@ -145,7 +145,7 @@ const organizationSchema = {
     "https://www.facebook.com/profile.php?id=61569012437188",
     "https://x.com/ardn_cloud_sol",
     "https://www.instagram.com/ardncloudsolutions/",
-    "https://www.youtube.com/@ardn_cloud_solutions",
+    "https://www.youtube.com/@ardncloudsolutions",
   ],
 };
 
