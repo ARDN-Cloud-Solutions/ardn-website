@@ -416,6 +416,13 @@ export const APPS: AppArea[] = [
         "note": ""
       },
       {
+        "id": "X37",
+        "name": "Self check-in at a check-in tablet: every class, program, event and court booking gets a one-time QR code in the email and the app, or scan the member card; a past-due balance, unpaid booking or unsigned waiver sends them to the desk, and no-shows are marked Absent",
+        "status": "Built",
+        "ai": false,
+        "note": "Members check themselves in with the code from their confirmation email; the desk only hears about the ones who need help."
+      },
+      {
         "id": "C20",
         "name": "Member directory / roster in the app",
         "status": "Built",
@@ -785,6 +792,13 @@ export const APPS: AppArea[] = [
         "status": "Configure",
         "ai": false,
         "note": "Built; needs the club's card readers and card processing account."
+      },
+      {
+        "id": "X38",
+        "name": "21+ age check by photo: the member photographs their ID and a selfie, the club's own AI model reads the name, date of birth and expiration, a staff member confirms once, and the photos are deleted",
+        "status": "Configure",
+        "ai": true,
+        "note": ""
       }
     ]
   },
