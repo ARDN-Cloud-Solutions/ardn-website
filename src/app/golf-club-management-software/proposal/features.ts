@@ -185,32 +185,25 @@ export const APPS: AppArea[] = [
         "note": "The club sees which members are drifting away, and why, before they resign."
       },
       {
+        "id": "C27",
+        "name": "Loyalty points earned on spend, redeemed as payment with time/place rules",
+        "status": "Built",
+        "ai": false,
+        "note": "Members earn points on spend and pay part of a sale with them, with club rules; managers adjust points with a reason; a canceled order gives its points back. Points owed are a liability in the books."
+      },
+      {
+        "id": "C30",
+        "name": "Online forms with payments",
+        "status": "Built",
+        "ai": false,
+        "note": "A form can take a payment: staff add charge items to the form, and the payment lands on an invoice like any other."
+      },
+      {
         "id": "C28",
         "name": "SMS marketing campaigns",
         "status": "Configure",
         "ai": false,
         "note": "Campaigns send by text to opted-in members through the club's own number; it needs the club's texting account connected."
-      },
-      {
-        "id": "C27",
-        "name": "Loyalty points earned on spend, redeemed as payment with time/place rules",
-        "status": "Gap",
-        "ai": false,
-        "note": "No loyalty points program; only wallet credit, gift cards and promotions."
-      },
-      {
-        "id": "C29",
-        "name": "Managed marketing service (ads, SEO, run by vendor staff)",
-        "status": "Gap",
-        "ai": false,
-        "note": "No vendor-run managed marketing service (ads, SEO); the product supplies the tools only."
-      },
-      {
-        "id": "C30",
-        "name": "Online forms with payments",
-        "status": "Gap",
-        "ai": false,
-        "note": "Forms and surveys can be built and embedded, but a form cannot take a payment."
       },
       {
         "id": "IC60",
@@ -416,6 +409,13 @@ export const APPS: AppArea[] = [
         "note": "Members are asked for alerts right after they book, the moment they want a reminder, and every booking, statement and announcement reaches their phone."
       },
       {
+        "id": "X35",
+        "name": "A signed waiver on every booking, a parent signs for a child, and visitors wait behind members on a full class and pay when a place opens",
+        "status": "Built",
+        "ai": false,
+        "note": ""
+      },
+      {
         "id": "C20",
         "name": "Member directory / roster in the app",
         "status": "Built",
@@ -428,13 +428,6 @@ export const APPS: AppArea[] = [
         "status": "Configure",
         "ai": false,
         "note": "Built, including updates pushed to a saved pass. Needs the club's Apple and Google Wallet issuer accounts."
-      },
-      {
-        "id": "C17",
-        "name": "Overnight rooms and lodging: reservations, rates, folios, housekeeping, night audit",
-        "status": "Gap",
-        "ai": false,
-        "note": "No lodging module (reservations, rates, folios, housekeeping, night audit); hotel room charges post to the house account."
       },
       {
         "id": "C18",
@@ -462,7 +455,7 @@ export const APPS: AppArea[] = [
         "name": "Self-service kiosk for check-in and purchases",
         "status": "Gap",
         "ai": false,
-        "note": "Check-in is a staff-run front-desk scanner and the kiosk is the staff time clock; there is no member self-service kiosk for check-in and purchases."
+        "note": "Check-in is a staff-run front-desk scanner today. Member self check-in on an iPad (a one-time code per booking, the member card also works) is being built."
       },
       {
         "id": "C23",
@@ -470,13 +463,6 @@ export const APPS: AppArea[] = [
         "status": "Gap",
         "ai": false,
         "note": "Modules are switched on per club for staff, but the member app home is not set by membership type."
-      },
-      {
-        "id": "C24",
-        "name": "Member cancels online themselves (click to cancel)",
-        "status": "Gap",
-        "ai": false,
-        "note": "A member can submit a resignation online, but every one waits for club approval; the member cannot complete a cancellation themselves."
       },
       {
         "id": "C25",
@@ -584,6 +570,27 @@ export const APPS: AppArea[] = [
         "note": "Course Live and the ranger phone show each group's minutes behind and who is holding up whom, from the starter and turn timestamps."
       },
       {
+        "id": "C05",
+        "name": "Golf leagues and outings with automatic tee-sheet blocks and rotating nines",
+        "status": "Built",
+        "ai": false,
+        "note": "Leagues are their own record (members, runs, rounds); each league places its blocks on the tee sheet on its own schedule, including rotating nines, and a league round fee is the club's own charge."
+      },
+      {
+        "id": "C07",
+        "name": "GPS rangefinder and scorecard app",
+        "status": "Built",
+        "ai": false,
+        "note": "The member app shows each hole drawn from the course map with Front, Center and Back yards from the golfer's own location (or from their own tee), hazards ahead and the wind, plus the group scorecard with games."
+      },
+      {
+        "id": "C12",
+        "name": "Punch cards and one-time vouchers usable across courses, scanned on the tee sheet",
+        "status": "Built",
+        "ai": false,
+        "note": "Punch cards and one-time vouchers are sold at the desk or bought by members in the app (wallet or card), scanned on the tee sheet, topped up, and refunded for unused punches; sales are held as Unearned Punch Cards until used."
+      },
+      {
         "id": "C16",
         "name": "Tee-time reminders the golfer confirms or changes",
         "status": "Built",
@@ -598,25 +605,18 @@ export const APPS: AppArea[] = [
         "note": "Needs the club's handicap-service connection and tournament-system key."
       },
       {
-        "id": "C01",
-        "name": "Tee times listed on public golf booking marketplaces",
-        "status": "Gap",
+        "id": "X32",
+        "name": "Course map for every course from open map data, with points the club places on a phone; live cart tracking with alerts for behind pace, no signal and left the property; path-only and closed holes with dates",
+        "status": "Configure",
         "ai": false,
-        "note": "No feed to public tee-time marketplaces; tee times are sold on the club's own sheet and member app."
+        "note": "Built; live cart positions need trackers or phones in the carts."
       },
       {
-        "id": "C02",
-        "name": "Dynamic tee-time pricing by demand, season and spend",
-        "status": "Gap",
+        "id": "C09",
+        "name": "Caddie management: availability, member requests, assignment, texting caddies",
+        "status": "Configure",
         "ai": false,
-        "note": "Rates are fixed day-and-time rules plus promotions; nothing moves the price by demand, fill rate or a golfer's spend."
-      },
-      {
-        "id": "C05",
-        "name": "Golf leagues and outings with automatic tee-sheet blocks and rotating nines",
-        "status": "Gap",
-        "ai": false,
-        "note": "Staff can place one-off League or Outing blocks and shotgun/crossover starts by hand, but there is no league record, no recurring automatic blocks and no rotating nines."
+        "note": "Caddies set their availability, members ask for a caddie when booking, and the caddie board assigns caddies to the groups that asked; the member sees what was arranged. Texting caddies needs the club's texting number."
       },
       {
         "id": "C06",
@@ -626,25 +626,11 @@ export const APPS: AppArea[] = [
         "note": "Tournament results come back from the tournament system, but there is no TV leaderboard screen and no sync to tee times."
       },
       {
-        "id": "C07",
-        "name": "GPS rangefinder and scorecard app",
-        "status": "Gap",
-        "ai": false,
-        "note": "A group scorecard is built in the member app; there is no GPS rangefinder or hole yardage from the golfer's location."
-      },
-      {
         "id": "C08",
         "name": "Driving range ball-machine connection",
         "status": "Gap",
         "ai": false,
         "note": "No driving-range ball machine integration; range balls are only a counter product."
-      },
-      {
-        "id": "C09",
-        "name": "Caddie management: availability, member requests, assignment, texting caddies",
-        "status": "Gap",
-        "ai": false,
-        "note": "Caddie loops are recorded, charged and paid, but there is no caddie availability, member caddie request, assignment board or texting caddies."
       },
       {
         "id": "C10",
@@ -659,13 +645,6 @@ export const APPS: AppArea[] = [
         "status": "Gap",
         "ai": false,
         "note": "No marina module: no slips, boat storage or transient slip reservations."
-      },
-      {
-        "id": "C12",
-        "name": "Punch cards and one-time vouchers usable across courses, scanned on the tee sheet",
-        "status": "Gap",
-        "ai": false,
-        "note": "Plan round allowances, guest passes and wallet credit exist, but there is no sellable punch card or one-time voucher scanned on the tee sheet."
       },
       {
         "id": "C13",
@@ -780,6 +759,13 @@ export const APPS: AppArea[] = [
         "note": "The dining POS keeps taking cash and house-account sales offline and replays them when the connection returns; cards are refused offline."
       },
       {
+        "id": "C36",
+        "name": "Round-up-to-charity at the register",
+        "status": "Built",
+        "ai": false,
+        "note": "Round up for charity at the register, with the club's chosen fund and its own charge code."
+      },
+      {
         "id": "C37",
         "name": "Pro shop online store synced with POS stock",
         "status": "Built",
@@ -787,11 +773,18 @@ export const APPS: AppArea[] = [
         "note": "The member web shop sells from the same pro shop catalog and stock ledger the POS register uses."
       },
       {
-        "id": "C36",
-        "name": "Round-up-to-charity at the register",
-        "status": "Gap",
+        "id": "X33",
+        "name": "Order food and drinks from the course: the beverage cart brings it to your hole or cart, or pick it up at the turn; pay by wallet, house account or card; an ID check for drinks with alcohol; the cart attendant's phone shows orders on the map",
+        "status": "Configure",
         "ai": false,
-        "note": "No round-up-to-charity option at the register."
+        "note": "Built; the online ID check needs the club's identity-check account."
+      },
+      {
+        "id": "X34",
+        "name": "Card readers paired to registers, with the credit card fee shown before the member pays",
+        "status": "Configure",
+        "ai": false,
+        "note": "Built; needs the club's card readers and card processing account."
       }
     ]
   },
@@ -927,6 +920,13 @@ export const APPS: AppArea[] = [
         "note": "Purchase orders are matched against receipts and invoices before anything is paid."
       },
       {
+        "id": "C39",
+        "name": "Prepaid tee-time and event deposits held as a liability until used",
+        "status": "Built",
+        "ai": false,
+        "note": "Prepaid tee times are held as a liability until the round is played, alongside event deposits."
+      },
+      {
         "id": "F54",
         "name": "Statement runs with PDF and print files",
         "status": "Configure",
@@ -946,20 +946,6 @@ export const APPS: AppArea[] = [
         "status": "Configure",
         "ai": false,
         "note": "Declined dues are retried on a schedule with card-expiry warnings; card updating relies on the payment processor."
-      },
-      {
-        "id": "C39",
-        "name": "Prepaid tee-time and event deposits held as a liability until used",
-        "status": "Gap",
-        "ai": false,
-        "note": "Event deposits sit in 2300 Event Deposits until close-out, but prepaid tee times are not held as a liability until played."
-      },
-      {
-        "id": "C41",
-        "name": "Hotel system (PMS) charges posted both ways",
-        "status": "Gap",
-        "ai": false,
-        "note": "Hotel room, spa and dining charges post into the house account one way; nothing posts back to the hotel folio."
       },
       {
         "id": "C42",
@@ -1036,7 +1022,7 @@ export const APPS: AppArea[] = [
         "name": "Staff app: broadcasts, member lookups, rule citations",
         "status": "Gap",
         "ai": false,
-        "note": "The staff phone app has team messages and broadcasts, but no member lookup and no rule citations."
+        "note": "The staff phone app has team messages, broadcasts and member lookup (with fields hidden by permission), but no rule citations."
       }
     ]
   },
@@ -1142,6 +1128,13 @@ export const APPS: AppArea[] = [
         "status": "Built",
         "ai": false,
         "note": "A new hire can sell a membership or plan a wedding on day one: the record shows the next step, refuses one that isn't ready, and asks for anything missing in place."
+      },
+      {
+        "id": "X36",
+        "name": "Every edit is audited: who changed what, when, and the value before, on every record",
+        "status": "Built",
+        "ai": false,
+        "note": ""
       },
       {
         "id": "C47",

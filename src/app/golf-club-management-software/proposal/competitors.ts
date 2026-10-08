@@ -26,16 +26,6 @@ export const COMPETITORS: Competitor[] = [
     "name": "Club Caddie",
     "site": "https://clubcaddie.com/",
     "ratings": {
-      "C01": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://clubcaddie.com/solutions/teesheet/"
-      },
-      "C02": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://clubcaddie.com/solutions/teesheet/"
-      },
       "C03": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
@@ -65,11 +55,6 @@ export const COMPETITORS: Competitor[] = [
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://clubcaddie.com/marketing/mobile-app/"
-      },
-      "C29": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://clubcaddie.com/marketing/managed-marketing/"
       },
       "C34": {
         "r": "Yes",
@@ -617,11 +602,6 @@ export const COMPETITORS: Competitor[] = [
         "note": "On the vendor's own feature list.",
         "src": "https://www.jonasclub.com/marina-management/"
       },
-      "C17": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.jonasclub.com/marina-management/"
-      },
       "C18": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
@@ -656,11 +636,6 @@ export const COMPETITORS: Competitor[] = [
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://www.jonasclub.com/mobile-pos-resources/"
-      },
-      "C41": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.jonasclub.com/hotel-management/"
       },
       "C46": {
         "r": "Yes",
@@ -1202,11 +1177,6 @@ export const COMPETITORS: Competitor[] = [
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://clubessential.atlassian.net/wiki/spaces/OF/pages/2324692994"
-      },
-      "C17": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://clubessential.atlassian.net/wiki/spaces/OF/pages/3636265149"
       },
       "C18": {
         "r": "Yes",
@@ -1759,11 +1729,6 @@ export const COMPETITORS: Competitor[] = [
     "name": "Northstar Club Management",
     "site": "https://www.globalnorthstar.com/club-software",
     "ratings": {
-      "C02": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.globalnorthstar.com/club-software"
-      },
       "C07": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
@@ -1778,11 +1743,6 @@ export const COMPETITORS: Competitor[] = [
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://www.globalnorthstar.com/solutions/optimize-operations/property-management-software"
-      },
-      "C17": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.globalnorthstar.com/solutions/optimize-operations/resorts"
       },
       "C18": {
         "r": "Yes",
@@ -2330,16 +2290,6 @@ export const COMPETITORS: Competitor[] = [
     "name": "foreUP",
     "site": "https://www.foreupgolf.com/",
     "ratings": {
-      "C01": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.foreupgolf.com/partner-integrations/"
-      },
-      "C02": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.foreupgolf.com/partner-integrations/"
-      },
       "C03": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
@@ -2379,16 +2329,6 @@ export const COMPETITORS: Competitor[] = [
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://foreup.zendesk.com/hc/en-us/articles/360007114573-Loyalty-Points"
-      },
-      "C29": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.foreupgolf.com/marketing-services/"
-      },
-      "C41": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://hoteltechreport.com/news/maestro-pms-foreup-golf"
       },
       "C43": {
         "r": "Yes",
@@ -2911,16 +2851,6 @@ export const COMPETITORS: Competitor[] = [
     "name": "Lightspeed Golf",
     "site": "https://www.lightspeedhq.com/golf/",
     "ratings": {
-      "C01": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.lightspeedhq.com/golf/integrations/"
-      },
-      "C02": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.lightspeedhq.com/golf/sales-marketing/"
-      },
       "C12": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
@@ -2947,11 +2877,6 @@ export const COMPETITORS: Competitor[] = [
         "src": "https://www.lightspeedhq.com/golf/sales-marketing/"
       },
       "C28": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.lightspeedhq.com/golf/pricing/"
-      },
-      "C29": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://www.lightspeedhq.com/golf/pricing/"
@@ -3487,11 +3412,6 @@ export const COMPETITORS: Competitor[] = [
         "note": "On the vendor's own feature list.",
         "src": "https://www.clubautomation.com/products/services/revenue-recovery-services"
       },
-      "C24": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.clubautomation.com/resources/2025-year-in-review"
-      },
       "C25": {
         "r": "Yes",
         "note": "On the vendor's own feature list.",
@@ -3501,11 +3421,6 @@ export const COMPETITORS: Competitor[] = [
         "r": "Yes",
         "note": "On the vendor's own feature list.",
         "src": "https://partners.perkville.com/partners/club-automation.md"
-      },
-      "C29": {
-        "r": "Yes",
-        "note": "On the vendor's own feature list.",
-        "src": "https://www.clubautomation.com/products/services/digital-marketing"
       },
       "C40": {
         "r": "Yes",
