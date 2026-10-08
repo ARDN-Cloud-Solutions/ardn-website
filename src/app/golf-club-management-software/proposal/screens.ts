@@ -19,6 +19,47 @@ export interface Screen {
 }
 
 export const SCREENS: Record<string, Screen[]> = {
+  marketing: [
+    {
+      file: "marketing-journeys.webp",
+      title: "Journeys",
+      alt: "An automation builder showing a program-enrollment journey: a trigger, a welcome email, a one-day wait and a reminder email, with the clubs it runs at",
+    },
+    {
+      file: "marketing-campaign-email.webp",
+      title: "Email in the club's brand",
+      alt: "An email template editor with name, team, subject and greeting beside a live preview of a tee-time booking confirmation",
+    },
+  ],
+  service: [
+    {
+      file: "service-console.webp",
+      title: "Service dashboard",
+      alt: "A service dashboard with chat and case numbers: answered by the assistant, average wait, first-answer time, cases opened and satisfaction",
+    },
+    {
+      file: "service-cases.webp",
+      title: "Cases",
+      alt: "A list of open service cases with case number, club, subject, person, team, status and priority",
+    },
+  ],
+  people: [
+    {
+      file: "people-hiring.webp",
+      title: "Hiring with AI match",
+      alt: "A line cook job posting with 25 applicants ranked by an AI match score broken down by experience, skills, certifications and availability",
+    },
+    {
+      file: "people-shifts.webp",
+      title: "Shifts and labor cost",
+      alt: "A weekly staff schedule summary: shifts, open shifts, labor cost against forecast revenue, and time-off requests waiting for approval",
+    },
+    {
+      file: "people-payroll.webp",
+      title: "Timesheets for payroll",
+      alt: "Timesheets for a pay period with regular and overtime hours per employee, punch problems to fix, and approve buttons",
+    },
+  ],
   sales: [
     { file: "sales-pipeline.webp", title: "Sales pipeline", alt: "Membership sales pipeline with opportunities by stage" },
     {
@@ -60,12 +101,32 @@ export const SCREENS: Record<string, Screen[]> = {
   ],
   pos: [
     {
+      file: "pos-register.webp",
+      title: "Restaurant register",
+      alt: "A restaurant check for a table of two, with a dish grid on the left and the order by seat and course on the right",
+    },
+    {
+      file: "dining-reservations.webp",
+      title: "Host stand floor plan",
+      alt: "A host stand floor plan of the dining room and patio with table status, and a seated party's details in the side panel",
+    },
+    {
+      file: "dining-menu.webp",
+      title: "Tonight's menu",
+      alt: "Tonight's grill room menu with prices and allergens, next to a form for adding a nightly special",
+    },
+    {
       file: "pro-shop-tee-time.webp",
       title: "Pro shop: ready at your tee time",
       alt: "Club online pro shop section 'Ready at your tee time' with golf balls, range balls and a leather glove to pre-order with a round",
     },
   ],
   events: [
+    {
+      file: "events-plan.webp",
+      title: "Plan this event",
+      alt: "A wedding event record showing days to the event, guests against room capacity, room holds and the planning checklist",
+    },
     {
       file: "private-events.webp",
       title: "Room calendar and holds",
@@ -79,17 +140,22 @@ export const SCREENS: Record<string, Screen[]> = {
       alt: "Dues and standing view showing past-due, retrying and autopay-off members",
     },
     {
-      file: "accounting-overview.webp",
+      file: "books-overview.webp",
       title: "Each club's books",
-      alt: "Accounting overview consolidated across all clubs, with revenue against budget, operating margin, cash and receivables",
+      alt: "Accounting overview with items needing review, cash by bank account, a 12-month revenue, expense and budget chart, and member account aging",
     },
     {
-      file: "financial-statements.webp",
-      title: "Financial statements",
-      alt: "Profit and loss by department with month columns against budget and prior year",
+      file: "books-statements.webp",
+      title: "Balance sheet",
+      alt: "A balance sheet as of September 30 with operating and capital columns and an in-balance check",
     },
   ],
   platform: [
+    {
+      file: "platform-ai-helper.webp",
+      title: "Ask, the AI helper",
+      alt: "The built-in AI helper answering how many active memberships the club has, with a total and a breakdown by plan",
+    },
     {
       file: "corporate-dashboard.webp",
       title: "Every club side by side",
