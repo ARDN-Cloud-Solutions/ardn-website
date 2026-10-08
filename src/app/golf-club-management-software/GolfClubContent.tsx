@@ -1011,7 +1011,7 @@ export default function GolfClubContent() {
             <figure className="gc-gallery-item">
               <Image
                 src="/images/golf/accounting-overview.webp"
-                alt="Accounting overview consolidated across all clubs, with revenue against budget, operating margin, cash and receivables"
+                alt="Books for all clubs together: a six-month revenue, expense and budget chart, member account aging and results by department"
                 width={2880}
                 height={1800}
                 quality={90}
@@ -1019,13 +1019,13 @@ export default function GolfClubContent() {
               />
               <figcaption>
                 <strong>Accounting overview</strong>
-                <span>Revenue against budget, margin, cash, receivables and deferred dues — any club or all clubs.</span>
+                <span>Revenue and expenses against budget, member account aging and results by department — any club or all clubs.</span>
               </figcaption>
             </figure>
             <figure className="gc-gallery-item">
               <Image
                 src="/images/golf/financial-statements.webp"
-                alt="Profit and loss by department with month columns against budget and prior year"
+                alt="Profit and loss by department for a month against the same month a year earlier, with variance"
                 width={2880}
                 height={1800}
                 quality={90}

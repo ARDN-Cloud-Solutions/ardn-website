@@ -91,8 +91,8 @@ export const SCREENS: Record<string, Screen[]> = {
     },
   ],
   golf: [
-    { file: "tee-sheet.webp", title: "Tee sheet", alt: "Day tee sheet for a course with booked groups and open times" },
-    { file: "cart-sheet.webp", title: "Cart sheet", alt: "Cart sheet with numbered carts and assigned riders" },
+    { file: "tee-sheet.webp", title: "Tee sheet", alt: "Tee sheet of booked times for today and tomorrow across every course, with players, items, what is still owed and check-in status" },
+    { file: "cart-sheet.webp", title: "Cart sheet", alt: "Cart sheet for a day with fleet counts and the groups still waiting for a cart, ready for auto-assign" },
     {
       file: "golf-performance.webp",
       title: "Golf performance",
@@ -102,8 +102,8 @@ export const SCREENS: Record<string, Screen[]> = {
   pos: [
     {
       file: "pos-register.webp",
-      title: "Restaurant register",
-      alt: "A restaurant check for a table of two, with a dish grid on the left and the order by seat and course on the right",
+      title: "Close the day",
+      alt: "The register's end-of-day close for the whole club: sales, tax, tips, card fee and member charges by outlet, how it was paid, and the checks still blocking the close",
     },
     {
       file: "dining-reservations.webp",
@@ -142,7 +142,7 @@ export const SCREENS: Record<string, Screen[]> = {
     {
       file: "books-overview.webp",
       title: "Each club's books",
-      alt: "Accounting overview with items needing review, cash by bank account, a 12-month revenue, expense and budget chart, and member account aging",
+      alt: "One club's books: a 12-month revenue, expense and budget chart, member account aging, and results by department",
     },
     {
       file: "books-statements.webp",
