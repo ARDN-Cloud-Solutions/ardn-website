@@ -1578,3 +1578,78 @@ main.cp .container {
   outline: 2px solid var(--indigo);
   outline-offset: 2px;
 }
+
+/* ---------------- each feature's own screen and how it is done ---------------- */
+
+.cp .cp-feature.cp-feature-shot {
+  grid-template-columns: 96px minmax(0, 1fr) 340px;
+}
+
+.cp .cp-feature-shots {
+  display: grid;
+  gap: 12px;
+}
+
+.cp .cp-feature-shots .cp-shot figcaption {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.cp .cp-how {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
+.cp .cp-how summary {
+  cursor: pointer;
+  width: fit-content;
+  font-weight: 600;
+  color: var(--indigo);
+}
+
+.cp .cp-how summary:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.cp .cp-how ol {
+  margin: 8px 0 0;
+  padding-left: 22px;
+}
+
+.cp .cp-how li + li {
+  margin-top: 4px;
+}
+
+.cp .cp-how p {
+  margin: 8px 0 0;
+}
+
+.cp .cp-how b {
+  color: var(--navy);
+}
+
+@media (max-width: 900px) {
+  .cp .cp-feature.cp-feature-shot {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .cp .cp-feature-shots {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .cp .cp-feature.cp-feature-shot {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .cp .cp-feature.cp-feature-shot {
+    grid-template-columns: 96px minmax(0, 1fr) 220px;
+  }
+}
