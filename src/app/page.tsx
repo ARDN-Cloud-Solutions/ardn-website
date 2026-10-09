@@ -7,9 +7,12 @@ export const metadata: Metadata = {
   // software / platforms / portals — NOT generic "AI app development"
   // (which draws free-seeker traffic that never converts). AI stays a
   // capability, surfaced on /ai-forge, not the homepage's primary term.
-  title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
+  // 2026-10-09: homepage CTR fell from 7.8% to 2.5% after the Sept rebrand
+  // dropped Salesforce from the title; most of the site's ranking pages are
+  // Salesforce cost/e-commerce posts, so the title names it again.
+  title: "Ardn Cloud Solutions: Salesforce Experts & Industry Software",
   description:
-    "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
+    "Salesforce consulting, e-commerce and license savings, plus ready-to-run software for clubs, nonprofits and contractors. US team in Orlando. Reply in 4 hours.",
   alternates: {
     canonical: "https://ardncloudsolutions.com",
     languages: {
@@ -18,8 +21,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
-    description: "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
+    title: "Ardn Cloud Solutions: Salesforce Experts & Industry Software",
+    description: "Salesforce consulting, e-commerce and license savings, plus ready-to-run software for clubs, nonprofits and contractors. US team in Orlando. Reply in 4 hours.",
     url: "https://ardncloudsolutions.com",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -36,9 +39,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@ardn_cloud_sol",
-    title: "Ardn Cloud Solutions — Industry Software, Built & Run for You",
+    title: "Ardn Cloud Solutions: Salesforce Experts & Industry Software",
     description:
-      "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
+      "Salesforce consulting, e-commerce and license savings, plus ready-to-run software for clubs, nonprofits and contractors. US team in Orlando. Reply in 4 hours.",
     images: ["/images/ardn-share.jpg"],
   },
 };
@@ -52,7 +55,7 @@ export default async function Page() {
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
         "name": "Industry Software, Built & Run for You | ARDN Cloud Solutions",
-        "description": "Products for golf clubs, nonprofits and member organizations, plus custom software and AI, built and run for you by a US team. Reply in 4 business hours.",
+        "description": "Salesforce consulting, e-commerce and license savings, plus ready-to-run software for clubs, nonprofits and contractors. US team in Orlando. Reply in 4 hours.",
         "inLanguage": "en-US"
       },
       {

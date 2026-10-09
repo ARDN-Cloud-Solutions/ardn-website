@@ -77,12 +77,19 @@ export function videoObject(key: VideoKey, pageUrl: string, about?: { "@id": str
 }
 
 /** Sitemap `videos` entry for a page (next-sitemap video extension shape). */
+// Next.js writes sitemap video fields into the XML without escaping them, so
+// a bare "&" made the whole sitemap invalid (Search Console "parsing error",
+// 2026-10-05). Escape XML-special characters here.
+function xmlText(s: string) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 export function sitemapVideo(key: VideoKey) {
   const v: VideoMeta = VIDEOS[key];
   return {
-    title: v.name,
+    title: xmlText(v.name),
     thumbnail_loc: `${SITE}${videoPoster(v)}`,
-    description: v.description,
+    description: xmlText(v.description),
     content_loc: `${SITE}${videoSrc(v)}`,
     duration: v.seconds,
     publication_date: v.uploadDate,
