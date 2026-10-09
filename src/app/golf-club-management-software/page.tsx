@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
+import { gcSerif as serif } from "@/fonts";
 import GolfClubContent from "./GolfClubContent";
 import { FAQS } from "./faqs";
 import { videoObject } from "@/components/media/video-jsonld";
@@ -20,13 +20,6 @@ import "./golf.css";
 // Display serif for headlines only — the same family Club Steward's member
 // portal uses, so the marketing page reads like the product. Scoped to this
 // page via a CSS variable consumed in golf.css.
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--gc-serif",
-  display: "swap",
-});
 
 const URL = "https://ardncloudsolutions.com/golf-club-management-software";
 const TITLE = "Golf & Country Club Management Software | Club Steward";

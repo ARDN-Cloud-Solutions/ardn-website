@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Cormorant_Garamond } from "next/font/google";
+import { ppSerif as serif } from "@/fonts";
 import type { CSSProperties } from "react";
 import LeadForm from "@/components/common/LeadForm";
 import TrustBar from "@/components/common/TrustBar";
@@ -14,13 +14,6 @@ import "./product-page.css";
 // Shared product/service page, built from the Club Steward page. One content
 // object in, one page out; sections are skipped when their content is absent.
 
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--pp-serif",
-  display: "swap",
-});
 
 function Shot({ shot, priority, tilt, sizes = "(max-width: 1040px) 100vw, 60vw" }: {
   shot: ShotData;

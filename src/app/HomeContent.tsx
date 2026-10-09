@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Cormorant_Garamond } from "next/font/google";
+import { ppSerif as serif } from "@/fonts";
 import type { CSSProperties } from "react";
 import { Code2, Handshake, Hammer, LayoutDashboard, RefreshCw, Server, ShoppingBag, Sparkles } from "lucide-react";
 import LeadForm from "@/components/common/LeadForm";
@@ -14,13 +14,6 @@ import "./home.css";
 // named products, then services, industries and proof. Keep product claims
 // in step with each product's own content file.
 
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--pp-serif",
-  display: "swap",
-});
 
 const CALL = "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai";
 

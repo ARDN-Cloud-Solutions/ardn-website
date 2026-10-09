@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Public_Sans, Poppins } from "next/font/google";
+import { publicSans, poppins } from "@/fonts";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,19 +8,6 @@ import FloatingCta from "@/components/layout/FloatingCta";
 import { BookingQualifierHost } from "@/components/booking/BookingQualifier";
 import { Toaster } from "react-hot-toast";
 
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
 
 // SEO: site-wide defaults. Since 2026-09-28 Ardn presents as products +
 // managed services: named industry products first, then custom software/AI.
