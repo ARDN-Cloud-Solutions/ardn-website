@@ -30,3 +30,8 @@ export async function fetchCaseStudyBySlug(slug: string): Promise<WPPost | null>
 export async function fetchAllCaseStudySlugs(): Promise<string[]> {
     return CASE_STUDIES.map((c) => c.slug);
 }
+
+/** Slug + last-modified date of every case study (sitemap). */
+export async function fetchAllCaseStudyDates(): Promise<{ slug: string; modified: string }[]> {
+    return CASE_STUDIES.map((c) => ({ slug: c.slug, modified: c.modified }));
+}

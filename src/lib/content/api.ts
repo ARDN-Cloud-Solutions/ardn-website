@@ -35,6 +35,11 @@ export async function fetchAllPostSlugs(): Promise<string[]> {
     return POSTS.map((p) => p.slug);
 }
 
+/** Slug + last-modified date of every post (sitemap). */
+export async function fetchAllPostDates(): Promise<{ slug: string; modified: string }[]> {
+    return POSTS.map((p) => ({ slug: p.slug, modified: p.modified }));
+}
+
 /** Keyword search over title, excerpt and body. */
 export async function searchPosts(query: string, perPage = 20): Promise<WPPost[]> {
     const terms = query.toLowerCase().split(/\s+/).filter(Boolean);

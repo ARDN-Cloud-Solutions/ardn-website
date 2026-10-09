@@ -1,50 +1,99 @@
 [
  {
+  "id": 203,
+  "name": "Automotive Technology",
+  "slug": "automotive-technology",
+  "count": 2,
+  "description": ""
+ },
+ {
   "id": 79,
   "name": "Buyer Guides",
   "slug": "buyer-guides",
-  "count": 6,
+  "count": 9,
   "description": ""
  },
  {
   "id": 78,
   "name": "Comparisons",
   "slug": "comparisons",
-  "count": 3,
+  "count": 6,
+  "description": ""
+ },
+ {
+  "id": 178,
+  "name": "Construction Technology",
+  "slug": "construction-technology",
+  "count": 2,
   "description": ""
  },
  {
   "id": 18,
   "name": "CRM Cost Reduction",
   "slug": "crm-cost-reduction",
-  "count": 5,
+  "count": 11,
+  "description": ""
+ },
+ {
+  "id": 5,
+  "name": "Customer Success",
+  "slug": "customer-success",
+  "count": 1,
+  "description": ""
+ },
+ {
+  "id": 183,
+  "name": "Education Technology",
+  "slug": "education-technology",
+  "count": 3,
   "description": ""
  },
  {
   "id": 108,
   "name": "Healthcare Technology",
   "slug": "healthcare-technology",
-  "count": 1,
+  "count": 7,
   "description": ""
  },
  {
   "id": 30,
   "name": "Hospitality Technology",
   "slug": "hospitality-technology",
-  "count": 2,
+  "count": 4,
+  "description": ""
+ },
+ {
+  "id": 74,
+  "name": "HubSpot Cost Optimization",
+  "slug": "hubspot-cost-optimization",
+  "count": 14,
   "description": ""
  },
  {
   "id": 6,
   "name": "Industry Trends",
   "slug": "industry-trends",
-  "count": 1,
+  "count": 7,
+  "description": ""
+ },
+ {
+  "id": 33,
+  "name": "Insurance Technology",
+  "slug": "insurance-technology",
+  "count": 2,
   "description": ""
  },
  {
   "id": 2,
   "name": "Integration Solutions",
   "slug": "integration-solutions",
+  "count": 17,
+  "description": ""
+ },
+ {
+  "id": 207,
+  "name": "Manufacturing Technology",
+  "slug": "manufacturing-technology",
   "count": 2,
   "description": ""
  },
@@ -63,6 +112,13 @@
   "description": ""
  },
  {
+  "id": 312,
+  "name": "Microsoft Dynamics Cost Optimization",
+  "slug": "microsoft-dynamics-cost-optimization",
+  "count": 1,
+  "description": ""
+ },
+ {
   "id": 135,
   "name": "Nonprofit Technology",
   "slug": "nonprofit-technology",
@@ -73,6 +129,13 @@
   "id": 4,
   "name": "Product Innovations",
   "slug": "product-innovations",
+  "count": 17,
+  "description": ""
+ },
+ {
+  "id": 91,
+  "name": "Professional Services",
+  "slug": "professional-services",
   "count": 4,
   "description": ""
  },
@@ -80,21 +143,28 @@
   "id": 70,
   "name": "Salesforce Cost Optimization",
   "slug": "salesforce-cost-optimization",
-  "count": 2,
+  "count": 18,
   "description": ""
  },
  {
   "id": 3,
   "name": "Salesforce Optimization",
   "slug": "salesforce-optimization",
-  "count": 7,
+  "count": 36,
+  "description": ""
+ },
+ {
+  "id": 316,
+  "name": "ServiceNow Cost Optimization",
+  "slug": "servicenow-cost-optimization",
+  "count": 1,
   "description": ""
  },
  {
   "id": 24,
   "name": "Software Cost Strategy",
   "slug": "software-cost-strategy",
-  "count": 5,
+  "count": 14,
   "description": ""
  },
  {
@@ -105,10 +175,17 @@
   "description": ""
  },
  {
+  "id": 13,
+  "name": "Staff Augmentation",
+  "slug": "staff-augmentation",
+  "count": 1,
+  "description": ""
+ },
+ {
   "id": 139,
   "name": "Wellness Technology",
   "slug": "wellness-technology",
-  "count": 1,
+  "count": 3,
   "description": ""
  }
 ]
