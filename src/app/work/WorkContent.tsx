@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Cormorant_Garamond } from "next/font/google";
+import { ppSerif as serif } from "@/fonts";
 import type { CSSProperties } from "react";
 import { ArrowUpRight, Play } from "lucide-react";
 import TrackedCta from "@/components/product-page/TrackedCta";
@@ -12,13 +12,6 @@ import "./work.css";
 // small card grid of its own. Ardn designs, builds and runs these products;
 // it never owns the companies behind the external product sites.
 
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--pp-serif",
-  display: "swap",
-});
 
 const THEME = {
   "--pp-accent": "#b8b2ff",
