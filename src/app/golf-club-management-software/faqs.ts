@@ -27,7 +27,7 @@ export const FAQS = [
   },
   {
     q: "Does it include accounting?",
-    a: "A full general ledger, accounts receivable and payable, bank reconciliation, budgets, period close and financial statements are in Preview: the interface is complete and the accounting engine is being merged into the platform. Every charge in Club Steward already carries its general-ledger account, department, revenue centre and club, so the ledger is fed by the club rather than re-keyed from it.",
+    a: "A full general ledger, accounts receivable and payable, bank reconciliation, budgets, period close, purchasing with three-way match, a cash forecast and financial statements are included, and each club keeps its own books. Every charge in Club Steward already carries its general-ledger account, department, revenue centre and club, so the ledger is fed by the club rather than re-keyed from it.",
   },
   {
     q: "What about point of sale and court booking?",

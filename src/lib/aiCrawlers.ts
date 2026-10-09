@@ -1,0 +1,50 @@
+/**
+ * AI crawlers and AI agents, by the name each sends (or reads in robots.txt).
+ * Shared by robots.ts and proxy.ts so the two never disagree.
+ */
+export const AI_CRAWLERS = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "ClaudeBot",
+  "Claude-Web",
+  "Claude-User",
+  "Claude-SearchBot",
+  "anthropic-ai",
+  "CCBot",
+  "Google-Extended",
+  "GoogleOther",
+  "Applebot-Extended",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Bytespider",
+  "TikTokSpider",
+  "Amazonbot",
+  "meta-externalagent",
+  "meta-externalfetcher",
+  "FacebookBot",
+  "cohere-ai",
+  "cohere-training-data-crawler",
+  "MistralAI-User",
+  "DuckAssistBot",
+  "YouBot",
+  "Diffbot",
+  "AI2Bot",
+  "Ai2Bot-Dolma",
+  "ImagesiftBot",
+  "Omgilibot",
+  "omgili",
+  "Timpibot",
+  "PetalBot",
+  "PanguBot",
+  "Kangaroo Bot",
+  "Webzio-Extended",
+  "iaskspider",
+  "ICC-Crawler",
+  "VelenPublicWebCrawler",
+  "img2dataset",
+  "Scrapy",
+];
+
+/** Paths no robot may read: the proposal page and the screens it shows. */
+export const PRIVATE_PATHS = ["/golf-club-management-software/proposal", "/images/club-steward/"];
