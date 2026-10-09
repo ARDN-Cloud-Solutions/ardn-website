@@ -752,6 +752,13 @@ export const APPS: AppArea[] = [
         "note": "Members order carry-out from the app and it prints straight to the kitchen."
       },
       {
+        "id": "X39",
+        "name": "Pro shop orders picked up item by item: mark 2 of 3 shirts picked up today and the last one tomorrow, who took each and when, and the order closes itself when the last item goes",
+        "status": "Built",
+        "ai": false,
+        "note": "The member who picks up half an order today is never told the whole order is gone."
+      },
+      {
         "id": "C34",
         "name": "Kitchen display system with station routing and seat-level tickets",
         "status": "Built",
@@ -932,6 +939,13 @@ export const APPS: AppArea[] = [
         "status": "Built",
         "ai": false,
         "note": "Purchase orders are matched against receipts and invoices before anything is paid."
+      },
+      {
+        "id": "X40",
+        "name": "The credit card fee on every card charge where the state allows it, at the card brand's rate, with the fee's own sales tax, shown before the member pays; debit never pays it, returns and refunds give back its share, and a donation's fee is never counted as the gift",
+        "status": "Built",
+        "ai": false,
+        "note": "One rule on every till, screen and bill, so the club never quietly absorbs card costs."
       },
       {
         "id": "C39",
