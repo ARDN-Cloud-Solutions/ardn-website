@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { fetchAllPostSlugs } from "@/lib/content/api";
-import { fetchAllCaseStudySlugs } from "@/lib/content/case-studies";
+import { fetchAllPostDates } from "@/lib/content/api";
+import { fetchAllCaseStudyDates } from "@/lib/content/case-studies";
 import { sitemapVideo } from "@/components/media/video-jsonld";
 
 const BASE_URL = "https://ardncloudsolutions.com";
@@ -359,10 +359,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let blogRoutes: MetadataRoute.Sitemap = [];
 
     try {
-        const slugs = await fetchAllPostSlugs();
-        blogRoutes = slugs.map((slug) => ({
+        // lastModified is the post's own modified date (WP dates are UTC).
+        const posts = await fetchAllPostDates();
+        blogRoutes = posts.map(({ slug, modified }) => ({
             url: `${BASE_URL}/blog/${slug}`,
-            lastModified: new Date(),
+            lastModified: new Date(`${modified}Z`),
             changeFrequency: "weekly" as const,
             priority: 0.7,
         }));
@@ -373,10 +374,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let caseStudyRoutes: MetadataRoute.Sitemap = [];
 
     try {
-        const slugs = await fetchAllCaseStudySlugs();
-        caseStudyRoutes = slugs.map((slug) => ({
+        const studies = await fetchAllCaseStudyDates();
+        caseStudyRoutes = studies.map(({ slug, modified }) => ({
             url: `${BASE_URL}/case-studies/${slug}`,
-            lastModified: new Date(),
+            lastModified: new Date(`${modified}Z`),
             changeFrequency: "weekly" as const,
             priority: 0.7,
         }));

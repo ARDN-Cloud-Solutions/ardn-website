@@ -7,6 +7,9 @@ import cutContent from "./src/content/redirects.json";
 const CUT_BLOG: Record<string, string> = cutContent.blog;
 const CUT_CASE_STUDIES: Record<string, string> = cutContent.caseStudies;
 const CUT_CATEGORIES: Record<string, string> = cutContent.categories;
+// Cut posts restored on 2026-10-09 (scripts/wp-export/restore.py). They live
+// at /blog/<slug> again; their old root-level URLs 301 there in one hop.
+const RESTORED_ROOT_POSTS: string[] = cutContent.restoredRootPosts;
 
 // skipTrailingSlashRedirect is on (see below), so every legacy source must
 // match with and without a trailing slash to land in one hop.
@@ -55,7 +58,8 @@ const LEGACY_ROOT_POST_SLUGS = [
     "why-on-demand-salesforce-talent-is-faster-than-traditional-hiring",
     "why-the-salesforce-e-commerce-platform-is-the-smartest-choice-for-modern-brands-in-2025",
     "license-guard-eliminate-license-waste-and-maximize-salesforce-roi",
-].filter((slug) => !(slug in CUT_BLOG)); // cut ones are handled by the CUT_BLOG rules
+    ...RESTORED_ROOT_POSTS,
+].filter((slug, i, all) => !(slug in CUT_BLOG) && all.indexOf(slug) === i); // cut ones are handled by the CUT_BLOG rules
 
 // Old WordPress tag archives with a clear successor; other tags → /blog.
 const LEGACY_TAGS: Record<string, string> = {
@@ -97,8 +101,9 @@ const nextConfig: NextConfig = {
             ...Object.entries(CUT_CASE_STUDIES).map(([slug, dest]) => r301(`/case-studies/${slug}${S}`, dest)),
             ...Object.entries(CUT_CATEGORIES).map(([slug, dest]) => r301(`/{blog/}?category/${slug}/:rest*${S}`, dest)),
             // ── Legacy WordPress URL structure (GSC 404 cleanup, Aug 2026) ──
-            // Old root-level posts that were kept → /blog/<slug>.
+            // Old root-level posts (kept and restored) → /blog/<slug>.
             ...LEGACY_ROOT_POST_SLUGS.map((slug) => r301(`/${slug}{/feed}?${S}`, `/blog/${slug}`)),
+            ...RESTORED_ROOT_POSTS.map((slug) => r301(`/blog/${slug}/feed${S}`, `/blog/${slug}`)),
             ...Object.entries(LEGACY_PAGES).map(([slug, dest]) => r301(`/${slug}${S}`, dest)),
             // Old category archives (incl. pagination and feeds) → new blog
             // category pages. Order matters: deeper patterns first.
@@ -110,8 +115,8 @@ const nextConfig: NextConfig = {
             r301(`/tag/:path*${S}`, "/blog"),
             r301(`/author/:path*${S}`, "/about-ardn"),
             // Old case-study category archives → the matching case study.
-            r301(`/case-studie-categorie/airline/:rest*${S}`, CUT_CASE_STUDIES["airline-success-story"]),
-            r301(`/case-studie-categorie/timeshare/:rest*${S}`, CUT_CASE_STUDIES["timeshare-success-story"]),
+            r301(`/case-studie-categorie/airline/:rest*${S}`, "/case-studies/revolutionizing-airline-customer-service-with-salesforce-customer360-console"),
+            r301(`/case-studie-categorie/timeshare/:rest*${S}`, "/case-studies/transforming-the-timeshare-industry-with-a-digitized-tour-management-platform"),
             r301(`/case-studie-categorie/:path*${S}`, "/case-studies"),
             r301(`/case-studies/business-development-planning${S}`, "/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal"),
             r301(`/case-studies/hotel-success-story${S}`, "/ai-for-hospitality"),

@@ -1407,5 +1407,725 @@
     ]
    ]
   }
+ },
+ {
+  "id": 23684,
+  "slug": "airline-success-story",
+  "date": "2026-04-16T05:00:16",
+  "modified": "2026-04-25T11:07:45",
+  "title": {
+   "rendered": "Airline Success Story"
+  },
+  "excerpt": {
+   "rendered": ""
+  },
+  "content": {
+   "rendered": "<h2><strong>Highlights</strong></h2>\n<p>Situation: Unable to have a full view of the customers. Required alignment of sales activities with customer plans.</p>\n<p>Challenge: Limited access to the overall customer account from the enterprise view down to the individual seller’s view.</p>\n<p>Our Solution: Our solution enabled a shared view of the customer across commercial teams, driving efficient collaboration across business units and functions.</p>\n<p>Results:<br />\nEstablished centralized governance team to enhance the accuracy of account information and hierarchy alignment, the sales cycle time can be decreased.</p>\n<h2><strong>More about the Success:</strong></h2>\n<p>Situation:<br />\nLimited access to the overall customer account from the enterprise view down to the individual seller’s view. Unable to have a full view of the customers. Required alignment of sales activities with customer plans. Concerns about data quality exist across functional disciplines, but there is no clear ownership or sufficient staff to address them.</p>\n<p>Solution:<br />\nOur solution enabled a shared view of the customer across commercial teams, driving efficient collaboration across business units and functions. Account Hierarchy Framework: a technique for identifying the parent-child relationships between accounts to better show the full relationship between the business and the account.. Account Tiering Model: a method for assessing the relative significance and importance of an account using quantitative and qualitative scoring criteria. Account Plans: a process for creating account plans, routing requests for approval, and keeping track of plan performance. actual performance to assist sales activities. Validity of data.</p>\n<p>Results:<br />\nCreated a single view of the customer across all functions and roles, booking trends will improve. Implemented account tiers with unique experiences and strategic plans for each tier to increase the number and value of opportunities and boost customer satisfaction. Established centralized governance team to enhance the accuracy of account information and hierarchy alignment, the sales cycle time can be decreased.</p>\n"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9006
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Airline Case Study: Full Customer View with Salesforce",
+   "description": "This airline lacked a unified customer view and struggled to align sales activity. ARDN built a Salesforce solution that delivered visibility, alignment",
+   "og_title": "Airline Case Study: Full Customer View with Salesforce",
+   "og_description": "This airline lacked a unified customer view and struggled to align sales activity. ARDN built a Salesforce solution that delivered visibility, alignment",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "WebPage",
+      "@id": "https://ardncloudsolutions.com/case-studies/airline-success-story/",
+      "url": "https://ardncloudsolutions.com/case-studies/airline-success-story/",
+      "name": "Airline Case Study: Full Customer View with Salesforce",
+      "isPartOf": {
+       "@id": "https://ardncloudsolutions.com/#website"
+      },
+      "primaryImageOfPage": {
+       "@id": "https://ardncloudsolutions.com/case-studies/airline-success-story/#primaryimage"
+      },
+      "image": {
+       "@id": "https://ardncloudsolutions.com/case-studies/airline-success-story/#primaryimage"
+      },
+      "thumbnailUrl": "/media/2026/04/airline-success-story-og.webp",
+      "datePublished": "2026-04-16T05:00:16+00:00",
+      "dateModified": "2026-04-25T11:07:45+00:00",
+      "description": "This airline lacked a unified customer view and struggled to align sales activity. ARDN built a Salesforce solution that delivered visibility, alignment",
+      "breadcrumb": {
+       "@id": "https://ardncloudsolutions.com/case-studies/airline-success-story/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://ardncloudsolutions.com/case-studies/airline-success-story/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "ImageObject",
+      "inLanguage": "en-US",
+      "@id": "https://ardncloudsolutions.com/case-studies/airline-success-story/#primaryimage",
+      "url": "/media/2026/04/airline-success-story-og.webp",
+      "contentUrl": "/media/2026/04/airline-success-story-og.webp",
+      "width": 1024,
+      "height": 1024
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://ardncloudsolutions.com/case-studies/airline-success-story/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ardncloudsolutions.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Airline Success Story"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://ardncloudsolutions.com/#website",
+      "url": "https://ardncloudsolutions.com/",
+      "name": "ARDN Cloud Solutions",
+      "description": "",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://ardncloudsolutions.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     }
+    ]
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/2026/04/airline-success-story-og.webp",
+     "alt_text": "Airline Success Story | ARDN Cloud Solutions",
+     "media_details": {
+      "sizes": {
+       "full": {
+        "source_url": "/media/2026/04/airline-success-story-og.webp",
+        "width": 1200,
+        "height": 630
+       },
+       "medium": {
+        "source_url": "/media/2026/04/airline-success-story-og-300x158.webp",
+        "width": 300,
+        "height": 158
+       },
+       "medium_large": {
+        "source_url": "/media/2026/04/airline-success-story-og-768x403.webp",
+        "width": 768,
+        "height": 403
+       },
+       "large": {
+        "source_url": "/media/2026/04/airline-success-story-og-1024x538.webp",
+        "width": 1024,
+        "height": 538
+       }
+      }
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 16,
+      "name": "Airline",
+      "slug": "airline",
+      "taxonomy": "case-study-category"
+     }
+    ]
+   ]
+  }
+ },
+ {
+  "id": 23685,
+  "slug": "hotel-success-story-1",
+  "date": "2026-04-16T05:00:16",
+  "modified": "2026-04-25T11:09:01",
+  "title": {
+   "rendered": "Hotel Success Story 1"
+  },
+  "excerpt": {
+   "rendered": ""
+  },
+  "content": {
+   "rendered": "<h1 data-wow-delay=\"ms\"><strong><span style=\"color: revert; font-size: 32px; letter-spacing: -0.1px;\">Highlights</span></strong></h1>\n<div class=\"elementor-element elementor-element-1a0d7f2 elementor-widget elementor-widget-pxl_text_editor\" data-id=\"1a0d7f2\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_text_editor.default\">\n<div class=\"elementor-widget-container\">\n<div class=\"pxl-text-editor\">\n<div class=\"pxl-item--inner  \" data-wow-delay=\"ms\">\n<p><strong>Situation:</strong><br />\nThe sales and marketing organization operated in silos, which created an inconsistent customer experience with inconsistent response times, levels of involvement, and understanding of the customer relationship already in place.</p>\n<p><strong>Challenge:</strong><br />\nThe rise of digital channels as the main platforms for client engagement, but the absence of an overarching plan connected to intended results a lot of data, with different lead quality levels from lead capture to lead enrichment, a little understanding of leads beyond generation and scant downstream reporting</p>\n<p><strong>Solution:</strong><br />\nLead Management and Enrichment, Prioritization of leads, Lead Assignment Model, Mobile Lead Capture / Routing, and a Lead to Order Technical Architecture.</p>\n<p><strong>Results:</strong><br />\nBoost the rate of leads converted across all channels and reduce lead qualification time.</p>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-a0868f1 elementor-widget elementor-widget-pxl_heading\" data-id=\"a0868f1\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_heading.default\">\n<div class=\"elementor-widget-container\">\n<div id=\"pxl-pxl_heading-a0868f1-5547\" class=\"pxl-heading px-sub-title-default-style \">\n<div class=\"pxl-heading--inner\">\n<h2 class=\"pxl-item--title style-default  highlight-default \" data-wow-delay=\"ms\"><strong>More about the Success:</strong></h2>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-dc50557 elementor-widget elementor-widget-pxl_text_editor\" data-id=\"dc50557\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_text_editor.default\">\n<div class=\"elementor-widget-container\">\n<div class=\"pxl-text-editor\">\n<div class=\"pxl-item--inner  \" data-wow-delay=\"ms\">\n<p><strong>Situation:</strong></p>\n<p>The sales and marketing organization operated in silos, which created an inconsistent customer experience with inconsistent response times, levels of involvement, and understanding of the customer relationship already in place. The rise of digital channels as the main platforms for client engagement, but the absence of an overarching plan connected to intended results a lot of data, with different lead quality levels from lead capture to lead enrichment, a little understanding of leads beyond generation and scant downstream reporting</p>\n<p><strong>Solution:</strong></p>\n<p>Our solution promotes sales collaboration. Lead Management and Enrichment: A well-defined lead management funnel that makes use of Data.com for lead enrichment lays the groundwork for the deployment of marketing automation. Prioritization of leads. Lead Assignment Model: A strategy and procedure to assign leads to the appropriate sales team or individual in accordance with business rules based on the product, skills, and territory. Mobile Lead Capture / Routing: Method for efficient lead capture using a mobile tool and a straightforward procedure to ensure that leads are routed to the appropriate business, channel, or seller. Utilize the commercial value of thousands of field engineers who are frequently the most near the customer. Lead to Order Technical Architecture: a framework for integrating technologies supporting Sales and Marketing processes that enables end-to-end visibility of demand generation efforts and real-time collaboration.</p>\n<p><strong>Results:</strong></p>\n<p>Boost the rate of leads converted across all channels. By streamlining the way CRM and marketing automation interact, lead generation can be increased. Reduce lead qualification time by establishing a multichannel view of lead generation, lead capture, and lead nurturing. Based on prospect activity and information learned during their research processes, increase the size of your Marketing Qualified Lead (MQL) pipeline. To boost engagement and inbound/outbound conversions, direct your media spend in the right directions towards the accounts that are actively investigating your products and solutions.</p>\n</div>\n</div>\n</div>\n</div>\n"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9006
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Hotel Case Study: Breaking Sales & Marketing Silos",
+   "description": "A hotel's sales and marketing silos created inconsistent guest experiences. See how ARDN aligned teams on Salesforce — delivering faster, more consistent",
+   "og_title": "Hotel Case Study: Breaking Sales & Marketing Silos",
+   "og_description": "A hotel's sales and marketing silos created inconsistent guest experiences. See how ARDN aligned teams on Salesforce — delivering faster, more consistent",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "WebPage",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/",
+      "url": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/",
+      "name": "Hotel Case Study: Breaking Sales & Marketing Silos",
+      "isPartOf": {
+       "@id": "https://ardncloudsolutions.com/#website"
+      },
+      "primaryImageOfPage": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/#primaryimage"
+      },
+      "image": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/#primaryimage"
+      },
+      "thumbnailUrl": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1.webp",
+      "datePublished": "2026-04-16T05:00:16+00:00",
+      "dateModified": "2026-04-25T11:09:01+00:00",
+      "description": "A hotel's sales and marketing silos created inconsistent guest experiences. See how ARDN aligned teams on Salesforce — delivering faster, more consistent",
+      "breadcrumb": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "ImageObject",
+      "inLanguage": "en-US",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/#primaryimage",
+      "url": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1.webp",
+      "contentUrl": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1.webp",
+      "width": 1024,
+      "height": 683,
+      "caption": "Ardn Hotel Success Story 1"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-1/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ardncloudsolutions.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Hotel Success Story 1"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://ardncloudsolutions.com/#website",
+      "url": "https://ardncloudsolutions.com/",
+      "name": "ARDN Cloud Solutions",
+      "description": "",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://ardncloudsolutions.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     }
+    ]
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1.webp",
+     "alt_text": "Ardn Hotel Success Story 1",
+     "media_details": {
+      "sizes": {
+       "medium": {
+        "source_url": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1-300x200.webp",
+        "width": 300,
+        "height": 300
+       },
+       "medium_large": {
+        "source_url": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1-768x512.webp",
+        "width": 768,
+        "height": 768
+       },
+       "full": {
+        "source_url": "/media/2024/09/thought-catalog-505eectW54k-unsplash-1024x683-1.webp",
+        "width": 1000,
+        "height": 1000
+       }
+      }
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 17,
+      "name": "Timeshare",
+      "slug": "timeshare",
+      "taxonomy": "case-study-category"
+     }
+    ]
+   ]
+  }
+ },
+ {
+  "id": 23686,
+  "slug": "hotel-success-story-2",
+  "date": "2026-04-16T05:00:16",
+  "modified": "2026-04-25T11:08:36",
+  "title": {
+   "rendered": "Hotel Success Story 2"
+  },
+  "excerpt": {
+   "rendered": ""
+  },
+  "content": {
+   "rendered": "<h2><strong><span style=\"color: revert; font-size: 32px; letter-spacing: -0.1px;\">Highlights</span></strong></h2>\n<div class=\"elementor-element elementor-element-8180acf elementor-widget elementor-widget-pxl_heading\" data-id=\"8180acf\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_heading.default\">\n<div class=\"elementor-widget-container\">\n<div id=\"pxl-pxl_heading-8180acf-8435\" class=\"pxl-heading px-sub-title-default-style \">\n<div class=\"pxl-heading--inner\">\n<div class=\"elementor-element elementor-element-1a0d7f2 elementor-widget elementor-widget-pxl_text_editor\" data-id=\"1a0d7f2\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_text_editor.default\">\n<div class=\"elementor-widget-container\">\n<div class=\"pxl-text-editor\">\n<div class=\"pxl-item--inner  \" data-wow-delay=\"ms\">\n<p><b>Situation:</b><br />\nHuge sales burden brought on by manual inefficiencies and a lack of standardization, which reduces the amount of time spent with customers.</p>\n<p><strong>Challenge:</strong><br />\nCross- and up-sell opportunities are frequently hindered by a frequently a product-centric approach rather than a customer-centric one with limited collaboration.</p>\n<p><b>Our Solution:</b><br />\nSales Process Taxonomy, Opportunity Management Model, Updated Sales Approach and Sales Methodology</p>\n<p><b>Results:</b><br />\nThrough improved processes for managing both simple and complex opportunities, increase win rate and shorten sales cycle time.</p>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-a0868f1 elementor-widget elementor-widget-pxl_heading\" data-id=\"a0868f1\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_heading.default\">\n<div class=\"elementor-widget-container\">\n<div id=\"pxl-pxl_heading-a0868f1-4140\" class=\"pxl-heading px-sub-title-default-style \">\n<div class=\"pxl-heading--inner\">\n<h2 class=\"pxl-item--title style-default  highlight-default \" data-wow-delay=\"ms\"><strong>More about the Success:</strong></h2>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-dc50557 elementor-widget elementor-widget-pxl_text_editor\" data-id=\"dc50557\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_text_editor.default\">\n<div class=\"elementor-widget-container\">\n<div class=\"pxl-text-editor\">\n<div class=\"pxl-item--inner  \" data-wow-delay=\"ms\">\n<p><strong>Situation:</strong></p>\n<p>Huge sales burden brought on by manual inefficiencies and a lack of standardization, which reduces the amount of time spent with customers. Cross- and up-sell opportunities are frequently hindered by a frequently a product-centric approach rather than a customer-centric one with limited collaboration. inaccurate forecasting without taking opportunity maturity and probability into account. For complex opportunities involving multiple product/service offerings and/or multiple customer locations, slow and disorganized management techniques are used. Deal approval is a laborious process, and the relative size and profitability of deals are not well understood.</p>\n<p><strong>Solution:</strong></p>\n<p>A standard set of sales phases and stages can be aligned with using the SandME solution, which also promotes collaboration. Sales Process Taxonomy: Detailed workflows for important sales activities, entry and exit standards by sales stage, prescriptive advice for sellers, and approval workflows from opportunity creation to order booking. Sales Approach: Specialized sales motions for each customer segment, including relationship-based motions for enterprise customers and transactional motions for SMB and inside sales. Sales methodology: Segmented customer-specific Miller Heiman embedded sales methodology. Delegation of Authority is a standardized and scalable risk mitigation process that makes sure large deals are thoroughly examined before being approved. Complex Opportunity Management Model: a method for handling various scenarios in accordance with the purchasing process. Opportunities with a different buyer, end user, and multiple associated sites are examples of this type of opportunity. Sales Pipeline and Forecast: Reports and dashboards that are in line with typical sales stages to accurately reflect sales pipeline and forecast. Automated Alerts: to guarantee proactive renewal follow-up. To increase cross- and up-sell opportunities, increase share of wallet, and sell as a team, use integrated collaboration.</p>\n<p><strong>Results:</strong></p>\n<p>By designing a deal approval model with optimized approval levels, you can shorten the time it takes to book a deal. Through improved processes for managing both simple and complex opportunities, increase win rate and shorten sales cycle time. Deal size increase due to an increase in cross- and upselling activities Aligned opportunities with forecast categories and pipeline probabilities helped manage the pipeline more effectively and increase pipeline growth.</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9006
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Hotel Case Study: Fixing Manual Sales Process Inefficiency",
+   "description": "Manual sales processes were costing this hotel valuable customer time. Discover how ARDN's Salesforce solution standardized workflows and freed reps to",
+   "og_title": "Hotel Case Study: Fixing Manual Sales Process Inefficiency",
+   "og_description": "Manual sales processes were costing this hotel valuable customer time. Discover how ARDN's Salesforce solution standardized workflows and freed reps to",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "WebPage",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-2/",
+      "url": "https://ardncloudsolutions.com/case-studies/hotel-success-story-2/",
+      "name": "Hotel Case Study: Fixing Manual Sales Process Inefficiency",
+      "isPartOf": {
+       "@id": "https://ardncloudsolutions.com/#website"
+      },
+      "datePublished": "2026-04-16T05:00:16+00:00",
+      "dateModified": "2026-04-25T11:08:36+00:00",
+      "description": "Manual sales processes were costing this hotel valuable customer time. Discover how ARDN's Salesforce solution standardized workflows and freed reps to",
+      "breadcrumb": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-2/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://ardncloudsolutions.com/case-studies/hotel-success-story-2/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-2/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ardncloudsolutions.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Hotel Success Story 2"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://ardncloudsolutions.com/#website",
+      "url": "https://ardncloudsolutions.com/",
+      "name": "ARDN Cloud Solutions",
+      "description": "",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://ardncloudsolutions.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     }
+    ]
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/2026/04/hotel-success-story-2-og.webp",
+     "alt_text": "Hotel Success Story 2 | ARDN Cloud Solutions",
+     "media_details": {
+      "sizes": {
+       "full": {
+        "source_url": "/media/2026/04/hotel-success-story-2-og.webp",
+        "width": 1200,
+        "height": 630
+       },
+       "medium": {
+        "source_url": "/media/2026/04/hotel-success-story-2-og-300x158.webp",
+        "width": 300,
+        "height": 158
+       },
+       "medium_large": {
+        "source_url": "/media/2026/04/hotel-success-story-2-og-768x403.webp",
+        "width": 768,
+        "height": 403
+       },
+       "large": {
+        "source_url": "/media/2026/04/hotel-success-story-2-og-1024x538.webp",
+        "width": 1024,
+        "height": 538
+       }
+      }
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 17,
+      "name": "Timeshare",
+      "slug": "timeshare",
+      "taxonomy": "case-study-category"
+     }
+    ]
+   ]
+  }
+ },
+ {
+  "id": 23687,
+  "slug": "hotel-success-story-3",
+  "date": "2026-04-16T05:00:16",
+  "modified": "2026-04-25T11:06:24",
+  "title": {
+   "rendered": "Hotel Success Story 3"
+  },
+  "excerpt": {
+   "rendered": ""
+  },
+  "content": {
+   "rendered": "<h2 data-wow-delay=\"ms\"><strong>Highlights</strong></h2>\n<p><b>Situation:</b><br />\nCost per contact was rising, average call lengths are getting longer, and there are more contact channels being used, which was driving up service costs.</p>\n<p><b>Challenge:</b><br />\n2x increase in the risk of attrition as a result of subpar service.</p>\n<p><b>Our Solution:</b><br />\nOur solution helped in identifying and effectively resolving customer issues through Case Management Frameworks.</p>\n<p><b>Results:</b><br />\nSignificantly reduced the time to resolve customer issues and internal support requests.</p>\n<h2 data-wow-delay=\"ms\"><strong>More about the Success:</strong></h2>\n<p><strong>Situation:</strong></p>\n<p>75% of customers think it takes too long to respond to a service request. Personalization was one customer service improvement area, according to 38% of customers. 2x increase in the risk of attrition as a result of subpar service. Cost per contact was rising, average call lengths are getting longer, and there are more contact channels being used, which was driving up service costs.</p>\n<p><strong>Solution:</strong></p>\n<p>Our solution helped in identifying and effectively resolving customer issues Case Management Frameworks: process re-engineering and taxonomies based on best practices for quick and effective customer issue resolution. Case Types: A list of case categories, along with the case actions, milestones, and SLAs that go with each category, are used to manage internal support requests and customer issues. Case Creation: streamlined case creation by pre-filling fields and reducing required fields. Case Workflows: built automations and workflows based on pre-defined criteria based on business requirements. Case Escalation: set up SLAs and defined escalation process to reduce case duration Case Assignment: automated routing and assignment of cases using pre-defined criteria that can be modified to suit particular business requirements. Case Actions: enabled multiple teams to work on cases concurrently and that track particular activities. Case Milestones: These enable case resolution and related escalations based on particular SLAs.</p>\n<p><strong>Business:</strong></p>\n<p>Significantly reduced the time to resolve customer issues and internal support requests Increased CSAT scores through more personalized and relevant conversations Automated workflows and intelligently route traffic to reduce cost to serve. Effective agent enablement by reducing the churn of customer representatives.</p>\n"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9006
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Hotel Case Study: Reducing Cost Per Contact on Salesforce",
+   "description": "Rising call volumes and growing channel costs were straining this hotel's service team. Learn how ARDN's Salesforce solution reduced costs and shortened",
+   "og_title": "Hotel Case Study: Reducing Cost Per Contact on Salesforce",
+   "og_description": "Rising call volumes and growing channel costs were straining this hotel's service team. Learn how ARDN's Salesforce solution reduced costs and shortened",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "WebPage",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/",
+      "url": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/",
+      "name": "Hotel Case Study: Reducing Cost Per Contact on Salesforce",
+      "isPartOf": {
+       "@id": "https://ardncloudsolutions.com/#website"
+      },
+      "primaryImageOfPage": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/#primaryimage"
+      },
+      "image": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/#primaryimage"
+      },
+      "thumbnailUrl": "/media/2026/04/digital-marketing-gc8d64c60d_1280-min-768x512-1.webp",
+      "datePublished": "2026-04-16T05:00:16+00:00",
+      "dateModified": "2026-04-25T11:06:24+00:00",
+      "description": "Rising call volumes and growing channel costs were straining this hotel's service team. Learn how ARDN's Salesforce solution reduced costs and shortened",
+      "breadcrumb": {
+       "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "ImageObject",
+      "inLanguage": "en-US",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/#primaryimage",
+      "url": "/media/2026/04/digital-marketing-gc8d64c60d_1280-min-768x512-1.webp",
+      "contentUrl": "/media/2026/04/digital-marketing-gc8d64c60d_1280-min-768x512-1.webp",
+      "width": 768,
+      "height": 512
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://ardncloudsolutions.com/case-studies/hotel-success-story-3/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ardncloudsolutions.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Hotel Success Story 3"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://ardncloudsolutions.com/#website",
+      "url": "https://ardncloudsolutions.com/",
+      "name": "ARDN Cloud Solutions",
+      "description": "",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://ardncloudsolutions.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     }
+    ]
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/2026/04/digital-marketing-gc8d64c60d_1280-min-768x512-1.webp",
+     "alt_text": "",
+     "media_details": {
+      "sizes": {
+       "full": {
+        "source_url": "/media/2026/04/digital-marketing-gc8d64c60d_1280-min-768x512-1.webp",
+        "width": 1280,
+        "height": 854
+       }
+      }
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 17,
+      "name": "Timeshare",
+      "slug": "timeshare",
+      "taxonomy": "case-study-category"
+     }
+    ]
+   ]
+  }
+ },
+ {
+  "id": 23683,
+  "slug": "timeshare-success-story",
+  "date": "2026-04-16T05:00:16",
+  "modified": "2026-04-25T11:09:55",
+  "title": {
+   "rendered": "Timeshare Success Story"
+  },
+  "excerpt": {
+   "rendered": ""
+  },
+  "content": {
+   "rendered": "<div class=\"elementor-element elementor-element-8180acf elementor-widget elementor-widget-pxl_heading\" data-id=\"8180acf\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_heading.default\">\n<div class=\"elementor-widget-container\">\n<div id=\"pxl-pxl_heading-8180acf-2499\" class=\"pxl-heading px-sub-title-default-style \">\n<div class=\"pxl-heading--inner\">\n<h2 class=\"pxl-item--title style-default  highlight-default \" data-wow-delay=\"ms\"><strong>Highlights</strong></h2>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-1a0d7f2 elementor-widget elementor-widget-pxl_text_editor\" data-id=\"1a0d7f2\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_text_editor.default\">\n<div class=\"elementor-widget-container\">\n<div class=\"pxl-text-editor\">\n<div class=\"pxl-item--inner  \" data-wow-delay=\"ms\">\n<p><strong>Situation:</strong><br />\nOur client had obsolete, segregated legacy systems, which decreased business effectiveness and raised IT maintenance costs.</p>\n<p><strong>Challenge:</strong><br />\nLower margins caused by rising marketing expenses had a negative effect on profitability.</p>\n<p><strong>Our Solution:</strong><br />\nTo free up admins for more value-added operations, tour wave allocations will be created and updated in bulk.</p>\n<p><strong>Results:</strong><br />\nWe were able to greatly shorten the time it takes for marketing agents and control room agents to schedule a tour, assign premiums, and collect money.</p>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-a0868f1 elementor-widget elementor-widget-pxl_heading\" data-id=\"a0868f1\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_heading.default\">\n<div class=\"elementor-widget-container\">\n<div id=\"pxl-pxl_heading-a0868f1-8297\" class=\"pxl-heading px-sub-title-default-style \">\n<div class=\"pxl-heading--inner\">\n<h2 class=\"pxl-item--title style-default  highlight-default \" data-wow-delay=\"ms\"><strong>More about the Success:</strong></h2>\n</div>\n</div>\n</div>\n</div>\n<div class=\"elementor-element elementor-element-dc50557 elementor-widget elementor-widget-pxl_text_editor\" data-id=\"dc50557\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"pxl_text_editor.default\">\n<div class=\"elementor-widget-container\">\n<div class=\"pxl-text-editor\">\n<div class=\"pxl-item--inner  \" data-wow-delay=\"ms\">\n<p><strong>Situation:</strong></p>\n<p>Our client had obsolete, segregated legacy systems, which decreased business effectiveness and raised IT maintenance costs. When sales site managers are unable to properly organize resources for tour attendees, potential sales are lost. Vacation ownership companies are unable to track how many tours a visitor has taken. Lower margins caused by rising marketing expenses have an effect on profitability. Analytics on the effectiveness and ROI of various marketing strategies are lacking for vacation ownership companies.</p>\n<p><strong>Solution:</strong></p>\n<p>Reduce the time required to view current tour availability. Give marketing representatives a thorough breakdown of available tour dates per sales location and marketing initiatives. To free up admins for more value-added operations, tour wave allocations will be created and updated in bulk. Designed to help and enable marketing agents to apply premiums to only pertinent sales stores, preconfigured premium by sales outlets. To prevent inventory loss, one-click premium distribution and eSignature capabilities allow guests to certify the presents they are getting. When a tour is booked, automated SMS notifications are sent to marketing agents. To make it simple and quick for tour reception to allocate tours to sales reps, the sales sep assignment screen has been revised. Using dynamic sales store reporting, management may easily spot differences between greater chance to engage visitors through new marketing campaigns and activities, increasing their involvement and incremental year-over-year marketing spend.</p>\n<p><strong>Business:</strong></p>\n<p>We were able to greatly shorten the time it takes for marketing agents and control room agents to schedule a tour, assign premiums, and collect money. By enabling marketing and sales administrators to proactively monitor tour packages, the system increases accountability for their Sales Reps. The system offers a quick and easy approach for corporate operations to develop and maintain sales outlets, premium, tour waves, and tour wave allocations. Provides management and corporate operations a tool to monitor and assess the success of campaigns. Allows visibility into information about the visitor, including how often they visit.</p>\n</div>\n</div>\n</div>\n</div>\n"
+  },
+  "categories": [],
+  "case-study-categories": [
+   9006
+  ],
+  "meta": {
+   "faq_schema": ""
+  },
+  "yoast_head_json": {
+   "title": "Timeshare Industry: Salesforce Transformation Success",
+   "description": "A leading timeshare company replaced legacy systems with a Salesforce-powered platform — cutting IT costs, boosting team efficiency, and improving client",
+   "og_title": "Timeshare Industry: Salesforce Transformation Success",
+   "og_description": "A leading timeshare company replaced legacy systems with a Salesforce-powered platform — cutting IT costs, boosting team efficiency, and improving client",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "WebPage",
+      "@id": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/",
+      "url": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/",
+      "name": "Timeshare Industry: Salesforce Transformation Success",
+      "isPartOf": {
+       "@id": "https://ardncloudsolutions.com/#website"
+      },
+      "primaryImageOfPage": {
+       "@id": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/#primaryimage"
+      },
+      "image": {
+       "@id": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/#primaryimage"
+      },
+      "thumbnailUrl": "/media/2026/04/startup-ge45983102_640-min.webp",
+      "datePublished": "2026-04-16T05:00:16+00:00",
+      "dateModified": "2026-04-25T11:09:55+00:00",
+      "description": "A leading timeshare company replaced legacy systems with a Salesforce-powered platform — cutting IT costs, boosting team efficiency, and improving client",
+      "breadcrumb": {
+       "@id": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://ardncloudsolutions.com/case-studies/timeshare-success-story/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "ImageObject",
+      "inLanguage": "en-US",
+      "@id": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/#primaryimage",
+      "url": "/media/2026/04/startup-ge45983102_640-min.webp",
+      "contentUrl": "/media/2026/04/startup-ge45983102_640-min.webp",
+      "width": 640,
+      "height": 457
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://ardncloudsolutions.com/case-studies/timeshare-success-story/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ardncloudsolutions.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Timeshare Success Story"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://ardncloudsolutions.com/#website",
+      "url": "https://ardncloudsolutions.com/",
+      "name": "ARDN Cloud Solutions",
+      "description": "",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://ardncloudsolutions.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     }
+    ]
+   }
+  },
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "source_url": "/media/2026/04/startup-ge45983102_640-min.webp",
+     "alt_text": "",
+     "media_details": {
+      "sizes": {
+       "full": {
+        "source_url": "/media/2026/04/startup-ge45983102_640-min.webp",
+        "width": 640,
+        "height": 457
+       }
+      }
+     }
+    }
+   ],
+   "wp:term": [
+    [
+     {
+      "id": 17,
+      "name": "Timeshare",
+      "slug": "timeshare",
+      "taxonomy": "case-study-category"
+     }
+    ]
+   ]
+  }
  }
 ]

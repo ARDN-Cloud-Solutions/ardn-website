@@ -5,6 +5,10 @@ case studies that still match what Ardn sells, downloads their media into
 public/media/, rewrites every cms.ardncloudsolutions.com URL to local paths,
 and writes trimmed src/content/{posts,case-studies,categories}.json.
 Cut slugs are written to src/content/redirects.json (301s in next.config.ts).
+
+The cut posts, case studies and categories were restored on 2026-10-09 by
+restore.py (from the old build's fetch cache). Do not re-run this script
+without carrying those over, or it will cut them again.
 """
 import html, json, os, re, sys, urllib.request, urllib.parse
 
