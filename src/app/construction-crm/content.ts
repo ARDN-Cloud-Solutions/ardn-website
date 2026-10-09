@@ -206,6 +206,18 @@ export const CONSTRUCTION_CRM: ProductPageContent = {
       { title: "Go live, run it your way", body: "Your team takes over, or Ardn runs it for you under the managed service." },
     ],
   },
+  readMore: {
+    kicker: "Compare the costs",
+    title: "What a per-seat CRM really costs",
+    links: [
+      { label: "What you're paying for in a HubSpot Enterprise seat", href: "/blog/hubspot-enterprise-seat-cost-breakdown" },
+      { label: "Why HubSpot Sales Hub Pro costs so much more", href: "/blog/hubspot-sales-hub-starter-to-pro-jump" },
+      { label: "HubSpot paid vs. free seats: who needs which", href: "/blog/hubspot-paid-vs-free-seats" },
+      { label: "Why HubSpot Service Hub tiers cost so much more", href: "/blog/hubspot-service-hub-ticket-tier-cost" },
+      { label: "Construction PM software: per-seat costs explained", href: "/blog/construction-project-management-software-seat-cost" },
+    ],
+    more: { label: "All software cost comparisons", href: "/blog/topics/software-cost-comparisons" },
+  },
   faqs: FAQS,
   form: {
     heading: "Talk to us about your CRM",

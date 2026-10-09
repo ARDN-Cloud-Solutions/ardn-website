@@ -400,6 +400,29 @@ export default function ProductPage({ content: c }: { content: ProductPageConten
         </section>
       )}
 
+      {c.readMore && (
+        <section className="pp-section pp-readmore-section">
+          <div className="container pp-narrow">
+            <div className="pp-head">
+              <span className="pp-kicker">{c.readMore.kicker}</span>
+              <h2 className="pp-h2">{c.readMore.title}</h2>
+            </div>
+            <ul className="pp-readmore">
+              {c.readMore.links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+            {c.readMore.more && (
+              <p className="pp-readmore-more">
+                <Link href={c.readMore.more.href}>{c.readMore.more.label} →</Link>
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
       <section className="pp-section pp-canvas">
         <div className="container pp-narrow">
           <div className="pp-head">

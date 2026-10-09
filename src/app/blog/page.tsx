@@ -4,6 +4,7 @@ import BlogListItem from "@/components/blog/BlogListItem";
 import Pagination from "@/components/blog/Pagination";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 import BlogHero from "@/components/blog/BlogHero";
+import PopularTopics from "@/components/blog/PopularTopics";
 
 const PER_PAGE = 6;
 
@@ -108,6 +109,7 @@ export default async function BlogIndexPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <BlogHero />
+            <PopularTopics />
 
             <section className="container py-12 md:py-16">
                 <div className="grid lg:grid-cols-[1fr_360px] gap-10 xl:gap-14 items-start">

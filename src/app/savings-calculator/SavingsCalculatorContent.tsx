@@ -7,6 +7,15 @@ import LeadForm from "@/components/common/LeadForm";
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
+// Most relevant cost breakdowns on the blog, linked near the end of the page.
+const COMPARE_LINKS = [
+  { label: "Per-seat vs. flat-fee software pricing, compared", href: "/blog/per-seat-vs-flat-fee-pricing" },
+  { label: "HubSpot vs. Salesforce: true cost for mid-market", href: "/blog/hubspot-vs-salesforce-tco-mid-market" },
+  { label: "What you're paying for in a HubSpot Enterprise seat", href: "/blog/hubspot-enterprise-seat-cost-breakdown" },
+  { label: "Salesforce Experience Cloud pricing, explained", href: "/blog/salesforce-experience-cloud-cost-explained" },
+  { label: "TCO: SaaS add-ons vs. custom-built software", href: "/blog/total-cost-of-ownership-saas-vs-custom" },
+];
+
 const TOOLS_DATA: Record<string, { name: string; cost: number }[]> = {
   medspa: [
     { name: "Zenoti / AestheticsPro", cost: 800 },
@@ -535,6 +544,27 @@ export default function SavingsCalculatorContent() {
         </div>
       </section>
 
+      {/* ── COMPARE THE COSTS ─────────────────────────────────────────
+          Contextual links to the most-read cost breakdowns on the blog. */}
+      <section className="sc-section sc-section--offwhite sc-compare-section">
+        <div className="sc-section-inner">
+          <div className="sc-section-eyebrow">Compare the costs</div>
+          <h2 className="sc-section-title">
+            See where the money goes, <em>vendor by vendor.</em>
+          </h2>
+          <ul className="sc-compare-list">
+            {COMPARE_LINKS.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href}>{l.label} →</Link>
+              </li>
+            ))}
+          </ul>
+          <p className="sc-compare-more">
+            <Link href="/blog/topics/software-cost-comparisons">Browse all software cost comparisons →</Link>
+          </p>
+        </div>
+      </section>
+
       {/* ── LEAD CAPTURE ────────────────────────────────────────────────
           The calculator is the highest-intent moment on the site, but the
           only exit was an outbound Calendly link — every visitor not ready
@@ -795,6 +825,12 @@ export default function SavingsCalculatorContent() {
         .sc-section-title { font-size: 2.25rem; font-weight: 700; color: var(--sc-text); letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 0.75rem; }
         .sc-section-title em { color: var(--sc-blue); font-style: normal; }
         .sc-section-sub { font-size: 16px; color: var(--sc-text-2); max-width: 560px; line-height: 1.7; margin-bottom: 3rem; }
+        .sc-compare-section { padding-top: 4rem; padding-bottom: 4rem; }
+        .sc-compare-list { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem 2rem; }
+        .sc-compare-list a { display: block; padding: 0.85rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); color: var(--sc-text); font-weight: 600; font-size: 15px; text-decoration: none; }
+        .sc-compare-list a:hover { color: var(--sc-blue); }
+        .sc-compare-more { margin-top: 1.5rem; font-size: 14px; }
+        .sc-compare-more a { color: var(--sc-blue); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
         /* HOW IT WORKS */
         .sc-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }

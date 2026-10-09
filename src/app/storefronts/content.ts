@@ -116,6 +116,18 @@ export const STOREFRONTS: ProductPageContent = {
       { title: "Launch", body: "Go live and track orders, members and bookings in Salesforce." },
     ],
   },
+  readMore: {
+    kicker: "Compare the costs",
+    title: "The real cost of selling outside Salesforce",
+    links: [
+      { label: "The hidden costs of non-native e-commerce platforms with Salesforce", href: "/blog/the-hidden-costs-of-using-non-native-ecommerce-platforms-with-salesforce" },
+      { label: "The true cost of disconnected e-commerce", href: "/blog/the-true-cost-of-disconnected-ecommerce-and-how-storefronts-fixes-it" },
+      { label: "How Salesforce Commerce Cloud's GMV pricing works", href: "/blog/salesforce-commerce-cloud-gmv-pricing" },
+      { label: "Reducing Salesforce payment processing costs at high volume", href: "/blog/reducing-salesforce-payment-processing-costs-for-high-volume-businesses-strategies-for-significant-savings" },
+      { label: "How to run e-commerce inside Salesforce in 72 hours", href: "/blog/how-to-run-e-commerce-inside-salesforce-in-72-hours" },
+    ],
+    more: { label: "All Salesforce e-commerce articles", href: "/blog/topics/salesforce-ecommerce" },
+  },
   faqs: [
     { q: "How does Storefronts work with Salesforce?", a: "It installs directly into your Salesforce org and uses your existing records. Customers, orders and bookings are Salesforce data, so there's nothing to sync." },
     { q: "Can we customize the store?", a: "Yes. The store is themed to your brand, and your team or ours can extend it with Salesforce components for a fully custom front end." },
