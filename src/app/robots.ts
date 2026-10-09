@@ -3,17 +3,19 @@ import { AI_CRAWLERS, PRIVATE_PATHS } from "@/lib/aiCrawlers";
 
 export default function robots(): MetadataRoute.Robots {
     return {
+        // Never disallow /_next/: Googlebot needs the JS/CSS chunks to render
+        // pages and /_next/image to index every next/image.
         rules: [
             {
                 userAgent: "*",
                 allow: "/",
-                disallow: ["/api/", "/admin/", "/_next/", ...PRIVATE_PATHS],
+                disallow: ["/api/", "/admin/", ...PRIVATE_PATHS],
             },
             // AI crawlers: same as everyone, and never the proposal page or its screens.
             // proxy.ts turns them away from those paths even if they skip this file.
             {
                 userAgent: AI_CRAWLERS,
-                disallow: ["/api/", "/admin/", "/_next/", ...PRIVATE_PATHS],
+                disallow: ["/api/", "/admin/", ...PRIVATE_PATHS],
             },
         ],
         sitemap: "https://ardncloudsolutions.com/sitemap.xml",

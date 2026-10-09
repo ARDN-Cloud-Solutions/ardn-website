@@ -165,10 +165,18 @@ def dump(name, data):
     open(f"{OUT}/{name}", "w").write(s.replace("cms.ardncloudsolutions.com", "ardncloudsolutions.com"))
 dump("posts.json", out_posts); dump("case-studies.json", out_cs)
 dump("categories.json", cats); dump("case-study-categories.json", cs_cats)
+# redirects.json maps each cut slug to its most relevant live page (edited by
+# hand, 2026-10-09). Keep existing mappings; new cuts default to the index and
+# should be given a real destination before deploying.
+_prev = json.load(open(f"{OUT}/redirects.json")) if os.path.exists(f"{OUT}/redirects.json") else {}
+def _map(key, slugs, default):
+    prev = _prev.get(key) if isinstance(_prev.get(key), dict) else {}
+    return {s: prev.get(s, default) for s in sorted(slugs)}
 dump("redirects.json", {
-    "blog": sorted(p["slug"] for p in cut),
-    "caseStudies": sorted(c["slug"] for c in cut_cs),
-    "categories": sorted(all_cat_slugs - kept_cat_slugs),
+    "_comment": _prev.get("_comment", "Cut slug -> most relevant live page. Read by next.config.ts."),
+    "blog": _map("blog", (p["slug"] for p in cut), "/blog"),
+    "caseStudies": _map("caseStudies", (c["slug"] for c in cut_cs), "/case-studies"),
+    "categories": _map("categories", all_cat_slugs - kept_cat_slugs, "/blog"),
 })
 left = [f for f in os.listdir(OUT) if f.endswith(".json") and CMS.search(open(f"{OUT}/{f}").read())]
 print("files still mentioning cms:", left or "none", "| media files:", sum(1 for v in downloaded.values() if v))

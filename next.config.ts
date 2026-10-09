@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 import cutContent from "./src/content/redirects.json";
 
-const CUT_BLOG = new Set(cutContent.blog);
+// Cut slug → most relevant live page. Only fall back to an index when
+// nothing on the site matches the topic: Google treats mass redirects to an
+// index page as soft 404s and drops the old page's ranking.
+const CUT_BLOG: Record<string, string> = cutContent.blog;
+const CUT_CASE_STUDIES: Record<string, string> = cutContent.caseStudies;
+const CUT_CATEGORIES: Record<string, string> = cutContent.categories;
+
+// skipTrailingSlashRedirect is on (see below), so every legacy source must
+// match with and without a trailing slash to land in one hop.
+const S = "{/}?";
+const r301 = (source: string, destination: string) => ({ source, destination, permanent: true });
 
 // Blog posts that lived at the domain root on the old WordPress site and now
 // live under /blog/ on the headless rebuild. Each target was verified live
@@ -44,82 +54,96 @@ const LEGACY_ROOT_POST_SLUGS = [
     "why-e-commerce-founders-should-consider-native-salesforce-integration",
     "why-on-demand-salesforce-talent-is-faster-than-traditional-hiring",
     "why-the-salesforce-e-commerce-platform-is-the-smartest-choice-for-modern-brands-in-2025",
-];
+    "license-guard-eliminate-license-waste-and-maximize-salesforce-roi",
+].filter((slug) => !(slug in CUT_BLOG)); // cut ones are handled by the CUT_BLOG rules
+
+// Old WordPress tag archives with a clear successor; other tags → /blog.
+const LEGACY_TAGS: Record<string, string> = {
+    costeffective: "/reduce-crm-licensing-costs",
+    "e-commerce": "/storefronts",
+    integration: "/blog/category/integration-solutions",
+    "salesforce-e-commerce-integration": "/storefronts",
+    salesforce: "/salesforce-consulting-orlando",
+    salesforceoptimization: "/blog/category/salesforce-optimization",
+};
+
+// Old one-off WordPress pages that still get traffic (GSC 404s, Oct 2026).
+const LEGACY_PAGES: Record<string, string> = {
+    about: "/about-ardn",
+    careers: "/career",
+    jobs: "/career",
+    "job-dashboard": "/career",
+    "case-study": "/case-studies",
+    "staff-augmentation": "/salesforce-consulting-orlando",
+    "storefronts-request-a-demo": "/storefronts",
+    "thank-you": "/",
+    "coming-soon": "/",
+    "test-g": "/",
+};
 
 const nextConfig: NextConfig = {
+    // Trailing slashes are stripped by the last rule in redirects() instead,
+    // so legacy /slug/ URLs reach their destination in a single redirect.
+    skipTrailingSlashRedirect: true,
     async redirects() {
         return [
             // ReplyCX retired (2026-09-28); AI Forge is the closest AI offer.
-            { source: "/ai-powered-support", destination: "/ai-forge", permanent: true },
+            r301(`/ai-powered-support${S}`, "/ai-forge"),
             // ── Content cut in the WordPress migration (2026-09-28) ──
-            // Posts and case studies that no longer match what Ardn sells.
-            // 301 to the index so existing links and rankings aren't lost.
-            ...cutContent.blog.map((slug) => ({ source: `/blog/${slug}`, destination: "/blog", permanent: true })),
-            ...cutContent.caseStudies.map((slug) => ({ source: `/case-studies/${slug}`, destination: "/case-studies", permanent: true })),
-            ...cutContent.categories.map((slug) => ({ source: `/blog/category/${slug}/:rest*`, destination: "/blog", permanent: true })),
+            // Each cut post / case study / category goes to its mapped page
+            // (src/content/redirects.json). Posts also lived at the domain
+            // root on the old WordPress site, with /feed/ children.
+            ...Object.entries(CUT_BLOG).map(([slug, dest]) => r301(`/{blog/}?${slug}{/feed}?${S}`, dest)),
+            ...Object.entries(CUT_CASE_STUDIES).map(([slug, dest]) => r301(`/case-studies/${slug}${S}`, dest)),
+            ...Object.entries(CUT_CATEGORIES).map(([slug, dest]) => r301(`/{blog/}?category/${slug}/:rest*${S}`, dest)),
             // ── Legacy WordPress URL structure (GSC 404 cleanup, Aug 2026) ──
-            // Old root-level posts → /blog/<slug>. Also catches their /feed/
-            // children via the :suffix(feed) segment.
-            ...LEGACY_ROOT_POST_SLUGS.map((slug) => ({
-                source: `/${slug}`,
-                destination: CUT_BLOG.has(slug) ? "/blog" : `/blog/${slug}`,
-                permanent: true,
-            })),
-            ...LEGACY_ROOT_POST_SLUGS.map((slug) => ({
-                source: `/${slug}/feed`,
-                destination: CUT_BLOG.has(slug) ? "/blog" : `/blog/${slug}`,
-                permanent: true,
-            })),
+            // Old root-level posts that were kept → /blog/<slug>.
+            ...LEGACY_ROOT_POST_SLUGS.map((slug) => r301(`/${slug}{/feed}?${S}`, `/blog/${slug}`)),
+            ...Object.entries(LEGACY_PAGES).map(([slug, dest]) => r301(`/${slug}${S}`, dest)),
             // Old category archives (incl. pagination and feeds) → new blog
             // category pages. Order matters: deeper patterns first.
-            {
-                source: "/category/:slug/page/:page",
-                destination: "/blog/category/:slug",
-                permanent: true,
-            },
-            {
-                source: "/category/:slug/feed",
-                destination: "/blog/category/:slug",
-                permanent: true,
-            },
-            {
-                source: "/category/:slug",
-                destination: "/blog/category/:slug",
-                permanent: true,
-            },
-            // WP taxonomies with no equivalent on the new site → blog index.
-            { source: "/tag/:path*", destination: "/blog", permanent: true },
-            { source: "/author/:path*", destination: "/blog", permanent: true },
-            // Old case-study category archives and removed case studies → hub.
-            { source: "/case-studie-categorie/:path*", destination: "/case-studies", permanent: true },
-            { source: "/case-studies/business-development-planning", destination: "/case-studies", permanent: true },
-            { source: "/case-studies/hotel-success-story", destination: "/case-studies", permanent: true },
-            // Old service/industry pages with no successor → home.
-            { source: "/service/:path*", destination: "/", permanent: true },
-            { source: "/service", destination: "/", permanent: true },
-            { source: "/industries/:path*", destination: "/", permanent: true },
-            { source: "/industries-category/:path*", destination: "/", permanent: true },
+            r301(`/category/:slug/page/:page${S}`, "/blog/category/:slug"),
+            r301(`/category/:slug/feed${S}`, "/blog/category/:slug"),
+            r301(`/category/:slug${S}`, "/blog/category/:slug"),
+            ...Object.entries(LEGACY_TAGS).map(([slug, dest]) => r301(`/tag/${slug}/:rest*${S}`, dest)),
+            // WP taxonomies with no equivalent on the new site.
+            r301(`/tag/:path*${S}`, "/blog"),
+            r301(`/author/:path*${S}`, "/about-ardn"),
+            // Old case-study category archives → the matching case study.
+            r301(`/case-studie-categorie/airline/:rest*${S}`, CUT_CASE_STUDIES["airline-success-story"]),
+            r301(`/case-studie-categorie/timeshare/:rest*${S}`, CUT_CASE_STUDIES["timeshare-success-story"]),
+            r301(`/case-studie-categorie/:path*${S}`, "/case-studies"),
+            r301(`/case-studies/business-development-planning${S}`, "/case-studies/enhancing-b2b-engagement-with-a-centralized-sales-portal"),
+            r301(`/case-studies/hotel-success-story${S}`, "/ai-for-hospitality"),
+            // Old WordPress Salesforce service pages → Salesforce consulting
+            // & managed services (Orlando HQ page).
+            r301(`/service/:path*${S}`, "/salesforce-consulting-orlando"),
+            r301(`/service-category/:path*${S}`, "/salesforce-consulting-orlando"),
+            // Old industry pages → the industry software we've launched.
+            r301(`/industries/:path*${S}`, "/work"),
+            r301(`/industries-category/:path*${S}`, "/work"),
             // One-offs.
-            { source: "/about-us", destination: "/about-ardn", permanent: true },
-            { source: "/get-storefronts", destination: "/storefronts", permanent: true },
+            r301(`/about-us${S}`, "/about-ardn"),
+            r301(`/get-storefronts${S}`, "/storefronts"),
             // Salesforce Payments page retired 2026-09-28 (the product is
             // Paymentus-only and no longer promoted). Old URLs land on the
             // Salesforce solutions section of Our Products.
-            { source: "/salesforce-transacts", destination: "/our-products#salesforce", permanent: true },
-            { source: "/salesforce-payments", destination: "/our-products#salesforce", permanent: true },
+            r301(`/salesforce-transacts${S}`, "/our-products#salesforce"),
+            r301(`/salesforce-payments${S}`, "/our-products#salesforce"),
             // YMCA page renamed to nonprofit management software, 2026-09-28.
-            { source: "/ymca-management-software", destination: "/nonprofit-management-software", permanent: true },
-            { source: "/salesforce-ecommerce-integration-boost-sal", destination: "/storefronts", permanent: true },
+            r301(`/ymca-management-software${S}`, "/nonprofit-management-software"),
+            r301(`/buyers-guide/salesforce-event-and-ticketing-platforms${S}`, "/buyers-guide/salesforce-event-ticketing-platform"),
+            // Section roots that have no index page of their own.
+            r301(`/buyers-guide${S}`, "/"),
+            r301(`/compare${S}`, "/"),
+            r301(`/lp${S}`, "/"),
+            // www → apex (existing). Strip a trailing slash in the same hop.
             {
-                source: "/buyers-guide/salesforce-event-and-ticketing-platforms",
-                destination: "/buyers-guide/salesforce-event-ticketing-platform",
+                source: "/:path+/",
+                has: [{ type: "host", value: "www.ardncloudsolutions.com" }],
+                destination: "https://ardncloudsolutions.com/:path+",
                 permanent: true,
             },
-            // Section roots that have no index page of their own.
-            { source: "/buyers-guide", destination: "/", permanent: true },
-            { source: "/compare", destination: "/", permanent: true },
-            { source: "/lp", destination: "/", permanent: true },
-            // www → apex (existing).
             {
                 source: "/:path*",
                 has: [{ type: "host", value: "www.ardncloudsolutions.com" }],
@@ -129,18 +153,15 @@ const nextConfig: NextConfig = {
             // SEO consolidation: legacy /ai-app duplicated content with the
             // canonical /ai-forge page. 301 (permanent) consolidates ranking
             // signal into the canonical URL.
-            {
-                source: "/ai-app",
-                destination: "/ai-forge",
-                permanent: true,
-            },
+            r301(`/ai-app${S}`, "/ai-forge"),
             // SEO consolidation: legacy /membership pitch page (was marked
             // noindex) overlapped intent with /membership-management.
-            {
-                source: "/membership",
-                destination: "/membership-management",
-                permanent: true,
-            },
+            r301(`/membership${S}`, "/membership-management"),
+            // Next's own trailing-slash redirect is switched off
+            // (skipTrailingSlashRedirect) because it ran before every rule
+            // above and turned old /slug/ URLs into two hops. This restores
+            // it for everything else, last.
+            { source: "/:path+/", destination: "/:path+", permanent: true },
         ];
     },
     images: {
