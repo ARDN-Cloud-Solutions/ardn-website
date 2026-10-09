@@ -948,6 +948,13 @@ export const APPS: AppArea[] = [
         "note": "One rule on every till, screen and bill, so the club never quietly absorbs card costs."
       },
       {
+        "id": "X41",
+        "name": "Our own subscription billing for every membership: the club's dues run bills each period on the club's draft day, plan changes and cancellations are handled in-house, and the card processor only charges the card on file, so no membership depends on a processor's subscription system",
+        "status": "Built",
+        "ai": false,
+        "note": "Switching card processors never touches a single member's billing schedule."
+      },
+      {
         "id": "C39",
         "name": "Prepaid tee-time and event deposits held as a liability until used",
         "status": "Built",
