@@ -90,6 +90,8 @@ export type ProductPageContent = {
     note?: string;
   };
   compare?: { kicker: string; title: string; sub: string; cols: string[]; ours: string; rows: { feature: string; cells: string[]; ours: string }[] };
+  /** Short list of related blog articles near the end ("Compare the costs"). */
+  readMore?: { kicker: string; title: string; links: Cta[]; more?: Cta };
   faqs: { q: string; a: string }[];
   form: { heading: string; sub: string; submitLabel: string; messageLabel?: string };
   final: { title: string; titleEm: string; lede: string; cta: Cta; links?: Cta[] };

@@ -252,6 +252,20 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Blog topic hubs: every cost-comparison post and every Salesforce
+        // e-commerce post on one crawlable page each (src/lib/content/topics).
+        url: `${BASE_URL}/blog/topics/software-cost-comparisons`,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.8,
+    },
+    {
+        url: `${BASE_URL}/blog/topics/salesforce-ecommerce`,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/buyers-guide/salesforce-commerce-appexchange-solutions`,
         lastModified: new Date(),
         changeFrequency: "monthly",

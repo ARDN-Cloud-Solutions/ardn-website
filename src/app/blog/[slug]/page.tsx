@@ -14,6 +14,8 @@ import {
 } from "@/lib/content/utils";
 import BlogHero from "@/components/blog/BlogHero";
 import BlogSidebar from "@/components/blog/BlogSidebar";
+import RelatedArticles from "@/components/blog/RelatedArticles";
+import { getRelatedPosts } from "@/lib/content/topics";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -246,6 +248,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                             className="blog-content"
                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                         />
+
+                        <RelatedArticles posts={getRelatedPosts(post, 4)} />
 
                         {/* Back link */}
                         <div className="mt-10 pt-8 border-t border-gray-100">

@@ -54,6 +54,8 @@ const company = [
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
+  { label: "Software Cost Comparisons", href: "/blog/topics/software-cost-comparisons" },
+  { label: "Salesforce E-commerce Guides", href: "/blog/topics/salesforce-ecommerce" },
   { label: "Free Savings Calculator", href: "/savings-calculator" },
   { label: "Custom Software vs. SaaS", href: "/compare/custom-software-vs-saas" },
   { label: "Orlando, FL", href: "/salesforce-consulting-orlando" },
