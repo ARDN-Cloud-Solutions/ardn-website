@@ -752,6 +752,13 @@ export const APPS: AppArea[] = [
         "note": "Members order carry-out from the app and it prints straight to the kitchen."
       },
       {
+        "id": "X39",
+        "name": "Pro shop orders picked up item by item: mark 2 of 3 shirts picked up today and the last one tomorrow, who took each and when, and the order closes itself when the last item goes",
+        "status": "Built",
+        "ai": false,
+        "note": "The member who picks up half an order today is never told the whole order is gone."
+      },
+      {
         "id": "C34",
         "name": "Kitchen display system with station routing and seat-level tickets",
         "status": "Built",
@@ -857,6 +864,13 @@ export const APPS: AppArea[] = [
         "note": "Corporate writes the wedding package once and every club sells it the same day; a club can still tweak its own version and price, and anything missing a required detail can't be sold."
       },
       {
+        "id": "X45",
+        "name": "A new vendor is asked for their W-9 and insurance in one step, and damage at an event is billed to the client, taxed by the club's state and booked to damage recovery",
+        "status": "Built",
+        "ai": false,
+        "note": ""
+      },
+      {
         "id": "C38",
         "name": "Rooms split into sub-rooms, with set-up and tear-down time blocked",
         "status": "Built",
@@ -932,6 +946,41 @@ export const APPS: AppArea[] = [
         "status": "Built",
         "ai": false,
         "note": "Purchase orders are matched against receipts and invoices before anything is paid."
+      },
+      {
+        "id": "X40",
+        "name": "The credit card fee on every card charge where the state allows it, at the card brand's rate, with the fee's own sales tax, shown before the member pays; debit never pays it, returns and refunds give back its share, and a donation's fee is never counted as the gift",
+        "status": "Built",
+        "ai": false,
+        "note": "One rule on every till, screen and bill, so the club never quietly absorbs card costs."
+      },
+      {
+        "id": "X41",
+        "name": "Our own subscription billing for every membership: the club's dues run bills each period on the club's draft day, plan changes and cancellations are handled in-house, and the card processor only charges the card on file, so no membership depends on a processor's subscription system",
+        "status": "Built",
+        "ai": false,
+        "note": "Switching card processors never touches a single member's billing schedule."
+      },
+      {
+        "id": "X42",
+        "name": "Every club's card processor known to the books: its deposits are entered as settlements with their fees, every payment names the processor that took it, and each club is reconciled against its own processor and its bank",
+        "status": "Built",
+        "ai": false,
+        "note": "The controller sees, club by club, that what the processor deposited is what the members paid, less fees."
+      },
+      {
+        "id": "X43",
+        "name": "Every cent has a department: each income, cost and expense line names its department or waits on a short list for the controller; drawer pay-outs post to their own accounts; a deleted or recycled record takes its postings back, and a restore posts them again",
+        "status": "Built",
+        "ai": false,
+        "note": "No floating charge: every dollar on the P&L sits with a department, so each manager owns their numbers."
+      },
+      {
+        "id": "X44",
+        "name": "Past-due dues follow-up: when card retries run out, the GM (or the Membership Director) gets a next step and a phone alert; turning autopay off needs a reason; collecting a payment is its own permission",
+        "status": "Built",
+        "ai": false,
+        "note": "A failed draft never goes quiet: someone is named to follow it up the day the retries end."
       },
       {
         "id": "C39",

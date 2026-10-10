@@ -5,7 +5,15 @@ import Image from "next/image";
 import { ChevronDown, Sparkles, X } from "lucide-react";
 import type { AppArea, Feature, FeatureStatus } from "./features";
 import { coverageOf } from "./proposal";
-import { SCREENS, screenSrc, type Screen } from "./screens";
+import { SCREENS, screenSrc } from "./screens";
+import { GUIDES, guideSrc, type FeatureGuide } from "./featureGuides";
+
+/** A screen to enlarge: where it is served from, and its words. */
+interface Zoomed {
+  src: string;
+  title: string;
+  alt: string;
+}
 
 /**
  * Coverage by app: one card per app with its percent covered, and the
@@ -31,7 +39,7 @@ export function AiMark({ count }: { count?: number }) {
 }
 
 /** One screen at full width over the page; Escape, the button or the backdrop closes it. */
-function ScreenZoom({ screen, onClose }: { screen: Screen; onClose: () => void }) {
+function ScreenZoom({ screen, onClose }: { screen: Zoomed; onClose: () => void }) {
   const close = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const back = document.activeElement as HTMLElement | null;
@@ -46,7 +54,7 @@ function ScreenZoom({ screen, onClose }: { screen: Screen; onClose: () => void }
   return (
     <div className="cp-zoom" role="dialog" aria-modal="true" aria-label={screen.title} onClick={onClose}>
       <figure onClick={(e) => e.stopPropagation()}>
-        <Image src={screenSrc(screen.file)} alt={screen.alt} width={2880} height={1800} sizes="95vw" />
+        <Image src={screen.src} alt={screen.alt} width={2880} height={1800} sizes="95vw" />
         <figcaption>
           <b>{screen.title}</b> {screen.alt}
         </figcaption>
@@ -73,14 +81,59 @@ export function CoverageBar({ features }: { features: Feature[] }) {
   );
 }
 
+/** A guide line, with the app's own labels (written **Label**) in bold. */
+function Labels({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/\*\*(.+?)\*\*/g).map((part, i) => (i % 2 ? <b key={i}>{part}</b> : part))}
+    </>
+  );
+}
+
+/** How a feature is done: who does it, the steps, and what they see when it worked. */
+function HowItsDone({ guide }: { guide: FeatureGuide }) {
+  return (
+    <details className="cp-how">
+      <summary>How it&rsquo;s done</summary>
+      {guide.who && (
+        <p className="cp-how-who">
+          <b>Who:</b> <Labels text={guide.who} />
+        </p>
+      )}
+      <ol>
+        {guide.steps.map((s, i) => (
+          <li key={i}>
+            <Labels text={s} />
+          </li>
+        ))}
+      </ol>
+      {guide.result && (
+        <p className="cp-how-result">
+          <b>When it worked:</b> <Labels text={guide.result} />
+        </p>
+      )}
+    </details>
+  );
+}
+
 /**
  * `catalog` is the marketing page's view: only what is built (Built and
  * Configure), each card showing how many features it has instead of a percent.
+ * `guides` is the proposal page's view: each feature carries its own screen and
+ * how it is done, in place of the app's handful of screens.
  */
-export default function CoverageExplorer({ apps: allApps, catalog = false }: { apps: AppArea[]; catalog?: boolean }) {
+export default function CoverageExplorer({
+  apps: allApps,
+  catalog = false,
+  guides = false,
+}: {
+  apps: AppArea[];
+  catalog?: boolean;
+  guides?: boolean;
+}) {
   const [open, setOpen] = useState<string | null>(null);
   const [filter, setFilter] = useState<Filter>("all");
-  const [zoom, setZoom] = useState<Screen | null>(null);
+  const [zoom, setZoom] = useState<Zoomed | null>(null);
   const panel = useRef<HTMLDivElement>(null);
   const apps = useMemo(
     () => (catalog ? allApps.map((a) => ({ ...a, features: a.features.filter((f) => f.status !== "Gap") })) : allApps),
@@ -103,7 +156,7 @@ export default function CoverageExplorer({ apps: allApps, catalog = false }: { a
   }
 
   const counts = app ? coverageOf(app.features) : null;
-  const screens = app ? (SCREENS[app.key] ?? []) : [];
+  const screens = app && !guides ? (SCREENS[app.key] ?? []) : [];
 
   return (
     <>
@@ -172,7 +225,7 @@ export default function CoverageExplorer({ apps: allApps, catalog = false }: { a
                 {screens.map((s) => (
                   <li key={s.file}>
                     <figure className="cp-shot">
-                      <button type="button" onClick={() => setZoom(s)} aria-label={`Enlarge: ${s.title}`}>
+                      <button type="button" onClick={() => setZoom({ src: screenSrc(s.file), title: s.title, alt: s.alt })} aria-label={`Enlarge: ${s.title}`}>
                         <Image
                           src={screenSrc(s.file)}
                           alt={s.alt}
@@ -214,17 +267,37 @@ export default function CoverageExplorer({ apps: allApps, catalog = false }: { a
               <p className="cp-muted cp-empty">Nothing in {app.name} for this filter.</p>
             ) : (
               <ul className="cp-features" role="list">
-                {shown.map((f) => (
-                  <li key={f.id} className="cp-feature">
-                    <StatusPill status={f.status} />
-                    <div>
-                      <p className="cp-feature-name">
-                        {f.name} {f.ai && <AiMark />}
-                      </p>
-                      {f.note && <p className="cp-feature-note">{f.note}</p>}
-                    </div>
-                  </li>
-                ))}
+                {shown.map((f) => {
+                  const guide = guides ? GUIDES[f.id] : undefined;
+                  return (
+                    <li key={f.id} className={`cp-feature${guide?.shots.length ? " cp-feature-shot" : ""}`}>
+                      <StatusPill status={f.status} />
+                      <div>
+                        <p className="cp-feature-name">
+                          {f.name} {f.ai && <AiMark />}
+                        </p>
+                        {f.note && <p className="cp-feature-note">{f.note}</p>}
+                        {guide && guide.steps.length > 0 && <HowItsDone guide={guide} />}
+                      </div>
+                      {guide && guide.shots.length > 0 && (
+                        <div className="cp-feature-shots">
+                          {guide.shots.map((s) => (
+                            <figure key={s.file} className="cp-shot">
+                              <button
+                                type="button"
+                                onClick={() => setZoom({ src: guideSrc(s.file), title: s.title, alt: s.alt })}
+                                aria-label={`Enlarge: ${s.title}`}
+                              >
+                                <Image src={guideSrc(s.file)} alt={s.alt} width={2880} height={1800} sizes="(max-width: 900px) 100vw, 340px" />
+                              </button>
+                              <figcaption>{s.title}</figcaption>
+                            </figure>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </>

@@ -117,7 +117,7 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
               Uses an AI model
             </li>
           </ul>
-          <CoverageExplorer apps={APPS} />
+          <CoverageExplorer apps={APPS} guides />
         </div>
       </section>
 
