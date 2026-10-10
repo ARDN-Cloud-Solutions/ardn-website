@@ -864,6 +864,13 @@ export const APPS: AppArea[] = [
         "note": "Corporate writes the wedding package once and every club sells it the same day; a club can still tweak its own version and price, and anything missing a required detail can't be sold."
       },
       {
+        "id": "X45",
+        "name": "A new vendor is asked for their W-9 and insurance in one step, and damage at an event is billed to the client, taxed by the club's state and booked to damage recovery",
+        "status": "Built",
+        "ai": false,
+        "note": ""
+      },
+      {
         "id": "C38",
         "name": "Rooms split into sub-rooms, with set-up and tear-down time blocked",
         "status": "Built",
@@ -953,6 +960,27 @@ export const APPS: AppArea[] = [
         "status": "Built",
         "ai": false,
         "note": "Switching card processors never touches a single member's billing schedule."
+      },
+      {
+        "id": "X42",
+        "name": "Every club's card processor known to the books: its deposits are entered as settlements with their fees, every payment names the processor that took it, and each club is reconciled against its own processor and its bank",
+        "status": "Built",
+        "ai": false,
+        "note": "The controller sees, club by club, that what the processor deposited is what the members paid, less fees."
+      },
+      {
+        "id": "X43",
+        "name": "Every cent has a department: each income, cost and expense line names its department or waits on a short list for the controller; drawer pay-outs post to their own accounts; a deleted or recycled record takes its postings back, and a restore posts them again",
+        "status": "Built",
+        "ai": false,
+        "note": "No floating charge: every dollar on the P&L sits with a department, so each manager owns their numbers."
+      },
+      {
+        "id": "X44",
+        "name": "Past-due dues follow-up: when card retries run out, the GM (or the Membership Director) gets a next step and a phone alert; turning autopay off needs a reason; collecting a payment is its own permission",
+        "status": "Built",
+        "ai": false,
+        "note": "A failed draft never goes quiet: someone is named to follow it up the day the retries end."
       },
       {
         "id": "C39",
