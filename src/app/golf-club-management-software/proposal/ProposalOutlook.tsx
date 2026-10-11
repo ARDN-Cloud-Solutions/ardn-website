@@ -55,22 +55,22 @@ export default function ProposalOutlook({
       </div>
 
       <div className="cp-bars" aria-hidden="true">
-        <div className="cp-bar-row">
-          <span className="cp-bar-label">Today</span>
-          <span className="cp-bar-track">
-            <span className="cp-bar cp-bar-today" style={{ width: pct(result.today) }} />
+        <div className="cp-obar-row">
+          <span className="cp-obar-label">Today</span>
+          <span className="cp-obar-track">
+            <span className="cp-obar cp-obar-today" style={{ width: pct(result.today) }} />
           </span>
           <b>{formatDollars(result.today)}</b>
         </div>
-        <div className="cp-bar-row">
-          <span className="cp-bar-label">With Club Steward</span>
-          <span className="cp-bar-track">
-            <span className="cp-bar cp-bar-steward" style={{ width: pct(result.steward) }} />
-            <span className="cp-bar cp-bar-kept" style={{ width: pct(kept) }} />
+        <div className="cp-obar-row">
+          <span className="cp-obar-label">With Club Steward</span>
+          <span className="cp-obar-track">
+            <span className="cp-obar cp-obar-steward" style={{ width: pct(result.steward) }} />
+            <span className="cp-obar cp-obar-kept" style={{ width: pct(kept) }} />
           </span>
           <b>{formatDollars(result.future)}</b>
         </div>
-        <p className="cp-bar-key">
+        <p className="cp-obar-key">
           <span>
             <span className="cp-key cp-key-steward" /> Club Steward
           </span>

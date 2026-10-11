@@ -132,7 +132,8 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
             <h2 className="gc-h2">Every feature, next to the other club software</h2>
             <p className="gc-sub">
               Search, narrow to one app, choose which products to compare, and open any feature to see the note
-              behind each rating and the page it came from.
+              behind each rating and the page it came from. For the rollup by app, see the{" "}
+              <Link href="/golf-club-management-software/fit-gap">fit-gap summary</Link>.
             </p>
           </div>
           <CompareTable apps={APPS} competitors={COMPETITORS} researched={RESEARCHED} />
