@@ -181,3 +181,122 @@ export function appSaving(c: AppChoice): number | null {
   const [cp, cs, fp, fs] = n as number[];
   return cp + cs - (fp + fs);
 }
+
+/**
+ * Costs that belong to no one app: the people, hosting, testing and syncing
+ * that hold today's systems together. Each row has a today and a future
+ * amount. A row counts once either side is typed, and then needs both, for
+ * the same reason a turned-on app needs all four costs: its difference is the
+ * saving. A row left blank on both sides is simply not part of the proposal.
+ */
+export const ESTATE_ROWS = [
+  {
+    key: "team",
+    name: "In-house build and support team",
+    hint: "Salaries and contractors who build, connect and support club systems",
+  },
+  { key: "hosting", name: "Hosting, infrastructure and security", hint: "Servers, cloud, backups and security tools" },
+  { key: "testing", name: "Testing and release", hint: "People and tools that check a change before it goes live" },
+  {
+    key: "integrations",
+    name: "Integrations and data syncing",
+    hint: "Connectors, middleware and the work of keeping systems in step",
+  },
+] as const;
+
+export type EstateKey = (typeof ESTATE_ROWS)[number]["key"];
+export type EstateSide = "today" | "future";
+export type Estate = Record<EstateKey, Record<EstateSide, string>>;
+
+export const emptyEstate = (): Estate =>
+  Object.fromEntries(ESTATE_ROWS.map((r) => [r.key, { today: "", future: "" }])) as Estate;
+
+export const estateFieldId = (key: EstateKey, side: EstateSide) => `estate-${key}-${side}`;
+
+export interface MissingEstate {
+  key: EstateKey;
+  name: string;
+  side: EstateSide;
+}
+
+export function missingEstate(estate: Estate): MissingEstate[] {
+  return ESTATE_ROWS.flatMap((r): MissingEstate[] => {
+    const today = dollars(estate[r.key].today);
+    const future = dollars(estate[r.key].future);
+    if (today === null && future === null) return [];
+    if (today === null) return [{ key: r.key, name: r.name, side: "today" }];
+    if (future === null) return [{ key: r.key, name: r.name, side: "future" }];
+    return [];
+  });
+}
+
+export interface EstateTotals {
+  /** Rows with both sides typed. */
+  counted: number;
+  today: number;
+  future: number;
+}
+
+export function estateTotals(estate: Estate): EstateTotals {
+  const rows = ESTATE_ROWS.map((r) => [dollars(estate[r.key].today), dollars(estate[r.key].future)] as const).filter(
+    ([t, f]) => t !== null && f !== null,
+  ) as [number, number][];
+  return {
+    counted: rows.length,
+    today: rows.reduce((s, [t]) => s + t, 0),
+    future: rows.reduce((s, [, f]) => s + f, 0),
+  };
+}
+
+/** Today's cost of the apps left on their current systems: the part of the future side that is not Club Steward. */
+export function keptCost(apps: AppArea[], choices: Choices): number {
+  return apps
+    .filter((a) => !choices[a.key]?.move)
+    .reduce(
+      (s, a) => s + (dollars(choices[a.key]?.costs.currentPlatform ?? "") ?? 0) + (dollars(choices[a.key]?.costs.currentSupport ?? "") ?? 0),
+      0,
+    );
+}
+
+/**
+ * The what-if levers, all the person's own: how many years to add up, how
+ * much today's systems rise in price each year, and how much higher or lower
+ * the Club Steward costs they typed might land. Nothing here is a Club
+ * Steward price; with the levers at rest the result is exactly what was typed.
+ */
+export interface WhatIf {
+  years: 1 | 3 | 5;
+  /** Yearly rise of today's systems and of anything staying on them, in whole percent. */
+  rise: number;
+  /** Club Steward costs as typed, moved up or down by this whole percent. */
+  adjust: number;
+}
+
+export const WHAT_IF_AT_REST: WhatIf = { years: 1, rise: 0, adjust: 0 };
+
+export interface Outlook {
+  today: number;
+  future: number;
+  /** The part of the future that is Club Steward (turned-on apps, adjusted). */
+  steward: number;
+  /** Positive when the future costs less than today. */
+  saving: number;
+}
+
+/**
+ * Sum the years. Today's systems rise by `rise` each year after the first, on
+ * both sides (an app that stays carries today's price into the future). Club
+ * Steward costs and the estate's future costs are held at what was typed,
+ * with `adjust` applied to Club Steward's.
+ */
+export function outlook(
+  yearly: { today: number; kept: number; steward: number; estateFuture: number },
+  w: WhatIf,
+): Outlook {
+  let growth = 0;
+  for (let y = 0; y < w.years; y++) growth += Math.pow(1 + w.rise / 100, y);
+  const steward = yearly.steward * (1 + w.adjust / 100) * w.years;
+  const today = yearly.today * growth;
+  const future = yearly.kept * growth + steward + yearly.estateFuture * w.years;
+  return { today: Math.round(today), future: Math.round(future), steward: Math.round(steward), saving: Math.round(today - future) };
+}

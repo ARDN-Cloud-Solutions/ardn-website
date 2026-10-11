@@ -1,17 +1,25 @@
 "use client";
 
 import { Fragment, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import { AlertCircle, CheckCircle2, ChevronDown, Printer, RotateCcw } from "lucide-react";
+import { AlertCircle, ChevronDown, Printer, RotateCcw } from "lucide-react";
 import type { AppArea } from "./features";
 import {
   COST_FIELDS,
   EMPTY_COSTS,
+  ESTATE_ROWS,
+  WHAT_IF_AT_REST,
   appSaving,
   coverageOf,
   dollars,
+  emptyEstate,
+  estateFieldId,
+  estateTotals,
   fieldId,
   formatDollars,
+  keptCost,
   missingCosts,
+  missingEstate,
+  outlook,
   startingChoices,
   systemNames,
   totalsOf,
@@ -19,9 +27,17 @@ import {
   type AppChoice,
   type Choices,
   type CostKey,
+  type Estate,
+  type EstateKey,
+  type EstateSide,
   type ProposalPreset,
+  type WhatIf,
 } from "./proposal";
 import { AiMark, CoverageBar } from "./CoverageExplorer";
+import EstateCosts from "./EstateCosts";
+import ProposalOutlook from "./ProposalOutlook";
+import SendProposal from "./SendProposal";
+import { sendSnapshot, snapshotOf, trackFigure, trackProposal, type SentBy } from "./proposalTracking";
 
 /**
  * The proposal as one table, an app to a row. The left side is today: the
@@ -31,8 +47,14 @@ import { AiMark, CoverageBar } from "./CoverageExplorer";
  * Missing costs are named beside the field and in a list above the table,
  * once the person has left a field or asked to check.
  *
- * What the person types is kept in this browser only, so a refresh does not
- * lose it. It is never sent anywhere.
+ * Below the apps, the costs no one app owns (EstateCosts), then the whole
+ * picture over the years the person picks, with their own what-if levers
+ * (ProposalOutlook).
+ *
+ * What the person types is kept in this browser, so a refresh does not lose
+ * it. The figures, never the name, are also counted by ARDN: each one as it is
+ * entered, and the whole proposal when it is printed. Sending it to ARDN adds
+ * the person's name and email. See proposalTracking.ts.
  */
 
 const STORE = "club-steward-proposal-v2";
@@ -40,6 +62,8 @@ const STORE = "club-steward-proposal-v2";
 interface Saved {
   preparedFor: string;
   choices: Choices;
+  estate: Estate;
+  whatIf: WhatIf;
   /**
    * Set once a save keeps only the systems the person changed. Without it the
    * save is older and its systems are the preset's text of the day, so the
@@ -67,7 +91,17 @@ function readSaved(apps: AppArea[], preset?: ProposalPreset): Saved | null {
           systems: saved.editedSystemsOnly && typeof c.systems === "string" ? c.systems : choices[a.key].systems,
         };
     }
-    return { preparedFor: String(saved.preparedFor ?? ""), choices };
+    const estate = emptyEstate();
+    for (const r of ESTATE_ROWS) {
+      const e = saved.estate?.[r.key];
+      if (e) estate[r.key] = { today: String(e.today ?? ""), future: String(e.future ?? "") };
+    }
+    const w = saved.whatIf;
+    const whatIf: WhatIf =
+      w && [1, 3, 5].includes(w.years) && Number.isFinite(w.rise) && Number.isFinite(w.adjust)
+        ? { years: w.years, rise: w.rise, adjust: w.adjust }
+        : WHAT_IF_AT_REST;
+    return { preparedFor: String(saved.preparedFor ?? ""), choices, estate, whatIf };
   } catch {
     // Storage blocked or an old shape: start fresh, which is what an empty store means too.
     return null;
@@ -84,7 +118,13 @@ function writeSaved(saved: Saved, apps: AppArea[], preset?: ProposalPreset) {
   try {
     window.localStorage.setItem(
       storeKey(preset),
-      JSON.stringify({ preparedFor: saved.preparedFor, choices, editedSystemsOnly: true }),
+      JSON.stringify({
+        preparedFor: saved.preparedFor,
+        choices,
+        estate: saved.estate,
+        whatIf: saved.whatIf,
+        editedSystemsOnly: true,
+      }),
     );
   } catch {
     // Storage blocked (private window): the proposal still works, it just won't survive a refresh.
@@ -129,24 +169,105 @@ function ProposalForm({
 }) {
   const [choices, setChoices] = useState<Choices>(() => saved?.choices ?? startingChoices(apps, preset));
   const [preparedFor, setPreparedFor] = useState(saved?.preparedFor ?? preset?.preparedFor ?? "");
+  const [estate, setEstate] = useState<Estate>(() => saved?.estate ?? emptyEstate());
+  const [whatIf, setWhatIf] = useState<WhatIf>(() => saved?.whatIf ?? WHAT_IF_AT_REST);
+  const [printNote, setPrintNote] = useState<string | null>(null);
   const [touched, setTouched] = useState<Set<string>>(new Set());
   const [checked, setChecked] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const summary = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (persist) writeSaved({ preparedFor, choices }, apps, preset);
-  }, [persist, preparedFor, choices, apps, preset]);
+    if (persist) writeSaved({ preparedFor, choices, estate, whatIf }, apps, preset);
+  }, [persist, preparedFor, choices, estate, whatIf, apps, preset]);
 
   const missing = useMemo(() => missingCosts(apps, choices), [apps, choices]);
+  const missingEst = useMemo(() => missingEstate(estate), [estate]);
   const totals = useMemo(() => totalsOf(apps, choices), [apps, choices]);
-  const missingIds = useMemo(() => new Set(missing.map((m) => fieldId(m.app, m.key))), [missing]);
-  const shownErrors = missing.filter((m) => checked || touched.has(fieldId(m.app, m.key)));
-  const complete = totals.moved > 0 && missing.length === 0;
-  // missingCosts asks for all four costs on a turned-on app only; see proposal.ts.
+  const estT = useMemo(() => estateTotals(estate), [estate]);
+  const kept = useMemo(() => keptCost(apps, choices), [apps, choices]);
+  const missingIds = useMemo(
+    () =>
+      new Set([
+        ...missing.map((m) => fieldId(m.app, m.key)),
+        ...missingEst.map((m) => estateFieldId(m.key, m.side)),
+      ]),
+    [missing, missingEst],
+  );
+  const isShown = (id: string) => checked || touched.has(id);
+  const shownErrors = [
+    ...missing.map((m) => ({ id: fieldId(m.app, m.key), text: `${m.appName}: ${m.label}` })),
+    ...missingEst.map((m) => ({
+      id: estateFieldId(m.key, m.side),
+      text: `${m.name}: ${m.side === "today" ? "today" : "after the move"}`,
+    })),
+  ].filter((m) => isShown(m.id));
+  const missingCount = missing.length + missingEst.length;
+  const comparing = totals.moved > 0 || estT.counted > 0;
+  const complete = comparing && missingCount === 0;
+  // missingCosts asks for all four costs on a turned-on app only, and
+  // missingEstate for both sides of a row once one is typed; see proposal.ts.
+  const yearly = {
+    today: totals.current + estT.today,
+    future: totals.future + estT.future,
+  };
+  const result = useMemo(
+    () =>
+      outlook(
+        { today: totals.current + estT.today, kept, steward: totals.future - kept, estateFuture: estT.future },
+        whatIf,
+      ),
+    [totals, estT, kept, whatIf],
+  );
+
+  // The totals are counted once the person pauses, not on every keystroke.
+  useEffect(() => {
+    if (!persist || !complete) return;
+    const t = window.setTimeout(
+      () =>
+        trackProposal("proposal_totals", {
+          today: String(yearly.today),
+          future: String(yearly.future),
+          difference: String(yearly.today - yearly.future),
+          apps_on: String(totals.moved),
+          estate_rows: String(estT.counted),
+        }),
+      2500,
+    );
+    return () => window.clearTimeout(t);
+  }, [persist, complete, yearly.today, yearly.future, totals.moved, estT.counted]);
 
   function setMove(app: string, move: boolean) {
     setChoices((c) => ({ ...c, [app]: { ...c[app], move } }));
+    trackProposal("proposal_app_turned", { app, on: String(move) });
+  }
+
+  function setEstateCost(key: EstateKey, side: EstateSide, value: string) {
+    setEstate((e) => ({ ...e, [key]: { ...e[key], [side]: value.replace(/[^0-9]/g, "") } }));
+  }
+
+  function leaveEstate(key: EstateKey, side: EstateSide) {
+    setTouched((t) => new Set(t).add(estateFieldId(key, side)));
+    trackFigure("estate", `${key}_${side}`, estate[key][side]);
+  }
+
+  function leaveCost(app: string, key: CostKey) {
+    setTouched((t) => new Set(t).add(fieldId(app, key)));
+    trackFigure(app, key, choices[app].costs[key]);
+  }
+
+  const snapshot = () => snapshotOf(apps, choices, estate, whatIf, result, yearly);
+
+  async function sendToArdn(by: SentBy, website: string): Promise<string | null> {
+    if (!check()) return "Some costs are missing; fill them in or clear them, then send.";
+    try {
+      const ok = await sendSnapshot("sent", snapshot(), by, website);
+      if (!ok) return "We could not send the proposal. Please try again, or use Talk to us below.";
+      trackProposal("proposal_sent", { apps_on: String(totals.moved) });
+      return null;
+    } catch {
+      return "We could not reach the server. Check your connection and try again.";
+    }
   }
 
   function setCost(app: string, key: CostKey, value: string) {
@@ -159,7 +280,7 @@ function ProposalForm({
 
   function check() {
     setChecked(true);
-    if (missing.length) {
+    if (missingCount) {
       requestAnimationFrame(() => summary.current?.focus());
       return false;
     }
@@ -167,11 +288,23 @@ function ProposalForm({
   }
 
   function print() {
-    if (check() && totals.moved > 0) window.print();
+    if (!check() || !comparing) return;
+    trackProposal("proposal_printed", { apps_on: String(totals.moved), difference: String(result.saving) });
+    // Sent before the print dialog, which blocks the page; a failure only
+    // means ARDN misses this copy, so the person still gets their print.
+    sendSnapshot("printed", snapshot()).then(
+      (ok) => setPrintNote(ok ? null : "Printed. Your figures did not reach ARDN; use Send it to ARDN if you want a reply."),
+      () => setPrintNote("Printed. Your figures did not reach ARDN; use Send it to ARDN if you want a reply."),
+    );
+    window.print();
   }
 
   function startOver() {
     setChoices(startingChoices(apps, preset));
+    setEstate(emptyEstate());
+    setWhatIf(WHAT_IF_AT_REST);
+    setPrintNote(null);
+    trackProposal("proposal_started_over");
     setPreparedFor(preset?.preparedFor ?? "");
     setTouched(new Set());
     setChecked(false);
@@ -212,10 +345,8 @@ function ProposalForm({
           </p>
           <ul>
             {shownErrors.map((m) => (
-              <li key={fieldId(m.app, m.key)}>
-                <a href={`#${fieldId(m.app, m.key)}`}>
-                  {m.appName}: {m.label}
-                </a>
+              <li key={m.id}>
+                <a href={`#${m.id}`}>{m.text}</a>
               </li>
             ))}
           </ul>
@@ -299,7 +430,7 @@ function ProposalForm({
                         value={typedDollars(choice.costs[key])}
                         placeholder={choice.move ? "Required" : "Optional"}
                         onChange={(e) => setCost(a.key, key, e.target.value)}
-                        onBlur={() => setTouched((t) => new Set(t).add(id))}
+                        onBlur={() => leaveCost(a.key, key)}
                       />
                     </span>
                     {showError && (
@@ -464,7 +595,7 @@ function ProposalForm({
               <td className="cp-ptable-num cp-ptable-future">
                 {formatDollars(totals.future)}
                 <span className="cp-ptable-diff">
-                  {complete ? (
+                  {totals.moved > 0 && missing.length === 0 ? (
                     <b className={totals.saving < 0 ? "cp-more" : "cp-less"}>
                       {totals.saving < 0 ? "+" : "−"}
                       {formatDollars(Math.abs(totals.saving))} a year
@@ -477,25 +608,15 @@ function ProposalForm({
             </tr>
             <tr className="cp-ptable-verdict">
               <td colSpan={9}>
-                {complete ? (
-                  <p className={`cp-verdict${totals.saving < 0 ? " cp-saving-more" : ""}`}>
-                    <CheckCircle2 size={16} aria-hidden="true" />
-                    {totals.saving >= 0 ? "Saved each year: " : "Added each year: "}
-                    <b>{formatDollars(Math.abs(totals.saving))}</b>
-                    <span className="cp-muted">
-                      {" "}
-                      ({formatDollars(Math.abs(totals.saving) * 3)} over three years)
-                    </span>
-                  </p>
-                ) : totals.moved > 0 ? (
+                {totals.moved > 0 && missing.length > 0 ? (
                   <p className="cp-incomplete">
                     <AlertCircle size={15} aria-hidden="true" /> {missing.length}{" "}
                     {missing.length === 1 ? "cost is" : "costs are"} missing. The difference shows once every cost is
                     in.
                   </p>
-                ) : (
+                ) : totals.moved === 0 ? (
                   <p className="cp-muted">Turn on an app in Club Steward to see the difference.</p>
-                )}
+                ) : null}
                 {totals.keptBlank > 0 && (
                   <p className="cp-muted cp-ptable-note">
                     {totals.keptBlank} {totals.keptBlank === 1 ? "app staying on its" : "apps staying on their"} current
@@ -509,8 +630,52 @@ function ProposalForm({
         </table>
       </div>
 
+      <h3 className="cp-builder-sub">Costs no one app owns</h3>
+      <p className="cp-muted cp-builder-hint">
+        The people, hosting, testing and syncing that hold today&apos;s systems together. Enter a row on both sides, or
+        leave it blank to keep it out.
+      </p>
+      <EstateCosts
+        estate={estate}
+        missingIds={missingIds}
+        shown={isShown}
+        onChange={setEstateCost}
+        onLeave={leaveEstate}
+      />
+
+      <ProposalOutlook
+        result={result}
+        whatIf={whatIf}
+        ready={complete}
+        onChange={setWhatIf}
+        onSettle={(w) =>
+          trackProposal("proposal_what_if", { years: String(w.years), rise: String(w.rise), adjust: String(w.adjust) })
+        }
+      />
+
+      <div className="cp-live no-print" aria-hidden="true">
+        <span>
+          Today <b>{formatDollars(yearly.today)}</b>
+        </span>
+        <span>
+          Club Steward <b>{formatDollars(yearly.future)}</b>
+        </span>
+        <span>
+          {complete ? (
+            <b className={yearly.today - yearly.future < 0 ? "cp-more" : "cp-less"}>
+              {yearly.today - yearly.future < 0 ? "Adds " : "Saves "}
+              {formatDollars(Math.abs(yearly.today - yearly.future))} a year
+            </b>
+          ) : comparing ? (
+            `${missingCount} missing`
+          ) : (
+            "Turn on an app to compare"
+          )}
+        </span>
+      </div>
+
       <div className="cp-actions no-print">
-        <button type="button" className="gc-btn gc-btn-gold" onClick={print} disabled={totals.moved === 0}>
+        <button type="button" className="gc-btn gc-btn-gold" onClick={print} disabled={!comparing}>
           <Printer size={16} aria-hidden="true" /> Print or save as PDF
         </button>
         <button type="button" className="cp-link-btn" onClick={() => check()}>
@@ -519,6 +684,14 @@ function ProposalForm({
         <button type="button" className="cp-link-btn" onClick={startOver}>
           <RotateCcw size={14} aria-hidden="true" /> Start over
         </button>
+      </div>
+      {printNote && (
+        <p className="cp-muted no-print" role="status">
+          {printNote}
+        </p>
+      )}
+      <div className="cp-send-wrap no-print">
+        <SendProposal preparedFor={preparedFor} send={sendToArdn} />
       </div>
     </div>
   );

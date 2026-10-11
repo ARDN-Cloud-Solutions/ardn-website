@@ -1653,3 +1653,421 @@ main.cp .container {
     grid-template-columns: 96px minmax(0, 1fr) 220px;
   }
 }
+
+/* ---------------- costs no one app owns ---------------- */
+
+.cp .cp-builder-sub {
+  margin: 36px 0 6px;
+  font-size: 20px;
+  color: var(--navy);
+}
+
+.cp .cp-estate .cp-ptable {
+  min-width: 720px;
+}
+
+.cp .cp-estate-name {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ---------------- the whole picture ---------------- */
+
+.cp .cp-outlook {
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--cp-radius);
+  box-shadow: 0 10px 30px rgba(15, 32, 108, 0.06);
+}
+
+.cp .cp-outlook-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cp .cp-outlook-title {
+  margin: 0;
+  font-size: 20px;
+  color: var(--navy);
+}
+
+.cp .cp-years {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+}
+
+.cp .cp-year {
+  border: none;
+  background: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate);
+  cursor: pointer;
+}
+
+.cp .cp-year-on {
+  background: var(--navy);
+  color: #fff;
+}
+
+.cp .cp-year:focus-visible,
+.cp .cp-lever input:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
+}
+
+.cp .cp-bars {
+  display: grid;
+  gap: 10px;
+}
+
+.cp .cp-bar-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 130px;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.cp .cp-bar-row b {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--navy);
+}
+
+.cp .cp-bar-track {
+  display: flex;
+  height: 18px;
+  background: var(--canvas);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cp .cp-bar {
+  height: 100%;
+  transition: width 0.35s ease;
+}
+
+.cp .cp-bar-today {
+  background: var(--slate-2);
+}
+
+.cp .cp-bar-steward {
+  background: var(--turf);
+}
+
+.cp .cp-bar-kept {
+  background: var(--gold-soft);
+}
+
+.cp .cp-bar-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--slate);
+}
+
+.cp .cp-key {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 3px;
+  vertical-align: -1px;
+}
+
+.cp .cp-key-steward {
+  background: var(--turf);
+}
+
+.cp .cp-key-kept {
+  background: var(--gold-soft);
+}
+
+.cp .cp-outlook-verdict {
+  margin: 16px 0 0;
+}
+
+.cp .cp-levers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.cp .cp-lever {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cp .cp-lever output {
+  font-variant-numeric: tabular-nums;
+  color: var(--turf-deep);
+}
+
+.cp .cp-lever input[type="range"] {
+  width: 100%;
+  accent-color: var(--turf);
+}
+
+.cp .cp-lever-note {
+  font-size: 13px;
+}
+
+/* A running total that stays in view while the person types in the tables. */
+.cp .cp-live {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 22px;
+  margin: 18px auto 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #fff;
+  background: var(--navy);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(5, 11, 22, 0.25);
+}
+
+.cp .cp-live b {
+  font-variant-numeric: tabular-nums;
+}
+
+.cp .cp-live .cp-less {
+  color: var(--gold-soft);
+}
+
+.cp .cp-live .cp-more {
+  color: #ffc9b8;
+}
+
+/* ---------------- send it to ARDN ---------------- */
+
+.cp .cp-send-wrap {
+  margin-top: 18px;
+}
+
+.cp .cp-send {
+  display: grid;
+  gap: 14px;
+  max-width: 640px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--cp-radius);
+  background: var(--paper);
+}
+
+.cp .cp-send-lede {
+  margin: 0;
+  font-size: 15px;
+}
+
+.cp .cp-send-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cp .cp-send .cp-actions {
+  margin-top: 0;
+}
+
+.cp .cp-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------------- four ways to run club software ---------------- */
+
+.cp .cp-ways {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+}
+
+.cp .cp-ways th,
+.cp .cp-ways td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.cp .cp-ways thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--line-2);
+}
+
+.cp .cp-ways tbody th {
+  width: 18%;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.cp .cp-ways-name {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.cp .cp-ways-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--slate);
+}
+
+.cp .cp-ways .cp-ways-us {
+  background: rgba(15, 152, 112, 0.07);
+}
+
+.cp .cp-ways thead .cp-ways-us {
+  border-top: 3px solid var(--turf);
+  border-radius: 10px 10px 0 0;
+}
+
+.cp .cp-ways-mark {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 6px;
+  color: var(--turf);
+}
+
+.cp .cp-ways-mark-off {
+  color: var(--slate-2);
+}
+
+/* ---------------- how it is built ---------------- */
+
+.cp .cp-eras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.cp .cp-era {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--cp-radius);
+  background: var(--paper);
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.cp .cp-era b {
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.cp .cp-era-now {
+  border-color: var(--turf);
+  box-shadow: 0 0 0 1px var(--turf);
+}
+
+.cp .cp-era-now b {
+  color: var(--turf-deep);
+}
+
+.cp .cp-kept {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cp .cp-kept h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.cp .cp-kept p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+@media (max-width: 1040px) {
+  .cp .cp-kept {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .cp .cp-eras,
+  .cp .cp-kept,
+  .cp .cp-levers,
+  .cp .cp-send-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cp .cp-bar-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .cp .cp-bar-track {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .cp .cp-outlook {
+    padding: 18px;
+  }
+}
+
+@media print {
+  .cp #why-managed,
+  .cp #how-built,
+  .cp .cp-levers,
+  .cp .cp-years,
+  .cp .cp-live {
+    display: none !important;
+  }
+
+  .cp .cp-outlook {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .cp .cp-bar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
