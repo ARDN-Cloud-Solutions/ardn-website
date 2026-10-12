@@ -1,0 +1,1451 @@
+{
+ "slug": "invited-clubs",
+ "client": "Invited Clubs",
+ "product": "Club Steward",
+ "status": "live",
+ "access": {
+  "domains": [
+   "invitedclubs.com"
+  ],
+  "emails": []
+ },
+ "hero": {
+  "eyebrow": "A proposal for Invited Clubs",
+  "headline": "One platform. Every club.",
+  "intro": "Club Steward replaces the patchwork of systems behind your members, one phase at a time. Salesforce stays until its contract ends."
+ },
+ "stats": [
+  {
+   "value": "87%",
+   "label": "of your 86 capabilities are covered today or by configuration"
+  },
+  {
+   "value": "20+",
+   "label": "systems retired or folded into one member record"
+  },
+  {
+   "value": "",
+   "label": ""
+  }
+ ],
+ "sections": {
+  "aiFirst": true,
+  "whyArdn": true,
+  "aiSupport": true
+ },
+ "videos": [
+  "V04",
+  "V03",
+  "V08",
+  "V19",
+  "V22",
+  "V16"
+ ],
+ "systems": [
+  {
+   "id": "docusign",
+   "name": "DocuSign",
+   "does": "E-signature for membership and vendor agreements",
+   "group": "Contracts",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 675000,
+   "start": 2027,
+   "why": "P1 · months 2–6"
+  },
+  {
+   "id": "calendly",
+   "name": "Calendly",
+   "does": "Tour scheduling from web leads",
+   "group": "Sales and marketing",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 48000,
+   "start": 2027,
+   "why": "P1 · months 2–6"
+  },
+  {
+   "id": "prospectpro",
+   "name": "ProspectPro",
+   "does": "Enrollment, add-ons, member number, autopay",
+   "group": "Member records",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 128000,
+   "start": 2027,
+   "why": "P1 · months 2–6"
+  },
+  {
+   "id": "optimizely",
+   "name": "Optimizely",
+   "does": "Website content and testing",
+   "group": "Sales and marketing",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "web",
+   "estimate": 192000,
+   "start": 2027,
+   "why": "P1 · months 2–6"
+  },
+  {
+   "id": "club360",
+   "name": "Club360",
+   "does": "Member engagement, profiles and insights",
+   "group": "Member engagement",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 244800,
+   "start": 2028,
+   "why": "P2 · months 6–12"
+  },
+  {
+   "id": "clubconnect",
+   "name": "Club Connect",
+   "does": "Member texting",
+   "group": "Member communications",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "web",
+   "estimate": 490000,
+   "start": 2028,
+   "why": "P2 · months 6–12"
+  },
+  {
+   "id": "unifocus",
+   "name": "UniFocus",
+   "does": "Surveys and resignation feedback",
+   "group": "Member engagement",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 163200,
+   "start": 2028,
+   "why": "P2 · months 6–12"
+  },
+  {
+   "id": "memberpride",
+   "name": "MemberPride",
+   "does": "Member record, categories, household, billing inputs",
+   "group": "Member records",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 192000,
+   "start": 2029,
+   "why": "P3 · months 12–20"
+  },
+  {
+   "id": "ebs",
+   "name": "Oracle EBS member billing",
+   "does": "Dues, fixed charges, minimums. Oracle stays the ledger",
+   "group": "Member billing",
+   "kind": "Licensed",
+   "prop": "sunset",
+   "module": "billing",
+   "estimate": 0,
+   "start": 2029,
+   "why": "P3 · months 12–20"
+  },
+  {
+   "id": "magic",
+   "name": "MAGIC",
+   "does": "Initiation-fee financing and amortization",
+   "group": "Member billing",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "billing",
+   "estimate": 3400,
+   "start": 2029,
+   "why": "P3, once financing is built"
+  },
+  {
+   "id": "lanvera",
+   "name": "Lanvera",
+   "does": "Statement printing file",
+   "group": "Member billing",
+   "kind": "Vendor",
+   "prop": "sunset",
+   "module": "billing",
+   "estimate": 10200,
+   "start": 2029,
+   "why": "P3 · months 12–20"
+  },
+  {
+   "id": "ccr",
+   "name": "CCR Portal",
+   "does": "Initiation-fee refunds",
+   "group": "Member billing",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "billing",
+   "estimate": 3400,
+   "start": 2029,
+   "why": "P3 · months 12–20"
+  },
+  {
+   "id": "teetimes",
+   "name": "Tee Times Application",
+   "does": "Tee sheet, golfer booking, network tee times",
+   "group": "Golf",
+   "kind": "Homegrown",
+   "prop": "sunset",
+   "module": "golf",
+   "estimate": 504000,
+   "start": 2030,
+   "why": "P4 · months 16–26"
+  },
+  {
+   "id": "courtreserve",
+   "name": "CourtReserve",
+   "does": "Courts, classes, fitness and aquatics",
+   "group": "Courts, classes and amenities",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "amenity",
+   "estimate": 139680,
+   "start": 2030,
+   "why": "P4 · months 16–26"
+  },
+  {
+   "id": "membersfirst",
+   "name": "MembersFirst",
+   "does": "Member portal, club events, reservations",
+   "group": "Courts, classes and amenities",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "amenity",
+   "estimate": 93120,
+   "start": 2030,
+   "why": "P4 · months 16–26"
+  },
+  {
+   "id": "caterpro",
+   "name": "CaterPro",
+   "does": "Catering sales and private events",
+   "group": "Private events",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "events",
+   "estimate": 191520,
+   "start": 2030,
+   "why": "P4 · months 16–26"
+  },
+  {
+   "id": "allseated",
+   "name": "AllSeated",
+   "does": "Event floor plans and seating",
+   "group": "Private events",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "events",
+   "estimate": 82080,
+   "start": 2030,
+   "why": "P4 · months 16–26"
+  },
+  {
+   "id": "glf",
+   "name": "GLF",
+   "does": "Golf instruction booking",
+   "group": "Golf",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "golf",
+   "estimate": 216000,
+   "start": 2030,
+   "why": "P4 · months 16–26"
+  },
+  {
+   "id": "salesforce",
+   "name": "Salesforce Sales Cloud",
+   "does": "Membership sales pipeline",
+   "group": "Sales and marketing",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "core",
+   "estimate": 720000,
+   "start": 2029,
+   "why": "P5, at contract renewal"
+  },
+  {
+   "id": "pardot",
+   "name": "Pardot (Account Engagement)",
+   "does": "Email marketing and newsletters",
+   "group": "Member communications",
+   "kind": "SaaS",
+   "prop": "sunset",
+   "module": "web",
+   "estimate": 490000,
+   "start": 2029,
+   "why": "P5, at contract renewal"
+  },
+  {
+   "id": "micros",
+   "name": "Oracle Micros",
+   "does": "F&B point of sale and member charging",
+   "group": "Dining and POS",
+   "kind": "Licensed",
+   "prop": "keep",
+   "module": "",
+   "estimate": 480000,
+   "start": 2031,
+   "why": "Optional in P6, pilot clubs first, after card-present payments ship"
+  },
+  {
+   "id": "bre",
+   "name": "Benefits Rules Engine",
+   "does": "XLife and reciprocal benefit rules",
+   "group": "Member records",
+   "kind": "Homegrown",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2030,
+   "why": "Integrate first; replace once rules match"
+  },
+  {
+   "id": "quikserve",
+   "name": "QuikServe",
+   "does": "F&B online ordering",
+   "group": "Dining and POS",
+   "kind": "SaaS",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2031,
+   "why": "Online ordering not built yet"
+  },
+  {
+   "id": "dialpad",
+   "name": "DialPad",
+   "does": "Calls and texts with prospects",
+   "group": "Sales and marketing",
+   "kind": "SaaS",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2029,
+   "why": "Stays, integrated"
+  },
+  {
+   "id": "aidentified",
+   "name": "Aidentified",
+   "does": "Purchased prospect leads",
+   "group": "Sales and marketing",
+   "kind": "SaaS",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2029,
+   "why": "Stays, integrated"
+  },
+  {
+   "id": "golfgenius",
+   "name": "Golf Genius",
+   "does": "Tournament pairings and scoring",
+   "group": "Golf",
+   "kind": "SaaS",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2030,
+   "why": "Stays, integrated"
+  },
+  {
+   "id": "pace",
+   "name": "PACE",
+   "does": "Golf cart GPS tracking",
+   "group": "Golf",
+   "kind": "SaaS",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2030,
+   "why": "Stays, integrated"
+  },
+  {
+   "id": "technogym",
+   "name": "TechnoGym",
+   "does": "Fitness equipment and programs",
+   "group": "Courts, classes and amenities",
+   "kind": "Vendor",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2030,
+   "why": "Stays as equipment integration"
+  },
+  {
+   "id": "turf",
+   "name": "Turf Assistant",
+   "does": "Agronomy",
+   "group": "Other",
+   "kind": "SaaS",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2031,
+   "why": "Outside Club Steward scope"
+  },
+  {
+   "id": "opera",
+   "name": "Opera",
+   "does": "Hotel room reservations",
+   "group": "Other",
+   "kind": "Licensed",
+   "prop": "keep",
+   "module": "",
+   "estimate": 0,
+   "start": 2031,
+   "why": "Outside Club Steward scope"
+  }
+ ],
+ "phases": [
+  {
+   "when": "Months 0–3",
+   "title": "Pilot, 10 clubs",
+   "body": "Single sign-on, Power BI feed and Salesforce sync, then 10 clubs live on Club Steward measured against agreed numbers.",
+   "retires": ""
+  },
+  {
+   "when": "Months 3–6",
+   "title": "Quick wins",
+   "body": "DocuSign, Calendly, ProspectPro and Optimizely retire.",
+   "retires": "DocuSign, Calendly, ProspectPro, Optimizely"
+  },
+  {
+   "when": "Months 6–20",
+   "title": "Members and billing",
+   "body": "Staff work from one member record, then billing moves and MemberPride retires.",
+   "retires": "Club360, Club Connect, Reltio, MemberPride, EBS member billing, MAGIC, Lanvera, CCR Portal"
+  },
+  {
+   "when": "Months 16–26",
+   "title": "Golf, courts, events",
+   "body": "Tee sheet, classes, courts and private events join the same record.",
+   "retires": "Tee Times app, CourtReserve, MembersFirst, CaterPro, AllSeated, GLF"
+  },
+  {
+   "when": "At renewal",
+   "title": "Salesforce exits",
+   "body": "The sales pipeline moves when the contract ends. No wasted licenses.",
+   "retires": "Salesforce Sales Cloud, Pardot"
+  }
+ ],
+ "modules": [
+  {
+   "key": "core",
+   "name": "Core: members, sales, contracts, reports",
+   "core": true
+  },
+  {
+   "key": "web",
+   "name": "Marketing and websites",
+   "core": false
+  },
+  {
+   "key": "billing",
+   "name": "Billing and books",
+   "core": false
+  },
+  {
+   "key": "golf",
+   "name": "Golf and pro shop",
+   "core": false
+  },
+  {
+   "key": "amenity",
+   "name": "Courts, classes and amenities",
+   "core": false
+  },
+  {
+   "key": "events",
+   "name": "Events and catering",
+   "core": false
+  },
+  {
+   "key": "pos",
+   "name": "Dining and POS",
+   "core": false
+  }
+ ],
+ "pricing": {
+  "corePerLocation": 300,
+  "addonPerLocation": 100,
+  "locations": 150,
+  "locationLabel": "club",
+  "implementation": 0,
+  "supportMonthly": 25000,
+  "rampYear1": 0.15,
+  "rampYear2": 0.6,
+  "staffFreed": 692016
+ },
+ "gaps": [
+  {
+   "gap": "Membership transfer (sale)",
+   "how": "Build the transfer workflow with accounting entries.",
+   "phase": "P3"
+  },
+  {
+   "gap": "Financed initiation fees",
+   "how": "Build financing and amortization; MAGIC stays integrated until then.",
+   "phase": "P3"
+  },
+  {
+   "gap": "Multiple dues types",
+   "how": "Add society, benefit-program and XLife dues rolling into one bill.",
+   "phase": "P3"
+  },
+  {
+   "gap": "Oracle GL interface",
+   "how": "Post club activity to Oracle Fusion; Finance signs off before cutover.",
+   "phase": "P3"
+  },
+  {
+   "gap": "Court and instructor resource booking",
+   "how": "Finish booking a person and a court or bay together.",
+   "phase": "P4"
+  },
+  {
+   "gap": "Benefits Rules Engine parity",
+   "how": "Integrate BRE first; replace only after rules match.",
+   "phase": "P4"
+  },
+  {
+   "gap": "F&B online ordering, card-present POS",
+   "how": "Keep QuikServe and Micros until both ship.",
+   "phase": "P6"
+  }
+ ],
+ "fitRows": [
+  {
+   "area": "Membership Management",
+   "capability": "Leads and prospecting",
+   "current": "Salesforce (Prospecting and sales workflow) · DialPad (Text & Voice communications with Prospects) · ProspectPro (enrollment tool - Product, Member #, IF collection & Autopay (CardX)) · Digital Leads (webforms & Calendly Scheduler) · Aidentified Purchased Leads · Manual Leads (Inperson)",
+   "feature": "Membership Sales: Leads, Pipeline with claim pool, Web Forms, Tours, Guest Leads",
+   "status": "fit",
+   "note": "Lead capture and tours (Calendly) move in P1 and sync to Salesforce; the pipeline itself leaves Salesforce in P5. DialPad and Aidentified stay as integrations.",
+   "phase": "P5 Salesforce & Pardot exit",
+   "video": "V01"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Product Catalog",
+   "current": "MemberPride (Membership Category/add-ons and billing for both · ProspectPro (Selection of category/add-ons",
+   "feature": "Plans: Plan Wizard, add-ons, versions, discount variants",
+   "status": "partial",
+   "note": "Corporate membership maintenance and MemberPride type-code crosswalk needed; EBS catalog feed until P3.",
+   "phase": "P1 SaaS quick wins",
+   "video": "V03"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Membership sales",
+   "current": "ProspectPro",
+   "feature": "Opportunity: Membership Builder, Online Joining, Payment Is Next",
+   "status": "fit",
+   "note": "Financed initiation fees stay in MAGIC until P3.",
+   "phase": "P1 SaaS quick wins",
+   "video": "V03"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Applications and approvals",
+   "current": "MemberPride · Docusign",
+   "feature": "Applications queue, Approvals routing, Contracts (e-signature)",
+   "status": "fit",
+   "note": "Built-in e-signature with audit trail replaces DocuSign for membership.",
+   "phase": "P1 SaaS quick wins",
+   "video": "V04"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Changes to Membership Agreements",
+   "current": "DocuSign · MemberPride · ProspectPro (Initiation Fee - Where applicable)",
+   "feature": "Change Membership with proration, Plan Change Is Signed First, Joining Fee Difference",
+   "status": "fit",
+   "note": "Joining-fee card charge not yet tested end to end per capability doc.",
+   "phase": "P1 SaaS quick wins",
+   "video": "V04"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Resignation Documentation",
+   "current": "UniFocus · PowerBI",
+   "feature": "Cancel Membership with reasons, Retention lists, Form Builder exit survey",
+   "status": "partial",
+   "note": "Exit survey rebuilt in Form Builder; data flows to Azure for Power BI.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V09"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Member onboarding",
+   "current": "MemberPride - Member record, billing, category of membership · Club360 - (Engagements tracking) · Club Connect (Text) · Account Engagement (Pardot - email)",
+   "feature": "Onboarding (auto-start, day 2/5/10 reminders), Workflows, email and text",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V07"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Membership changes - Upgrades/downgrades - Reinstatements/Resignations - Relocations",
+   "current": "MemberPride",
+   "feature": "Change Membership, Hold and Resume, Cancel, Membership Change Record",
+   "status": "partial",
+   "note": "Reinstatement and multi-club relocation need configuration (relocation = new enrollment today).",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V09"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Resignations approvals",
+   "current": "MemberPride",
+   "feature": "Approvals, Scheduled Change on Draft Day",
+   "status": "fit",
+   "note": "Replaces the manual calendar reminder with a future-dated change.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V09"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Membership Transfer (Sell)",
+   "current": "MemberPride - Membership accounting and Legal",
+   "feature": "Not in Club Steward",
+   "status": "gap",
+   "note": "Membership transfer/sale between members is not built.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": ""
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Household management includes family members with membership benefits",
+   "current": "MemberPride",
+   "feature": "Households: roster, who pays, schedule overrides, shared benefits",
+   "status": "partial",
+   "note": "Per-person charging privileges need building.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V10"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Member profiles",
+   "current": "MemberPride - Manage account including interests and preferences · Club360 customer profile dashboard - View",
+   "feature": "Member Record (20+ tabs), Preferences, Contact Record",
+   "status": "fit",
+   "note": "Business/company fields via custom fields (planned) or standard fields.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V08"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "XLife and network benefits",
+   "current": "Benefits Rules Engine (BRE) MemberPride · Tee Times Application · Mobile App",
+   "feature": "Benefits, Markets, Network Clubs, Nearby Tee Times",
+   "status": "partial",
+   "note": "BRE parity not proven; integrate BRE first, replace later.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V11"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Membership committees and ambassador programs",
+   "current": "MemberPride · Club360 · Outlook/Teams",
+   "feature": "Workflows, My Tasks, custom fields (planned)",
+   "status": "partial",
+   "note": "No dedicated committee module; configured with workflows and fields.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V08"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Referrals and Sponsorship information",
+   "current": "MemberPride · Club360",
+   "feature": "Lead sources, Member Record relationships",
+   "status": "partial",
+   "note": "Sponsor-to-member link and dates need configuration.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V08"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Comments/Notes",
+   "current": "MemberPride",
+   "feature": "Timeline Tab, Highlights and Alerts Strip, Field History",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V08"
+  },
+  {
+   "area": "Membership Management",
+   "capability": "Dynamic Search",
+   "current": "MemberPride",
+   "feature": "Plain-English Search, Saved Views, Report Builder",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V12"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Fixed Charges",
+   "current": "Oracle EBS",
+   "feature": "Plans Add-Ons, recurring charges",
+   "status": "partial",
+   "note": "Wine locker and cart plans modeled as add-ons; EBS until P3.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V17"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Dues billing",
+   "current": "Oracle EBS · MemberPride inputs",
+   "feature": "Billing: Club Dues Run, reminders, retries",
+   "status": "partial",
+   "note": "Multiple dues types (society, benefit-program, XLife) not built; Ardn estimate about 1 day.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V17"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Initiation fees",
+   "current": "MAGIC (Financing and amortization) · Oracle EBS (Billing) · CCR Portal target (Refunds)",
+   "feature": "Plans initiation, Books deferred initiation, refundable deposits",
+   "status": "gap",
+   "note": "Financing and amortization (MAGIC) not built. Books is built but not yet tested end to end.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V17"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Minimum spend programs",
+   "current": "Oracle EBS · Oracle AR · Power BI reporting",
+   "feature": "House Accounts: Food and Beverage Minimums",
+   "status": "partial",
+   "note": "Books not yet tested end to end.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V18"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Credits and adjustments (MAC)",
+   "current": "Oracle AR · Oracle EBS",
+   "feature": "Wallet, House Account credit/adjust/write-off with approval",
+   "status": "fit",
+   "note": "Books not yet tested end to end.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V18"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Statements",
+   "current": "Oracle AR · member portal/website · Lanvera file",
+   "feature": "House Accounts statement run, portal house account (in build)",
+   "status": "partial",
+   "note": "Portal house-account view is in build.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V17"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Collections",
+   "current": "Oracle AR · Finance processes · Power BI reporting",
+   "feature": "Collections ladder, credit hold auto-lift",
+   "status": "fit",
+   "note": "Charging-privilege flag maps to credit hold. Books not yet tested end to end.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V18"
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "Accounts receivable",
+   "current": "Oracle AR · Oracle Fusion integration",
+   "feature": "House Accounts sub-ledger",
+   "status": "integrate",
+   "note": "Oracle AR/Fusion stays corporate system of record; Club Steward feeds it.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": ""
+  },
+  {
+   "area": "Billing & Revenue Management",
+   "capability": "GL posting and reconciliation",
+   "current": "Oracle GL · Oracle EBS · Oracle AR · Power BI",
+   "feature": "Books feeds",
+   "status": "integrate",
+   "note": "Oracle Fusion GL stays. GL interface must be built.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": ""
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Goal and engagement tracking",
+   "current": "Club360 · Power BI links",
+   "feature": "Retention, Member Health scoring, Value and Usage tab",
+   "status": "partial",
+   "note": "Goal tracking needs configuration.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V13"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "New member journeys",
+   "current": "Club360 · Club Connect · Pardot - Email · Member Experience processes",
+   "feature": "Onboarding, Workflows; Journeys engine (planned)",
+   "status": "partial",
+   "note": "Full journey builder is in the planned Marketing Engine.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V07"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Member communications",
+   "current": "Club Connect · Outlook · Club360 notifications",
+   "feature": "Email campaigns, texts per club, push notifications",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V14"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Campaign management",
+   "current": "Club Connect · Salesforce/Pardot · Club360",
+   "feature": "Campaigns, Lists, Forms; Marketing Engine (planned)",
+   "status": "partial",
+   "note": "Pardot retirement gated on Marketing Engine delivery.",
+   "phase": "P5 Salesforce & Pardot exit",
+   "video": "V14"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Email and text messaging",
+   "current": "Club Connect · Outlook · Club360",
+   "feature": "Notifications outbox: email and text",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V14"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Club360 member insights",
+   "current": "Club360 · Power BI dashboards",
+   "feature": "Reports, Dashboards, Member Health",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Member satisfaction programs",
+   "current": "OSAT / survey data · Power BI · Club360 / Member Experience processes",
+   "feature": "Case ratings, Form Builder surveys",
+   "status": "partial",
+   "note": "OSAT calculation must be rebuilt in Reports.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V15"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Member notes and history",
+   "current": "Club360 · MemberPride",
+   "feature": "Timeline Tab, Field History",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V08"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Events & Reservations",
+   "current": "MembersFirst · Mobile App",
+   "feature": "Club Events, portal bookings, dining reservations (in build)",
+   "status": "partial",
+   "note": "Dining reservations in the portal are in build.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V21"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Events ",
+   "current": "CaterPro & AllSeated",
+   "feature": "Private Events: Functions and Holds, Layout Tab, Banquet Event Order",
+   "status": "fit",
+   "note": "Capability doc lists BEO as built; the Sept 29 call described events as intake only. Verify before recording.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V22"
+  },
+  {
+   "area": "Member Experience & Engagement",
+   "capability": "Event Charges",
+   "current": "Oracle Micros",
+   "feature": "Event Close-Out, Staff Phone Charges",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V23"
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Tee time management",
+   "current": "Tee Times Application · golf systems vary by club",
+   "feature": "Tee Sheet, Tee Rules, Tee Pricing, Golfer App",
+   "status": "fit",
+   "note": "Blocking tee times for aeration/frost is planned.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V19"
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Tournaments",
+   "current": "Golf Genius where used · Tee Times Application · CaterPro",
+   "feature": "Not in Club Steward",
+   "status": "integrate",
+   "note": "No tournament pairings or scoring; integrate Golf Genius.",
+   "phase": "P4 Golf, amenities & events",
+   "video": ""
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Golf instruction",
+   "current": "Tee Times Application · GLF · Micros",
+   "feature": "Appointment Types, 1:1 sessions, trainer schedules",
+   "status": "partial",
+   "note": "Instructor plus range/court resource booking about 50% built.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Handicap integration",
+   "current": "Golf systems vary by club · external handicap systems where applicable",
+   "feature": "Not in Club Steward",
+   "status": "integrate",
+   "note": "Integrate the external handicap service.",
+   "phase": "P4 Golf, amenities & events",
+   "video": ""
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Member play tracking",
+   "current": "Tee Times Application · POS/golf systems · Power BI reporting",
+   "feature": "Golf Performance, Benefit Draw-Down",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V19"
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Golf events",
+   "current": "Tee Times Application · Golf Genius where used · club event tools",
+   "feature": "Club Events, Courses Closures and Outings",
+   "status": "partial",
+   "note": "Outing/shotgun blocking is planned.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V21"
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Cart management",
+   "current": "PACE Trackers",
+   "feature": "Carts: fleet, staging, depreciation",
+   "status": "integrate",
+   "note": "No GPS or geofencing; keep PACE and integrate.",
+   "phase": "P4 Golf, amenities & events",
+   "video": ""
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Inventory",
+   "current": "Oracle Micros, Inventory Submission App, Checkbook",
+   "feature": "Pro shop inventory, Banquet Kitchen POs, Recipes and Costing",
+   "status": "partial",
+   "note": "Micros-linked inventory flow retained until P6.",
+   "phase": "P6 POS & F&B",
+   "video": "V25"
+  },
+  {
+   "area": "Golf Operations",
+   "capability": "Agronomy",
+   "current": "Turf Assistant",
+   "feature": "Not in Club Steward",
+   "status": "out",
+   "note": "Turf Assistant stays.",
+   "phase": "Not migrated",
+   "video": ""
+  },
+  {
+   "area": "Dining & Food & Beverage",
+   "capability": "Dining reservations",
+   "current": "Dining tools vary by club - Members First",
+   "feature": "Reserve a Table (in build), Host Stand",
+   "status": "partial",
+   "note": "Portal table reservations in build.",
+   "phase": "P6 POS & F&B",
+   "video": "V24"
+  },
+  {
+   "area": "Dining & Food & Beverage",
+   "capability": "Table management",
+   "current": "Oracle Micros",
+   "feature": "Dining Floor and Host Stand",
+   "status": "fit",
+   "note": "",
+   "phase": "P6 POS & F&B",
+   "video": "V24"
+  },
+  {
+   "area": "Dining & Food & Beverage",
+   "capability": "F&B POS",
+   "current": "Oracle Micros",
+   "feature": "Register: checks, kitchen board, pay",
+   "status": "partial",
+   "note": "Card-present terminal / Tap to Pay and 8 other rows are planned.",
+   "phase": "P6 POS & F&B",
+   "video": "V24"
+  },
+  {
+   "area": "Dining & Food & Beverage",
+   "capability": "Member charging",
+   "current": "Oracle Micros · Oracle AR",
+   "feature": "Register: House Account charging",
+   "status": "fit",
+   "note": "",
+   "phase": "P6 POS & F&B",
+   "video": "V24"
+  },
+  {
+   "area": "Dining & Food & Beverage",
+   "capability": "Online ordering",
+   "current": "Qick Serve · Oracle Micros",
+   "feature": "Not in Club Steward",
+   "status": "gap",
+   "note": "F&B online ordering not built; keep QuikServe integrated.",
+   "phase": "P6 POS & F&B",
+   "video": ""
+  },
+  {
+   "area": "Dining & Food & Beverage",
+   "capability": "Spend tracking and analytics",
+   "current": "Oracle Micros · Oracle AR/EBS · Power BI",
+   "feature": "Register Manager Reports, Reports",
+   "status": "fit",
+   "note": "",
+   "phase": "P6 POS & F&B",
+   "video": "V16"
+  },
+  {
+   "area": "Recreation & Amenity Management",
+   "capability": "Racquet sports",
+   "current": "CourtReserve",
+   "feature": "Club facilities, Classes, Programs",
+   "status": "partial",
+   "note": "Court resource booking (1 of 36 courts) about 50% built.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Recreation & Amenity Management",
+   "capability": "Fitness programs",
+   "current": "Court Reserve · MembersFirst · TechnoGym · Individually purchased products",
+   "feature": "Classes, Programs, Training packages",
+   "status": "fit",
+   "note": "TechnoGym stays as equipment integration.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Recreation & Amenity Management",
+   "capability": "Aquatics",
+   "current": "Court Reserve / Members First · Individually purchased products",
+   "feature": "Programs, Facilities",
+   "status": "partial",
+   "note": "Cabana booking needs resource booking.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Recreation & Amenity Management",
+   "capability": "Wellness activities",
+   "current": "Court Reserve · MembersFirst · TechnoGym · Individually purchased products",
+   "feature": "Classes, Programs, Training",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Recreation & Amenity Management",
+   "capability": "Lessons and instruction",
+   "current": "Court Reserve / Members First · Individually purchased products",
+   "feature": "Appointment Types, Programs",
+   "status": "partial",
+   "note": "Instructor plus court booking needs resource booking.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Recreation & Amenity Management",
+   "capability": "Amenity reservations",
+   "current": "Court Reserve / Members First · Individually purchased products · CaterPro",
+   "feature": "Facilities, Classes",
+   "status": "partial",
+   "note": "Resource booking needed.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V20"
+  },
+  {
+   "area": "Events & Programming",
+   "capability": "Club / Social Events",
+   "current": "Member Portal / Website · Oracle Micros · CaterPro + AllSeated · MembersFirst · Mobile App",
+   "feature": "Club Events, RSVPs, portal and app",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V21"
+  },
+  {
+   "area": "Events & Programming",
+   "capability": "Club / Social Events - Communciatons",
+   "current": "MembersFirst · Mobile App - Push notifications · Canva · Pardot · ClubConnect · Social Media",
+   "feature": "Portal calendar, push, email, text",
+   "status": "fit",
+   "note": "Canva stays for print design.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V14"
+  },
+  {
+   "area": "Events & Programming",
+   "capability": "Vendor Agreements",
+   "current": "DocuSign",
+   "feature": "Contracts, Vendor Portal, insurance tracking",
+   "status": "fit",
+   "note": "",
+   "phase": "P1 SaaS quick wins",
+   "video": "V04"
+  },
+  {
+   "area": "Events & Programming",
+   "capability": "Event Execution",
+   "current": "AllSeated · CaterPro · Micros",
+   "feature": "Banquet Event Order, Layout, Staff Phone run of show",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V22"
+  },
+  {
+   "area": "Multi-Club & Network Benefits",
+   "capability": "XLife benefits",
+   "current": "Benefits Rules Engine (BRE) · XLife processes · MemberPride · Power BI",
+   "feature": "Markets, Network Clubs, Benefits",
+   "status": "partial",
+   "note": "BRE parity; integrate first.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V11"
+  },
+  {
+   "area": "Multi-Club & Network Benefits",
+   "capability": "Reciprocal club access",
+   "current": "Benefits Rules Engine (BRE) · Tee Times Application · MemberPride",
+   "feature": "Markets, check-in allowance checks",
+   "status": "partial",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V11"
+  },
+  {
+   "area": "Multi-Club & Network Benefits",
+   "capability": "Cross-club reservations",
+   "current": "Tee Times Application · Club websites/apps · local reservation tools",
+   "feature": "Nearby Tee Times network, Club Picker",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V19"
+  },
+  {
+   "area": "Multi-Club & Network Benefits",
+   "capability": "Enterprise membership visibility",
+   "current": "MemberPride · Club360 · Power BI · ProspectPro",
+   "feature": "Club Scope Switcher, Corporate view",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Multi-Club & Network Benefits",
+   "capability": "Multi-club reporting",
+   "current": "Power BI · data warehouse/reporting feeds · Oracle/CSI data",
+   "feature": "Reports runs-as-viewer, Corporate Club Comparison, Azure feed",
+   "status": "fit",
+   "note": "Data feed to Azure keeps Power BI working.",
+   "phase": "P0 Foundation",
+   "video": "V16"
+  },
+  {
+   "area": "Multi-Club & Network Benefits",
+   "capability": "Member entitlement rules",
+   "current": "Benefits Rules Engine (BRE) · MemberPride · Tee Times Application",
+   "feature": "Benefits, Plan Access",
+   "status": "partial",
+   "note": "BRE parity.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V11"
+  },
+  {
+   "area": "Club Operations & Workforce Support",
+   "capability": "Access management",
+   "current": "Microsoft Entra ID SSO · CSI permission groups · SAR/access processes",
+   "feature": "Staff Access, Jobs, Club Hierarchy",
+   "status": "integrate",
+   "note": "Entra ID SSO stays; Club Steward integrates.",
+   "phase": "P0 Foundation",
+   "video": "V27"
+  },
+  {
+   "area": "Club Operations & Workforce Support",
+   "capability": "Operational reporting",
+   "current": "Power BI · CSI dashboards · club-level reports",
+   "feature": "Reports, Dashboards",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Club Operations & Workforce Support",
+   "capability": "Task management",
+   "current": "Teams · Outlook · Service Desk · Azure DevOps for IT work items where relevant",
+   "feature": "My Tasks, automatic tasks",
+   "status": "fit",
+   "note": "ServiceNow and Azure DevOps stay for IT work.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V08"
+  },
+  {
+   "area": "Club Operations & Workforce Support",
+   "capability": "Employee communications",
+   "current": "Teams · Outlook · club-level communication tools · Pardot - Employee Newsletter & Announcements",
+   "feature": "Team Chat, Announcements",
+   "status": "partial",
+   "note": "Teams/Outlook stay corporate.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V14"
+  },
+  {
+   "area": "Club Operations & Workforce Support",
+   "capability": "Club administration",
+   "current": "MemberPride · Oracle EBS/AR · Oracle Micros, ADP, individually purchased scheduling tools for F&B and Course Maintenance teams.",
+   "feature": "Admin, Staff Schedule",
+   "status": "partial",
+   "note": "ADP stays.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V27"
+  },
+  {
+   "area": "Club Operations & Workforce Support",
+   "capability": "Service recovery",
+   "current": "Club360 · Oracle Micros · Unifocus + PowerBI",
+   "feature": "Service cases, Wallet service credit",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V15"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Membership analytics",
+   "current": "Power BI · Club360 · MemberPride/CSI data",
+   "feature": "Reports, Dashboards",
+   "status": "fit",
+   "note": "Power BI kept via Azure feed.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Revenue reporting",
+   "current": "Oracle AR/GL · Oracle EBS · Power BI",
+   "feature": "Billing Revenue, Books reports",
+   "status": "partial",
+   "note": "Full until billing moves in P3.",
+   "phase": "P3 Billing & MemberPride exit",
+   "video": "V16"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Club performance metrics",
+   "current": "Power BI · operational systems",
+   "feature": "Reports, Dashboards, Corporate",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Member engagement analytics",
+   "current": "Club360 · Power BI",
+   "feature": "Reports, Member Health",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Satisfaction reporting",
+   "current": "OSAT/survey data · Power BI · Club360",
+   "feature": "Service Dashboard, Reports",
+   "status": "partial",
+   "note": "OSAT rebuilt in Reports.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V15"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Executive dashboards",
+   "current": "Power BI · corporate reporting",
+   "feature": "Dashboards, Corporate",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Analytics & Executive Reporting",
+   "capability": "Portfolio reporting",
+   "current": "Power BI · data warehouse/reporting feeds · Oracle/CSI",
+   "feature": "Corporate Club Comparison, Azure feed",
+   "status": "fit",
+   "note": "",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V16"
+  },
+  {
+   "area": "Not available",
+   "capability": "Check-in",
+   "current": "Existing club check-in/access control tools vary by club · Microsoft Entra ID for CSI access · MIV - Member Information Vechicle",
+   "feature": "Front Desk Check-In, Member Card, Watchlist",
+   "status": "fit",
+   "note": "PDK door access stays integrated.",
+   "phase": "P2 Member 360 & engagement",
+   "video": "V26"
+  },
+  {
+   "area": "Hotel Reservations",
+   "capability": "Hotel Rooms for Rent",
+   "current": "Opera",
+   "feature": "Not in Club Steward",
+   "status": "out",
+   "note": "Opera stays for hotel rooms.",
+   "phase": "Not migrated",
+   "video": ""
+  },
+  {
+   "area": "Events & Catering Sales",
+   "capability": "Prospecting",
+   "current": "AIdentified · CaterPro · DialPad",
+   "feature": "Events Pipeline and Pool, Inquiry, Instant Quotes",
+   "status": "fit",
+   "note": "Aidentified and DialPad stay integrated.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V22"
+  },
+  {
+   "area": "Events & Catering Sales",
+   "capability": "Sales Workflow",
+   "current": "CaterPro · DocuSign · CardX / Paymentus · AllSeated · DialPad",
+   "feature": "Proposal and Payments, Signing After Deposit, Layout",
+   "status": "fit",
+   "note": "Processor choice (Stripe vs CardX/Paymentus) is open.",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V22"
+  },
+  {
+   "area": "Events & Catering Sales",
+   "capability": "Event Execution",
+   "current": "AllSeated · CaterPro · Micros",
+   "feature": "Banquet Event Order, Layout, Staff Phone",
+   "status": "fit",
+   "note": "",
+   "phase": "P4 Golf, amenities & events",
+   "video": "V22"
+  }
+ ],
+ "nextSteps": [
+  "Confirm the Salesforce renewal date and current spend by system, so the savings use your actual numbers.",
+  "Agree the 10-club pilot: which clubs, the 90-day measures, and the start date.",
+  "Share the MemberPride integration documents and type codes."
+ ],
+ "contact": {
+  "email": "jaimin@ardncloudsolutions.com",
+  "ctaLabel": "Book a working session"
+ },
+ "firstYear": 2027,
+ "leadWithRoi": true,
+ "strategic": "Built to run Invited and Heritage Golf Group on one member record, with per-club pricing that scales to every club KSL adds.",
+ "avoided": [
+  {
+   "label": "Next Gen Project (homegrown rebuild)",
+   "amount": 2400000,
+   "note": "$1.4M funded + $1.0M unfunded in the 2025 IT capital plan"
+  },
+  {
+   "label": "Customer ID buildout",
+   "amount": 2100000,
+   "note": "$700K a year, 2025–2027"
+  },
+  {
+   "label": "Comms / Preference Center build",
+   "amount": 750000,
+   "note": "Planned for 2027"
+  },
+  {
+   "label": "Website project and Optimizely upgrade",
+   "amount": 750000,
+   "note": "$500K website + $250K Optimizely"
+  },
+  {
+   "label": "Sales manual payment form elimination",
+   "amount": 300000,
+   "note": "Replaced by online joining and payment"
+  },
+  {
+   "label": "Integration pipeline sustainment",
+   "amount": 260000,
+   "note": "Fewer integrations to keep alive"
+  }
+ ],
+ "showUpside": true,
+ "memo": {
+  "enabled": true,
+  "title": "For the board",
+  "ask": "Approve a 10-club, 90-day pilot of Club Steward, measured against agreed numbers, with the option to roll out across all 150 clubs and the Heritage portfolio.",
+  "points": []
+ },
+ "risk": {
+  "enabled": true,
+  "title": "If Ardn disappeared tomorrow",
+  "items": []
+ },
+ "compare": {
+  "enabled": true,
+  "title": "Against the vendors you've already evaluated",
+  "competitors": [
+   "Jonas",
+   "Northstar",
+   "Club Caddie"
+  ],
+  "rows": []
+ }
+}

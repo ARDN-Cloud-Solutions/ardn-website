@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { publicSans, poppins } from "@/fonts";
 import "./globals.css";
+import SiteChrome from "@/components/layout/SiteChrome";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCta from "@/components/layout/FloatingCta";
@@ -176,7 +177,7 @@ export default function RootLayout({
             is provisioned. */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
-            (function(c,l,a,r,i,t,y){
+            if (!location.pathname.startsWith('/proposals')) (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
@@ -187,14 +188,16 @@ export default function RootLayout({
       <body
         className={`${publicSans.variable} ${poppins.variable} font-sans antialiased bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900`}
       >
-        <Header />
+        <SiteChrome><Header /></SiteChrome>
         {children}
-        <Footer />
+        <SiteChrome><Footer /></SiteChrome>
         {/* CRO: persistent Book-a-Free-Call CTA appears after the hero on every
             page except /contact-us. Drives Calendly bookings without requiring
             users to scroll back to the header. */}
-        <FloatingCta />
-        <BookingQualifierHost />
+        <SiteChrome>
+          <FloatingCta />
+          <BookingQualifierHost />
+        </SiteChrome>
         <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { borderRadius: '10px', padding: '16px 24px', fontSize: '14px', fontWeight: 500, color: '#1e293b', backgroundColor: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' } }} />
       </body>
     </html>

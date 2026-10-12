@@ -71,7 +71,7 @@ current view and the earlier rows are the history.
 
 ## Where it lands
 
-Supabase project "Ardn AI Website & CRM":
+Supabase project "ardn-website" (org ARDN Cloud Solutions):
 
 - `proposal_calculator_submissions`: one row per post (person, scenario, discount, support multiplier, clubs, fee, the five totals, counts of systems and retired systems, user agent, time).
 - `proposal_calculator_systems`: the system rows of each post.
