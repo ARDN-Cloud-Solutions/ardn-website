@@ -7,9 +7,11 @@ import nodemailer from "nodemailer";
  * other than their browser.
  *
  * A "printed" snapshot carries figures only. A "sent" one also carries the
- * name and email the person typed to ask us for a reply. Everything is checked
- * here, at the boundary, and every string is escaped before it goes into the
- * email.
+ * name and email the person typed to ask us for a reply. A "calculator" one
+ * comes from a client's own proposal page (the Invited path-to-$10M
+ * calculator): each person's systems, counts and fee, so the team sees what
+ * every reader was open to paying. Everything is checked here, at the
+ * boundary, and every string is escaped before it goes into the email.
  */
 
 const MAX_BODY = 60_000;
@@ -63,10 +65,53 @@ function obj(v: unknown, field: string): Record<string, unknown> {
 
 const COST_KEYS = ["currentPlatform", "currentSupport", "futurePlatform", "futureSupport"] as const;
 
+function count(v: unknown, field: string): number {
+  if (typeof v !== "number" || !Number.isFinite(v) || v < 0 || v > 1_000_000) throw new Invalid(`${field} must be a count`);
+  return Math.round(v * 100) / 100;
+}
+
+/** A client page's calculator: one row per system, kept or retired. */
+function parseCalculator(body: Record<string, unknown>) {
+  const c = obj(body.calculator, "calculator");
+  const systems = list(c.systems, "systems", 80).map((x, i) => {
+    const r = obj(x, `systems[${i}]`);
+    return {
+      name: text(r.name, "system name", 120),
+      group: text(r.group, "group", 80),
+      retire: r.retire !== false,
+      qty: r.qty === null || r.qty === undefined ? null : count(r.qty, "qty"),
+      unit: text(r.unit, "unit", 40),
+      license: money(r.license, "license") ?? 0,
+      support: money(r.support, "support") ?? 0,
+    };
+  });
+  const t = obj(c.totals, "totals");
+  return {
+    reason: "calculator" as const,
+    page: text(body.page, "page", 200),
+    website: text(body.website, "website"),
+    client: text(c.client, "client", 120),
+    person: text(c.person, "person", 120),
+    scenario: text(c.scenario, "scenario", 40),
+    discount: count(c.discount, "discount"),
+    supportPerDollar: count(c.supportPerDollar, "supportPerDollar"),
+    clubs: count(c.clubs, "clubs"),
+    fee: money(c.fee, "fee"),
+    systems,
+    totals: {
+      takenOut: signedMoney(t.takenOut, "takenOut"),
+      kept: signedMoney(t.kept, "kept"),
+      todayPerClub: signedMoney(t.todayPerClub, "todayPerClub"),
+      afterPerClub: signedMoney(t.afterPerClub, "afterPerClub"),
+      net: signedMoney(t.net, "net"),
+    },
+  };
+}
+
 function parse(raw: unknown) {
   const body = obj(raw, "body");
   const reason = body.reason;
-  if (reason !== "printed" && reason !== "sent") throw new Invalid("reason must be printed or sent");
+  if (reason !== "printed" && reason !== "sent") throw new Invalid("reason must be printed, sent or calculator");
   const s = obj(body.snapshot, "snapshot");
 
   const apps = list(s.apps, "apps", 60).map((x, i) => {
@@ -143,7 +188,13 @@ export async function POST(req: Request) {
 
   let p: ReturnType<typeof parse>;
   try {
-    p = parse(JSON.parse(raw));
+    const json = JSON.parse(raw);
+    if (json && typeof json === "object" && (json as Record<string, unknown>).reason === "calculator") {
+      const calc = parseCalculator(json as Record<string, unknown>);
+      if (calc.website) return NextResponse.json({ ok: true });
+      return send(`${calc.client || "Client"} calculator: ${oneLine(calc.person) || "someone"}, ${usd(calc.totals.takenOut)} taken out`, calculatorHtml(calc));
+    }
+    p = parse(json);
   } catch (error) {
     if (error instanceof Invalid) return NextResponse.json({ error: error.message }, { status: 400 });
     if (error instanceof SyntaxError) return NextResponse.json({ error: "Proposal is not valid JSON" }, { status: 400 });
@@ -155,7 +206,6 @@ export async function POST(req: Request) {
   if (p.website) return NextResponse.json({ ok: true });
 
   const moved = p.apps.filter((a) => a.move).length;
-  const oneLine = (v: string) => v.replace(/[\r\n\t]+/g, " ");
   const who = p.sentBy ? oneLine(`${p.sentBy.name}${p.sentBy.preparedFor ? ` for ${p.sentBy.preparedFor}` : ""}`) : "anonymous";
   const subject =
     p.reason === "sent"
@@ -202,6 +252,45 @@ ${estateRows ? `<h3>Across the estate</h3><table style="border-collapse:collapse
 <p style="color:#666;font-size:12px">From ${esc(p.page) || "the proposal page"}.</p>
 </div>`;
 
+  return send(subject, html, p.sentBy?.email);
+}
+
+const oneLine = (v: string) => v.replace(/[\r\n\t]+/g, " ");
+
+function calculatorHtml(c: ReturnType<typeof parseCalculator>) {
+  const fmtCount = (n: number | null, unit: string) => (n === null ? "—" : `${n.toLocaleString("en-US")} ${esc(unit)}`);
+  const rows = c.systems
+    .map(
+      (r) => `<tr>
+  <td style="${cell}">${esc(r.name)}</td>
+  <td style="${cell}">${esc(r.group)}</td>
+  <td style="${cell}">${r.retire ? "Retire" : "Keep"}</td>
+  <td style="${cell}text-align:right">${fmtCount(r.qty, r.unit)}</td>
+  <td style="${cell}text-align:right">${usd(r.license)}</td>
+  <td style="${cell}text-align:right">${usd(r.support)}</td>
+  <td style="${cell}text-align:right">${usd(r.license + r.support)}</td>
+</tr>`,
+    )
+    .join("");
+  const kept = c.systems.filter((r) => !r.retire).map((r) => esc(r.name));
+  return `<div style="font-family:Arial,sans-serif;line-height:1.5;color:#222">
+<h2 style="color:#121c27">${esc(c.client) || "Client"} calculator settings</h2>
+<p><b>Person:</b> ${esc(c.person) || "Not named"}<br>
+<b>Scenario:</b> ${esc(c.scenario) || "Changed by hand"} · <b>Discount off list:</b> ${c.discount}% · <b>Support per license dollar:</b> ${c.supportPerDollar}×<br>
+<b>Clubs:</b> ${c.clubs} · <b>Ardn fee per club a month:</b> ${c.fee === null ? "Not entered" : usd(c.fee)}</p>
+<p><b>Taken out a year, before Ardn's fee:</b> ${usd(c.totals.takenOut)}<br>
+<b>Net a year after Ardn's fee:</b> ${c.fee === null ? "No fee entered" : usd(c.totals.net)}<br>
+<b>Each club today:</b> ${usd(c.totals.todayPerClub)} a year · <b>Each club after:</b> ${usd(c.totals.afterPerClub)} a year<br>
+<b>Kept, not retired:</b> ${kept.length ? kept.join(", ") : "None"} (${usd(c.totals.kept)} a year)</p>
+<table style="border-collapse:collapse;font-size:13px">
+<tr><th style="${cell}">System</th><th style="${cell}">Group</th><th style="${cell}">Choice</th><th style="${cell}">How many</th><th style="${cell}">License a year</th><th style="${cell}">Support a year</th><th style="${cell}">Total a year</th></tr>
+${rows}
+</table>
+<p style="color:#666;font-size:12px">From ${esc(c.page) || "the client's proposal page"}.</p>
+</div>`;
+}
+
+async function send(subject: string, html: string, replyTo?: string) {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -211,7 +300,7 @@ ${estateRows ? `<h3>Across the estate</h3><table style="border-collapse:collapse
     });
     await transporter.sendMail({
       from: `"Club Steward proposal" <${process.env.SMTP_USER}>`,
-      replyTo: p.sentBy?.email,
+      replyTo,
       to: process.env.CONTACT_RECEIVER_EMAIL || "contactus@ardncloudsolutions.com",
       subject,
       html,
