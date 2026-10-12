@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const title =
         pageNum === 1
-            ? "Blog & Insights | ARDN Cloud Solutions"
-            : `Blog – Page ${pageNum} | ARDN Cloud Solutions`;
+            ? "Blog & Insights | Ardn Cloud Solutions"
+            : `Blog – Page ${pageNum} | Ardn Cloud Solutions`;
 
     const description =
         "Expert perspectives on Salesforce, cloud architecture, and digital transformation from the ARDN team.";
