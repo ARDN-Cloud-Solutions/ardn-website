@@ -1,0 +1,41 @@
+/* Proposal area. Club Steward sub-brand (see golf-club-management-software/golf.css)
+   on Ardn's design tokens (ardn-design.css). Generated pages use inline styles;
+   these rules only add the brand's serif headlines and a few finishes. */
+.prp {
+  --turf: #0f9870;
+  --turf-deep: #073d2e;
+  --gold: #d4b25a;
+  --gold-soft: #e8ce8f;
+  --ink: #0a1226;
+  font-family: var(--font-public-sans), "Public Sans", system-ui, sans-serif;
+  color: #0a0f2c;
+  background: #faf9f7;
+  min-height: 100vh;
+}
+.prp h1,
+.prp h2 {
+  font-family: var(--gc-serif), "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.012em !important;
+}
+.prp h1 { line-height: 1.02 !important; }
+/* The marketing site colours headings indigo; proposals inherit their own colours. */
+.prp :is(h1, h2, h3, h4, h5, h6) { color: inherit; }
+.prp h3 { letter-spacing: -0.01em; }
+.prp a:focus-visible,
+.prp button:focus-visible,
+.prp input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+.prp button,
+.prp a { transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease; }
+.prp-brand { display: flex !important; align-items: center; gap: 12px; }
+.prp-brand-sep { width: 1px; height: 22px; background: #d8dbe8; display: inline-block; }
+@media (max-width: 640px) {
+  .prp h1 { font-size: 46px !important; }
+  .prp h2 { font-size: 34px !important; }
+}
+@media print {
+  .prp [role="dialog"] { display: none; }
+}
