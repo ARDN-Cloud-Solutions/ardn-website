@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { storeCalculator } from "@/lib/proposalStore";
 
 /**
  * Receives a Club Steward proposal from /golf-club-management-software/proposal
@@ -192,7 +193,7 @@ export async function POST(req: Request) {
     if (json && typeof json === "object" && (json as Record<string, unknown>).reason === "calculator") {
       const calc = parseCalculator(json as Record<string, unknown>);
       if (calc.website) return NextResponse.json({ ok: true });
-      return send(`${calc.client || "Client"} calculator: ${oneLine(calc.person) || "someone"}, ${usd(calc.totals.takenOut)} taken out`, calculatorHtml(calc));
+      return storeAndSendCalculator(calc, req.headers.get("user-agent"));
     }
     p = parse(json);
   } catch (error) {
@@ -256,6 +257,31 @@ ${estateRows ? `<h3>Across the estate</h3><table style="border-collapse:collapse
 }
 
 const oneLine = (v: string) => v.replace(/[\r\n\t]+/g, " ");
+
+/**
+ * A calculator state is written to the database first, then emailed. The
+ * database is the record (every state, in order, per person); the email is
+ * how the team hears about it. Either one failing is logged and the other
+ * still happens; the page is told only whether its entry was kept somewhere.
+ */
+async function storeAndSendCalculator(calc: ReturnType<typeof parseCalculator>, userAgent: string | null) {
+  let stored: number | null = null;
+  let storeFailed = false;
+  try {
+    stored = await storeCalculator(calc, userAgent);
+    if (stored === null) console.warn("Calculator entry not stored: SUPABASE_URL / SUPABASE_PUBLISHABLE_KEY are not set.");
+  } catch (error) {
+    storeFailed = true;
+    console.error("Calculator entry not stored:", error instanceof Error ? error.message : error);
+  }
+  const subject = `${calc.client || "Client"} calculator: ${oneLine(calc.person) || "someone"}, ${usd(calc.totals.takenOut)} taken out`;
+  const note = storeFailed ? `<p style="color:#b00">This entry could not be written to the database; this email is the only copy.</p>` : "";
+  const res = await send(subject, note + calculatorHtml(calc));
+  if (res.ok) return NextResponse.json({ ok: true, stored: stored !== null });
+  // The email failed. If the database has it, the entry is safe; say so.
+  if (stored !== null) return NextResponse.json({ ok: true, stored: true });
+  return res;
+}
 
 function calculatorHtml(c: ReturnType<typeof parseCalculator>) {
   const fmtCount = (n: number | null, unit: string) => (n === null ? "—" : `${n.toLocaleString("en-US")} ${esc(unit)}`);
