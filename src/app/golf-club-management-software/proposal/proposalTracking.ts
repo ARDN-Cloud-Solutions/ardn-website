@@ -5,7 +5,7 @@ import type { AppArea } from "./features";
 import { ESTATE_ROWS, dollars, type Choices, type Estate, type Outlook, type WhatIf } from "./proposal";
 
 /**
- * What the proposal tells ARDN about the figures people try.
+ * What the proposal tells Ardn about the figures people try.
  *
  * Two channels, both carrying figures only, never a name or an email unless
  * the person sends the proposal to us themselves:

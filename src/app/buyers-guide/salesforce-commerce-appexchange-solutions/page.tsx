@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Salesforce-native commerce app",
     "AppExchange commerce solutions",
     "Salesforce commerce apps 2026",
-    "ARDN Storefronts AppExchange",
+    "Ardn Storefronts AppExchange",
     "StoreConnect Salesforce",
     "Commerce Studio 1440",
   ],

@@ -2,7 +2,7 @@ import { Check, Minus } from "lucide-react";
 
 /**
  * Why a managed platform, and how it is built and kept working: the part of
- * the proposal that is about ARDN rather than one app. Same guardrails as the
+ * the proposal that is about Ardn rather than one app. Same guardrails as the
  * rest of the page: no client, vendor or partner names, and no Club Steward
  * pricing. The four ways to run club software are named by kind only.
  */
@@ -11,7 +11,7 @@ const WAYS = [
   { key: "build", name: "Build it yourself", sub: "Your team, on rented cloud servers" },
   { key: "platform", name: "Build on a platform", sub: "A CRM or app platform, customised" },
   { key: "boxed", name: "Off-the-shelf club software", sub: "One product per job, connected by you" },
-  { key: "managed", name: "Club Steward, managed", sub: "One platform, run for you by ARDN" },
+  { key: "managed", name: "Club Steward, managed", sub: "One platform, run for you by Ardn" },
 ] as const;
 
 type Way = (typeof WAYS)[number]["key"];
@@ -24,7 +24,7 @@ const ROWS: { job: string; cells: Record<Way, { text: string; good?: boolean }> 
       build: { text: "Your developers" },
       platform: { text: "Your team or a partner, within the platform's limits" },
       boxed: { text: "Each vendor, the same for every customer" },
-      managed: { text: "ARDN, for multi-club operators, set per club in settings", good: true },
+      managed: { text: "Ardn, for multi-club operators, set per club in settings", good: true },
     },
   },
   {
@@ -42,7 +42,7 @@ const ROWS: { job: string; cells: Record<Way, { text: string; good?: boolean }> 
       build: { text: "Your team" },
       platform: { text: "Your team, again after each platform release" },
       boxed: { text: "Each vendor tests its product; the joins between them are yours" },
-      managed: { text: "ARDN, with automated checks run on every release", good: true },
+      managed: { text: "Ardn, with automated checks run on every release", good: true },
     },
   },
   {
@@ -51,7 +51,7 @@ const ROWS: { job: string; cells: Record<Way, { text: string; good?: boolean }> 
       build: { text: "You" },
       platform: { text: "The platform hosts; you re-check your build on its schedule" },
       boxed: { text: "Each vendor, on its own schedule" },
-      managed: { text: "ARDN", good: true },
+      managed: { text: "Ardn", good: true },
     },
   },
   {

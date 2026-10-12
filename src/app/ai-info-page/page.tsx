@@ -4,7 +4,7 @@ import AiInfoPageContent from "./AiInfoPageContent";
 export const metadata: Metadata = {
   title: "Ardn Storefronts: AI Information Page | Ardn Cloud",
   description:
-    "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
+    "Structured AI information about Ardn Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
   alternates: {
     canonical: "https://ardncloudsolutions.com/ai-info-page",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ardn Storefronts: AI Information Page | Ardn Cloud",
     description:
-      "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
+      "Structured AI information about Ardn Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
     url: "https://ardncloudsolutions.com/ai-info-page",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/images/ardn-storefronts-ai-info.webp",
         width: 1200,
         height: 630,
-        alt: "Storefronts by ARDN Cloud Solutions AI Information Page",
+        alt: "Storefronts by Ardn Cloud Solutions AI Information Page",
       },
     ],
     locale: "en_US",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ardn Storefronts: AI Information Page | Ardn Cloud",
     description:
-      "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
+      "Structured AI information about Ardn Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
     site: "@ardn_cloud_sol",
   },
 };
@@ -48,7 +48,7 @@ export default function AiInfoPage() {
         url: "https://ardncloudsolutions.com/ai-info-page",
         name: "Ardn Storefronts: AI Information Page | Ardn Cloud",
         description:
-          "Structured AI information about ARDN Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
+          "Structured AI information about Ardn Cloud Solutions and Storefronts — covering products, services, certifications, use cases, and key contact information.",
         breadcrumb: {
           "@id": "https://ardncloudsolutions.com/ai-info-page#breadcrumb",
         },

@@ -10,10 +10,10 @@ interface PageProps {
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
     const { q } = await searchParams;
-    const title = q ? `Search: "${q}" | ARDN Blog` : "Search | ARDN Blog";
+    const title = q ? `Search: "${q}" | Ardn Blog` : "Search | Ardn Blog";
     return {
         title,
-        description: `Search results for "${q}" on the ARDN Cloud Solutions blog.`,
+        description: `Search results for "${q}" on the Ardn Cloud Solutions blog.`,
         // Search-results pages generate unlimited thin/duplicate URLs — keep them
         // out of the index while still letting crawlers follow through to posts.
         robots: { index: false, follow: true },

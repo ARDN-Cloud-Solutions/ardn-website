@@ -127,22 +127,22 @@ export default function SalesforceEcommerceContent() {
             <p>Let’s get started with the first one in the lot:</p>
 
             <strong className="block text-2xl font-semibold text-heading-dark mt-8 mb-4">
-              #1 ARDN Storefront: The All-in-One Native Salesforce Commerce Solution
+              #1 Ardn Storefront: The All-in-One Native Salesforce Commerce Solution
             </strong>
             <Image
               src="/buyers-guide/ARDN-Storefronts-as-the-all-in-one-Salesforce-native.webp"
-              alt="ARDN Storefronts as the all-in-one Salesforce native solution for e-commerce."
+              alt="Ardn Storefronts as the all-in-one Salesforce native solution for e-commerce."
               width={1400}
               height={1400}
               className="w-full rounded-2xl my-8"
             />
 
             <p>
-              ARDN Storefronts is a fully native Salesforce e-commerce solution that lets you manage products, subscriptions, memberships, appointments, and event ticketing directly within Salesforce. It eliminates the need for separate platforms, reducing integration complexity and keeping all customer data in one place.
+              Ardn Storefronts is a fully native Salesforce e-commerce solution that lets you manage products, subscriptions, memberships, appointments, and event ticketing directly within Salesforce. It eliminates the need for separate platforms, reducing integration complexity and keeping all customer data in one place.
             </p>
 
             <h2 id="what-makes-ardn-storefronts" className="block lg:text-xl text-2xl font-bold text-heading-dark mt-12 mb-6 leading-tight scroll-mt-[120px]">
-              What makes ARDN Storefronts stand out?
+              What makes Ardn Storefronts stand out?
             </h2>
             <ul className="list-disc pl-6 text-heading-dark space-y-3 my-6 text-heading-dark">
               <li><strong>Native Salesforce Ecommerce:</strong> You can customize it and make it your own. Everything runs inside Salesforce, removing the need for middleware or separate platforms. Orders, customer info, and product data are all connected, simplifying operations and reporting.</li>
@@ -389,7 +389,7 @@ export default function SalesforceEcommerceContent() {
                   </thead>
                   <tbody>
                     {[
-                      { name: "ARDN Storefronts", feature: "Native all-in-one commerce", for: "Retail Chains, multi-location, manufacturing, memberships", scale: "High", price: "Custom pricing. Approx. $2500/year" },
+                      { name: "Ardn Storefronts", feature: "Native all-in-one commerce", for: "Retail Chains, multi-location, manufacturing, memberships", scale: "High", price: "Custom pricing. Approx. $2500/year" },
                       { name: "Commerce Studio by 1440", feature: "Multi-channel order sync", for: "Retailers on 3–7 channels", scale: "Medium-High", price: "$300/mo" },
                       { name: "StoreConnect", feature: "Native ecommerce + POS", for: "Multi-location retail, nonprofits, healthcare, education", scale: "Medium-High", price: "$995/mo (+0.2–0.6% fee)" },
                       { name: "Fonteva eCommerce", feature: "Membership + events ecommerce", for: "Associations, nonprofits, societies", scale: "High", price: "$30,000/year" },
@@ -502,7 +502,7 @@ export default function SalesforceEcommerceContent() {
               As long as you’re clear about what you actually need, how you want your store to run, and the kind of support you expect, the decision becomes a lot easier. Just stay focused on what works for your business right now instead of getting distracted by features you’ll probably never use.</p>
 
             <p className="mt-4">
-              If you want a Salesforce e-commerce solution that’s clean, easy to manage, and doesn’t overcomplicate your life, <strong>ARDN storefronts</strong> fit that sweet spot. You get everything you truly need to run your store smoothly, without piling on tools you’ll never touch.
+              If you want a Salesforce e-commerce solution that’s clean, easy to manage, and doesn’t overcomplicate your life, <strong>Ardn storefronts</strong> fit that sweet spot. You get everything you truly need to run your store smoothly, without piling on tools you’ll never touch.
             </p>
             <p className="mt-4">
               No pressure to decide now. Just explore it when you’re ready. If it makes your day a little easier, great. If not, you’ll at least have more clarity on what you actually need!

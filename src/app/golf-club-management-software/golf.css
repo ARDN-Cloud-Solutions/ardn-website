@@ -1,7 +1,7 @@
 /* ============================================================
    Golf & private club landing page
    Scoped entirely under .gc so nothing here can leak into the
-   rest of the site. Builds on the ARDN design-system tokens in
+   rest of the site. Builds on the Ardn design-system tokens in
    ardn-design.css and layers a club-appropriate accent set on top:
    heritage green + champagne gold against the brand indigo.
    ============================================================ */

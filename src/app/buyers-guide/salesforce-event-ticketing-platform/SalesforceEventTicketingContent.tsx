@@ -18,7 +18,7 @@ export default function SalesforceEventTicketingContent() {
     <>
       <GuideHero
         title="7 Top Salesforce Event and Ticketing Platforms"
-        buttonText="Getting Started with ARDN"
+        buttonText="Getting Started with Ardn"
         buttonLink="/contact-us"
       />
 
@@ -124,21 +124,21 @@ export default function SalesforceEventTicketingContent() {
 
             <p className="text-heading-dark text-sm lg:text-base">Over to the first one in the lot:</p>
 
-            {/* Tool #1 — ARDN */}
+            {/* Tool #1 — Ardn */}
             <strong className="block text-2xl lg:text-3xl font-semibold text-heading-dark mt-8 mb-4">
-              #1. ARDN Storefronts: The All-in-one Salesforce-native Solution
+              #1. Ardn Storefronts: The All-in-one Salesforce-native Solution
             </strong>
 
             <Image
               src="/buyers-guide/ardn-all-in-one-ecommerce.webp"
-              alt="ARDN Storefronts as an all-in-one Salesforce native event and ticketing platform"
+              alt="Ardn Storefronts as an all-in-one Salesforce native event and ticketing platform"
               width={1400}
               height={1400}
               className="w-full rounded-2xl my-8"
             />
 
             <p className="text-heading-dark text-sm lg:text-base">
-              ARDN Storefronts is a fully Salesforce-native e-commerce and event ticketing solution built by ARDN Cloud Solutions. With the platform, you can handle everything in one place and cut integration costs by up to 73%!
+              Ardn Storefronts is a fully Salesforce-native e-commerce and event ticketing solution built by Ardn Cloud Solutions. With the platform, you can handle everything in one place and cut integration costs by up to 73%!
             </p>
 
             <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Key Features:</strong>
@@ -154,7 +154,7 @@ export default function SalesforceEventTicketingContent() {
             </ul>
 
             <p className="text-heading-dark text-sm lg:text-base">
-              And, most importantly, if your business runs on Salesforce, why spend on a stack of tools that can actually slow you down? With ARDN Storefronts, you keep everything in one place, so you&apos;re not jumping between systems or fixing the same billing issues twice.
+              And, most importantly, if your business runs on Salesforce, why spend on a stack of tools that can actually slow you down? With Ardn Storefronts, you keep everything in one place, so you&apos;re not jumping between systems or fixing the same billing issues twice.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               And, you&apos;ll suddenly have a ton of time in your hand to focus on what matters!
@@ -423,7 +423,7 @@ export default function SalesforceEventTicketingContent() {
                   </thead>
                   <tbody>
                     {[
-                      { tool: "ARDN Storefronts", strength: "All-in-one native Salesforce commerce", ideal: "Mid-market & enterprise on Salesforce", price: "$2,500/company/month*" },
+                      { tool: "Ardn Storefronts", strength: "All-in-one native Salesforce commerce", ideal: "Mid-market & enterprise on Salesforce", price: "$2,500/company/month*" },
                       { tool: "Blackthorn.io", strength: "Advanced ticketing + AI analytics", ideal: "Large orgs, nonprofits, big event teams", price: "$4,800/year" },
                       { tool: "Fonteva Events", strength: "Multi-track conferences and member pricing", ideal: "Associations & large nonprofits", price: "$8,400/year" },
                       { tool: "AC Events Enterprise", strength: "Deep customization and unified checkout", ideal: "Global orgs & membership teams", price: "$79/user/month" },
@@ -605,7 +605,7 @@ export default function SalesforceEventTicketingContent() {
               When you keep everything inside Salesforce, ticketing stops feeling like a game of balance. Your data stays in one place, workflows actually run the way you planned, and you don&apos;t spend hours fixing sync issues. Native tools simply handle this better because nothing needs to &ldquo;talk&rdquo; to anything else. It&apos;s already there.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              And if you want a platform that goes beyond just selling tickets, ARDN Storefronts gives you the full setup, including events, memberships, appointments, and payments, all running directly in Salesforce. You need not worry about our data drifting off somewhere else in between...
+              And if you want a platform that goes beyond just selling tickets, Ardn Storefronts gives you the full setup, including events, memberships, appointments, and payments, all running directly in Salesforce. You need not worry about our data drifting off somewhere else in between...
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               If you want to see how it fits into your system, we can walk through it together. Just reach out whenever you&apos;re ready!

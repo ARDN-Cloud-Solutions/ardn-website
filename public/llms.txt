@@ -1,6 +1,6 @@
-# ARDN Cloud Solutions
+# Ardn Cloud Solutions
 
-> ARDN Cloud Solutions is a US-based software company in Orlando, Florida. It builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management for community centers and youth and family nonprofits, and Membership Management), designs custom software and AI applications with its AI Forge Framework, and runs everything it builds as a managed service. The team has 30+ years of technology and consulting experience.
+> Ardn Cloud Solutions is a US-based software company in Orlando, Florida. It builds products for specific industries (Club Steward for golf and country clubs, Nonprofit Management for community centers and youth and family nonprofits, and Membership Management), designs custom software and AI applications with its AI Forge Framework, and runs everything it builds as a managed service. The team has 30+ years of technology and consulting experience.
 
 ## Products & Services
 
@@ -47,7 +47,7 @@ Ardn designs, builds and runs each of these products as a managed service. Overv
 - [Our Work](https://ardncloudsolutions.com/work): Everything Ardn has built and launched, with links to each product page and case study.
 
 - [Our Approach](https://ardncloudsolutions.com/approach): AI-first development. Ardn catalogues a business's systems, stakeholders and processes, builds a phased roadmap, and delivers and runs an AI-first platform as a platform-as-a-service partner.
-- [About ARDN](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of technology and consulting experience.
+- [About Ardn](https://ardncloudsolutions.com/about-ardn): An Orlando, FL team with 30+ years of technology and consulting experience.
 - [Our Products](https://ardncloudsolutions.com/our-products): Full product suite overview.
 - [Pricing](https://ardncloudsolutions.com/pricing): Request pricing for any Ardn product; replies within 4 business hours.
 - [Savings Calculator](https://ardncloudsolutions.com/savings-calculator): Estimate what you could save.

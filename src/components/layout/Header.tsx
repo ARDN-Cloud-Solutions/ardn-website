@@ -200,7 +200,7 @@ export default function Header() {
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="/logo/ardn_logo.png"
-                alt="ARDN Cloud Solutions"
+                alt="Ardn Cloud Solutions"
                 width={148}
                 height={46}
                 className="h-11 w-auto object-contain"
@@ -383,7 +383,7 @@ export default function Header() {
           <Link href="/" onClick={() => setDrawerOpen(false)}>
             <Image
               src="/logo/ardn_logo.png"
-              alt="ARDN Cloud Solutions"
+              alt="Ardn Cloud Solutions"
               width={120}
               height={38}
               className="h-9 w-auto object-contain"
@@ -536,7 +536,7 @@ export default function Header() {
           <Link href="/" onClick={() => setSearchOpen(false)}>
             <Image
               src="/logo/ardn_logo_white.svg"
-              alt="ARDN Cloud Solutions"
+              alt="Ardn Cloud Solutions"
               width={148}
               height={46}
               className="h-11 w-auto object-contain"

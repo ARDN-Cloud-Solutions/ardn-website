@@ -89,7 +89,7 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
             </li>
           </ol>
           <p className="cp-purpose-note">
-            What you type is kept in this browser so a refresh does not lose it. ARDN counts the figures you enter,
+            What you type is kept in this browser so a refresh does not lose it. Ardn counts the figures you enter,
             never your name, and receives a copy of the figures when you print. Send the proposal to us when you want
             a reply.
           </p>

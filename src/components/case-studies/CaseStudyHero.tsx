@@ -15,7 +15,7 @@ export default function CaseStudyHero({ title: titleProp }: CaseStudyHeroProps) 
         transition: { duration: 0.6 },
     };
 
-    const title = titleProp ?? "ARDN Client Case Studies & Success Stories";
+    const title = titleProp ?? "Ardn Client Case Studies & Success Stories";
 
     return (
         <section className="relative w-full h-100 lg:h-100 flex items-center overflow-hidden">
