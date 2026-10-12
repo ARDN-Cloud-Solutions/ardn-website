@@ -11,7 +11,7 @@ export function cleanSeoTitle(title: string | undefined): string | undefined {
     if (!title) return undefined;
     const cleaned = title.replace(/\s*[-–—|]\s*cms\.ardncloudsolutions\.com\s*$/i, "");
     if (cleaned === title) return title;
-    return `${cleaned} | ARDN Cloud Solutions`;
+    return `${cleaned} | Ardn Cloud Solutions`;
 }
 
 /**

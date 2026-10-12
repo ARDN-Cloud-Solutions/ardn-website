@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
+import fs from "node:fs";
+import path from "node:path";
 import cutContent from "./src/content/redirects.json";
+import postsData from "./src/content/posts.json";
 
 // Cut slug → most relevant live page. Only fall back to an index when
 // nothing on the site matches the topic: Google treats mass redirects to an
@@ -16,50 +19,25 @@ const RESTORED_ROOT_POSTS: string[] = cutContent.restoredRootPosts;
 const S = "{/}?";
 const r301 = (source: string, destination: string) => ({ source, destination, permanent: true });
 
-// Blog posts that lived at the domain root on the old WordPress site and now
-// live under /blog/ on the headless rebuild. Each target was verified live
-// (HTTP 200) before being added. Source of the list: GSC "Not found (404)"
-// report, Aug 2026.
-const LEGACY_ROOT_POST_SLUGS = [
-    "5-common-salesforce-billing-challenges-and-how-to-solve-them",
-    "5-cost-effective-ways-to-optimize-salesforce",
-    "5-salesforce-reports-every-admin-should-build-with-license-guard-data",
-    "7-compelling-reasons-to-choose-storefronts-for-building-your-salesforce-e-commerce-website",
-    "beyond-the-dashboard-what-your-salesforce-user-activity-report-isnt-telling-you",
-    "customize-license-deactivation-in-salesforce-exemptions-flexibility",
-    "ditch-the-integration-maze-how-storefronts-simplifies-e-commerce-operations",
-    "edtech-has-evolved-has-your-salesforce-caught-up",
-    "enhancing-financial-visibility-through-integrated-salesforce-financial-reporting",
-    "from-chaos-to-clarity-streamlining-e-commerce-operations-with-storefronts",
-    "from-product-showcase-to-seamless-checkout-4-proven-ways-to-enhance-customer-experience-on-your-salesforce-ecommerce-platform",
-    "hipaa-to-handoff-delivering-compliant-seamless-healthcare-commerce-experiences-in-2025-with-storefronts",
-    "how-to-reduce-e-commerce-operational-costs-without-compromising-growth",
-    "how-to-run-e-commerce-inside-salesforce-in-72-hours",
-    "how-to-stop-wasting-money-on-unused-salesforce-licenses",
-    "license-guard-is-now-on-appexchange-and-its-absolutely-free-forever",
-    "license-sprawl-is-real-how-to-detect-and-stop-it-with-license-guard",
-    "leveraging-storefronts-for-nonprofit-e-commerce-initiatives-on-salesforce",
-    "migrating-from-woocommerce-why-storefronts-is-the-better-choice-for-salesforce-users",
-    "multi-storefront-one-brain-how-global-brands-are-managing-diverse-markets-with-salesforce-in-2025",
-    "reducing-salesforce-payment-processing-costs-for-high-volume-businesses-strategies-for-significant-savings",
-    "salesforce-winter-26-release-the-features-you-should-know",
-    "stop-leaving-money-on-the-table-how-storefronts-turns-abandoned-carts-into-revenue-with-salesforce-automation",
-    "streamlining-checkout-processes-how-storefronts-pci-compliant-3-step-checkout-enhances-security-and-user-experience",
-    "subscriptions-services-in-ecommerce-how-salesforce-streamlines-it-all",
-    "the-best-native-salesforce-ecommerce-solutions",
-    "the-hidden-costs-of-using-non-native-ecommerce-platforms-with-salesforce",
-    "the-problem-with-traditional-web-store-builders-and-what-to-do-instead",
-    "the-roi-of-working-with-a-salesforce-certified-consultant-unlocking-business-potential",
-    "the-true-cost-of-disconnected-ecommerce-and-how-storefronts-fixes-it",
-    "transforming-salesforce-efficiency-ardn-cloud-solutions",
-    "unlocking-luxury-and-high-end-retail-potential-creating-exclusive-experiences-with-salesforce-ecommerce-platform",
-    "unlocking-the-power-of-salesforce-e-commerce-integration-a-complete-guide",
-    "why-e-commerce-founders-should-consider-native-salesforce-integration",
-    "why-on-demand-salesforce-talent-is-faster-than-traditional-hiring",
-    "why-the-salesforce-e-commerce-platform-is-the-smartest-choice-for-modern-brands-in-2025",
-    "license-guard-eliminate-license-waste-and-maximize-salesforce-roi",
-    ...RESTORED_ROOT_POSTS,
-].filter((slug, i, all) => !(slug in CUT_BLOG) && all.indexOf(slug) === i); // cut ones are handled by the CUT_BLOG rules
+// Blog posts lived at the domain root on the old WordPress site and now live
+// under /blog/ on the headless rebuild. Every post in posts.json gets a
+// /<slug> → /blog/<slug> redirect (Google still crawls the root URLs; a
+// hand-maintained list here missed 33 of them). A slug that matches a real
+// top-level route under src/app is skipped so the redirect never shadows a
+// page; the build logs a warning naming any such slug so it gets a decision.
+const TOP_LEVEL_ROUTES = new Set(
+    fs
+        .readdirSync(path.join(process.cwd(), "src/app"), { withFileTypes: true })
+        .filter((d) => d.isDirectory() && !/^[([_@]/.test(d.name)) // skip route groups, private, dynamic, slots
+        .map((d) => d.name),
+);
+const ROOT_ROUTE_COLLISIONS = postsData.map((p) => p.slug).filter((slug) => TOP_LEVEL_ROUTES.has(slug));
+if (ROOT_ROUTE_COLLISIONS.length > 0) {
+    console.warn(`[next.config] posts not redirected from the root (collide with a top-level route): ${ROOT_ROUTE_COLLISIONS.join(", ")}`);
+}
+const LEGACY_ROOT_POST_SLUGS = [...postsData.map((p) => p.slug), ...RESTORED_ROOT_POSTS].filter(
+    (slug, i, all) => !(slug in CUT_BLOG) && !TOP_LEVEL_ROUTES.has(slug) && all.indexOf(slug) === i,
+); // cut ones are handled by the CUT_BLOG rules
 
 // Old WordPress tag archives with a clear successor; other tags → /blog.
 const LEGACY_TAGS: Record<string, string> = {
@@ -140,7 +118,6 @@ const nextConfig: NextConfig = {
             r301(`/buyers-guide/salesforce-event-and-ticketing-platforms${S}`, "/buyers-guide/salesforce-event-ticketing-platform"),
             // Section roots that have no index page of their own.
             r301(`/buyers-guide${S}`, "/"),
-            r301(`/compare${S}`, "/"),
             r301(`/lp${S}`, "/"),
             // www → apex (existing). Strip a trailing slash in the same hop.
             {

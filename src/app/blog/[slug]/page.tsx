@@ -136,15 +136,45 @@ export default async function BlogPostPage({ params }: PageProps) {
         }
     }
 
+    // One BlogPosting per page. The Yoast @graph stored in posts.json also
+    // carried an Article node (plus a second BreadcrumbList), so emitting both
+    // gave Google two competing article entities; only this one is emitted now.
+    const withTz = (d: string) => (/[zZ]|[+-]\d\d:?\d\d$/.test(d) ? d : `${d}+00:00`);
+    const absUrl = (u: string) => (u.startsWith("http") ? u : `https://ardncloudsolutions.com${u.startsWith("/") ? "" : "/"}${u}`);
+    const yoastGraph = (post.yoast_head_json?.schema?.["@graph"] ?? []) as Array<Record<string, unknown>>;
+    const yoastArticle = yoastGraph.find((node) => node["@type"] === "Article");
+    const keywords = Array.isArray(yoastArticle?.keywords) ? (yoastArticle.keywords as string[]) : undefined;
+    const schemaImage = featuredImage ?? post.yoast_head_json?.og_image?.[0]?.url ?? "/images/ardn-share.jpg";
+    const organization = {
+        "@type": "Organization",
+        "@id": "https://ardncloudsolutions.com/#organization",
+        "name": "Ardn Cloud Solutions",
+        "url": "https://ardncloudsolutions.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ardncloudsolutions.com/logo/ardn_logo_white.svg",
+            "width": 350,
+            "height": 90,
+        },
+    };
+
     const articleSchema = {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
+        "@id": `${pageUrl}#article`,
         "headline": titleText,
         "name": titleText,
-        "datePublished": post.date,
+        "description": post.yoast_head_json?.description ?? getExcerptText(post.excerpt.rendered, 160),
+        "datePublished": withTz(post.date),
+        "dateModified": withTz(post.yoast_head_json?.article_modified_time ?? post.modified ?? post.date),
+        "author": organization,
+        "publisher": organization,
+        "image": absUrl(schemaImage),
+        "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
         "url": pageUrl,
-        ...(featuredImage && { "image": featuredImage }),
+        "inLanguage": "en-US",
         ...(firstCategory && { "articleSection": firstCategory.name }),
+        ...(keywords && keywords.length > 0 && { "keywords": keywords }),
     };
 
     const breadcrumbSchema = {
@@ -159,16 +189,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
     return (
         <main className="min-h-screen bg-white pt-[70px] lg:pt-[154px]">
-            {/* JSON-LD structured data from Yoast */}
-            {post.yoast_head_json?.schema && (
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(post.yoast_head_json.schema),
-                    }}
-                />
-            )}
-            {/* Article schema */}
+            {/* BlogPosting schema (the only article node on the page) */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

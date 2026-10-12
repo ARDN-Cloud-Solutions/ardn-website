@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const categoryName = category.name.replace(/<[^>]+>/g, "");
     const fallbackDescription = category.description || `Browse all posts in ${categoryName}.`;
 
-    const metaTitle = cleanSeoTitle(yoast?.title) ?? `${categoryName} | Blog | ARDN Cloud Solutions`;
+    const metaTitle = cleanSeoTitle(yoast?.title) ?? `${categoryName} | Blog | Ardn Cloud Solutions`;
     const metaDescription = yoast?.description ?? fallbackDescription;
     const ogTitle = cleanSeoTitle(yoast?.og_title) ?? categoryName;
     const ogDescription = yoast?.og_description ?? fallbackDescription;

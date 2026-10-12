@@ -320,6 +320,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.9,
     },
     {
+        // Index of every /compare/* page (was a redirect to the homepage).
+        url: `${BASE_URL}/compare`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
         url: `${BASE_URL}/compare/salesforce-commerce-cloud-alternatives`,
         lastModified: new Date(),
         changeFrequency: "monthly",
