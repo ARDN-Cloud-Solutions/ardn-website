@@ -91,7 +91,7 @@ export default async function CaseStudiesIndexPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <CaseStudyHero title="ARDN Client Case Studies & Success Stories" />
+            <CaseStudyHero title="Ardn Client Case Studies & Success Stories" />
 
             <section className="container py-12 md:py-16">
                 <CaseStudyGridSection

@@ -114,7 +114,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/logo/ardn_logo_white.svg"
-                alt="ARDN Cloud Solutions"
+                alt="Ardn Cloud Solutions"
                 width={180}
                 height={56}
                 className="h-14 w-auto object-contain"
@@ -252,7 +252,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container flex items-center lg:items-start justify-between h-14 lg:h-25">
           <p className="text-[#c4c4c4] font-poppins lg:pt-6 text-[15px]">
-            Copyright © {new Date().getFullYear()}, ARDN Cloud Solutions.
+            Copyright © {new Date().getFullYear()}, Ardn Cloud Solutions.
           </p>
         </div>
       </div>

@@ -52,8 +52,8 @@ import { sendSnapshot, snapshotOf, trackFigure, trackProposal, type SentBy } fro
  * (ProposalOutlook).
  *
  * What the person types is kept in this browser, so a refresh does not lose
- * it. The figures, never the name, are also counted by ARDN: each one as it is
- * entered, and the whole proposal when it is printed. Sending it to ARDN adds
+ * it. The figures, never the name, are also counted by Ardn: each one as it is
+ * entered, and the whole proposal when it is printed. Sending it to Ardn adds
  * the person's name and email. See proposalTracking.ts.
  */
 
@@ -291,10 +291,10 @@ function ProposalForm({
     if (!check() || !comparing) return;
     trackProposal("proposal_printed", { apps_on: String(totals.moved), difference: String(result.saving) });
     // Sent before the print dialog, which blocks the page; a failure only
-    // means ARDN misses this copy, so the person still gets their print.
+    // means Ardn misses this copy, so the person still gets their print.
     sendSnapshot("printed", snapshot()).then(
-      (ok) => setPrintNote(ok ? null : "Printed. Your figures did not reach ARDN; use Send it to ARDN if you want a reply."),
-      () => setPrintNote("Printed. Your figures did not reach ARDN; use Send it to ARDN if you want a reply."),
+      (ok) => setPrintNote(ok ? null : "Printed. Your figures did not reach Ardn; use Send it to Ardn if you want a reply."),
+      () => setPrintNote("Printed. Your figures did not reach Ardn; use Send it to Ardn if you want a reply."),
     );
     window.print();
   }

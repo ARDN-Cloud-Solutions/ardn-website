@@ -184,7 +184,7 @@ export async function POST(req: Request) {
   const span = `${p.whatIf.years} year${p.whatIf.years === 1 ? "" : "s"}`;
 
   const html = `<div style="font-family:Arial,sans-serif;line-height:1.5;color:#222">
-<h2 style="color:#121c27">${p.reason === "sent" ? "Proposal sent to ARDN" : "Proposal printed"}</h2>
+<h2 style="color:#121c27">${p.reason === "sent" ? "Proposal sent to Ardn" : "Proposal printed"}</h2>
 ${
   p.sentBy
     ? `<p><b>From:</b> ${esc(p.sentBy.name)} &lt;${esc(p.sentBy.email)}&gt;<br><b>Prepared for:</b> ${esc(p.sentBy.preparedFor) || "—"}${p.sentBy.note ? `<br><b>Note:</b> ${esc(p.sentBy.note).replace(/\n/g, "<br>")}` : ""}</p>`

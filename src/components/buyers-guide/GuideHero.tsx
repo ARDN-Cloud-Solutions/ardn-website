@@ -12,7 +12,7 @@ interface GuideHeroProps {
 
 export default function GuideHero({
   title,
-  buttonText = "Getting Started with ARDN",
+  buttonText = "Getting Started with Ardn",
   buttonLink = "/contact-us",
 }: GuideHeroProps) {
   const fadeIn = {

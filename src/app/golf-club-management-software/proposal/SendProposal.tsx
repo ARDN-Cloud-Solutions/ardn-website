@@ -7,7 +7,7 @@ import type { SentBy } from "./proposalTracking";
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * Send the proposal to ARDN for a reply. The figures go with it; the name and
+ * Send the proposal to Ardn for a reply. The figures go with it; the name and
  * email are what let us answer. `send` does the posting so this stays a form.
  */
 export default function SendProposal({
@@ -28,7 +28,7 @@ export default function SendProposal({
   if (!open)
     return (
       <button type="button" className="gc-btn gc-btn-ghost" onClick={() => setOpen(true)}>
-        <Send size={16} aria-hidden="true" /> Send it to ARDN
+        <Send size={16} aria-hidden="true" /> Send it to Ardn
       </button>
     );
 

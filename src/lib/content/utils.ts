@@ -71,11 +71,11 @@ export function getPostCategories(post: WPPost): WPTerm[] {
 
 /**
  * Returns the display name of the post author.
- * Falls back to "ARDN Team" if the name looks like a raw email address.
+ * Falls back to "Ardn Team" if the name looks like a raw email address.
  */
 export function getPostAuthor(post: WPPost): string {
     const name = post._embedded?.author?.[0]?.name;
-    if (!name || name.includes("@")) return "ARDN Team";
+    if (!name || name.includes("@")) return "Ardn Team";
     return name;
 }
 

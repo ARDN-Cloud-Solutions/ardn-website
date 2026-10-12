@@ -17,7 +17,7 @@ export default function SalesforceAppExchangeContent() {
         <>
             <GuideHero
                 title="Top Salesforce Commerce AppExchange Solutions You Should Try"
-                buttonText="Getting Started with ARDN"
+                buttonText="Getting Started with Ardn"
                 buttonLink="/contact-us"
             />
 
@@ -85,21 +85,21 @@ export default function SalesforceAppExchangeContent() {
                             i. Salesforce Native AppExchange Solutions for Commerce
                         </strong>
 
-                        {/* Tool #1 — ARDN */}
+                        {/* Tool #1 — Ardn */}
                         <strong className="block text-2xl font-semibold text-heading-dark mt-6 mb-4">
-                            #1 ARDN Storefront: The All-in-One Native Salesforce Commerce Solution
+                            #1 Ardn Storefront: The All-in-One Native Salesforce Commerce Solution
                         </strong>
 
                         <Image
                             src="/buyers-guide/ardn-all-in-one-ecommerce.webp"
-                            alt="ARDN Storefronts as the best Salesforce commerce AppExchange solution"
+                            alt="Ardn Storefronts as the best Salesforce commerce AppExchange solution"
                             width={1400}
                             height={1400}
                             className="w-full rounded-2xl my-8"
                         />
 
                         <p className="text-heading-dark text-sm lg:text-base">
-                            ARDN Storefronts is a native Salesforce managed package built for teams that want their entire e-commerce engine living inside Salesforce.
+                            Ardn Storefronts is a native Salesforce managed package built for teams that want their entire e-commerce engine living inside Salesforce.
                         </p>
                         <p className="text-heading-dark text-sm lg:text-base mt-4">
                             Everything you need to sell sits in your org. Products, subscriptions, memberships, donations, appointment scheduling, and event ticketing are all handled within Salesforce itself. There are no third-party storefront platforms, external checkout pages, or middleware that quietly move data around in the background.
@@ -109,7 +109,7 @@ export default function SalesforceAppExchangeContent() {
                         </p>
 
                         <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">
-                            What makes ARDN Storefronts stand out?
+                            What makes Ardn Storefronts stand out?
                         </strong>
                         <ul className="list-disc pl-6 space-y-3 my-6 text-heading-dark">
                             <li><strong>E-commerce for Physical and Digital Products:</strong> Create product catalogs, pricing rules, variations, discounts, and more.</li>
@@ -411,7 +411,7 @@ export default function SalesforceAppExchangeContent() {
                                     </thead>
                                     <tbody>
                                         {[
-                                            { tool: "ARDN Storefronts", bestFor: "E-commerce, subscriptions, memberships", ideal: "Mid-market Salesforce teams", price: "$2,500 USD/comp/month" },
+                                            { tool: "Ardn Storefronts", bestFor: "E-commerce, subscriptions, memberships", ideal: "Mid-market Salesforce teams", price: "$2,500 USD/comp/month" },
                                             { tool: "StoreConnect", bestFor: "E-commerce + POS + memberships", ideal: "Nonprofits, retail, education", price: "$995/month + % of sales" },
                                             { tool: "Commerce Studio by 1440", bestFor: "Order & inventory management across channels", ideal: "Multi-channel retailers", price: "$300/month/user" },
                                             { tool: "EPOSLY", bestFor: "POS and payment processing", ideal: "Retail, healthcare, nonprofits", price: "$7,500/Org/year" },
@@ -610,7 +610,7 @@ export default function SalesforceAppExchangeContent() {
                             And once you&apos;ve narrowed things down, the final step is finding a partner who can help you get everything working the way you imagined. That part matters more than most people think. The right partner will not only guide implementation but also help you get value out of Salesforce in ways you might not even be using today.
                         </p>
                         <p className="text-heading-dark text-sm lg:text-base mt-4">
-                            If you&apos;re planning your next phase of growth on Salesforce and want a commerce setup that handles storefronts, memberships, events, appointments, and payments in one place, ARDN Storefronts is worth a look. It&apos;s built for teams that want everything running directly inside Salesforce, without managing a dozen tools in the background.
+                            If you&apos;re planning your next phase of growth on Salesforce and want a commerce setup that handles storefronts, memberships, events, appointments, and payments in one place, Ardn Storefronts is worth a look. It&apos;s built for teams that want everything running directly inside Salesforce, without managing a dozen tools in the background.
                         </p>
                         <p className="text-heading-dark text-sm lg:text-base mt-4">
                             Whenever you&apos;re ready, we&apos;re here to help you figure out your best path forward on Salesforce.

@@ -272,7 +272,7 @@ export default function CareerContent() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          WHY WORK WITH ARDN
+          WHY WORK WITH Ardn
       ═══════════════════════════════════════════ */}
       <section className="pt-10 lg:pt-12 bg-white">
         <div className="container">

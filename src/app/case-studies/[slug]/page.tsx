@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const fallbackDescription = getExcerptText(post.content.rendered, 160);
     const fallbackImage = getFeaturedImageUrl(post);
 
-    const metaTitle = cleanSeoTitle(yoast?.title) ?? `${titleText} | ARDN Case Studies`;
+    const metaTitle = cleanSeoTitle(yoast?.title) ?? `${titleText} | Ardn Case Studies`;
     const metaDescription = yoast?.description ?? fallbackDescription;
     const ogTitle = cleanSeoTitle(yoast?.og_title) ?? titleText;
     const ogDescription = yoast?.og_description ?? fallbackDescription;

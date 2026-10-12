@@ -54,7 +54,7 @@ export default async function Page() {
         "@type": "WebPage",
         "@id": "https://ardncloudsolutions.com/",
         "url": "https://ardncloudsolutions.com/",
-        "name": "Industry Software, Built & Run for You | ARDN Cloud Solutions",
+        "name": "Industry Software, Built & Run for You | Ardn Cloud Solutions",
         "description": "Salesforce consulting, e-commerce and license savings, plus ready-to-run software for clubs, nonprofits and contractors. US team in Orlando. Reply in 4 hours.",
         "inLanguage": "en-US"
       },

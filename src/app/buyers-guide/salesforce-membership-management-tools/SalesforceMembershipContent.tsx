@@ -18,7 +18,7 @@ export default function SalesforceMembershipContent() {
     <>
       <GuideHero
         title="Best Salesforce Membership Management Tools for Associations & Organizations"
-        buttonText="Getting Started with ARDN"
+        buttonText="Getting Started with Ardn"
         buttonLink="/contact-us"
       />
 
@@ -84,7 +84,7 @@ export default function SalesforceMembershipContent() {
               A membership management tool takes that idea a bit further. It&apos;s a Salesforce-based solution that builds on the CRM&apos;s strengths, adding key features like automated renewals, recurring payments, event registration, member portals, directories, and engagement scoring.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              While Salesforce provides the core CRM structure, membership software, like ARDN&apos;s Storefront, layers on everything needed to actually manage and grow a thriving member community.
+              While Salesforce provides the core CRM structure, membership software, like Ardn&apos;s Storefront, layers on everything needed to actually manage and grow a thriving member community.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               Now that we know what Salesforce membership management is and how it works, let&apos;s look at some of the top platforms that help teams put it into action.
@@ -107,19 +107,19 @@ export default function SalesforceMembershipContent() {
 
             {/* Tool #1 */}
             <strong className="block text-2xl lg:text-3xl font-semibold text-heading-dark mt-8 mb-4">
-              #1 ARDN Storefront: The All-in-One Native Salesforce Commerce Solution
+              #1 Ardn Storefront: The All-in-One Native Salesforce Commerce Solution
             </strong>
 
             <Image
               src="/buyers-guide/ardn-all-in-one-ecommerce.webp"
-              alt="ARDN Storefronts as the best Salesforce membership management tool"
+              alt="Ardn Storefronts as the best Salesforce membership management tool"
               width={1400}
               height={1400}
               className="w-full rounded-2xl my-8"
             />
 
             <p className="text-heading-dark text-sm lg:text-base">
-              ARDN Cloud Solutions&apos; flagship product, ARDN Storefronts, gives you the ability to sell memberships, products, subscriptions, and event tickets, all without leaving Salesforce.
+              Ardn Cloud Solutions&apos; flagship product, Ardn Storefronts, gives you the ability to sell memberships, products, subscriptions, and event tickets, all without leaving Salesforce.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               Because Storefronts is built directly on Salesforce, everything from renewals to event ticketing happens inside one ecosystem without the need for middleware, APIs, or third-party platforms to maintain.
@@ -353,7 +353,7 @@ export default function SalesforceMembershipContent() {
                   </thead>
                   <tbody>
                     {[
-                      { tool: "ARDN Storefronts", bestFor: "All-in-one Salesforce-native commerce and membership solution", price: "Custom (avg. $2K–$10K/yr)", native: "Yes" },
+                      { tool: "Ardn Storefronts", bestFor: "All-in-one Salesforce-native commerce and membership solution", price: "Custom (avg. $2K–$10K/yr)", native: "Yes" },
                       { tool: "Nimble AMS", bestFor: "Automatic Salesforce updates and zero downtime", price: "$180/user/month", native: "Yes" },
                       { tool: "Fonteva for Associations", bestFor: "Enterprise-grade customization and advanced event management", price: "$145/user/month", native: "Yes" },
                       { tool: "AC MemberSmart", bestFor: "Built-in community engagement", price: "$119/user/month", native: "Yes" },
@@ -509,7 +509,7 @@ export default function SalesforceMembershipContent() {
               Because if you&apos;re already working out of Salesforce every day, the last thing you need is another platform slowing you down.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              If that&apos;s what your team&apos;s been looking for, maybe it&apos;s worth taking a closer look at ARDN Storefronts.
+              If that&apos;s what your team&apos;s been looking for, maybe it&apos;s worth taking a closer look at Ardn Storefronts.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               <strong>Simple. Native. Seamless.</strong>

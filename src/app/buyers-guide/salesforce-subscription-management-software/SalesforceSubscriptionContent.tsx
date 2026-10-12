@@ -18,7 +18,7 @@ export default function SalesforceSubscriptionContent() {
     <>
       <GuideHero
         title="Best Salesforce Subscription Management Tools: A Buyer's Guide"
-        buttonText="Getting Started with ARDN"
+        buttonText="Getting Started with Ardn"
         buttonLink="/contact-us"
       />
 
@@ -132,21 +132,21 @@ export default function SalesforceSubscriptionContent() {
             </ol>
             <p className="text-heading-dark text-sm lg:text-base">Let&apos;s start with the Salesforce-native ones.</p>
 
-            {/* Tool #1 — ARDN */}
+            {/* Tool #1 — Ardn */}
             <strong className="block text-2xl font-semibold text-heading-dark mt-8 mb-4">
-              #1. ARDN Storefronts: Your All-in-one Salesforce Native Solution
+              #1. Ardn Storefronts: Your All-in-one Salesforce Native Solution
             </strong>
 
             <Image
               src="/buyers-guide/ardn-all-in-one-ecommerce.webp"
-              alt="ARDN Storefronts, the all-in-one native software for Salesforce subscription management"
+              alt="Ardn Storefronts, the all-in-one native software for Salesforce subscription management"
               width={1400}
               height={1400}
               className="w-full rounded-2xl my-8"
             />
 
             <p className="text-heading-dark text-sm lg:text-base">
-              ARDN Storefronts is for teams who want to run subscriptions, memberships, e-commerce, appointments, and ticketing without ever leaving Salesforce. This platform is perfect for you if your entire business already sits inside Salesforce and you don&apos;t want to deal with integrations, connectors, middleware costs, or 6-month implementation cycles. And there are no per-user costs, unlike other platforms.
+              Ardn Storefronts is for teams who want to run subscriptions, memberships, e-commerce, appointments, and ticketing without ever leaving Salesforce. This platform is perfect for you if your entire business already sits inside Salesforce and you don&apos;t want to deal with integrations, connectors, middleware costs, or 6-month implementation cycles. And there are no per-user costs, unlike other platforms.
             </p>
 
             <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Key Features:</strong>
@@ -162,7 +162,7 @@ export default function SalesforceSubscriptionContent() {
               If you already pay for Salesforce, why pay for five more systems to do what Salesforce can do natively?
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              With ARDN Storefronts, you&apos;re walking away with a specialist team known for helping mid-market companies get enterprise-level outcomes without enterprise-level pricing!
+              With Ardn Storefronts, you&apos;re walking away with a specialist team known for helping mid-market companies get enterprise-level outcomes without enterprise-level pricing!
             </p>
 
             {/* CTA Block */}
@@ -420,7 +420,7 @@ export default function SalesforceSubscriptionContent() {
                   </thead>
                   <tbody>
                     {[
-                      { name: "ARDN Storefronts", bestFor: "Native Salesforce ecommerce + subscriptions + memberships", time: "2–4 weeks", price: "$2,500/comp/month (Custom Pricing)", native: "Yes" },
+                      { name: "Ardn Storefronts", bestFor: "Native Salesforce ecommerce + subscriptions + memberships", time: "2–4 weeks", price: "$2,500/comp/month (Custom Pricing)", native: "Yes" },
                       { name: "Fonteva", bestFor: "Purpose-built for nonprofits, associations, memberships", time: "3–6 months", price: "$175/user/month + extra Salesforce license", native: "Yes" },
                       { name: "StoreConnect", bestFor: "Multi-location retail + POS + subscriptions + memberships", time: "4–12 weeks", price: "$995/month + 0.2–0.6% transaction fee", native: "Yes" },
                       { name: "Chargebee", bestFor: "Advanced usage-based & hybrid pricing models", time: "4–8 weeks", price: "$599/month (billed monthly)", native: "No" },
@@ -603,7 +603,7 @@ export default function SalesforceSubscriptionContent() {
               It just&hellip; works the way it should.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              If you&apos;re still figuring out which platform actually fits your business and not just your wish list, ARDN Storefronts is a pretty good place to start. If it clicks, great!
+              If you&apos;re still figuring out which platform actually fits your business and not just your wish list, Ardn Storefronts is a pretty good place to start. If it clicks, great!
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               And if you ever want to run your setup by someone or sense-check a couple of options, just reach out. No pitch or pressure. Just a quick chat to help you get to the right answer.
@@ -637,12 +637,12 @@ export default function SalesforceSubscriptionContent() {
           {
             question: "2. Can I manage subscriptions in Salesforce without Revenue Cloud?",
             answer:
-              "Yes, for sure. Revenue Cloud is for huge enterprises. Most companies use a native Salesforce app like ARDN or Fonteva, or an external tool like Chargebee or Recurly. It’s faster, cheaper, and easier than spending months and hundreds of thousands on Revenue Cloud.",
+              "Yes, for sure. Revenue Cloud is for huge enterprises. Most companies use a native Salesforce app like Ardn or Fonteva, or an external tool like Chargebee or Recurly. It’s faster, cheaper, and easier than spending months and hundreds of thousands on Revenue Cloud.",
           },
           {
             question: "3. What’s the best subscription tool for nonprofits?",
             answer:
-              "If you’re a smaller nonprofit with simple needs, ARDN is a more affordable option. Fonteva is also a good fit but is better suited for membership-focused companies. It handles renewals, events, and community features without workarounds",
+              "If you’re a smaller nonprofit with simple needs, Ardn is a more affordable option. Fonteva is also a good fit but is better suited for membership-focused companies. It handles renewals, events, and community features without workarounds",
           }
         ]}
       />    

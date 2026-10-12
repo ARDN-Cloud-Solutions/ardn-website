@@ -319,7 +319,7 @@ export default function AiAppDevelopmentPage() {
           </div>
         </section>
 
-        {/* WHY ARDN */}
+        {/* WHY Ardn */}
         <section className="section is-canvas">
           <div className="container">
             <div className="split">

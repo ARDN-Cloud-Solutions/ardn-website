@@ -19,7 +19,7 @@ export default function SalesforceCommerceCloudAlternativesContent() {
     <>
       <GuideHero
         title="Best Salesforce Commerce Cloud Alternatives"
-        buttonText="Getting Started with ARDN"
+        buttonText="Getting Started with Ardn"
         buttonLink="/contact-us"
       />
 
@@ -579,17 +579,17 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               Here are some of the most practical alternatives to consider. Let’s see how they compare!
             </p>
 
-            {/* Alt #1 ARDN */}
-            <strong className="block text-2xl font-semibold text-heading-dark mt-8 mb-4">Alternative #1: ARDN Storefronts - Salesforce-Native, Single-Org Solution</strong>
+            {/* Alt #1 Ardn */}
+            <strong className="block text-2xl font-semibold text-heading-dark mt-8 mb-4">Alternative #1: Ardn Storefronts - Salesforce-Native, Single-Org Solution</strong>
             <Image
               src="/buyers-guide/ardn-all-in-one-ecommerce.webp"
-              alt="ARDN-storefronts-as-the-best-salesforce-commerce-cloud-alternative"
+              alt="Ardn-storefronts-as-the-best-salesforce-commerce-cloud-alternative"
               width={1400}
               height={800}
               className="w-full rounded-2xl my-8"
             />
             <p className="text-heading-dark text-sm lg:text-base">
-              ARDN Storefronts is a fully native e-commerce solution built inside your existing Salesforce org. This Salesforce Commerce Cloud alternative doesn’t require dual-platform management, separate user bases, or complex API integrations.
+              Ardn Storefronts is a fully native e-commerce solution built inside your existing Salesforce org. This Salesforce Commerce Cloud alternative doesn’t require dual-platform management, separate user bases, or complex API integrations.
             </p>
 
             <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Key Features:</strong>
@@ -603,36 +603,36 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               <li>QR code scanning</li>
             </ul>
 
-            <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">ARDN Storefronts vs SFCC</strong>
+            <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Ardn Storefronts vs SFCC</strong>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Platform Setup &amp; Data</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
-              <li>ARDN Storefronts lives entirely inside Salesforce. Products, orders, and customers use standard Salesforce objects.</li>
+              <li>Ardn Storefronts lives entirely inside Salesforce. Products, orders, and customers use standard Salesforce objects.</li>
               <li>SFCC, on the other hand, runs on a separate platform that connects to Salesforce via APIs.</li>
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Administration &amp; Teams</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
-              <li>With ARDN, your existing Salesforce admins manage everything through familiar profiles and permission sets.</li>
+              <li>With Ardn, your existing Salesforce admins manage everything through familiar profiles and permission sets.</li>
               <li>SFCC requires separate user management and specialists trained in Business Manager.</li>
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Customization &amp; Development</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
-              <li>ARDN customizes through Salesforce-native tools so your team builds faster with what they already know.</li>
+              <li>Ardn customizes through Salesforce-native tools so your team builds faster with what they already know.</li>
               <li>SFCC development relies on SFRA, ISML, and cartridge frameworks, which demand specialized developers and longer timelines.</li>
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Integrations</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
-              <li>ARDN connects directly with Sales, Service, and Marketing Cloud. No APIs, no data syncs, no maintenance headaches.</li>
+              <li>Ardn connects directly with Sales, Service, and Marketing Cloud. No APIs, no data syncs, no maintenance headaches.</li>
               <li>SFCC needs API integrations to exchange data with Salesforce, which increases setup time and complexity.</li>
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Pricing &amp; Total Cost</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
-              <li>ARDN uses your existing <Link href="/reduce-crm-licensing-costs" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Salesforce license</Link> with no GMV-based fees.</li>
+              <li>Ardn uses your existing <Link href="/reduce-crm-licensing-costs" className="text-heading-dark underline decoration-[#FB7103] underline-offset-4">Salesforce license</Link> with no GMV-based fees.</li>
               <li>SFCC adds 1–2% GMV licensing, plus extra in setup and ongoing partner retainers.</li>
             </ul>
             <strong className="block text-lg font-semibold text-heading-dark mt-6 mb-2">Scalability &amp; Fit</strong>
             <ul className="list-disc pl-6 space-y-3 my-4 text-heading-dark">
               <li>SFCC is built for global enterprises managing complex omnichannel operations and large storefront networks.</li>
-              <li>ARDN fits Salesforce-first organizations focused on unified operations, mid-market scale, and faster time-to-market.</li>
+              <li>Ardn fits Salesforce-first organizations focused on unified operations, mid-market scale, and faster time-to-market.</li>
             </ul>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               If you’re already living inside Salesforce every day, adding another platform shouldn’t be what holds you back from selling online. <strong>Storefronts</strong> keeps everything under one roof so you can move faster, spend less, and actually enjoy running your store!
@@ -944,14 +944,14 @@ export default function SalesforceCommerceCloudAlternativesContent() {
 
             {/* Start Your Journey */}
             <h2 id="ardn-storefront-journey" className="block lg:text-4xl text-2xl font-bold text-heading-dark mt-12 mb-6 leading-tight scroll-mt-[120px]">
-              Start Your Journey with ARDN’s Storefronts!
+              Start Your Journey with Ardn’s Storefronts!
             </h2>
             <p className="text-heading-dark text-sm lg:text-base">
               If you’ve ever tried extending Salesforce for commerce, you know it’s not as simple as flipping a switch. You’re juggling multiple platforms, syncing data across tools that don’t always talk to each other, managing payment gateways, and still trying to scale without burning through your budget.
             </p>
-            <p className="text-heading-dark text-sm lg:text-base mt-4">ARDN’s Storefronts simplifies all of it.</p>
+            <p className="text-heading-dark text-sm lg:text-base mt-4">Ardn’s Storefronts simplifies all of it.</p>
 
-            <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">How ARDN Supports Your Journey</strong>
+            <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">How Ardn Supports Your Journey</strong>
             <p className="text-heading-dark text-sm lg:text-base mt-4">Storefronts lives entirely inside Salesforce, so there are no middleware or third-party storefronts to worry about. Here’s what it does for you:</p>
             <ul className="list-disc pl-6 space-y-3 my-6 text-heading-dark">
               <li>Keeps products, price books, customers, and orders perfectly in sync.</li>
@@ -966,7 +966,7 @@ export default function SalesforceCommerceCloudAlternativesContent() {
                 <strong>1. Assess &amp; Plan:</strong> Start by reviewing your current Salesforce setup. Identify what needs to be customized (product catalogs, pricing, or payment flows.)
               </p>
               <p className="text-heading-dark text-sm lg:text-base">
-                <strong>2. Configure:</strong> Install the ARDN Storefronts managed package right from AppExchange, map your products and attributes, and connect your preferred payment gateway.
+                <strong>2. Configure:</strong> Install the Ardn Storefronts managed package right from AppExchange, map your products and attributes, and connect your preferred payment gateway.
               </p>
               <p className="text-heading-dark text-sm lg:text-base">
                 <strong>3. Customize:</strong> Fine-tune the look and feel using Lightning components or Experience Builder pages.
@@ -986,7 +986,7 @@ export default function SalesforceCommerceCloudAlternativesContent() {
                 "Validate your payment gateway setup",
                 "Enable multi-currency or localization if needed",
                 "Identify ERP, POS, and CRM integrations",
-                "Decide who’s managing ongoing support (Is it your team or an ARDN partner?)",
+                "Decide who’s managing ongoing support (Is it your team or an Ardn partner?)",
               ].map((item, i) => (
                 <li key={i} className="flex gap-4 items-start">
                   <Check className="w-6 h-6 flex-shrink-0 text-green-700 bg-green-200 rounded-full p-1 mt-1" />
@@ -1006,7 +1006,7 @@ export default function SalesforceCommerceCloudAlternativesContent() {
               <li>Who’s going to manage updates and feature enhancements? Your admins or a partner?</li>
             </ul>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              If you’re nodding along thinking, “Yep, that’s exactly what we need,” then you’re ready for ARDN Storefronts.
+              If you’re nodding along thinking, “Yep, that’s exactly what we need,” then you’re ready for Ardn Storefronts.
             </p>
 
             <section className="bg-[#0D121F] rounded-2xl p-8 lg:p-12 my-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">

@@ -17,7 +17,7 @@ export default function SalesforceWebflowAutomationContent() {
     <>
       <GuideHero
         title="Top Salesforce Workflow Automation Platforms"
-        buttonText="Getting Started with ARDN"
+        buttonText="Getting Started with Ardn"
         buttonLink="/contact-us"
       />
 
@@ -173,25 +173,25 @@ export default function SalesforceWebflowAutomationContent() {
               </div>
             </div>
 
-            {/* Tool #1 — ARDN */}
+            {/* Tool #1 — Ardn */}
             <strong className="block text-2xl font-semibold text-heading-dark mt-8 mb-4">
-              1. ARDN Cloud Solutions: For Custom Salesforce Workflow Automation & Optimization
+              1. Ardn Cloud Solutions: For Custom Salesforce Workflow Automation & Optimization
             </strong>
 
             <Image
               src="/buyers-guide/ardn-all-in-one-ecommerce.webp"
-              alt="ARDN Storefronts, the all-in-one native software for Salesforce subscription management"
+              alt="Ardn Storefronts, the all-in-one native software for Salesforce subscription management"
               width={1400}
               height={1400}
               className="w-full rounded-2xl my-8"
             />
 
             <p className="text-heading-dark text-sm lg:text-base">
-              <Link href="/" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">ARDN Cloud Solutions</Link> is your partner in transforming Salesforce for efficiency and impact. The platform specializes in delivering innovative, cost-effective Salesforce solutions designed to simplify processes, maximize your investment, and drive business growth.
+              <Link href="/" className="text-heading-dark underline decoration-[#ff9b29] underline-offset-4">Ardn Cloud Solutions</Link> is your partner in transforming Salesforce for efficiency and impact. The platform specializes in delivering innovative, cost-effective Salesforce solutions designed to simplify processes, maximize your investment, and drive business growth.
             </p>
 
             <p className="text-heading-dark text-sm lg:text-base">
-              In simple terms, ARDN builds and customizes Salesforce around how your business actually works. Instead of forcing you into rigid tools, they create workflows, products, and integrations that fit your processes.
+              In simple terms, Ardn builds and customizes Salesforce around how your business actually works. Instead of forcing you into rigid tools, they create workflows, products, and integrations that fit your processes.
             </p>
 
             <strong className="block text-xl lg:text-2xl font-semibold text-heading-dark mt-8 mb-4">Key Features:</strong>
@@ -406,7 +406,7 @@ export default function SalesforceWebflowAutomationContent() {
                   <tbody>
                     {[
                       {
-                        name: "ARDN Cloud Solutions",
+                        name: "Ardn Cloud Solutions",
                         bestFor: "Custom Salesforce workflows",
                         time: "Builds tailored automation, products, and integrations directly inside Salesforce",
                         price: "Approx. $2,500/month",
@@ -571,7 +571,7 @@ export default function SalesforceWebflowAutomationContent() {
               Some tools help you move data. Some help you run processes. Others improve how your team actually works inside Salesforce. Once you separate these clearly, the choice becomes much easier.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
-              If your workflows are tightly tied to how your business operates inside Salesforce, the native tools by ARDN Cloud Solutions is the most direct fit. It works best when you need custom logic or tailored workflows or want to reduce reliance on multiple external tools.
+              If your workflows are tightly tied to how your business operates inside Salesforce, the native tools by Ardn Cloud Solutions is the most direct fit. It works best when you need custom logic or tailored workflows or want to reduce reliance on multiple external tools.
             </p>
             <p className="text-heading-dark text-sm lg:text-base mt-4">
               If your main challenge is connecting Salesforce with other systems, tools like MuleSoft and Workato are built for that. They handle integrations and cross-system workflows at scale.
