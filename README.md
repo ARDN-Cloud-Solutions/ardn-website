@@ -1,6 +1,6 @@
 # ARDN Cloud Solutions
 
-> Company website for [ARDN Cloud Solutions](https://ardncloudsolutions.com) — built with **Next.js 16**, powered by **WordPress** as a headless CMS, hosted on **Hostinger**.
+> Company website for [ARDN Cloud Solutions](https://ardncloudsolutions.com) — built with **Next.js 16**, powered by **WordPress** as a headless CMS, hosted on **Vercel**.
 
 ---
 
@@ -66,7 +66,7 @@ NEXT_PUBLIC_BASE_URL=https://ardncloudsolutions.com
 | Icons | Lucide React |
 | Email | Nodemailer (Gmail SMTP) |
 | CMS | WordPress (headless, REST API) |
-| Hosting | Hostinger (VPS / Node.js) |
+| Hosting | Vercel (deploys from GitHub `main`) |
 
 ---
 
@@ -184,48 +184,22 @@ src/app/<page-name>/
 
 ## 10. Deployment Process
 
-### Step 1 — Complete File Changes
-After completing all required changes in the project files, run the following command:
-```bash
-npm run build
-```
+The site is hosted on Vercel (project `ardn-website`, team `dpatel-4104s-projects`)
+and deploys from GitHub. Nothing to upload.
 
-> **Why `--webpack`:** Next.js 16 builds with Turbopack by default, and
-> Turbopack runs PostCSS (Tailwind) in a separate Node worker process.
-> Hostinger's build environment kills that worker ("node process exited
-> before we could connect to it"), so the build uses webpack, which
-> processes CSS in-process. Output is identical.
+1. Open a pull request against `main`. Vercel builds a preview of the branch
+   (its URL is behind Vercel login; use `vercel curl <url>` to check it).
+2. Merge. Vercel builds `main` and puts it live at https://ardncloudsolutions.com
+   within a few minutes. A failed build never replaces the live site.
+3. Environment variables (SMTP, Supabase, see `.env.example`) live in the
+   Vercel project settings; a change there needs a redeploy to take effect.
 
-### Step 2 — Verify Build Status
-- If there are no errors, the build process will complete successfully.
-- If there are any code, TypeScript, or lint errors, the build will fail.
-- Fix all errors and run the build command again.
-- Only continue once the build is successful.
+DNS is at Cloudflare: apex `A 76.76.21.21`, `www` CNAME `cname.vercel-dns.com`,
+both DNS-only. `www` redirects to the apex.
 
-### Step 3 — Commit and Push the Code
-After the successful build:
-```bash
-git add .
-git commit -m "Updated website changes"
-git push origin main
-```
-
-### Step 4 — Download ZIP from GitHub
-1. Open the GitHub repository.
-2. Click the **Code** button.
-3. Select **Download ZIP**.
-4. Save the ZIP file locally.
-
-### Step 5 — Deploy in Hostinger
-1. Login to Hostinger.
-2. Open the website dashboard.
-3. Go to: **Settings → Redeploy**
-4. Upload the downloaded ZIP file.
-5. Click: **Save & Deploy**
-
-### Step 6 — Wait for Build Completion
-- Hostinger automatically starts the deployment build process.
-- Once the build completes successfully, the latest changes become live on the website.
+> **Why `--webpack`:** Next.js 16 builds with Turbopack by default; the
+> webpack build was adopted for the previous host and works unchanged on
+> Vercel. Output is identical.
 
 ---
 
