@@ -32,7 +32,7 @@ interface Row extends Feature {
   app: string;
 }
 
-function RatingCell({ r }: { r: Rating | undefined }) {
+export function RatingCell({ r }: { r: Rating | undefined }) {
   const rating = r ?? "Unknown";
   return (
     <span className={`cp-rate cp-rate-${rating.toLowerCase()}`}>

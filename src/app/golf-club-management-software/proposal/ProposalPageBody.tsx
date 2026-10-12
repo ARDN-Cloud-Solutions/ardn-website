@@ -6,6 +6,7 @@ import CoverageExplorer, { StatusPill } from "./CoverageExplorer";
 import ProposalBuilder from "./ProposalBuilder";
 import CompareTable from "./CompareTable";
 import { COMPETITORS, RESEARCHED } from "./competitors";
+import ProposalStory from "./ProposalStory";
 
 /**
  * The proposal page's content. page.tsx renders it for the public site with
@@ -23,7 +24,8 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
           <h1 className="cp-h1">See what Club Steward covers, then choose what your club moves.</h1>
           <p className="gc-sub gc-on-dark cp-lede">
             Every app, with how much of it is ready today and where AI does the work. Turn on the apps you want
-            to move and enter today&apos;s costs and the future ones to see the difference.
+            to move, enter today&apos;s costs and the future ones, and test the difference over one, three or five
+            years.
           </p>
           <ul className="cp-stats" role="list">
             <li>
@@ -80,14 +82,16 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
                 <b>Build the proposal</b>
                 <span>
                   {preset
-                    ? `${preset.preparedFor}'s current systems are filled in for each app. Add today's costs, turn on the apps to move, and enter the Club Steward costs to see the yearly difference.`
-                    : "List what you use today and what it costs, turn on the apps to move, and enter the Club Steward costs to see the yearly difference."}
+                    ? `${preset.preparedFor}'s current systems are filled in for each app. Add today's costs, turn on the apps to move, enter the Club Steward costs, and add the costs no one app owns.`
+                    : "List what you use today and what it costs, turn on the apps to move, enter the Club Steward costs, and add the costs no one app owns."}
                 </span>
               </a>
             </li>
           </ol>
           <p className="cp-purpose-note">
-            Nothing you type leaves this browser. Print or save the proposal as a PDF when it is ready.
+            What you type is kept in this browser so a refresh does not lose it. ARDN counts the figures you enter,
+            never your name, and receives a copy of the figures when you print. Send the proposal to us when you want
+            a reply.
           </p>
         </div>
       </section>
@@ -128,14 +132,17 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
             <h2 className="gc-h2">Every feature, next to the other club software</h2>
             <p className="gc-sub">
               Search, narrow to one app, choose which products to compare, and open any feature to see the note
-              behind each rating and the page it came from.
+              behind each rating and the page it came from. For the rollup by app, see the{" "}
+              <Link href="/golf-club-management-software/fit-gap">fit-gap summary</Link>.
             </p>
           </div>
           <CompareTable apps={APPS} competitors={COMPETITORS} researched={RESEARCHED} />
         </div>
       </section>
 
-      <section className="gc-section gc-canvas" id="proposal">
+      <ProposalStory />
+
+      <section className="gc-section" id="proposal">
         <div className="container">
           <div className="gc-head">
             <p className="gc-kicker">Your proposal</p>
@@ -143,7 +150,7 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
             <p className="gc-sub">
               Enter what each app costs today. Turn an app on in Club Steward and enter its platform and support
               costs; an app you leave off keeps today&apos;s cost. Every cost is required for an app you turn on.
-              What you enter stays in this browser.
+              Then add the costs no one app owns, and see the whole picture over the years you choose.
             </p>
           </div>
           <ProposalBuilder apps={APPS} preset={preset} />
@@ -152,9 +159,11 @@ export default function ProposalPageBody({ preset }: { preset?: ProposalPreset }
 
       <section className="gc-section cp-close no-print">
         <div className="container gc-narrow">
-          <h2 className="gc-h2">Want us to fill in the Club Steward side?</h2>
+          <h2 className="gc-h2">Start with your slowest workflow.</h2>
           <p className="gc-sub">
-            Tell us which apps you&apos;re moving and we&apos;ll come back with platform and support costs for each.
+            Pick the one your team dreads. We rebuild it with you in Club Steward, and you judge the result before
+            anything else moves. Or tell us which apps you&apos;re moving and we&apos;ll come back with platform and
+            support costs for each.
           </p>
           <p className="cp-close-cta">
             <Link className="gc-btn gc-btn-gold" href="/golf-club-management-software#brief">
