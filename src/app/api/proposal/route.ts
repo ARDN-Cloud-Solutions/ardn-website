@@ -180,7 +180,34 @@ const usd = (n: number | null) =>
 
 const cell = "padding:6px 10px;border:1px solid #ddd;";
 
+/**
+ * The calculator may run on a page that is not this site (the Invited
+ * proposal is published on claude.ai), so browsers send a preflight and need
+ * these headers on every answer. The endpoint is public already (the golf
+ * proposal page posts to it anonymously); the honeypot and the per-address
+ * brake are what limit abuse, not the origin.
+ */
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "86400",
+};
+
+export function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS });
+}
+
+function withCors(res: NextResponse) {
+  for (const [k, v] of Object.entries(CORS)) res.headers.set(k, v);
+  return res;
+}
+
 export async function POST(req: Request) {
+  return withCors(await handlePost(req));
+}
+
+async function handlePost(req: Request) {
   const raw = await req.text();
   if (raw.length > MAX_BODY) return NextResponse.json({ error: "Proposal is too large" }, { status: 413 });
 
