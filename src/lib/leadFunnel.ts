@@ -5,19 +5,25 @@
 // `ardn-ai-consulting` funnel, which the route can still mirror to.
 
 export type Opt = { value: string; label: string };
-export type SelectCode = "want" | "industry" | "company_size" | "role" | "timeline" | "budget_band";
+export type SelectCode = "want" | "industry" | "role" | "timeline" | "budget_band";
 export type TextCode = "main_problem" | "current_systems";
+export type TextField = {
+  code: TextCode;
+  label: string;
+  placeholder: string;
+  /** Characters, after trimming. 0 = optional. */
+  min: number;
+  max: number;
+};
 export type Question =
   | { code: SelectCode; label: string; help?: string; multi?: boolean; options: Opt[] }
   | {
-      code: TextCode;
+      code: "main_problem";
       label: string;
       help?: string;
       text: true;
-      placeholder: string;
-      /** Characters, after trimming. 0 = optional. */
-      min: number;
-      max: number;
+      /** The fields on this step: the problem, then the optional tools field. */
+      fields: TextField[];
     };
 
 export const MAIN_PROBLEM_MIN = 10;
@@ -57,19 +63,21 @@ export const QUESTIONS: Question[] = [
     label: "In a sentence or two, what's the problem you want to solve?",
     help: "Plain words are perfect. It lets the call start on your problem, not on introductions.",
     text: true,
-    placeholder: "e.g. Our office re-types every job from email into QuickBooks and things get missed",
-    min: MAIN_PROBLEM_MIN,
-    max: MAIN_PROBLEM_MAX,
-  },
-  {
-    code: "company_size",
-    label: "How many people work at your company?",
-    options: [
-      { value: "1_10", label: "1–10 people" },
-      { value: "11_50", label: "11–50 people" },
-      { value: "51_200", label: "51–200 people" },
-      { value: "201_1000", label: "201–1,000 people" },
-      { value: "1000_plus", label: "More than 1,000" },
+    fields: [
+      {
+        code: "main_problem",
+        label: "The problem",
+        placeholder: "e.g. Our office re-types every job from email into QuickBooks and things get missed",
+        min: MAIN_PROBLEM_MIN,
+        max: MAIN_PROBLEM_MAX,
+      },
+      {
+        code: "current_systems",
+        label: "Tools you use today (optional)",
+        placeholder: "e.g. HubSpot, QuickBooks, a lot of spreadsheets",
+        min: 0,
+        max: CURRENT_SYSTEMS_MAX,
+      },
     ],
   },
   {
@@ -95,24 +103,15 @@ export const QUESTIONS: Question[] = [
   },
   {
     code: "budget_band",
-    label: "What budget range are you working with?",
-    help: "A range is fine. You get a fixed quote after the call.",
+    label: "What budget are you planning for?",
+    help: "A range is fine. Smaller one-time projects are welcome.",
     options: [
-      { value: "under_10k", label: "Under $10,000" },
+      { value: "under_10k", label: "Under $10,000 (a focused one-time project)" },
       { value: "10_25k", label: "$10,000–$25,000" },
       { value: "25_75k", label: "$25,000–$75,000" },
       { value: "75k_plus", label: "$75,000+" },
       { value: "not_sure", label: "Not sure yet" },
     ],
-  },
-  {
-    code: "current_systems",
-    label: "What systems do you use today?",
-    help: "Optional. CRM, ERP, spreadsheets… It lets the call start from what you already have.",
-    text: true,
-    placeholder: "e.g. HubSpot, QuickBooks, a lot of spreadsheets",
-    min: 0,
-    max: CURRENT_SYSTEMS_MAX,
   },
 ];
 
@@ -120,14 +119,13 @@ export type Answers = {
   want: string[];
   industry?: string;
   main_problem: string;
-  company_size?: string;
   role?: string;
   timeline?: string;
   budget_band?: string;
   current_systems: string;
 };
 
-export const SELECT_CODES = ["industry", "company_size", "role", "timeline", "budget_band"] as const;
+export const SELECT_CODES = ["industry", "role", "timeline", "budget_band"] as const;
 
 export function options(code: SelectCode): Opt[] {
   const q = QUESTIONS.find((x) => x.code === code);
@@ -146,10 +144,14 @@ export type Routing =
 const AI_WANTS = ["ai_assistant", "automation", "ai_agents", "not_sure"];
 
 /**
- * Same routing as the hub seed: disqualified for students / job seekers,
- * budgets under $10k, or nothing picked; otherwise the offer follows what
- * they want (AI first, then custom software, else Salesforce). Qualified
- * leads also get a fit grade so the caller knows how hard to prepare.
+ * Disqualified only for students / job seekers, or nothing picked. Small
+ * budgets are welcome (a focused one-time project). Otherwise the offer
+ * follows what they want (AI first, then custom software, else Salesforce).
+ * Qualified leads also get a fit grade so the caller knows how hard to
+ * prepare:
+ *   A: owner/exec or IT lead, starting within 3 months, budget $25k+
+ *   B: starting within 3 months, or budget $10k+
+ *   C: everything else that qualified
  */
 export function routeLead(a: {
   want: string[];
@@ -158,7 +160,6 @@ export function routeLead(a: {
   budget_band: string;
 }): Routing {
   if (a.role === "student_jobseeker") return { status: "disqualified", offer: null, reason: "Student or job seeker" };
-  if (a.budget_band === "under_10k") return { status: "disqualified", offer: null, reason: "Budget under $10,000" };
   if (a.want.length === 0) return { status: "disqualified", offer: null, reason: "Picked nothing they want help with" };
 
   const offer: Offer = a.want.some((w) => AI_WANTS.includes(w))

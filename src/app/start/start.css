@@ -334,13 +334,48 @@
 }
 
 /* ── funnel form ─────────────────────────────────────────────────────────── */
+/* Light mode only, explicit colours. Calm, Apple-like: white card, hairline
+   tiles, one dark navy action, grey helper text. */
 
 .fn-card {
-  padding: 24px 26px 26px;
-  border-radius: 20px;
+  --fn-ink: #0b1430;
+  --fn-text: #1d2440;
+  --fn-grey: #6e7387;
+  --fn-grey-2: #9a9eae;
+  --fn-hair: #e4e6ee;
+  --fn-hair-2: #d4d7e2;
+  --fn-tint: #f6f8fc;
+  --fn-accent: #0f8f7c;
+  --fn-accent-tint: #f0faf7;
+  --fn-focus: #4840e0;
+  --fn-red: #c4321f;
+  --fn-ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  position: relative;
+  overflow: hidden;
+  padding: 26px 32px 30px;
+  border-radius: 24px;
   background: #fff;
-  color: var(--a-navy);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  color: var(--fn-text);
+  color-scheme: light;
+  font-family: var(--font-public-sans), Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 24px 70px rgba(2, 6, 23, 0.38), 0 2px 8px rgba(2, 6, 23, 0.12);
+}
+
+/* thin progress line across the very top of the card */
+.fn-progress {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: #eef0f5;
+}
+
+.fn-progress span {
+  display: block;
+  height: 100%;
+  background: var(--fn-ink);
+  transform-origin: left center;
+  transition: transform 0.45s var(--fn-ease);
 }
 
 .fn-top {
@@ -351,17 +386,11 @@
   gap: 12px;
 }
 
-.fn-kicker {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--a-teal-deep);
-}
-
 .fn-count {
   font-size: 13px;
-  color: var(--a-muted);
+  font-weight: 500;
+  color: var(--fn-grey-2);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
@@ -369,35 +398,56 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-left: -10px;
+  padding: 6px 10px;
   border: 0;
+  border-radius: 999px;
   background: none;
-  padding: 6px 8px 6px 2px;
   font: inherit;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--a-slate);
+  font-weight: 500;
+  color: var(--fn-grey);
   cursor: pointer;
-  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.fn-back:hover {
-  background: #f3f4fa;
+.fn-back:hover:not(:disabled) {
+  background: var(--fn-tint);
+  color: var(--fn-ink);
 }
 
-.fn-progress {
-  height: 6px;
-  margin-top: 12px;
-  border-radius: 6px;
-  background: #e8ebf3;
-  overflow: hidden;
+.fn-back:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
-.fn-progress span {
-  display: block;
-  height: 100%;
-  border-radius: 6px;
-  background: linear-gradient(90deg, var(--a-teal-deep), var(--a-teal));
-  transition: width 0.25s ease;
+/* step transition */
+.fn-anim {
+  animation-duration: 0.24s;
+  animation-timing-function: var(--fn-ease);
+  animation-fill-mode: both;
+}
+
+.fn-anim-fwd {
+  animation-name: fn-in-fwd;
+}
+
+.fn-anim-back {
+  animation-name: fn-in-back;
+}
+
+@keyframes fn-in-fwd {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+}
+
+@keyframes fn-in-back {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
 }
 
 .fn-step {
@@ -409,214 +459,437 @@
 
 .fn-title {
   display: block;
+  margin: 14px 0 0;
   padding: 0;
-  margin: 18px 0 6px;
-  font-size: 22px;
-  line-height: 1.25;
+  font-size: 30px;
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.015em;
-  color: var(--a-navy);
+  letter-spacing: -0.028em;
+  color: var(--fn-ink);
+  text-wrap: balance;
+}
+
+.fn-title:focus {
+  outline: none;
 }
 
 .fn-help {
-  margin: 0 0 4px;
-  font-size: 14px;
-  color: var(--a-muted);
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fn-grey);
 }
 
 .fn-text {
-  margin: 0 0 18px;
+  margin: 12px 0 0;
   font-size: 16px;
   line-height: 1.55;
-  color: var(--a-slate);
+  color: var(--fn-grey);
 }
 
+.fn-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--fn-grey-2);
+}
+
+/* option tiles */
 .fn-options {
   display: grid;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .fn-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
-  min-height: 54px;
-  padding: 12px 16px;
-  border-radius: 14px;
-  border: 1.5px solid #dfe2ee;
+  min-height: 58px;
+  padding: 14px 16px 14px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--fn-hair);
   background: #fff;
-  color: inherit;
+  color: var(--fn-text);
   font: inherit;
   font-size: 16px;
-  font-weight: 550;
+  font-weight: 500;
   line-height: 1.35;
+  letter-spacing: -0.006em;
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, transform 0.12s ease;
 }
 
-.fn-option:hover {
-  border-color: var(--a-teal-deep);
+/* hover only where a real pointer hovers, so taps on phones don't leave a stuck state */
+@media (hover: hover) {
+  .fn-option:hover {
+    border-color: var(--fn-hair-2);
+    box-shadow: 0 4px 14px rgba(11, 20, 48, 0.07);
+  }
+}
+
+.fn-option:active {
+  transform: scale(0.992);
 }
 
 .fn-option.is-on {
-  border-color: var(--a-teal-deep);
-  background: #ebf8f5;
+  border-color: var(--fn-ink);
+  background: #fbfcfe;
+  box-shadow: 0 0 0 1px var(--fn-ink), 0 6px 18px rgba(11, 20, 48, 0.1);
 }
 
-.fn-option i {
+.fn-tick {
   flex: none;
   display: grid;
   place-items: center;
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 1.5px solid #cfd3e2;
+  border: 1.5px solid var(--fn-hair-2);
+  background: #fff;
+  color: transparent;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.22s var(--fn-ease);
+}
+
+.fn-option.is-on .fn-tick {
+  border-color: var(--fn-ink);
+  background: var(--fn-ink);
   color: #fff;
 }
 
-.fn-option i.is-box {
-  border-radius: 6px;
+.fn-option.is-picked .fn-tick {
+  animation: fn-pop 0.25s var(--fn-ease);
 }
 
-.fn-option.is-on i {
-  border-color: var(--a-teal-deep);
-  background: var(--a-teal-deep);
+@keyframes fn-pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.fn-option:focus-visible,
-.fn-submit:focus-visible,
-.fn-back:focus-visible,
-.fn-textarea:focus-visible,
-.fn-fields input:focus-visible {
-  outline: 2px solid var(--a-violet);
-  outline-offset: 2px;
+/* text fields */
+.fn-textfield {
+  margin-top: 18px;
+}
+
+.fn-textfield + .fn-textfield {
+  margin-top: 14px;
+}
+
+.fn-label,
+.fn-field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--fn-text);
 }
 
 .fn-textarea,
-.fn-fields input {
+.fn-field input {
+  display: block;
   width: 100%;
-  padding: 13px 14px;
-  border-radius: 12px;
-  border: 1px solid #d3d7e5;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--fn-hair-2);
+  background: #fff;
   font: inherit;
   font-size: 16px;
-  color: var(--a-navy);
-  background: #fff;
+  line-height: 1.45;
+  color: var(--fn-ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .fn-textarea {
-  margin-top: 12px;
   resize: vertical;
+  min-height: 56px;
+}
+
+.fn-textarea::placeholder,
+.fn-field input::placeholder {
+  color: #a5a9b8;
+}
+
+.fn-textarea:hover,
+.fn-field input:hover {
+  border-color: #bfc3d1;
+}
+
+.fn-textarea:focus,
+.fn-field input:focus {
+  outline: none;
+  border-color: var(--fn-ink);
+  box-shadow: 0 0 0 4px rgba(11, 20, 48, 0.08);
+}
+
+.fn-textarea.is-invalid,
+.fn-field input.is-invalid {
+  border-color: var(--fn-red);
+  box-shadow: 0 0 0 4px rgba(196, 50, 31, 0.08);
 }
 
 .fn-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 14px 12px;
+  margin-top: 20px;
 }
 
-.fn-fields label {
-  display: grid;
-  gap: 6px;
+.fn-field-email,
+.fn-field-phone {
+  grid-column: 1 / -1;
 }
 
-.fn-fields span {
+.fn-field-error {
+  display: block;
+  margin-top: 6px;
   font-size: 13px;
-  font-weight: 600;
-  color: var(--a-slate);
+  color: var(--fn-red);
 }
 
+/* primary action: dark navy pill */
 .fn-submit {
-  display: inline-flex;
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
-  min-height: 54px;
-  margin-top: 16px;
-  padding: 14px;
+  min-height: 56px;
+  margin-top: 22px;
+  padding: 14px 24px;
   border: 0;
   border-radius: 999px;
-  background: var(--a-navy);
+  background: var(--fn-ink);
   color: #fff;
   font: inherit;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   cursor: pointer;
+  box-shadow: 0 6px 16px rgba(11, 20, 48, 0.22);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
 }
 
 .fn-submit:hover:not(:disabled) {
-  background: #1d2760;
+  background: #1a2550;
+  box-shadow: 0 10px 22px rgba(11, 20, 48, 0.26);
+}
+
+.fn-submit:active:not(:disabled) {
+  transform: scale(0.99);
 }
 
 .fn-submit:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+  cursor: progress;
+}
+
+.fn-submit.is-busy {
+  background: #2a345c;
+}
+
+.fn-spin {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  animation: fn-spin 0.7s linear infinite;
+}
+
+@keyframes fn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* keyboard focus */
+.fn-option:focus-visible,
+.fn-submit:focus-visible,
+.fn-back:focus-visible,
+.fn-links a:focus-visible,
+.fn-textlink:focus-visible,
+.fn-fine a:focus-visible {
+  outline: 2px solid var(--fn-focus);
+  outline-offset: 3px;
 }
 
 .fn-error {
   margin: 12px 0 0;
   font-size: 14px;
-  color: #b42318;
+  color: var(--fn-red);
+}
+
+.fn-error-tight {
+  margin-top: 8px;
 }
 
 .fn-fine {
-  margin: 12px 0 0;
+  margin: 16px 0 0;
   font-size: 13px;
+  line-height: 1.5;
   text-align: center;
-  color: var(--a-muted);
+  color: var(--fn-grey-2);
 }
 
 .fn-fine a {
-  color: inherit;
+  color: var(--fn-grey);
+}
+
+.fn-textlink {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--fn-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* end screens */
+.fn-end {
+  padding-top: 34px;
+}
+
+.fn-end-title {
+  margin-top: 18px;
+}
+
+.fn-badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--fn-tint);
+  color: var(--fn-ink);
+  box-shadow: inset 0 0 0 1px var(--fn-hair);
+}
+
+.fn-check {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.fn-check-ring {
+  fill: var(--fn-accent);
+  stroke: var(--fn-accent);
+  stroke-width: 2;
+  stroke-dasharray: 164;
+  stroke-dashoffset: 164;
+  fill-opacity: 0;
+  animation: fn-ring 0.5s var(--fn-ease) forwards, fn-fill 0.3s ease 0.42s forwards;
+}
+
+.fn-check-mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: fn-ring 0.32s var(--fn-ease) 0.55s forwards;
+}
+
+@keyframes fn-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fn-fill {
+  to {
+    fill-opacity: 1;
+  }
 }
 
 .fn-links {
   display: grid;
   gap: 10px;
+  margin-top: 22px;
+}
+
+.fn-links-gap {
+  margin-top: 14px;
 }
 
 .fn-links a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1.5px solid #dfe2ee;
-  color: var(--a-navy);
+  gap: 10px;
+  min-height: 58px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--fn-hair);
+  color: var(--fn-ink);
   font-weight: 600;
   text-decoration: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-.fn-links a:hover {
-  border-color: var(--a-teal-deep);
+.fn-links a > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-.fn-retry {
-  margin-top: 14px;
-  border: 0;
-  background: none;
-  padding: 0;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--a-teal-deep);
-  text-decoration: underline;
-  cursor: pointer;
+/* hover only where a real pointer hovers, so taps on phones don't leave a stuck state */
+@media (hover: hover) {
+  .fn-links a:hover {
+    border-color: var(--fn-hair-2);
+    box-shadow: 0 4px 14px rgba(11, 20, 48, 0.07);
+  }
 }
 
 .fn-calendly {
   display: block;
   width: 100%;
-  min-height: 700px;
-  border: 0;
-  border-radius: 12px;
+  min-height: 720px;
+  margin-top: 18px;
+  border: 1px solid var(--fn-hair);
+  border-radius: 16px;
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fn-anim,
+  .fn-option.is-picked .fn-tick {
+    animation: none;
+  }
+  .fn-progress span,
+  .fn-option,
+  .fn-tick,
+  .fn-submit {
+    transition: none;
+  }
+  .fn-check-ring,
+  .fn-check-mark {
+    animation: none;
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
 }
 
 /* responsive */
@@ -666,13 +939,20 @@
     grid-template-columns: 1fr;
   }
   .fn-card {
-    padding: 18px 16px 20px;
-    border-radius: 16px;
+    padding: 20px 20px 24px;
+    border-radius: 20px;
   }
   .fn-title {
-    font-size: 20px;
+    font-size: 24px;
+    letter-spacing: -0.024em;
+  }
+  .fn-help {
+    font-size: 15px;
   }
   .fn-fields {
     grid-template-columns: 1fr;
+  }
+  .fn-calendly {
+    min-height: 960px;
   }
 }

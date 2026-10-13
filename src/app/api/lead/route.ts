@@ -17,7 +17,8 @@ import {
  * it (qualified + offer + fit grade, or not a fit) and emails every lead to
  * the team with a call-prep brief on top. Nothing here depends on the arndai
  * hub; when FUNNEL_HUB_ENABLED is "true" the lead is also mirrored there
- * after the response, best effort.
+ * after the response, best effort. A `partial: true` beacon (email typed,
+ * page left before submitting) sends a short "started, not finished" note.
  *
  * Everything is checked at the boundary (known option values only, lengths,
  * email shape) and every string is escaped before it goes into the email.
@@ -91,7 +92,6 @@ function parse(raw: unknown) {
     want,
     industry: pick(a.industry, "industry"),
     main_problem: text(a.main_problem, "problem", MAIN_PROBLEM_MAX, { required: true, min: MAIN_PROBLEM_MIN, multiline: true }),
-    company_size: pick(a.company_size, "company_size"),
     role: pick(a.role, "role"),
     timeline: pick(a.timeline, "timeline"),
     budget_band: pick(a.budget_band, "budget_band"),
@@ -156,9 +156,8 @@ function askThem(l: Lead): string[] {
   else if (!a.current_systems) qs.push("Where does this work live today: spreadsheets, email, an existing system?");
   if (a.timeline === "now") qs.push("What triggered this now, and what happens if it isn't fixed this month?");
   if (a.budget_band === "not_sure") qs.push("How will you measure success: which number changes if this works?");
-  if (["51_200", "201_1000", "1000_plus"].includes(a.company_size) || a.role === "manager") {
-    qs.push("Who else is involved in the decision, and who signs off?");
-  }
+  if (a.role === "manager") qs.push("Who else is involved in the decision, and who signs off?");
+  if (a.budget_band === "under_10k") qs.push("What is the one deliverable that would make the biggest difference first?");
   if (a.role === "agency") qs.push("Who is the end client, and can they join the next call?");
   if (a.want.includes("ai_assistant") || a.want.includes("ai_agents")) {
     qs.push("What data would the AI need to work from, and where does it live today?");
@@ -182,7 +181,6 @@ function watchFor(l: Lead, r: Routing): string {
   if (a.timeline === "exploring") return "Just exploring: this may be research, not a buying decision. Find out early whether there is a real project and a date.";
   if (a.timeline === "later") return "Start is 3–6 months out: agree a concrete next step so it doesn't go cold.";
   if (a.budget_band === "not_sure") return "No budget set yet: anchor on the value of fixing the problem before talking price.";
-  if (a.company_size === "1_10" && a.budget_band === "75k_plus") return "Budget is large for a 1–10 person company: confirm where the money comes from.";
   if (a.role === "manager") return "Not the owner or IT lead: find out who the economic buyer is and how to get them on the next call.";
   return "No obvious red flags. Confirm the budget range still fits once you hear the scope.";
 }
@@ -208,7 +206,7 @@ function buildEmail(l: Lead, r: Routing) {
     r.status === "qualified" ? `[Qualified lead · ${r.grade}] ${company} — ${r.offer}` : `[Not a fit] ${company}`;
   const when = `${new Date().toLocaleString("en-US", { timeZone: "America/New_York", dateStyle: "medium", timeStyle: "short" })} ET`;
 
-  const who = `${c.name}, ${lower(label("role", a.role))} at ${c.company} (${lower(label("industry", a.industry))}, ${lower(label("company_size", a.company_size))}).`;
+  const who = `${c.name}, ${lower(label("role", a.role))} at ${c.company} (${lower(label("industry", a.industry))}).`;
   const what = `Wants: ${wantsInWords(a.want)}. Start: ${lower(label("timeline", a.timeline))}; budget: ${lower(label("budget_band", a.budget_band))}.`;
   const fit =
     r.status === "qualified"
@@ -216,7 +214,14 @@ function buildEmail(l: Lead, r: Routing) {
       : `Not a fit: ${r.reason}.`;
 
   const sections: Section[] = [
-    { title: "CALL PREP", lines: [who, what] },
+    {
+      title: "CALL PREP",
+      lines: [
+        who,
+        what,
+        ...(a.budget_band === "under_10k" ? ["Scope: small one-time project — propose a fixed, focused first deliverable."] : []),
+      ],
+    },
     { title: "Their problem, in their words", quote: a.main_problem },
     { title: "Fit", lines: [fit] },
     { title: "Show them", links: showThem(l) },
@@ -237,7 +242,6 @@ function buildEmail(l: Lead, r: Routing) {
         ["Wants help with", a.want.map((w) => label("want", w)).join("; ") || "—"],
         ["Industry", label("industry", a.industry)],
         ["Problem", a.main_problem],
-        ["Company size", label("company_size", a.company_size)],
         ["Role", label("role", a.role)],
         ["Start", label("timeline", a.timeline)],
         ["Budget", label("budget_band", a.budget_band)],
@@ -333,13 +337,12 @@ async function mirrorToHub(l: Lead) {
       want: a.want,
       industry: a.industry,
       main_problem: a.main_problem,
-      company_size: a.company_size,
       role: a.role,
       timeline: a.timeline,
       budget_band: a.budget_band,
     };
     if (a.current_systems) answers.current_systems = a.current_systems;
-    await hubPost("progress", { ...s, answers, lastQuestionCode: "current_systems", name: null, company: null, email: null, phone: null });
+    await hubPost("progress", { ...s, answers, lastQuestionCode: "budget_band", name: null, company: null, email: null, phone: null });
     await hubPost("complete", {
       ...s,
       answers: { ...answers, name: c.name, company: c.company, email: c.email, ...(c.phone ? { phone: c.phone } : {}) },
@@ -353,6 +356,143 @@ async function mirrorToHub(l: Lead) {
   }
 }
 
+// ── partial (started, not finished) ────────────────────────────────────────
+
+// When someone has typed a valid email on the contact step but leaves before
+// submitting, the page sends one beacon with `partial: true`. Each email gets
+// at most one "started" note per 24 h (in memory, so it resets with the
+// server), and none once the full form has come in.
+const PARTIAL_TTL_MS = 24 * 60 * 60_000;
+const partialSeen = new Map<string, number>();
+
+function claimPartial(email: string) {
+  const now = Date.now();
+  for (const [k, t] of partialSeen) if (now - t > PARTIAL_TTL_MS) partialSeen.delete(k);
+  const key = email.toLowerCase();
+  if (partialSeen.has(key)) return false;
+  partialSeen.set(key, now);
+  return true;
+}
+const markFinished = (email: string) => partialSeen.set(email.toLowerCase(), Date.now());
+
+/** Lenient: keep whatever is valid, drop the rest. Only the email is required. */
+function parsePartial(body: Record<string, unknown>) {
+  const hook = typeof body.hook === "string" && (HOOK_SLUGS as string[]).includes(body.hook) ? body.hook : "";
+  if (!hook) throw new Invalid("hook is not a known page");
+  const loose = (v: unknown, max: number, multiline = false) => {
+    if (typeof v !== "string") return "";
+    const s = v.replace(CONTROL, "").trim();
+    return (multiline ? s : oneLine(s)).slice(0, max);
+  };
+  const email = loose(body.email, 200);
+  if (!EMAIL.test(email)) throw new Invalid("Please enter a valid work email.");
+  const a = body.answers && typeof body.answers === "object" && !Array.isArray(body.answers) ? (body.answers as Record<string, unknown>) : {};
+  const wantValues = options("want").map((o) => o.value);
+  const want = Array.isArray(a.want) ? [...new Set(a.want.filter((w): w is string => typeof w === "string" && wantValues.includes(w)))] : [];
+  const picked: Partial<Record<(typeof SELECT_CODES)[number], string>> = {};
+  for (const code of SELECT_CODES) {
+    const v = a[code];
+    if (typeof v === "string" && options(code).some((o) => o.value === v)) picked[code] = v;
+  }
+  const at = body.attribution && typeof body.attribution === "object" ? (body.attribution as Record<string, unknown>) : {};
+  return {
+    hook,
+    email,
+    name: loose(body.name, 120),
+    company: loose(body.company, 160),
+    phone: loose(body.phone, 40),
+    want,
+    picked,
+    main_problem: loose(a.main_problem, MAIN_PROBLEM_MAX, true),
+    current_systems: loose(a.current_systems, CURRENT_SYSTEMS_MAX, true),
+    landingUrl: loose(at.landingUrl, 2000),
+    gclid: loose(at.gclid, 300),
+    utm_campaign: loose(at.utm_campaign, 300),
+    utm_term: loose(at.utm_term, 300),
+    website: loose(body.website, 300),
+  };
+}
+
+function buildPartialEmail(p: ReturnType<typeof parsePartial>) {
+  const who = oneLine(p.company || p.email);
+  const subject = `[Started, not finished] ${who}`;
+  const when = `${new Date().toLocaleString("en-US", { timeZone: "America/New_York", dateStyle: "medium", timeStyle: "short" })} ET`;
+  const rows: Row[] = [
+    ["Email", p.email],
+    ...(p.name ? ([["Name", p.name]] as Row[]) : []),
+    ...(p.company ? ([["Company", p.company]] as Row[]) : []),
+    ...(p.phone ? ([["Phone", p.phone]] as Row[]) : []),
+    ...(p.want.length ? ([["Wants help with", p.want.map((w) => label("want", w)).join("; ")]] as Row[]) : []),
+    ...(p.picked.industry ? ([["Industry", label("industry", p.picked.industry)]] as Row[]) : []),
+    ...(p.main_problem ? ([["Problem", p.main_problem]] as Row[]) : []),
+    ...(p.current_systems ? ([["Tools today", p.current_systems]] as Row[]) : []),
+    ...(p.picked.role ? ([["Role", label("role", p.picked.role)]] as Row[]) : []),
+    ...(p.picked.timeline ? ([["Start", label("timeline", p.picked.timeline)]] as Row[]) : []),
+    ...(p.picked.budget_band ? ([["Budget", label("budget_band", p.picked.budget_band)]] as Row[]) : []),
+    ["Ad page", `${SITE}/start/${p.hook}`],
+    ...(p.gclid ? ([["gclid", p.gclid]] as Row[]) : []),
+    ...(p.utm_campaign ? ([["utm_campaign", p.utm_campaign]] as Row[]) : []),
+    ...(p.utm_term ? ([["utm_term", p.utm_term]] as Row[]) : []),
+    ["Received", when],
+  ];
+  const intro =
+    "They reached the last step and typed their email, then left before submitting. A short, friendly follow-up usually works: offer the free 30-minute call.";
+  const cell = "padding:4px 10px;border:1px solid #ddd;vertical-align:top;";
+  const html = `<div style="font-family:Arial,sans-serif;line-height:1.5;color:#222;max-width:720px">
+<h2 style="color:#121c27;margin:0 0 6px">Started, not finished</h2>
+<p style="margin:0 0 10px">${esc(intro)}</p>
+<table style="border-collapse:collapse;font-size:13px">${rows.map(([k, v]) => `<tr><th style="${cell}text-align:left;white-space:nowrap">${esc(k)}</th><td style="${cell}">${esc(v).replace(/\n/g, "<br>")}</td></tr>`).join("")}</table>
+</div>`;
+  const text = ["STARTED, NOT FINISHED", intro, "", ...rows.map(([k, v]) => `${k}: ${v}`)].join("\n");
+  return { subject, html, text, replyTo: p.email };
+}
+
+// ── send ────────────────────────────────────────────────────────────────────
+
+type Mail = { subject: string; html: string; text: string; replyTo: string };
+
+/** false when SMTP isn't configured (logged); throws when sending fails. */
+async function sendMail(m: Mail): Promise<boolean> {
+  const { SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_PORT } = process.env;
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+    console.warn(`Lead email skipped: SMTP_HOST / SMTP_USER / SMTP_PASS are not set. Lead: ${m.subject}`);
+    return false;
+  }
+  const transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: Number(SMTP_PORT) || 587,
+    secure: Number(SMTP_PORT) === 465,
+    auth: { user: SMTP_USER, pass: SMTP_PASS },
+  });
+  await transporter.sendMail({
+    from: `"Ardn ad lead" <${SMTP_USER}>`,
+    replyTo: m.replyTo,
+    to: process.env.CONTACT_RECEIVER_EMAIL || "contactus@ardncloudsolutions.com",
+    subject: m.subject,
+    html: m.html,
+    text: m.text,
+  });
+  return true;
+}
+
+async function handlePartial(body: Record<string, unknown>) {
+  let p: ReturnType<typeof parsePartial>;
+  try {
+    p = parsePartial(body);
+  } catch (error) {
+    if (error instanceof Invalid) return NextResponse.json({ error: error.message }, { status: 422 });
+    throw error;
+  }
+  // Honeypot filled, or this email already noted (or finished) in the last 24 h.
+  if (p.website || !claimPartial(p.email)) return new NextResponse(null, { status: 204 });
+  try {
+    await sendMail(buildPartialEmail(p));
+  } catch (error) {
+    console.error("Partial lead email failed:", error instanceof Error ? error.message : error);
+  }
+  return new NextResponse(null, { status: 204 });
+}
+
 // ── handler ─────────────────────────────────────────────────────────────────
 
 export async function POST(req: Request) {
@@ -364,7 +504,11 @@ export async function POST(req: Request) {
 
   let lead: Lead;
   try {
-    lead = parse(JSON.parse(raw));
+    const body: unknown = JSON.parse(raw);
+    if (body && typeof body === "object" && (body as { partial?: unknown }).partial === true) {
+      return handlePartial(body as Record<string, unknown>);
+    }
+    lead = parse(body);
   } catch (error) {
     if (error instanceof Invalid) return NextResponse.json({ error: error.message }, { status: 422 });
     if (error instanceof SyntaxError) return NextResponse.json({ error: "Your answers could not be read." }, { status: 422 });
@@ -381,26 +525,9 @@ export async function POST(req: Request) {
   const { subject, html, text: textBody } = buildEmail(lead, routing);
   const result = { status: routing.status, offer: routing.offer };
 
-  const { SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_PORT } = process.env;
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    console.warn(`Lead email skipped: SMTP_HOST / SMTP_USER / SMTP_PASS are not set. Lead: ${subject}`);
-    return NextResponse.json(result);
-  }
   try {
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: Number(SMTP_PORT) || 587,
-      secure: Number(SMTP_PORT) === 465,
-      auth: { user: SMTP_USER, pass: SMTP_PASS },
-    });
-    await transporter.sendMail({
-      from: `"Ardn ad lead" <${SMTP_USER}>`,
-      replyTo: lead.contact.email,
-      to: process.env.CONTACT_RECEIVER_EMAIL || "contactus@ardncloudsolutions.com",
-      subject,
-      html,
-      text: textBody,
-    });
+    await sendMail({ subject, html, text: textBody, replyTo: lead.contact.email });
+    markFinished(lead.contact.email);
   } catch (error) {
     // The email is the only record of the lead, so tell the page: it shows
     // the email / phone fallback with the answers prefilled.
