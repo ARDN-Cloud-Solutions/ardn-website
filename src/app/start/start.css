@@ -1,7 +1,7 @@
 /* Google Ads landing pages (/start/<hook>) and the funnel form.
    Colours follow the AI consulting kit: deep navy + teal accent. */
 
-.ads {
+.lnd {
   --a-ink: #0a1226;
   --a-ink-0: #050b16;
   --a-navy: #0e1538;
@@ -17,58 +17,58 @@
   overflow-x: hidden;
 }
 
-.ads *,
-.ads *::before,
-.ads *::after {
+.lnd *,
+.lnd *::before,
+.lnd *::after {
   box-sizing: border-box;
 }
 
-.ads [id] {
+.lnd [id] {
   scroll-margin-top: 16px;
 }
 
-.ads-wrap {
+.lnd-wrap {
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-.ads-narrow {
+.lnd-narrow {
   max-width: 820px;
 }
 
 /* top bar: logo + phone only */
-.ads-bar {
+.lnd-bar {
   background: var(--a-ink-0);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.ads-bar .ads-wrap {
+.lnd-bar .lnd-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60px;
 }
 
-.ads-logo {
+.lnd-logo {
   display: block;
   height: auto;
 }
 
-.ads-bar-phone {
+.lnd-bar-phone {
   color: #dfe5f5;
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
 }
 
-.ads-bar-phone:hover {
+.lnd-bar-phone:hover {
   color: var(--a-teal);
 }
 
 /* hero */
-.ads-hero {
+.lnd-hero {
   background: radial-gradient(110% 90% at 85% 0%, rgba(72, 64, 224, 0.45) 0%, transparent 55%),
     radial-gradient(80% 80% at 0% 100%, rgba(15, 143, 124, 0.4) 0%, transparent 60%),
     linear-gradient(168deg, var(--a-ink) 0%, var(--a-ink-0) 70%);
@@ -76,18 +76,18 @@
   padding: 48px 0 64px;
 }
 
-.ads-hero-grid {
+.lnd-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
   gap: 48px;
   align-items: start;
 }
 
-.ads-hero-copy {
+.lnd-hero-copy {
   padding-top: 24px;
 }
 
-.ads-eyebrow {
+.lnd-eyebrow {
   display: inline-block;
   margin-bottom: 16px;
   font-size: 12.5px;
@@ -97,7 +97,7 @@
   color: var(--a-teal);
 }
 
-.ads-h1 {
+.lnd-h1 {
   margin: 0;
   font-size: clamp(30px, 4.2vw, 50px);
   line-height: 1.08;
@@ -106,7 +106,7 @@
   color: #fff;
 }
 
-.ads-sub {
+.lnd-sub {
   margin: 18px 0 0;
   font-size: 18px;
   line-height: 1.55;
@@ -114,7 +114,7 @@
   max-width: 560px;
 }
 
-.ads-proof {
+.lnd-proof {
   list-style: none;
   margin: 28px 0 0;
   padding: 0;
@@ -122,7 +122,7 @@
   gap: 14px;
 }
 
-.ads-proof li {
+.lnd-proof li {
   display: flex;
   gap: 12px;
   align-items: flex-start;
@@ -131,24 +131,24 @@
   color: #e6eaf6;
 }
 
-.ads-proof svg {
+.lnd-proof svg {
   flex: none;
   margin-top: 2px;
   color: var(--a-teal);
 }
 
 /* sections */
-.ads-section {
+.lnd-section {
   padding: 72px 0;
 }
 
-.ads-alt {
+.lnd-alt {
   background: var(--a-canvas);
   border-top: 1px solid var(--a-line);
   border-bottom: 1px solid var(--a-line);
 }
 
-.ads-h2 {
+.lnd-h2 {
   margin: 0 0 12px;
   font-size: clamp(26px, 3vw, 36px);
   line-height: 1.15;
@@ -157,14 +157,14 @@
   color: var(--a-navy);
 }
 
-.ads-lede {
+.lnd-lede {
   margin: 0 0 32px;
   font-size: 17px;
   line-height: 1.55;
   color: var(--a-slate);
 }
 
-.ads-steps {
+.lnd-steps {
   list-style: none;
   margin: 28px 0 0;
   padding: 0;
@@ -173,14 +173,14 @@
   gap: 20px;
 }
 
-.ads-steps li {
+.lnd-steps li {
   padding: 24px 22px;
   border-radius: 16px;
   border: 1px solid var(--a-line);
   background: #fff;
 }
 
-.ads-step-n {
+.lnd-step-n {
   display: grid;
   place-items: center;
   width: 34px;
@@ -192,27 +192,27 @@
   font-size: 15px;
 }
 
-.ads-steps h3 {
+.lnd-steps h3 {
   margin: 14px 0 6px;
   font-size: 18px;
   font-weight: 700;
   color: var(--a-navy);
 }
 
-.ads-steps p {
+.lnd-steps p {
   margin: 0;
   font-size: 15px;
   line-height: 1.55;
   color: var(--a-slate);
 }
 
-.ads-shots {
+.lnd-shots {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.ads-shots figure {
+.lnd-shots figure {
   margin: 0;
   border-radius: 14px;
   overflow: hidden;
@@ -221,13 +221,13 @@
   box-shadow: 0 18px 40px rgba(14, 21, 56, 0.08);
 }
 
-.ads-shots img {
+.lnd-shots img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.ads-shots figcaption {
+.lnd-shots figcaption {
   padding: 12px 16px;
   font-size: 14px;
   font-weight: 600;
@@ -235,16 +235,16 @@
   border-top: 1px solid var(--a-line);
 }
 
-.ads-faqs {
+.lnd-faqs {
   margin-top: 24px;
   border-top: 1px solid var(--a-line);
 }
 
-.ads-faqs details {
+.lnd-faqs details {
   border-bottom: 1px solid var(--a-line);
 }
 
-.ads-faqs summary {
+.lnd-faqs summary {
   cursor: pointer;
   list-style: none;
   padding: 20px 36px 20px 0;
@@ -254,11 +254,11 @@
   color: var(--a-navy);
 }
 
-.ads-faqs summary::-webkit-details-marker {
+.lnd-faqs summary::-webkit-details-marker {
   display: none;
 }
 
-.ads-faqs summary::after {
+.lnd-faqs summary::after {
   content: "+";
   position: absolute;
   right: 4px;
@@ -268,32 +268,32 @@
   color: var(--a-teal-deep);
 }
 
-.ads-faqs details[open] summary::after {
+.lnd-faqs details[open] summary::after {
   content: "−";
 }
 
-.ads-faqs p {
+.lnd-faqs p {
   margin: 0 0 20px;
   font-size: 16px;
   line-height: 1.6;
   color: var(--a-slate);
 }
 
-.ads-cta {
+.lnd-cta {
   padding: 72px 0;
   text-align: center;
   background: linear-gradient(168deg, var(--a-ink) 0%, var(--a-ink-0) 100%);
 }
 
-.ads-cta .ads-h2 {
+.lnd-cta .lnd-h2 {
   color: #fff;
 }
 
-.ads-cta .ads-lede {
+.lnd-cta .lnd-lede {
   color: #c3cae0;
 }
 
-.ads-btn {
+.lnd-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -306,30 +306,30 @@
   text-decoration: none;
 }
 
-.ads-btn:hover {
+.lnd-btn:hover {
   background: #b9ede3;
 }
 
-.ads-foot {
+.lnd-foot {
   background: var(--a-ink-0);
   color: #9aa3c0;
   font-size: 14px;
   padding: 24px 0;
 }
 
-.ads-foot .ads-wrap {
+.lnd-foot .lnd-wrap {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 24px;
 }
 
-.ads-foot a {
+.lnd-foot a {
   color: #dfe5f5;
   text-decoration: none;
 }
 
-.ads-foot a:hover {
+.lnd-foot a:hover {
   color: var(--a-teal);
 }
 
@@ -894,48 +894,48 @@
 
 /* responsive */
 @media (max-width: 960px) {
-  .ads-hero-grid {
+  .lnd-hero-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .ads-hero-copy {
+  .lnd-hero-copy {
     padding-top: 0;
   }
-  .ads-form {
+  .lnd-form {
     max-width: 620px;
   }
-  .ads-steps {
+  .lnd-steps {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .ads-wrap {
+  .lnd-wrap {
     padding: 0 16px;
   }
-  .ads-hero {
+  .lnd-hero {
     padding: 24px 0 40px;
   }
-  .ads-eyebrow {
+  .lnd-eyebrow {
     margin-bottom: 10px;
   }
-  .ads-sub {
+  .lnd-sub {
     font-size: 16px;
     margin-top: 12px;
   }
-  .ads-proof {
+  .lnd-proof {
     margin-top: 18px;
     gap: 10px;
   }
-  .ads-proof li {
+  .lnd-proof li {
     font-size: 15px;
   }
-  .ads-section,
-  .ads-cta {
+  .lnd-section,
+  .lnd-cta {
     padding: 52px 0;
   }
-  .ads-steps,
-  .ads-shots {
+  .lnd-steps,
+  .lnd-shots {
     grid-template-columns: 1fr;
   }
   .fn-card {
