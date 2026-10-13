@@ -1,6 +1,7 @@
 // Google Ads landing pages (/start/<hook>). One entry per ad hook; the slug
-// is sent to the arndai funnel as `page`, and matches the hub's
-// funnel_landing_pages slugs for the `ardn-ai-consulting` funnel.
+// is sent to /api/lead as `hook` (and, when the optional hub mirror is on,
+// to the arndai funnel as `page`, matching the hub's
+// funnel_landing_pages slugs for the `ardn-ai-consulting` funnel).
 // Facts only: no prices, no client names.
 
 export type HookSlug =
