@@ -25,6 +25,8 @@ export interface TopicHub {
     metaTitle: string;
     description: string;
     intro: string;
+    /** Guides that live outside the blog (site pages), shown above the groups. */
+    featured?: { href: string; title: string; excerpt: string }[];
     groups: TopicGroup[];
 }
 
@@ -132,6 +134,13 @@ export function getTopicHub(slug: string): TopicHub | null {
                 "Every Ardn breakdown of what CRM and industry software really costs, grouped by vendor: HubSpot, Salesforce, Microsoft, Zoho, Zendesk, ServiceNow and vertical software.",
             intro:
                 "Per-seat licenses, add-ons and tier jumps make most software bills grow faster than the team using them. These guides break down how HubSpot, Salesforce and the leading industry platforms charge, where the costs hide, and when a flat-fee alternative makes more sense. Pick your vendor or your industry below.",
+            featured: [
+                {
+                    href: "/ai-consulting/cost",
+                    title: "How much does AI consulting cost? (and what you should get for it)",
+                    excerpt: "Cost drivers, the four types of AI engagement, red flags and the questions to ask before you hire.",
+                },
+            ],
             groups: costGroups(),
         };
     }

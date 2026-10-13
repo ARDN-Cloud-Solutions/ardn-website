@@ -25,6 +25,7 @@ const ourProducts = [
 
 const services = [
   { label: "AI Forge", href: "/ai-forge" },
+  { label: "AI Consulting", href: "/ai-consulting" },
   { label: "Custom Software Development", href: "/custom-software-development" },
   { label: "Custom AI App Development", href: "/ai-app-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },
@@ -59,6 +60,7 @@ const company = [
   { label: "Free Savings Calculator", href: "/savings-calculator" },
   { label: "Custom Software vs. SaaS", href: "/compare/custom-software-vs-saas" },
   { label: "Orlando, FL", href: "/salesforce-consulting-orlando" },
+  { label: "AI Consulting, Florida", href: "/ai-consulting-orlando" },
   { label: "Careers", href: "/career" },
   { label: "Contact Us", href: "/contact-us" },
 ];
