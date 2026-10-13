@@ -4,7 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
 import FunnelForm from "@/components/ads/FunnelForm";
-import { FAQS, HOOK_SLUGS, PROOF, SHOTS, STEPS, getHook } from "../hooks";
+import { APPS, FAQS, HOOK_SLUGS, PLATFORMS, PROOF, STEPS, getHook } from "../hooks";
+import PlatformStage from "../PlatformStage";
+import AppGrid from "../AppGrid";
 import "../start.css";
 
 // Google Ads landing pages. Focused: no site header/footer (SiteChrome hides
@@ -87,18 +89,18 @@ export default async function StartPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="lnd-section lnd-alt">
+        <PlatformStage platforms={PLATFORMS} />
+
+        <section className="lnd-appsec" aria-labelledby="lnd-apps-title">
           <div className="lnd-wrap">
-            <h2 className="lnd-h2">Platforms we&apos;ve built and run</h2>
-            <p className="lnd-lede">Real screens from products our team designed, launched and keeps running.</p>
-            <div className="lnd-shots">
-              {SHOTS.map((s) => (
-                <figure key={s.src}>
-                  <Image src={s.src} alt={s.alt} width={2880} height={1800} sizes="(max-width: 760px) 100vw, 380px" />
-                  <figcaption>{s.label}</figcaption>
-                </figure>
-              ))}
+            <div className="lnd-apps-intro">
+              <span className="lnd-kicker lnd-kicker-ink">One record, many apps</span>
+              <h2 id="lnd-apps-title" className="lnd-display">
+                Apps your team can start&nbsp;with.
+              </h2>
+              <p className="lnd-intro-text lnd-intro-ink">Each app works on its own, and they all share one record when you use more than one.</p>
             </div>
+            <AppGrid apps={APPS} />
           </div>
         </section>
 
