@@ -26,6 +26,7 @@ const ourProducts = [
 const services = [
   { label: "AI Forge", href: "/ai-forge" },
   { label: "AI Consulting", href: "/ai-consulting" },
+  { label: "AI Agent Development", href: "/ai-agent-development" },
   { label: "Custom Software Development", href: "/custom-software-development" },
   { label: "Custom AI App Development", href: "/ai-app-development" },
   { label: "Custom Portal Development", href: "/custom-portal-development" },

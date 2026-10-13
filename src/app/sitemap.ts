@@ -123,9 +123,11 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.9,
     },
-    // AI consulting: national hub, cost guide and Florida city pages.
+    // AI consulting: national hub, AI agent development, cost guide and
+    // Florida city pages.
     ...[
         { path: "/ai-consulting", priority: 0.9 },
+        { path: "/ai-agent-development", priority: 0.9 },
         { path: "/ai-consulting/cost", priority: 0.8 },
         { path: "/ai-consulting-orlando", priority: 0.9 },
         { path: "/ai-consulting-tampa", priority: 0.9 },

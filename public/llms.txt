@@ -5,7 +5,8 @@
 ## Products & Services
 
 - [AI Forge](https://ardncloudsolutions.com/ai-forge): Custom AI applications built and run for you. Our team designs, builds, hosts, and continuously improves bespoke AI apps for one monthly subscription — live in 2–6 weeks. New customers get the one-time custom build free and pay only the monthly subscription.
-- [Custom AI App Development](https://ardncloudsolutions.com/ai-app-development): How we build and operate custom AI applications for companies across the US — discovery to production in 2–6 weeks, then hosted and iterated under one monthly fee.
+- [AI Development Company: Custom AI Apps](https://ardncloudsolutions.com/ai-app-development): Ardn as an AI development company: how we build and operate custom AI applications for companies across the US, discovery to production in 2–6 weeks, then hosted and iterated under one monthly fee.
+- [Custom Software Development Company, Florida](https://ardncloudsolutions.com/custom-software-development): Custom software development company in Orlando, Florida, serving clients across the US: internal tools, operations platforms, customer-facing apps and integrations built around your process, then hosted and improved as a managed service.
 - [AI for Insurance](https://ardncloudsolutions.com/ai-for-insurance): Custom AI for carriers and agencies — claims triage, underwriting support, document processing, and self-service, with humans in the loop on regulated decisions.
 - [AI for Hospitality](https://ardncloudsolutions.com/ai-for-hospitality): Custom AI for hotels, resorts, and hospitality groups — 24/7 guest concierge, booking automation, and service routing across every channel.
 - [AI for Membership Organizations](https://ardncloudsolutions.com/ai-for-membership-organizations): Custom AI for community centers, gyms, studios, clubs, and associations — onboarding, renewals, failed-payment recovery, and retention early-warning.
@@ -21,7 +22,8 @@
 
 Ardn's AI consulting services cover AI strategy consulting (an AI opportunity assessment and a phased roadmap), AI implementation, generative AI assistants and agents, and running the result as a managed service on a flat monthly fee. Fixed quote after a free 30-minute call; no published rate card.
 
-- [AI Consulting Services](https://ardncloudsolutions.com/ai-consulting): National hub for small and mid-size businesses: automations, AI assistants and agents on your own data, document processing, AI inside your CRM or ERP, and custom AI apps.
+- [AI Consulting Company & Services](https://ardncloudsolutions.com/ai-consulting): National hub for small and mid-size businesses: AI strategy consulting and implementation, automations, AI assistants and agents on your own data, document processing, AI inside your CRM or ERP, and custom AI apps.
+- [AI Agent Development Company](https://ardncloudsolutions.com/ai-agent-development): AI agents that answer customers and staff from your own data, take actions in your CRM or ERP, triage inquiries and process documents, with human approval for sensitive actions and logging. Built in phases (assessment, pilot, build, managed). Examples from Ardn's own products: the Club Steward member-service assistant and AI inquiry sorting, and Rx-Dr, where AI helps with document reading and clinician triage but never approves a prescription.
 - [How much does AI consulting cost?](https://ardncloudsolutions.com/ai-consulting/cost): Buyer's guide to cost drivers, the four engagement types (assessment, pilot, build, managed service), red flags and questions to ask.
 - [AI consulting services in Orlando, FL](https://ardncloudsolutions.com/ai-consulting-orlando): Ardn's home base; in-person workshops; hospitality and tourism, healthcare and professional services use cases.
 - [AI consulting services in Tampa, FL](https://ardncloudsolutions.com/ai-consulting-tampa): Financial services, insurance and healthcare use cases; on-site sessions available.

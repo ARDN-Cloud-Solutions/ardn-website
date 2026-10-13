@@ -9,17 +9,32 @@ const faqPage = (url: string, faqs: AiConsultingContent["faqs"]) => ({
   mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 });
 
-const offerCatalog = (c: AiConsultingContent) => ({
+const offerCatalog = (c: AiConsultingContent, name = "AI consulting services", items?: string[]) => ({
   "@type": "OfferCatalog",
-  name: "AI consulting services",
-  itemListElement: [...c.steps.items, ...c.offer.items.slice(0, 5)].map((s) => ({
+  name,
+  itemListElement: (items ?? [...c.steps.items, ...c.offer.items.slice(0, 5)].map((s) => s.title)).map((title) => ({
     "@type": "Offer",
-    itemOffered: { "@type": "Service", name: s.title },
+    itemOffered: { "@type": "Service", name: title },
   })),
 });
 
-/** Hub: WebPage + Service (areaServed US) + FAQPage + BreadcrumbList. */
-export function hubJsonLd(c: AiConsultingContent, opts: { path: string; name: string; description: string; image: string }) {
+/** Hub: WebPage + Service (areaServed US) + FAQPage + BreadcrumbList. Also
+ *  used by the national AI service pages (e.g. /ai-agent-development) with
+ *  their own crumb and catalog names. */
+export function hubJsonLd(
+  c: AiConsultingContent,
+  opts: {
+    path: string;
+    name: string;
+    description: string;
+    image: string;
+    serviceType?: string | string[];
+    crumb?: string;
+    catalogName?: string;
+    /** Offer names for the catalog; defaults to the steps and first offers. */
+    catalogItems?: string[];
+  },
+) {
   const url = `${SITE}${opts.path}`;
   return {
     "@context": "https://schema.org",
@@ -39,14 +54,14 @@ export function hubJsonLd(c: AiConsultingContent, opts: { path: string; name: st
         "@type": "Service",
         "@id": `${url}#service`,
         name: opts.name,
-        serviceType: "AI consulting",
+        serviceType: opts.serviceType ?? "AI consulting",
         description: opts.description,
         url,
         image: `${SITE}${opts.image}`,
         provider: ORG,
         areaServed: { "@type": "Country", name: "United States" },
         audience: { "@type": "BusinessAudience", name: "Small and mid-size businesses" },
-        hasOfferCatalog: offerCatalog(c),
+        hasOfferCatalog: offerCatalog(c, opts.catalogName, opts.catalogItems),
       },
       faqPage(url, c.faqs),
       {
@@ -54,7 +69,7 @@ export function hubJsonLd(c: AiConsultingContent, opts: { path: string; name: st
         "@id": `${url}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-          { "@type": "ListItem", position: 2, name: "AI Consulting", item: url },
+          { "@type": "ListItem", position: 2, name: opts.crumb ?? "AI Consulting", item: url },
         ],
       },
     ],
