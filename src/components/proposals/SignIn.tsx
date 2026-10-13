@@ -93,7 +93,7 @@ export default function SignIn({ slug, product, client, admin }: Props) {
           {note && !error ? <p role="status" style={{ margin: 0, fontSize: 14, color: "#073D2E" }}>{note}</p> : null}
           {error ? <p role="alert" style={{ margin: 0, fontSize: 14, color: "#B42318" }}>{error}</p> : null}
           <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "#4A5170" }}>
-            {admin ? "Only ardncloudsolutions.com addresses can sign in." : "Confidential. A new code is needed each visit. Views and entries are logged for the Ardn team."}
+            {admin ? "Only ardncloudsolutions.com addresses can sign in." : "Confidential. A new code is needed each visit. Ardn sees the pages you view and the choices and figures you enter here."}
           </p>
         </div>
       </div>
