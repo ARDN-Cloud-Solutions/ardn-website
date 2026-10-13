@@ -132,7 +132,9 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
     const next = flatten(p, e.page, e.data);
     for (const k of new Set([...Object.keys(prev), ...Object.keys(next)])) {
       const a = prev[k]?.value ?? "blank", b = next[k]?.value ?? "blank";
-      if (a !== b) changes.push({ at: e.created_at, page: e.page, label: (next[k] || prev[k]).label, from: a, to: b });
+      // "1000" and "$1,000" are the same number, shown two ways while typing.
+      const same = (x: string, y: string) => x === y || (/\d/.test(x) && x.replace(/[$,\s]/g, "") === y.replace(/[$,\s]/g, ""));
+      if (!same(a, b)) changes.push({ at: e.created_at, page: e.page, label: (next[k] || prev[k]).label, from: a, to: b });
     }
     last.set(e.page, next);
   }
