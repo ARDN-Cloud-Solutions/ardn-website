@@ -110,7 +110,9 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
     e.type === "state" ? [e] : e.type === "export" ? Object.entries(((e.data as { states?: Record<string, unknown> })?.states) || {}).filter(([pg]) => pg === "overview" || pg === "plan" || pg === "details").map(([pg, data]) => ({ ...e, type: "state", page: pg, data })) : [],
   );
   const pagesSeen = Array.from(new Set(ev.filter((e) => e.type === "view").map((e) => e.page)));
-  const seconds = ev.filter((e) => e.type === "leave").reduce((a, e) => a + num((e.data as { seconds?: number })?.seconds), 0);
+  const leaveSeconds = ev.filter((e) => e.type === "leave").reduce((a, e) => a + num((e.data as { seconds?: number })?.seconds), 0);
+  // No leave yet (an export sends at once): count from the first event to the last.
+  const seconds = leaveSeconds || (ev.length ? (Date.parse(ev[ev.length - 1].created_at) - Date.parse(ev[0].created_at)) / 1000 : 0);
   const videos = ev.filter((e) => e.type === "video").map((e) => String((e.data as { id?: string })?.id || ""));
   const sections = Array.from(new Set(ev.filter((e) => e.type === "section").map((e) => String((e.data as { id?: string })?.id || ""))));
   if (!pagesSeen.length && !states.length) return null;
@@ -148,10 +150,10 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
   let text = `${email} on the ${p.client} proposal\n\n${head.map(([a, b]) => `${a}: ${b}`).join("\n")}\n`;
   for (const { page, s } of finals) {
     if (!s) continue;
-    html += h(`What they saw when they left: ${PAGE[page] || page}`) + table(s.figures);
+    html += h(`What they saw last: ${PAGE[page] || page}`) + table(s.figures);
     html += `<table style="border-collapse:collapse;width:100%;font-size:13px;margin-top:10px"><tr>${["Year", "Saved", "Spent", "Net", "Running total"].map((x) => `<th style="text-align:right;padding:4px;color:#4A5170">${x}</th>`).join("")}</tr>${s.years.map((y) => `<tr>${[String(y.year), money(y.saving), money(y.spend), money(y.net), money(y.cum)].map((x) => `<td style="text-align:right;padding:4px">${x}</td>`).join("")}</tr>`).join("")}</table>`;
     html += h(`Each system: ${PAGE[page] || page}`) + table(s.inputs);
-    text += `\nWhat they saw when they left (${PAGE[page] || page})\n${s.figures.map(([a, b]) => `  ${a}: ${b}`).join("\n")}\n${s.years.map((y) => `  ${y.year}: saved ${money(y.saving)}, spent ${money(y.spend)}, net ${money(y.net)}, running ${money(y.cum)}`).join("\n")}\nEach system\n${s.inputs.map(([a, b]) => `  ${a}: ${b}`).join("\n")}\n`;
+    text += `\nWhat they saw last (${PAGE[page] || page})\n${s.figures.map(([a, b]) => `  ${a}: ${b}`).join("\n")}\n${s.years.map((y) => `  ${y.year}: saved ${money(y.saving)}, spent ${money(y.spend)}, net ${money(y.net)}, running ${money(y.cum)}`).join("\n")}\nEach system\n${s.inputs.map(([a, b]) => `  ${a}: ${b}`).join("\n")}\n`;
   }
   if (changes.length) {
     html += h("Every change, in order") + `<ol style="font-size:14px;padding-left:20px;margin:0">${changes.map((c) => `<li style="margin:4px 0"><span style="color:#4A5170">${esc(et(c.at))} · ${esc(PAGE[c.page] || c.page)}</span><br>${esc(c.label)}: ${esc(c.from)} → <b>${esc(c.to)}</b></li>`).join("")}</ol>`;
