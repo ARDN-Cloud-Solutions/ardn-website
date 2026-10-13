@@ -1,5 +1,5 @@
 import { notFound, redirect } from "next/navigation";
-import { ARDN_DOMAIN, getProposal } from "@/content/proposals";
+import { isArdnStaff, getProposal } from "@/content/proposals";
 import { getSession } from "@/lib/proposals/server";
 import AdminBar from "@/components/proposals/AdminBar";
 import Editor from "@/components/proposals/Editor";
@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export default async function EditPage({ params }: { params: Promise<{ slug: string }> }) {
   const s = await getSession("admin").catch(() => null);
-  if (!s || !s.email.endsWith("@" + ARDN_DOMAIN)) redirect("/proposals/admin/sign-in");
+  if (!s || !isArdnStaff(s.email)) redirect("/proposals/admin/sign-in");
   const { slug } = await params;
   const p = await getProposal(slug);
   if (!p) notFound();

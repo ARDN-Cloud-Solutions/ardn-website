@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ARDN_DOMAIN, emailAllowed, getProposal } from "@/content/proposals";
+import { emailAllowed, getProposal, isArdnStaff } from "@/content/proposals";
 import { issueCode } from "@/lib/proposals/server";
 
 export async function POST(req: Request) {
@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) {
       return NextResponse.json({ error: "Enter a valid work email." }, { status: 400 });
     }
-    const isArdn = e.endsWith("@" + ARDN_DOMAIN);
+    const isArdn = isArdnStaff(e);
     let allowed = false;
     if (s === "admin") allowed = isArdn;
     else {
@@ -19,9 +19,10 @@ export async function POST(req: Request) {
       // Drafts are visible to Ardn only.
       allowed = isArdn || (p.status === "live" && emailAllowed(p, e));
     }
-    // Same answer whether or not the address is allowed, so the list of
-    // approved addresses can't be probed.
-    if (allowed) {
+    if (!allowed) {
+      return NextResponse.json({ error: "This email is not approved for this proposal. Ask your Ardn contact for access." }, { status: 403 });
+    }
+    {
       const r = await issueCode(s, e);
       if (r === "rate_limited") {
         return NextResponse.json({ error: "Too many codes requested. Try again in an hour." }, { status: 429 });

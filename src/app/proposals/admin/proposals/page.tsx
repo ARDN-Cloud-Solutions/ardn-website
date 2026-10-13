@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ARDN_DOMAIN, listProposals } from "@/content/proposals";
+import { isArdnStaff, listProposals } from "@/content/proposals";
 import { getSession } from "@/lib/proposals/server";
 import { money, proposedRoi } from "@/lib/proposals/model";
 import { createProposal } from "./actions";
@@ -14,7 +14,7 @@ const btn: React.CSSProperties = { height: 44, padding: "0 20px", border: 0, bor
 
 export default async function ProposalsPage() {
   const s = await getSession("admin").catch(() => null);
-  if (!s || !s.email.endsWith("@" + ARDN_DOMAIN)) redirect("/proposals/admin/sign-in");
+  if (!s || !isArdnStaff(s.email)) redirect("/proposals/admin/sign-in");
   const all = (await listProposals());
 
   return (

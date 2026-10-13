@@ -2,14 +2,14 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { ARDN_DOMAIN, getProposal, listProposals } from "@/content/proposals";
+import { isArdnStaff, getProposal, listProposals } from "@/content/proposals";
 import { getSession } from "@/lib/proposals/server";
 import { emptyProposal, slugify, type Proposal } from "@/lib/proposals/model";
 import { deleteProposalFile, writeProposalFile } from "@/lib/proposals/store";
 
 async function admin() {
   const s = await getSession("admin").catch(() => null);
-  if (!s || !s.email.endsWith("@" + ARDN_DOMAIN)) throw new Error("Not signed in as Ardn staff");
+  if (!s || !isArdnStaff(s.email)) throw new Error("Not signed in as Ardn staff");
   return s;
 }
 

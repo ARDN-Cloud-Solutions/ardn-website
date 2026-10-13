@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import { cookies, headers } from "next/headers";
 import nodemailer from "nodemailer";
 import * as store from "./store";
-import { getProposal } from "@/content/proposals";
+import { getProposal, lockedAllowed } from "@/content/proposals";
 import { visitEmail } from "./visitEmail";
 
 /**
@@ -100,6 +100,8 @@ export async function getSession(slug: string): Promise<Session | null> {
   const s = await store.findSession(id);
   if (!s) return null;
   if (slug !== "*" && s.slug !== slug) return null;
+  // A session opened before access was narrowed ends here.
+  if (lockedAllowed(s.slug, s.email) === false) return null;
   return s;
 }
 
