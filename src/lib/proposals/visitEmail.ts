@@ -18,7 +18,7 @@ const money = (n: number) => (n < 0 ? "−" : "") + "$" + Math.round(Math.abs(n)
 const num = (s: unknown) => Number(String(s ?? "").replace(/[^0-9.]/g, "")) || 0;
 const et = (iso: string) =>
   new Date(iso).toLocaleString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " ET";
-const PAGE: Record<string, string> = { overview: "Overview", plan: "Build your plan", details: "Full proposal", brief: "Brief" };
+const PAGE: Record<string, string> = { site: "Proposal", overview: "Overview", plan: "Build your plan", details: "Full proposal", brief: "Brief" };
 const UPSIDE: Record<string, string> = { dues: "Yearly dues revenue", retention: "Retention gain (%)", events: "Yearly event revenue", eventsPct: "Event revenue gain (%)" };
 
 /** One flat map of every input on a page, keyed so two snapshots can be compared. */
@@ -27,6 +27,8 @@ function flatten(p: Proposal, page: string, data: unknown): Record<string, { lab
   const d = (data || {}) as Record<string, unknown>;
   const sys = new Map(p.systems.map((s) => [s.id, s]));
   const name = (id: string) => sys.get(id)?.name || id;
+  // The full proposal site sends every input on the page, already labeled.
+  if (page === "site") return { ...((d.inputs || {}) as Record<string, { label: string; value: string }>) };
   if (page === "overview") {
     const on = (d.on || {}) as Record<string, boolean>;
     for (const s of p.systems) {
@@ -62,6 +64,10 @@ function startOf(p: Proposal, page: string): unknown {
 /** What the page showed for this state: the same inputs through the same roi(). */
 function screen(p: Proposal, page: string, data: unknown): { inputs: Line[]; figures: Line[]; years: RoiResult["years"] } | null {
   const d = (data || {}) as Record<string, unknown>;
+  if (page === "site") {
+    const rows = (m: unknown): Line[] => Object.values((m || {}) as Record<string, { label: string; value: string }>).map((x) => [x.label, x.value]);
+    return { inputs: rows(d.inputs), figures: rows(d.outputs), years: [] };
+  }
   let on: string[];
   const costs: Record<string, number> = {};
   let locations = p.pricing.locations;
@@ -107,7 +113,7 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
   // An export carries what every page showed at that moment; read it as one more change per page.
   const exports = ev.filter((e) => e.type === "export");
   const states = ev.flatMap((e) =>
-    e.type === "state" ? [e] : e.type === "export" ? Object.entries(((e.data as { states?: Record<string, unknown> })?.states) || {}).filter(([pg]) => pg === "overview" || pg === "plan" || pg === "details").map(([pg, data]) => ({ ...e, type: "state", page: pg, data })) : [],
+    e.type === "state" ? [e] : e.type === "export" ? Object.entries(((e.data as { states?: Record<string, unknown> })?.states) || {}).filter(([pg]) => pg === "site" || pg === "overview" || pg === "plan" || pg === "details").map(([pg, data]) => ({ ...e, type: "state", page: pg, data })) : [],
   );
   const pagesSeen = Array.from(new Set(ev.filter((e) => e.type === "view").map((e) => e.page)));
   const leaveSeconds = ev.filter((e) => e.type === "leave").reduce((a, e) => a + num((e.data as { seconds?: number })?.seconds), 0);
@@ -121,7 +127,8 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
   const changes: Change[] = [];
   const last = new Map<string, Record<string, { label: string; value: string }>>();
   for (const e of states) {
-    const prev = last.get(e.page) ?? flatten(p, e.page, startOf(p, e.page));
+    // The site's first snapshot is what it opened on, so it is the baseline, not a change.
+    const prev = last.get(e.page) ?? (e.page === "site" ? flatten(p, e.page, e.data) : flatten(p, e.page, startOf(p, e.page)));
     const next = flatten(p, e.page, e.data);
     for (const k of new Set([...Object.keys(prev), ...Object.keys(next)])) {
       const a = prev[k]?.value ?? "blank", b = next[k]?.value ?? "blank";
@@ -151,8 +158,8 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
   for (const { page, s } of finals) {
     if (!s) continue;
     html += h(`What they saw last: ${PAGE[page] || page}`) + table(s.figures);
-    html += `<table style="border-collapse:collapse;width:100%;font-size:13px;margin-top:10px"><tr>${["Year", "Saved", "Spent", "Net", "Running total"].map((x) => `<th style="text-align:right;padding:4px;color:#4A5170">${x}</th>`).join("")}</tr>${s.years.map((y) => `<tr>${[String(y.year), money(y.saving), money(y.spend), money(y.net), money(y.cum)].map((x) => `<td style="text-align:right;padding:4px">${x}</td>`).join("")}</tr>`).join("")}</table>`;
-    html += h(`Each system: ${PAGE[page] || page}`) + table(s.inputs);
+    if (s.years.length) html += `<table style="border-collapse:collapse;width:100%;font-size:13px;margin-top:10px"><tr>${["Year", "Saved", "Spent", "Net", "Running total"].map((x) => `<th style="text-align:right;padding:4px;color:#4A5170">${x}</th>`).join("")}</tr>${s.years.map((y) => `<tr>${[String(y.year), money(y.saving), money(y.spend), money(y.net), money(y.cum)].map((x) => `<td style="text-align:right;padding:4px">${x}</td>`).join("")}</tr>`).join("")}</table>`;
+    html += h(page === "site" ? "Every input on the page" : `Each system: ${PAGE[page] || page}`) + table(s.inputs);
     text += `\nWhat they saw last (${PAGE[page] || page})\n${s.figures.map(([a, b]) => `  ${a}: ${b}`).join("\n")}\n${s.years.map((y) => `  ${y.year}: saved ${money(y.saving)}, spent ${money(y.spend)}, net ${money(y.net)}, running ${money(y.cum)}`).join("\n")}\nEach system\n${s.inputs.map(([a, b]) => `  ${a}: ${b}`).join("\n")}\n`;
   }
   if (changes.length) {
