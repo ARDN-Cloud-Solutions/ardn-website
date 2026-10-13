@@ -9,6 +9,25 @@ import invited from "./seeds/invited-clubs.json";
  */
 export const ARDN_DOMAIN = "ardncloudsolutions.com";
 
+/** The only Ardn people who may sign in, to the admin or to any proposal. */
+export const ARDN_PEOPLE = ["deep.patel@ardncloudsolutions.com", "jaimin.patel@ardncloudsolutions.com"];
+export const isArdnStaff = (email: string) => ARDN_PEOPLE.includes(email.trim().toLowerCase());
+
+/** Who may open a proposal, fixed in code so a saved copy cannot widen it. */
+const LOCKED_ACCESS: Record<string, { domains: string[]; emails: string[] }> = {
+  "invited-clubs": { domains: ["invitedclubs.com"], emails: [] },
+};
+
+/** Whether this address may hold a session for this slug ("admin" is Ardn only). */
+export function lockedAllowed(slug: string, email: string): boolean | null {
+  if (isArdnStaff(email)) return true;
+  if (slug === "admin") return false;
+  const lock = LOCKED_ACCESS[slug];
+  if (!lock) return null;
+  const e = email.trim().toLowerCase();
+  return lock.emails.includes(e) || lock.domains.includes(e.split("@")[1] || "");
+}
+
 const SEEDS: Record<string, Proposal> = { "invited-clubs": invited as Proposal };
 
 export async function getProposal(slug: string): Promise<Proposal | null> {
@@ -32,7 +51,8 @@ export async function listProposals(): Promise<Proposal[]> {
 export function emailAllowed(p: Proposal, email: string): boolean {
   const e = email.trim().toLowerCase();
   const domain = e.split("@")[1] || "";
-  if (domain === ARDN_DOMAIN) return true;
+  const locked = lockedAllowed(p.slug, e);
+  if (locked !== null) return locked;
   if (p.access.emails.map((x) => x.toLowerCase()).includes(e)) return true;
   return p.access.domains.map((d) => d.toLowerCase().replace(/^@/, "")).includes(domain);
 }

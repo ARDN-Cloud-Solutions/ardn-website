@@ -1,6 +1,6 @@
 import AdminBar from "@/components/proposals/AdminBar";
 import { redirect } from "next/navigation";
-import { ARDN_DOMAIN } from "@/content/proposals";
+import { isArdnStaff } from "@/content/proposals";
 import { getSession } from "@/lib/proposals/server";
 import { listEvents, listSessions, type EventRow, type SessionRow } from "@/lib/proposals/store";
 
@@ -56,7 +56,7 @@ const td: React.CSSProperties = { padding: "12px 16px", fontSize: 14, borderTop:
 
 export default async function AdminPage() {
   const s = await getSession("admin").catch(() => null);
-  if (!s || !s.email.endsWith("@" + ARDN_DOMAIN)) redirect("/proposals/admin/sign-in");
+  if (!s || !isArdnStaff(s.email)) redirect("/proposals/admin/sign-in");
 
   const sessions: Sess[] = (await listSessions(600)).filter((x) => x.slug !== "admin").slice(0, 500);
   const events = (await listEvents(5000)).filter((e) => e.slug !== "admin") as Ev[];
