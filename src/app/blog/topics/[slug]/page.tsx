@@ -115,6 +115,22 @@ export default async function TopicHubPage({ params }: PageProps) {
                         <p className="text-paragraph text-lg leading-relaxed mb-6">{hub.intro}</p>
                         <p className="text-sm text-muted mb-8">{hubPostCount(hub)} articles</p>
 
+                        {hub.featured && (
+                            <section aria-label="Featured guides" className="mb-10 rounded-xl border border-gray-200 bg-primary-light/40 p-5">
+                                <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Featured guide</p>
+                                <ul className="space-y-3">
+                                    {hub.featured.map((f) => (
+                                        <li key={f.href}>
+                                            <Link href={f.href} className="font-semibold text-heading-dark hover:text-primary transition-colors">
+                                                {f.title}
+                                            </Link>
+                                            <p className="text-sm text-paragraph leading-relaxed mt-1">{f.excerpt}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </section>
+                        )}
+
                         {hub.groups.length > 1 && (
                             <nav aria-label="Sections" className="flex flex-wrap gap-2 mb-10">
                                 {hub.groups.map((g) => (

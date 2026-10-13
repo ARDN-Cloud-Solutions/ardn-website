@@ -184,6 +184,7 @@ export const AI_FORGE: ProductPageContent = {
     lede: "Book a free discovery call. You'll have a fixed quote and a delivery date within 48 hours.",
     cta: { label: "Book a free discovery call", href: CALL },
     links: [
+      { label: "AI consulting", href: "/ai-consulting" },
       { label: "Custom AI app development", href: "/ai-app-development" },
       { label: "AI for insurance", href: "/ai-for-insurance" },
       { label: "Case studies", href: "/case-studies" },

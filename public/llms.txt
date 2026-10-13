@@ -17,6 +17,17 @@
 
 - [Construction CRM](https://ardncloudsolutions.com/construction-crm): Ardn CRM for roofing, windows and home improvement, residential and commercial general contractors, and real estate: business-health dashboard, pipeline, quotes that convert to jobs in one click, service desk with SLA clocks and automatic escalation, dispatch board, work orders, accounts with lifetime value and reports. Priced by modules and locations, never per seat; Ardn migrates data from the previous CRM. Product site: https://www.ardnai.com
 
+## AI consulting
+
+Ardn's AI consulting services cover AI strategy consulting (an AI opportunity assessment and a phased roadmap), AI implementation, generative AI assistants and agents, and running the result as a managed service on a flat monthly fee. Fixed quote after a free 30-minute call; no published rate card.
+
+- [AI Consulting Services](https://ardncloudsolutions.com/ai-consulting): National hub for small and mid-size businesses: automations, AI assistants and agents on your own data, document processing, AI inside your CRM or ERP, and custom AI apps.
+- [How much does AI consulting cost?](https://ardncloudsolutions.com/ai-consulting/cost): Buyer's guide to cost drivers, the four engagement types (assessment, pilot, build, managed service), red flags and questions to ask.
+- [AI consulting services in Orlando, FL](https://ardncloudsolutions.com/ai-consulting-orlando): Ardn's home base; in-person workshops; hospitality and tourism, healthcare and professional services use cases.
+- [AI consulting services in Tampa, FL](https://ardncloudsolutions.com/ai-consulting-tampa): Financial services, insurance and healthcare use cases; on-site sessions available.
+- [AI consulting services in Miami, FL](https://ardncloudsolutions.com/ai-consulting-miami): Hospitality, real estate and logistics and trade use cases, including AI assistants that work in English and Spanish.
+- [AI consulting services in Jacksonville, FL](https://ardncloudsolutions.com/ai-consulting-jacksonville): Logistics, financial services and healthcare use cases; on-site sessions available.
+
 ## What we've launched
 
 Ardn designs, builds and runs each of these products as a managed service. Overview: https://ardncloudsolutions.com/work

@@ -115,6 +115,7 @@ const organizationSchema = {
     { "@type": "Country", name: "United States" },
     { "@type": "Place", name: "Global" },
   ],
+  knowsAbout: ["AI consulting", "AI implementation", "Custom software development", "Salesforce"],
   contactPoint: [
     {
       "@type": "ContactPoint",

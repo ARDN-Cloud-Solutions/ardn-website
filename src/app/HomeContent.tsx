@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ppSerif as serif } from "@/fonts";
 import type { CSSProperties } from "react";
-import { Code2, Handshake, Hammer, LayoutDashboard, RefreshCw, Server, ShoppingBag, Sparkles } from "lucide-react";
+import { Code2, Handshake, Hammer, LayoutDashboard, Lightbulb, RefreshCw, Server, ShoppingBag, Sparkles } from "lucide-react";
 import LeadForm from "@/components/common/LeadForm";
 import TrustBar from "@/components/common/TrustBar";
 import TrackedCta from "@/components/product-page/TrackedCta";
@@ -79,6 +79,7 @@ const PRODUCTS = [
 ];
 
 const SERVICES = [
+  { icon: Lightbulb, title: "AI consulting", body: "Find where AI cuts real work, then we build it and run it.", href: "/ai-consulting", wide: true },
   { icon: Code2, title: "Custom software", body: "Software shaped around exactly how your business works.", href: "/custom-software-development" },
   { icon: LayoutDashboard, title: "Customer & member portals", body: "Portals connected to the systems you already run.", href: "/custom-portal-development" },
   { icon: Handshake, title: "Partner portals", body: "For partners, dealers and resellers, without per-login fees.", href: "/custom-partner-portal-development" },
@@ -240,7 +241,7 @@ export default function HomeContent() {
               </div>
               <div className="hm-services">
                 {SERVICES.map((s) => (
-                  <Link key={s.href} href={s.href} className="hm-service">
+                  <Link key={s.href} href={s.href} className="hm-service" style={"wide" in s ? { gridColumn: "1 / -1" } : undefined}>
                     <span className="pp-icon" aria-hidden="true">
                       <s.icon size={20} strokeWidth={1.75} />
                     </span>

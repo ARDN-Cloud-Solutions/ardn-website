@@ -123,6 +123,20 @@ const staticRoutes: MetadataRoute.Sitemap = [
         changeFrequency: "monthly",
         priority: 0.9,
     },
+    // AI consulting: national hub, cost guide and Florida city pages.
+    ...[
+        { path: "/ai-consulting", priority: 0.9 },
+        { path: "/ai-consulting/cost", priority: 0.8 },
+        { path: "/ai-consulting-orlando", priority: 0.9 },
+        { path: "/ai-consulting-tampa", priority: 0.9 },
+        { path: "/ai-consulting-miami", priority: 0.9 },
+        { path: "/ai-consulting-jacksonville", priority: 0.9 },
+    ].map(({ path, priority }) => ({
+        url: `${BASE_URL}${path}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority,
+    })),
     {
         // Local-intent landing page for AI custom development.
         url: `${BASE_URL}/ai-app-development-florida`,

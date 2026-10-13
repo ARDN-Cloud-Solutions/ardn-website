@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     "AI consultant Florida",
     "AI implementation Florida",
     "AI software development Orlando",
-    "AI agency Florida",
     "AI Forge Framework",
     "AI as a service Florida",
     "Salesforce AI integration",
@@ -411,8 +410,44 @@ export default function AiAppDevelopmentFloridaPage() {
           </div>
         </section>
 
-        {/* TESTIMONIAL */}
+        {/* AI CONSULTING: hub + Florida city pages */}
         <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">AI consulting in Florida</span>
+                <h2 className="h1 mt-3">
+                  Not sure what to build yet? <em>Start with an assessment.</em>
+                </h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Our AI consulting finds where AI will cut real work out of your
+                  business before anything is built. See what that looks like
+                  near you.
+                </p>
+              </div>
+            </div>
+            <div className="grid-3">
+              {[
+                { href: "/ai-consulting", title: "AI consulting services", body: "AI strategy, implementation and support, for businesses across the US." },
+                { href: "/ai-consulting-orlando", title: "AI consulting services in Orlando", body: "Our home base. In-person workshops for hospitality, healthcare and professional services." },
+                { href: "/ai-consulting-tampa", title: "AI consulting services in Tampa", body: "Use cases for financial services, insurance and healthcare teams in Tampa Bay." },
+                { href: "/ai-consulting-miami", title: "AI consulting services in Miami", body: "Hospitality, real estate and trade, with assistants that work in English and Spanish." },
+                { href: "/ai-consulting-jacksonville", title: "AI consulting services in Jacksonville", body: "Logistics, financial services and healthcare use cases for the First Coast." },
+                { href: "/ai-consulting/cost", title: "How much does AI consulting cost?", body: "Cost drivers, engagement types, red flags and questions to ask." },
+              ].map((l) => (
+                <Link className="card" key={l.href} href={l.href}>
+                  <h3 className="h3">{l.title}</h3>
+                  <p className="body">{l.body}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL */}
+        <section className="section is-canvas">
           <div className="container">
             <div className="testimonial">
               <span className="eyebrow">What clients say</span>

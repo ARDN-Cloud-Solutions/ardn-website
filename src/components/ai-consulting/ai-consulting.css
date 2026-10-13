@@ -1,0 +1,306 @@
+/* AI consulting hub, city pages and cost guide. Extends the product page
+   kit (product-page.css); everything is scoped under .pp. */
+
+.pp .ac-intro-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.pp .ac-intro-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.pp .ac-intro-links a:hover {
+  border-color: var(--pp-accent-2);
+  color: var(--pp-accent-2-deep);
+}
+
+/* Industries with three use cases each */
+.pp .ac-industries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.pp .ac-industry {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  border-radius: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.pp .ac-industry h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+}
+
+.pp .ac-industry-why {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
+.pp .ac-uses {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.pp .ac-uses li {
+  padding: 14px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.pp .ac-uses b {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: var(--navy);
+}
+
+.pp .ac-uses span {
+  font-size: 14px;
+  line-height: 1.58;
+  color: var(--slate);
+}
+
+/* Engagement steps with icons */
+.pp .ac-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  counter-reset: acstep;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pp .ac-steps li {
+  position: relative;
+  padding: 26px 22px;
+  border-radius: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.pp .ac-step-n {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--pp-accent-2);
+}
+
+.pp .ac-steps h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--navy);
+}
+
+.pp .ac-steps p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.58;
+  color: var(--slate);
+}
+
+/* Launched products */
+.pp .ac-proof {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.pp .ac-proof-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pp .ac-proof-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 10px;
+}
+
+.pp .ac-proof-item figcaption {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 6px 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #c9cfe3;
+}
+
+.pp .ac-proof-item .ac-proof-ind {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--pp-accent);
+  margin-bottom: 6px;
+}
+
+.pp .ac-proof-item strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.pp .ac-proof-links {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.pp .ac-proof-links a {
+  color: var(--pp-accent-soft);
+  text-decoration: none;
+}
+
+.pp .ac-proof-links a:hover {
+  text-decoration: underline;
+}
+
+.pp .ac-proof-more {
+  margin-top: 32px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.pp .ac-proof-more a {
+  color: var(--pp-accent-soft);
+  text-decoration: none;
+  margin-right: 24px;
+}
+
+/* Cost guide article */
+.pp .ac-article {
+  font-size: 17px;
+  line-height: 1.72;
+  color: var(--navy);
+}
+
+.pp .ac-article h2 {
+  margin: 56px 0 16px;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.pp .ac-article h3 {
+  margin: 28px 0 8px;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.pp .ac-article p,
+.pp .ac-article ul,
+.pp .ac-article ol {
+  margin: 0 0 18px;
+  color: var(--slate);
+}
+
+.pp .ac-article ul,
+.pp .ac-article ol {
+  padding-left: 22px;
+}
+
+.pp .ac-article li {
+  margin-bottom: 8px;
+}
+
+.pp .ac-article li b,
+.pp .ac-article p b {
+  color: var(--navy);
+}
+
+.pp .ac-article a {
+  color: var(--pp-accent-2-deep);
+  font-weight: 600;
+}
+
+.pp .ac-toc {
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: var(--canvas);
+  border: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.pp .ac-toc ol {
+  margin: 8px 0 0;
+}
+
+.pp .ac-callout {
+  margin: 28px 0;
+  padding: 22px 24px;
+  border-radius: 14px;
+  border-left: 4px solid var(--pp-accent-2);
+  background: rgba(var(--pp-accent-2-rgb), 0.07);
+}
+
+.pp .ac-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.pp .ac-hero-short .pp-hero-grid {
+  grid-template-columns: 1fr;
+  max-width: 860px;
+}
+
+@media (max-width: 1040px) {
+  .pp .ac-industries,
+  .pp .ac-proof {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pp .ac-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .pp .ac-industries,
+  .pp .ac-proof,
+  .pp .ac-steps {
+    grid-template-columns: 1fr;
+  }
+}
