@@ -298,6 +298,7 @@ h3{font:600 19px/1.3 var(--sans);margin:0 0 8px}
 .ct-head{font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line2);padding-top:0}
 .ct-head>:not(:first-child),.ct-row>:not(:first-child),.ct-bucket>:not(:first-child),.ct-total>:not(:first-child){text-align:right}
 .ct-name small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35;margin-top:2px}
+.ct-name small input.perU{width:84px;padding:2px 6px;font-size:12.5px;display:inline-block;margin:2px 2px}
 .ct-q{display:grid;gap:2px}.ct-q small{color:var(--muted);font-size:11.5px}
 .ct .dash{color:var(--muted)}
 .ct-bucket{margin-top:22px;border-bottom:1px solid var(--line2);padding-bottom:7px}
@@ -1257,9 +1258,9 @@ const CLUBS = {golf: 123, city: 17}, ALL = CLUBS.golf + CLUBS.city;
 const SFC = {sales: 159, salesClubs: 115, events: 77, eventsClubs: 59};
 const EVENTS = Math.round(SFC.events / SFC.eventsClubs * ALL);
 const LIC = [
-  // name, price per unit per month, unit, base qty, source, who needs it (follows the How many box), fixed support a year (else license × slider)
+  // name, price per unit per month, unit, base qty, source, who needs it (follows the How many box), fixed support a year, or 'perUser' for the editable support per user (else license × slider)
   // Salesforce seats are the licenses in use in Invited's Salesforce (staging copy, read 2026-10-12).
-  ['Salesforce Sales Cloud Enterprise', 175, 'user', 300, 'salesforce.com', (_, n) => `${n} full Salesforce licenses for membership sales, events, member experience and head office (300 in use today)`, 450000],
+  ['Salesforce Sales Cloud Enterprise', 175, 'user', 300, 'salesforce.com', (_, n) => `${n} full Salesforce licenses for membership sales, events, member experience and head office (300 in use today)`, 'perUser'],
   ['Salesforce Identity', 5, 'user', 363, 'salesforce.com', (_, n) => `${n} staff who use Salesforce only to sign in to other apps (363 today)`],
   ['Account Engagement (Pardot) Advanced', 4400, 'org', 1, 'salesforce.com', n => `${n} for member and prospect email, journeys and the employee newsletter; priced per org, edition assumed`],
   ['DocuSign Business Pro', 45, 'seat', SFC.sales + SFC.events + 10, 'docusign.com', n => `${n} for membership sales, event sales, membership accounting and legal (Salesforce today: ${SFC.sales} membership sales and ${SFC.events} event sales users, plus 10)`],
@@ -1320,7 +1321,7 @@ const tg = (id, n) => `<label class="tg" title="Retire this system"><input type=
 const row = (name, who, q, lic, sup, tot, on) => `<div class="ct-row"><span class="ct-name">${on ? tg(on, name) : ''}<span>${name}<small>${who}</small></span></span>${q ? `<span class="ct-q" data-l="How many">${q}</span>` : '<span class="blank"></span>'}<span data-l="License">${lic}</span><span data-l="Support">${sup}</span><output class="num" data-l="Total" id="${tot}"></output></div>`;
 $('#ctBody').innerHTML =
   bucket('b1', 'Licensed systems', 'List price times how many, less the discount') +
-  LIC.map(([n, p, u, q, src, who], i) => row(esc(n), `<span id="w${i}"></span> · $${p.toLocaleString('en-US')} per ${u} a month, ${esc(src)}`, `<input type="text" inputmode="numeric" class="n" id="q${i}" aria-label="${esc(n)}: number of ${UNITS[u]}"><small>${UNITS[u]}</small>`, `<output class="num" id="lL${i}"></output>`, sup('lS' + i, n), `lT${i}`, 'on-l' + i)).join('') +
+  LIC.map(([n, p, u, q, src, who, fixed], i) => row(esc(n), `<span id="w${i}"></span> · <input type="text" inputmode="numeric" class="n perU" data-money="1" id="pr${i}" value="${p}" aria-label="${esc(n)} price per ${u} a month"> per ${u} a month, list price from ${esc(src)}${fixed === 'perUser' ? ` · support <input type="text" inputmode="numeric" class="n perU" data-money="1" id="sfSupU" value="1500" aria-label="${esc(n)} support per user a year"> per ${u} a year` : ''}`, `<input type="text" inputmode="numeric" class="n" id="q${i}" aria-label="${esc(n)}: number of ${UNITS[u]}"><small>${UNITS[u]}</small>`, `<output class="num" id="lL${i}"></output>`, sup('lS' + i, n), `lT${i}`, 'on-l' + i)).join('') +
   bucket('b2', 'Licensed systems with no public price', "Enter Invited's yearly license cost; support follows") +
   UNP.map(([n, who], i) => row(esc(n), esc(who), '', num('uL' + i, n + ' yearly license cost', 1000, 'License cost'), sup('uS' + i, n), `uT${i}`, 'on-u' + i)).join('') +
   bucket('b3', 'Built in-house', 'No license. Support is the people and hosting that keep each one running') +
@@ -1354,9 +1355,9 @@ function calc() {
   const sum = {b1:[0,0], b2:[0,0], b3:[0,0], b4:[0,0]};
   let kept = 0, all = 0;
   const line = (b, L, S, tot, on) => { const e = $('#' + on), yes = e.checked; e.closest('.ct-row').classList.toggle('off', !yes); all += L + S; if (yes) { sum[b][0] += L; sum[b][1] += S; } else kept += L + S; put(tot, L + S); };
-  const S = (id, L, fixed) => { const e = $('#' + id); if (e.dataset.auto) { const x = Math.round(fixed ?? L * mult); e.value = x ? x : ''; } return v(id); };
+  const S = (id, L, fixed, q) => { const e = $('#' + id); if (e.dataset.auto) { const x = Math.round(fixed === 'perUser' ? v('sfSupU') * q : fixed ?? L * mult); e.value = x ? x : ''; } return v(id); };
   LIC.forEach((l, i) => { const q = v('q' + i); $('#w' + i).textContent = l[5](`${q.toLocaleString('en-US')} ${q === 1 ? l[2] : UNITS[l[2]]}`, q.toLocaleString('en-US')); });
-  LIC.forEach((l, i) => { const L = l[1] * v('q' + i) * 12 * (1 - disc); put('lL' + i, L); line('b1', L, S('lS' + i, L, l[6]), 'lT' + i, 'on-l' + i); });
+  LIC.forEach((l, i) => { const L = v('pr' + i) * v('q' + i) * 12 * (1 - disc); put('lL' + i, L); line('b1', L, S('lS' + i, L, l[6], v('q' + i)), 'lT' + i, 'on-l' + i); });
   UNP.forEach((_, i) => { const L = v('uL' + i); line('b2', L, S('uS' + i, L), 'uT' + i, 'on-u' + i); });
   IH.forEach((_, i) => line('b3', 0, v('ih' + i), 'iT' + i, 'on-i' + i));
   const qa = v('qaPeople') * scen.qaCost * scen.qaShare / 100, p1 = p1Saved;
@@ -1393,10 +1394,12 @@ function calc() {
   $('#net').innerHTML = fee ? `Ardn's fee: <b>${fmtM(fee * clubs * 12)}</b> a year. Net saving: <b>${fmtM(gross - fee * clubs * 12)}</b> a year, ${gross - fee * clubs * 12 >= TARGET ? 'which meets' : 'which is below'} the $10M target.` : 'Enter a fee to see the net saving.';
 }
 document.querySelectorAll('.calc2 input').forEach(i => i.addEventListener(i.type === 'checkbox' ? 'change' : 'input', () => { delete i.dataset.auto; document.querySelectorAll('[data-scen]').forEach(b => b.setAttribute('aria-pressed', 'false')); calc(); }));
+// A new support-per-user figure sets the Salesforce support box back to users times that figure.
+$('#sfSupU').addEventListener('input', () => { const i = LIC.findIndex(l => l[6] === 'perUser'); $('#lS' + i).dataset.auto = '1'; calc(); });
 $('#fee').addEventListener('input', calc); $('#clubs').addEventListener('input', calc);
 // Saved settings: each person's latest calculator, kept under configs/<their id> so it comes back on their next visit.
 // The same document keeps a log of every change they make, so Ardn can see how they reached their numbers.
-const ALLOWED = /^(disc|mult|fee|clubs|qaPeople|q\d+|lS\d+|uL\d+|uS\d+|ih\d+|on-[lui]\d+|p1(Hours|EngYear|RateX|RateM|PerYear))$/;
+const ALLOWED = /^(disc|mult|fee|clubs|qaPeople|sfSupU|pr\d+|q\d+|lS\d+|uL\d+|uS\d+|ih\d+|on-[lui]\d+|p1(Hours|EngYear|RateX|RateM|PerYear))$/;
 const LOG_MAX = 400;
 let log = [], lastVals = null, lastAuto = [];
 const calcInputs = () => document.querySelectorAll('.calc2 input, .p1rates input');
