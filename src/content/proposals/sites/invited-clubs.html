@@ -294,7 +294,7 @@ h3{font:600 19px/1.3 var(--sans);margin:0 0 8px}
 .ctl .slider{border:0;padding:0}
 @media (max-width:900px){.ctl{grid-template-columns:1fr}}
 .ct{font-size:14.5px}
-.ct-head,.ct-row,.ct-bucket,.ct-total{display:grid;grid-template-columns:minmax(0,1fr) 118px 132px 132px 132px;gap:16px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.ct-head,.ct-row,.ct-bucket,.ct-total{display:grid;grid-template-columns:minmax(0,1fr) 108px 108px 124px 124px 124px;gap:16px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
 .ct-head{font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line2);padding-top:0}
 .ct-head>:not(:first-child),.ct-row>:not(:first-child),.ct-bucket>:not(:first-child),.ct-total>:not(:first-child){text-align:right}
 .ct-name small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35;margin-top:2px}
@@ -881,9 +881,9 @@ section.ch.pick .foryou{display:inline-block}
         <div class="slider"><label for="mult">Support per license dollar<small>Admins, integrations, help desk and hosting. Forrester puts it at 0.6; Gartner says up to 4×</small></label><output id="multOut" class="num"></output><input type="range" id="mult" min="0" max="3" step="0.1"></div>
       </div>
       <div class="ct">
-        <div class="ct-head"><span>System and who uses it</span><span>How many</span><span>License a year</span><span>Support a year</span><span>Total a year</span></div>
+        <div class="ct-head"><span>System and who uses it</span><span>How many</span><span>Cost per user a month</span><span>License a year</span><span>Support a year</span><span>Total a year</span></div>
         <div id="ctBody"></div>
-        <div class="ct-total"><b>Taken out each year, before Ardn's fee</b><span class="blank"></span><output class="num" data-l="License" id="tLic"></output><output class="num" data-l="Support" id="tSup"></output><output class="num" data-l="Total" id="tAll"></output></div>
+        <div class="ct-total"><b>Taken out each year, before Ardn's fee</b><span class="blank"></span><span class="blank"></span><output class="num" data-l="License" id="tLic"></output><output class="num" data-l="Support" id="tSup"></output><output class="num" data-l="Total" id="tAll"></output></div>
         <p class="licnote">How many counts only the people who use each system, by role, from Invited's capabilities workbook. Sales and event-sales counts are Invited's active Salesforce users; other counts are Ardn's estimate across 123 golf and country clubs and 17 city clubs. Support starts as the license times the slider above, or about one person plus a share of Oracle hosting for an in-house system; type Invited's own figure into any row to replace it. Switch a system off to keep it: it leaves the cost taken out and counts on the after side below. <span class="tag A">Assumption</span> Every white box can be changed.</p>
       </div>
       <div class="result" aria-live="polite">
@@ -1316,12 +1316,12 @@ const num = (id, label, step = 1000, ph = '') => `<input type="text" inputmode="
 const DASH = '<span class="dash">—</span>';
 // A support box follows the license times the slider until someone types in it; then it keeps their number.
 const sup = (id, n) => `<input type="text" inputmode="numeric" class="n" data-money="1" id="${id}" data-auto="1" placeholder="Support cost" aria-label="${esc(n)} yearly support cost">`;
-const bucket = (k, name, note) => `<div class="ct-bucket"><h3>${name}<small>${note}</small></h3><span class="blank"></span><output class="num" data-l="License" id="${k}L"></output><output class="num" data-l="Support" id="${k}S"></output><output class="num" data-l="Total" id="${k}T"></output></div>`;
+const bucket = (k, name, note) => `<div class="ct-bucket"><h3>${name}<small>${note}</small></h3><span class="blank"></span><span class="blank"></span><output class="num" data-l="License" id="${k}L"></output><output class="num" data-l="Support" id="${k}S"></output><output class="num" data-l="Total" id="${k}T"></output></div>`;
 const tg = (id, n) => `<label class="tg" title="Retire this system"><input type="checkbox" checked id="${id}" aria-label="Retire ${esc(n)}"><i></i></label>`;
-const row = (name, who, q, lic, sup, tot, on) => `<div class="ct-row"><span class="ct-name">${on ? tg(on, name) : ''}<span>${name}<small>${who}</small></span></span>${q ? `<span class="ct-q" data-l="How many">${q}</span>` : '<span class="blank"></span>'}<span data-l="License">${lic}</span><span data-l="Support">${sup}</span><output class="num" data-l="Total" id="${tot}"></output></div>`;
+const row = (name, who, q, lic, sup, tot, on, price) => `<div class="ct-row"><span class="ct-name">${on ? tg(on, name) : ''}<span>${name}<small>${who}</small></span></span>${q ? `<span class="ct-q" data-l="How many">${q}</span>` : '<span class="blank"></span>'}${price ? `<span class="ct-q" data-l="Cost per user a month">${price}</span>` : '<span class="blank"></span>'}<span data-l="License">${lic}</span><span data-l="Support">${sup}</span><output class="num" data-l="Total" id="${tot}"></output></div>`;
 $('#ctBody').innerHTML =
   bucket('b1', 'Licensed systems', 'List price times how many, less the discount') +
-  LIC.map(([n, p, u, q, src, who, fixed], i) => row(esc(n), `<span id="w${i}"></span> · <input type="text" inputmode="numeric" class="n perU" data-money="1" id="pr${i}" value="${p}" aria-label="${esc(n)} price per ${u} a month"> per ${u} a month, list price from ${esc(src)}${fixed === 'perUser' ? ` · support <input type="text" inputmode="numeric" class="n perU" data-money="1" id="sfSupU" value="1500" aria-label="${esc(n)} support per user a year"> per ${u} a year` : ''}`, `<input type="text" inputmode="numeric" class="n" id="q${i}" aria-label="${esc(n)}: number of ${UNITS[u]}"><small>${UNITS[u]}</small>`, `<output class="num" id="lL${i}"></output>`, sup('lS' + i, n), `lT${i}`, 'on-l' + i)).join('') +
+  LIC.map(([n, p, u, q, src, who, fixed], i) => row(esc(n), `<span id="w${i}"></span> · list price from ${esc(src)}${fixed === 'perUser' ? ` · support <input type="text" inputmode="numeric" class="n perU" data-money="1" id="sfSupU" value="1500" aria-label="${esc(n)} support per user a year"> per ${u} a year` : ''}`, `<input type="text" inputmode="numeric" class="n" id="q${i}" aria-label="${esc(n)}: number of ${UNITS[u]}"><small>${UNITS[u]}</small>`, `<output class="num" id="lL${i}"></output>`, sup('lS' + i, n), `lT${i}`, 'on-l' + i, `<input type="text" inputmode="numeric" class="n" data-money="1" id="pr${i}" value="${p}" aria-label="${esc(n)} cost per ${u} a month"><small>per ${u}</small>`)).join('') +
   bucket('b2', 'Licensed systems with no public price', "Enter Invited's yearly license cost; support follows") +
   UNP.map(([n, who], i) => row(esc(n), esc(who), '', num('uL' + i, n + ' yearly license cost', 1000, 'License cost'), sup('uS' + i, n), `uT${i}`, 'on-u' + i)).join('') +
   bucket('b3', 'Built in-house', 'No license. Support is the people and hosting that keep each one running') +

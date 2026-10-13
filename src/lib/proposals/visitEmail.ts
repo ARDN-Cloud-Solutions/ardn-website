@@ -159,6 +159,13 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
   let text = `${email} on the ${p.client} proposal\n\n${head.map(([a, b]) => `${a}: ${b}`).join("\n")}\n`;
   for (const { page, s } of finals) {
     if (!s) continue;
+    const rep = page === "site" ? siteReport(states.filter((e) => e.page === page).pop()!.data) : null;
+    if (rep) {
+      html += reportHtml(rep, esc, h);
+      text += reportText(rep);
+      html += h("Every input on the page") + table(s.inputs);
+      continue;
+    }
     html += h(`What they saw last: ${PAGE[page] || page}`) + table(s.figures);
     if (s.years.length) html += `<table style="border-collapse:collapse;width:100%;font-size:13px;margin-top:10px"><tr>${["Year", "Saved", "Spent", "Net", "Running total"].map((x) => `<th style="text-align:right;padding:4px;color:#4A5170">${x}</th>`).join("")}</tr>${s.years.map((y) => `<tr>${[String(y.year), money(y.saving), money(y.spend), money(y.net), money(y.cum)].map((x) => `<td style="text-align:right;padding:4px">${x}</td>`).join("")}</tr>`).join("")}</table>`;
     html += h(page === "site" ? "Every input on the page" : `Each system: ${PAGE[page] || page}`) + table(s.inputs);
@@ -172,4 +179,55 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
   const did = changes.length ? `made ${changes.length} change${changes.length === 1 ? "" : "s"}` : "visited";
   const subject = `${p.client} proposal: ${email} ${exports.length ? `exported a PDF and ${did}` : did}`;
   return { subject, text, html };
+}
+
+type Report = {
+  title: string;
+  assumptions: Line[];
+  groups: { name: string; note: string; license: string; support: string; total: string; rows: { name: string; detail: string; qty: string; price?: string; license: string; support: string; total: string; decision: string }[] }[];
+  totals: { license: string; support: string; total: string };
+  today: { gross: string; verdict: string; perClub: string; room: string; roomPer: string };
+  proposal: { fee: string; clubs: string; net: string; perClub: [string, string, string][] };
+  p1: { today: string; steward: string };
+};
+
+function siteReport(data: unknown): Report | null {
+  const r = (data as { report?: Report } | null)?.report;
+  return r && Array.isArray(r.groups) ? r : null;
+}
+
+/** The proposal's calculator as the visitor left it: their cost today next to Club Steward, then system by system. */
+function reportHtml(r: Report, esc: (s: string) => string, h: (t: string) => string): string {
+  const td = "padding:5px 6px;border-bottom:1px solid #EEE;text-align:right;white-space:nowrap";
+  const th = "padding:5px 6px;border-bottom:1px solid #EEE;text-align:left";
+  let o = h("Their cost today and Club Steward");
+  o += `<table style="border-collapse:collapse;width:100%;font-size:14px"><tr>
+<td style="width:50%;padding:12px;border:1px solid #D9DCE8;vertical-align:top"><div style="font-size:12px;color:#4A5170;font-weight:600">Today, before Ardn's fee</div><div style="font-size:24px;font-weight:700;margin:4px 0">${esc(r.today.gross)}</div><div style="font-size:12px;color:#4A5170">${esc(r.today.verdict)}</div></td>
+<td style="width:50%;padding:12px;border:1px solid #F6BD60;background:#FFF8EC;vertical-align:top"><div style="font-size:12px;color:#4A5170;font-weight:600">Club Steward</div><div style="font-size:24px;font-weight:700;margin:4px 0">${r.proposal.fee ? esc(r.proposal.fee) + " a club a month" : "No fee entered"}</div><div style="font-size:12px;color:#4A5170">${esc(r.proposal.clubs)} clubs. ${esc(r.proposal.net)}</div></td></tr></table>`;
+  if (r.proposal.perClub.length)
+    o += `<table style="border-collapse:collapse;width:100%;font-size:14px;margin-top:8px">${r.proposal.perClub.map(([a, n, b]) => `<tr><td style="${th}">${esc(a)}${n ? `<div style="font-size:11px;color:#6A7090">${esc(n)}</div>` : ""}</td><td style="${td};font-weight:700">${esc(b)}</td></tr>`).join("")}</table>`;
+  o += `<p style="font-size:12px;color:#4A5170;margin:6px 0">${esc(r.today.perClub)} Room for Ardn's fee with the $10M target met: ${esc(r.today.room)}. ${esc(r.today.roomPer)}</p>`;
+  o += h("Current cost, system by system");
+  o += `<p style="font-size:12px;color:#4A5170;margin:0 0 6px">${r.assumptions.map(([a, b]) => `${esc(a)}: <b>${esc(b)}</b>`).join(" · ")}</p>`;
+  o += `<table style="border-collapse:collapse;width:100%;font-size:12.5px"><tr>${["System", "How many", "Cost per user a month", "License a year", "Support a year", "Total a year", "Plan"].map((x, i) => `<th style="${i ? td : th};color:#4A5170;font-size:11px;border-bottom:2px solid #0A0F2C">${x}</th>`).join("")}</tr>`;
+  for (const g of r.groups) {
+    o += `<tr style="background:#F3F4F9"><td colspan="3" style="${th};font-weight:700">${esc(g.name)}</td><td style="${td};font-weight:700">${esc(g.license)}</td><td style="${td};font-weight:700">${esc(g.support)}</td><td style="${td};font-weight:700">${esc(g.total)}</td><td style="${td}"></td></tr>`;
+    for (const x of g.rows) {
+      const c = x.decision === "Keep" ? ";color:#8A8FA8" : "";
+      o += `<tr><td style="${th}${c}">${esc(x.name)}</td><td style="${td}${c}">${esc(x.qty)}</td><td style="${td}${c}">${esc(x.price || "")}</td><td style="${td}${c}">${esc(x.license)}</td><td style="${td}${c}">${esc(x.support)}</td><td style="${td}${c}">${esc(x.total)}</td><td style="${td}${c}">${esc(x.decision)}</td></tr>`;
+    }
+  }
+  o += `<tr><td colspan="3" style="${th};font-weight:700;border-top:2px solid #0A0F2C">Taken out each year, before Ardn's fee</td><td style="${td};font-weight:700;border-top:2px solid #0A0F2C">${esc(r.totals.license)}</td><td style="${td};font-weight:700;border-top:2px solid #0A0F2C">${esc(r.totals.support)}</td><td style="${td};font-weight:700;border-top:2px solid #0A0F2C">${esc(r.totals.total)}</td><td style="${td};border-top:2px solid #0A0F2C"></td></tr></table>`;
+  if (r.p1.today) o += h("One critical defect (P1)") + `<table style="border-collapse:collapse;width:100%;font-size:14px"><tr><td style="${th}">Today</td><td style="${td};font-weight:700">${esc(r.p1.today)}</td></tr><tr><td style="${th}">On Club Steward</td><td style="${td};font-weight:700">${esc(r.p1.steward)}</td></tr></table>`;
+  return o;
+}
+
+function reportText(r: Report): string {
+  let t = `\nTheir cost today and Club Steward\n  Today, before Ardn's fee: ${r.today.gross}\n  Club Steward: ${r.proposal.fee || "no fee entered"} a club a month, ${r.proposal.clubs} clubs. ${r.proposal.net}\n`;
+  t += r.proposal.perClub.map(([a, , b]) => `  ${a}: ${b}`).join("\n") + "\n\nCurrent cost, system by system\n";
+  for (const g of r.groups) {
+    t += `  ${g.name}: license ${g.license}, support ${g.support}, total ${g.total}\n`;
+    t += g.rows.map((x) => `    ${x.name}${x.qty ? ` · ${x.qty}` : ""}${x.price ? ` at ${x.price}` : ""} · license ${x.license || "—"} · support ${x.support || "—"} · total ${x.total || "—"}${x.decision ? ` · ${x.decision}` : ""}`).join("\n") + "\n";
+  }
+  return t + `  Taken out each year, before Ardn's fee: license ${r.totals.license}, support ${r.totals.support}, total ${r.totals.total}\n`;
 }
