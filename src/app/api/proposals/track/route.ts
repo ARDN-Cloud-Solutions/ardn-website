@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     const s = await getSession(slug);
     if (!s) return NextResponse.json({ ok: false }, { status: 401 });
     const raw = JSON.stringify(body.data ?? null);
-    if (raw.length > 20_000) return NextResponse.json({ ok: false }, { status: 413 });
+    if (raw.length > 60_000) return NextResponse.json({ ok: false }, { status: 413 });
     await logEvent({ slug, email: s.email, session_id: s.id, type, page: String(body.page || "").slice(0, 40), data: body.data ?? null });
     // Wait a few seconds for the last debounced change to land, then email the visit to Ardn.
     if (type === "leave") after(async () => { await new Promise((r) => setTimeout(r, 4000)); await notifyVisit(slug, s.id, s.email); });
