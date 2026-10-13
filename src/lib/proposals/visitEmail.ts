@@ -104,7 +104,11 @@ function screen(p: Proposal, page: string, data: unknown): { inputs: Line[]; fig
 /** The summary of one visit, or null when there is nothing worth sending. */
 export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { subject: string; text: string; html: string } | null {
   const ev = [...events].sort((a, b) => a.id - b.id);
-  const states = ev.filter((e) => e.type === "state");
+  // An export carries what every page showed at that moment; read it as one more change per page.
+  const exports = ev.filter((e) => e.type === "export");
+  const states = ev.flatMap((e) =>
+    e.type === "state" ? [e] : e.type === "export" ? Object.entries(((e.data as { states?: Record<string, unknown> })?.states) || {}).filter(([pg]) => pg === "overview" || pg === "plan" || pg === "details").map(([pg, data]) => ({ ...e, type: "state", page: pg, data })) : [],
+  );
   const pagesSeen = Array.from(new Set(ev.filter((e) => e.type === "view").map((e) => e.page)));
   const seconds = ev.filter((e) => e.type === "leave").reduce((a, e) => a + num((e.data as { seconds?: number })?.seconds), 0);
   const videos = ev.filter((e) => e.type === "video").map((e) => String((e.data as { id?: string })?.id || ""));
@@ -133,6 +137,7 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
     ["Sections seen", sections.join(", ") || "—"],
     ["Videos played", videos.join(", ") || "None"],
     ["Changes made", String(changes.length)],
+    ["Exported to PDF", exports.length ? exports.map((e) => `${et(e.created_at)} (${PAGE[e.page] || e.page})`).join(", ") : "No"],
   ];
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
@@ -153,6 +158,7 @@ export function visitEmail(p: Proposal, email: string, events: VisitEvent[]): { 
     text += `\nEvery change, in order\n${changes.map((c) => `  ${et(c.at)} · ${PAGE[c.page] || c.page} · ${c.label}: ${c.from} → ${c.to}`).join("\n")}\n`;
   }
   html += `</div>`;
-  const subject = `${p.client} proposal: ${email} ${changes.length ? `made ${changes.length} change${changes.length === 1 ? "" : "s"}` : "visited"}`;
+  const did = changes.length ? `made ${changes.length} change${changes.length === 1 ? "" : "s"}` : "visited";
+  const subject = `${p.client} proposal: ${email} ${exports.length ? `exported a PDF and ${did}` : did}`;
   return { subject, text, html };
 }

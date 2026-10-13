@@ -146,13 +146,13 @@ async function notifyOpen(slug: string, email: string) {
  * something happened since the last summary for the session, so a tab switch
  * with no new activity sends nothing.
  */
-export async function notifyVisit(slug: string, sessionId: string, email: string) {
+export async function notifyVisit(slug: string, sessionId: string, email: string, reason: "leave" | "export" = "leave") {
   const to = process.env.PROPOSALS_NOTIFY_EMAIL || process.env.CONTACT_RECEIVER_EMAIL;
   if (!to || slug === "admin") return;
   try {
     const events = (await store.listEvents(5000)).filter((e) => e.session_id === sessionId);
     const lastSummary = Math.max(0, ...events.filter((e) => e.type === "summary").map((e) => e.id));
-    if (!events.some((e) => e.id > lastSummary && (e.type === "state" || e.type === "view"))) return;
+    if (reason === "leave" && !events.some((e) => e.id > lastSummary && (e.type === "state" || e.type === "view" || e.type === "export"))) return;
     const p = await getProposal(slug);
     if (!p) return;
     const mail = visitEmail(p, email, events.filter((e) => e.type !== "summary"));
