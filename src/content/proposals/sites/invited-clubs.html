@@ -1579,7 +1579,7 @@ const shotBox = document.getElementById('shotBox');
 let shotList = [], shotAt = 0, shotFrom = null;
 function drawShot() {
   const s = shotList[shotAt];
-  $('#shotImg').src = s.file.startsWith('shots/') ? s.file : 'shots/' + s.file;
+  $('#shotImg').src = '/proposal-sites/invited-clubs/shots/' + s.file.replace(/^shots\//, '');
   $('#shotImg').alt = s.caption;
   $('#shotCap').textContent = s.caption;
   $('#shotWhere').textContent = `${s.app} · ${shotAt + 1} of ${shotList.length}`;
