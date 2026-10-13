@@ -4,16 +4,18 @@ import TrustBar from "@/components/common/TrustBar";
 import LeadForm from "@/components/common/LeadForm";
 
 // National hub page for the core commercial keyword family:
-// "custom AI app development company / agency / AI development partner".
+// "AI development company" (Google Keyword Planner, 2026-10: 1K–10K US
+// searches, low competition), plus "custom AI app development company".
 // Non-geo by design — Ardn serves clients across the US, so this page does
 // NOT anchor on a city the way the Florida landing page does. It is the
 // canonical top-of-funnel destination for AI Forge organic traffic.
 export const metadata: Metadata = {
-  title:
-    "Custom AI App Development Company | Ardn",
+  title: "AI Development Company: Custom AI Apps, Built and Run | Ardn",
   description:
-    "We design, build, deploy, and operate custom AI applications in 2–6 weeks under one flat monthly fee. New customers: free custom AI build. Serving the US.",
+    "Ardn is an AI development company that designs, builds and runs custom AI apps and agents in 2–6 weeks under one flat monthly fee. Serving clients across the US.",
   keywords: [
+    "AI development company",
+    "AI development services",
     "custom AI app development company",
     "AI development agency",
     "AI app development services",
@@ -34,10 +36,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title:
-      "Custom AI App Development Company | Ardn",
+    title: "AI Development Company: Custom AI Apps, Built and Run | Ardn",
     description:
-      "We design, build, deploy, and operate custom AI applications in 2–6 weeks under one flat monthly fee. New customers: free custom AI build. Serving the US.",
+      "Ardn is an AI development company that designs, builds and runs custom AI apps and agents in 2–6 weeks under one flat monthly fee. Serving clients across the US.",
     url: "https://ardncloudsolutions.com/ai-app-development",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
         url: "/images/ardn-share.jpg",
         width: 1200,
         height: 630,
-        alt: "Custom AI app development company — Ardn AI Forge Framework",
+        alt: "Ardn, an AI development company that builds and runs custom AI apps",
       },
     ],
     locale: "en_US",
@@ -53,10 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Custom AI App Development Company | Ardn",
+    title: "AI Development Company: Custom AI Apps, Built and Run | Ardn",
     description:
-      "Production-ready custom AI apps in 2–6 weeks under one monthly fee. New customers: free custom AI build.",
+      "Ardn is an AI development company that designs, builds and runs custom AI apps and agents in 2–6 weeks under one flat monthly fee. Serving clients across the US.",
     site: "@ardn_cloud_sol",
     images: ["/images/ardn-share.jpg"],
   },
@@ -89,6 +89,27 @@ const FAQS = [
   {
     q: "Can the AI app integrate with our existing systems?",
     a: "Yes. AI Forge applications routinely connect to CRMs like Salesforce and HubSpot, data warehouses, billing systems, internal APIs, and 5,000+ other tools — whichever stack your business actually runs on.",
+  },
+];
+
+const RELATED = [
+  {
+    title: "AI consulting",
+    body: "AI strategy consulting and implementation: find where AI pays off first, then build it.",
+    href: "/ai-consulting",
+    cta: "AI consulting company",
+  },
+  {
+    title: "AI agent development",
+    body: "Agents that answer from your own data, act in your CRM or ERP and sort inquiries, with human approval built in.",
+    href: "/ai-agent-development",
+    cta: "AI agent development",
+  },
+  {
+    title: "Custom software development",
+    body: "Software shaped around how you work, built in Orlando, Florida and run for you.",
+    href: "/custom-software-development",
+    cta: "Custom software development company",
   },
 ];
 
@@ -126,8 +147,8 @@ export default function AiAppDevelopmentPage() {
       {
         "@type": "Service",
         "@id": "https://ardncloudsolutions.com/ai-app-development#service",
-        name: "Custom AI App Development",
-        serviceType: "Custom AI Application Development & Managed AI Service",
+        name: "AI Development Company: Custom AI Apps, Built and Run",
+        serviceType: ["AI development", "Custom AI application development", "Managed AI service"],
         description:
           "Ardn designs, builds, deploys, and operates custom AI applications for companies across the United States. Discovery to production in 2–6 weeks via the proprietary AI Forge Framework, then operated under one monthly subscription.",
         url: "https://ardncloudsolutions.com/ai-app-development",
@@ -193,7 +214,7 @@ export default function AiAppDevelopmentPage() {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Custom AI App Development",
+            name: "AI Development Company",
             item: "https://ardncloudsolutions.com/ai-app-development",
           },
         ],
@@ -214,12 +235,13 @@ export default function AiAppDevelopmentPage() {
           <div className="container">
             <div className="hero-grid">
               <div className="hero-copy">
-                <span className="eyebrow">Custom AI App Development</span>
+                <span className="eyebrow">AI Development Company</span>
                 <h1 className="display reveal">
-                  We build your AI app — <em>and run it for you.</em>
+                  An AI development company that <em>builds and runs your AI.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
-                  Most AI projects stall because the build is expensive, the
+                  Ardn is a US AI development company for businesses that want
+                  AI in daily use, not a demo. Most AI projects stall because the build is expensive, the
                   team disappears after launch, and the thing breaks the first
                   time a model changes. Ardn takes that risk off your plate: a
                   custom AI application designed around your exact workflow,
@@ -288,7 +310,7 @@ export default function AiAppDevelopmentPage() {
               <div>
                 <span className="eyebrow">How it works</span>
                 <h2 className="h1 mt-3">
-                  From idea to production, <em>in weeks.</em>
+                  AI development services, <em>from idea to production.</em>
                 </h2>
               </div>
               <div>
@@ -454,6 +476,29 @@ export default function AiAppDevelopmentPage() {
                   </summary>
                   <p style={{ marginTop: "14px", color: "#475467", fontSize: "16px", lineHeight: 1.6 }}>{faq.a}</p>
                 </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* RELATED SERVICES */}
+        <section className="section" id="related">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Related services</span>
+                <h2 className="h1 mt-3">
+                  More from <em>one team.</em>
+                </h2>
+              </div>
+            </div>
+            <div className="grid-3">
+              {RELATED.map((r) => (
+                <Link key={r.href} href={r.href} className="card" style={{ textDecoration: "none" }}>
+                  <h3 className="h3">{r.title}</h3>
+                  <p className="body">{r.body}</p>
+                  <span className="link">{r.cta} →</span>
+                </Link>
               ))}
             </div>
           </div>

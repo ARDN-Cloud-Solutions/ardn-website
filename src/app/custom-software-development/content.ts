@@ -19,10 +19,10 @@ export const CUSTOM_SOFTWARE: ProductPageContent = {
   "accent2Rgb": "194, 65, 12"
 },
   hero: {
-  "eyebrow": "Custom Software Development",
-  "title": "Software shaped around",
+  "eyebrow": "Orlando, Florida · Serving clients across the US",
+  "title": "A custom software development company that shapes software around",
   "titleEm": "how you actually work.",
-  "lede": "Replace the spreadsheets, workarounds and stack of subscriptions with one system built for your process. We design it, build it in weeks, then host it and keep improving it for one monthly fee.",
+  "lede": "Ardn is a custom software development company in Orlando, Florida, serving clients across the US. Replace the spreadsheets, workarounds and stack of subscriptions with one system built for your process. We design it, build it in weeks, then host it and keep improving it for one monthly fee.",
   "primaryCta": {
     "label": "Book a free 30-minute call",
     "href": "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai"
@@ -104,9 +104,9 @@ export const CUSTOM_SOFTWARE: ProductPageContent = {
   ]
 },
   promises: {
-    kicker: "How we work",
-    title: "We build it. We run it. We keep improving it.",
-    sub: "One accountable team from the first call to the hundredth improvement.",
+    kicker: "We build it. We run it. We keep improving it.",
+    title: "Why hire a custom software development company that also runs it",
+    sub: "Most software development companies hand over code and move on. One accountable team from the first call to the hundredth improvement means no handoffs, no orphaned systems and someone who already knows your software when you need a change.",
     items: [
       { icon: Hammer, title: "Built for your workflow", body: "Designed around how your team actually works, not a vendor's template." },
       { icon: Server, title: "Hosted and run for you", body: "Hosting, monitoring, security and updates included." },
@@ -195,6 +195,16 @@ export const CUSTOM_SOFTWARE: ProductPageContent = {
     }
   ]
 },
+  readMore: {
+    kicker: "Related services",
+    title: "Related services and proof",
+    links: [
+      { label: "AI development company: custom AI apps, built and run", href: "/ai-app-development" },
+      { label: "AI agent development: agents that answer and act on your data", href: "/ai-agent-development" },
+      { label: "AI consulting company: AI strategy consulting and implementation", href: "/ai-consulting" },
+    ],
+    more: { label: "See the platforms we've built, launched and still run", href: "/work" },
+  },
   faqs: FAQS,
   form: {
   "heading": "Tell us what you want to build",

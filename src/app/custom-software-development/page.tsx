@@ -9,14 +9,19 @@ import { CUSTOM_SOFTWARE } from "./content";
 // company") and links down to every solution spoke (portals, ecommerce,
 // AI Forge, verticals). Positioning: replace/simplify/connect your tech stack
 // in weeks, flat monthly fee, no per-seat, built AND run for you. AI is one
-// capability, not the whole pitch.
+// capability, not the whole pitch. Primary term (Google Keyword Planner,
+// 2026-10): "custom software development company", the highest-bid term in
+// Florida; secondary "software development company".
 export const metadata: Metadata = {
-  title: "Custom Software & Platform Development | Ardn",
+  title: "Custom Software Development Company, Florida | Ardn",
   description:
-    "We design, build & run custom software, platforms & portals that replace or connect your tools — live in weeks, one flat fee. New customers build free.",
+    "Ardn is a custom software development company in Orlando, Florida, serving clients across the US: software built around your process, then hosted and run for you.",
   keywords: [
-    "custom software development",
     "custom software development company",
+    "software development company",
+    "custom software development company Florida",
+    "custom software development Orlando",
+    "custom software development",
     "custom platform development",
     "custom application development",
     "custom web application development",
@@ -35,9 +40,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Software & Platform Development | Ardn",
+    title: "Custom Software Development Company, Florida | Ardn",
     description:
-      "Custom software, platforms & portals that replace or connect your tools — built and run for you in weeks, one flat monthly fee. New customers build free.",
+      "Ardn is a custom software development company in Orlando, Florida, serving clients across the US: software built around your process, then hosted and run for you.",
     url: "https://ardncloudsolutions.com/custom-software-development",
     siteName: "Ardn Cloud Solutions",
     images: [
@@ -45,7 +50,7 @@ export const metadata: Metadata = {
         url: "/images/services/custom-software-dispatch.webp",
         width: 2880,
         height: 1800,
-        alt: "Custom software & platform development — built and run for you by Ardn",
+        alt: "Example build by Ardn, a custom software development company in Orlando, Florida",
       },
     ],
     locale: "en_US",
@@ -53,21 +58,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software & Platform Development | Ardn",
+    title: "Custom Software Development Company, Florida | Ardn",
     description:
-      "Custom software, platforms & portals — built and run for you in weeks, one flat monthly fee. New customers build free.",
+      "Ardn is a custom software development company in Orlando, Florida, serving clients across the US: software built around your process, then hosted and run for you.",
     site: "@ardn_cloud_sol",
     images: ["/images/services/custom-software-dispatch.webp"],
   },
 };
 
+const DESC_LD =
+  "Custom software development company in Orlando, Florida, serving clients across the US: software built around your process, then hosted and improved for one monthly fee.";
+
 export default function Page() {
   const jsonLd = productJsonLd(CUSTOM_SOFTWARE, {
     path: "/custom-software-development",
-    name: "Custom Software Development",
+    name: "Custom Software Development Company",
     kind: "Service",
     category: "Custom software development",
-    description: "Custom software built around your process, then hosted and improved for one monthly fee.",
+    description: DESC_LD,
     image: "/images/services/custom-software-dispatch.webp",
   });
   return (

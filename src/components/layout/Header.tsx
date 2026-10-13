@@ -23,6 +23,7 @@ import {
   Flag,
   HardHat,
   Lightbulb,
+  Bot,
   type LucideIcon,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
@@ -54,6 +55,7 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
     items: [
       { label: "AI Forge", href: "/ai-forge", blurb: "Custom AI apps, built and run for you", icon: Sparkles, tag: "Flagship" },
       { label: "AI Consulting", href: "/ai-consulting", blurb: "Assessment, roadmap, build and run", icon: Lightbulb },
+      { label: "AI Agent Development", href: "/ai-agent-development", blurb: "Agents that answer and act on your data", icon: Bot },
       { label: "Custom Software Development", href: "/custom-software-development", blurb: "Software shaped around your workflow", icon: Code2 },
       { label: "Custom Portal Development", href: "/custom-portal-development", blurb: "Customer and member portals", icon: LayoutDashboard },
       { label: "Partner Portal Development", href: "/custom-partner-portal-development", blurb: "Portals for partners and resellers", icon: Handshake },
