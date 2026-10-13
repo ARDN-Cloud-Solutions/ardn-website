@@ -23,7 +23,11 @@
     document.querySelectorAll("input,select,textarea").forEach(function (el, i) {
       if (el.type === "hidden" || el.closest(".ardn-track-ui")) return;
       var key = el.id || el.name || "i" + i, v;
-      if (el.type === "checkbox") v = el.checked ? "On" : "Off";
+      if (el.type === "checkbox") {
+        var al = el.getAttribute("aria-label") || "";
+        if (/^Retire /.test(al)) { inputs[key] = { label: clean(al.slice(7)) + ": retire or keep", value: el.checked ? "Retire" : "Keep" }; return; }
+        v = el.checked ? "On" : "Off";
+      }
       else if (el.type === "radio") { if (!el.checked) return; key = el.name || key; v = clean(labelFor(el)) || el.value; }
       else if (el.tagName === "SELECT") v = el.selectedIndex >= 0 ? clean(el.options[el.selectedIndex].text) : "";
       else v = el.value === "" ? "blank" : el.value;
