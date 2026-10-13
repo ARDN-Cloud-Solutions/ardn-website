@@ -40,24 +40,24 @@ export default async function StartPage({ params }: Props) {
   const proof = h.proof ?? PROOF;
 
   return (
-    <div className="ads">
-      <header className="ads-bar">
-        <div className="ads-wrap">
-          <Image src="/logo/ardn_logo_white.svg" alt="Ardn Cloud Solutions" width={124} height={32} priority className="ads-logo" />
-          <a className="ads-bar-phone" href="tel:+14078155303">
+    <div className="lnd">
+      <header className="lnd-bar">
+        <div className="lnd-wrap">
+          <Image src="/logo/ardn_logo_white.svg" alt="Ardn Cloud Solutions" width={124} height={32} priority className="lnd-logo" />
+          <a className="lnd-bar-phone" href="tel:+14078155303">
             (407) 815-5303
           </a>
         </div>
       </header>
 
       <main>
-        <section className="ads-hero">
-          <div className="ads-wrap ads-hero-grid">
-            <div className="ads-hero-copy">
-              <span className="ads-eyebrow">{h.eyebrow}</span>
-              <h1 className="ads-h1">{h.headline}</h1>
-              <p className="ads-sub">{h.subhead}</p>
-              <ul className="ads-proof">
+        <section className="lnd-hero">
+          <div className="lnd-wrap lnd-hero-grid">
+            <div className="lnd-hero-copy">
+              <span className="lnd-eyebrow">{h.eyebrow}</span>
+              <h1 className="lnd-h1">{h.headline}</h1>
+              <p className="lnd-sub">{h.subhead}</p>
+              <ul className="lnd-proof">
                 {proof.map((p) => (
                   <li key={p}>
                     <Check size={18} strokeWidth={3} aria-hidden="true" />
@@ -66,19 +66,19 @@ export default async function StartPage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            <div className="ads-form" id="form">
+            <div className="lnd-form" id="form">
               <FunnelForm hook={h.slug} />
             </div>
           </div>
         </section>
 
-        <section className="ads-section">
-          <div className="ads-wrap">
-            <h2 className="ads-h2">How it works</h2>
-            <ol className="ads-steps">
+        <section className="lnd-section">
+          <div className="lnd-wrap">
+            <h2 className="lnd-h2">How it works</h2>
+            <ol className="lnd-steps">
               {STEPS.map((s, i) => (
                 <li key={s.title}>
-                  <span className="ads-step-n">{i + 1}</span>
+                  <span className="lnd-step-n">{i + 1}</span>
                   <h3>{s.title}</h3>
                   <p>{s.body}</p>
                 </li>
@@ -87,11 +87,11 @@ export default async function StartPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="ads-section ads-alt">
-          <div className="ads-wrap">
-            <h2 className="ads-h2">Platforms we&apos;ve built and run</h2>
-            <p className="ads-lede">Real screens from products our team designed, launched and keeps running.</p>
-            <div className="ads-shots">
+        <section className="lnd-section lnd-alt">
+          <div className="lnd-wrap">
+            <h2 className="lnd-h2">Platforms we&apos;ve built and run</h2>
+            <p className="lnd-lede">Real screens from products our team designed, launched and keeps running.</p>
+            <div className="lnd-shots">
               {SHOTS.map((s) => (
                 <figure key={s.src}>
                   <Image src={s.src} alt={s.alt} width={2880} height={1800} sizes="(max-width: 760px) 100vw, 380px" />
@@ -102,10 +102,10 @@ export default async function StartPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="ads-section">
-          <div className="ads-wrap ads-narrow">
-            <h2 className="ads-h2">Questions</h2>
-            <div className="ads-faqs">
+        <section className="lnd-section">
+          <div className="lnd-wrap lnd-narrow">
+            <h2 className="lnd-h2">Questions</h2>
+            <div className="lnd-faqs">
               {FAQS.map((f) => (
                 <details key={f.q}>
                   <summary>{f.q}</summary>
@@ -116,20 +116,20 @@ export default async function StartPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="ads-cta">
-          <div className="ads-wrap ads-narrow">
-            <h2 className="ads-h2">Find out in a minute if we&apos;re a fit</h2>
-            <p className="ads-lede">A few quick questions, then a free 30-minute call and a fixed quote after it.</p>
-            <a className="ads-btn" href="#form">
+        <section className="lnd-cta">
+          <div className="lnd-wrap lnd-narrow">
+            <h2 className="lnd-h2">Find out in a minute if we&apos;re a fit</h2>
+            <p className="lnd-lede">A few quick questions, then a free 30-minute call and a fixed quote after it.</p>
+            <a className="lnd-btn" href="#form">
               {h.cta}
             </a>
           </div>
         </section>
       </main>
 
-      <footer className="ads-foot">
-        <div className="ads-wrap">
-          <Image src="/logo/ardn_logo_white.svg" alt="Ardn Cloud Solutions" width={93} height={24} className="ads-logo" />
+      <footer className="lnd-foot">
+        <div className="lnd-wrap">
+          <Image src="/logo/ardn_logo_white.svg" alt="Ardn Cloud Solutions" width={93} height={24} className="lnd-logo" />
           <span>Orlando, Florida</span>
           <a href="tel:+14078155303">(407) 815-5303</a>
           <Link href="/privacy-policy">Privacy policy</Link>
