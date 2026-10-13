@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import { getSession, logEvent } from "@/lib/proposals/server";
+import { NextResponse, after } from "next/server";
+import { getSession, logEvent, notifyVisit } from "@/lib/proposals/server";
 
-const TYPES = new Set(["view", "section", "video", "state", "leave"]);
+const TYPES = new Set(["view", "section", "video", "state", "leave", "export"]);
 
 export async function POST(req: Request) {
   try {
@@ -14,6 +14,10 @@ export async function POST(req: Request) {
     const raw = JSON.stringify(body.data ?? null);
     if (raw.length > 20_000) return NextResponse.json({ ok: false }, { status: 413 });
     await logEvent({ slug, email: s.email, session_id: s.id, type, page: String(body.page || "").slice(0, 40), data: body.data ?? null });
+    // Wait a few seconds for the last debounced change to land, then email the visit to Ardn.
+    if (type === "leave") after(async () => { await new Promise((r) => setTimeout(r, 4000)); await notifyVisit(slug, s.id, s.email); });
+    // An export carries every number on screen; email it at once.
+    if (type === "export") after(() => notifyVisit(slug, s.id, s.email, "export"));
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("track", err);

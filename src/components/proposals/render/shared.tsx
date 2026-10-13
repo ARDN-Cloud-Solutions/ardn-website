@@ -38,6 +38,18 @@ export function Kicker({ children }: { children: React.ReactNode }) {
   return <div style={{ fontSize: 15, fontWeight: 600, color: C.green }}>{children}</div>;
 }
 
+// What each page shows right now, so an export carries every number on screen
+// even if the last change has not been sent yet (see useTracking).
+const screen: { page: string; states: Record<string, unknown> } = { page: "", states: {} };
+let exportHooked = false;
+
+/** Before any print (our button or the browser's own), send every page's current inputs. */
+function hookExport(slug: string) {
+  if (exportHooked || typeof window === "undefined") return;
+  exportHooked = true;
+  window.addEventListener("beforeprint", () => sendEvent(slug, "export", screen.page, { states: { ...screen.states } }));
+}
+
 /** Top bar shared by the three pages of a proposal. */
 export function TopBar({ p, active, anchors }: { p: Proposal; active: "overview" | "plan" | "details"; anchors?: { href: string; label: string }[] }) {
   const viewer = useProposalViewer();
@@ -69,6 +81,7 @@ export function TopBar({ p, active, anchors }: { p: Proposal; active: "overview"
           </div>
         </div>
         <div style={{ fontSize: 13, color: C.slate }}>
+          <button type="button" className="prp-noprint" onClick={() => window.print()} style={{ background: C.green, color: "#FFFFFF", border: 0, borderRadius: 16, padding: "6px 14px", fontSize: 13, fontWeight: 600, fontFamily: "inherit", cursor: "pointer", marginRight: 10 }}>Export to PDF</button>
           <a href={`/proposals/${p.slug}/brief`} target="_blank" rel="noopener" style={{ color: C.green, fontWeight: 600 }}>Board brief (PDF)</a> · Viewing as {viewer || "you"} ·{" "}
           <a href={`/api/proposals/logout?slug=${p.slug}`} style={{ color: C.green }}>Sign out</a>
         </div>
@@ -120,6 +133,11 @@ export function VideoModal({ id, from, onClose }: { id: string | null; from?: st
 export function useTracking(page: string, state: unknown, video: string | null) {
   const slug = useProposalSlug();
   const first = useRef(true);
+  useEffect(() => {
+    screen.page = page;
+    screen.states[page] = state;
+    hookExport(slug);
+  }, [slug, page, state]);
   const lastVideo = useRef<string | null>(null);
   useEffect(() => {
     const started = Date.now();

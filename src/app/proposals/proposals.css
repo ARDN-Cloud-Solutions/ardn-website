@@ -39,3 +39,6 @@
 @media print {
   .prp [role="dialog"] { display: none; }
 }
+@media print {
+  .prp-noprint { display: none !important; }
+}

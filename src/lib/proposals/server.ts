@@ -2,6 +2,8 @@ import crypto from "node:crypto";
 import { cookies, headers } from "next/headers";
 import nodemailer from "nodemailer";
 import * as store from "./store";
+import { getProposal } from "@/content/proposals";
+import { visitEmail } from "./visitEmail";
 
 /**
  * Server side of the proposal area.
@@ -9,7 +11,7 @@ import * as store from "./store";
  * Email: the site's existing SMTP settings (same as /api/contact).
  *
  * Optional env:
- *   PROPOSALS_NOTIFY_EMAIL   where "opened" alerts go (default CONTACT_RECEIVER_EMAIL)
+ *   PROPOSALS_NOTIFY_EMAIL   where "opened" alerts and visit summaries go (default CONTACT_RECEIVER_EMAIL)
  *   PROPOSALS_SECRET         signing secret (required)
  */
 
@@ -135,6 +137,30 @@ async function notifyOpen(slug: string, email: string) {
     await sendMail(to, `Proposal opened: ${slug} by ${email}`, `${email} just opened the ${slug} proposal.\n\nSee activity: ${process.env.NEXT_PUBLIC_BASE_URL || ""}/proposals/admin`);
   } catch {
     /* an alert failure must not block the viewer */
+  }
+}
+
+/**
+ * After a visitor leaves (or switches tabs), email Ardn what they had on screen
+ * and every change they made in this visit (see visitEmail.ts). Sent only when
+ * something happened since the last summary for the session, so a tab switch
+ * with no new activity sends nothing.
+ */
+export async function notifyVisit(slug: string, sessionId: string, email: string, reason: "leave" | "export" = "leave") {
+  const to = process.env.PROPOSALS_NOTIFY_EMAIL || process.env.CONTACT_RECEIVER_EMAIL;
+  if (!to || slug === "admin") return;
+  try {
+    const events = (await store.listEvents(5000)).filter((e) => e.session_id === sessionId);
+    const lastSummary = Math.max(0, ...events.filter((e) => e.type === "summary").map((e) => e.id));
+    if (reason === "leave" && !events.some((e) => e.id > lastSummary && (e.type === "state" || e.type === "view" || e.type === "export"))) return;
+    const p = await getProposal(slug);
+    if (!p) return;
+    const mail = visitEmail(p, email, events.filter((e) => e.type !== "summary"));
+    if (!mail) return;
+    await logEvent({ slug, email, session_id: sessionId, type: "summary", page: "", data: { upTo: Math.max(...events.map((e) => e.id)) } });
+    await sendMail(to, mail.subject, mail.text, mail.html);
+  } catch (err) {
+    console.error("notifyVisit", err);
   }
 }
 
