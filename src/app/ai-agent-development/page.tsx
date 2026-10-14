@@ -172,6 +172,7 @@ const CONTENT: AiConsultingContent = {
     links: [
       { label: "AI consulting company: AI strategy consulting and implementation", href: "/ai-consulting" },
       { label: "AI development company: custom AI apps, built and run", href: "/ai-app-development" },
+      { label: "AI for membership organizations: onboarding, renewals and retention", href: "/ai-for-membership-organizations" },
       { label: "Custom software development company, Orlando, Florida", href: "/custom-software-development" },
       { label: "Everything we've launched", href: "/work" },
     ],

@@ -144,6 +144,7 @@ export const MEMBERSHIP: ProductPageContent = {
       { label: "Case study: members and donors on one record", href: "/case-studies/membership-and-fundraising-platform-community-nonprofits" },
       { label: "Nonprofit Management", href: "/nonprofit-management-software" },
       { label: "Club Steward for golf clubs", href: "/golf-club-management-software" },
+      { label: "AI for membership organizations", href: "/ai-for-membership-organizations" },
       { label: "Pricing", href: "/pricing" },
     ],
   },

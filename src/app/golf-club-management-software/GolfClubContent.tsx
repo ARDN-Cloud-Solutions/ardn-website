@@ -1213,6 +1213,7 @@ export default function GolfClubContent() {
             · <Link href="/work">Everything we&rsquo;ve launched</Link>{" "}
             · <Link href="/membership-management">Membership management platform</Link>{" "}
             · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
+            · <Link href="/blog/country-club-management-software-cost">Why country club software pricing is hard to compare</Link>{" "}
           </p>
         </div>
       </section>

@@ -171,6 +171,7 @@ export const YMCA: ProductPageContent = {
     links: [
       { label: "Nonprofit management software", href: "/nonprofit-management-software" },
       { label: "Membership Management", href: "/membership-management" },
+      { label: "AI for membership organizations", href: "/ai-for-membership-organizations" },
       { label: "Pricing", href: "/pricing" },
     ],
   },
