@@ -1264,7 +1264,7 @@
   border-radius: 8px;
 }
 
-/* the sticky stage only exists once JS is running on a wide screen */
+/* the sticky stage only exists on a wide screen with scripting on (below) */
 .lnd-stage-view {
   display: none;
 }
@@ -1337,22 +1337,24 @@
   color: var(--a-navy);
 }
 
-@media (min-width: 1024px) {
-  .lnd-stage-grid.is-live {
+/* Wide screens with scripting on get the sticky stage straight from CSS, so
+   the layout is final at first paint (no shift when React hydrates). */
+@media (min-width: 1024px) and (scripting: enabled) {
+  .lnd-stage-grid {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: var(--lnd-s-6);
     margin-top: var(--lnd-s-6);
   }
-  .lnd-stage-grid.is-live .lnd-stage-steps {
+  .lnd-stage-grid .lnd-stage-steps {
     display: block;
   }
-  .lnd-stage-grid.is-live .lnd-stage-step {
+  .lnd-stage-grid .lnd-stage-step {
     display: flex;
     align-items: center;
     min-height: 78vh;
   }
-  .lnd-stage-grid.is-live .lnd-step-card {
+  .lnd-stage-grid .lnd-step-card {
     height: auto;
     padding: 0;
     border: 0;
@@ -1361,17 +1363,17 @@
     transform: translateY(12px);
     transition: opacity var(--lnd-t-slow) var(--lnd-ease), transform var(--lnd-t-slow) var(--lnd-ease);
   }
-  .lnd-stage-grid.is-live .is-on .lnd-step-card {
+  .lnd-stage-grid .is-on .lnd-step-card {
     opacity: 1;
     transform: none;
   }
-  .lnd-stage-grid.is-live .lnd-step-shot {
+  .lnd-stage-grid .lnd-step-shot {
     display: none;
   }
-  .lnd-stage-grid.is-live .lnd-step-link {
+  .lnd-stage-grid .lnd-step-link {
     margin-top: 0;
   }
-  .lnd-stage-grid.is-live .lnd-stage-view {
+  .lnd-stage-grid .lnd-stage-view {
     display: block;
   }
   .lnd-stage-sticky {
@@ -1707,8 +1709,10 @@
     .lnd-app-cell:nth-child(7n) {
       animation-range: entry 30% entry 100%;
     }
-    .lnd-stage-grid.is-live .lnd-step-card {
-      animation: none;
+    @media (min-width: 1024px) and (scripting: enabled) {
+      .lnd-stage-grid .lnd-step-card {
+        animation: none;
+      }
     }
   }
 }
@@ -1808,7 +1812,7 @@
   .lnd-step-link svg,
   .lnd-stage-glow,
   .lnd-frame-big .lnd-frame-screen img,
-  .lnd-stage-grid.is-live .lnd-step-card {
+  .lnd-stage-grid .lnd-step-card {
     transition: none;
   }
   .lnd-app-view {

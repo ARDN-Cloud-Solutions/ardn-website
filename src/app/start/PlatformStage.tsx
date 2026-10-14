@@ -1,23 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Check } from "lucide-react";
 import type { Platform } from "./hooks";
 
-// "Platforms we've built and run" as a scroll story. Without JS (and on
-// phones) every platform is a full card with its own screenshot. With JS on
-// a wide screen, the screenshots move into one sticky browser frame that
-// crossfades as each platform's copy scrolls past its middle.
+// "Platforms we've built and run" as a scroll story. Without scripting (and
+// on phones) every platform is a full card with its own screenshot. On a wide
+// screen with scripting on, CSS (`@media (scripting: enabled)`) moves the
+// screenshots into one sticky browser frame from the first paint, so nothing
+// shifts at hydration; JS only crossfades it as each platform's copy scrolls
+// past its middle.
 
 export default function PlatformStage({ platforms }: { platforms: Platform[] }) {
   const [active, setActive] = useState(0);
-  // true once hydrated in a browser that can run the scroll stage
-  const live = useSyncExternalStore(
-    noop,
-    () => typeof IntersectionObserver !== "undefined",
-    () => false,
-  );
   const steps = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
@@ -61,7 +57,7 @@ export default function PlatformStage({ platforms }: { platforms: Platform[] }) 
           </p>
         </div>
 
-        <div className={`lnd-stage-grid${live ? " is-live" : ""}`}>
+        <div className="lnd-stage-grid">
           <ol className="lnd-stage-steps">
             {platforms.map((p, i) => (
               <li
@@ -135,10 +131,6 @@ export default function PlatformStage({ platforms }: { platforms: Platform[] }) 
       </div>
     </section>
   );
-}
-
-function noop() {
-  return () => {};
 }
 
 function FrameBar({ label }: { label: string }) {

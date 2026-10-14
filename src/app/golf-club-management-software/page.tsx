@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { gcSerif as serif } from "@/fonts";
+import { gcSerif as serif } from "@/fonts/serif";
 import GolfClubContent from "./GolfClubContent";
 import { FAQS } from "./faqs";
 import { videoObject } from "@/components/media/video-jsonld";

@@ -45,7 +45,7 @@ export default async function StartPage({ params }: Props) {
     <div className="lnd">
       <header className="lnd-bar">
         <div className="lnd-wrap">
-          <Image src="/logo/ardn_logo_white.svg" alt="Ardn Cloud Solutions" width={124} height={32} priority className="lnd-logo" />
+          <Image src="/logo/ardn_logo_white.min.svg" alt="Ardn Cloud Solutions" width={124} height={32} loading="eager" className="lnd-logo" />
           <a className="lnd-bar-phone" href="tel:+14078155303">
             (407) 815-5303
           </a>
@@ -131,7 +131,7 @@ export default async function StartPage({ params }: Props) {
 
       <footer className="lnd-foot">
         <div className="lnd-wrap">
-          <Image src="/logo/ardn_logo_white.svg" alt="Ardn Cloud Solutions" width={93} height={24} className="lnd-logo" />
+          <Image src="/logo/ardn_logo_white.min.svg" alt="Ardn Cloud Solutions" width={93} height={24} className="lnd-logo" />
           <span>Orlando, Florida</span>
           <a href="tel:+14078155303">(407) 815-5303</a>
           <Link href="/privacy-policy">Privacy policy</Link>

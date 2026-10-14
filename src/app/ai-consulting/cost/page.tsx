@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ppSerif as serif } from "@/fonts";
+import { ppSerif as serif } from "@/fonts/serif";
 import TrustBar from "@/components/common/TrustBar";
 import TrackedCta from "@/components/product-page/TrackedCta";
 import { themeVars } from "@/components/ai-consulting/AiConsultingPage";

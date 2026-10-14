@@ -191,3 +191,29 @@ export function routeLead(a: {
     gradeReason: `Qualified, but timeline is ${t} and budget is ${b.toLowerCase()}.`,
   };
 }
+
+/** The booking page for qualified leads (the form embeds it; the confirmation email links to it). */
+export const CALENDLY_URL = "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai";
+
+/** The Calendly link prefilled with the lead's name and email. */
+export function calendlyLink(name: string, email: string): URL {
+  const u = new URL(CALENDLY_URL);
+  if (name.trim()) u.searchParams.set("name", name.trim());
+  if (email.trim()) u.searchParams.set("email", email.trim());
+  return u;
+}
+
+/**
+ * A US phone number in E.164 (+1XXXXXXXXXX) for Google Ads enhanced
+ * conversions, or "" when it isn't a 10-digit US number (an 11-digit one
+ * starting with 1 is fine too). Anything else is left out rather than guessed.
+ */
+export function toE164(phone: string): string {
+  const d = phone.replace(/\D/g, "");
+  if (d.length === 10 && /^[2-9]/.test(d)) return `+1${d}`;
+  if (d.length === 11 && d.startsWith("1") && /^[2-9]/.test(d.slice(1))) return `+${d}`;
+  return "";
+}
+
+/** Lead ids are made in the browser (crypto.randomUUID); anything else is replaced. */
+export const LEAD_ID_RE = /^[A-Za-z0-9-]{8,64}$/;
