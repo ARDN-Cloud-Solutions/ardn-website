@@ -104,6 +104,18 @@
   height: auto;
 }
 
+/* the logo opens /work in a new tab, so a curious visitor keeps the form */
+.lnd-logo-link {
+  display: block;
+  border-radius: 6px;
+}
+
+.lnd-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .lnd-bar-phone {
   color: #dfe5f5;
   font-weight: 600;
@@ -111,8 +123,26 @@
   text-decoration: none;
 }
 
-.lnd-bar-phone:hover {
+.lnd-bar-work {
+  color: #a9b2cf;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(169, 178, 207, 0.4);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.lnd-bar-phone:hover,
+.lnd-bar-work:hover {
   color: var(--a-teal);
+}
+
+.lnd-logo-link:focus-visible,
+.lnd-bar-work:focus-visible,
+.lnd-bar-phone:focus-visible {
+  outline: 2px solid var(--a-teal);
+  outline-offset: 3px;
 }
 
 /* hero */
@@ -124,25 +154,50 @@
   padding: 48px 0 64px;
 }
 
+/* lead (eyebrow + h1) and the rest of the copy stack on the left, the form
+   spans both rows on the right; the 1fr row soaks up the form's extra height
+   so the copy stays together. */
 .lnd-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
-  gap: 48px;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "lead form"
+    "copy form";
+  column-gap: 48px;
   align-items: start;
 }
 
-.lnd-hero-copy {
+.lnd-hero-lead {
+  grid-area: lead;
   padding-top: 24px;
 }
 
+.lnd-hero-copy {
+  grid-area: copy;
+}
+
+.lnd-form {
+  grid-area: form;
+}
+
+/* plain label, not a chip: nothing about it should look tappable */
 .lnd-eyebrow {
-  display: inline-block;
-  margin-bottom: 16px;
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  display: block;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--a-teal);
+  color: #8e98b8;
+  cursor: default;
+}
+
+.lnd-h1-short {
+  display: none;
 }
 
 .lnd-h1 {
@@ -371,6 +426,8 @@
   --fn-ease: cubic-bezier(0.22, 0.8, 0.24, 1);
   position: relative;
   overflow: hidden;
+  /* clip, not hidden: hidden makes the card a scroll box and breaks the sticky Continue */
+  overflow: clip;
   padding: 26px 32px 30px;
   border-radius: 24px;
   background: #fff;
@@ -562,6 +619,10 @@
   border-color: var(--fn-ink);
   background: #fbfcfe;
   box-shadow: 0 0 0 1px var(--fn-ink), 0 6px 18px rgba(11, 20, 48, 0.1);
+}
+
+.fn-label-short {
+  display: none;
 }
 
 .fn-tick {
@@ -915,16 +976,110 @@
 @media (max-width: 960px) {
   .lnd-hero-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-rows: none;
+    grid-template-areas:
+      "lead"
+      "copy"
+      "form";
+    gap: 0;
   }
-  .lnd-hero-copy {
+  .lnd-hero-lead {
     padding-top: 0;
+  }
+  .lnd-form {
+    margin-top: 24px;
   }
   .lnd-form {
     max-width: 620px;
   }
   .lnd-steps {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* phones: form first. Short headline, then the form, then the subhead and
+   proof; compact tiles; Continue docked to the bottom of the screen while the
+   step is in view. */
+@media (max-width: 768px) {
+  .lnd-hero-grid {
+    grid-template-areas:
+      "lead"
+      "form"
+      "copy";
+  }
+  .lnd-form {
+    margin-top: 16px;
+  }
+  .lnd-hero-copy {
+    margin-top: 28px;
+  }
+  .lnd-h1-full {
+    display: none;
+  }
+  .lnd-h1-short {
+    display: inline;
+  }
+  .lnd-h1 {
+    font-size: 28px;
+    line-height: 1.12;
+  }
+  .lnd-bar .lnd-wrap {
+    height: 56px;
+  }
+  .lnd-bar-links {
+    gap: 14px;
+  }
+  .lnd-logo {
+    width: 100px;
+  }
+  .lnd-bar-phone {
+    font-size: 14px;
+  }
+  .lnd-bar-work {
+    font-size: 13px;
+  }
+
+  .fn-card {
+    padding: 20px 20px 24px;
+  }
+  .fn-top {
+    min-height: 28px;
+  }
+  .fn-title {
+    margin-top: 8px;
+  }
+  .fn-help {
+    margin-top: 6px;
+  }
+  .fn-options {
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .fn-option {
+    min-height: 52px;
+    padding: 8px 14px 8px 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+  .fn-label-full {
+    display: none;
+  }
+  .fn-label-short {
+    display: inline;
+  }
+  .fn-dock {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    margin: 0 -20px;
+    padding: 12px 20px max(12px, env(safe-area-inset-bottom));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), #fff 30%);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+  .fn-dock .fn-submit {
+    margin-top: 0;
   }
 }
 
