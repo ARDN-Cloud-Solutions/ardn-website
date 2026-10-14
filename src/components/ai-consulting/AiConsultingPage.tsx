@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { ppSerif as serif } from "@/fonts";
+import { ppSerif as serif } from "@/fonts/serif";
 import LeadForm from "@/components/common/LeadForm";
 import TrustBar from "@/components/common/TrustBar";
 import TrackedCta from "@/components/product-page/TrackedCta";

@@ -8,7 +8,9 @@ import {
   MAIN_PROBLEM_MIN,
   QUESTIONS,
   SELECT_CODES,
+  calendlyLink,
   label,
+  toE164,
   type Answers,
   type SelectCode,
 } from "@/lib/leadFunnel";
@@ -25,16 +27,22 @@ import {
  * Single-choice steps advance on their own after a tap. If someone types a
  * valid email on the contact step and leaves without submitting, one
  * `partial: true` beacon tells the team.
+ *
+ * Google Ads conversions (qualified, booked) use enhanced conversions for
+ * leads: right before each one, `gtag('set', 'user_data', …)` hands gtag the
+ * lead's email and phone (gtag hashes them), and the conversion carries the
+ * lead id as `transaction_id` so a repeat fire is deduplicated. The same lead
+ * id and the gclid go in the team's lead email for offline conversion upload.
  */
 
 const FUNNEL = "ardn-ai-consulting"; // GA4 `form` parameter; unchanged so reports stay continuous
-const CALENDLY = "https://calendly.com/ardncloudsolutions/ardn-cloud-solutions-bespoke-ai";
 const GADS_QUALIFIED = process.env.NEXT_PUBLIC_GADS_QUALIFIED_LABEL;
 const GADS_BOOKED = process.env.NEXT_PUBLIC_GADS_BOOKED_LABEL;
 const EMAIL = "contactus@ardncloudsolutions.com";
 const PHONE = "(407) 815-5303";
 const PHONE_HREF = "tel:+14078155303";
 const CLICK_KEY = "ardn-ads-click";
+const LEAD_ID_KEY = "ardn-lead-id";
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const RESUME_MS = 7 * 24 * 60 * 60_000;
 const ADVANCE_MS = 250;
@@ -99,6 +107,33 @@ function restore(key: string): Saved | null {
   const local = readStore<Saved>("localStorage", key);
   if (local && local.savedAt && Date.now() - local.savedAt < RESUME_MS) return local;
   return null;
+}
+
+/** One id per lead (this tab's submission), kept in sessionStorage so a retry or the booked conversion reuses it. */
+function leadId(): string {
+  const saved = storeGet<string>(LEAD_ID_KEY);
+  if (saved) return saved;
+  const id =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+  storeSet(LEAD_ID_KEY, id);
+  return id;
+}
+
+/**
+ * A Google Ads conversion with enhanced conversions for leads: user_data is
+ * set first (gtag hashes it before sending), then the conversion, with the
+ * lead id as transaction_id for deduplication.
+ */
+function adsConversion(sendTo: string, contact: { email: string; phone: string }) {
+  const email = contact.email.trim().toLowerCase();
+  const phone = toE164(contact.phone);
+  const userData: Record<string, string> = {};
+  if (EMAIL_RE.test(email)) userData.email = email;
+  if (phone) userData.phone_number = phone;
+  if (Object.keys(userData).length) gtag("set", "user_data", userData);
+  gtag("event", "conversion", { send_to: sendTo, transaction_id: leadId() });
 }
 
 /** gclid/gbraid/wbraid and UTMs from the URL, kept in sessionStorage so they survive. */
@@ -458,6 +493,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
         email: c.email,
         phone: c.phone,
         attribution: attribution(),
+        leadId: leadId(),
         website,
       });
       if (status === 422) {
@@ -472,7 +508,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
       if (data.status === "qualified") {
         const o = data.offer ?? null;
         track("qualified_lead", { offer: o ?? "", page: hook });
-        if (GADS_QUALIFIED) gtag("event", "conversion", { send_to: GADS_QUALIFIED });
+        if (GADS_QUALIFIED) adsConversion(GADS_QUALIFIED, c);
         setOffer(o);
         setPhase("qualified");
       } else {
@@ -768,9 +804,7 @@ function Qualified({
   offer: string | null;
 }) {
   const [src] = useState(() => {
-    const u = new URL(CALENDLY);
-    u.searchParams.set("name", contact.name.trim());
-    u.searchParams.set("email", contact.email.trim());
+    const u = calendlyLink(contact.name, contact.email);
     u.searchParams.set("a1", calendlyNote(answers).slice(0, 1000));
     u.searchParams.set("hide_gdpr_banner", "1");
     // Calendly only posts calendly.* events to the parent when these are set.
@@ -792,12 +826,12 @@ function Qualified({
       if (ev === "calendly.event_scheduled" && !fired) {
         fired = true;
         track("book_call", { page: hook, offer: offer ?? "" });
-        if (GADS_BOOKED) gtag("event", "conversion", { send_to: GADS_BOOKED });
+        if (GADS_BOOKED) adsConversion(GADS_BOOKED, contact);
       }
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [hook, offer]);
+  }, [hook, offer, contact]);
 
   const first = firstName(contact.name);
   return (

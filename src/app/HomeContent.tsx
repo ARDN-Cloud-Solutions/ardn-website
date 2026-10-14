@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ppSerif as serif } from "@/fonts";
+import { ppSerif as serif } from "@/fonts/serif";
 import type { CSSProperties } from "react";
 import { Code2, Handshake, Hammer, LayoutDashboard, Lightbulb, RefreshCw, Server, ShoppingBag, Sparkles } from "lucide-react";
 import LeadForm from "@/components/common/LeadForm";

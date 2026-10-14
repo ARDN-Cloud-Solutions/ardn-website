@@ -3,9 +3,11 @@ import nodemailer from "nodemailer";
 import { HOOK_SLUGS } from "@/app/start/hooks";
 import {
   CURRENT_SYSTEMS_MAX,
+  LEAD_ID_RE,
   MAIN_PROBLEM_MAX,
   MAIN_PROBLEM_MIN,
   SELECT_CODES,
+  calendlyLink,
   label,
   options,
   routeLead,
@@ -20,6 +22,10 @@ import {
  * after the response, best effort. A `partial: true` beacon (email typed,
  * page left before submitting) sends a short "started, not finished" note.
  *
+ * Qualified leads also get an instant "next step" email from us (Calendly
+ * link, what to have ready); it is sent after the response and never holds
+ * up or fails the lead.
+ *
  * Everything is checked at the boundary (known option values only, lengths,
  * email shape) and every string is escaped before it goes into the email.
  */
@@ -27,6 +33,7 @@ import {
 const MAX_BODY = 20_000;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SITE = "https://ardncloudsolutions.com";
+const TEAM_EMAIL = "contactus@ardncloudsolutions.com";
 
 // A light per-address brake against a script posting in a loop. In memory, so
 // it resets with the server; same as the proposal route.
@@ -112,7 +119,11 @@ function parse(raw: unknown) {
   for (const k of ATTR_LONG) attribution[k] = text(at[k], k, 2000);
   for (const k of ATTR_SHORT) attribution[k] = text(at[k], k, 300);
 
-  return { hook, answers, contact, attribution, website: text(body.website, "website", 300) };
+  // Made in the browser per submission (also the Google Ads transaction_id);
+  // a missing or odd one is replaced so every lead email carries an id.
+  const leadId = typeof body.leadId === "string" && LEAD_ID_RE.test(body.leadId) ? body.leadId : crypto.randomUUID();
+
+  return { hook, answers, contact, attribution, leadId, website: text(body.website, "website", 300) };
 }
 
 type Lead = ReturnType<typeof parse>;
@@ -251,6 +262,7 @@ function buildEmail(l: Lead, r: Routing) {
     {
       title: "Source",
       rows: [
+        ["Lead id", l.leadId],
         ["Ad page", `${SITE}/start/${l.hook}`],
         ["Landing URL", at.landingUrl || "—"],
         ["Referrer", at.referrer || "—"],
@@ -447,15 +459,81 @@ function buildPartialEmail(p: ReturnType<typeof parsePartial>) {
   return { subject, html, text, replyTo: p.email };
 }
 
+// ── confirmation to the lead (qualified only) ──────────────────────────────
+
+const CONFIRM_SUBJECT = "Your Ardn call: next step";
+const PROBLEM_QUOTE_MAX = 280;
+
+function buildConfirmationEmail(l: Lead) {
+  const { contact: c, answers: a } = l;
+  const first = oneLine(c.name).split(" ")[0] ?? "";
+  const book = calendlyLink(c.name, c.email);
+  book.searchParams.set("utm_source", "lead-email");
+  book.searchParams.set("utm_medium", "email");
+  book.searchParams.set("utm_content", l.hook);
+  const url = book.toString();
+  const problem = oneLine(a.main_problem);
+  const quoted = problem.length > PROBLEM_QUOTE_MAX ? `${problem.slice(0, PROBLEM_QUOTE_MAX).trimEnd()}…` : problem;
+  const tools = oneLine(a.current_systems);
+
+  const hello = first ? `Hi ${first},` : "Hi,";
+  const thanks = "Thanks for telling us about your project. The next step is a free 30-minute call with our team.";
+  const ready = [
+    `1–2 real examples of the problem you described: "${quoted}"`,
+    tools ? `The tools you use today (you mentioned: ${tools}), and what you like or dislike about them` : "The tools you use today, and what you like or dislike about them",
+  ];
+  const reply = "We reply within 4 business hours. If you have a question before then, just reply to this email.";
+  const sig = "Ardn Cloud Solutions · (407) 815-5303 · ardncloudsolutions.com";
+
+  const html = `<div style="font-family:Arial,sans-serif;line-height:1.55;color:#222;max-width:560px;font-size:15px">
+<p style="margin:0 0 12px">${esc(hello)}</p>
+<p style="margin:0 0 16px">${esc(thanks)}</p>
+<p style="margin:0 0 18px"><a href="${esc(url)}" style="display:inline-block;background:#0f8f7c;color:#ffffff;text-decoration:none;font-weight:bold;padding:11px 20px;border-radius:8px">Pick a time</a></p>
+<p style="margin:0 0 6px">To make the most of the call, have ready:</p>
+<ul style="margin:0 0 16px;padding-left:20px">${ready.map((x) => `<li style="margin:0 0 4px">${esc(x)}</li>`).join("")}</ul>
+<p style="margin:0 0 20px">${esc(reply)}</p>
+<p style="margin:0;color:#555;font-size:13px">${esc(sig)}</p>
+</div>`;
+  const textBody = [hello, "", thanks, "", `Pick a time: ${url}`, "", "To make the most of the call, have ready:", ...ready.map((x) => `- ${x}`), "", reply, "", "--", sig].join("\n");
+  return { subject: CONFIRM_SUBJECT, html, text: textBody };
+}
+
+/** Best effort, after the response: logs, never throws. */
+async function sendConfirmation(l: Lead) {
+  try {
+    const sent = await sendMail({
+      ...buildConfirmationEmail(l),
+      to: l.contact.email,
+      replyTo: TEAM_EMAIL,
+      fromName: "Ardn Cloud Solutions",
+      kind: "Lead confirmation email",
+    });
+    if (sent) console.info(`Lead confirmation email sent (lead ${l.leadId}).`);
+  } catch (error) {
+    console.error(`Lead confirmation email failed (lead ${l.leadId}; the lead itself was received):`, error instanceof Error ? error.message : error);
+  }
+}
+
 // ── send ────────────────────────────────────────────────────────────────────
 
-type Mail = { subject: string; html: string; text: string; replyTo: string };
+type Mail = {
+  subject: string;
+  html: string;
+  text: string;
+  replyTo: string;
+  /** Defaults to the team inbox. */
+  to?: string;
+  /** Display name on the From address (the address is always SMTP_USER). */
+  fromName?: string;
+  /** What this email is, for the "skipped" log line. */
+  kind?: string;
+};
 
 /** false when SMTP isn't configured (logged); throws when sending fails. */
 async function sendMail(m: Mail): Promise<boolean> {
   const { SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_PORT } = process.env;
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    console.warn(`Lead email skipped: SMTP_HOST / SMTP_USER / SMTP_PASS are not set. Lead: ${m.subject}`);
+    console.warn(`${m.kind ?? "Lead email"} skipped: SMTP_HOST / SMTP_USER / SMTP_PASS are not set. Subject: ${m.subject}`);
     return false;
   }
   const transporter = nodemailer.createTransport({
@@ -465,9 +543,9 @@ async function sendMail(m: Mail): Promise<boolean> {
     auth: { user: SMTP_USER, pass: SMTP_PASS },
   });
   await transporter.sendMail({
-    from: `"Ardn ad lead" <${SMTP_USER}>`,
+    from: `"${m.fromName ?? "Ardn ad lead"}" <${SMTP_USER}>`,
     replyTo: m.replyTo,
-    to: process.env.CONTACT_RECEIVER_EMAIL || "contactus@ardncloudsolutions.com",
+    to: m.to ?? (process.env.CONTACT_RECEIVER_EMAIL || TEAM_EMAIL),
     subject: m.subject,
     html: m.html,
     text: m.text,
@@ -528,6 +606,10 @@ export async function POST(req: Request) {
   try {
     await sendMail({ subject, html, text: textBody, replyTo: lead.contact.email });
     markFinished(lead.contact.email);
+    if (routing.status === "qualified") {
+      console.info(`Lead confirmation email queued (lead ${lead.leadId}).`);
+      after(() => sendConfirmation(lead));
+    }
   } catch (error) {
     // The email is the only record of the lead, so tell the page: it shows
     // the email / phone fallback with the answers prefilled.

@@ -3,6 +3,7 @@ import Script from "next/script";
 import { publicSans, poppins } from "@/fonts";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
+import Analytics from "@/components/layout/Analytics";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCta from "@/components/layout/FloatingCta";
@@ -155,40 +156,12 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-RTHTZK8BNJ"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-RTHTZK8BNJ');
-            // Google Ads — enables remarketing audiences + conversion tracking.
-            // The 'generate_lead' / 'book_call_click' events fired in the app
-            // become Ads conversions once a conversion action + label is set up.
-            gtag('config', 'AW-16551257913');
-          `}
-        </Script>
-        {/* Microsoft Clarity — session replay + heatmaps + UX analytics. The
-            standard Clarity loader runs after interactive so it does not
-            block initial render. Replace the project ID below if a new one
-            is provisioned. */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            if (!location.pathname.startsWith('/proposals')) (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "r8a2qh178u");
-          `}
-        </Script>
       </head>
       <body
         className={`${publicSans.variable} ${poppins.variable} font-sans antialiased bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900`}
       >
+        {/* GA4 + Google Ads (gtag) and Microsoft Clarity. */}
+        <Analytics />
         <SiteChrome><Header /></SiteChrome>
         {children}
         <SiteChrome><Footer /></SiteChrome>
