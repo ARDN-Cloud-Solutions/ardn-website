@@ -170,6 +170,7 @@ export const YMCA: ProductPageContent = {
     cta: { label: "Book a 15-minute demo", href: CALL },
     links: [
       { label: "Nonprofit management software", href: "/nonprofit-management-software" },
+      { label: "YMCA membership software compared", href: "/buyers-guide/ymca-membership-software" },
       { label: "Membership Management", href: "/membership-management" },
       { label: "AI for membership organizations", href: "/ai-for-membership-organizations" },
       { label: "Pricing", href: "/pricing" },
