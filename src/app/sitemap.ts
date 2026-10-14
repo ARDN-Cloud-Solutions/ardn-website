@@ -190,6 +190,19 @@ const staticRoutes: MetadataRoute.Sitemap = [
         ],
     },
     {
+        // Club Steward detail page: every app and feature, moved off the
+        // landing page (2026-10-14) so the long-tail feature terms keep a page.
+        url: `${BASE_URL}/golf-club-management-software/features`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+        images: [
+            "online-join-plans", "sales-pipeline", "contracts-esign", "member-benefits",
+            "tee-sheet", "golf-performance", "member-home", "permissions",
+            "accounting-overview", "financial-statements",
+        ].map((f) => `${BASE_URL}/images/golf/${f}.webp`),
+    },
+    {
         // Vertical AI landing page — insurance ICP (claims/underwriting).
         url: `${BASE_URL}/ai-for-insurance`,
         lastModified: new Date(),
