@@ -140,6 +140,16 @@ export function getTopicHub(slug: string): TopicHub | null {
                     title: "How much does AI consulting cost? (and what you should get for it)",
                     excerpt: "Cost drivers, the four types of AI engagement, red flags and the questions to ask before you hire.",
                 },
+                {
+                    href: "/buyers-guide/contractor-crm-without-per-seat-pricing",
+                    title: "Best CRM for roofing & home improvement contractors without per-seat pricing",
+                    excerpt: "How eight contractor CRMs charge (per user, user-capped tiers, flat or by location), from each vendor's own pricing page.",
+                },
+                {
+                    href: "/buyers-guide/golf-club-management-software",
+                    title: "Best golf & country club management software for multi-club operators",
+                    excerpt: "Eight club platforms compared on multi-club rollups, accounting, HR, AI and pricing transparency, with sources.",
+                },
             ],
             groups: costGroups(),
         };

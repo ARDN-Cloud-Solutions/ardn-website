@@ -290,6 +290,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
+        url: `${BASE_URL}/buyers-guide/golf-club-management-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
+        url: `${BASE_URL}/buyers-guide/contractor-crm-without-per-seat-pricing`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    },
+    {
         url: `${BASE_URL}/buyers-guide/salesforce-commerce-appexchange-solutions`,
         lastModified: new Date(),
         changeFrequency: "monthly",

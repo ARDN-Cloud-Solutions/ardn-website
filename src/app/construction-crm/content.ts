@@ -210,6 +210,7 @@ export const CONSTRUCTION_CRM: ProductPageContent = {
     kicker: "Compare the costs",
     title: "What a per-seat CRM really costs",
     links: [
+      { label: "Buyer's guide: contractor CRMs without per-seat pricing", href: "/buyers-guide/contractor-crm-without-per-seat-pricing" },
       { label: "What you're paying for in a HubSpot Enterprise seat", href: "/blog/hubspot-enterprise-seat-cost-breakdown" },
       { label: "Why HubSpot Sales Hub Pro costs so much more", href: "/blog/hubspot-sales-hub-starter-to-pro-jump" },
       { label: "HubSpot paid vs. free seats: who needs which", href: "/blog/hubspot-paid-vs-free-seats" },
