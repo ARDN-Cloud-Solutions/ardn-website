@@ -106,6 +106,7 @@ const JSON_LD = {
       primaryImageOfPage: IMG("corporate-dashboard"),
       breadcrumb: { "@id": `${URL}#breadcrumb` },
       video: VIDEOS.map((v) => ({ "@id": v["@id"] })),
+      relatedLink: [`${URL}/features`],
       publisher: ORG,
     },
     {
