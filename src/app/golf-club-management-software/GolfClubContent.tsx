@@ -1212,6 +1212,7 @@ export default function GolfClubContent() {
             <Link href="/case-studies/club-steward-multi-club-golf-platform">Case study: Club Steward for multi-club operators</Link>{" "}
             · <Link href="/work">Everything we&rsquo;ve launched</Link>{" "}
             · <Link href="/membership-management">Membership management platform</Link>{" "}
+            · <Link href="/buyers-guide/club-pos-and-gift-shop-pos">Club and gift shop POS compared</Link>{" "}
             · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
             · <Link href="/blog/country-club-management-software-cost">Why country club software pricing is hard to compare</Link>{" "}
           </p>

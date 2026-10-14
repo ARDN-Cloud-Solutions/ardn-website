@@ -314,6 +314,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.7,
     },
     {
+        url: `${BASE_URL}/buyers-guide/ymca-membership-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
+        url: `${BASE_URL}/buyers-guide/club-pos-and-gift-shop-pos`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    },
+    {
         url: `${BASE_URL}/buyers-guide/salesforce-subscription-management-software`,
         lastModified: new Date(),
         changeFrequency: "monthly",
