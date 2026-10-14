@@ -51,6 +51,20 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const TOTAL = QUESTIONS.length + 1; // + contact step
 
+/**
+ * Shorter tile labels shown on phones only, so each option fits one line.
+ * Display only: desktop shows the full label, and the values (and full labels
+ * in the lead email) are unchanged.
+ */
+const SHORT_LABELS: Record<string, string> = {
+  "want:ai_assistant": "AI assistant on our own data",
+  "want:automation": "Automate manual work",
+  "want:ai_agents": "AI agents in our systems",
+  "want:custom_software": "Custom software, portal or app",
+  "want:salesforce": "Salesforce help",
+  "want:not_sure": "Not sure yet — want advice",
+};
+
 type Contact = { name: string; company: string; email: string; phone: string };
 type ContactField = keyof Contact;
 type Phase = "form" | "sending" | "qualified" | "disqualified" | "failed";
@@ -651,7 +665,14 @@ export default function FunnelForm({ hook }: { hook: string }) {
                     aria-keyshortcuts={String(i + 1)}
                     onClick={() => (q.multi ? toggleWant(o.value) : pickSingle(q.code, o.value))}
                   >
-                    <span className="fn-option-label">{o.label}</span>
+                    {SHORT_LABELS[`${q.code}:${o.value}`] ? (
+                      <span className="fn-option-label">
+                        <span className="fn-label-full">{o.label}</span>
+                        <span className="fn-label-short">{SHORT_LABELS[`${q.code}:${o.value}`]}</span>
+                      </span>
+                    ) : (
+                      <span className="fn-option-label">{o.label}</span>
+                    )}
                     <span className="fn-tick" aria-hidden="true">
                       <Check size={14} strokeWidth={3.25} />
                     </span>
@@ -665,9 +686,11 @@ export default function FunnelForm({ hook }: { hook: string }) {
               </p>
             )}
             {q.multi && (
-              <button type="button" className="fn-submit" onClick={proceed}>
-                Continue <ArrowRight size={18} aria-hidden="true" />
-              </button>
+              <div className="fn-dock">
+                <button type="button" className="fn-submit" onClick={proceed}>
+                  Continue <ArrowRight size={18} aria-hidden="true" />
+                </button>
+              </div>
             )}
             {step === 0 && (
               <p className="fn-meta">
@@ -716,9 +739,11 @@ export default function FunnelForm({ hook }: { hook: string }) {
                 )}
               </div>
             ))}
-            <button type="button" className="fn-submit" onClick={proceed}>
-              Continue <ArrowRight size={18} aria-hidden="true" />
-            </button>
+            <div className="fn-dock">
+              <button type="button" className="fn-submit" onClick={proceed}>
+                Continue <ArrowRight size={18} aria-hidden="true" />
+              </button>
+            </div>
           </div>
         )}
 

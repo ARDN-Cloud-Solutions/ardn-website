@@ -41,6 +41,11 @@ const TIMELINE = ["As soon as possible", "Within 3 months", "In 3–6 months", "
 
 // Page → likely interest, so the first question is usually one tap.
 function guessInterest(path: string): string | undefined {
+  // Non-Salesforce buyer's guides map to the product they compare (checked before the
+  // catch-all "/buyers-guide" → salesforce rule below).
+  if (/^\/buyers-guide\/(golf-club-management-software|club-pos-and-gift-shop-pos)/.test(path)) return "club-steward";
+  if (/^\/buyers-guide\/ymca-membership-software/.test(path) || path.startsWith("/ymca")) return "nonprofit";
+  if (path.startsWith("/buyers-guide/contractor-crm")) return undefined;
   if (path.startsWith("/golf")) return "club-steward";
   if (path.startsWith("/nonprofit") || path.startsWith("/ai-for-membership")) return "nonprofit";
   if (path.startsWith("/membership") || path.startsWith("/chapter")) return "membership";

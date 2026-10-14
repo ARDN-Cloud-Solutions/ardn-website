@@ -7,6 +7,7 @@ import FunnelForm from "@/components/ads/FunnelForm";
 import { APPS, FAQS, HOOK_SLUGS, PLATFORMS, PROOF, STEPS, getHook } from "../hooks";
 import PlatformStage from "../PlatformStage";
 import AppGrid from "../AppGrid";
+import TrustLink from "../TrustLink";
 import "../start.css";
 
 // Google Ads landing pages. Focused: no site header/footer (SiteChrome hides
@@ -45,19 +46,34 @@ export default async function StartPage({ params }: Props) {
     <div className="lnd">
       <header className="lnd-bar">
         <div className="lnd-wrap">
-          <Image src="/logo/ardn_logo_white.min.svg" alt="Ardn Cloud Solutions" width={124} height={32} loading="eager" className="lnd-logo" />
-          <a className="lnd-bar-phone" href="tel:+14078155303">
-            (407) 815-5303
-          </a>
+          <TrustLink target="logo" className="lnd-logo-link" ariaLabel="Ardn Cloud Solutions — see our work (opens in a new tab)">
+            <Image src="/logo/ardn_logo_white.min.svg" alt="" width={124} height={32} loading="eager" className="lnd-logo" />
+          </TrustLink>
+          <div className="lnd-bar-links">
+            <TrustLink target="see_work" className="lnd-bar-work" ariaLabel="See our work (opens in a new tab)">
+              See our work <span aria-hidden="true">↗</span>
+            </TrustLink>
+            <a className="lnd-bar-phone" href="tel:+14078155303">
+              (407) 815-5303
+            </a>
+          </div>
         </div>
       </header>
 
       <main>
         <section className="lnd-hero">
           <div className="lnd-wrap lnd-hero-grid">
+            {/* Phones (<= 768px) show the lead, then the form, then the rest of
+                the copy, so the first question is above the fold. Wider screens
+                keep copy left, form right. */}
+            <div className="lnd-hero-lead">
+              <p className="lnd-eyebrow">{h.eyebrow}</p>
+              <h1 className="lnd-h1">
+                <span className="lnd-h1-full">{h.headline}</span>
+                <span className="lnd-h1-short">{h.mobileHeadline}</span>
+              </h1>
+            </div>
             <div className="lnd-hero-copy">
-              <span className="lnd-eyebrow">{h.eyebrow}</span>
-              <h1 className="lnd-h1">{h.headline}</h1>
               <p className="lnd-sub">{h.subhead}</p>
               <ul className="lnd-proof">
                 {proof.map((p) => (

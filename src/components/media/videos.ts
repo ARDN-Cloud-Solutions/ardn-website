@@ -29,7 +29,7 @@ export const VIDEOS = {
     youtubeId: "_ypWvVbAkhQ",
     name: "Club Steward: run the whole club on one platform",
     description:
-      "A two-minute tour of Club Steward golf and country club management software: website and marketing, HR, membership sales and the members app, tee times, events and catering, point of sale, e-commerce, subscription billing and dues, member service with a chatbot, the accounting suite (preview), Active AI and security.",
+      "A two-minute tour of Club Steward golf and country club management software: website and marketing, HR, membership sales and the members app, tee times, events and catering, point of sale, e-commerce, subscription billing and dues, member service with a chatbot, the accounting suite, Active AI and security.",
     seconds: 119,
     uploadDate: "2026-10-05",
     chapters: [
