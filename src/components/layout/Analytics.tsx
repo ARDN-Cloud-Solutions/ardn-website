@@ -2,7 +2,6 @@
 
 import { useSyncExternalStore } from "react";
 import Script from "next/script";
-import { usePathname } from "next/navigation";
 
 /**
  * Tracking only runs on the production site, for real browsers: not on
@@ -22,15 +21,14 @@ const noSubscribe = () => () => {};
  *
  * The tiny inline gtag stub always runs right after hydration, so
  * `window.gtag` exists and queues calls into dataLayer from the start. The
- * heavy third-party files (gtag.js ~190 KB, Clarity) load after hydration on
- * most pages, but on the Google Ads landing pages (/start/*) they wait until
- * the page has loaded and the browser is idle (`lazyOnload`): they used to
- * hold up the first paint of the headline and form on phones. Nothing is
- * lost: every call made earlier sits in dataLayer until gtag.js reads it.
+ * heavy third-party files (gtag.js ~190 KB plus the Ads destination ~160 KB,
+ * and Clarity) wait on every route until the page has loaded and the browser
+ * is idle (`lazyOnload`): loaded earlier they held up the first paint and the
+ * largest paint on phones (first on /start/*, then on the golf page and home).
+ * Nothing is lost: every call made earlier, including the config that sends
+ * page_view, sits in dataLayer until gtag.js reads it.
  */
 export default function Analytics() {
-  const pathname = usePathname();
-  const heavy = pathname?.startsWith("/start/") ? "lazyOnload" : "afterInteractive";
   // false on the server and during hydration, then the real answer.
   const live = useSyncExternalStore(noSubscribe, isLive, () => false);
 
@@ -54,10 +52,10 @@ export default function Analytics() {
       </Script>
       {live && (
         <>
-          <Script src="https://www.googletagmanager.com/gtag/js?id=G-RTHTZK8BNJ" strategy={heavy} />
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-RTHTZK8BNJ" strategy="lazyOnload" />
           {/* Microsoft Clarity: session replay + heatmaps. Replace the project ID
               below if a new one is provisioned. */}
-          <Script id="microsoft-clarity" strategy={heavy}>
+          <Script id="microsoft-clarity" strategy="lazyOnload">
             {`
               if (!location.pathname.startsWith('/proposals')) (function(c,l,a,r,i,t,y){
                   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
