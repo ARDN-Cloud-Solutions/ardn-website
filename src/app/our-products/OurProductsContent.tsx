@@ -225,55 +225,6 @@ export default function OurProductsContent() {
         </div>
       </section>
 
-      {/* ROADMAP — All upcoming products are Salesforce-native AppExchange
-           tools, so this section keeps its SF-native framing intact. */}
-      <section className="section" id="roadmap">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Coming soon</span>
-              <h2 className="h1 mt-3">What is on <em>the roadmap.</em></h2>
-            </div>
-            <div>
-              <p className="lede">Six more Salesforce-native products in development. All self-funding. All designed to pay back within one quarter.</p>
-            </div>
-          </div>
-
-          <div className="grid-2">
-            <article className="product-card" style={{ "--accent": "#6F4ED7" } as React.CSSProperties}>
-              <div className="product-eyebrow">Coming soon</div>
-              <h3 className="h2">FlexiStore</h3>
-              <p className="body">Multi-location inventory management native to Salesforce. Real-time visibility, transfers, and stock-level automation.</p>
-            </article>
-            <article className="product-card" style={{ "--accent": "#D94A6A" } as React.CSSProperties}>
-              <div className="product-eyebrow">Coming soon</div>
-              <h3 className="h2">StageGuard</h3>
-              <p className="body">Enforce stage-gate rules on Opportunities, Cases, and custom objects. Compliance before progression.</p>
-            </article>
-            <article className="product-card" style={{ "--accent": "#0F9870" } as React.CSSProperties}>
-              <div className="product-eyebrow">Coming soon</div>
-              <h3 className="h2">SmartLicense</h3>
-              <p className="body">ML-powered Salesforce license demand forecasting. Know what you need before renewal — not after.</p>
-            </article>
-            <article className="product-card" style={{ "--accent": "#B45309" } as React.CSSProperties}>
-              <div className="product-eyebrow">Coming soon</div>
-              <h3 className="h2">FlowForward</h3>
-              <p className="body">One-click Flow health checks and performance scoring. Ship faster, break nothing.</p>
-            </article>
-            <article className="product-card" style={{ "--accent": "#38A0F8" } as React.CSSProperties}>
-              <div className="product-eyebrow">Coming soon</div>
-              <h3 className="h2">KnowledgeBuilder</h3>
-              <p className="body">Auto-generates Salesforce Knowledge articles from closed Cases. Documentation that writes itself.</p>
-            </article>
-            <article className="product-card" style={{ "--accent": "#4840E0" } as React.CSSProperties}>
-              <div className="product-eyebrow">Coming soon</div>
-              <h3 className="h2">PageAlert</h3>
-              <p className="body">In-app system announcements and banners native to Salesforce. No email needed for critical comms.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       {/* SUGGEST A PRODUCT */}
       <section className="section is-indigo" id="suggest">
         <div className="container">
