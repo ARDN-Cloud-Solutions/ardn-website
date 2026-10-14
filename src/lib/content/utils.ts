@@ -18,15 +18,29 @@ export function cleanSeoTitle(title: string | undefined): string | undefined {
  * Strip HTML tags and decode common entities, returning plain text.
  * Optionally truncate to maxLength characters.
  */
+const NAMED_ENTITIES: Record<string, string> = {
+    amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+    rsquo: "\u2019", lsquo: "\u2018", rdquo: "\u201D", ldquo: "\u201C",
+    ndash: "\u2013", mdash: "\u2014", hellip: "\u2026", trade: "\u2122",
+    reg: "\u00AE", copy: "\u00A9",
+};
+
+/**
+ * Decode HTML entities left in WordPress-exported text (e.g. "&#8217;"),
+ * so titles and meta descriptions read "Here's", not "Here&#8217;s".
+ */
+export function decodeEntities(text: string): string {
+    return text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, code: string) => {
+        if (code[0] === "#") {
+            const n = code[1] === "x" || code[1] === "X" ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+            return Number.isFinite(n) ? String.fromCodePoint(n) : m;
+        }
+        return NAMED_ENTITIES[code.toLowerCase()] ?? m;
+    });
+}
+
 export function getExcerptText(html: string, maxLength = 160): string {
-    const text = html
-        .replace(/<[^>]+>/g, "")
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'")
-        .replace(/&nbsp;/g, " ")
+    const text = decodeEntities(html.replace(/<[^>]+>/g, ""))
         .replace(/\s+/g, " ")
         .trim();
     return text.length > maxLength ? text.slice(0, maxLength).trimEnd() + "…" : text;

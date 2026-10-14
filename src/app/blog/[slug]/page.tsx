@@ -6,6 +6,7 @@ import { Calendar, Clock, Tag } from "lucide-react";
 import { fetchPostBySlug, fetchAllPostSlugs, fetchCategories, fetchPosts } from "@/lib/content/api";
 import {
     cleanSeoTitle,
+    decodeEntities,
     getExcerptText,
     getFeaturedImageUrl,
     getFeaturedImageAlt,
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!post) return { title: "Post Not Found" };
 
     const yoast = post.yoast_head_json;
-    const titleText = post.title.rendered.replace(/<[^>]+>/g, "");
+    const titleText = decodeEntities(post.title.rendered.replace(/<[^>]+>/g, ""));
     const fallbackDescription = getExcerptText(post.excerpt.rendered, 160);
     const fallbackImage = getFeaturedImageUrl(post);
 
