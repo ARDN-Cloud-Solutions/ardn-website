@@ -88,8 +88,9 @@ export default function ProductPage({ content: c }: { content: ProductPageConten
         <div className="container">
           <div className="pp-hero-grid">
             <div className="pp-hero-copy">
+              {c.hero.eyebrowOutsideH1 && <span className="pp-eyebrow">{c.hero.eyebrow}</span>}
               <h1 className="pp-h1">
-                <span className="pp-eyebrow">{c.hero.eyebrow}</span>
+                {!c.hero.eyebrowOutsideH1 && <span className="pp-eyebrow">{c.hero.eyebrow}</span>}
                 <span className="pp-display">
                   {c.hero.title} <em>{c.hero.titleEm}</em>
                 </span>
@@ -472,6 +473,14 @@ export default function ProductPage({ content: c }: { content: ProductPageConten
           )}
         </div>
       </section>
+
+      {c.disclaimer && (
+        <section className="pp-disclaimer">
+          <div className="container pp-narrow">
+            <p>{c.disclaimer}</p>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

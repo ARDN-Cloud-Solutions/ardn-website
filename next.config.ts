@@ -113,8 +113,8 @@ const nextConfig: NextConfig = {
             // Salesforce solutions section of Our Products.
             r301(`/salesforce-transacts${S}`, "/our-products#salesforce"),
             r301(`/salesforce-payments${S}`, "/our-products#salesforce"),
-            // YMCA page renamed to nonprofit management software, 2026-09-28.
-            r301(`/ymca-management-software${S}`, "/nonprofit-management-software"),
+            // /ymca-management-software is a live audience page again (2026-10-14);
+            // the 2026-09-28 redirect to /nonprofit-management-software was removed.
             r301(`/buyers-guide/salesforce-event-and-ticketing-platforms${S}`, "/buyers-guide/salesforce-event-ticketing-platform"),
             // Section roots that have no index page of their own.
             r301(`/buyers-guide${S}`, "/"),

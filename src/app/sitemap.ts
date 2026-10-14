@@ -73,11 +73,19 @@ const staticRoutes: MetadataRoute.Sitemap = [
         priority: 0.8,
     },
     {
-        // Nonprofit management software (the old slug 301s here; see next.config.ts).
+        // Nonprofit management software (YMCA audience page listed below).
         url: `${BASE_URL}/nonprofit-management-software`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,
+        videos: [sitemapVideo("nonprofitOverview")],
+    },
+    {
+        // Audience page for YMCA-style community associations (same platform).
+        url: `${BASE_URL}/ymca-management-software`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
         videos: [sitemapVideo("nonprofitOverview")],
     },
     {

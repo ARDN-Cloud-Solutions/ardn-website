@@ -5,7 +5,7 @@ import { NONPROFIT } from "./content";
 
 // Nonprofit management software: the Ardn membership platform for community
 // centers, faith-based community centers and other member-based nonprofits (renamed on 2026-09-28; the
-// old URL 301s here, see next.config.ts). It owns the
+// old /ymca-management-software slug is now a separate YMCA audience page). It owns the
 // "nonprofit management software" / "nonprofit membership software" keyword
 // set and keeps community-center terms as secondary keywords. /membership-management (the
 // general product page) cedes these terms to avoid cannibalization.
