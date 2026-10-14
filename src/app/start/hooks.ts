@@ -21,6 +21,8 @@ export type Hook = {
   description: string;
   eyebrow: string;
   headline: string;
+  /** Shorter headline for phones (7 words max), so the form starts above the fold. */
+  mobileHeadline: string;
   subhead: string;
   /** Overrides the shared proof bullets when set. */
   proof?: string[];
@@ -180,6 +182,7 @@ export const HOOKS: Record<HookSlug, Hook> = {
     description: "An AI consulting company that builds and runs what it recommends. Orlando-based US team. Free 30-minute call, fixed quote after it.",
     eyebrow: "AI consulting · US team",
     headline: "An AI consulting company that builds and runs what it recommends",
+    mobileHeadline: "AI consulting that builds and runs it",
     subhead: "Tell us what you want AI to do for your business. A few quick questions, then a free 30-minute call and a fixed quote after it.",
     cta: "See if we're a fit",
   },
@@ -189,6 +192,7 @@ export const HOOKS: Record<HookSlug, Hook> = {
     description: "AI development from first build to running in production. One US team builds it, launches it and keeps it running.",
     eyebrow: "AI development · US team",
     headline: "AI development, from first build to running in production",
+    mobileHeadline: "AI development, built and run for you",
     subhead: "Assistants that answer from your own data, automations that remove manual work, agents that act in your systems. One US team builds, launches and runs it.",
     cta: "See if we're a fit",
   },
@@ -198,6 +202,7 @@ export const HOOKS: Record<HookSlug, Hook> = {
     description: "Custom software, a portal or an app, built, launched and run for you by an Orlando-based US team.",
     eyebrow: "Custom software · US team",
     headline: "Custom software, a portal or an app. Built, launched and run for you",
+    mobileHeadline: "Custom software, built and run for you",
     subhead: "Tell us what you need. A few quick questions, a free 30-minute call, then a fixed quote before anything starts.",
     cta: "See if we're a fit",
   },
@@ -207,6 +212,7 @@ export const HOOKS: Record<HookSlug, Hook> = {
     description: "AI agents that take actions in the tools you already use, built and run by an Orlando-based US team.",
     eyebrow: "AI agent development · US team",
     headline: "AI agents that do real work in your systems",
+    mobileHeadline: "AI agents that work in your systems",
     subhead: "Not a chatbot demo. Agents that take actions in the tools you already use, built by a team that also runs them after launch.",
     cta: "See if we're a fit",
   },
@@ -216,6 +222,7 @@ export const HOOKS: Record<HookSlug, Hook> = {
     description: "AI implementation that ends in a working system your team uses every day, run for you after launch.",
     eyebrow: "AI implementation · US team",
     headline: "AI implementation that ends in a working system, not a slide deck",
+    mobileHeadline: "AI implementation that ends in working systems",
     subhead: "We take an AI idea from scoping to a system your team uses every day, and keep running it after launch.",
     cta: "See if we're a fit",
   },
