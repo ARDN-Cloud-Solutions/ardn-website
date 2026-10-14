@@ -82,6 +82,46 @@ const FAQS = [
     q: "How fast can we launch and what does it cost?",
     a: "Most engagements ship a production-ready application in 2–6 weeks, with a fixed quote and delivery date within 48 hours of the first call. It runs on one flat monthly subscription that covers build, hosting, and iteration — and new customers pay nothing for the one-time build.",
   },
+  {
+    q: "What is an AI platform for membership organizations?",
+    a: "It is software that uses AI to handle member-facing and staff work: answering member questions, guiding onboarding, nudging renewals, flagging members at risk of lapsing and routing real issues to staff. Ardn builds this as custom AI connected to the membership, billing and CRM systems you already run, rather than asking you to move onto a new platform, and then runs it for you.",
+  },
+  {
+    q: "Can membership software use AI customized for each member?",
+    a: "Yes, when the AI answers from each member's own record instead of a generic script. In Club Steward, the golf and country club platform Ardn built, the member-service assistant answers members first with their own dues, bookings and balance, then hands off to a person. We build the same approach to your dues structure, schedule and systems.",
+  },
+  {
+    q: "What should we look for in AI for nonprofit membership acquisition?",
+    a: "We don't publish ranked lists of vendors. What matters most is whether the AI answers prospective members from your own information rather than the open internet, sorts and routes inquiries to the right person, guides new members through sign-up, connects to the systems you already use, and hands off to your staff when it isn't sure.",
+  },
+  {
+    q: "How can AI help with membership retention decisions?",
+    a: "It watches attendance, payment and engagement signals, flags members whose activity is slipping, and triggers personalized outreach before they cancel. Your staff stay in charge of the decisions: sensitive steps such as anything involving money or account changes wait for a person to approve them, and every answer and action is logged.",
+  },
+  {
+    q: "Do we need clean data before we start with AI?",
+    a: "No. Part of the assessment is checking what data you have, where it lives and how usable it is. Many good first projects work on documents, emails and records you already have. If cleanup is needed, it's scoped into the plan so there are no surprises.",
+  },
+  {
+    q: "How do you keep member data safe and AI answers accurate?",
+    a: "The AI answers from your own records, documents and policies, not the open internet. Each agent can reach only the records and actions its job needs, sensitive actions wait for human approval, every answer and action is logged so you can review and correct it, and when the AI isn't sure the conversation goes to your team with the context attached. You own the data, with a full export any time.",
+  },
+];
+
+const guardrails = [
+  { title: "Answers from your own data", body: "Members get answers from your records, documents and policies, not the open internet." },
+  { title: "Human approval for sensitive actions", body: "Anything involving money or account changes waits for a person to approve it." },
+  { title: "Every answer and action logged", body: "See what the AI said and did, with a full history you can review and correct." },
+  { title: "Least-privilege permissions", body: "Each agent can reach only the records and actions its job needs, nothing more." },
+  { title: "A clear hand-off to your staff", body: "When the AI isn't sure, or a member asks for a person, the conversation goes to your team with the context attached." },
+  { title: "Your data stays yours", body: "The AI works inside your systems under the permissions you grant, and you get a full export any time." },
+];
+
+const startSteps = [
+  { title: "Assessment", body: "We pick the member workflow worth handing to AI first, check what data you have and where it lives, and set the rules for what the AI may and may not do. You don't need clean data or a data team first." },
+  { title: "Pilot", body: "A working version on your real data with a small group of your staff, measured against how the work is done today. It goes into everyday use only when it has earned it." },
+  { title: "Build", body: "We connect it to your membership, billing and CRM systems, add approvals and logging, and launch it to your staff or members." },
+  { title: "Run and improve", body: "We host and monitor it, watch accuracy, apply model and security updates, and expand one workflow at a time." },
 ];
 
 const useCases = [
@@ -104,6 +144,10 @@ const useCases = [
   {
     title: "Class & Event Help",
     body: "Let members find, book, and reschedule classes or events conversationally, with reminders that cut no-shows.",
+  },
+  {
+    title: "Personalized for Each Member",
+    body: "Answers and outreach built from each member's own record — their plan, dues, bookings, and balance — instead of one generic script for everyone.",
   },
   {
     title: "Staff Admin Automation",
@@ -163,9 +207,9 @@ export default function AiForMembershipOrganizationsPage() {
           <div className="container">
             <div className="hero-grid">
               <div className="hero-copy">
-                <span className="eyebrow">AI for Membership Organizations</span>
+                <span className="eyebrow">Custom AI · built and run for you</span>
                 <h1 className="display reveal">
-                  Keep more members. <em>Chase fewer payments.</em>
+                  AI for membership organizations: <em>keep more members, chase fewer payments.</em>
                 </h1>
                 <p className="lede reveal reveal-d2">
                   Every lapsed member and missed renewal is revenue your team
@@ -247,6 +291,15 @@ export default function AiForMembershipOrganizationsPage() {
               <Link href="/reduce-crm-licensing-costs" className="link">
                 Cut per-seat association software costs →
               </Link>
+              <Link href="/ymca-management-software" className="link">
+                For YMCAs and community centers →
+              </Link>
+              <Link href="/ai-consulting" className="link">
+                AI consulting: find where AI pays off first →
+              </Link>
+              <Link href="/ai-agent-development" className="link">
+                AI agents that answer and act on your data →
+              </Link>
               <Link href="/savings-calculator" className="link">
                 Calculate your per-member savings →
               </Link>
@@ -307,6 +360,74 @@ export default function AiForMembershipOrganizationsPage() {
           </div>
         </section>
 
+        {/* GUARDRAILS */}
+        <section className="section" id="guardrails">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Governance &amp; guardrails</span>
+                <h2 className="h1 mt-3">
+                  AI your members can trust, <em>with your staff in charge.</em>
+                </h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Member data is personal and dues are money, so the limits come
+                  standard in every membership AI we build.
+                </p>
+              </div>
+            </div>
+            <div className="grid-3">
+              {guardrails.map((g) => (
+                <div className="card" key={g.title}>
+                  <h3 className="h3">{g.title}</h3>
+                  <p className="body">{g.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="body" style={{ marginTop: "24px", textAlign: "center" }}>
+              <Link href="/ai-agent-development" className="link">
+                How we build AI agents with guardrails →
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* HOW TO START */}
+        <section className="section is-canvas" id="get-started">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">How to start</span>
+                <h2 className="h1 mt-3">
+                  Start with one workflow. <em>Measure it. Then expand.</em>
+                </h2>
+              </div>
+              <div>
+                <p className="lede">
+                  Each phase has an agreed scope and a fixed quote before work
+                  starts, and the AI is measured against how the work is done
+                  today before your members rely on it.
+                </p>
+              </div>
+            </div>
+            <div className="grid-2">
+              {startSteps.map((s, i) => (
+                <div className="card" key={s.title}>
+                  <div className="card-num">{String(i + 1).padStart(2, "0")}</div>
+                  <h3 className="h3">{s.title}</h3>
+                  <p className="body">{s.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="body" style={{ marginTop: "24px", textAlign: "center" }}>
+              <Link href="/ai-consulting" className="link">
+                Not sure where to start? See AI consulting →
+              </Link>
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section" id="faq">
           <div className="container">
@@ -316,7 +437,7 @@ export default function AiForMembershipOrganizationsPage() {
                 <h2 className="h1 mt-3">Common <em>questions.</em></h2>
               </div>
               <div>
-                <p className="lede">Platforms, retention, who it&apos;s for, and cost.</p>
+                <p className="lede">Platforms, personalization, retention, data, safety, and cost.</p>
               </div>
             </div>
             <div style={{ display: "grid", gap: "14px", marginTop: "32px" }}>

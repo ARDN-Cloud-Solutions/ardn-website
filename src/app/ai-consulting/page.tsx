@@ -82,6 +82,7 @@ const CONTENT: AiConsultingContent = {
     links: [
       { label: "AI development company: custom AI apps, built and run", href: "/ai-app-development" },
       { label: "AI agent development: agents that answer and act on your data", href: "/ai-agent-development" },
+      { label: "AI for membership organizations: onboarding, renewals and retention", href: "/ai-for-membership-organizations" },
       { label: "Custom software development company, Orlando, Florida", href: "/custom-software-development" },
       { label: "How much does AI consulting cost? (and what you should get for it)", href: "/ai-consulting/cost" },
       { label: "Our approach: how we map your business before building", href: "/approach" },
