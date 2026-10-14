@@ -3,7 +3,7 @@
 // pages in October 2026 (see SOURCES). Where a vendor's pages don't say
 // something, the cell says so instead of guessing. Club Steward facts come
 // only from /golf-club-management-software and /llms.txt: no Club Steward
-// prices, Accounting is "Preview", Property Management is "Coming soon".
+// prices; Property Management is "Coming soon". Accounting, gift cards and register card readers are live per /golf-club-management-software (checked 2026-10-14).
 
 export const URL = "https://ardncloudsolutions.com/buyers-guide/golf-club-management-software";
 export const TITLE = "Best Golf & Country Club Management Software for Multi-Club Operators (2026)";
@@ -37,14 +37,15 @@ export const VENDORS: Vendor[] = [
     facts: [
       "Core modules: Membership Sales (shared lead pool with SLA escalation, pipeline by stage, tour board, e-signed contracts) and the Members App (a per-club installable app in the club's own brand, member card with QR code for Apple and Google Wallet).",
       "Add-on modules: Website & Marketing, HR, Tee-Times, Events & Catering, Point of Sale, e-Commerce, Subscription Billing & Dues, and Member Service with Chatbot.",
-      "Accounting Suite is in Preview (general ledger, payables and receivables, bank reconciliation, budgets, period close). Property Management is Coming soon.",
+      "Accounting Suite with a general ledger, payables and receivables, bank reconciliation, budgets and period close. Property Management is Coming soon.",
+      "Point of Sale: registers for every outlet, card readers paired to each register with the credit card fee shown before the member pays, gift cards and club wallet credit, and dining that keeps selling offline on cash and member account.",
       "Multi-club rollups by region: corporate sees every club with region subtotals, regional VPs see their region, and a GM sees their club.",
       "One member record across every club, with club-level data isolation enforced in the database (row-level security on every table).",
       "Active AI: an assistant that answers members first with their own dues, bookings and balance, AI sorting of inquiries, AI-ranked applicants, and an AI floor-plan scan for events. The club can bring its own AI provider.",
       "Run as a managed service by a US-based team with a 4-hour response SLA. Modules turn on per club, and each club passes a go-live readiness checklist.",
     ],
     watch:
-      "Club Steward is newer than the long-established suites on this list, so ask for a walkthrough on your own clubs' workflows. Accounting is in Preview, Property Management is not yet available, and court booking is on the roadmap.",
+      "Club Steward is newer than the long-established suites on this list, so ask for a walkthrough on your own clubs' workflows. Property Management is not yet available, and card readers need the club's own readers and card processing account.",
     pricing: "Pricing not published — contact Ardn for a quote",
     sources: [
       { label: "Club Steward product page", href: "https://ardncloudsolutions.com/golf-club-management-software" },
@@ -238,7 +239,7 @@ export const TABLE: { vendor: string; cells: string[] }[] = [
     vendor: "Club Steward by Ardn",
     cells: [
       "Region rollups: corporate, VP and GM views",
-      "Accounting Suite (Preview)",
+      "Accounting Suite",
       "HR add-on: hiring, time clock, tip pools, payroll file",
       "Member assistant, inquiry sorting, applicant ranking",
       "Not published",
@@ -311,7 +312,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Which club management software includes native accounting?",
-    a: "Jonas Club Software, Clubessential and Northstar describe native general ledger and payables. Club Caddie, Lightspeed Golf, foreUP and Total e Integrated describe accounting through integrations or sync with systems such as QuickBooks, Sage, NetSuite or Microsoft. Club Steward by Ardn has an Accounting Suite in Preview.",
+    a: "Jonas Club Software, Clubessential and Northstar describe native general ledger and payables. Club Caddie, Lightspeed Golf, foreUP and Total e Integrated describe accounting through integrations or sync with systems such as QuickBooks, Sage, NetSuite or Microsoft. Club Steward by Ardn includes a full general ledger, accounts receivable and payable, bank reconciliation, budgets and period close.",
   },
   {
     q: "Does Club Steward publish its pricing?",
