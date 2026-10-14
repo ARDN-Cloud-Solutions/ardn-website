@@ -1214,6 +1214,7 @@ export default function GolfClubContent() {
             · <Link href="/membership-management">Membership management platform</Link>{" "}
             · <Link href="/ai-for-hospitality">AI for hospitality</Link>{" "}
             · <Link href="/blog/country-club-management-software-cost">Why country club software pricing is hard to compare</Link>{" "}
+            · <Link href="/buyers-guide/golf-club-management-software">Buyer&rsquo;s guide: club software for multi-club operators</Link>{" "}
           </p>
         </div>
       </section>
