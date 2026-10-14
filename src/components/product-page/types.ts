@@ -50,6 +50,9 @@ export type ProductPageContent = {
   theme: Theme;
   hero: {
     eyebrow: string;
+    /** Render the eyebrow pill above the H1 instead of inside it, so the H1
+     *  text is exactly title + titleEm (for pages with a keyword-exact H1). */
+    eyebrowOutsideH1?: boolean;
     title: string;
     titleEm: string;
     lede: string;
@@ -97,4 +100,6 @@ export type ProductPageContent = {
   final: { title: string; titleEm: string; lede: string; cta: Cta; links?: Cta[] };
   /** Small print under the tour, e.g. "Screens show sample data." */
   sampleNote?: string;
+  /** Visible small print at the very end of the page (e.g. a trademark notice). */
+  disclaimer?: string;
 };
