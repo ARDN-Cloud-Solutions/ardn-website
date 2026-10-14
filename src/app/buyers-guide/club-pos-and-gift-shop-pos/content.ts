@@ -5,9 +5,12 @@ import type { ComparisonGuideData } from "@/components/comparison-guide/types";
 // - Every competitor fact comes from that vendor's own public page or help
 //   docs, listed in the vendor's `sources` (checked 2026-10-14). If it isn't
 //   there, write "not described on the pages we checked", never a guess.
-// - Club Steward POS facts only from /golf-club-management-software. NOT
-//   built (never claim): gift cards, an integrated tap-to-pay card reader,
-//   offline mode for retail registers. Name no payment provider for Ardn.
+// - Club Steward POS facts only from /golf-club-management-software and the
+//   product code (checked 2026-10-14): gift cards and club wallet credit; card
+//   readers paired to each register (tap or insert, card fee shown first;
+//   needs the club's own readers and card processing account); dining keeps
+//   selling offline on cash and member account. Retail offline: not stated,
+//   so "Not detailed". Name no payment provider for Ardn.
 //   No Club Steward pricing (not published).
 
 const SRC = {
@@ -162,9 +165,9 @@ export const CLUB_POS_GUIDE: ComparisonGuideData = {
         cells: [
           "Golf and country clubs, including multi-club operators",
           "Yes: posts to the member's account and statement the moment it's made",
-          "No",
-          "Not for retail registers (the dining POS keeps selling offline on cash and member account)",
-          "No integrated tap-to-pay reader",
+          "Yes, plus club wallet credit",
+          "Dining keeps selling offline on cash and member account; retail registers not detailed",
+          "Card readers paired to each register (tap or insert); needs the club's own readers and card processing account",
           NOT_PUBLISHED,
         ],
       },
@@ -333,6 +336,8 @@ export const CLUB_POS_GUIDE: ComparisonGuideData = {
         "Point of Sale is an add-on module of Club Steward, Ardn's software for golf and country clubs and multi-club operators. A register for every outlet (shop, dining, tee desk) charges to the member's account and statement the moment the sale is made.",
       points: [
         "Card, cash and member-account payments, with member pricing and promo codes.",
+        "Card readers paired to each register: the customer taps or inserts a card, and the credit card fee is shown before the member pays.",
+        "Gift cards and club wallet credit that pays anywhere in the club.",
         "Barcode and iPad-camera scanning, and label printing.",
         "Stock as a ledger with FIFO or LIFO costing, profit by item, and stock and reorder alerts.",
         "Close-out with cash counts; receipts by print or email; returns and refunds.",
@@ -340,9 +345,8 @@ export const CLUB_POS_GUIDE: ComparisonGuideData = {
         "Shares one member record with dues, statements (with finance charges and food & beverage minimums) and bookings in Club Steward.",
       ],
       limits: [
-        "No gift cards.",
-        "No integrated tap-to-pay card reader.",
-        "No offline mode for retail registers (the dining POS keeps selling offline on cash and member account).",
+        "Card readers need the club's own readers and card processing account.",
+        "Offline selling is described for dining (cash and member account), not for retail registers.",
         "It is built for golf and country clubs. A garden or museum gift shop that mostly serves walk-in visitors is usually better served by a general retail POS.",
       ],
       limitsLabel: "Choose something else if you need",
@@ -358,7 +362,7 @@ export const CLUB_POS_GUIDE: ComparisonGuideData = {
       { if: "If you also sell online,", then: "Shopify POS keeps the store, inventory and gift cards in one catalog." },
       { if: "If you sell plants and garden goods,", then: "compare Rapid Garden POS and Sunfire POS for plant tags, nursery inventory and landscaper pricing." },
       { if: "If members sign for purchases and expect them on their statement,", then: "use a club system: Jonas Club Software and Clubessential both sell club POS; Club Steward Point of Sale posts each charge to the member's account and statement the moment it's made." },
-      { if: "If you need gift cards, tap-to-pay on a phone or offline retail selling,", then: "Club Steward is not the right fit today; Square, Shopify, Lightspeed and Clover describe these features." },
+      { if: "If the shop mostly serves walk-in visitors and needs tap-to-pay on a phone or offline retail selling,", then: "a general retail POS is simpler: Square, Shopify, Lightspeed and Clover describe these features." },
     ],
     questions: [
       "Can a member be found by scan or name and get member pricing automatically?",
@@ -383,11 +387,11 @@ export const CLUB_POS_GUIDE: ComparisonGuideData = {
     },
     {
       q: "Which of these POS systems work offline?",
-      a: "Square includes offline payments on every plan (they must sync within 24 hours). Clover Mini and Flex take offline payments for up to 7 days by default. Shopify offers optional offline card payments on supported readers. Lightspeed's offline mode is a backup for cash sales. Jonas's mobile POS keeps working when Wi-Fi drops. Club Steward's dining POS keeps selling offline on cash and member account, but its retail registers have no offline mode.",
+      a: "Square includes offline payments on every plan (they must sync within 24 hours). Clover Mini and Flex take offline payments for up to 7 days by default. Shopify offers optional offline card payments on supported readers. Lightspeed's offline mode is a backup for cash sales. Jonas's mobile POS keeps working when Wi-Fi drops. Club Steward's dining POS keeps selling offline on cash and member account; offline selling for its retail registers isn't described.",
     },
     {
       q: "Does Club Steward Point of Sale support gift cards or tap-to-pay?",
-      a: "No. Club Steward Point of Sale has no gift cards and no integrated tap-to-pay card reader, and its retail registers have no offline mode. It takes card, cash and member-account payments, and it is the best fit when the shop needs to share one record with memberships and billing.",
+      a: "Yes. Club Steward Point of Sale has gift cards and club wallet credit, and card readers paired to each register where the customer taps or inserts a card (the club needs its own readers and card processing account). It also takes cash and member-account payments, and it is the best fit when the shop needs to share one record with memberships and billing.",
     },
     {
       q: "How much does a POS system cost for a small shop?",
