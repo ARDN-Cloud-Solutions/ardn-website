@@ -707,6 +707,36 @@ section.vpage{padding-top:150px;border-top:0}
 .op-steps span{color:var(--soft)}.op-steps i{font-style:normal;color:var(--muted)}
 .op-valid{font-size:var(--op-fs-s);font-weight:600;color:var(--brass2);margin-top:calc(var(--op-gap)*.6)!important}
 .op-src{grid-area:src;font-size:var(--op-fs-s);color:var(--muted);padding-right:180px;line-height:1.3}
+.op-link{color:var(--brass2);text-decoration:underline;white-space:nowrap}
+.op-page.op-svc{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);grid-template-rows:auto minmax(min-content,1fr) auto;grid-template-areas:"head head" "left right" "src src"}
+.op-svc .op-head{grid-area:head}.op-svc .op-src{grid-area:src}
+.sv-l,.sv-r{display:flex;flex-direction:column;gap:var(--op-gap);min-width:0}
+.sv-l{grid-area:left}.sv-r{grid-area:right}
+.sv-pods{flex:1}
+.sv-t{font-size:inherit;line-height:inherit;table-layout:fixed;width:100%;border-collapse:collapse;flex:1}
+.sv-t th,.sv-t td{text-align:left;vertical-align:middle;padding:calc(var(--op-gap)*.45) 8px calc(var(--op-gap)*.45) 0;border-top:1px solid var(--line);font-weight:400}
+.sv-t thead th{font-size:var(--op-fs-s);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:0;padding-top:0;vertical-align:bottom}
+.sv-t tbody th{color:var(--ink);font-weight:700}
+.sv-t col.c1{width:26%}
+.sv-t td:nth-child(2){color:var(--soft)}
+.sv-t td b{color:var(--brass2);font-weight:600;margin-left:3px}
+.sv-note{font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px}
+.sv-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--op-gap)*.5) var(--op-colgap)}
+.sv-chips li{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:calc(var(--op-gap)*.4);line-height:1.25}
+.sv-chips li b{color:var(--ink)}.sv-nm{min-width:0}.sv-chips li .num{flex:none;color:var(--brass2);font-weight:600}
+.sv-sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--op-colgap)}
+.sv-sizes .op-n{font-size:min(var(--op-fs-big),3vw)}
+.sv-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:var(--op-gap)}
+.sv-tiers li{border-top:2px solid var(--op-blue);padding-top:calc(var(--op-gap)*.4);line-height:1.25}
+.sv-tiers li:nth-child(2){border-color:var(--brass)}.sv-tiers li:nth-child(3){border-color:var(--ink)}
+.sv-tiers b{display:block;color:var(--ink)}.sv-tiers span{color:var(--soft);font-size:var(--op-fs-s)}
+.sv-p{font-size:var(--op-fs-s);line-height:1.2;width:100%;border-collapse:collapse}
+.sv-p th,.sv-p td{text-align:left;font-weight:400;padding:calc(var(--op-gap)*.3) 6px calc(var(--op-gap)*.3) 0;border-top:1px solid var(--line);vertical-align:top}
+.sv-p thead th{border-top:0;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.sv-p tbody th{color:var(--ink);font-weight:700}
+.sv-prop{font-style:normal;text-transform:none;letter-spacing:0;font-weight:600;color:var(--brass2);border:1px dashed rgba(246,189,96,.6);border-radius:10px;padding:0 6px;margin-left:4px}
+.sv-rel p{line-height:1.3}
+body[data-view=value] .cm-open{bottom:12px}
 body[data-view=summary] .cm-open{bottom:12px}
 @media (prefers-reduced-motion:reduce){.op-bar{transition:none}}
 @media (min-width:901px) and (max-height:780px){
@@ -721,6 +751,7 @@ body[data-view=summary] .cm-open{bottom:12px}
 @media (max-width:1100px){
   .op-page{height:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:none;
     grid-template-areas:"head head" "time time" "pain prop" "econ why" "ask ask" "src src"}
+  .op-page.op-svc{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "left" "right" "src"}
   .op-why-list{grid-template-columns:1fr}
 }
 @media (max-width:760px){
@@ -737,6 +768,12 @@ body[data-view=summary] .cm-open{bottom:12px}
   .op-pt td:first-child{color:var(--muted)}
   .op-pt td+td::before{top:2px}
   .op-src{padding-right:0;padding-bottom:64px}
+  .op-page.op-svc{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "left" "right" "src"}
+  .sv-t,.sv-t tbody,.sv-t tr,.sv-t td,.sv-t tbody th{display:block}
+  .sv-t thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .sv-t tr{border-top:1px solid var(--line);padding:6px 0}
+  .sv-t th,.sv-t td{border-top:0;padding:1px 0}
+  .sv-chips,.sv-sizes{grid-template-columns:1fr}
   .op-n{font-size:25px}
   .op-fig3{gap:8px}
   .op-vs{grid-template-columns:1fr}
@@ -1013,7 +1050,7 @@ body[data-view=summary] .cm-open{bottom:12px}
 <section class="op-page" id="summary-page" aria-labelledby="op-title">
   <header class="op-head">
     <p class="op-kick">Executive summary · Ardn for Invited · October 2026</p>
-    <h1 class="op-title" id="op-title">Tailored to Invited, changed as Invited changes, by the partner since 2022: <em id="sTitleSave">$4.3M</em> a year back.</h1>
+    <h1 class="op-title" id="op-title">Tailored to Invited, changed as Invited changes, by the partner since 2022: <em id="sTitleSave">$3.85M</em> a year back.</h1>
     <p class="op-sub">"25 leads x 3 systems = 75 records." A club user, 2022. Club Steward is the fix.</p>
   </header>
 
@@ -1055,17 +1092,17 @@ body[data-view=summary] .cm-open{bottom:12px}
   <div class="op-econ">
     <section class="op-card op-value" aria-labelledby="op-h-value">
       <h2 class="op-h" id="op-h-value">The value to Invited</h2>
-      <p class="op-vp">One system, one team, <em>about half</em> today's cost.</p>
+      <p class="op-vp">One system, one team, <em>46% below</em> today's cost.</p>
       <div class="op-fig3">
-        <div class="op-fig"><p class="op-n" id="sSave">$4.3M</p><p class="op-nl">saved a year (<span id="sPct">52%</span>)</p></div>
-        <div class="op-fig"><p class="op-n">10.5×</p><p class="op-nl">return on the $1.5M setup, 5 years</p></div>
-        <div class="op-fig"><p class="op-n">Month 17</p><p class="op-nl">breakeven, all-in</p></div>
+        <div class="op-fig"><p class="op-n" id="sSave">$3.85M</p><p class="op-nl">saved a year (<span id="sPct">46%</span>)</p></div>
+        <div class="op-fig"><p class="op-n">4.3×</p><p class="op-nl">return on the $2.9M setup, 5 years</p></div>
+        <div class="op-fig"><p class="op-n">Month 22</p><p class="op-nl">breakeven, all-in</p></div>
       </div>
-      <div class="op-bars" id="opBars" role="img" aria-label="Annual IT cost: today $8.3 million; with Club Steward $4.0 million." style="--w:48%">
+      <div class="op-bars" id="opBars" role="img" aria-label="Annual IT cost: today $8.3 million; with Club Steward $4.45 million." style="--w:54%">
         <span class="op-bl" aria-hidden="true">Today</span><span class="op-track" aria-hidden="true"><i class="op-bar op-b-t"></i></span><b class="op-bv num" aria-hidden="true" id="sToday">$8.3M</b>
-        <span class="op-bl" aria-hidden="true">Club Steward</span><span class="op-track" aria-hidden="true"><i class="op-bar op-b-c"></i></span><b class="op-bv num" aria-hidden="true" id="sYear2">$4.0M</b>
+        <span class="op-bl" aria-hidden="true">Club Steward</span><span class="op-track" aria-hidden="true"><i class="op-bar op-b-c"></i></span><b class="op-bv num" aria-hidden="true" id="sYear2">$4.45M</b>
       </div>
-      <p class="op-basis">Technology <b class="num" id="sTech">$2.0M</b> · Services <b class="num" id="sSvc">$2.0M</b> · Total <b class="num" id="sYear">$4.0M</b> a year · Implementation <b class="num" id="sImpl">$1.5M</b> once</p>
+      <p class="op-basis">Technology <b class="num" id="sTech">$1.99M</b> · Services <b class="num" id="sSvc">$2.46M</b> · Total <b class="num" id="sYear">$4.45M</b> a year · Implementation <b class="num" id="sImpl">$2.9M</b> once, incl. hypercare · <a class="op-link" href="#services-team">Services team: 12.5 people</a></p>
     </section>
   </div>
 
@@ -1090,22 +1127,95 @@ body[data-view=summary] .cm-open{bottom:12px}
     <p class="op-valid">Prices valid until Dec 15, 2026.</p>
   </section>
 
-  <p class="op-src">Sources: Invited, Oct 13; Roadmap v4, Nov 2022 (quote); † Invited's SOWs; fit-gap review, Oct 7. The 18 systems that stay keep their own cost. ROI ($15.8M net over 5 years): $4.3M a year saving ramps in as clubs go live (months 8–18); fees are billed per club from its go-live; implementation $1.5M fixed.</p>
+  <p class="op-src">Sources: Invited, Oct 13; Roadmap v4, Nov 2022 (quote); † Invited's SOWs; fit-gap review, Oct 7. The 14 systems that stay keep their own cost. ROI: $3.85M a year saving ramps in as clubs go live (months 8–18); fees are billed per club from its go-live; implementation $2.9M fixed, including hypercare ($12.5M net over 5 years).</p>
 </section>
 </div>
 
 <div class="view" id="v-value" data-view="value" hidden>
+<section class="op-page op-svc" id="services-team" aria-labelledby="sv-title">
+  <header class="op-head">
+    <p class="op-kick">Value and pricing · The services team</p>
+    <h1 class="op-title" id="sv-title">The services team: who supports what</h1>
+    <p class="op-sub">One Ardn team behind Invited's help desk: 40 retired systems, 14 live connectors, 143 clubs.</p>
+  </header>
+
+  <div class="sv-l">
+    <section class="op-card sv-pods" aria-labelledby="sv-h-pods">
+      <h2 class="op-h" id="sv-h-pods">Six pods, each with a lead and developers</h2>
+      <table class="sv-t">
+        <caption class="op-vh">Pods, the systems each replaces, and its people in full-time equivalents at steady state</caption>
+        <thead><tr><th scope="col">Pod (systems absorbed)</th><th scope="col">Replaces, for example</th><th scope="col">Onshore lead, FTE</th><th scope="col">Offshore developers, FTE</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Membership &amp; Sales (10)</th><td>MemberPride, ProspectPro, Salesforce, Pardot, DocuSign</td><td>Members lead <b class="num">0.6</b></td><td><b class="num">0.5</b></td></tr>
+          <tr><th scope="row">Billing, Finance &amp; Books (9)</th><td>Oracle EBS, AR, GL, Fusion; MAGIC; Lanvera, CardX, Paymentus</td><td>Finance lead <b class="num">1.0</b></td><td><b class="num">0.75</b></td></tr>
+          <tr><th scope="row">Golf, Racquets &amp; Fitness (5)</th><td>Tee Times, GLF, CourtReserve, Turf Assistant</td><td>Club Ops lead <b class="num">0.4</b></td><td><b class="num">0.5</b></td></tr>
+          <tr><th scope="row">Dining, POS &amp; Events (8)</th><td>MICROS, R&amp;A, Checkbook, CaterPro, AllSeated</td><td>Club Ops lead <b class="num">0.6</b></td><td><b class="num">0.75</b></td></tr>
+          <tr><th scope="row">Digital, Front Desk &amp; People (6)</th><td>Mobile App, Portal, MembersFirst, MIV</td><td>Members lead <b class="num">0.4</b></td><td><b class="num">0.5</b></td></tr>
+          <tr><th scope="row">Data &amp; Integrations (2 + 14 feeds)</th><td>CSI, Power BI; ADP, Opera, GHIN, PACE, Golf Genius, warehouse</td><td>Solution architect <b class="num">0.25</b></td><td>Integration engineer <b class="num">1.0</b></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="op-card sv-shared" aria-labelledby="sv-h-shared">
+      <h2 class="op-h" id="sv-h-shared">Shared by every pod <span class="sv-note">FTE at steady state (at go-live)</span></h2>
+      <ul class="sv-chips">
+        <li><span class="sv-nm"><b>Delivery lead</b>, accountable to the CIO</span><span class="num">0.5 (1.0)</span></li>
+        <li><span class="sv-nm"><b>Solution architect</b></span><span class="num">0.25 (0.5)</span></li>
+        <li><span class="sv-nm"><b>Release manager</b>, offshore</span><span class="num">0.5 (1.0)</span></li>
+        <li><span class="sv-nm"><b>QA automation lead</b> and offshore QA</span><span class="num">1.0 (2.0)</span></li>
+        <li><span class="sv-nm"><b>Second-line support lead</b>, on call</span><span class="num">1.0 (1.0)</span></li>
+        <li><span class="sv-nm"><b>L2 analysts</b>, offshore, US shift</span><span class="num">2.0 (4.0)</span></li>
+        <li><span class="sv-nm"><b>Integration and data engineer</b></span><span class="num">1.0 (2.0)</span></li>
+        <li><span class="sv-nm"><b>Trainer and change lead</b></span><span class="num">0.25 (1.0)</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="sv-r">
+    <section class="op-card sv-team" aria-labelledby="sv-h-team">
+      <h2 class="op-h" id="sv-h-team">Team size</h2>
+      <div class="sv-sizes">
+        <div><p class="op-n num">20.5</p><p class="op-nl"><b>people at go-live and hypercare</b><br>covered by the implementation fee</p></div>
+        <div><p class="op-n num">12.5</p><p class="op-nl"><b>people at steady state</b>: 5 US, 7.5 offshore<br>covered by the $205K a month</p></div>
+      </div>
+    </section>
+    <section class="op-card sv-sup" aria-labelledby="sv-h-sup">
+      <h2 class="op-h" id="sv-h-sup">Support, in three tiers</h2>
+      <ol class="sv-tiers">
+        <li><b>L1 · Invited help desk</b><span>access, how-to, reproduce</span></li>
+        <li><b>L2 · Ardn pod</b><span>triage, configuration, data, workarounds</span></li>
+        <li><b>L3 · Developer fix</b><span>with a test, next daily release</span></li>
+      </ol>
+      <table class="sv-p">
+        <caption class="op-vh">Proposed response and resolution targets by priority</caption>
+        <thead><tr><th scope="col">Priority <i class="sv-prop">proposed</i></th><th scope="col">Response</th><th scope="col">Resolution</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">P1</th><td>30 minutes, 24×7</td><td>service restored in 4 hours</td></tr>
+          <tr><th scope="row">P2</th><td>2 hours</td><td>2 business days</td></tr>
+          <tr><th scope="row">P3</th><td>1 business day</td><td>10 business days</td></tr>
+          <tr><th scope="row">P4</th><td>2 business days</td><td>into the backlog, at the CIO's rank</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="op-card sv-rel" aria-labelledby="sv-h-rel">
+      <h2 class="op-h" id="sv-h-rel">Releases</h2>
+      <p>Fixes ship daily. Features are switched on per club every two weeks. Frozen at month-end close.</p>
+    </section>
+  </div>
+
+  <p class="op-src">FTE: full-time equivalents; onshore means US. Figures in brackets are for go-live and hypercare. Response and resolution targets are proposed.</p>
+</section>
+
 <section class="ch vpage" id="value-page">
   <div class="wrap">
     <div class="vhead"><div><p class="kicker">Value and pricing</p><h2>What Invited saves, and what it pays</h2></div><p>The two teams, what each one takes off Invited's books, and a calculator to check every figure with your own numbers.</p></div>
     <div class="value" aria-live="polite">
       <div><p class="big num" id="vSave"></p><p id="vSaveMeta"></p></div>
-      <div><p class="big num" id="vPay">10.5×</p><p id="vPayMeta">return on the $1.5M implementation over 5 years</p></div>
-      <div><p class="big num" id="vFive">Month 17</p><p id="vFiveMeta">breaks even from signing, implementation included</p></div>
-      <div><p class="big num" id="vHalf">$15.8M</p><p id="vHalfMeta">net over 5 years, after implementation</p></div>
+      <div><p class="big num" id="vPay">4.3×</p><p id="vPayMeta">return on the $2.9M implementation over 5 years</p></div>
+      <div><p class="big num" id="vFive">Month 22</p><p id="vFiveMeta">breaks even from signing, implementation included</p></div>
+      <div><p class="big num" id="vHalf">$12.5M</p><p id="vHalfMeta">net over 5 years, after implementation</p></div>
     </div>
     <div class="cmpbars" id="vBa" role="img"></div>
-    <p class="src">Today's spend is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. ROI ($15.8M net over 5 years): $4.3M a year saving ramps in as clubs go live (months 8–18); fees are billed per club from its go-live; implementation $1.5M fixed. <a href="#cost">Check the numbers</a> with your own figures.</p>
+    <p class="src">Today's spend is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 14 systems that stay keep their own cost. ROI: $3.85M a year saving ramps in as clubs go live (months 8–18); fees are billed per club from its go-live; implementation $2.9M fixed, including hypercare ($12.5M net over 5 years). <a href="#cost">Check the numbers</a> with your own figures.</p>
 
     <div class="block" id="teams">
       <h3>Two teams, priced separately</h3>
@@ -1118,7 +1228,7 @@ body[data-view=summary] .cm-open{bottom:12px}
     </div>
     <div class="block" id="proofpts"><h3>Why the numbers hold up</h3></div>
     <div class="sumstats">
-      <div><p class="big num">54 → 1</p><p>Systems in use today. 36 retire outright, 4 retire in part, and 18 stay connected for a stated reason. <span class="tag F">Systems sheet</span></p></div>
+      <div><p class="big num">54 → 1</p><p>Systems in use today. 36 retire outright, 4 retire in part, and 14 stay (10 connected, 4 kept) for a stated reason. <span class="tag F">Systems sheet</span></p></div>
       <div><p class="big num">126 + 17</p><p>Golf and country club entities, priced per entity as Invited buys today, plus 17 city clubs on a lighter fee. <span class="tag F">Invited</span></p></div>
       <div><p class="big num">432 / 484</p><p>Rows of Invited's capability workbook already built at the October 7 review. 45 more wait only on an account or file from Invited. <span class="tag F">Fit-gap review</span></p></div>
       <div><p class="big num">Nightly</p><p>1,693 automated test files and 116 full browser journeys run every night, so defects are found before a club finds them. <span class="tag F">Quality records</span></p></div>
@@ -1570,7 +1680,7 @@ body[data-view=summary] .cm-open{bottom:12px}
             <input type="text" inputmode="numeric" class="n" data-money="1" id="fee" placeholder="Fee per club" aria-label="Ardn fee per club per month">
             <input type="text" inputmode="numeric" class="n" id="clubs" aria-label="Number of clubs">
           </div>
-          <p class="src" style="margin:6px 0 0">Left: fee in dollars. Right: number of clubs (140 in our records; Invited's site says 150 or more).</p>
+          <p class="src" style="margin:6px 0 0">Left: fee in dollars. Right: number of clubs (143 in our records; Invited's site says 150 or more).</p>
           <p class="out" id="net"></p>
           <dl class="ba" id="ba"></dl>
           <p class="uncounted">Systems with no public price count once Invited's invoice is entered in their row. Until then they add nothing, so the real figure is higher.</p>
@@ -1814,6 +1924,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const el = (t, a = {}, h = '') => { const e = document.createElement(t); for (const k in a) e.setAttribute(k, a[k]); if (h) e.innerHTML = h; return e; };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmtM2 = n => (n < 0 ? '−' : '') + '$' + (Math.abs(n) / 1e6).toFixed(2).replace(/0$/, '') + 'M';
 const fmtM = n => (n < 0 ? '−' : '') + '$' + (Math.abs(n) / 1e6).toFixed(1) + 'M';
 const FATE = {retire:{label:'Retire',c:'var(--brass)'},partial:{label:'Retire in part',c:'var(--sand)'},connect:{label:'Connect',c:'var(--teal)'},keep:{label:'Keep',c:'var(--slate)'}};
 const count = f => SYSTEMS.filter(s => s.fate === f).length;
@@ -1878,7 +1989,7 @@ function drawSky(now = performance.now()) {
     ctx.setLineDash([]);
     ctx.fillStyle = `rgba(244,241,234,${p})`; ctx.textAlign = 'center';
     ctx.font = `400 ${Math.max(20, R * .3)}px "Instrument Serif", Georgia, serif`; ctx.fillText('Club Steward', cx, cy + R * .1);
-    if (p > .85) { ctx.font = '500 12.5px Manrope, system-ui, sans-serif'; ctx.fillStyle = `rgba(201,204,221,${(p - .85) / .15})`; ctx.fillText('36 retired inside · 18 connected or kept', cx, cy + R * 2.6); }
+    if (p > .85) { ctx.font = '500 12.5px Manrope, system-ui, sans-serif'; ctx.fillStyle = `rgba(201,204,221,${(p - .85) / .15})`; ctx.fillText('36 retired inside · 14 connected or kept', cx, cy + R * 2.6); }
   }
   ctx.textAlign = 'left';
   nodes.forEach(n => {
@@ -2012,8 +2123,8 @@ renderInno();
 // Who uses each system comes from Invited's capabilities workbook. Sales and
 // event-sales headcounts are active users in Invited's Salesforce (staging
 // copy, read 2026-10-12); the rest is Ardn's estimate per club. 17 city clubs
-// is the count on Invited's own site, so the other 123 of about 140 are golf.
-const CLUBS = {golf: 123, city: 17}, ALL = CLUBS.golf + CLUBS.city;
+// is the count on Invited's own site, so the other 126 of 143 are golf.
+const CLUBS = {golf: 126, city: 17}, ALL = CLUBS.golf + CLUBS.city;
 const SFC = {sales: 159, salesClubs: 115, events: 77, eventsClubs: 59};
 const EVENTS = Math.round(SFC.events / SFC.eventsClubs * ALL);
 const LIC = [
@@ -2088,7 +2199,7 @@ $('#ctBody').innerHTML =
   bucket('b4', 'Across every system', 'Effort that goes away with one tested product') +
   row('Release testing returned', '<span id="qaNote"></span>', `<input type="text" inputmode="numeric" class="n" id="qaPeople" aria-label="People testing releases today"><small>testers</small>`, DASH, DASH, 'qaT');
 function applyScen(k) {
-  scen = SCEN[k]; $('#clubs').value = $('#clubs').value || 140;
+  scen = SCEN[k]; $('#clubs').value = $('#clubs').value || 143;
   $('#disc').value = scen.disc; $('#mult').value = scen.mult; $('#qaPeople').value = scen.qaPeople;
   LIC.forEach((l, i) => $('#q' + i).value = Math.round(l[3] * scen.q));
   IH.forEach((_, i) => $('#ih' + i).value = scen.ih);
@@ -2634,7 +2745,7 @@ function whereNow() {
 
 /* ---------- your cost ---------- */
 // Ardn's prices; Invited's own figures (spend today, entities) come from the October 13 call.
-const PRICE = {today: 8300000, entities: 126, entityFee: 1250, city: CLUBS.city, cityFee: 500, svc: 165000, impl: 1500000, years: 5};
+const PRICE = {today: 8300000, entities: 126, entityFee: 1250, city: CLUBS.city, cityFee: 500, svc: 205000, impl: 2900000, years: 5};
 /** The whole commercial case from one set of figures, so the headline, the teams and the calculator agree. */
 function costOf(p) {
   const techEnt = p.entities * p.entityFee * 12, techCity = p.city * p.cityFee * 12, tech = techEnt + techCity, svc = p.svc * 12;
@@ -2645,33 +2756,33 @@ function costOf(p) {
 const months = m => !isFinite(m) ? 'No payback' : m < 1 ? 'Under a month' : `${Math.round(m)} month${Math.round(m) === 1 ? '' : 's'}`;
 function baBars(el, p, c) {
   const top = Math.max(p.today, c.year, 1), w = n => `${Math.max(0, n) / top * 100}%`;
-  el.setAttribute('aria-label', `Today ${fmtM(p.today)} a year. Club Steward ${fmtM(c.year)} a year: technology ${fmtM(c.tech)} and services ${fmtM(c.svc)}.`);
+  el.setAttribute('aria-label', `Today ${fmtM(p.today)} a year. Club Steward ${fmtM2(c.year)} a year: technology ${fmtM2(c.tech)} and services ${fmtM2(c.svc)}.`);
   el.innerHTML = `<div class="ba-row"><span>Today</span><div class="bar"><i style="width:${w(p.today)};background:var(--brass)">54 systems and the people who run them</i></div><span class="amt">${fmtM(p.today)}</span></div>` +
-    `<div class="ba-row"><span>Club Steward</span><div class="bar"><i style="width:${w(c.tech)};background:var(--teal)">Technology</i><i style="width:${w(c.svc)};background:var(--brass2)">Services</i></div><span class="amt">${fmtM(c.year)}</span></div>` +
-    `<div class="ba-row"><span></span><span class="gap">${c.save > 0 ? `${fmtM(c.save)} a year back to the bottom line` : ''}</span><span></span></div>`;
+    `<div class="ba-row"><span>Club Steward</span><div class="bar"><i style="width:${w(c.tech)};background:var(--teal)">Technology</i><i style="width:${w(c.svc)};background:var(--brass2)">Services</i></div><span class="amt">${fmtM2(c.year)}</span></div>` +
+    `<div class="ba-row"><span></span><span class="gap">${c.save > 0 ? `${fmtM2(c.save)} a year back to the bottom line` : ''}</span><span></span></div>`;
 }
 (() => {
   const c = costOf(PRICE);
-  $('#vSave').textContent = fmtM(c.save);
+  $('#vSave').textContent = fmtM2(c.save);
   $('#vSaveMeta').textContent = `a year less (${Math.round(c.save / PRICE.today * 100)}% of the ${fmtM(PRICE.today)} Invited spends today) once every club is live`;
   baBars($('#vBa'), PRICE, c);
-  $('#tTech').textContent = `${fmtM(c.tech)} a year`;
+  $('#tTech').textContent = `${fmtM2(c.tech)} a year`;
   $('#tTechMeta').textContent = `${fmt(PRICE.entityFee)} a month per golf and country club entity (${PRICE.entities}), ${fmt(PRICE.cityFee)} per city club (${PRICE.city})`;
-  $('#tSvc').textContent = `${fmtM(c.svc)} a year`;
+  $('#tSvc').textContent = `${fmtM2(c.svc)} a year`;
   $('#tSvcMeta').textContent = `${fmt(PRICE.svc)} a month, fixed, for every club`;
   $('#tImpl').textContent = fmtM(PRICE.impl);
-  $('#tImplMeta').textContent = 'Paid once. Breaks even in month 17 from signing, with fees billed per club from its go-live';
+  $('#tImplMeta').textContent = 'Paid once: migration, pilots, rollout, and 9 months of go-live and hypercare support. Breaks even in month 22 from signing, with fees billed per club from its go-live';
 })();
 (() => {
   const c = costOf(PRICE), put = (id, s) => { const e = document.getElementById(id); if (e) e.textContent = s; };
-  put('sTitleSave', fmtM(c.save));
-  put('sVpNew', fmtM(c.year)); put('sVpOld', fmtM(PRICE.today)); put('sSave', fmtM(c.save)); put('sPct', `${Math.round(c.save / PRICE.today * 100)}%`);
-  put('sToday', fmtM(PRICE.today)); put('sYear2', fmtM(c.year)); put('sGap', fmtM(c.save));
-  put('sTech', fmtM(c.tech)); put('sSvc', fmtM(c.svc)); put('sImpl', fmtM(PRICE.impl)); put('sYear', fmtM(c.year));
+  put('sTitleSave', fmtM2(c.save));
+  put('sSave', fmtM2(c.save)); put('sPct', `${Math.round(c.save / PRICE.today * 100)}%`);
+  put('sToday', fmtM(PRICE.today)); put('sYear2', fmtM2(c.year)); put('sGap', fmtM2(c.save));
+  put('sTech', fmtM2(c.tech)); put('sSvc', fmtM2(c.svc)); put('sImpl', fmtM(PRICE.impl)); put('sYear', fmtM2(c.year));
   const bars = document.getElementById('opBars');
   if (bars) {
     bars.style.setProperty('--w', `${c.year / PRICE.today * 100}%`);
-    bars.setAttribute('aria-label', `Annual IT cost: today ${fmtM(PRICE.today)}; with Club Steward ${fmtM(c.year)}, ${fmtM(c.save)} less.`);
+    bars.setAttribute('aria-label', `Annual IT cost: today ${fmtM(PRICE.today)}; with Club Steward ${fmtM2(c.year)}, ${fmtM2(c.save)} less.`);
   }
   // the brand bar wraps below 1240px, so its height is measured, not assumed
   const bar = document.querySelector('.brandbar');
@@ -2685,9 +2796,9 @@ function cost() {
   const p = {}; Object.entries(cIds).forEach(([id, k]) => { p[k] = cNum(id); });
   p.years = Math.max(1, Math.round(p.years));
   const c = costOf(p);
-  $('#cYear').textContent = fmtM(c.year);
-  $('#cYearMeta').textContent = `Technology ${fmtM(c.tech)} and services ${fmtM(c.svc)}`;
-  $('#cSave').textContent = fmtM(c.save);
+  $('#cYear').textContent = fmtM2(c.year);
+  $('#cYearMeta').textContent = `Technology ${fmtM2(c.tech)} and services ${fmtM2(c.svc)}`;
+  $('#cSave').textContent = fmtM2(c.save);
   $('#cSaveMeta').textContent = p.today ? `${Math.round(c.save / p.today * 100)}% less than the ${fmtM(p.today)} Invited spends today` : 'Enter what Invited spends today';
   baBars($('#cBars'), p, c);
   $('#cList').innerHTML =
