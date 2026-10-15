@@ -1,5 +1,5 @@
 <title>Club Steward for Invited</title>
-<meta name="description" content="Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of fifty-four systems.">
+<meta name="description" content="Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of its systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -113,9 +113,8 @@ body.noflags .flag{display:none}
 .cm-err:empty{display:none}
 @media print{.cm,.cm-open{display:none!important}}
 /* the tracker adds an Export to PDF button that prints the old calculator; this page has none, so it stays out */
-body>button.ardn-track-ui:not(.cm-open){display:none!important}
 .cm-open{font-size:14px}
-@media print{.brandbar,.pxfoot{display:none!important}}
+@media print{@page{size:landscape;margin:8mm}html,body,.px{background:var(--night)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.px{min-height:0}.pxfoot{display:none!important}.view{break-inside:avoid}}
 
 #lightbox[hidden],#drawer[hidden]{display:none!important}
 [data-flex]>[data-n]{margin-right:.3em}
@@ -143,11 +142,11 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
 <div class="px" id="px">
 <header class="brandbar">
   <div class="bb-l"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"><span class="for">Club Steward · prepared for <b>Invited</b></span></div>
-  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#summary"><i>01</i>Summary</a><a href="#team"><i>02</i>The team</a><a href="#org"><i>03</i>Org chart</a><a href="#value"><i>04</i>Value</a><a href="#compare"><i>05</i>Compare</a><a href="#detail"><i>06</i>Detail</a><a href="#screens"><i>07</i>Screens</a><a href="#videos"><i>08</i>Videos</a><a href="#demo"><i>09</i>Demo</a><a href="#admin" id="tabAdmin" hidden><i>◆</i>Team admin</a></nav>
+  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#summary"><i>01</i>Summary</a><a href="#team"><i>02</i>The team</a><a href="#org"><i>03</i>Org chart</a><a href="#value"><i>04</i>Value</a><a href="#compare"><i>05</i>Compare</a><a href="#detail"><i>06</i>Detail</a><a href="#screens"><i>07</i>Screens</a><a href="#videos"><i>08</i>Videos</a><a href="#demo"><i>09</i>Demo</a><!--STAFF-TAB--></nav>
 </header>
 <div class="views">
 <div class="view" id="v-summary" data-view="summary" data-tab="summary" hidden>
-<main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:.4em;padding:.5em 1.8em;">
+<main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:.35em;padding:.45em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2.4em;">
     <div style="flex:1 1 30em;max-width:46em;">
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.45em;">Club Steward · proposal</div>
@@ -168,15 +167,15 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
       <div class="tl" style="position:relative;display:flex;flex-direction:column;gap:.45em;font-size:max(14px,.88em);padding-left:1.3em;">
         <div style="position:absolute;left:.3em;top:.45em;bottom:.45em;width:2px;background:rgba(246,189,96,.35);"></div>
         <div style="position:relative;"><div style="position:absolute;left:-1.3em;top:.3em;width:.65em;height:.65em;border-radius:50%;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div><div style="color:#F6BD60;font-family:Manrope,sans-serif;font-weight:600;font-size:max(14px,.85em);">Mar <span data-n="sinceYear"></span></div><div>Ardn starts work on Invited’s sales systems.</div></div>
-        <div style="position:relative;"><div style="position:absolute;left:-1.3em;top:.3em;width:.65em;height:.65em;border-radius:50%;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div><div style="color:#F6BD60;font-family:Manrope,sans-serif;font-weight:600;font-size:max(14px,.85em);">Nov 2022</div><div>Sales redesign live, <span data-n="redesignWeeks"></span> weeks from kickoff.</div></div>
-        <div style="position:relative;"><div style="position:absolute;left:-1.3em;top:.3em;width:.65em;height:.65em;border-radius:50%;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div><div style="color:#F6BD60;font-family:Manrope,sans-serif;font-weight:600;font-size:max(14px,.85em);">Oct 2024</div><div>Club Steward development begins, against Invited’s requirements.</div></div>
+        <div style="position:relative;"><div style="position:absolute;left:-1.3em;top:.3em;width:.65em;height:.65em;border-radius:50%;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div><div style="color:#F6BD60;font-family:Manrope,sans-serif;font-weight:600;font-size:max(14px,.85em);"><span data-n="redesignDate"></span></div><div>Sales redesign live, <span data-n="redesignWeeks"></span> weeks from kickoff.</div></div>
+        <div style="position:relative;"><div style="position:absolute;left:-1.3em;top:.3em;width:.65em;height:.65em;border-radius:50%;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div><div style="color:#F6BD60;font-family:Manrope,sans-serif;font-weight:600;font-size:max(14px,.85em);"><span data-n="devDate"></span></div><div>Club Steward development begins, against Invited’s requirements.</div></div>
         <div style="position:relative;"><div style="position:absolute;left:-1.3em;top:.3em;width:.65em;height:.65em;border-radius:50%;background:#0F1A4E;border:2px solid #F6BD60;"></div><div style="color:#F6BD60;font-family:Manrope,sans-serif;font-weight:600;font-size:max(14px,.85em);">Today</div><div><span data-n="rowsBuilt"></span> of <span data-n="rowsTotal"></span> workbook rows already built.</div></div>
       </div>
     </div>
 
     <div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.1);border-radius:12px;padding:.65em 1em;display:flex;flex-direction:column;gap:.4em;">
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700;">The patchwork</div>
-      <div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.3em;line-height:1.1;">“25 leads x 3 systems = 75 records.”</div>
+      <div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.55em;line-height:1.1;">“<span data-n="leadsDemo"></span> leads x <span data-n="leadCopies"></span> systems = <span data-n="records"></span> records.”</div>
       <div style="font-size:max(14px,.86em);color:#8E95B5;margin-top:-.3em;">A club user, 2022</div>
       <div style="display:flex;flex-direction:column;gap:.6em;font-size:max(14px,.88em);">
         <div>
@@ -288,32 +287,32 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
       <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700;">Who does what</span><div style="display:flex;flex-wrap:wrap;align-items:center;gap:.6em;">
         <div style="border:1px solid #F6BD60;border-radius:3px;padding:.4em .8em;"><div style="font-weight:700;font-size:max(14px,.92em);">Invited CIO</div><div style="font-size:max(14px,.84em);color:#C9CCDD;">Ranks the backlog</div></div>
         <div style="width:1.6em;height:1px;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div>
-        <div style="background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);color:#F4F1EA;border-radius:3px;padding:.4em .8em;"><div style="font-weight:700;font-size:max(14px,.92em);">Ardn Delivery Lead</div><div style="font-size:max(14px,.84em);">Onshore · half → full-time</div></div>
+        <div style="background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);color:#F4F1EA;border-radius:3px;padding:.4em .8em;"><div style="font-weight:700;font-size:max(14px,.92em);">Ardn Delivery Lead</div><div style="font-size:max(14px,.84em);">Onshore · <span data-step="Delivery Lead" data-sf="long"></span></div></div>
       </div>
       <span style="font-size:max(14px,.84em);color:#8E95B5;">→ shows the step-up during go-live</span></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12em,1fr));gap:.8em;font-size:max(14px,.84em);">
         <div style="border-top:2px solid rgba(246,189,96,.7);padding-top:.55em;">
           <div style="font-weight:700;margin-bottom:.4em;display:flex;justify-content:space-between;"><span>Platform &amp; quality</span><span style="color:#F6BD60;"><span data-n="platformPpl"></span> people</span></div>
           <div style="display:grid;grid-template-columns:1fr auto;gap:.28em .5em;color:#C9CCDD;">
-            <span>Solution Architect</span><span style="color:#F4F1EA;">Part-time</span>
-            <span>Release Manager</span><span style="color:#F4F1EA;">Half → full</span>
-            <span>QA Automation + offshore QA</span><span style="color:#F4F1EA;">1 → 2</span>
-            <span>Integration &amp; Data</span><span style="color:#F4F1EA;">1 → 2</span>
+            <span>Solution Architect</span><span style="color:#F4F1EA;"><span data-step="Solution Architect"></span></span>
+            <span>Release Manager</span><span style="color:#F4F1EA;"><span data-step="Release Manager"></span></span>
+            <span>QA Automation + offshore QA</span><span style="color:#F4F1EA;"><span data-step="QA Automation"></span></span>
+            <span>Integration &amp; Data</span><span style="color:#F4F1EA;"><span data-step="Integration &amp; Data Engineer"></span></span>
             
           </div>
         </div>
         <div style="border-top:2px solid rgba(246,189,96,.7);padding-top:.55em;">
           <div style="font-weight:700;margin-bottom:.4em;display:flex;justify-content:space-between;"><span>Support</span><span style="color:#F6BD60;"><span data-n="supportPpl"></span> people</span></div>
           <div style="display:grid;grid-template-columns:1fr auto;gap:.28em .5em;color:#C9CCDD;">
-            <span>Second-line Lead, on call</span><span style="color:#F4F1EA;">Full-time</span>
-            <span>L2 analysts, offshore, US shift</span><span style="color:#F4F1EA;">2 → 4</span>
-            <span>Trainer &amp; Change Lead</span><span style="color:#F4F1EA;">Part → full</span>
+            <span>Second-line Lead, on call</span><span style="color:#F4F1EA;"><span data-step="Second-line Support Lead"></span></span>
+            <span>L2 analysts, offshore, US shift</span><span style="color:#F4F1EA;"><span data-step="L2 analyst (US shift)"></span></span>
+            <span>Trainer &amp; Change Lead</span><span style="color:#F4F1EA;"><span data-step="Trainer &amp; Change Lead"></span></span>
             
           </div>
         </div>
       </div>
       <div style="border-top:2px solid rgba(246,189,96,.7);padding-top:.55em;font-size:max(14px,.84em);">
-        <div style="display:flex;justify-content:space-between;margin-bottom:.45em;"><span style="font-weight:700;">Six pods <span style="color:#F6BD60;"><span data-n="podPpl"></span> people</span></span><span style="color:#8E95B5;font-size:max(14px,.92em);">Each pod owns one area of one platform, backed by the <span data-n="sharedPpl"></span> shared people above</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:.45em;"><span style="font-weight:700;"><span data-n="podCount" data-f="Word"></span> pods <span style="color:#F6BD60;"><span data-n="podPpl"></span> people</span></span><span style="color:#8E95B5;font-size:max(14px,.92em);">Each pod owns one area of one platform, backed by the <span data-n="sharedPpl"></span> shared people above</span></div>
         <div class="pods" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:.4em;">
           <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Membership &amp; Sales</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Lead and developer, both shared</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod1Sys"></span> systems</div></div>
           <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Digital &amp; Front Desk</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Lead and developer, both shared</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod2Sys"></span> systems</div></div>
@@ -324,7 +323,7 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:.6em 1em;font-size:max(14px,.86em);background:rgba(246,189,96,.08);border:1px solid rgba(246,189,96,.3);border-radius:3px;padding:.6em .8em;">
-        <div><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span> people</div><div style="color:#C9CCDD;margin-top:.2em;">1 lead + <span data-n="platformPpl"></span> platform + <span data-n="supportPpl"></span> support + <span data-n="podPpl"></span> in pods</div></div>
+        <div><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span> people</div><div style="color:#C9CCDD;margin-top:.2em;"><span data-n="leadPpl"></span> lead + <span data-n="platformPpl"></span> platform + <span data-n="supportPpl"></span> support + <span data-n="podPpl"></span> in pods</div></div>
         <div><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5em;color:#F6BD60;line-height:1;"><span data-n="svcMo" data-f="usd"></span> a month</div><div style="color:#C9CCDD;margin-top:.2em;">About <span data-n="hoursMs"></span> hours a month at a blended <span data-n="blended"></span> an hour. <span class="flag" style="font-size:max(14px,.85em);font-weight:700;color:#F4F1EA;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);border-radius:2px;padding:0 .3em;">TBC</span></div></div>
         <div style="flex:2;"><div style="font-weight:700;">They support one platform, not <span data-n="retire"></span> systems.</div><div style="color:#C9CCDD;margin-top:.2em;"><span data-n="retire"></span> retire. One codebase, <span data-n="tests"></span> tests every night, your help desk keeps L1.</div></div>
       </div>
@@ -374,7 +373,7 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
     <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr) 2.2em minmax(0,1.45fr) minmax(0,1fr) minmax(0,1fr);column-gap:.6em;align-items:center;">
       <div style="grid-column:1 / 4;justify-self:center;width:min(100%,22em);"><div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:1em;line-height:1.2;">Invited CIO</div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">Executive sponsor · ranks the backlog · signs every gate</div></div></div>
       <div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.8);"></span></div>
-      <div style="grid-column:5 / 8;justify-self:center;width:min(100%,22em);"><div style="border:1px solid rgba(246,189,96,.6);background:rgba(246,189,96,.14);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:1em;line-height:1.2;">Ardn Delivery Lead <span style="color:#F6BD60;font-weight:600;">Half → full</span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">Named, onshore · accountable to the CIO</div></div></div>
+      <div style="grid-column:5 / 8;justify-self:center;width:min(100%,22em);"><div style="border:1px solid rgba(246,189,96,.6);background:rgba(246,189,96,.14);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:1em;line-height:1.2;">Ardn Delivery Lead <span style="color:#F6BD60;font-weight:600;"><span data-step="Delivery Lead"></span></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">Named, onshore · accountable to the CIO</div></div></div>
     </div>
     <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr) 2.2em minmax(0,1.45fr) minmax(0,1fr) minmax(0,1fr);column-gap:.6em;">
       <div style="grid-column:1 / 4;"><div style="width:1px;height:.8em;background:rgba(244,241,234,.35);margin:0 auto;"></div></div><div></div><div style="grid-column:5 / 8;"><div style="width:1px;height:.8em;background:rgba(244,241,234,.35);margin:0 auto;"></div></div>
@@ -386,7 +385,7 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
       <div><div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Product owner</div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">One named person · approves releases</div></div><div style="text-align:center;font-size:max(14px,.72em);color:#8E95B5;margin-top:.25em;">works with Platform</div></div>
       <div><div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">IT help desk</div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">First line: access, how-to, reproduce</div></div><div style="text-align:center;font-size:max(14px,.72em);color:#8E95B5;margin-top:.25em;">hands off to Ardn Support</div></div>
       <div style="grid-column:3 / 6;display:grid;grid-template-columns:minmax(0,1.25fr) 2.2em minmax(0,1.45fr);column-gap:.6em;row-gap:.3em;">
-        <div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;">Department leads<div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">sign off their area</div></div><div></div><div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;">Six pods <span style="color:#F6BD60;"><span data-n="podPpl"></span> people</span><div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">onshore lead + offshore devs</div></div>
+        <div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;">Department leads<div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">sign off their area</div></div><div></div><div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;"><span data-n="podCount" data-f="Word"></span> pods <span style="color:#F6BD60;"><span data-n="podPpl"></span> people</span><div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">onshore lead + offshore devs</div></div>
         <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">VP Membership</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Membership &amp; Sales</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
         <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Member experience</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Digital &amp; Front Desk</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
         <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Golf &amp; amenities</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Golf, Racquets &amp; Fitness</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
@@ -394,8 +393,8 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
         <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Finance / controllers</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Billing, Finance &amp; Books</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
         <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">IT &amp; data</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Data &amp; Integrations</span><span style="color:#F6BD60;white-space:nowrap;">shared</span></div>
       </div>
-      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Support <span style="color:#F6BD60;font-weight:600;"><span data-n="supportPpl"></span> people</span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">second and third line</div></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Support lead, on call</span><span style="color:#F4F1EA;white-space:nowrap;">Full-time</span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>L2 analysts, US shift</span><span style="color:#F4F1EA;white-space:nowrap;">2 → 4</span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Trainer &amp; change</span><span style="color:#F4F1EA;white-space:nowrap;">Part → full</span></div></div></div>
-      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Platform &amp; quality <span style="color:#F6BD60;font-weight:600;"><span data-n="platformPpl"></span> people</span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">shared by every pod</div></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Solution architect</span><span style="color:#F4F1EA;white-space:nowrap;">Part-time</span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Release manager</span><span style="color:#F4F1EA;white-space:nowrap;">Half → full</span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>QA automation</span><span style="color:#F4F1EA;white-space:nowrap;">1 → 2</span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Integration &amp; data</span><span style="color:#F4F1EA;white-space:nowrap;">1 → 2</span></div></div></div>
+      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Support <span style="color:#F6BD60;font-weight:600;"><span data-n="supportPpl"></span> people</span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">second and third line</div></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Support lead, on call</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Second-line Support Lead"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>L2 analysts, US shift</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="L2 analyst (US shift)"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Trainer &amp; change</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Trainer &amp; Change Lead"></span></span></div></div></div>
+      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Platform &amp; quality <span style="color:#F6BD60;font-weight:600;"><span data-n="platformPpl"></span> people</span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">shared by every pod</div></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Solution architect</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Solution Architect"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Release manager</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Release Manager"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>QA automation</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="QA Automation"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Integration &amp; data</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Integration &amp; Data Engineer"></span></span></div></div></div>
     </div>
   </div></section>
   <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4em 1.4em;padding-top:.45em;border-top:1px solid rgba(244,241,234,.13);font-size:max(14px,.84em);color:#C9CCDD;">
@@ -647,19 +646,19 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
   </section>
   <section class="vids" style="flex:1;display:grid;gap:.8em;align-content:start;">
     <article style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.65em 1em;padding:0;overflow:hidden;display:flex;flex-direction:column;">
-      <video controls playsinline preload="none" poster="/videos/club-steward-run-the-whole-club-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-run-the-whole-club.mp4" type="video/mp4"></source></video>
+      <video controls playsinline preload="none" poster="/videos/club-steward-run-the-whole-club-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-run-the-whole-club.mp4" type="video/mp4"></source><track kind="captions" src="/videos/club-steward-run-the-whole-club.vtt" srclang="en" label="English"></video>
       <div style="padding:.6em .9em .75em;display:flex;flex-direction:column;gap:.2em;"><div style="display:flex;justify-content:space-between;gap:1em;"><b style="color:#F4F1EA;">Run the whole club on one platform</b><span style="color:#8E95B5;font-size:max(14px,.86em);white-space:nowrap;">2 min</span></div><span style="font-size:max(14px,.84em);color:#C9CCDD;">Try it: Grant Whitaker, general manager</span></div>
     </article>
     <article style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.65em 1em;padding:0;overflow:hidden;display:flex;flex-direction:column;">
-      <video controls playsinline preload="none" poster="/videos/club-steward-events-catering-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-events-catering.mp4" type="video/mp4"></source></video>
+      <video controls playsinline preload="none" poster="/videos/club-steward-events-catering-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-events-catering.mp4" type="video/mp4"></source><track kind="captions" src="/videos/club-steward-events-catering.vtt" srclang="en" label="English"></video>
       <div style="padding:.6em .9em .75em;display:flex;flex-direction:column;gap:.2em;"><div style="display:flex;justify-content:space-between;gap:1em;"><b style="color:#F4F1EA;">Events &amp; Catering, start to finish</b><span style="color:#8E95B5;font-size:max(14px,.86em);white-space:nowrap;">1 min 37 s</span></div><span style="font-size:max(14px,.84em);color:#C9CCDD;">Try it: Morgan Ellis, events director</span></div>
     </article>
     <article style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.65em 1em;padding:0;overflow:hidden;display:flex;flex-direction:column;">
-      <video controls playsinline preload="none" poster="/videos/club-steward-point-of-sale-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-point-of-sale.mp4" type="video/mp4"></source></video>
+      <video controls playsinline preload="none" poster="/videos/club-steward-point-of-sale-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-point-of-sale.mp4" type="video/mp4"></source><track kind="captions" src="/videos/club-steward-point-of-sale.vtt" srclang="en" label="English"></video>
       <div style="padding:.6em .9em .75em;display:flex;flex-direction:column;gap:.2em;"><div style="display:flex;justify-content:space-between;gap:1em;"><b style="color:#F4F1EA;">Point of Sale: one checkout</b><span style="color:#8E95B5;font-size:max(14px,.86em);white-space:nowrap;">38 s</span></div><span style="font-size:max(14px,.84em);color:#C9CCDD;">Try it: Quick POS Sign-In, Riley Brooks</span></div>
     </article>
     <article style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.65em 1em;padding:0;overflow:hidden;display:flex;flex-direction:column;">
-      <video controls playsinline preload="none" poster="/videos/club-steward-member-service-hr-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-member-service-hr.mp4" type="video/mp4"></source></video>
+      <video controls playsinline preload="none" poster="/videos/club-steward-member-service-hr-poster.webp" style="display:block;width:100%;aspect-ratio:16/9;background:#16245F;"><source src="/videos/club-steward-member-service-hr.mp4" type="video/mp4"></source><track kind="captions" src="/videos/club-steward-member-service-hr.vtt" srclang="en" label="English"></video>
       <div style="padding:.6em .9em .75em;display:flex;flex-direction:column;gap:.2em;"><div style="display:flex;justify-content:space-between;gap:1em;"><b style="color:#F4F1EA;">Member Service &amp; HR</b><span style="color:#8E95B5;font-size:max(14px,.86em);white-space:nowrap;">1 min 47 s</span></div><span style="font-size:max(14px,.84em);color:#C9CCDD;">Try it: Grant Whitaker, then Service and HR</span></div>
     </article>
   </section>
@@ -685,84 +684,7 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
   </section>
 </main>
 </div>
-<div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
-<main data-screen-label="10 Team admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
-  <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
-    <div style="flex:1 1 20em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-bottom:.35em;">Ardn staff only · never shown to Invited</div><h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2em;line-height:1.06;margin:0;">Team, rates and margin</h1></div>
-    <div style="display:flex;gap:.4em;flex-wrap:wrap;align-items:center;">
-      <span style="font-size:max(14px,.8em);padding:.25em .7em;border-radius:999px;font-weight:700;"><span data-v="pubStatus"></span></span><span style="font-size:max(14px,.78em);color:#8E95B5;margin-right:.4em;"><span data-v="pubWhen"></span></span>
-      <button data-act="saveTeam" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;border:1px solid rgba(246,189,96,.7);background:rgba(246,189,96,.12);color:#F4F1EA;"><span data-v="teamSaveLabel"></span></button>
-      <button data-act="publishTeam" data-ev="click" id="admPublish" style="font:inherit;font-size:max(14px,.9em);font-weight:800;padding:.4em 1.1em;border-radius:999px;border:1px solid #5FD08A;background:rgba(95,208,138,.16);color:#F4F1EA;margin-right:.8em;">Publish to proposal</button>
-      <button id="phImpl" data-act="ph_impl" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Implementation</button><button id="phMs" data-act="ph_ms" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Managed service</button>
-    </div>
-  </section>
-  <section class="admstats" style="display:grid;gap:.5em;">
-    <div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRev"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">revenue a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRun"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">cost a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMargin"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">margin a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMarginPct"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">margin %</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admHours"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">hours a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admUtil"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">utilization</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admContract"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;"><span data-v="admContractLbl"></span></div></div>
-  </section>
-  <section style="flex:1;display:flex;gap:.7em;min-height:0;">
-    <div data-show="sideClosed" style="display:contents">
-    <button data-act="toggleSide" data-ev="click" title="Show rate card and hours" style="flex:none;width:2.2em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;color:#F6BD60;cursor:pointer;font:inherit;display:flex;flex-direction:column;align-items:center;gap:.6em;padding:.6em 0;"><span style="font-size:1.1em;">›</span><span style="writing-mode:vertical-rl;font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;font-weight:700;">Rates &amp; hours</span></button>
-    </div>
-    <div data-show="sideOpen" style="display:contents">
-    <div style="flex:0 0 20em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.6em .7em;display:flex;flex-direction:column;gap:.4em;overflow:auto;">
-      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;">Rate card</span><button data-act="toggleSide" data-ev="click" title="Collapse" style="background:none;border:1px solid rgba(244,241,234,.2);color:#C9CCDD;border-radius:6px;width:1.7em;height:1.7em;cursor:pointer;font:inherit;line-height:1;">‹</button></div>
-      <div style="display:grid;grid-template-columns:1em minmax(0,1fr) 3em 3em;gap:.3em;font-size:max(14px,.72em);color:#8E95B5;text-transform:uppercase;letter-spacing:.08em;"><span></span><span>Drag onto a row</span><span style="text-align:right;">Cost</span><span style="text-align:right;">Bill</span></div>
-      <div data-slot="rateCard" data-as="rc" style="display:contents"></div>
-      <button data-act="addRate" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:1px dashed rgba(244,241,234,.3);color:#C9CCDD;border-radius:8px;padding:.3em;cursor:pointer;">+ Add rate</button>
-      <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-top:.5em;">Hours</div>
-      <div style="font-size:max(14px,.78em);color:#8E95B5;">Drag onto a row to set its hours.</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.35em;">
-        <div data-slot="hourChips" data-as="hc" style="display:contents"></div>
-      </div>
-      <div style="margin-top:auto;font-size:max(14px,.74em);color:#8E95B5;line-height:1.35;">Revenue = bill × hours. Margin = revenue − cost. Utilization = hours ÷ 160.</div>
-    </div>
-    </div>
-    <div style="flex:1 1 0;min-width:0;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.3em .6em .6em;overflow:auto;">
-      <div data-show="hasSel" style="display:contents">
-      <div style="position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:.5em;margin:.3em 0 .4em;padding:.45em .6em;border-radius:10px;background:#16245F;border:1px solid rgba(246,189,96,.6);">
-        <b style="color:#F6BD60;font-size:max(14px,.9em);"><span data-v="selCount"></span> selected</b>
-        <span style="width:1px;height:1.2em;background:rgba(244,241,234,.2);"></span>
-        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Hours<input type="number" id="bulkHours" value="160" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;width:4.5em;text-align:right;"></input><button data-act="applyBulkHours" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:rgba(60,162,255,.18);border:1px solid rgba(60,162,255,.6);color:#F4F1EA;border-radius:6px;padding:.22em .6em;cursor:pointer;">Set</button></label>
-        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Location<select data-act="bulkLoc" data-ev="change" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option><option value="on">Onshore</option><option value="off">Offshore</option></select></label>
-        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Rate<select id="bulkRate" data-act="bulkRate" data-ev="change" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option></select></label>
-        <span style="margin-left:auto;"></span>
-        <button data-act="bulkDelete" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:1px solid rgba(240,138,108,.6);color:#F08A6C;border-radius:6px;padding:.22em .6em;cursor:pointer;">Remove</button>
-        <button data-act="clearSel" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:0;color:#C9CCDD;cursor:pointer;">Clear</button>
-      </div>
-      </div>
-      <table style="width:100%;border-collapse:collapse;font-size:max(14px,.88em);min-width:76em;">
-        <thead><tr style="text-align:left;font-size:max(14px,.74em);letter-spacing:.08em;text-transform:uppercase;color:#8E95B5;">
-          <th style="padding:.5em .3em;width:1.4em;"><input type="checkbox" id="admAll" data-act="toggleAll" data-ev="change" style="accent-color:#F6BD60;width:1em;height:1em;"></input></th><th style="padding:.5em .3em;width:1.2em;"></th><th style="padding:.5em .4em;width:15em;min-width:15em;">Role</th><th style="padding:.5em .4em;width:8em;min-width:8em;">Name</th><th style="padding:.5em .4em;">Loc</th><th style="padding:.5em .4em;text-align:right;">Cost/hr</th><th style="padding:.5em .4em;text-align:right;">Bill/hr</th><th style="padding:.5em .4em;text-align:right;">Hours</th><th style="padding:.5em .4em;">Util</th><th style="padding:.5em .4em;text-align:right;">Cost/mo</th><th style="padding:.5em .4em;text-align:right;">Revenue/mo</th><th style="padding:.5em .4em;text-align:right;">Margin/mo</th><th style="padding:.5em .4em;text-align:right;">Margin %</th><th style="padding:.5em .3em;"></th>
-        </tr></thead>
-        <tbody data-slot="admRows" data-as="row"></tbody>
-        <tfoot><tr style="font-weight:700;">
-          <td colspan="5" style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);color:#F4F1EA;">Total <span style="font-weight:400;color:#8E95B5;">· <span data-v="admPeople"></span> people</span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#8E95B5;font-weight:400;"><span data-v="admBlendCost"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#8E95B5;font-weight:400;"><span data-v="admBlendBill"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;"><span data-v="admHours"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);color:#F4F1EA;"><span data-v="admUtil"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#C9CCDD;"><span data-v="admRun"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;"><span data-v="admRev"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#5FD08A;font-size:1.05em;"><span data-v="admMargin"></span></td>
-          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#5FD08A;"><span data-v="admMarginPct"></span></td><td style="border-top:1px solid rgba(244,241,234,.3);"></td>
-        </tr></tfoot>
-      </table>
-      <div style="display:flex;flex-wrap:wrap;gap:.5em;align-items:center;margin-top:.55em;">
-        <button data-act="addRole" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:none;border:1px solid rgba(246,189,96,.6);color:#F9D08A;border-radius:8px;padding:.3em .8em;cursor:pointer;">+ Add person</button>
-        <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · hours are per phase.</span>
-        <span style="margin-left:auto;"></span>
-        <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#C9CCDD;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to draft</button>
-      </div>
-      <div style="margin-top:.8em;border-top:1px solid rgba(244,241,234,.13);padding-top:.6em;">
-        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By role</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;">
-          <div data-slot="roleCost" data-as="rc" style="display:contents"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-</div>
+<!--STAFF-VIEW-->
 </div>
 <footer class="pxfoot"><button type="button" id="fPrev"></button><span><span id="fPos"></span><span class="hold"> · Prices hold to <span data-n="priceHold"></span></span></span><button type="button" id="fNext"></button></footer>
 </div>
@@ -801,33 +723,6 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
   </aside>
 </div>
 <div id="lightbox" hidden data-act="closeShot" data-ev="click" style="position:fixed;inset:0;background:rgba(4,8,30,.85);display:flex;align-items:center;justify-content:center;padding:2em;cursor:zoom-out;z-index:50"><figure style="margin:0;max-width:min(1400px,100%);display:flex;flex-direction:column;gap:.6em;font-size:16px"><img id="lbImg" alt="" style="display:block;max-width:100%;max-height:80vh;object-fit:contain;border-radius:8px;border:1px solid rgba(244,241,234,.26)"><figcaption style="display:flex;gap:.8em;align-items:baseline;color:#F4F1EA"><span id="lbArea" style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#F6BD60;font-weight:700"></span><span id="lbCap"></span><span style="margin-left:auto;color:#8E95B5;font-size:14px">Esc to close</span></figcaption></figure></div>
-<template id="tpl-rateCard" data-as="rc"><div draggable="true" data-on-dragstart="drag" style="display:grid;grid-template-columns:1em minmax(0,1fr) 3em 3em;gap:.3em;align-items:center;border:1px solid rgba(246,189,96,.4);border-radius:8px;padding:.2em .35em;background:rgba(246,189,96,.06);cursor:grab;">
-          <span style="color:#8E95B5;font-size:max(14px,.9em);">⠿</span>
-          <input value="{{ rc.label }}" data-on-change="setLabel" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;font-size:max(14px,.82em);" class="xf0"></input>
-          <input type="number" value="{{ rc.cost }}" data-on-change="setCost" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;font-size:max(14px,.82em);" class="xf0"></input>
-          <input type="number" value="{{ rc.bill }}" data-on-change="setBill" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;font-size:max(14px,.82em);color:#F9D08A;" class="xf0"></input>
-        </div></template>
-<template id="tpl-hourChips" data-as="hc"><div draggable="true" data-on-dragstart="drag" style="border:1px solid rgba(60,162,255,.5);background:rgba(60,162,255,.08);border-radius:8px;padding:.3em .45em;cursor:grab;display:flex;flex-direction:column;"><b style="color:#F4F1EA;font-size:max(14px,.95em);">{{ hc.h }} h</b><span style="font-size:max(14px,.72em);color:#8E95B5;">{{ hc.label }}</span></div></template>
-<template id="tpl-rateOpts" data-as="rc"><option value="{{ rc.id }}">{{ rc.label }}</option></template>
-<template id="tpl-admRows" data-as="row"><tr draggable="true" data-on-dragstart="drag" data-on-dragover="over" data-on-drop="drop" data-on-pointerenter="fillEnter" style="background:{{ row.bg }};box-shadow:{{ row.fillRing }};">
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:center;"><input type="checkbox" checked="{{ row.sel }}" data-on-change="toggleSel" style="accent-color:#F6BD60;width:1em;height:1em;"></input></td><td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);color:#8E95B5;cursor:grab;text-align:center;">⠿</td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);min-width:15em;"><input value="{{ row.role }}" data-on-change="setRole" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><input value="{{ row.name }}" placeholder="Name" data-on-change="setName" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.loc }}" data-on-change="setLoc" style="font:inherit;font-size:max(14px,.86em);background:transparent;color:#C9CCDD;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;"><option value="on">On</option><option value="off">Off</option></select></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.cost }}" data-on-change="setCost" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;" class="xf0"></input></span></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.bill }}" data-on-change="setBill" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;color:#F9D08A;" class="xf0"></input></span></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;gap:.25em;"><input type="number" value="{{ row.hours }}" data-on-change="setHours" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:4em;" class="xf0"></input><span data-on-dragstart="noDrag" data-on-pointerdown="fillStart" data-on-dblclick="fillAll" title="Drag down to copy these hours · double-click to copy to everyone below" style="cursor:ns-resize;color:#08113B;background:#3CA2FF;font-size:max(14px,.7em);font-weight:800;width:1.2em;height:1.2em;display:grid;place-items:center;border-radius:3px;line-height:1;user-select:none;touch-action:none;">↓</span></span></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);min-width:6em;"><span style="display:flex;align-items:center;gap:.35em;"><span style="flex:1;height:.4em;border-radius:999px;background:rgba(244,241,234,.1);overflow:hidden;"><span style="display:block;height:100%;width:{{ row.utilW }};background:{{ row.utilC }};"></span></span><b style="font-size:max(14px,.82em);color:{{ row.utilC }};min-width:2.6em;text-align:right;">{{ row.util }}</b></span></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;color:#C9CCDD;">{{ row.monthly }}</td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;">{{ row.revenue }}</td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;color:{{ row.mC }};font-weight:700;">{{ row.margin }}</td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;"><span style="font-size:max(14px,.84em);font-weight:700;padding:.1em .45em;border-radius:999px;color:{{ row.mC }};border:1px solid {{ row.mC }};">{{ row.marginPct }}</span></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;"><button data-on-click="remove" style="background:none;border:0;color:#8E95B5;font:inherit;cursor:pointer;" class="xh1">×</button></td>
-            </tr></template>
-<template id="tpl-roleCost" data-as="rc"><div style="border:1px solid rgba(244,241,234,.13);border-radius:8px;padding:.4em .55em;display:grid;grid-template-columns:1fr auto;gap:.1em .5em;align-items:baseline;">
-              <b style="color:#F4F1EA;font-size:max(14px,.88em);">{{ rc.role }}</b><b style="color:{{ rc.mC }};font-size:max(14px,.9em);">{{ rc.margin }} · {{ rc.marginPct }}</b>
-              <span style="font-size:max(14px,.76em);color:#8E95B5;">{{ rc.people }} · {{ rc.hours }} h</span><span style="font-size:max(14px,.76em);color:#C9CCDD;">cost {{ rc.monthly }} · rev {{ rc.revenue }}</span>
-            </div></template>
 <template id="tpl-ar.items" data-as="it"><button data-on-click="pick" style="font:inherit;font-size:max(14px,.8em);line-height:1.2;padding:.28em .55em;border-radius:6px;cursor:pointer;border:1px solid {{ it.c }};background:{{ it.bg }};color:#F4F1EA;text-decoration:{{ it.strike }};text-decoration-color:rgba(244,241,234,.5);">{{ it.name }}</button></template>
 <template id="tpl-areas" data-as="ar"><div>
             <div style="font-size:max(14px,.8em);font-weight:700;color:#C9CCDD;margin-bottom:.3em;">{{ ar.name }} <span style="color:#8E95B5;font-weight:400;">· {{ ar.count }}</span></div>
@@ -851,6 +746,7 @@ body>button.ardn-track-ui:not(.cm-open){display:none!important}
           <span style="font-size:max(14px,.86em);color:#C9CCDD;line-height:1.3;">{{ p.see }}</span>
           <span style="margin-top:auto;padding-top:.35em;font-size:max(14px,.84em);font-weight:700;color:#F9D08A;">Sign in as {{ p.first }} →</span>
         </a></template>
+<!--STATE-->
 <script>
 const SLUG = window.__PROPOSAL_SLUG__ || 'invited-clubs';
 const $ = (s, r = document) => r.querySelector(s);
@@ -864,7 +760,7 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
    the figures as drafted, so the page reads the same when the stored copy cannot be fetched. */
 const FMTS = {
   usd: n => (n < 0 ? '−' : '') + '$' + Math.round(Math.abs(n)).toLocaleString('en-US'),
-  M: n => (n < 0 ? '−' : '') + '$' + trimZeros((Math.abs(n) / 1e6).toFixed(2)) + 'M',
+  M: n => (n < 0 ? '−' : '') + '$' + trimZeros((Math.abs(n) / 1e6).toFixed(Math.abs(n) >= 1e7 ? 1 : 2)) + 'M',
   k: n => '$' + trimZeros((n / 1e3).toFixed(1)) + 'K',
   int: n => Math.round(n).toLocaleString('en-US'),
   raw: n => String(Math.round(n)),
@@ -891,10 +787,7 @@ const NUMS = [
     ['impl', 'Implementation, one time', 'M', 2900000],
     ['hyperMonths', 'Months of hypercare', 'int', 9],
     ['years', 'Return period, years', 'int', 5],
-    ['roi', 'Return multiple (a direct input)', 'x', 5.1],
-    ['net', 'Net return over the period (a direct input)', 'M', 14900000],
-    ['breakeven', 'Breakeven month (a direct input)', 'int', 21],
-    ['goLiveFrom', 'Clubs go live from month', 'int', 8],
+    ['goLiveFrom', 'Clubs go live from month (return, net and breakeven are worked out from this ramp)', 'int', 8],
     ['goLiveTo', 'Clubs go live until month', 'int', 18],
   ]],
   ['The estate', [
@@ -904,6 +797,8 @@ const NUMS = [
     ['connect', 'Connect', 'int', 10],
     ['keep', 'Keep', 'int', 4],
     ['inHouse', 'Built in-house', 'int', 12],
+    ['leadsDemo', 'Leads in the patchwork example', 'int', 25],
+    ['leadCopies', 'Systems each lead is entered in', 'int', 3],
   ]],
   ['Built so far', [
     ['rowsBuilt', 'Workbook rows built', 'int', 432],
@@ -918,6 +813,7 @@ const NUMS = [
     ['goals', 'Goals checked every run', 'int', 790],
   ]],
   ['The team', [
+    ['leadPpl', 'Delivery lead, people', 'int', 1],
     ['platformPpl', 'People in Platform and quality', 'int', 4],
     ['supportPpl', 'People in Support', 'int', 4],
     ['podSize', 'People per pod', 'int', 2],
@@ -953,6 +849,8 @@ const NUMS = [
     ['day3', 'Third checkpoint, day', 'int', 90],
     ['sinceYear', 'Working together since (year)', 'raw', 2022],
     ['yearsTogether', 'Years working together', 'int', 4],
+    ['redesignDate', 'Sales redesign live, month and year', 'text', 'Nov 2022'],
+    ['devDate', 'Club Steward development begins, month and year', 'text', 'Oct 2025'],
     ['redesignWeeks', 'Sales redesign, weeks from kickoff', 'int', 12],
     ['partnerSince', 'Salesforce partner since (year)', 'raw', 2020],
   ]],
@@ -965,19 +863,37 @@ const NUMS = [
     ['saveLead', 'Leadership view', 'M', 0],
   ]],
   ['Display', [
-    ['showFlags', 'Show review flags (TBC, $ to size): 1 yes, 0 no', 'int', 1],
+    ['showFlags', 'Show review flags (TBC, $ to size): 1 yes, 0 no', 'int', 0],
   ]],
 ];
 const DEFAULTS = {}, KEYFMT = {}, KEYLABEL = {};
 NUMS.forEach(([, rows]) => rows.forEach(([k, label, f, d]) => { DEFAULTS[k] = d; KEYFMT[k] = f; KEYLABEL[k] = label; }));
-Object.assign(KEYFMT, {techYear: 'M', svcYear: 'M', total: 'M', saving: 'M', savingPct: 'pct', clubs: 'int', bought: 'int', stay: 'int', sharedPpl: 'int', podPpl: 'int', blended: 'usd', peopleMs: 'int', hoursMs: 'int', peopleImpl: 'int', hoursImpl: 'int', jobs: 'int', ardnCarries: 'int', leadCopies: 'int'});
+Object.assign(KEYFMT, {techYear: 'M', svcYear: 'M', total: 'M', saving: 'M', savingPct: 'pct', clubs: 'int', bought: 'int', stay: 'int', sharedPpl: 'int', podPpl: 'int', blended: 'usd', peopleMs: 'int', hoursMs: 'int', peopleImpl: 'int', hoursImpl: 'int', jobs: 'int', ardnCarries: 'int', records: 'int', podCount: 'int', roi: 'x', net: 'M', breakeven: 'int'});
 // what each derived figure is computed from, so the staff tab can say where an input shows up
 const DEPS = {techYear: ['entities', 'entityFee', 'cityClubs', 'cityFee'], svcYear: ['svcMo'], total: ['techYear', 'svcYear'], saving: ['today', 'total'], savingPct: ['saving', 'today'],
-  clubs: ['entities', 'cityClubs'], bought: ['systems', 'inHouse'], stay: ['connect', 'keep'], sharedPpl: ['platformPpl', 'supportPpl'], podPpl: ['peopleMs', 'sharedPpl'], blended: ['svcMo', 'hoursMs']};
+  clubs: ['entities', 'cityClubs'], bought: ['systems', 'inHouse'], stay: ['connect', 'keep'], sharedPpl: ['platformPpl', 'supportPpl'], podPpl: ['peopleMs', 'sharedPpl'], blended: ['svcMo', 'hoursMs'],
+  net: ['saving', 'impl', 'goLiveFrom', 'goLiveTo', 'years'], roi: ['net', 'impl'], breakeven: ['saving', 'impl', 'goLiveFrom', 'goLiveTo', 'years'], records: ['leadsDemo', 'leadCopies'], podCount: []};
 // the published headcount and hours; this is all the page ever learns of the team table
-const TEAM_DEFAULT = {peopleMs: 15, hoursMs: 2000, peopleImpl: 21, hoursImpl: 3280};
+// roles: hours of each person at go-live (i) and after rollout (m), by role; the step-ups shown on The team and Org chart come from it
+const POD_KEYS = ['pod1Sys', 'pod2Sys', 'pod3Sys', 'pod4Sys', 'pod5Sys', 'pod6Sys'];
+const TEAM_DEFAULT = {peopleMs: 15, hoursMs: 2000, peopleImpl: 21, hoursImpl: 3280, roles: {
+  'Delivery Lead': {i: [160], m: [80]}, 'Solution Architect': {i: [80], m: [40]}, 'Release Manager': {i: [160], m: [80]},
+  'QA Automation': {i: [160, 160], m: [160]}, 'Integration & Data Engineer': {i: [160, 160], m: [160]},
+  'Second-line Support Lead': {i: [160], m: [160]}, 'L2 analyst (US shift)': {i: [160, 160, 160, 160], m: [160, 160]}, 'Trainer & Change Lead': {i: [160], m: [40]}}};
 
-let NV = {...DEFAULTS}, PUBT = {...TEAM_DEFAULT}, V = {};
+/** Keeps only figures this page knows, with the right kind of value. */
+function cleanNums(raw) {
+  const out = {};
+  if (raw && typeof raw === 'object') for (const k in DEFAULTS) {
+    const v = raw[k];
+    if (typeof DEFAULTS[k] === 'string' ? typeof v === 'string' : (typeof v === 'number' && isFinite(v))) out[k] = v;
+  }
+  return out;
+}
+// the server puts what Ardn published into the page, so the figures are right on the first paint
+const ST = window.__PROPOSAL_STATE__ || {};
+let NV = {...DEFAULTS, ...cleanNums(ST.nums)}, PUBT = {...TEAM_DEFAULT, ...(ST.snap || {})}, V = {};
+if (!PUBT.roles || typeof PUBT.roles !== 'object') PUBT.roles = TEAM_DEFAULT.roles;
 
 /* The compare table: who carries each of twelve jobs, and its weight. I Invited, V vendor, S shared, A Ardn.
    Cost to Invited: a job it carries costs 3 (high) or 2 (medium); a shared one costs a level less; a vendor's or Ardn's own is in the fee.
@@ -1014,11 +930,23 @@ function derive(n, t) {
   d.bought = n.systems - n.inHouse;
   d.stay = n.connect + n.keep;
   d.sharedPpl = n.platformPpl + n.supportPpl;
-  d.podPpl = Math.max(0, t.peopleMs - 1 - d.sharedPpl);
+  d.podPpl = Math.max(0, t.peopleMs - n.leadPpl - d.sharedPpl);
+  d.podCount = POD_KEYS.length;
   d.blended = t.hoursMs ? n.svcMo / t.hoursMs : 0;
   d.jobs = JOBS.length;
   d.ardnCarries = JOBS.filter(j => j[5] === 'A').length;
-  d.leadCopies = 3; // Salesforce, ProspectPro, MemberPride: the three bars drawn on the Summary
+  d.records = n.leadsDemo * n.leadCopies;
+  // Return: clubs go live evenly between two months (counted mid-month), the saving starts with each club, and the fee for
+  // implementation is paid back from it. Net, return multiple and breakeven month are worked out here, not typed in.
+  const monthly = d.saving / 12, span = Math.max(1, n.goLiveTo - n.goLiveFrom), horizon = Math.max(1, Math.round(n.years * 12));
+  let cum = 0, be = 0;
+  for (let m = 1; m <= horizon; m++) {
+    cum += Math.min(1, Math.max(0, (m - 0.5 - n.goLiveFrom) / span)) * monthly;
+    if (!be && cum >= n.impl) be = m;
+  }
+  d.net = cum - n.impl;
+  d.roi = n.impl ? d.net / n.impl : 0;
+  d.breakeven = be || horizon;
   return d;
 }
 const fmtKey = (k, v) => (FMTS[k && KEYFMT[k]] || FMTS.int)(v);
@@ -1046,8 +974,22 @@ function paint() {
     else { e.textContent = '$ to size'; e.classList.add('flag'); e.setAttribute('style', e.dataset.orig); }
   });
   document.body.classList.toggle('noflags', !V.showFlags);
+  $$('[data-step]').forEach(e => { e.textContent = stepText(e.dataset.step, e.dataset.sf === 'long'); });
+  const md = $('meta[name=description]'); if (md) md.content = `Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of ${V.systems} systems.`;
   paintCompare(); paintCalc(); paintDetail();
   if (typeof paintAdminNote === 'function') paintAdminNote();
+}
+
+// how a role steps up at go-live, from the published hours of each person
+const SHORT = {full: 'full', half: 'half', part: 'part', tq: '¾'}, LONG = {full: 'Full-time', half: 'Half-time', part: 'Part-time', tq: '¾ time', off: 'Off'};
+const hrLab = h => h >= 140 ? 'full' : h >= 100 ? 'tq' : h >= 60 ? 'half' : h > 0 ? 'part' : 'off';
+function stepText(role, long) {
+  const r = (PUBT.roles || {})[role]; if (!r) return '—';
+  if (r.i.length > 1 || r.m.length > 1) return r.i.length === r.m.length ? String(r.i.length) : r.m.length + ' → ' + r.i.length;
+  const a = hrLab(r.m[0] || 0), b = hrLab(r.i[0] || 0);
+  if (a === b) return long ? LONG[b].toLowerCase() : LONG[b];
+  const s = SHORT[a] + ' → ' + SHORT[b];
+  return long ? s + '-time' : s[0].toUpperCase() + s.slice(1);
 }
 
 function paintCompare() {
@@ -1288,246 +1230,6 @@ function whereNow() {
   return t ? t[1] : v === 'admin' ? 'Team admin' : '';
 }
 
-/* ---------- Team admin: Ardn staff only. Built from the staff API; the client never receives any of this. ---------- */
-const CAP = 160;
-const A = {loaded: false, team: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: ''};
-const clone = o => JSON.parse(JSON.stringify(o));
-// jsonb storage reorders keys, so drafts are compared with sorted keys
-const canon = o => JSON.stringify(o, (k, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort(([a], [b]) => a < b ? -1 : 1)) : v);
-const curJ = () => canon({team: A.team, rates: A.rates, nums: A.nums});
-const savedJ = () => A.draft ? canon({team: A.draft.team, rates: A.draft.rates, nums: A.draft.nums}) : A.baseJ;
-const isUnsaved = () => curJ() !== savedJ();
-const isLive = () => !isUnsaved() && !!A.draft && !!A.pub && A.pub.hash === A.draft.hash;
-const money = n => (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
-const pctOf = (m, r) => r ? Math.round(m / r * 100) + '%' : '—';
-const mColor = (m, r) => !r ? '#8E95B5' : m / r >= .4 ? '#5FD08A' : m / r >= .2 ? '#F6BD60' : '#F08A6C';
-const snapOf = tm => ({peopleMs: tm.filter(x => x.ms > 0).length, hoursMs: tm.reduce((a, x) => a + x.ms, 0), peopleImpl: tm.filter(x => x.impl > 0).length, hoursImpl: tm.reduce((a, x) => a + x.impl, 0)});
-const setV = (name, val) => $$(`[data-v="${name}"]`).forEach(e => { e.textContent = val; });
-const normDraft = d => ({...d, nums: {...DEFAULTS, ...(d.nums || {})}});
-/** Keeps only figures this page knows, with the right kind of value. */
-function cleanNums(raw) {
-  const out = {};
-  if (raw && typeof raw === 'object') for (const k in DEFAULTS) {
-    const v = raw[k];
-    if (typeof DEFAULTS[k] === 'string' ? typeof v === 'string' : (typeof v === 'number' && isFinite(v))) out[k] = v;
-  }
-  return out;
-}
-
-async function loadAdmin() {
-  try {
-    const r = await fetch('/api/proposals/team-draft?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'});
-    const d = await r.json();
-    if (!d.ok) throw new Error(d.message || 'no');
-    A.draft = d.draft ? normDraft(d.draft) : null;
-    A.pub = d.published || null;
-    A.baseJ = canon({team: d.defaults.team, rates: d.defaults.rates, nums: {...DEFAULTS}});
-    A.team = clone(A.draft ? A.draft.team : d.defaults.team);
-    A.rates = clone(A.draft ? A.draft.rates : d.defaults.rates);
-    A.nums = {...DEFAULTS, ...(A.draft ? A.draft.nums : {})};
-    A.loaded = true; A.msg = '';
-  } catch (e) { A.msg = 'The team didn’t load. Reload to try again.'; }
-  if (document.body.dataset.view === 'admin') renderAdmin();
-}
-
-function initAdmin() {
-  const root = $('#v-admin main');
-  const [head, stats, mainSec] = $$(':scope > section', root);
-  const wrap = document.createElement('div');
-  wrap.id = 'admTeam'; wrap.style.cssText = 'display:flex;flex-direction:column;gap:.6em;flex:1;min-height:0';
-  stats.before(wrap); wrap.append(stats, mainSec);
-  const nums = document.createElement('section');
-  nums.id = 'admNums'; nums.style.cssText = 'display:none;flex-direction:column;gap:.6em;flex:1';
-  root.append(nums);
-  const seg = document.createElement('div');
-  seg.style.cssText = 'display:flex;gap:.4em;margin-right:.8em';
-  const b = (id, label) => `<button type="button" id="${id}" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;border:1px solid rgba(244,241,234,.2);background:transparent">${label}</button>`;
-  seg.innerHTML = b('subTeam', 'Team and rates') + b('subNums', 'Proposal numbers');
-  $('#phImpl').parentElement.prepend(seg);
-  $('#subTeam').onclick = () => { A.sub = 'team'; renderAdmin(); };
-  $('#subNums').onclick = () => { A.sub = 'nums'; renderAdmin(); };
-  // the unsaved-changes dot: figures typed in a box commit when the box loses focus
-  const note = document.createElement('div');
-  note.id = 'admMsg'; note.style.cssText = 'font-size:max(14px,.9em);color:#F08A6C';
-  head.append(note);
-}
-
-function renderAdmin() {
-  if (!A.loaded) { setV('pubStatus', A.msg ? 'Not loaded' : 'Loading…'); setV('pubWhen', A.msg || ''); return; }
-  const ph = A.phase, team = A.team, rates = A.rates, sel = A.sel.filter(id => team.some(t => t.id === id));
-  A.sel = sel;
-  const isSel = id => sel.includes(id);
-  const setTeam = t => { A.team = t; renderAdmin(); };
-  const upd = (id, fn) => setTeam(team.map(t => t.id === id ? fn({...t}) : t));
-  const bulk = fn => setTeam(team.map(t => isSel(t.id) ? fn({...t}) : t));
-  const run = team.reduce((a, t) => a + t.cost * t[ph], 0), rev = team.reduce((a, t) => a + t.bill * t[ph], 0), hrs = team.reduce((a, t) => a + t[ph], 0), mar = rev - run;
-  const nPeople = team.filter(t => t[ph] > 0).length;
-  const contract = ph === 'ms' ? A.nums.svcMo : A.nums.impl / Math.max(1, A.nums.hyperMonths);
-  const util = nPeople ? Math.round(hrs / (nPeople * CAP) * 100) + '%' : '—';
-  setV('admRev', money(rev)); setV('admRun', money(run)); setV('admMargin', money(mar)); setV('admMarginPct', pctOf(mar, rev));
-  setV('admHours', hrs.toLocaleString('en-US')); setV('admUtil', util); setV('admPeople', nPeople);
-  setV('admBlendCost', hrs ? money(run / hrs) + '/h' : '—'); setV('admBlendBill', hrs ? money(rev / hrs) + '/h' : '—');
-  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'contract a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
-  setV('selCount', sel.length);
-  const f = A.fill, inFill = i => f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
-  const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, [ph]: v} : x));
-  const rows = team.map((t, idx) => {
-    const c = t.cost * t[ph], rv = t.bill * t[ph], m = rv - c, u = Math.round(t[ph] / CAP * 100);
-    return {sel: isSel(t.id), role: t.role, name: t.name, loc: t.loc, cost: t.cost, bill: t.bill, hours: t[ph],
-      monthly: money(c), revenue: money(rv), margin: money(m), marginPct: pctOf(m, rv), mC: mColor(m, rv),
-      util: u + '%', utilW: Math.min(100, u) + '%', utilC: t[ph] > CAP ? '#F08A6C' : t[ph] >= CAP * .75 ? '#5FD08A' : t[ph] > 0 ? '#F6BD60' : '#8E95B5',
-      bg: t.loc === 'off' ? 'rgba(239,217,174,.06)' : 'transparent', fillRing: 'none',
-      toggleSel: () => { A.sel = isSel(t.id) ? sel.filter(x => x !== t.id) : [...sel, t.id]; renderAdmin(); },
-      setRole: e => upd(t.id, x => (x.role = e.target.value, x)), setName: e => upd(t.id, x => (x.name = e.target.value, x)),
-      setLoc: e => upd(t.id, x => (x.loc = e.target.value, x)),
-      setCost: e => upd(t.id, x => (x.cost = Math.max(0, +e.target.value || 0), x)), setBill: e => upd(t.id, x => (x.bill = Math.max(0, +e.target.value || 0), x)),
-      setHours: e => upd(t.id, x => (x[ph] = Math.max(0, +e.target.value || 0), x)),
-      remove: () => setTeam(team.filter(x => x.id !== t.id)),
-      drag: e => { e.dataTransfer.setData('text/plain', 'row:' + t.id); e.dataTransfer.effectAllowed = 'move'; },
-      over: e => e.preventDefault(),
-      drop: e => {
-        e.preventDefault(); const d = e.dataTransfer.getData('text/plain');
-        if (d.startsWith('hours:')) { const v = +d.slice(6) || 0; upd(t.id, x => (x[ph] = v, x)); return; }
-        if (d.startsWith('rate:')) { const rc = rates.find(x => x.id === +d.slice(5)); if (rc) upd(t.id, x => (x.cost = rc.cost, x.bill = rc.bill, x)); return; }
-        if (d.startsWith('row:')) {
-          const from = +d.slice(4); if (from === t.id) return;
-          const arr = team.filter(x => x.id !== from), moved = team.find(x => x.id === from);
-          arr.splice(arr.findIndex(x => x.id === t.id), 0, moved); setTeam(arr);
-        }
-      },
-      noDrag: e => { e.preventDefault(); e.stopPropagation(); },
-      fillStart: e => {
-        e.preventDefault(); e.stopPropagation(); A.fill = {from: idx, to: idx, v: t[ph]}; paintFill();
-        const up = () => { removeEventListener('pointerup', up); const g = A.fill; A.fill = null; if (g && g.to !== g.from) applyFill(g.from, g.to, g.v); else paintFill(); };
-        addEventListener('pointerup', up);
-      },
-      fillEnter: () => { if (A.fill && A.fill.to !== idx) { A.fill.to = idx; paintFill(); } },
-      fillAll: () => applyFill(idx, team.length - 1, t[ph])};
-  });
-  renderSlot(slotOf('admRows'), rows);
-  $$('[data-slot=admRows] > tr').forEach((tr, i) => { if (isSel(team[i].id)) tr.style.background = 'rgba(246,189,96,.10)'; });
-  renderSlot(slotOf('rateCard'), rates.map(rc => ({id: rc.id, label: rc.label, cost: rc.cost, bill: rc.bill,
-    setLabel: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, label: e.target.value} : x); renderAdmin(); },
-    setCost: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, cost: Math.max(0, +e.target.value || 0)} : x); renderAdmin(); },
-    setBill: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, bill: Math.max(0, +e.target.value || 0)} : x); renderAdmin(); },
-    drag: e => { e.dataTransfer.setData('text/plain', 'rate:' + rc.id); e.dataTransfer.effectAllowed = 'copy'; }})));
-  renderSlot(slotOf('hourChips'), [[160, 'Full-time'], [120, '¾ time'], [80, 'Half-time'], [40, 'Part-time'], [20, 'Light'], [0, 'Off']].map(([h, label]) => ({h, label,
-    drag: e => { e.dataTransfer.setData('text/plain', 'hours:' + h); e.dataTransfer.effectAllowed = 'copy'; }})));
-  $('#bulkRate').innerHTML = '<option value="">—</option>' + rates.map(r => `<option value="${r.id}">${esc(r.label)}</option>`).join('');
-  const byRole = {};
-  team.forEach(t => { const k = t.role || 'Unnamed', g = byRole[k] || (byRole[k] = {role: k, n: 0, hrs: 0, cost: 0, rev: 0}); if (t[ph] > 0) g.n++; g.hrs += t[ph]; g.cost += t.cost * t[ph]; g.rev += t.bill * t[ph]; });
-  renderSlot(slotOf('roleCost'), Object.values(byRole).sort((x, y) => (y.rev - y.cost) - (x.rev - x.cost)).map(g => ({role: g.role, people: g.n + (g.n === 1 ? ' person' : ' people'), hours: g.hrs.toLocaleString('en-US'),
-    monthly: money(g.cost), revenue: money(g.rev), margin: money(g.rev - g.cost), marginPct: pctOf(g.rev - g.cost, g.rev), mC: mColor(g.rev - g.cost, g.rev)})));
-  $('#admAll').checked = team.length > 0 && sel.length === team.length;
-  $('[data-show=hasSel]').hidden = !sel.length; $('[data-show=sideOpen]').hidden = A.sideClosed; $('[data-show=sideClosed]').hidden = !A.sideClosed;
-  $('#bulkHours').value = A.bulkHours;
-  const phStyle = (id, on) => { const e = $(id); e.style.background = on ? 'rgba(246,189,96,.16)' : 'transparent'; e.style.border = '1px solid ' + (on ? 'rgba(246,189,96,.7)' : 'rgba(244,241,234,.2)'); };
-  phStyle('#phImpl', ph === 'impl'); phStyle('#phMs', ph === 'ms'); phStyle('#subTeam', A.sub === 'team'); phStyle('#subNums', A.sub === 'nums');
-  $('#phImpl').hidden = $('#phMs').hidden = A.sub !== 'team';
-  $('#admTeam').style.display = A.sub === 'team' ? 'flex' : 'none'; $('#admNums').style.display = A.sub === 'nums' ? 'flex' : 'none';
-  if (A.sub === 'nums') renderNums();
-  renderStatus();
-  // bulk-bar controls and the rest talk through ACT
-  A.ctx = {team, rates, bulk, setTeam, sel};
-}
-function paintFill() {
-  const f = A.fill;
-  $$('[data-slot=admRows] > tr').forEach((tr, i) => {
-    const on = f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
-    tr.style.background = on ? 'rgba(60,162,255,.18)' : A.sel.includes(A.team[i]?.id) ? 'rgba(246,189,96,.10)' : A.team[i]?.loc === 'off' ? 'rgba(239,217,174,.06)' : 'transparent';
-    tr.style.boxShadow = on ? 'inset 3px 0 0 #3CA2FF' : 'none';
-  });
-}
-function renderStatus() {
-  const unsaved = isUnsaved(), live = isLive();
-  const label = unsaved ? 'Unsaved changes' : live ? 'Live on proposal' : A.draft ? 'Draft saved · not published' : 'Nothing saved yet';
-  const col = unsaved ? '#F08A6C' : live ? '#5FD08A' : '#F6BD60';
-  setV('pubStatus', label);
-  const pill = $('[data-v=pubStatus]').parentElement; pill.style.border = '1px solid ' + col; pill.style.color = col;
-  setV('pubWhen', A.msg || (A.pub ? 'Published ' + new Date(A.pub.at).toLocaleString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) : 'Proposal shows the original figures'));
-  setV('teamSaveLabel', unsaved || !A.draft ? 'Save draft' : 'Draft saved');
-  const pub = $('#admPublish'), off = unsaved || live || !A.draft;
-  pub.disabled = off; pub.style.opacity = off ? .45 : 1; pub.style.cursor = off ? 'not-allowed' : 'pointer';
-}
-
-/* the Proposal numbers section: every input of NUMS, grouped, with where it shows and a live preview of what it derives */
-let USED = null;
-function usedOn() {
-  if (USED) return USED;
-  const direct = {}, tabName = Object.fromEntries(TABS);
-  const add = (k, tab) => { (direct[k] = direct[k] || new Set()).add(tab); };
-  $$('[data-n],[data-save],[data-flex]').forEach(e => {
-    const k = e.dataset.n || e.dataset.save || e.dataset.flex, t = e.closest('[data-tab]');
-    add(k, t ? tabName[t.dataset.tab] || t.dataset.tab : 'every tab');
-  });
-  $$('[id^=c]', $('#v-team')).forEach(() => {});
-  // the capacity calculator reads the add-on rates, the pod size, the services fee and the cost basis
-  ['onshoreRate', 'offshoreRate', 'podDevs', 'svcMo', 'techYear', 'today', 'peopleMs'].forEach(k => add(k, 'The team'));
-  ['pod1Sys', 'pod2Sys', 'pod3Sys', 'pod4Sys', 'pod5Sys', 'pod6Sys'].forEach(k => add(k, 'The team'));
-  add('showFlags', 'every tab'); ['saveApp', 'saveTeam', 'saveQa', 'saveDefect', 'saveRoadmap', 'saveLead'].forEach(k => add(k, 'Summary'));
-  ['retire', 'partial', 'connect', 'keep', 'systems'].forEach(k => add(k, 'Detail'));
-  const seen = (k, acc = new Set()) => { (direct[k] || []).forEach(x => acc.add(x)); Object.entries(DEPS).forEach(([d, ins]) => { if (ins.includes(k) && !acc.has('#' + d)) { acc.add('#' + d); seen(d, acc); } }); return acc; };
-  USED = k => [...seen(k)].filter(x => x[0] !== '#');
-  return USED;
-}
-function renderNums() {
-  const used = usedOn(), root = $('#admNums');
-  const inp = 'font:inherit;font-size:max(14px,.9em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;width:100%;text-align:right';
-  const d = derive(A.nums, snapOf(A.team));
-  const prev = [['Technology a year', d.techYear, 'M'], ['Services a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Clubs', d.clubs, 'int']];
-  root.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.6em;line-height:1.1;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#C9CCDD">${l}, worked out</div></div>`).join('') + '</div>' +
-    `<div style="color:#8E95B5;font-size:max(14px,.86em)">Totals, the saving, the bars and the capacity calculator are worked out from these inputs. Return multiple, net return and breakeven month are entered directly. Save the draft, then publish, to show a change to Invited.</div>` +
-    `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(22em,1fr));gap:.6em;align-items:start">` +
-    NUMS.map(([title, rows]) => `<div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.7em .9em;display:flex;flex-direction:column;gap:.4em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700">${esc(title)}</div>` +
-      rows.map(([k, label, f]) => `<label style="display:grid;grid-template-columns:1fr 7.5em;gap:.1em .6em;align-items:center"><span>${esc(label)}<span style="display:block;color:#8E95B5;font-size:max(14px,.84em)">${used(k).length ? 'Used on: ' + esc(used(k).join(', ')) : 'Used by the figures above'}</span></span>` +
-        `<input data-nk="${k}" type="${f === 'text' ? 'text' : 'number'}" step="any" min="0" value="${esc(A.nums[k])}" style="${inp}"></label>`).join('') + '</div>').join('') + '</div>';
-  $$('[data-nk]', root).forEach(i => i.addEventListener('change', () => {
-    const k = i.dataset.nk;
-    if (typeof DEFAULTS[k] === 'string') A.nums[k] = i.value.trim().slice(0, 40) || DEFAULTS[k];
-    else { const v = parseFloat(i.value); if (isFinite(v) && v >= 0) A.nums[k] = v; }
-    renderAdmin();
-  }));
-}
-
-Object.assign(ACT, {
-  toggleSide: () => { A.sideClosed = !A.sideClosed; renderAdmin(); },
-  ph_impl: () => { A.phase = 'impl'; renderAdmin(); }, ph_ms: () => { A.phase = 'ms'; renderAdmin(); },
-  toggleAll: e => { A.sel = A.sel.length === A.team.length ? [] : A.team.map(t => t.id); renderAdmin(); },
-  clearSel: () => { A.sel = []; renderAdmin(); },
-  applyBulkHours: () => { A.bulkHours = Math.max(0, +$('#bulkHours').value || 0); const {bulk} = A.ctx; bulk(t => (t[A.phase] = A.bulkHours, t)); },
-  bulkLoc: (e, el) => { const v = el.value; if (v) A.ctx.bulk(t => (t.loc = v, t)); el.value = ''; },
-  bulkRate: (e, el) => { const rc = A.rates.find(x => String(x.id) === el.value); if (rc) A.ctx.bulk(t => (t.cost = rc.cost, t.bill = rc.bill, t)); el.value = ''; },
-  bulkDelete: () => { A.team = A.team.filter(t => !A.sel.includes(t.id)); A.sel = []; renderAdmin(); },
-  addRate: () => { A.rates = [...A.rates, {id: Date.now(), label: 'New rate', cost: 30, bill: 60}]; renderAdmin(); },
-  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', loc: 'off', cost: 22, bill: 60, impl: 160, ms: 160}]; renderAdmin(); },
-  resetTeam: () => {
-    const d = A.draft;
-    A.team = clone(d ? d.team : JSON.parse(A.baseJ).team); A.rates = clone(d ? d.rates : JSON.parse(A.baseJ).rates); A.nums = {...DEFAULTS, ...(d ? d.nums : {})}; renderAdmin();
-  },
-  saveTeam: async () => {
-    A.msg = 'Saving…'; renderStatus();
-    try {
-      const r = await fetch('/api/proposals/team-draft', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, team: A.team, rates: A.rates, nums: A.nums})});
-      const d = await r.json().catch(() => ({}));
-      if (!r.ok || !d.ok) { A.msg = d.message || 'The draft didn’t save. Try again.'; renderStatus(); return; }
-      A.draft = normDraft(d.draft); A.msg = '';
-    } catch (e) { A.msg = 'The draft didn’t save. Try again.'; }
-    renderAdmin();
-  },
-  publishTeam: async () => {
-    if (isUnsaved() || isLive() || !A.draft) return;
-    A.msg = 'Publishing…'; renderStatus();
-    try {
-      const r = await fetch('/api/proposals/team-publish', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG})});
-      const d = await r.json().catch(() => ({}));
-      if (!r.ok || !d.ok) { A.msg = d.message || 'The publish didn’t go through. Try again.'; renderStatus(); return; }
-      A.pub = d.published; A.msg = '';
-      NV = {...DEFAULTS, ...cleanNums(d.nums)}; PUBT = {...TEAM_DEFAULT, ...d.snap}; paint();
-    } catch (e) { A.msg = 'The publish didn’t go through. Try again.'; }
-    renderAdmin();
-  },
-});
-
 /* ---------- comments (unchanged behaviour) ---------- */
 const el = (t, a = {}, h = '') => { const e = document.createElement(t); for (const k in a) e.setAttribute(k, a[k]); if (h) e.innerHTML = h; return e; };
 let cmts = [], replyTo = '';
@@ -1589,20 +1291,14 @@ $('#cmForm').addEventListener('submit', async e => {
 });
 loadComments();
 
-/* ---------- start: paint the defaults, then swap in what Ardn published ---------- */
-initAdmin();
-paint();
-route();
-fetch('/api/proposals/team-public?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'})
-  .then(r => r.ok ? r.json() : null)
-  .then(d => {
-    if (!d || !d.ok) return;
-    if (d.published) { NV = {...DEFAULTS, ...cleanNums(d.nums)}; PUBT = {...TEAM_DEFAULT, peopleMs: d.peopleMs, hoursMs: d.hoursMs, peopleImpl: d.peopleImpl, hoursImpl: d.hoursImpl}; }
-    canEdit = !!d.canEdit;
-    $('#tabAdmin').hidden = !canEdit;
-    paint();
-    if (canEdit) { loadAdmin(); if (location.hash === '#admin') route(); }
-  })
-  .catch(() => {});
+/* ---------- start: the server has already put the published figures in the page ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  canEdit = !!ST.canEdit;
+  // the staff tab and its script only exist in the page when a staff member asked for it
+  if (canEdit && typeof initAdmin === 'function') { initAdmin(); loadAdmin(); }
+  paint();
+  route();
+});
 
 </script>
+<!--STAFF-SCRIPT-->

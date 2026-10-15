@@ -1,0 +1,349 @@
+<!--STAFF-TAB--><a href="#admin" id="tabAdmin"><i>◆</i>Team admin</a><!--/STAFF-TAB-->
+<!--STAFF-VIEW--><div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
+<main data-screen-label="10 Team admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
+  <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
+    <div style="flex:1 1 20em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-bottom:.35em;">Ardn staff only · never shown to Invited</div><h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2em;line-height:1.06;margin:0;">Team, rates and margin</h1></div>
+    <div style="display:flex;gap:.4em;flex-wrap:wrap;align-items:center;">
+      <span style="font-size:max(14px,.8em);padding:.25em .7em;border-radius:999px;font-weight:700;"><span data-v="pubStatus"></span></span><span style="font-size:max(14px,.78em);color:#8E95B5;margin-right:.4em;"><span data-v="pubWhen"></span></span>
+      <button data-act="saveTeam" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;border:1px solid rgba(246,189,96,.7);background:rgba(246,189,96,.12);color:#F4F1EA;"><span data-v="teamSaveLabel"></span></button>
+      <button data-act="publishTeam" data-ev="click" id="admPublish" style="font:inherit;font-size:max(14px,.9em);font-weight:800;padding:.4em 1.1em;border-radius:999px;border:1px solid #5FD08A;background:rgba(95,208,138,.16);color:#F4F1EA;margin-right:.8em;">Publish to proposal</button>
+      <button id="phImpl" data-act="ph_impl" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Implementation</button><button id="phMs" data-act="ph_ms" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Managed service</button>
+    </div>
+  </section>
+  <section class="admstats" style="display:grid;gap:.5em;">
+    <div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRev"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">revenue a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRun"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">cost a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMargin"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">margin a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMarginPct"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">margin %</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admHours"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">hours a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admUtil"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;">utilization</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admContract"></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;margin-top:.2em;"><span data-v="admContractLbl"></span></div></div>
+  </section>
+  <section style="flex:1;display:flex;gap:.7em;min-height:0;">
+    <div data-show="sideClosed" style="display:contents">
+    <button data-act="toggleSide" data-ev="click" title="Show rate card and hours" style="flex:none;width:2.2em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;color:#F6BD60;cursor:pointer;font:inherit;display:flex;flex-direction:column;align-items:center;gap:.6em;padding:.6em 0;"><span style="font-size:1.1em;">›</span><span style="writing-mode:vertical-rl;font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;font-weight:700;">Rates &amp; hours</span></button>
+    </div>
+    <div data-show="sideOpen" style="display:contents">
+    <div style="flex:0 0 20em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.6em .7em;display:flex;flex-direction:column;gap:.4em;overflow:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;">Rate card</span><button data-act="toggleSide" data-ev="click" title="Collapse" style="background:none;border:1px solid rgba(244,241,234,.2);color:#C9CCDD;border-radius:6px;width:1.7em;height:1.7em;cursor:pointer;font:inherit;line-height:1;">‹</button></div>
+      <div style="display:grid;grid-template-columns:1em minmax(0,1fr) 3em 3em;gap:.3em;font-size:max(14px,.72em);color:#8E95B5;text-transform:uppercase;letter-spacing:.08em;"><span></span><span>Drag onto a row</span><span style="text-align:right;">Cost</span><span style="text-align:right;">Bill</span></div>
+      <div data-slot="rateCard" data-as="rc" style="display:contents"></div>
+      <button data-act="addRate" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:1px dashed rgba(244,241,234,.3);color:#C9CCDD;border-radius:8px;padding:.3em;cursor:pointer;">+ Add rate</button>
+      <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-top:.5em;">Hours</div>
+      <div style="font-size:max(14px,.78em);color:#8E95B5;">Drag onto a row to set its hours.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.35em;">
+        <div data-slot="hourChips" data-as="hc" style="display:contents"></div>
+      </div>
+      <div style="margin-top:auto;font-size:max(14px,.74em);color:#8E95B5;line-height:1.35;">Revenue = bill × hours. Margin = revenue − cost. Utilization = hours ÷ 160.</div>
+    </div>
+    </div>
+    <div style="flex:1 1 0;min-width:0;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.3em .6em .6em;overflow:auto;">
+      <div data-show="hasSel" style="display:contents">
+      <div style="position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:.5em;margin:.3em 0 .4em;padding:.45em .6em;border-radius:10px;background:#16245F;border:1px solid rgba(246,189,96,.6);">
+        <b style="color:#F6BD60;font-size:max(14px,.9em);"><span data-v="selCount"></span> selected</b>
+        <span style="width:1px;height:1.2em;background:rgba(244,241,234,.2);"></span>
+        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Hours<input type="number" id="bulkHours" value="160" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;width:4.5em;text-align:right;"></input><button data-act="applyBulkHours" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:rgba(60,162,255,.18);border:1px solid rgba(60,162,255,.6);color:#F4F1EA;border-radius:6px;padding:.22em .6em;cursor:pointer;">Set</button></label>
+        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Location<select data-act="bulkLoc" data-ev="change" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option><option value="on">Onshore</option><option value="off">Offshore</option></select></label>
+        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Rate<select id="bulkRate" data-act="bulkRate" data-ev="change" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option></select></label>
+        <span style="margin-left:auto;"></span>
+        <button data-act="bulkDelete" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:1px solid rgba(240,138,108,.6);color:#F08A6C;border-radius:6px;padding:.22em .6em;cursor:pointer;">Remove</button>
+        <button data-act="clearSel" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:0;color:#C9CCDD;cursor:pointer;">Clear</button>
+      </div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:max(14px,.88em);min-width:76em;">
+        <thead><tr style="text-align:left;font-size:max(14px,.74em);letter-spacing:.08em;text-transform:uppercase;color:#8E95B5;">
+          <th style="padding:.5em .3em;width:1.4em;"><input type="checkbox" id="admAll" data-act="toggleAll" data-ev="change" style="accent-color:#F6BD60;width:1em;height:1em;"></input></th><th style="padding:.5em .3em;width:1.2em;"></th><th style="padding:.5em .4em;width:15em;min-width:15em;">Role</th><th style="padding:.5em .4em;width:8em;min-width:8em;">Name</th><th style="padding:.5em .4em;">Loc</th><th style="padding:.5em .4em;text-align:right;">Cost/hr</th><th style="padding:.5em .4em;text-align:right;">Bill/hr</th><th style="padding:.5em .4em;text-align:right;">Hours</th><th style="padding:.5em .4em;">Util</th><th style="padding:.5em .4em;text-align:right;">Cost/mo</th><th style="padding:.5em .4em;text-align:right;">Revenue/mo</th><th style="padding:.5em .4em;text-align:right;">Margin/mo</th><th style="padding:.5em .4em;text-align:right;">Margin %</th><th style="padding:.5em .3em;"></th>
+        </tr></thead>
+        <tbody data-slot="admRows" data-as="row"></tbody>
+        <tfoot><tr style="font-weight:700;">
+          <td colspan="5" style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);color:#F4F1EA;">Total <span style="font-weight:400;color:#8E95B5;">· <span data-v="admPeople"></span> people</span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#8E95B5;font-weight:400;"><span data-v="admBlendCost"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#8E95B5;font-weight:400;"><span data-v="admBlendBill"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;"><span data-v="admHours"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);color:#F4F1EA;"><span data-v="admUtil"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#C9CCDD;"><span data-v="admRun"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;"><span data-v="admRev"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#5FD08A;font-size:1.05em;"><span data-v="admMargin"></span></td>
+          <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#5FD08A;"><span data-v="admMarginPct"></span></td><td style="border-top:1px solid rgba(244,241,234,.3);"></td>
+        </tr></tfoot>
+      </table>
+      <div style="display:flex;flex-wrap:wrap;gap:.5em;align-items:center;margin-top:.55em;">
+        <button data-act="addRole" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:none;border:1px solid rgba(246,189,96,.6);color:#F9D08A;border-radius:8px;padding:.3em .8em;cursor:pointer;">+ Add person</button>
+        <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · hours are per phase.</span>
+        <span style="margin-left:auto;"></span>
+        <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#C9CCDD;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to draft</button>
+      </div>
+      <div style="margin-top:.8em;border-top:1px solid rgba(244,241,234,.13);padding-top:.6em;">
+        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By role</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;">
+          <div data-slot="roleCost" data-as="rc" style="display:contents"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+<template id="tpl-rateCard" data-as="rc"><div draggable="true" data-on-dragstart="drag" style="display:grid;grid-template-columns:1em minmax(0,1fr) 3em 3em;gap:.3em;align-items:center;border:1px solid rgba(246,189,96,.4);border-radius:8px;padding:.2em .35em;background:rgba(246,189,96,.06);cursor:grab;">
+          <span style="color:#8E95B5;font-size:max(14px,.9em);">⠿</span>
+          <input value="{{ rc.label }}" data-on-change="setLabel" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;font-size:max(14px,.82em);" class="xf0"></input>
+          <input type="number" value="{{ rc.cost }}" data-on-change="setCost" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;font-size:max(14px,.82em);" class="xf0"></input>
+          <input type="number" value="{{ rc.bill }}" data-on-change="setBill" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;font-size:max(14px,.82em);color:#F9D08A;" class="xf0"></input>
+        </div></template>
+<template id="tpl-hourChips" data-as="hc"><div draggable="true" data-on-dragstart="drag" style="border:1px solid rgba(60,162,255,.5);background:rgba(60,162,255,.08);border-radius:8px;padding:.3em .45em;cursor:grab;display:flex;flex-direction:column;"><b style="color:#F4F1EA;font-size:max(14px,.95em);">{{ hc.h }} h</b><span style="font-size:max(14px,.72em);color:#8E95B5;">{{ hc.label }}</span></div></template>
+<template id="tpl-rateOpts" data-as="rc"><option value="{{ rc.id }}">{{ rc.label }}</option></template>
+<template id="tpl-admRows" data-as="row"><tr draggable="true" data-on-dragstart="drag" data-on-dragover="over" data-on-drop="drop" data-on-pointerenter="fillEnter" style="background:{{ row.bg }};box-shadow:{{ row.fillRing }};">
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:center;"><input type="checkbox" checked="{{ row.sel }}" data-on-change="toggleSel" style="accent-color:#F6BD60;width:1em;height:1em;"></input></td><td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);color:#8E95B5;cursor:grab;text-align:center;">⠿</td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);min-width:15em;"><input value="{{ row.role }}" data-on-change="setRole" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><input value="{{ row.name }}" placeholder="Name" data-on-change="setName" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.loc }}" data-on-change="setLoc" style="font:inherit;font-size:max(14px,.86em);background:transparent;color:#C9CCDD;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;"><option value="on">On</option><option value="off">Off</option></select></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.cost }}" data-on-change="setCost" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;" class="xf0"></input></span></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.bill }}" data-on-change="setBill" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;color:#F9D08A;" class="xf0"></input></span></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;gap:.25em;"><input type="number" value="{{ row.hours }}" data-on-change="setHours" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:4em;" class="xf0"></input><span data-on-dragstart="noDrag" data-on-pointerdown="fillStart" data-on-dblclick="fillAll" title="Drag down to copy these hours · double-click to copy to everyone below" style="cursor:ns-resize;color:#08113B;background:#3CA2FF;font-size:max(14px,.7em);font-weight:800;width:1.2em;height:1.2em;display:grid;place-items:center;border-radius:3px;line-height:1;user-select:none;touch-action:none;">↓</span></span></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);min-width:6em;"><span style="display:flex;align-items:center;gap:.35em;"><span style="flex:1;height:.4em;border-radius:999px;background:rgba(244,241,234,.1);overflow:hidden;"><span style="display:block;height:100%;width:{{ row.utilW }};background:{{ row.utilC }};"></span></span><b style="font-size:max(14px,.82em);color:{{ row.utilC }};min-width:2.6em;text-align:right;">{{ row.util }}</b></span></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;color:#C9CCDD;">{{ row.monthly }}</td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;">{{ row.revenue }}</td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;color:{{ row.mC }};font-weight:700;">{{ row.margin }}</td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;font-variant-numeric:tabular-nums;"><span style="font-size:max(14px,.84em);font-weight:700;padding:.1em .45em;border-radius:999px;color:{{ row.mC }};border:1px solid {{ row.mC }};">{{ row.marginPct }}</span></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:right;"><button data-on-click="remove" style="background:none;border:0;color:#8E95B5;font:inherit;cursor:pointer;" class="xh1">×</button></td>
+            </tr></template>
+<template id="tpl-roleCost" data-as="rc"><div style="border:1px solid rgba(244,241,234,.13);border-radius:8px;padding:.4em .55em;display:grid;grid-template-columns:1fr auto;gap:.1em .5em;align-items:baseline;">
+              <b style="color:#F4F1EA;font-size:max(14px,.88em);">{{ rc.role }}</b><b style="color:{{ rc.mC }};font-size:max(14px,.9em);">{{ rc.margin }} · {{ rc.marginPct }}</b>
+              <span style="font-size:max(14px,.76em);color:#8E95B5;">{{ rc.people }} · {{ rc.hours }} h</span><span style="font-size:max(14px,.76em);color:#C9CCDD;">cost {{ rc.monthly }} · rev {{ rc.revenue }}</span>
+            </div></template>
+<!--/STAFF-VIEW-->
+<!--STAFF-SCRIPT--><script>
+
+/* ---------- Team admin: Ardn staff only. Built from the staff API; the client never receives any of this. ---------- */
+const CAP = 160;
+const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, team: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: ''};
+const clone = o => JSON.parse(JSON.stringify(o));
+// jsonb storage reorders keys, so drafts are compared with sorted keys
+const canon = o => JSON.stringify(o, (k, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort(([a], [b]) => a < b ? -1 : 1)) : v);
+const curJ = () => canon({team: A.team, rates: A.rates, nums: A.nums});
+const savedJ = () => A.draft ? canon({team: A.draft.team, rates: A.draft.rates, nums: A.draft.nums}) : A.baseJ;
+const isUnsaved = () => curJ() !== savedJ();
+const isLive = () => !isUnsaved() && !!A.draft && !!A.pub && A.pub.hash === A.draft.hash;
+const money = n => (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
+const pctOf = (m, r) => r ? Math.round(m / r * 100) + '%' : '—';
+const mColor = (m, r) => !r ? '#8E95B5' : m / r >= .4 ? '#5FD08A' : m / r >= .2 ? '#F6BD60' : '#F08A6C';
+const snapOf = tm => ({peopleMs: tm.filter(x => x.ms > 0).length, hoursMs: tm.reduce((a, x) => a + x.ms, 0), peopleImpl: tm.filter(x => x.impl > 0).length, hoursImpl: tm.reduce((a, x) => a + x.impl, 0)});
+const setV = (name, val) => $$(`[data-v="${name}"]`).forEach(e => { e.textContent = val; });
+const normDraft = d => ({...d, nums: {...DEFAULTS, ...(d.nums || {})}});
+async function loadAdmin() {
+  try {
+    const r = await fetch('/api/proposals/team-draft?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'});
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.message || 'no');
+    A.draft = d.draft ? normDraft(d.draft) : null;
+    A.pub = d.published || null;
+    A.newRow = d.defaults.newRow; A.newRate = d.defaults.newRate;
+    A.baseJ = canon({team: d.defaults.team, rates: d.defaults.rates, nums: {...DEFAULTS}});
+    A.team = clone(A.draft ? A.draft.team : d.defaults.team);
+    A.rates = clone(A.draft ? A.draft.rates : d.defaults.rates);
+    A.nums = {...DEFAULTS, ...(A.draft ? A.draft.nums : {})};
+    A.loaded = true; A.msg = '';
+  } catch (e) { A.msg = 'The team didn’t load. Reload to try again.'; }
+  if (document.body.dataset.view === 'admin') renderAdmin();
+}
+
+function initAdmin() {
+  const root = $('#v-admin main');
+  const [head, stats, mainSec] = $$(':scope > section', root);
+  const wrap = document.createElement('div');
+  wrap.id = 'admTeam'; wrap.style.cssText = 'display:flex;flex-direction:column;gap:.6em;flex:1;min-height:0';
+  stats.before(wrap); wrap.append(stats, mainSec);
+  const nums = document.createElement('section');
+  nums.id = 'admNums'; nums.style.cssText = 'display:none;flex-direction:column;gap:.6em;flex:1';
+  root.append(nums);
+  const seg = document.createElement('div');
+  seg.style.cssText = 'display:flex;gap:.4em;margin-right:.8em';
+  const b = (id, label) => `<button type="button" id="${id}" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;border:1px solid rgba(244,241,234,.2);background:transparent">${label}</button>`;
+  seg.innerHTML = b('subTeam', 'Team and rates') + b('subNums', 'Proposal numbers');
+  $('#phImpl').parentElement.prepend(seg);
+  $('#subTeam').onclick = () => { A.sub = 'team'; renderAdmin(); };
+  $('#subNums').onclick = () => { A.sub = 'nums'; renderAdmin(); };
+  // the unsaved-changes dot: figures typed in a box commit when the box loses focus
+  const note = document.createElement('div');
+  note.id = 'admMsg'; note.style.cssText = 'font-size:max(14px,.9em);color:#F08A6C';
+  head.append(note);
+}
+
+function renderAdmin() {
+  if (!A.loaded) { setV('pubStatus', A.msg ? 'Not loaded' : 'Loading…'); setV('pubWhen', A.msg || ''); return; }
+  const ph = A.phase, team = A.team, rates = A.rates, sel = A.sel.filter(id => team.some(t => t.id === id));
+  A.sel = sel;
+  const isSel = id => sel.includes(id);
+  const setTeam = t => { A.team = t; renderAdmin(); };
+  const upd = (id, fn) => setTeam(team.map(t => t.id === id ? fn({...t}) : t));
+  const bulk = fn => setTeam(team.map(t => isSel(t.id) ? fn({...t}) : t));
+  const run = team.reduce((a, t) => a + t.cost * t[ph], 0), rev = team.reduce((a, t) => a + t.bill * t[ph], 0), hrs = team.reduce((a, t) => a + t[ph], 0), mar = rev - run;
+  const nPeople = team.filter(t => t[ph] > 0).length;
+  const contract = ph === 'ms' ? A.nums.svcMo : A.nums.impl / Math.max(1, A.nums.hyperMonths);
+  const util = nPeople ? Math.round(hrs / (nPeople * CAP) * 100) + '%' : '—';
+  setV('admRev', money(rev)); setV('admRun', money(run)); setV('admMargin', money(mar)); setV('admMarginPct', pctOf(mar, rev));
+  setV('admHours', hrs.toLocaleString('en-US')); setV('admUtil', util); setV('admPeople', nPeople);
+  setV('admBlendCost', hrs ? money(run / hrs) + '/h' : '—'); setV('admBlendBill', hrs ? money(rev / hrs) + '/h' : '—');
+  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'contract a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
+  setV('selCount', sel.length);
+  const f = A.fill, inFill = i => f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
+  const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, [ph]: v} : x));
+  const rows = team.map((t, idx) => {
+    const c = t.cost * t[ph], rv = t.bill * t[ph], m = rv - c, u = Math.round(t[ph] / CAP * 100);
+    return {sel: isSel(t.id), role: t.role, name: t.name, loc: t.loc, cost: t.cost, bill: t.bill, hours: t[ph],
+      monthly: money(c), revenue: money(rv), margin: money(m), marginPct: pctOf(m, rv), mC: mColor(m, rv),
+      util: u + '%', utilW: Math.min(100, u) + '%', utilC: t[ph] > CAP ? '#F08A6C' : t[ph] >= CAP * .75 ? '#5FD08A' : t[ph] > 0 ? '#F6BD60' : '#8E95B5',
+      bg: t.loc === 'off' ? 'rgba(239,217,174,.06)' : 'transparent', fillRing: 'none',
+      toggleSel: () => { A.sel = isSel(t.id) ? sel.filter(x => x !== t.id) : [...sel, t.id]; renderAdmin(); },
+      setRole: e => upd(t.id, x => (x.role = e.target.value, x)), setName: e => upd(t.id, x => (x.name = e.target.value, x)),
+      setLoc: e => upd(t.id, x => (x.loc = e.target.value, x)),
+      setCost: e => upd(t.id, x => (x.cost = Math.max(0, +e.target.value || 0), x)), setBill: e => upd(t.id, x => (x.bill = Math.max(0, +e.target.value || 0), x)),
+      setHours: e => upd(t.id, x => (x[ph] = Math.max(0, +e.target.value || 0), x)),
+      remove: () => setTeam(team.filter(x => x.id !== t.id)),
+      drag: e => { e.dataTransfer.setData('text/plain', 'row:' + t.id); e.dataTransfer.effectAllowed = 'move'; },
+      over: e => e.preventDefault(),
+      drop: e => {
+        e.preventDefault(); const d = e.dataTransfer.getData('text/plain');
+        if (d.startsWith('hours:')) { const v = +d.slice(6) || 0; upd(t.id, x => (x[ph] = v, x)); return; }
+        if (d.startsWith('rate:')) { const rc = rates.find(x => x.id === +d.slice(5)); if (rc) upd(t.id, x => (x.cost = rc.cost, x.bill = rc.bill, x)); return; }
+        if (d.startsWith('row:')) {
+          const from = +d.slice(4); if (from === t.id) return;
+          const arr = team.filter(x => x.id !== from), moved = team.find(x => x.id === from);
+          arr.splice(arr.findIndex(x => x.id === t.id), 0, moved); setTeam(arr);
+        }
+      },
+      noDrag: e => { e.preventDefault(); e.stopPropagation(); },
+      fillStart: e => {
+        e.preventDefault(); e.stopPropagation(); A.fill = {from: idx, to: idx, v: t[ph]}; paintFill();
+        const up = () => { removeEventListener('pointerup', up); const g = A.fill; A.fill = null; if (g && g.to !== g.from) applyFill(g.from, g.to, g.v); else paintFill(); };
+        addEventListener('pointerup', up);
+      },
+      fillEnter: () => { if (A.fill && A.fill.to !== idx) { A.fill.to = idx; paintFill(); } },
+      fillAll: () => applyFill(idx, team.length - 1, t[ph])};
+  });
+  renderSlot(slotOf('admRows'), rows);
+  $$('[data-slot=admRows] > tr').forEach((tr, i) => { if (isSel(team[i].id)) tr.style.background = 'rgba(246,189,96,.10)'; });
+  renderSlot(slotOf('rateCard'), rates.map(rc => ({id: rc.id, label: rc.label, cost: rc.cost, bill: rc.bill,
+    setLabel: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, label: e.target.value} : x); renderAdmin(); },
+    setCost: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, cost: Math.max(0, +e.target.value || 0)} : x); renderAdmin(); },
+    setBill: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, bill: Math.max(0, +e.target.value || 0)} : x); renderAdmin(); },
+    drag: e => { e.dataTransfer.setData('text/plain', 'rate:' + rc.id); e.dataTransfer.effectAllowed = 'copy'; }})));
+  renderSlot(slotOf('hourChips'), [[160, 'Full-time'], [120, '¾ time'], [80, 'Half-time'], [40, 'Part-time'], [20, 'Light'], [0, 'Off']].map(([h, label]) => ({h, label,
+    drag: e => { e.dataTransfer.setData('text/plain', 'hours:' + h); e.dataTransfer.effectAllowed = 'copy'; }})));
+  $('#bulkRate').innerHTML = '<option value="">—</option>' + rates.map(r => `<option value="${r.id}">${esc(r.label)}</option>`).join('');
+  const byRole = {};
+  team.forEach(t => { const k = t.role || 'Unnamed', g = byRole[k] || (byRole[k] = {role: k, n: 0, hrs: 0, cost: 0, rev: 0}); if (t[ph] > 0) g.n++; g.hrs += t[ph]; g.cost += t.cost * t[ph]; g.rev += t.bill * t[ph]; });
+  renderSlot(slotOf('roleCost'), Object.values(byRole).sort((x, y) => (y.rev - y.cost) - (x.rev - x.cost)).map(g => ({role: g.role, people: g.n + (g.n === 1 ? ' person' : ' people'), hours: g.hrs.toLocaleString('en-US'),
+    monthly: money(g.cost), revenue: money(g.rev), margin: money(g.rev - g.cost), marginPct: pctOf(g.rev - g.cost, g.rev), mC: mColor(g.rev - g.cost, g.rev)})));
+  $('#admAll').checked = team.length > 0 && sel.length === team.length;
+  $('[data-show=hasSel]').hidden = !sel.length; $('[data-show=sideOpen]').hidden = A.sideClosed; $('[data-show=sideClosed]').hidden = !A.sideClosed;
+  $('#bulkHours').value = A.bulkHours;
+  const phStyle = (id, on) => { const e = $(id); e.style.background = on ? 'rgba(246,189,96,.16)' : 'transparent'; e.style.border = '1px solid ' + (on ? 'rgba(246,189,96,.7)' : 'rgba(244,241,234,.2)'); };
+  phStyle('#phImpl', ph === 'impl'); phStyle('#phMs', ph === 'ms'); phStyle('#subTeam', A.sub === 'team'); phStyle('#subNums', A.sub === 'nums');
+  $('#phImpl').hidden = $('#phMs').hidden = A.sub !== 'team';
+  $('#admTeam').style.display = A.sub === 'team' ? 'flex' : 'none'; $('#admNums').style.display = A.sub === 'nums' ? 'flex' : 'none';
+  if (A.sub === 'nums') renderNums();
+  renderStatus();
+  // bulk-bar controls and the rest talk through ACT
+  A.ctx = {team, rates, bulk, setTeam, sel};
+}
+function paintFill() {
+  const f = A.fill;
+  $$('[data-slot=admRows] > tr').forEach((tr, i) => {
+    const on = f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
+    tr.style.background = on ? 'rgba(60,162,255,.18)' : A.sel.includes(A.team[i]?.id) ? 'rgba(246,189,96,.10)' : A.team[i]?.loc === 'off' ? 'rgba(239,217,174,.06)' : 'transparent';
+    tr.style.boxShadow = on ? 'inset 3px 0 0 #3CA2FF' : 'none';
+  });
+}
+function renderStatus() {
+  const unsaved = isUnsaved(), live = isLive();
+  const label = unsaved ? 'Unsaved changes' : live ? 'Live on proposal' : A.draft ? 'Draft saved · not published' : 'Nothing saved yet';
+  const col = unsaved ? '#F08A6C' : live ? '#5FD08A' : '#F6BD60';
+  setV('pubStatus', label);
+  const pill = $('[data-v=pubStatus]').parentElement; pill.style.border = '1px solid ' + col; pill.style.color = col;
+  let rl = $('#admReload'); if (!rl) { rl = document.createElement('button'); rl.id = 'admReload'; rl.type = 'button'; rl.textContent = 'Reload'; rl.style.cssText = 'font:inherit;font-weight:700;margin-left:.6em;background:rgba(240,138,108,.16);color:#F4F1EA;border:1px solid #F08A6C;border-radius:999px;padding:.1em .9em;cursor:pointer'; rl.onclick = () => location.reload(); $('[data-v=pubWhen]').after(rl); }
+  rl.hidden = !A.conflict;
+  setV('pubWhen', A.msg || (A.pub ? 'Published ' + new Date(A.pub.at).toLocaleString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) : 'Proposal shows the original figures'));
+  setV('teamSaveLabel', unsaved || !A.draft ? 'Save draft' : 'Draft saved');
+  const pub = $('#admPublish'), off = unsaved || live || !A.draft || A.conflict;
+  pub.disabled = off; pub.style.opacity = off ? .45 : 1; pub.style.cursor = off ? 'not-allowed' : 'pointer';
+}
+
+/* the Proposal numbers section: every input of NUMS, grouped, with where it shows and a live preview of what it derives */
+let USED = null;
+function usedOn() {
+  if (USED) return USED;
+  const direct = {}, tabName = Object.fromEntries(TABS);
+  const add = (k, tab) => { (direct[k] = direct[k] || new Set()).add(tab); };
+  $$('[data-n],[data-save],[data-flex]').forEach(e => {
+    const k = e.dataset.n || e.dataset.save || e.dataset.flex, t = e.closest('[data-tab]');
+    add(k, t ? tabName[t.dataset.tab] || t.dataset.tab : 'every tab');
+  });
+  $$('[id^=c]', $('#v-team')).forEach(() => {});
+  // the capacity calculator reads the add-on rates, the pod size, the services fee and the cost basis
+  ['onshoreRate', 'offshoreRate', 'podDevs', 'svcMo', 'techYear', 'today', 'peopleMs'].forEach(k => add(k, 'The team'));
+  ['pod1Sys', 'pod2Sys', 'pod3Sys', 'pod4Sys', 'pod5Sys', 'pod6Sys'].forEach(k => add(k, 'The team'));
+  add('showFlags', 'every tab'); ['saveApp', 'saveTeam', 'saveQa', 'saveDefect', 'saveRoadmap', 'saveLead'].forEach(k => add(k, 'Summary'));
+  ['retire', 'partial', 'connect', 'keep', 'systems'].forEach(k => add(k, 'Detail'));
+  const seen = (k, acc = new Set()) => { (direct[k] || []).forEach(x => acc.add(x)); Object.entries(DEPS).forEach(([d, ins]) => { if (ins.includes(k) && !acc.has('#' + d)) { acc.add('#' + d); seen(d, acc); } }); return acc; };
+  USED = k => [...seen(k)].filter(x => x[0] !== '#');
+  return USED;
+}
+function renderNums() {
+  const used = usedOn(), root = $('#admNums');
+  const inp = 'font:inherit;font-size:max(14px,.9em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;width:100%;text-align:right';
+  const cnt = {retire: 0, partial: 0, connect: 0, keep: 0};
+  SYS.forEach(s => { if (cnt[s[2]] !== undefined) cnt[s[2]]++; });
+  const bad = ['retire', 'partial', 'connect', 'keep'].filter(k => cnt[k] !== A.nums[k]);
+  if (SYS.length !== A.nums.systems) bad.unshift('systems');
+  const d = derive(A.nums, snapOf(A.team));
+  const prev = [['Technology a year', d.techYear, 'M'], ['Services a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven month', d.breakeven, 'int']];
+  root.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.6em;line-height:1.1;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#C9CCDD">${l}, worked out</div></div>`).join('') + '</div>' +
+    (bad.length ? `<div style="color:#F08A6C;border:1px solid #F08A6C;border-radius:8px;padding:.4em .7em">The Detail tab lists ${SYS.length} systems (${cnt.retire} retire, ${cnt.partial} in part, ${cnt.connect} connect, ${cnt.keep} keep). These estate counts differ: ${bad.join(', ')}. Update the list in the page or these counts.</div>` : '') + `<div style="color:#8E95B5;font-size:max(14px,.86em)">Totals, the saving, the bars and the capacity calculator are worked out from these inputs. Return multiple, net return and breakeven month are worked out from the implementation fee, the saving and the go-live ramp. Save the draft, then publish, to show a change to Invited.</div>` +
+    `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(22em,1fr));gap:.6em;align-items:start">` +
+    NUMS.map(([title, rows]) => `<div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.7em .9em;display:flex;flex-direction:column;gap:.4em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700">${esc(title)}</div>` +
+      rows.map(([k, label, f]) => `<label style="display:grid;grid-template-columns:1fr 7.5em;gap:.1em .6em;align-items:center"><span>${esc(label)}<span style="display:block;color:#8E95B5;font-size:max(14px,.84em)">${used(k).length ? 'Used on: ' + esc(used(k).join(', ')) : 'Used by the figures above'}</span></span>` +
+        `<input data-nk="${k}" type="${f === 'text' ? 'text' : 'number'}" step="any" min="0" value="${esc(A.nums[k])}" style="${inp}"></label>`).join('') + '</div>').join('') + '</div>';
+  $$('[data-nk]', root).forEach(i => i.addEventListener('change', () => {
+    const k = i.dataset.nk;
+    if (typeof DEFAULTS[k] === 'string') A.nums[k] = i.value.trim().slice(0, 40) || DEFAULTS[k];
+    else { const v = parseFloat(i.value); if (isFinite(v) && v >= 0) A.nums[k] = v; }
+    renderAdmin();
+  }));
+}
+
+Object.assign(ACT, {
+  toggleSide: () => { A.sideClosed = !A.sideClosed; renderAdmin(); },
+  ph_impl: () => { A.phase = 'impl'; renderAdmin(); }, ph_ms: () => { A.phase = 'ms'; renderAdmin(); },
+  toggleAll: e => { A.sel = A.sel.length === A.team.length ? [] : A.team.map(t => t.id); renderAdmin(); },
+  clearSel: () => { A.sel = []; renderAdmin(); },
+  applyBulkHours: () => { A.bulkHours = Math.max(0, +$('#bulkHours').value || 0); const {bulk} = A.ctx; bulk(t => (t[A.phase] = A.bulkHours, t)); },
+  bulkLoc: (e, el) => { const v = el.value; if (v) A.ctx.bulk(t => (t.loc = v, t)); el.value = ''; },
+  bulkRate: (e, el) => { const rc = A.rates.find(x => String(x.id) === el.value); if (rc) A.ctx.bulk(t => (t.cost = rc.cost, t.bill = rc.bill, t)); el.value = ''; },
+  bulkDelete: () => { A.team = A.team.filter(t => !A.sel.includes(t.id)); A.sel = []; renderAdmin(); },
+  addRate: () => { A.rates = [...A.rates, {id: Date.now(), label: 'New rate', ...A.newRate}]; renderAdmin(); },
+  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', loc: 'off', ...A.newRow, impl: 160, ms: 160}]; renderAdmin(); },
+  resetTeam: () => {
+    const d = A.draft;
+    A.team = clone(d ? d.team : JSON.parse(A.baseJ).team); A.rates = clone(d ? d.rates : JSON.parse(A.baseJ).rates); A.nums = {...DEFAULTS, ...(d ? d.nums : {})}; renderAdmin();
+  },
+  saveTeam: async () => {
+    A.msg = 'Saving…'; renderStatus();
+    try {
+      const r = await fetch('/api/proposals/team-draft', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, team: A.team, rates: A.rates, nums: A.nums, expectedHash: A.draft ? A.draft.hash : ''})});
+      const d = await r.json().catch(() => ({}));
+      if (r.status === 409) { A.conflict = true; A.msg = 'Someone else changed this draft. Reload to see their version.'; renderAdmin(); return; }
+      if (!r.ok || !d.ok) { A.msg = d.message || 'The draft didn’t save. Try again.'; renderStatus(); return; }
+      A.draft = normDraft(d.draft); A.msg = '';
+    } catch (e) { A.msg = 'The draft didn’t save. Try again.'; }
+    renderAdmin();
+  },
+  publishTeam: async () => {
+    if (isUnsaved() || isLive() || !A.draft) return;
+    A.msg = 'Publishing…'; renderStatus();
+    try {
+      const r = await fetch('/api/proposals/team-publish', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, hash: A.draft.hash})});
+      const d = await r.json().catch(() => ({}));
+      if (r.status === 409) { A.conflict = true; A.msg = 'Someone else changed this draft. Reload to see their version.'; renderAdmin(); return; }
+      if (!r.ok || !d.ok) { A.msg = d.message || 'The publish didn’t go through. Try again.'; renderStatus(); return; }
+      A.pub = d.published; A.msg = '';
+      NV = {...DEFAULTS, ...cleanNums(d.nums)}; PUBT = {...TEAM_DEFAULT, ...d.snap}; paint(); if (!PUBT.roles) PUBT.roles = TEAM_DEFAULT.roles;
+    } catch (e) { A.msg = 'The publish didn’t go through. Try again.'; }
+    renderAdmin();
+  },
+});
+
+</script><!--/STAFF-SCRIPT-->
