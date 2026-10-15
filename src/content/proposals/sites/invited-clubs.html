@@ -602,6 +602,92 @@ section.vpage{padding-top:150px;border-top:0}
 .points li::before{content:counter(pt);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brass);color:var(--night);font-weight:700;font-size:14px;margin-bottom:12px}
 .points h4{margin:0 0 6px;font-size:17px}
 .points p{margin:0;color:var(--soft);font-size:15.5px}
+.slide{box-sizing:border-box;min-height:100vh;height:100vh;padding:84px 40px 18px;display:flex;flex-direction:column;gap:14px}
+.sl-kick{margin:0 0 6px;color:var(--brass);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sl-title{margin:0;font:400 clamp(26px,2.55vw,40px)/1.12 var(--serif);max-width:none}
+.sl-title em{color:var(--brass2);font-style:normal}
+.sl-grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.25fr 1.1fr;gap:16px}
+.sl-col{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--deep);display:flex;flex-direction:column;min-height:0}
+.sl-h{margin:0 0 10px;font:700 12px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.sl-list{margin:0 0 14px;padding:0;list-style:none;display:grid;gap:9px}
+.sl-list li{position:relative;padding-left:16px;font-size:clamp(13px,1.05vw,15px);line-height:1.45;color:var(--soft)}
+.sl-list li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--brass)}
+.sl-list b,.sl-ans b{color:var(--ink)}
+.sl-ans{margin:0;font-size:clamp(13px,1.05vw,15px);line-height:1.5;color:var(--soft)}
+.sl-mid{background:radial-gradient(120% 70% at 50% 0,rgba(246,189,96,.10),transparent 65%),var(--deep);border-color:rgba(246,189,96,.3)}
+.sl-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px}
+.sl-kpis div{border-top:1px solid var(--line);padding-top:8px}
+.sl-kpis .lead{grid-column:1/-1;border-top:0;padding-top:0}
+.sl-kpis .n{margin:0;font:400 clamp(26px,2.5vw,38px)/1 var(--serif);color:var(--brass2)}
+.sl-kpis .lead .n{font-size:clamp(46px,5vw,76px);color:var(--brass)}
+.sl-kpis p:not(.n){margin:4px 0 0;color:var(--soft);font-size:13px;line-height:1.35}
+.sl-cmp{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--soft)}
+.sl-cmp b{font:400 clamp(22px,2vw,30px)/1 var(--serif);color:var(--ink);margin-left:6px}
+.sl-cmp span:first-child b{color:var(--brass)}.sl-cmp span:nth-child(3) b{color:#9fd0ff}
+.sl-cmp i{font-style:normal;color:var(--muted)}
+@media (min-width:1101px) and (max-height:820px){
+  .slide{padding-top:74px;gap:10px}
+  .sl-title{font-size:clamp(24px,2.3vw,34px)}
+  .sl-col{padding:12px 16px}
+  .sl-h{margin-bottom:7px}
+  .sl-list{gap:5px;margin-bottom:10px}
+  .sl-list li,.sl-ans{font-size:13px;line-height:1.38}
+  .sl-kpis .lead .n{font-size:clamp(40px,4vw,58px)}
+  .sl-kpis .n{font-size:clamp(22px,2.1vw,30px)}
+  .sl-kpis p:not(.n){font-size:12px}
+  .sl-team{padding:7px 0}
+  .sl-team .what{font-size:12px}
+  .sl-levers span{padding:3px 9px;font-size:12px}
+  .sl-foot{padding-top:8px}
+  .sl-basis{display:none}
+}
+.sl-team{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.sl-team .who{margin:0;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.sl-team.tech .who{color:#9fd0ff}.sl-team.svc .who{color:var(--brass)}.sl-team.impl .who{color:var(--soft)}
+.sl-team .what{margin:3px 0 0;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.sl-team .amt{margin:0;font:400 clamp(22px,2vw,30px)/1 var(--serif);white-space:nowrap}
+.sl-total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 4px;font-weight:600}
+.sl-total b{font:400 clamp(26px,2.4vw,36px)/1 var(--serif);color:#9fd0ff}
+.sl-basis{margin:auto 0 0;font-size:12px;color:var(--muted);line-height:1.4}
+.sl-levers{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sl-levers span{font-size:12.5px;padding:4px 11px;border-radius:20px;border:1px solid rgba(60,162,255,.4);color:#9fd0ff}
+.sl-levers .lab{border:0;padding-left:0;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+.sl-foot{display:flex;flex-wrap:wrap;gap:10px 24px;padding-right:130px;align-items:center;justify-content:space-between;border-top:1px solid var(--line2);padding-top:12px}
+.sl-ask{font-size:14px;color:var(--soft)}
+.sl-ask b{color:var(--ink)}.sl-ask span{color:var(--brass2);font-weight:600}
+.sl-more{display:flex;gap:8px}
+.sl-more a{font-size:13.5px;font-weight:600;text-decoration:none;padding:7px 14px;border-radius:20px;border:1px solid var(--line2);color:var(--ink)}
+.sl-more a:first-child{background:var(--brass);border-color:var(--brass);color:var(--night)}
+.sl-src{margin:0;font-size:11.5px;color:var(--muted)}
+@media (max-width:1100px),(max-height:640px){.slide{height:auto}}
+@media (max-width:1100px){.sl-grid{grid-template-columns:1fr 1fr}.sl-mid{grid-column:1/-1;grid-row:1}}
+@media (max-width:700px){.slide{padding:120px 16px 24px}.sl-grid{grid-template-columns:1fr}}
+@media print{.slide{height:auto;min-height:0;padding-top:20px}}
+.value{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line2);margin-top:44px}
+.value div{padding:24px 22px 24px 0;border-bottom:1px solid var(--line)}
+.value div+div{padding-left:22px;border-left:1px solid var(--line)}
+.value .big{font:400 clamp(40px,4.6vw,66px)/1 var(--serif);color:var(--brass2);margin:0 0 10px}
+.value div:first-child .big{color:var(--brass)}
+.value p:not(.big){margin:0;color:var(--soft);font-size:15.5px}
+@media (max-width:860px){.value{grid-template-columns:1fr 1fr}.value div:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:520px){.value{grid-template-columns:1fr}.value div+div{padding-left:0;border-left:0}}
+.cmpbars{display:grid;gap:12px;margin:30px 0 14px}
+.cmpbars .ba-row{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:center;font-size:15px;color:var(--soft)}
+.cmpbars .bar{display:flex;height:34px;border-radius:9px;overflow:hidden;background:rgba(244,241,234,.04)}
+.cmpbars .bar i{display:flex;align-items:center;padding:0 12px;font-style:normal;font-size:13px;font-weight:600;color:var(--night);white-space:nowrap;overflow:hidden;transition:width .8s var(--out)}
+.cmpbars .amt{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.cmpbars .gap{font-size:14px;color:var(--brass2)}
+@media (max-width:560px){.cmpbars .ba-row{grid-template-columns:1fr auto}.cmpbars .bar{grid-column:1/-1;grid-row:2}}
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.teams article{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--deep)}
+.teams article.tech{background:radial-gradient(120% 80% at 100% 0,rgba(60,162,255,.12),transparent 60%),var(--deep);border-color:rgba(60,162,255,.35)}
+.teams article.svc{background:radial-gradient(120% 80% at 100% 0,rgba(246,189,96,.12),transparent 60%),var(--deep);border-color:rgba(246,189,96,.35)}
+.teams .who{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.teams .tech .who{color:#9fd0ff}.teams .svc .who{color:var(--brass)}
+.teams .big{font:400 clamp(36px,3.6vw,50px)/1 var(--serif);margin:0;color:var(--ink)}
+.teams .per{margin:6px 0 16px;color:var(--muted);font-size:13.5px}
+.teams ul{margin:0;padding:16px 0 0 18px;border-top:1px solid var(--line);color:var(--soft);font-size:15px}
+.teams li{margin:0 0 8px}
 .levers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:18px}
 .levers article{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;background:linear-gradient(180deg,rgba(246,189,96,.06),transparent 55%),var(--deep);transition:transform .25s var(--out),border-color .25s}
 .levers article:first-child{grid-column:1/-1}
@@ -783,7 +869,7 @@ section.vpage{padding-top:150px;border-top:0}
   <img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn">
   <span class="for">Club Steward · prepared for <b>Invited</b></span>
   <nav class="tabs" id="tabs" aria-label="Proposal">
-    <a href="#summary">Executive summary</a><a href="#full-proposal">Detail</a><a href="#screens">Screenshots</a><a href="#videos">Videos</a><a href="#demo">Demo logins</a>
+    <a href="#summary">Executive summary</a><a href="#value">Value and pricing</a><a href="#full-proposal">Detail</a><a href="#screens">Screenshots</a><a href="#videos">Videos</a><a href="#demo">Demo logins</a>
   </nav>
   <span class="sp"></span>
   <div class="lens" role="group" aria-label="Read as"><span>Read as</span>
@@ -793,12 +879,74 @@ section.vpage{padding-top:150px;border-top:0}
 </div>
 
 <div class="view" id="v-summary" data-view="summary">
-<section class="ch vpage" id="summary-page">
+<section class="slide" id="summary-page">
+  <div class="sl-top">
+    <p class="sl-kick">Executive summary · Ardn for Invited · October 2026</p>
+    <h1 class="sl-title">Club Steward takes <em id="sTitleSave"></em> a year out of Invited's <span id="sTitleToday"></span> IT spend, and earns back its setup in <span id="sTitlePay"></span>.</h1>
+  </div>
+  <div class="sl-grid">
+    <div class="sl-col">
+      <h2 class="sl-h">The situation</h2>
+      <ul class="sl-list">
+        <li><b>$8.3M a year</b> keeps fifty-four systems and their people running.</li>
+        <li><b>126 entities</b> are governed from corporate by hand, one instance at a time.</li>
+        <li><b>8 to 10 hours</b> to resolve each P1, sometimes across more than one day.</li>
+        <li>Invited is growing and wants more of it to reach the <b>bottom line</b>, without disrupting the clubs.</li>
+      </ul>
+      <h2 class="sl-h">The answer</h2>
+      <p class="sl-ans">One platform, <b>Club Steward</b>, already built against Invited's requirements. 36 systems retire, 4 retire in part. Two Ardn teams provide and run it for a fixed fee.</p>
+    </div>
+    <div class="sl-col sl-mid">
+      <h2 class="sl-h">The value</h2>
+      <div class="sl-kpis">
+        <div class="lead"><p class="n" id="sSave"></p><p id="sSaveMeta"></p></div>
+        <div><p class="n" id="sPay"></p><p>to earn back implementation</p></div>
+        <div><p class="n" id="sFive"></p><p>less over five years, after implementation</p></div>
+        <div><p class="n" id="sHalf"></p><p>payback even if only half the saving shows up</p></div>
+      </div>
+      <p class="sl-cmp"><span>Today <b id="sToday"></b></span><i aria-hidden="true">→</i><span>Club Steward <b id="sYear2"></b></span><span class="tag F">a year</span></p>
+    </div>
+    <div class="sl-col">
+      <h2 class="sl-h">The investment: two teams</h2>
+      <div class="sl-team tech"><div><p class="who">Technology team</p><p class="what">The product: every app, every user, hosting, security, upgrades, nightly testing</p></div><p class="amt" id="sTech"></p></div>
+      <div class="sl-team svc"><div><p class="who">Services team</p><p class="what">Runs, changes and supports it: delivery lead, second-line support, change backlog, connectors, training</p></div><p class="amt" id="sSvc"></p></div>
+      <div class="sl-team impl"><div><p class="who">Implementation · one time</p><p class="what">Migration, pilots at one city and one golf club, club-by-club rollout</p></div><p class="amt" id="sImpl"></p></div>
+      <div class="sl-total"><span>Club Steward, a year</span><b id="sYear"></b></div>
+      <p class="sl-basis" id="sBasis"></p>
+    </div>
+  </div>
+  <div class="sl-levers"><span class="lab">Where the saving comes from</span><span>36 systems and their licenses retire</span><span>Ardn runs and maintains it</span><span>The product tests itself nightly</span><span>Defects found before a club calls</span><span>No middleware to reconcile</span><span>Less re-keying at the clubs</span><span>One way to work, fewer IT requests</span></div>
+  <div class="sl-foot">
+    <div class="sl-ask"><b>The ask:</b> approve mobilization. <span>30 days</span> invoices replace estimates · <span>60</span> design signed, pilots chosen · <span>90</span> first migration rehearsed</div>
+    <div class="sl-more"><a href="#value">Value and pricing</a><a href="#demo">Try the demo</a></div>
+  </div>
+  <p class="sl-src">Today's spend: Invited, October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. Prices hold until December 15, 2026.</p>
+</section>
+</div>
+
+<div class="view" id="v-value" data-view="value" hidden>
+<section class="ch vpage" id="value-page">
   <div class="wrap">
-    <p class="from">A proposal from Ardn to Invited · October 2026</p>
-    <p class="kicker">Executive summary</p>
-    <h1>Fifty-four systems. <em>One</em> club platform.</h1>
-    <p class="lede">Ardn proposes that Invited move its clubs onto Club Steward, a club platform that Ardn builds, runs, tests and supports for one flat monthly fee per entity. Thirty-six systems retire outright and four retire in part. The money and effort that now go into keeping those systems running go back into the clubs and to the bottom line, without asking the clubs to work harder or give anything up.</p>
+    <div class="vhead"><div><p class="kicker">Value and pricing</p><h2>What Invited saves, and what it pays</h2></div><p>The two teams, what each one takes off Invited's books, and a calculator to check every figure with your own numbers.</p></div>
+    <div class="value" aria-live="polite">
+      <div><p class="big num" id="vSave"></p><p id="vSaveMeta"></p></div>
+      <div><p class="big num" id="vPay"></p><p id="vPayMeta"></p></div>
+      <div><p class="big num" id="vFive"></p><p id="vFiveMeta"></p></div>
+      <div><p class="big num" id="vHalf"></p><p id="vHalfMeta"></p></div>
+    </div>
+    <div class="cmpbars" id="vBa" role="img"></div>
+    <p class="src">Today's spend is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. <a href="#cost">Check the numbers</a> with your own figures.</p>
+
+    <div class="block" id="teams">
+      <h3>Two teams, priced separately</h3>
+      <p class="intro">Invited engages each team on its own terms. The technology team's fee follows Invited's own unit, the entity, the way other club vendors priced it. The services team's fee is fixed a month, so the running cost no longer grows with every system and every club.</p>
+      <div class="teams">
+        <article class="tech"><p class="who">Technology team</p><p class="big num" id="tTech"></p><p class="per" id="tTechMeta"></p><ul><li>Every Club Steward app: membership, sales, events and catering, dining and point of sale, golf, front desk, finance and books, HR and marketing</li><li>Every staff user and every member, with no per-seat fees</li><li>Hosting, security, backups and monitoring</li><li>Upgrades and new features as they ship, with nightly automated testing</li><li>Corporate governance of every entity from one place</li></ul></article>
+        <article class="svc"><p class="who">Services team</p><p class="big num" id="tSvc"></p><p class="per" id="tSvcMeta"></p><ul><li>A named delivery lead, accountable to Invited's CIO</li><li>Second-line support behind Invited's help desk, with no ticket fees</li><li>The clubs' change requests from one backlog Invited prioritizes, with no statement of work for each change</li><li>Connectors and data feeds kept running: payroll, hotel, handicap, fitness, the data warehouse</li><li>Training for new staff and new clubs, and a quarterly business review</li></ul></article>
+        <article class="impl"><p class="who">Implementation · one time</p><p class="big num" id="tImpl"></p><p class="per" id="tImplMeta"></p><ul><li>Design signed off by the CIO and department leads</li><li>Data migration, rehearsed and reconciled before any club moves</li><li>Pilot at one city club, then one golf club</li><li>Club-by-club rollout with legacy systems running alongside</li><li>Each phase ends at a gate Invited signs</li></ul></article>
+      </div>
+    </div>
+    <div class="block" id="proofpts"><h3>Why the numbers hold up</h3></div>
     <div class="sumstats">
       <div><p class="big num">54 → 1</p><p>Systems in use today. 36 retire outright, 4 retire in part, and 18 stay connected for a stated reason. <span class="tag F">Systems sheet</span></p></div>
       <div><p class="big num">126 + 17</p><p>Golf and country club entities, priced per entity as Invited buys today, plus 17 city clubs on a lighter fee. <span class="tag F">Invited</span></p></div>
@@ -822,17 +970,17 @@ section.vpage{padding-top:150px;border-top:0}
     </div>
 
     <div class="block" id="cost">
-      <h3>Your cost</h3>
-      <p class="intro">Club Steward is one fee for each golf and country club entity, a lighter fee for each city club (memberships, events, catering and point of sale, with no golf), and a one-time fee to implement and set it up. Hosting, upgrades, fixes, nightly testing and second-line support are inside the fee. Every figure below can be changed, and the results update as you type.</p>
+      <h3>Check the numbers</h3>
+      <p class="intro">Every figure below can be changed, and the results update as you type. The technology fee is per entity and per city club, the services fee is per month, and implementation is paid once.</p>
       <div class="cost">
         <div class="cost-in" id="costIn">
           <label><small>Invited, October 13</small>What Invited spends today, a year<input type="text" inputmode="numeric" class="n" id="cToday" aria-label="What Invited spends today, a year"></label>
           <label><small>Invited, October 13</small>Golf and country club entities<input type="text" inputmode="numeric" id="cEnt" aria-label="Golf and country club entities"></label>
-          <label><small>Ardn's proposal</small>Fee per entity, a month<input type="text" inputmode="numeric" class="n" id="cEntFee" aria-label="Fee per entity, a month"></label>
+          <label><small>Technology team</small>Per entity, a month<input type="text" inputmode="numeric" class="n" id="cEntFee" aria-label="Technology fee per entity, a month"></label>
           <label><small>Invited's website</small>City clubs<input type="text" inputmode="numeric" id="cCity" aria-label="City clubs"></label>
-          <label><small>Ardn's proposal</small>Fee per city club, a month<input type="text" inputmode="numeric" class="n" id="cCityFee" aria-label="Fee per city club, a month"></label>
-          <label><small>Ardn's proposal</small>Second-line support, a month<input type="text" inputmode="numeric" class="n" id="cSupport" aria-label="Second-line support, a month"></label>
-          <label><small>Ardn's proposal</small>Implementation and setup, one time<input type="text" inputmode="numeric" class="n" id="cImpl" aria-label="Implementation and setup, one time"></label>
+          <label><small>Technology team</small>Per city club, a month<input type="text" inputmode="numeric" class="n" id="cCityFee" aria-label="Technology fee per city club, a month"></label>
+          <label><small>Services team</small>A month<input type="text" inputmode="numeric" class="n" id="cSvc" aria-label="Services team, a month"></label>
+          <label><small>Implementation</small>One time<input type="text" inputmode="numeric" class="n" id="cImpl" aria-label="Implementation, one time"></label>
           <label><small>For the total below</small>Years to compare<input type="text" inputmode="numeric" id="cYears" aria-label="Years to compare"></label>
         </div>
         <div class="cost-out" aria-live="polite">
@@ -840,11 +988,11 @@ section.vpage{padding-top:150px;border-top:0}
             <div><h4>Club Steward, a year</h4><p class="big cs num" id="cYear"></p><p class="meta" id="cYearMeta"></p></div>
             <div><h4>Less than today, a year</h4><p class="big num" id="cSave"></p><p class="meta" id="cSaveMeta"></p></div>
           </div>
-          <div class="bars" id="cBars"></div>
+          <div class="cmpbars" id="cBars"></div>
           <dl id="cList"></dl>
         </div>
       </div>
-      <p class="src" style="margin-top:14px">The spend today is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. The <a href="#calc">system-by-system calculator</a> in the detail shows where today's spend goes.</p>
+      <p class="src" style="margin-top:14px">The <a href="#calc">system-by-system calculator</a> in the detail shows where today's spend goes.</p>
     </div>
 
     <div class="block">
@@ -870,7 +1018,7 @@ section.vpage{padding-top:150px;border-top:0}
 
     <div class="block">
       <h3>What we are asking for</h3>
-      <p class="intro">Approve mobilization and the build. Nothing goes live at a club until the build is accepted, and no system retires until every club that uses it is live.</p>
+      <p class="intro">Approve mobilization and the build. Nothing goes live at a club until the build is accepted, and no system retires until every club that uses it is live. The prices in this proposal hold until December 15, 2026.</p>
       <ol class="points">
         <li><h4>30 days</h4><p>Replace the estimates with Invited's invoices and staffing, agree the fee per entity, and name an owner at Invited and a delivery lead at Ardn.</p></li>
         <li><h4>60 days</h4><p>Design signed off by the CIO and the department leads, pilot city club and pilot golf club chosen, and the build under way.</p></li>
@@ -2203,7 +2351,7 @@ const DEMO = {
 ['shotBox', 'ardnBox'].forEach(id => { const d = document.getElementById(id); if (d) document.body.append(d); });
 
 /* tabs: one hash per view; any other hash is a place inside the detail */
-const VIEWS = ['summary', 'full-proposal', 'screens', 'videos', 'demo'];
+const VIEWS = ['summary', 'value', 'full-proposal', 'screens', 'videos', 'demo'];
 const viewKey = v => v === 'full-proposal' ? 'detail' : v;
 function showView(v) {
   const key = viewKey(v);
@@ -2244,7 +2392,7 @@ addEventListener('beforeprint', () => document.querySelectorAll('.reveal').forEa
 /** Where the reader is, for a comment: the tab, and the chapter inside the detail. */
 function whereNow() {
   const v = document.body.dataset.view;
-  const tab = {summary: 'Executive summary', detail: 'Detail', screens: 'Screenshots', videos: 'Videos', demo: 'Demo logins'}[v] || '';
+  const tab = {summary: 'Executive summary', value: 'Value and pricing', detail: 'Detail', screens: 'Screenshots', videos: 'Videos', demo: 'Demo logins'}[v] || '';
   if (v !== 'detail') return tab;
   let ch = ''; chapters.forEach(c => { if (c.getBoundingClientRect().top < innerHeight * .45) ch = c.dataset.ch; });
   return ch ? `${tab} › ${ch}` : tab;
@@ -2252,29 +2400,72 @@ function whereNow() {
 
 /* ---------- your cost ---------- */
 // Ardn's prices; Invited's own figures (spend today, entities) come from the October 13 call.
-const PRICE = {today: 8300000, entities: 126, entityFee: 400, city: CLUBS.city, cityFee: 300, support: 25000, impl: 0, years: 5};
-const cIds = {cToday: 'today', cEnt: 'entities', cEntFee: 'entityFee', cCity: 'city', cCityFee: 'cityFee', cSupport: 'support', cImpl: 'impl', cYears: 'years'};
-const cMoney = new Set(['cToday', 'cEntFee', 'cCityFee', 'cSupport', 'cImpl']);
+const PRICE = {today: 8300000, entities: 126, entityFee: 1250, city: CLUBS.city, cityFee: 500, svc: 165000, impl: 1500000, years: 5};
+/** The whole commercial case from one set of figures, so the headline, the teams and the calculator agree. */
+function costOf(p) {
+  const techEnt = p.entities * p.entityFee * 12, techCity = p.city * p.cityFee * 12, tech = techEnt + techCity, svc = p.svc * 12;
+  const year = tech + svc, save = p.today - year;
+  return {techEnt, techCity, tech, svc, year, save, pay: save > 0 ? p.impl / (save / 12) : Infinity,
+    half: save > 0 ? p.impl / (save / 24) : Infinity, over: p.today * p.years - (year * p.years + p.impl)};
+}
+const months = m => !isFinite(m) ? 'No payback' : m < 1 ? 'Under a month' : `${Math.round(m)} month${Math.round(m) === 1 ? '' : 's'}`;
+function baBars(el, p, c) {
+  const top = Math.max(p.today, c.year, 1), w = n => `${Math.max(0, n) / top * 100}%`;
+  el.setAttribute('aria-label', `Today ${fmtM(p.today)} a year. Club Steward ${fmtM(c.year)} a year: technology ${fmtM(c.tech)} and services ${fmtM(c.svc)}.`);
+  el.innerHTML = `<div class="ba-row"><span>Today</span><div class="bar"><i style="width:${w(p.today)};background:var(--brass)">54 systems and the people who run them</i></div><span class="amt">${fmtM(p.today)}</span></div>` +
+    `<div class="ba-row"><span>Club Steward</span><div class="bar"><i style="width:${w(c.tech)};background:var(--teal)">Technology</i><i style="width:${w(c.svc)};background:var(--brass2)">Services</i></div><span class="amt">${fmtM(c.year)}</span></div>` +
+    `<div class="ba-row"><span></span><span class="gap">${c.save > 0 ? `${fmtM(c.save)} a year back to the bottom line` : ''}</span><span></span></div>`;
+}
+(() => {
+  const c = costOf(PRICE);
+  $('#vSave').textContent = fmtM(c.save);
+  $('#vSaveMeta').textContent = `less a year: ${Math.round(c.save / PRICE.today * 100)}% of the ${fmtM(PRICE.today)} Invited spends today`;
+  $('#vPay').textContent = months(c.pay);
+  $('#vPayMeta').textContent = `to earn back the one-time ${fmtM(PRICE.impl)} implementation from the saving`;
+  $('#vFive').textContent = fmtM(c.over);
+  $('#vFiveMeta').textContent = `less over ${PRICE.years} years, after implementation`;
+  $('#vHalf').textContent = months(c.half);
+  $('#vHalfMeta').textContent = 'payback even if only half of the saving shows up';
+  baBars($('#vBa'), PRICE, c);
+  $('#tTech').textContent = `${fmtM(c.tech)} a year`;
+  $('#tTechMeta').textContent = `${fmt(PRICE.entityFee)} a month per golf and country club entity (${PRICE.entities}), ${fmt(PRICE.cityFee)} per city club (${PRICE.city})`;
+  $('#tSvc').textContent = `${fmtM(c.svc)} a year`;
+  $('#tSvcMeta').textContent = `${fmt(PRICE.svc)} a month, fixed, for every club`;
+  $('#tImpl').textContent = fmtM(PRICE.impl);
+  $('#tImplMeta').textContent = `Paid once. Earned back in about ${months(c.pay).toLowerCase()}`;
+})();
+(() => {
+  const c = costOf(PRICE);
+  $('#sTitleSave').textContent = fmtM(c.save); $('#sTitleToday').textContent = fmtM(PRICE.today);
+  $('#sTitlePay').textContent = months(c.pay).toLowerCase();
+  $('#sSave').textContent = fmtM(c.save);
+  $('#sSaveMeta').textContent = `less a year, ${Math.round(c.save / PRICE.today * 100)}% of today's ${fmtM(PRICE.today)}, back to the bottom line`;
+  $('#sPay').textContent = months(c.pay); $('#sFive').textContent = fmtM(c.over); $('#sHalf').textContent = months(c.half);
+  $('#sToday').textContent = fmtM(PRICE.today); $('#sYear2').textContent = fmtM(c.year);
+  $('#sTech').textContent = fmtM(c.tech); $('#sSvc').textContent = fmtM(c.svc); $('#sImpl').textContent = fmtM(PRICE.impl);
+  $('#sYear').textContent = fmtM(c.year);
+  $('#sBasis').textContent = `Technology: ${fmt(PRICE.entityFee)} a month × ${PRICE.entities} entities, ${fmt(PRICE.cityFee)} × ${PRICE.city} city clubs. Services: ${fmt(PRICE.svc)} a month, fixed.`;
+})();
+const cIds = {cToday: 'today', cEnt: 'entities', cEntFee: 'entityFee', cCity: 'city', cCityFee: 'cityFee', cSvc: 'svc', cImpl: 'impl', cYears: 'years'};
+const cMoney = new Set(['cToday', 'cEntFee', 'cCityFee', 'cSvc', 'cImpl']);
 const cNum = id => Math.max(0, parseFloat(String($('#' + id).value).replace(/[^0-9.]/g, '')) || 0);
 function cShow(id) { const e = $('#' + id); if (document.activeElement === e) return; const n = cNum(id); e.value = cMoney.has(id) ? fmt(n) : n.toLocaleString('en-US'); }
 function cost() {
-  const today = cNum('cToday'), ent = cNum('cEnt'), city = cNum('cCity'), years = Math.max(1, Math.round(cNum('cYears')));
-  const entY = ent * cNum('cEntFee') * 12, cityY = city * cNum('cCityFee') * 12, supY = cNum('cSupport') * 12, impl = cNum('cImpl');
-  const year = entY + cityY + supY, save = today - year;
-  const total = today * years - (year * years + impl);
-  $('#cYear').textContent = fmtM(year);
-  $('#cYearMeta').textContent = `${fmt(year / 12)} a month for ${ent.toLocaleString('en-US')} entities and ${city.toLocaleString('en-US')} city clubs, support included`;
-  $('#cSave').textContent = fmtM(save);
-  $('#cSaveMeta').textContent = today ? `${Math.round(save / today * 100)}% less than the ${fmtM(today)} Invited spends today` : 'Enter what Invited spends today';
-  const top = Math.max(today, year, 1);
-  $('#cBars').innerHTML = `<div><span>Today</span><i style="width:${today / top * 100}%;background:var(--brass)"></i></div><div><span>Club Steward</span><i style="width:${year / top * 100}%;background:var(--teal)"></i></div>`;
+  const p = {}; Object.entries(cIds).forEach(([id, k]) => { p[k] = cNum(id); });
+  p.years = Math.max(1, Math.round(p.years));
+  const c = costOf(p);
+  $('#cYear').textContent = fmtM(c.year);
+  $('#cYearMeta').textContent = `Technology ${fmtM(c.tech)} and services ${fmtM(c.svc)}`;
+  $('#cSave').textContent = fmtM(c.save);
+  $('#cSaveMeta').textContent = p.today ? `${Math.round(c.save / p.today * 100)}% less than the ${fmtM(p.today)} Invited spends today` : 'Enter what Invited spends today';
+  baBars($('#cBars'), p, c);
   $('#cList').innerHTML =
-    `<dt>Golf and country club entities<small>${ent.toLocaleString('en-US')} × ${fmt(cNum('cEntFee'))} a month</small></dt><dd>${fmt(entY)} a year</dd>` +
-    `<dt>City clubs<small>${city.toLocaleString('en-US')} × ${fmt(cNum('cCityFee'))} a month</small></dt><dd>${fmt(cityY)} a year</dd>` +
-    `<dt>Second-line support<small>Invited's help desk stays the first call</small></dt><dd>${fmt(supY)} a year</dd>` +
-    `<dt>Implementation and setup<small>One time, in the first year</small></dt><dd>${impl ? fmt(impl) : 'Included'}</dd>` +
-    `<dt>First year, with setup</dt><dd>${fmt(year + impl)}</dd>` +
-    `<dt>Less than today over ${years} year${years === 1 ? '' : 's'}<small>Today's spend × ${years}, less Club Steward and setup</small></dt><dd class="save">${fmtM(total)}</dd>`;
+    `<dt>Technology: golf and country club entities<small>${p.entities.toLocaleString('en-US')} × ${fmt(p.entityFee)} a month</small></dt><dd>${fmt(c.techEnt)} a year</dd>` +
+    `<dt>Technology: city clubs<small>${p.city.toLocaleString('en-US')} × ${fmt(p.cityFee)} a month</small></dt><dd>${fmt(c.techCity)} a year</dd>` +
+    `<dt>Services team<small>${fmt(p.svc)} a month · Invited's help desk stays the first call</small></dt><dd>${fmt(c.svc)} a year</dd>` +
+    `<dt>Implementation<small>One time, in the first year</small></dt><dd>${p.impl ? fmt(p.impl) : 'Included'}</dd>` +
+    `<dt>Implementation earned back<small>From the yearly saving</small></dt><dd>${months(c.pay)}</dd>` +
+    `<dt>Less than today over ${p.years} year${p.years === 1 ? '' : 's'}<small>Today's spend × ${p.years}, less Club Steward and implementation</small></dt><dd class="save">${fmtM(c.over)}</dd>`;
 }
 Object.entries(cIds).forEach(([id, k]) => {
   const e = $('#' + id); e.value = PRICE[k];
