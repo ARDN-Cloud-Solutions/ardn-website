@@ -63,13 +63,15 @@
         </tr></tfoot>
       </table>
       <div style="display:flex;flex-wrap:wrap;gap:.5em;align-items:center;margin-top:.55em;">
+        <b style="color:#F6BD60;font-size:max(14px,.9em);"><span data-v="teamTitle"></span></b>
         <button data-act="addRole" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:none;border:1px solid rgba(246,189,96,.6);color:#F9D08A;border-radius:8px;padding:.3em .8em;cursor:pointer;">+ Add person</button>
-        <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · hours are per phase.</span>
+        <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · the implementation and managed-service teams are separate rosters.</span>
         <span style="margin-left:auto;"></span>
+        <button data-act="copyTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(60,162,255,.6);color:#F4F1EA;border-radius:8px;padding:.3em .8em;cursor:pointer;"><span data-v="copyLbl"></span></button>
         <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#C9CCDD;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to draft</button>
       </div>
       <div style="margin-top:.8em;border-top:1px solid rgba(244,241,234,.13);padding-top:.6em;">
-        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By group · people after rollout → at go-live, as the proposal shows them</div>
+        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By group · people and hours in this team, as the proposal shows them</div>
         <div id="admGroups" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;margin-bottom:.8em;"></div>
         <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By role</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;">
@@ -113,21 +115,23 @@
 
 /* ---------- Team admin: Ardn staff only. Built from the staff API; the client never receives any of this. ---------- */
 const CAP = 160;
-const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, team: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: '', view: 'draft'};
+const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, implTeam: [], msTeam: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: '', view: 'draft'};
+// A.team is the roster of the phase being edited; the implementation team and the managed-service team are separate lists
+Object.defineProperty(A, 'team', {get() { return this.phase === 'impl' ? this.implTeam : this.msTeam; }, set(v) { if (this.phase === 'impl') this.implTeam = v; else this.msTeam = v; }});
 const clone = o => JSON.parse(JSON.stringify(o));
 // jsonb storage reorders keys, so drafts are compared with sorted keys
 const canon = o => JSON.stringify(o, (k, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort(([a], [b]) => a < b ? -1 : 1)) : v);
-const curJ = () => canon({team: A.team, rates: A.rates, nums: A.nums});
-const savedJ = () => A.draft ? canon({team: A.draft.team, rates: A.draft.rates, nums: A.draft.nums}) : A.baseJ;
+const curJ = () => canon({implTeam: A.implTeam, msTeam: A.msTeam, rates: A.rates, nums: A.nums});
+const savedJ = () => A.draft ? canon({implTeam: A.draft.implTeam, msTeam: A.draft.msTeam, rates: A.draft.rates, nums: A.draft.nums}) : A.baseJ;
 const isUnsaved = () => curJ() !== savedJ();
 const isLive = () => !isUnsaved() && !!A.draft && !!A.pub && A.pub.hash === A.draft.hash;
 const money = n => (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
 const pctOf = (m, r) => r ? Math.round(m / r * 100) + '%' : '—';
 const mColor = (m, r) => !r ? '#8E95B5' : m / r >= .4 ? '#5FD08A' : m / r >= .2 ? '#F6BD60' : '#F08A6C';
 const GROUP_LABEL = {lead: 'Delivery lead', platform: 'Platform & quality', support: 'Support', pod1: 'Pod 1 · Membership & Sales', pod2: 'Pod 2 · Digital & Front Desk', pod3: 'Pod 3 · Golf & Racquets', pod4: 'Pod 4 · Dining & Events', pod5: 'Pod 5 · Billing & Finance', pod6: 'Pod 6 · Data & Integrations'};
-const curDerived = () => derive(A.nums, snapFromRows(A.team));
+const curDerived = () => derive(A.nums, snapFromTeams(A.implTeam, A.msTeam));
 const setV = (name, val) => $$(`[data-v="${name}"]`).forEach(e => { e.textContent = val; });
-const normDraft = d => ({...d, team: (d.team || []).map(t => ({...t, grp: GROUPS.includes(t.grp) ? t.grp : 'platform'})), nums: {...DEFAULTS, ...cleanNums(d.nums)}});
+const normDraft = d => ({...d, implTeam: (d.implTeam || []).map(t => ({...t, grp: GROUPS.includes(t.grp) ? t.grp : 'platform'})), msTeam: (d.msTeam || []).map(t => ({...t, grp: GROUPS.includes(t.grp) ? t.grp : 'platform'})), nums: {...DEFAULTS, ...cleanNums(d.nums)}});
 async function loadAdmin() {
   try {
     const r = await fetch('/api/proposals/team-draft?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'});
@@ -136,8 +140,8 @@ async function loadAdmin() {
     A.draft = d.draft ? normDraft(d.draft) : null;
     A.pub = d.published || null;
     A.newRow = d.defaults.newRow; A.newRate = d.defaults.newRate;
-    A.baseJ = canon({team: d.defaults.team, rates: d.defaults.rates, nums: {...DEFAULTS}});
-    A.team = clone(A.draft ? A.draft.team : d.defaults.team);
+    A.baseJ = canon({implTeam: d.defaults.implTeam, msTeam: d.defaults.msTeam, rates: d.defaults.rates, nums: {...DEFAULTS}});
+    A.implTeam = clone(A.draft ? A.draft.implTeam : d.defaults.implTeam); A.msTeam = clone(A.draft ? A.draft.msTeam : d.defaults.msTeam);
     A.rates = clone(A.draft ? A.draft.rates : d.defaults.rates);
     A.nums = {...DEFAULTS, ...cleanNums(A.draft ? A.draft.nums : {})};
     A.loaded = true; A.msg = '';
@@ -175,8 +179,8 @@ function renderAdmin() {
   const setTeam = t => { A.team = t; renderAdmin(); };
   const upd = (id, fn) => setTeam(team.map(t => t.id === id ? fn({...t}) : t));
   const bulk = fn => setTeam(team.map(t => isSel(t.id) ? fn({...t}) : t));
-  const run = team.reduce((a, t) => a + t.cost * t[ph], 0), rev = team.reduce((a, t) => a + t.bill * t[ph], 0), hrs = team.reduce((a, t) => a + t[ph], 0), mar = rev - run;
-  const nPeople = team.filter(t => t[ph] > 0).length;
+  const run = team.reduce((a, t) => a + t.cost * t.hours, 0), rev = team.reduce((a, t) => a + t.bill * t.hours, 0), hrs = team.reduce((a, t) => a + t.hours, 0), mar = rev - run;
+  const nPeople = team.filter(t => t.hours > 0).length;
   const dv = curDerived();
   const contract = ph === 'ms' ? dv.svcMo : dv.impl / Math.max(1, A.nums.hyperMonths);
   const util = nPeople ? Math.round(hrs / (nPeople * CAP) * 100) + '%' : '—';
@@ -185,25 +189,26 @@ function renderAdmin() {
   setV('admBlendCost', hrs ? money(run / hrs) + '/h' : '—'); setV('admBlendBill', hrs ? money(rev / hrs) + '/h' : '—');
   setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'services fee a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
   setV('selCount', sel.length);
+  setV('teamTitle', ph === 'impl' ? 'Implementation team' : 'Managed-service team'); setV('copyLbl', ph === 'impl' ? 'Copy from Managed-service team' : 'Copy from Implementation team');
   const f = A.fill, inFill = i => f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
-  const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, [ph]: v} : x));
+  const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, hours: v} : x));
   const rows = team.map((t, idx) => {
-    const c = t.cost * t[ph], rv = t.bill * t[ph], m = rv - c, u = Math.round(t[ph] / CAP * 100);
-    return {sel: isSel(t.id), role: t.role, name: t.name, grp: t.grp, loc: t.loc, cost: t.cost, bill: t.bill, hours: t[ph],
+    const c = t.cost * t.hours, rv = t.bill * t.hours, m = rv - c, u = Math.round(t.hours / CAP * 100);
+    return {sel: isSel(t.id), role: t.role, name: t.name, grp: t.grp, loc: t.loc, cost: t.cost, bill: t.bill, hours: t.hours,
       monthly: money(c), revenue: money(rv), margin: money(m), marginPct: pctOf(m, rv), mC: mColor(m, rv),
-      util: u + '%', utilW: Math.min(100, u) + '%', utilC: t[ph] > CAP ? '#F08A6C' : t[ph] >= CAP * .75 ? '#5FD08A' : t[ph] > 0 ? '#F6BD60' : '#8E95B5',
+      util: u + '%', utilW: Math.min(100, u) + '%', utilC: t.hours > CAP ? '#F08A6C' : t.hours >= CAP * .75 ? '#5FD08A' : t.hours > 0 ? '#F6BD60' : '#8E95B5',
       bg: t.loc === 'off' ? 'rgba(239,217,174,.06)' : 'transparent', fillRing: 'none',
       toggleSel: () => { A.sel = isSel(t.id) ? sel.filter(x => x !== t.id) : [...sel, t.id]; renderAdmin(); },
       setRole: e => upd(t.id, x => (x.role = e.target.value, x)), setName: e => upd(t.id, x => (x.name = e.target.value, x)),
       setLoc: e => upd(t.id, x => (x.loc = e.target.value, x)), setGrp: e => upd(t.id, x => (x.grp = e.target.value, x)),
       setCost: e => upd(t.id, x => (x.cost = Math.max(0, +e.target.value || 0), x)), setBill: e => upd(t.id, x => (x.bill = Math.max(0, +e.target.value || 0), x)),
-      setHours: e => upd(t.id, x => (x[ph] = Math.max(0, +e.target.value || 0), x)),
+      setHours: e => upd(t.id, x => (x.hours = Math.max(0, +e.target.value || 0), x)),
       remove: () => setTeam(team.filter(x => x.id !== t.id)),
       drag: e => { e.dataTransfer.setData('text/plain', 'row:' + t.id); e.dataTransfer.effectAllowed = 'move'; },
       over: e => e.preventDefault(),
       drop: e => {
         e.preventDefault(); const d = e.dataTransfer.getData('text/plain');
-        if (d.startsWith('hours:')) { const v = +d.slice(6) || 0; upd(t.id, x => (x[ph] = v, x)); return; }
+        if (d.startsWith('hours:')) { const v = +d.slice(6) || 0; upd(t.id, x => (x.hours = v, x)); return; }
         if (d.startsWith('rate:')) { const rc = rates.find(x => x.id === +d.slice(5)); if (rc) upd(t.id, x => (x.cost = rc.cost, x.bill = rc.bill, x)); return; }
         if (d.startsWith('row:')) {
           const from = +d.slice(4); if (from === t.id) return;
@@ -213,12 +218,12 @@ function renderAdmin() {
       },
       noDrag: e => { e.preventDefault(); e.stopPropagation(); },
       fillStart: e => {
-        e.preventDefault(); e.stopPropagation(); A.fill = {from: idx, to: idx, v: t[ph]}; paintFill();
+        e.preventDefault(); e.stopPropagation(); A.fill = {from: idx, to: idx, v: t.hours}; paintFill();
         const up = () => { removeEventListener('pointerup', up); const g = A.fill; A.fill = null; if (g && g.to !== g.from) applyFill(g.from, g.to, g.v); else paintFill(); };
         addEventListener('pointerup', up);
       },
       fillEnter: () => { if (A.fill && A.fill.to !== idx) { A.fill.to = idx; paintFill(); } },
-      fillAll: () => applyFill(idx, team.length - 1, t[ph])};
+      fillAll: () => applyFill(idx, team.length - 1, t.hours)};
   });
   renderSlot(slotOf('admRows'), rows);
   $$('[data-slot=admRows] > tr').forEach((tr, i) => { if (isSel(team[i].id)) tr.style.background = 'rgba(246,189,96,.10)'; });
@@ -232,7 +237,7 @@ function renderAdmin() {
   $('#bulkGrp').innerHTML = '<option value="">—</option>' + GROUPS.map(g => `<option value="${g}">${esc(GROUP_LABEL[g])}</option>`).join('');
   $('#bulkRate').innerHTML = '<option value="">—</option>' + rates.map(r => `<option value="${r.id}">${esc(r.label)}</option>`).join('');
   const byRole = {};
-  team.forEach(t => { const k = t.role || 'Unnamed', g = byRole[k] || (byRole[k] = {role: k, n: 0, hrs: 0, cost: 0, rev: 0}); if (t[ph] > 0) g.n++; g.hrs += t[ph]; g.cost += t.cost * t[ph]; g.rev += t.bill * t[ph]; });
+  team.forEach(t => { const k = t.role || 'Unnamed', g = byRole[k] || (byRole[k] = {role: k, n: 0, hrs: 0, cost: 0, rev: 0}); if (t.hours > 0) g.n++; g.hrs += t.hours; g.cost += t.cost * t.hours; g.rev += t.bill * t.hours; });
   renderSlot(slotOf('roleCost'), Object.values(byRole).sort((x, y) => (y.rev - y.cost) - (x.rev - x.cost)).map(g => ({role: g.role, people: g.n + (g.n === 1 ? ' person' : ' people'), hours: g.hrs.toLocaleString('en-US'),
     monthly: money(g.cost), revenue: money(g.rev), margin: money(g.rev - g.cost), marginPct: pctOf(g.rev - g.cost, g.rev), mC: mColor(g.rev - g.cost, g.rev)})));
   $('#admAll').checked = team.length > 0 && sel.length === team.length;
@@ -252,10 +257,10 @@ function renderAdmin() {
 /* people by group, as the proposal will show them */
 function renderGroups() {
   const root = $('#admGroups'); if (!root) return;
-  const snap = snapFromRows(A.team);
+  const snap = snapFromTeams(A.implTeam, A.msTeam)[A.phase].groups;
   root.innerHTML = GROUPS.map(g => {
-    const c = countOf(snap.groups[g]);
-    return `<div style="border:1px solid rgba(244,241,234,.13);border-radius:8px;padding:.35em .55em;display:grid;grid-template-columns:1fr auto;gap:.05em .5em;align-items:baseline"><b style="color:#F4F1EA;font-size:.88em">${esc(GROUP_LABEL[g])}</b><b style="color:${c.pm || c.pi ? '#F6BD60' : '#8E95B5'}">${c.pm}${c.pi !== c.pm ? ' → ' + c.pi : ''}</b><span style="font-size:.76em;color:#8E95B5">${snap.groups[g].map(e => esc(e.role)).join(', ') || 'no one'}</span><span style="font-size:.76em;color:#8E95B5">${c.hm.toLocaleString('en-US')} h</span></div>`;
+    const c = countOf(snap[g]);
+    return `<div style="border:1px solid rgba(244,241,234,.13);border-radius:8px;padding:.35em .55em;display:grid;grid-template-columns:1fr auto;gap:.05em .5em;align-items:baseline"><b style="color:#F4F1EA;font-size:.88em">${esc(GROUP_LABEL[g])}</b><b style="color:${c.n ? '#F6BD60' : '#8E95B5'}">${c.n}</b><span style="font-size:.76em;color:#8E95B5">${snap[g].map(e => esc(e.role)).join(', ') || 'no one'}</span><span style="font-size:.76em;color:#8E95B5">${c.h.toLocaleString('en-US')} h</span></div>`;
   }).join('');
 }
 
@@ -264,7 +269,7 @@ function renderGroups() {
 function staffRefresh() {
   let nv = PUB.nv, t = PUB.t, differs = false;
   if (A.loaded) {
-    const dn = {...DEFAULTS, ...A.nums}, dt = snapFromRows(A.team);
+    const dn = {...DEFAULTS, ...A.nums}, dt = snapFromTeams(A.implTeam, A.msTeam);
     differs = canon({nv: dn, t: dt}) !== canon({nv: PUB.nv, t: PUB.t});
     if (differs && A.view !== 'published') { nv = dn; t = dt; }
   }
@@ -335,7 +340,7 @@ function renderNums() {
   if (SYS.length !== A.nums.systems) bad.unshift('systems');
   const d = curDerived();
   const prev = [['Technology a year', d.techYear, 'M'], ['Services a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven month', d.breakeven, 'int']];
-  const sn = snapFromRows(A.team), delta = (over, team) => over > 0 ? ` An override of ${money(over)} replaces it: ${over >= team ? '+' : '−'}${money(Math.abs(over - team))} (${team ? (over >= team ? '+' : '−') + Math.abs(Math.round((over - team) / team * 1000) / 10) + '%' : 'n/a'}) against the team table.` : ' No override: this is exactly what the team table adds up to.';
+  const sn = snapFromTeams(A.implTeam, A.msTeam), delta = (over, team) => over > 0 ? ` An override of ${money(over)} replaces it: ${over >= team ? '+' : '−'}${money(Math.abs(over - team))} (${team ? (over >= team ? '+' : '−') + Math.abs(Math.round((over - team) / team * 1000) / 10) + '%' : 'n/a'}) against the team table.` : ' No override: this is exactly what the team table adds up to.';
   const work = (title, big, text, over) => `<div style="background:#0F1A4E;border:1px solid ${over > 0 ? '#F08A6C' : 'rgba(246,189,96,.5)'};border-radius:12px;padding:.6em .9em;display:flex;flex-direction:column;gap:.2em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700">${title}</div><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.9em;line-height:1.05;color:#F4F1EA">${big}</div><div style="color:#C9CCDD">${text}</div></div>`;
   const fees = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(24em,1fr));gap:.6em">` +
     work('Services fee a month, worked out', money(d.svcMo), `${money(sn.svcMonthly)} = ${d.hoursMs.toLocaleString('en-US')} h at a blended ${d.hoursMs ? '$' + (sn.svcMonthly / d.hoursMs).toFixed(2) : '—'} (managed-service hours × bill rates, ${d.peopleMs} people).` + delta(A.nums.svcOverride, sn.svcMonthly), A.nums.svcOverride) +
@@ -356,7 +361,12 @@ function renderNums() {
 
 Object.assign(ACT, {
   toggleSide: () => { A.sideClosed = !A.sideClosed; renderAdmin(); },
-  ph_impl: () => { A.phase = 'impl'; renderAdmin(); }, ph_ms: () => { A.phase = 'ms'; renderAdmin(); },
+  ph_impl: () => { A.phase = 'impl'; A.sel = []; renderAdmin(); }, ph_ms: () => { A.phase = 'ms'; A.sel = []; renderAdmin(); },
+  copyTeam: () => {
+    const from = A.phase === 'impl' ? A.msTeam : A.implTeam, to = A.phase === 'impl' ? 'implementation' : 'managed-service';
+    if (A.team.length && !confirm('Replace the ' + to + ' team with a copy of the ' + (A.phase === 'impl' ? 'managed-service' : 'implementation') + ' team? They stay separate afterwards.')) return;
+    const stamp = Date.now(); A.team = clone(from).map((t, i) => ({...t, id: stamp + i})); A.sel = []; renderAdmin();
+  },
   toggleAll: e => { A.sel = A.sel.length === A.team.length ? [] : A.team.map(t => t.id); renderAdmin(); },
   clearSel: () => { A.sel = []; renderAdmin(); },
   applyBulkHours: () => { A.bulkHours = Math.max(0, +$('#bulkHours').value || 0); const {bulk} = A.ctx; bulk(t => (t[A.phase] = A.bulkHours, t)); },
@@ -365,15 +375,15 @@ Object.assign(ACT, {
   bulkRate: (e, el) => { const rc = A.rates.find(x => String(x.id) === el.value); if (rc) A.ctx.bulk(t => (t.cost = rc.cost, t.bill = rc.bill, t)); el.value = ''; },
   bulkDelete: () => { A.team = A.team.filter(t => !A.sel.includes(t.id)); A.sel = []; renderAdmin(); },
   addRate: () => { A.rates = [...A.rates, {id: Date.now(), label: 'New rate', ...A.newRate}]; renderAdmin(); },
-  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', grp: 'platform', loc: 'off', ...A.newRow, impl: 160, ms: 160}]; renderAdmin(); },
+  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', grp: 'platform', loc: 'off', ...A.newRow, hours: 160}]; renderAdmin(); },
   resetTeam: () => {
     const d = A.draft;
-    A.team = clone(d ? d.team : JSON.parse(A.baseJ).team); A.rates = clone(d ? d.rates : JSON.parse(A.baseJ).rates); A.nums = {...DEFAULTS, ...cleanNums(d ? d.nums : {})}; renderAdmin();
+    const base = JSON.parse(A.baseJ); A.implTeam = clone(d ? d.implTeam : base.implTeam); A.msTeam = clone(d ? d.msTeam : base.msTeam); A.rates = clone(d ? d.rates : base.rates); A.nums = {...DEFAULTS, ...cleanNums(d ? d.nums : {})}; renderAdmin();
   },
   saveTeam: async () => {
     A.msg = 'Saving…'; renderStatus();
     try {
-      const r = await fetch('/api/proposals/team-draft', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, team: A.team, rates: A.rates, nums: A.nums, expectedHash: A.draft ? A.draft.hash : ''})});
+      const r = await fetch('/api/proposals/team-draft', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, implTeam: A.implTeam, msTeam: A.msTeam, rates: A.rates, nums: A.nums, expectedHash: A.draft ? A.draft.hash : ''})});
       const d = await r.json().catch(() => ({}));
       if (r.status === 409) { A.conflict = true; A.msg = 'Someone else changed this draft. Reload to see their version.'; renderAdmin(); return; }
       if (!r.ok || !d.ok) { A.msg = d.message || 'The draft didn’t save. Try again.'; renderStatus(); return; }
