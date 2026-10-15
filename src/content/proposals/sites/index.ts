@@ -3,3 +3,9 @@ export async function getProposalSite(slug: string): Promise<string | null> {
   if (slug === "invited-clubs") return (await import("./invited-clubs")).default;
   return null;
 }
+
+/** The staff-only parts of a site (markers and the markup that replaces them), or null if it has none. */
+export async function getProposalStaffParts(slug: string): Promise<Record<string, string> | null> {
+  if (slug === "invited-clubs") return (await import("./invited-clubs.staff")).default;
+  return null;
+}
