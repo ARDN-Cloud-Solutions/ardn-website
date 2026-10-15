@@ -37,6 +37,7 @@
         <b style="color:#F6BD60;font-size:max(14px,.9em);"><span data-v="selCount"></span> selected</b>
         <span style="width:1px;height:1.2em;background:rgba(244,241,234,.2);"></span>
         <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Hours<input type="number" id="bulkHours" value="160" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;width:4.5em;text-align:right;"></input><button data-act="applyBulkHours" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:rgba(60,162,255,.18);border:1px solid rgba(60,162,255,.6);color:#F4F1EA;border-radius:6px;padding:.22em .6em;cursor:pointer;">Set</button></label>
+        <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Group<select data-act="bulkGrp" data-ev="change" id="bulkGrp" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option></select></label>
         <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Location<select data-act="bulkLoc" data-ev="change" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option><option value="on">Onshore</option><option value="off">Offshore</option></select></label>
         <label style="display:flex;align-items:center;gap:.3em;font-size:max(14px,.84em);color:#C9CCDD;">Rate<select id="bulkRate" data-act="bulkRate" data-ev="change" style="font:inherit;font-size:max(14px,.86em);background:#08113B;color:#F4F1EA;border:1px solid rgba(244,241,234,.25);border-radius:6px;padding:.25em .4em;"><option value="">—</option></select></label>
         <span style="margin-left:auto;"></span>
@@ -44,13 +45,13 @@
         <button data-act="clearSel" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:0;color:#C9CCDD;cursor:pointer;">Clear</button>
       </div>
       </div>
-      <table style="width:100%;border-collapse:collapse;font-size:max(14px,.88em);min-width:76em;">
+      <table style="width:100%;border-collapse:collapse;font-size:max(14px,.88em);min-width:86em;">
         <thead><tr style="text-align:left;font-size:max(14px,.74em);letter-spacing:.08em;text-transform:uppercase;color:#8E95B5;">
-          <th style="padding:.5em .3em;width:1.4em;"><input type="checkbox" id="admAll" data-act="toggleAll" data-ev="change" style="accent-color:#F6BD60;width:1em;height:1em;"></input></th><th style="padding:.5em .3em;width:1.2em;"></th><th style="padding:.5em .4em;width:15em;min-width:15em;">Role</th><th style="padding:.5em .4em;width:8em;min-width:8em;">Name</th><th style="padding:.5em .4em;">Loc</th><th style="padding:.5em .4em;text-align:right;">Cost/hr</th><th style="padding:.5em .4em;text-align:right;">Bill/hr</th><th style="padding:.5em .4em;text-align:right;">Hours</th><th style="padding:.5em .4em;">Util</th><th style="padding:.5em .4em;text-align:right;">Cost/mo</th><th style="padding:.5em .4em;text-align:right;">Revenue/mo</th><th style="padding:.5em .4em;text-align:right;">Margin/mo</th><th style="padding:.5em .4em;text-align:right;">Margin %</th><th style="padding:.5em .3em;"></th>
+          <th style="padding:.5em .3em;width:1.4em;"><input type="checkbox" id="admAll" data-act="toggleAll" data-ev="change" style="accent-color:#F6BD60;width:1em;height:1em;"></input></th><th style="padding:.5em .3em;width:1.2em;"></th><th style="padding:.5em .4em;width:15em;min-width:15em;">Role</th><th style="padding:.5em .4em;width:8em;min-width:8em;">Name</th><th style="padding:.5em .4em;">Group</th><th style="padding:.5em .4em;">Loc</th><th style="padding:.5em .4em;text-align:right;">Cost/hr</th><th style="padding:.5em .4em;text-align:right;">Bill/hr</th><th style="padding:.5em .4em;text-align:right;">Hours</th><th style="padding:.5em .4em;">Util</th><th style="padding:.5em .4em;text-align:right;">Cost/mo</th><th style="padding:.5em .4em;text-align:right;">Revenue/mo</th><th style="padding:.5em .4em;text-align:right;">Margin/mo</th><th style="padding:.5em .4em;text-align:right;">Margin %</th><th style="padding:.5em .3em;"></th>
         </tr></thead>
         <tbody data-slot="admRows" data-as="row"></tbody>
         <tfoot><tr style="font-weight:700;">
-          <td colspan="5" style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);color:#F4F1EA;">Total <span style="font-weight:400;color:#8E95B5;">· <span data-v="admPeople"></span> people</span></td>
+          <td colspan="6" style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);color:#F4F1EA;">Total <span style="font-weight:400;color:#8E95B5;">· <span data-v="admPeople"></span> people</span></td>
           <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#8E95B5;font-weight:400;"><span data-v="admBlendCost"></span></td>
           <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#8E95B5;font-weight:400;"><span data-v="admBlendBill"></span></td>
           <td style="padding:.5em .4em;border-top:1px solid rgba(244,241,234,.3);text-align:right;font-variant-numeric:tabular-nums;color:#F4F1EA;"><span data-v="admHours"></span></td>
@@ -68,6 +69,8 @@
         <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#C9CCDD;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to draft</button>
       </div>
       <div style="margin-top:.8em;border-top:1px solid rgba(244,241,234,.13);padding-top:.6em;">
+        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By group · people after rollout → at go-live, as the proposal shows them</div>
+        <div id="admGroups" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;margin-bottom:.8em;"></div>
         <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By role</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;">
           <div data-slot="roleCost" data-as="rc" style="display:contents"></div>
@@ -89,6 +92,7 @@
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:center;"><input type="checkbox" checked="{{ row.sel }}" data-on-change="toggleSel" style="accent-color:#F6BD60;width:1em;height:1em;"></input></td><td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);color:#8E95B5;cursor:grab;text-align:center;">⠿</td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);min-width:15em;"><input value="{{ row.role }}" data-on-change="setRole" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><input value="{{ row.name }}" placeholder="Name" data-on-change="setName" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.grp }}" data-on-change="setGrp" style="font:inherit;font-size:max(14px,.86em);background:#0F1A4E;color:#C9CCDD;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;max-width:11em;"><option value="lead">Delivery lead</option><option value="platform">Platform &amp; quality</option><option value="support">Support</option><option value="pod1">Pod 1 · Membership</option><option value="pod2">Pod 2 · Digital</option><option value="pod3">Pod 3 · Golf</option><option value="pod4">Pod 4 · Dining</option><option value="pod5">Pod 5 · Billing</option><option value="pod6">Pod 6 · Data</option></select></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.loc }}" data-on-change="setLoc" style="font:inherit;font-size:max(14px,.86em);background:transparent;color:#C9CCDD;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;"><option value="on">On</option><option value="off">Off</option></select></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.cost }}" data-on-change="setCost" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;" class="xf0"></input></span></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.bill }}" data-on-change="setBill" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;color:#F9D08A;" class="xf0"></input></span></td>
@@ -109,7 +113,7 @@
 
 /* ---------- Team admin: Ardn staff only. Built from the staff API; the client never receives any of this. ---------- */
 const CAP = 160;
-const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, team: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: ''};
+const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, team: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: '', view: 'draft'};
 const clone = o => JSON.parse(JSON.stringify(o));
 // jsonb storage reorders keys, so drafts are compared with sorted keys
 const canon = o => JSON.stringify(o, (k, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort(([a], [b]) => a < b ? -1 : 1)) : v);
@@ -120,9 +124,10 @@ const isLive = () => !isUnsaved() && !!A.draft && !!A.pub && A.pub.hash === A.dr
 const money = n => (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
 const pctOf = (m, r) => r ? Math.round(m / r * 100) + '%' : '—';
 const mColor = (m, r) => !r ? '#8E95B5' : m / r >= .4 ? '#5FD08A' : m / r >= .2 ? '#F6BD60' : '#F08A6C';
-const snapOf = tm => ({peopleMs: tm.filter(x => x.ms > 0).length, hoursMs: tm.reduce((a, x) => a + x.ms, 0), peopleImpl: tm.filter(x => x.impl > 0).length, hoursImpl: tm.reduce((a, x) => a + x.impl, 0)});
+const GROUP_LABEL = {lead: 'Delivery lead', platform: 'Platform & quality', support: 'Support', pod1: 'Pod 1 · Membership & Sales', pod2: 'Pod 2 · Digital & Front Desk', pod3: 'Pod 3 · Golf & Racquets', pod4: 'Pod 4 · Dining & Events', pod5: 'Pod 5 · Billing & Finance', pod6: 'Pod 6 · Data & Integrations'};
+const curDerived = () => derive(A.nums, snapFromRows(A.team));
 const setV = (name, val) => $$(`[data-v="${name}"]`).forEach(e => { e.textContent = val; });
-const normDraft = d => ({...d, nums: {...DEFAULTS, ...(d.nums || {})}});
+const normDraft = d => ({...d, team: (d.team || []).map(t => ({...t, grp: GROUPS.includes(t.grp) ? t.grp : 'platform'})), nums: {...DEFAULTS, ...cleanNums(d.nums)}});
 async function loadAdmin() {
   try {
     const r = await fetch('/api/proposals/team-draft?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'});
@@ -134,10 +139,10 @@ async function loadAdmin() {
     A.baseJ = canon({team: d.defaults.team, rates: d.defaults.rates, nums: {...DEFAULTS}});
     A.team = clone(A.draft ? A.draft.team : d.defaults.team);
     A.rates = clone(A.draft ? A.draft.rates : d.defaults.rates);
-    A.nums = {...DEFAULTS, ...(A.draft ? A.draft.nums : {})};
+    A.nums = {...DEFAULTS, ...cleanNums(A.draft ? A.draft.nums : {})};
     A.loaded = true; A.msg = '';
   } catch (e) { A.msg = 'The team didn’t load. Reload to try again.'; }
-  if (document.body.dataset.view === 'admin') renderAdmin();
+  if (document.body.dataset.view === 'admin') renderAdmin(); else staffRefresh();
 }
 
 function initAdmin() {
@@ -172,24 +177,25 @@ function renderAdmin() {
   const bulk = fn => setTeam(team.map(t => isSel(t.id) ? fn({...t}) : t));
   const run = team.reduce((a, t) => a + t.cost * t[ph], 0), rev = team.reduce((a, t) => a + t.bill * t[ph], 0), hrs = team.reduce((a, t) => a + t[ph], 0), mar = rev - run;
   const nPeople = team.filter(t => t[ph] > 0).length;
-  const contract = ph === 'ms' ? A.nums.svcMo : A.nums.impl / Math.max(1, A.nums.hyperMonths);
+  const dv = curDerived();
+  const contract = ph === 'ms' ? dv.svcMo : dv.impl / Math.max(1, A.nums.hyperMonths);
   const util = nPeople ? Math.round(hrs / (nPeople * CAP) * 100) + '%' : '—';
   setV('admRev', money(rev)); setV('admRun', money(run)); setV('admMargin', money(mar)); setV('admMarginPct', pctOf(mar, rev));
   setV('admHours', hrs.toLocaleString('en-US')); setV('admUtil', util); setV('admPeople', nPeople);
   setV('admBlendCost', hrs ? money(run / hrs) + '/h' : '—'); setV('admBlendBill', hrs ? money(rev / hrs) + '/h' : '—');
-  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'contract a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
+  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'services fee a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
   setV('selCount', sel.length);
   const f = A.fill, inFill = i => f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
   const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, [ph]: v} : x));
   const rows = team.map((t, idx) => {
     const c = t.cost * t[ph], rv = t.bill * t[ph], m = rv - c, u = Math.round(t[ph] / CAP * 100);
-    return {sel: isSel(t.id), role: t.role, name: t.name, loc: t.loc, cost: t.cost, bill: t.bill, hours: t[ph],
+    return {sel: isSel(t.id), role: t.role, name: t.name, grp: t.grp, loc: t.loc, cost: t.cost, bill: t.bill, hours: t[ph],
       monthly: money(c), revenue: money(rv), margin: money(m), marginPct: pctOf(m, rv), mC: mColor(m, rv),
       util: u + '%', utilW: Math.min(100, u) + '%', utilC: t[ph] > CAP ? '#F08A6C' : t[ph] >= CAP * .75 ? '#5FD08A' : t[ph] > 0 ? '#F6BD60' : '#8E95B5',
       bg: t.loc === 'off' ? 'rgba(239,217,174,.06)' : 'transparent', fillRing: 'none',
       toggleSel: () => { A.sel = isSel(t.id) ? sel.filter(x => x !== t.id) : [...sel, t.id]; renderAdmin(); },
       setRole: e => upd(t.id, x => (x.role = e.target.value, x)), setName: e => upd(t.id, x => (x.name = e.target.value, x)),
-      setLoc: e => upd(t.id, x => (x.loc = e.target.value, x)),
+      setLoc: e => upd(t.id, x => (x.loc = e.target.value, x)), setGrp: e => upd(t.id, x => (x.grp = e.target.value, x)),
       setCost: e => upd(t.id, x => (x.cost = Math.max(0, +e.target.value || 0), x)), setBill: e => upd(t.id, x => (x.bill = Math.max(0, +e.target.value || 0), x)),
       setHours: e => upd(t.id, x => (x[ph] = Math.max(0, +e.target.value || 0), x)),
       remove: () => setTeam(team.filter(x => x.id !== t.id)),
@@ -223,6 +229,7 @@ function renderAdmin() {
     drag: e => { e.dataTransfer.setData('text/plain', 'rate:' + rc.id); e.dataTransfer.effectAllowed = 'copy'; }})));
   renderSlot(slotOf('hourChips'), [[160, 'Full-time'], [120, '¾ time'], [80, 'Half-time'], [40, 'Part-time'], [20, 'Light'], [0, 'Off']].map(([h, label]) => ({h, label,
     drag: e => { e.dataTransfer.setData('text/plain', 'hours:' + h); e.dataTransfer.effectAllowed = 'copy'; }})));
+  $('#bulkGrp').innerHTML = '<option value="">—</option>' + GROUPS.map(g => `<option value="${g}">${esc(GROUP_LABEL[g])}</option>`).join('');
   $('#bulkRate').innerHTML = '<option value="">—</option>' + rates.map(r => `<option value="${r.id}">${esc(r.label)}</option>`).join('');
   const byRole = {};
   team.forEach(t => { const k = t.role || 'Unnamed', g = byRole[k] || (byRole[k] = {role: k, n: 0, hrs: 0, cost: 0, rev: 0}); if (t[ph] > 0) g.n++; g.hrs += t[ph]; g.cost += t.cost * t[ph]; g.rev += t.bill * t[ph]; });
@@ -236,10 +243,47 @@ function renderAdmin() {
   $('#phImpl').hidden = $('#phMs').hidden = A.sub !== 'team';
   $('#admTeam').style.display = A.sub === 'team' ? 'flex' : 'none'; $('#admNums').style.display = A.sub === 'nums' ? 'flex' : 'none';
   if (A.sub === 'nums') renderNums();
+  renderGroups();
   renderStatus();
+  staffRefresh();
   // bulk-bar controls and the rest talk through ACT
   A.ctx = {team, rates, bulk, setTeam, sel};
 }
+/* people by group, as the proposal will show them */
+function renderGroups() {
+  const root = $('#admGroups'); if (!root) return;
+  const snap = snapFromRows(A.team);
+  root.innerHTML = GROUPS.map(g => {
+    const c = countOf(snap.groups[g]);
+    return `<div style="border:1px solid rgba(244,241,234,.13);border-radius:8px;padding:.35em .55em;display:grid;grid-template-columns:1fr auto;gap:.05em .5em;align-items:baseline"><b style="color:#F4F1EA;font-size:.88em">${esc(GROUP_LABEL[g])}</b><b style="color:${c.pm || c.pi ? '#F6BD60' : '#8E95B5'}">${c.pm}${c.pi !== c.pm ? ' → ' + c.pi : ''}</b><span style="font-size:.76em;color:#8E95B5">${snap.groups[g].map(e => esc(e.role)).join(', ') || 'no one'}</span><span style="font-size:.76em;color:#8E95B5">${c.hm.toLocaleString('en-US')} h</span></div>`;
+  }).join('');
+}
+
+/* What the client tabs show in this browser: the draft being edited, so every edit lands on all nine tabs at once, or the
+   published figures when asked. The banner sits in the footer, so the tabs keep their size. */
+function staffRefresh() {
+  let nv = PUB.nv, t = PUB.t, differs = false;
+  if (A.loaded) {
+    const dn = {...DEFAULTS, ...A.nums}, dt = snapFromRows(A.team);
+    differs = canon({nv: dn, t: dt}) !== canon({nv: PUB.nv, t: PUB.t});
+    if (differs && A.view !== 'published') { nv = dn; t = dt; }
+  }
+  NV = nv; PUBT = t; paint();
+  let bar = $('#prevBar');
+  if (!bar) {
+    bar = document.createElement('span'); bar.id = 'prevBar';
+    bar.style.cssText = 'display:none;align-items:center;gap:.6em;font-size:max(14px,.84em);padding:.1em .3em .1em .8em;border-radius:999px;border:1px solid #F6BD60;background:rgba(246,189,96,.14);color:#F4F1EA';
+    bar.innerHTML = '<span id="prevTxt"></span><button type="button" id="prevBtn" style="font:inherit;font-weight:700;border:0;border-radius:999px;padding:.1em .8em;cursor:pointer;background:#F6BD60;color:#08113B"></button>';
+    $('#fPos').parentElement.after(bar);
+    $('#prevBtn').onclick = () => { A.view = A.view === 'published' ? 'draft' : 'published'; staffRefresh(); };
+  }
+  const onClient = document.body.dataset.view !== 'admin';
+  bar.style.display = differs && onClient ? 'inline-flex' : 'none';
+  $('#prevTxt').textContent = A.view === 'published' ? 'Showing the published version' : 'Previewing unpublished draft';
+  $('#prevBtn').textContent = A.view === 'published' ? 'Back to draft' : 'View published';
+}
+addEventListener('hashchange', () => { if (typeof staffRefresh === 'function') staffRefresh(); });
+
 function paintFill() {
   const f = A.fill;
   $$('[data-slot=admRows] > tr').forEach((tr, i) => {
@@ -289,10 +333,15 @@ function renderNums() {
   SYS.forEach(s => { if (cnt[s[2]] !== undefined) cnt[s[2]]++; });
   const bad = ['retire', 'partial', 'connect', 'keep'].filter(k => cnt[k] !== A.nums[k]);
   if (SYS.length !== A.nums.systems) bad.unshift('systems');
-  const d = derive(A.nums, snapOf(A.team));
+  const d = curDerived();
   const prev = [['Technology a year', d.techYear, 'M'], ['Services a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven month', d.breakeven, 'int']];
-  root.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.6em;line-height:1.1;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#C9CCDD">${l}, worked out</div></div>`).join('') + '</div>' +
-    (bad.length ? `<div style="color:#F08A6C;border:1px solid #F08A6C;border-radius:8px;padding:.4em .7em">The Detail tab lists ${SYS.length} systems (${cnt.retire} retire, ${cnt.partial} in part, ${cnt.connect} connect, ${cnt.keep} keep). These estate counts differ: ${bad.join(', ')}. Update the list in the page or these counts.</div>` : '') + `<div style="color:#8E95B5;font-size:max(14px,.86em)">Totals, the saving, the bars and the capacity calculator are worked out from these inputs. Return multiple, net return and breakeven month are worked out from the implementation fee, the saving and the go-live ramp. Save the draft, then publish, to show a change to Invited.</div>` +
+  const sn = snapFromRows(A.team), delta = (over, team) => over > 0 ? ` An override of ${money(over)} replaces it: ${over >= team ? '+' : '−'}${money(Math.abs(over - team))} (${team ? (over >= team ? '+' : '−') + Math.abs(Math.round((over - team) / team * 1000) / 10) + '%' : 'n/a'}) against the team table.` : ' No override: this is exactly what the team table adds up to.';
+  const work = (title, big, text, over) => `<div style="background:#0F1A4E;border:1px solid ${over > 0 ? '#F08A6C' : 'rgba(246,189,96,.5)'};border-radius:12px;padding:.6em .9em;display:flex;flex-direction:column;gap:.2em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700">${title}</div><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.9em;line-height:1.05;color:#F4F1EA">${big}</div><div style="color:#C9CCDD">${text}</div></div>`;
+  const fees = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(24em,1fr));gap:.6em">` +
+    work('Services fee a month, worked out', money(d.svcMo), `${money(sn.svcMonthly)} = ${d.hoursMs.toLocaleString('en-US')} h at a blended ${d.hoursMs ? '$' + (sn.svcMonthly / d.hoursMs).toFixed(2) : '—'} (managed-service hours × bill rates, ${d.peopleMs} people).` + delta(A.nums.svcOverride, sn.svcMonthly), A.nums.svcOverride) +
+    work('Implementation fee, one time, worked out', money(d.impl), `${money(d.implTeam)} = ${money(sn.implMonthly)} a month (${d.hoursImpl.toLocaleString('en-US')} h, ${d.peopleImpl} people) × ${A.nums.hyperMonths} months + ${money(A.nums.implOther)} other implementation costs.` + delta(A.nums.implOverride, d.implTeam), A.nums.implOverride) + '</div>';
+  root.innerHTML = fees + `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:1.6em;line-height:1.1;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#C9CCDD">${l}, worked out</div></div>`).join('') + '</div>' +
+    (bad.length ? `<div style="color:#F08A6C;border:1px solid #F08A6C;border-radius:8px;padding:.4em .7em">The Detail tab lists ${SYS.length} systems (${cnt.retire} retire, ${cnt.partial} in part, ${cnt.connect} connect, ${cnt.keep} keep). These estate counts differ: ${bad.join(', ')}. Update the list in the page or these counts.</div>` : '') + `<div style="color:#8E95B5;font-size:max(14px,.86em)">The fees, people and hours come from the team table. Totals, the saving, the bars and the capacity calculator are worked out from these inputs and the team. Return multiple, net return and breakeven month are worked out from the implementation fee, the saving and the go-live ramp. Every change shows on the client tabs in this browser at once; Invited sees it after Publish. Save the draft, then publish, to show a change to Invited.</div>` +
     `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(22em,1fr));gap:.6em;align-items:start">` +
     NUMS.map(([title, rows]) => `<div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.7em .9em;display:flex;flex-direction:column;gap:.4em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700">${esc(title)}</div>` +
       rows.map(([k, label, f]) => `<label style="display:grid;grid-template-columns:1fr 7.5em;gap:.1em .6em;align-items:center"><span>${esc(label)}<span style="display:block;color:#8E95B5;font-size:max(14px,.84em)">${used(k).length ? 'Used on: ' + esc(used(k).join(', ')) : 'Used by the figures above'}</span></span>` +
@@ -311,14 +360,15 @@ Object.assign(ACT, {
   toggleAll: e => { A.sel = A.sel.length === A.team.length ? [] : A.team.map(t => t.id); renderAdmin(); },
   clearSel: () => { A.sel = []; renderAdmin(); },
   applyBulkHours: () => { A.bulkHours = Math.max(0, +$('#bulkHours').value || 0); const {bulk} = A.ctx; bulk(t => (t[A.phase] = A.bulkHours, t)); },
+  bulkGrp: (e, el) => { const v = el.value; if (v) A.ctx.bulk(t => (t.grp = v, t)); el.value = ''; },
   bulkLoc: (e, el) => { const v = el.value; if (v) A.ctx.bulk(t => (t.loc = v, t)); el.value = ''; },
   bulkRate: (e, el) => { const rc = A.rates.find(x => String(x.id) === el.value); if (rc) A.ctx.bulk(t => (t.cost = rc.cost, t.bill = rc.bill, t)); el.value = ''; },
   bulkDelete: () => { A.team = A.team.filter(t => !A.sel.includes(t.id)); A.sel = []; renderAdmin(); },
   addRate: () => { A.rates = [...A.rates, {id: Date.now(), label: 'New rate', ...A.newRate}]; renderAdmin(); },
-  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', loc: 'off', ...A.newRow, impl: 160, ms: 160}]; renderAdmin(); },
+  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', grp: 'platform', loc: 'off', ...A.newRow, impl: 160, ms: 160}]; renderAdmin(); },
   resetTeam: () => {
     const d = A.draft;
-    A.team = clone(d ? d.team : JSON.parse(A.baseJ).team); A.rates = clone(d ? d.rates : JSON.parse(A.baseJ).rates); A.nums = {...DEFAULTS, ...(d ? d.nums : {})}; renderAdmin();
+    A.team = clone(d ? d.team : JSON.parse(A.baseJ).team); A.rates = clone(d ? d.rates : JSON.parse(A.baseJ).rates); A.nums = {...DEFAULTS, ...cleanNums(d ? d.nums : {})}; renderAdmin();
   },
   saveTeam: async () => {
     A.msg = 'Saving…'; renderStatus();
@@ -340,7 +390,7 @@ Object.assign(ACT, {
       if (r.status === 409) { A.conflict = true; A.msg = 'Someone else changed this draft. Reload to see their version.'; renderAdmin(); return; }
       if (!r.ok || !d.ok) { A.msg = d.message || 'The publish didn’t go through. Try again.'; renderStatus(); return; }
       A.pub = d.published; A.msg = '';
-      NV = {...DEFAULTS, ...cleanNums(d.nums)}; PUBT = {...TEAM_DEFAULT, ...d.snap}; paint(); if (!PUBT.roles) PUBT.roles = TEAM_DEFAULT.roles;
+      PUB = {nv: {...DEFAULTS, ...cleanNums(d.nums)}, t: cleanSnap(d.snap), hash: d.published.hash};
     } catch (e) { A.msg = 'The publish didn’t go through. Try again.'; }
     renderAdmin();
   },

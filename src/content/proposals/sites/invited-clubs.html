@@ -274,11 +274,11 @@ body.noflags .flag{display:none}
     <div style="flex:1 1 30em;">
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.45em;">The services team</div>
       <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2.2em;line-height:1.06;margin:0;">The fee buys a team, not tickets.</h1>
-      <p style="margin:.5em 0 0;color:#C9CCDD;"><span data-n="peopleMs"></span> people, about <span data-n="hoursMs"></span> hours a month. Your CIO decides what they work on.</p>
+      <p style="margin:.5em 0 0;color:#C9CCDD;"><span data-n="peopleMs" data-f="ppl"></span>, about <span data-n="hoursMs"></span> hours a month. Your CIO decides what they work on.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(2,auto);border:1px solid rgba(246,189,96,.35);border-radius:12px;">
       <div style="padding:.65em 1em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2em;color:#F6BD60;line-height:1;"><span data-n="hoursImpl"></span></div><div style="font-size:max(14px,.86em);color:#C9CCDD;margin-top:.3em;">hours a month during rollout<br>covered by the <span data-n="impl"></span> one-time fee</div></div>
-      <div style="padding:.65em 1em;border-left:1px solid rgba(246,189,96,.2);"><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span></div><div style="font-size:max(14px,.86em);color:#C9CCDD;margin-top:.3em;">people after rollout, ~<span data-n="hoursMs"></span> hrs a month<br>covered by <span data-n="svcMo" data-f="k"></span> a month · US and offshore</div></div>
+      <div style="padding:.65em 1em;border-left:1px solid rgba(246,189,96,.2);"><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span></div><div style="font-size:max(14px,.86em);color:#C9CCDD;margin-top:.3em;">on the team after rollout, ~<span data-n="hoursMs"></span> hrs a month<br>covered by <span data-n="svcMo" data-f="k"></span> a month · US and offshore</div></div>
     </div>
   </section>
 
@@ -287,43 +287,25 @@ body.noflags .flag{display:none}
       <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700;">Who does what</span><div style="display:flex;flex-wrap:wrap;align-items:center;gap:.6em;">
         <div style="border:1px solid #F6BD60;border-radius:3px;padding:.4em .8em;"><div style="font-weight:700;font-size:max(14px,.92em);">Invited CIO</div><div style="font-size:max(14px,.84em);color:#C9CCDD;">Ranks the backlog</div></div>
         <div style="width:1.6em;height:1px;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);"></div>
-        <div style="background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);color:#F4F1EA;border-radius:3px;padding:.4em .8em;"><div style="font-weight:700;font-size:max(14px,.92em);">Ardn Delivery Lead</div><div style="font-size:max(14px,.84em);">Onshore · <span data-step="Delivery Lead" data-sf="long"></span></div></div>
+        <div style="background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);color:#F4F1EA;border-radius:3px;padding:.4em .8em;"><div style="font-weight:700;font-size:max(14px,.92em);">Ardn Delivery Lead</div><div style="font-size:max(14px,.84em);">Onshore · <span data-step="lead" data-sf="long"></span></div></div>
       </div>
       <span style="font-size:max(14px,.84em);color:#8E95B5;">→ shows the step-up during go-live</span></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12em,1fr));gap:.8em;font-size:max(14px,.84em);">
         <div style="border-top:2px solid rgba(246,189,96,.7);padding-top:.55em;">
-          <div style="font-weight:700;margin-bottom:.4em;display:flex;justify-content:space-between;"><span>Platform &amp; quality</span><span style="color:#F6BD60;"><span data-n="platformPpl"></span> people</span></div>
-          <div style="display:grid;grid-template-columns:1fr auto;gap:.28em .5em;color:#C9CCDD;">
-            <span>Solution Architect</span><span style="color:#F4F1EA;"><span data-step="Solution Architect"></span></span>
-            <span>Release Manager</span><span style="color:#F4F1EA;"><span data-step="Release Manager"></span></span>
-            <span>QA Automation + offshore QA</span><span style="color:#F4F1EA;"><span data-step="QA Automation"></span></span>
-            <span>Integration &amp; Data</span><span style="color:#F4F1EA;"><span data-step="Integration &amp; Data Engineer"></span></span>
-            
-          </div>
+          <div style="font-weight:700;margin-bottom:.4em;display:flex;justify-content:space-between;"><span>Platform &amp; quality</span><span style="color:#F6BD60;"><span data-n="platformPpl" data-f="ppl"></span></span></div>
+          <div data-roles="platform" data-rv="team" style="display:grid;grid-template-columns:1fr auto;gap:.28em .5em;color:#C9CCDD;"></div>
         </div>
         <div style="border-top:2px solid rgba(246,189,96,.7);padding-top:.55em;">
-          <div style="font-weight:700;margin-bottom:.4em;display:flex;justify-content:space-between;"><span>Support</span><span style="color:#F6BD60;"><span data-n="supportPpl"></span> people</span></div>
-          <div style="display:grid;grid-template-columns:1fr auto;gap:.28em .5em;color:#C9CCDD;">
-            <span>Second-line Lead, on call</span><span style="color:#F4F1EA;"><span data-step="Second-line Support Lead"></span></span>
-            <span>L2 analysts, offshore, US shift</span><span style="color:#F4F1EA;"><span data-step="L2 analyst (US shift)"></span></span>
-            <span>Trainer &amp; Change Lead</span><span style="color:#F4F1EA;"><span data-step="Trainer &amp; Change Lead"></span></span>
-            
-          </div>
+          <div style="font-weight:700;margin-bottom:.4em;display:flex;justify-content:space-between;"><span>Support</span><span style="color:#F6BD60;"><span data-n="supportPpl" data-f="ppl"></span></span></div>
+          <div data-roles="support" data-rv="team" style="display:grid;grid-template-columns:1fr auto;gap:.28em .5em;color:#C9CCDD;"></div>
         </div>
       </div>
       <div style="border-top:2px solid rgba(246,189,96,.7);padding-top:.55em;font-size:max(14px,.84em);">
-        <div style="display:flex;justify-content:space-between;margin-bottom:.45em;"><span style="font-weight:700;"><span data-n="podCount" data-f="Word"></span> pods <span style="color:#F6BD60;"><span data-n="podPpl"></span> people</span></span><span style="color:#8E95B5;font-size:max(14px,.92em);">Each pod owns one area of one platform, backed by the <span data-n="sharedPpl"></span> shared people above</span></div>
-        <div class="pods" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:.4em;">
-          <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Membership &amp; Sales</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Lead and developer, both shared</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod1Sys"></span> systems</div></div>
-          <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Digital &amp; Front Desk</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Lead and developer, both shared</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod2Sys"></span> systems</div></div>
-          <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Golf &amp; Racquets</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Lead and developer, both shared</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod3Sys"></span> systems</div></div>
-          <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Dining &amp; Events</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Shared lead + developer</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod4Sys"></span> systems</div></div>
-          <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;"><span data-n="podSize"></span></div><div style="font-size:max(14px,.72em);color:#8E95B5;">people</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Billing &amp; Finance</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Own lead + developer</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod5Sys"></span> systems</div></div>
-          <div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:#F6BD60;">·</div><div style="font-size:max(14px,.72em);color:#8E95B5;">shared</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">Data &amp; Integrations</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">Shared architect + integration engineer</div><div style="font-size:max(14px,.78em);color:#8E95B5;">Area once spread over <span data-n="pod6Sys"></span> systems + <span data-n="feeds"></span> feeds</div></div>
-        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:.45em;"><span style="font-weight:700;"><span data-n="podCount" data-f="podsW"></span> <span style="color:#F6BD60;"><span data-n="podPpl" data-f="ppl"></span></span></span><span style="color:#8E95B5;font-size:max(14px,.92em);">Each pod owns one area of one platform, backed by the shared team of <span data-n="sharedPpl" data-f="ppl"></span> above</span></div>
+        <div class="pods" data-pods="team" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:.4em;"></div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:.6em 1em;font-size:max(14px,.86em);background:rgba(246,189,96,.08);border:1px solid rgba(246,189,96,.3);border-radius:3px;padding:.6em .8em;">
-        <div><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span> people</div><div style="color:#C9CCDD;margin-top:.2em;"><span data-n="leadPpl"></span> lead + <span data-n="platformPpl"></span> platform + <span data-n="supportPpl"></span> support + <span data-n="podPpl"></span> in pods</div></div>
+        <div><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5em;color:#F6BD60;line-height:1;"><span data-n="peopleMs" data-f="ppl"></span></div><div style="color:#C9CCDD;margin-top:.2em;"><span data-n="leadPpl"></span> lead + <span data-n="platformPpl"></span> platform + <span data-n="supportPpl"></span> support + <span data-n="podPpl"></span> in pods</div></div>
         <div><div style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5em;color:#F6BD60;line-height:1;"><span data-n="svcMo" data-f="usd"></span> a month</div><div style="color:#C9CCDD;margin-top:.2em;">About <span data-n="hoursMs"></span> hours a month at a blended <span data-n="blended"></span> an hour. <span class="flag" style="font-size:max(14px,.85em);font-weight:700;color:#F4F1EA;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);border-radius:2px;padding:0 .3em;">TBC</span></div></div>
         <div style="flex:2;"><div style="font-weight:700;">They support one platform, not <span data-n="retire"></span> systems.</div><div style="color:#C9CCDD;margin-top:.2em;"><span data-n="retire"></span> retire. One codebase, <span data-n="tests"></span> tests every night, your help desk keeps L1.</div></div>
       </div>
@@ -373,7 +355,7 @@ body.noflags .flag{display:none}
     <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr) 2.2em minmax(0,1.45fr) minmax(0,1fr) minmax(0,1fr);column-gap:.6em;align-items:center;">
       <div style="grid-column:1 / 4;justify-self:center;width:min(100%,22em);"><div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:1em;line-height:1.2;">Invited CIO</div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">Executive sponsor · ranks the backlog · signs every gate</div></div></div>
       <div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.8);"></span></div>
-      <div style="grid-column:5 / 8;justify-self:center;width:min(100%,22em);"><div style="border:1px solid rgba(246,189,96,.6);background:rgba(246,189,96,.14);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:1em;line-height:1.2;">Ardn Delivery Lead <span style="color:#F6BD60;font-weight:600;"><span data-step="Delivery Lead"></span></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">Named, onshore · accountable to the CIO</div></div></div>
+      <div style="grid-column:5 / 8;justify-self:center;width:min(100%,22em);"><div style="border:1px solid rgba(246,189,96,.6);background:rgba(246,189,96,.14);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:1em;line-height:1.2;">Ardn Delivery Lead <span style="color:#F6BD60;font-weight:600;"><span data-step="lead"></span></span></div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">Named, onshore · accountable to the CIO</div></div></div>
     </div>
     <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr) 2.2em minmax(0,1.45fr) minmax(0,1fr) minmax(0,1fr);column-gap:.6em;">
       <div style="grid-column:1 / 4;"><div style="width:1px;height:.8em;background:rgba(244,241,234,.35);margin:0 auto;"></div></div><div></div><div style="grid-column:5 / 8;"><div style="width:1px;height:.8em;background:rgba(244,241,234,.35);margin:0 auto;"></div></div>
@@ -385,21 +367,21 @@ body.noflags .flag{display:none}
       <div><div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Product owner</div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">One named person · approves releases</div></div><div style="text-align:center;font-size:max(14px,.72em);color:#8E95B5;margin-top:.25em;">works with Platform</div></div>
       <div><div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:10px;padding:.4em .65em;text-align:center;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">IT help desk</div><div style="font-size:max(14px,.76em);color:#C9CCDD;line-height:1.25;margin-top:.1em;">First line: access, how-to, reproduce</div></div><div style="text-align:center;font-size:max(14px,.72em);color:#8E95B5;margin-top:.25em;">hands off to Ardn Support</div></div>
       <div style="grid-column:3 / 6;display:grid;grid-template-columns:minmax(0,1.25fr) 2.2em minmax(0,1.45fr);column-gap:.6em;row-gap:.3em;">
-        <div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;">Department leads<div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">sign off their area</div></div><div></div><div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;"><span data-n="podCount" data-f="Word"></span> pods <span style="color:#F6BD60;"><span data-n="podPpl"></span> people</span><div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">onshore lead + offshore devs</div></div>
-        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">VP Membership</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Membership &amp; Sales</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
-        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Member experience</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Digital &amp; Front Desk</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
-        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Golf &amp; amenities</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Golf, Racquets &amp; Fitness</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
-        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">F&amp;B and events</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Dining, POS &amp; Events</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
-        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Finance / controllers</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Billing, Finance &amp; Books</span><span style="color:#F6BD60;white-space:nowrap;"><span data-n="podSize"></span></span></div>
-        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">IT &amp; data</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Data &amp; Integrations</span><span style="color:#F6BD60;white-space:nowrap;">shared</span></div>
+        <div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;">Department leads<div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">sign off their area</div></div><div></div><div style="text-align:center;font-size:max(14px,.86em);font-weight:700;color:#F4F1EA;"><span data-n="podCount" data-f="podsW"></span> <span style="color:#F6BD60;"><span data-n="podPpl" data-f="ppl"></span></span><div style="font-size:max(14px,.86em);font-weight:400;color:#8E95B5;">onshore lead + offshore devs</div></div>
+        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">VP Membership</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Membership &amp; Sales</span><span data-podn="1" style="white-space:nowrap;"></span></div>
+        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Member experience</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Digital &amp; Front Desk</span><span data-podn="2" style="white-space:nowrap;"></span></div>
+        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Golf &amp; amenities</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Golf, Racquets &amp; Fitness</span><span data-podn="3" style="white-space:nowrap;"></span></div>
+        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">F&amp;B and events</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Dining, POS &amp; Events</span><span data-podn="4" style="white-space:nowrap;"></span></div>
+        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">Finance / controllers</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Billing, Finance &amp; Books</span><span data-podn="5" style="white-space:nowrap;"></span></div>
+        <div style="border:1px solid rgba(60,162,255,.65);background:rgba(60,162,255,.09);border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;text-align:center;line-height:1.2;">IT &amp; data</div><div style="display:flex;align-items:center;"><span style="flex:1;border-top:1px dashed rgba(246,189,96,.7);"></span></div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:8px;padding:.28em .5em;font-size:max(14px,.82em);color:#F4F1EA;display:flex;justify-content:space-between;gap:.4em;line-height:1.2;"><span>Data &amp; Integrations</span><span data-podn="6" style="white-space:nowrap;"></span></div>
       </div>
-      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Support <span style="color:#F6BD60;font-weight:600;"><span data-n="supportPpl"></span> people</span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">second and third line</div></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Support lead, on call</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Second-line Support Lead"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>L2 analysts, US shift</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="L2 analyst (US shift)"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Trainer &amp; change</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Trainer &amp; Change Lead"></span></span></div></div></div>
-      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Platform &amp; quality <span style="color:#F6BD60;font-weight:600;"><span data-n="platformPpl"></span> people</span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">shared by every pod</div></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Solution architect</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Solution Architect"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Release manager</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Release Manager"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>QA automation</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="QA Automation"></span></span></div><div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>Integration &amp; data</span><span style="color:#F4F1EA;white-space:nowrap;"><span data-step="Integration &amp; Data Engineer"></span></span></div></div></div>
+      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Support <span style="color:#F6BD60;font-weight:600;"><span data-n="supportPpl" data-f="ppl"></span></span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">second and third line</div></div><div data-roles="support" data-rv="org"></div></div></div>
+      <div><div style="border:1px solid rgba(246,189,96,.6);background:#0F1A4E;border-radius:10px;padding:.4em .6em;"><div style="text-align:center;margin-bottom:.25em;"><div style="font-weight:700;color:#F4F1EA;font-size:max(14px,.9em);line-height:1.2;">Platform &amp; quality <span style="color:#F6BD60;font-weight:600;"><span data-n="platformPpl" data-f="ppl"></span></span></div><div style="font-size:max(14px,.74em);color:#8E95B5;">shared by every pod</div></div><div data-roles="platform" data-rv="org"></div></div></div>
     </div>
   </div></section>
   <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4em 1.4em;padding-top:.45em;border-top:1px solid rgba(244,241,234,.13);font-size:max(14px,.84em);color:#C9CCDD;">
     <span>Invited also brings club champions at each pilot club, and change and comms</span>
-    <span><b style="color:#F4F1EA;"><span data-n="peopleMs"></span> Ardn people</b> after rollout · <span data-n="peopleImpl"></span> during go-live</span>
+    <span><b style="color:#F4F1EA;">Ardn team: <span data-n="peopleMs" data-f="ppl"></span></b> after rollout · <span data-n="peopleImpl"></span> during go-live</span>
   </div>
 </main>
 </div>
@@ -443,7 +425,7 @@ body.noflags .flag{display:none}
         </div>
         <div style="border-top:2px solid #3CA2FF;padding-top:.55em;">
           <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Services team</span><span><span data-n="svcYear"></span></span></div>
-          <div style="color:#C9CCDD;margin-top:.3em;"><span data-n="peopleMs"></span> people, ranked by your CIO. Change as Invited changes.</div>
+          <div style="color:#C9CCDD;margin-top:.3em;"><span data-n="peopleMs" data-f="ppl"></span>, ranked by your CIO. Change as Invited changes.</div>
           <div style="color:#8E95B5;margin-top:.3em;font-size:max(14px,.92em);"><span data-n="svcMo" data-f="usd"></span> a month</div>
         </div>
       </div>
@@ -768,6 +750,8 @@ const FMTS = {
   pct: n => Math.round(n) + '%',
   word: n => WORDS[Math.round(n)] ?? String(Math.round(n)),
   Word: n => { const w = FMTS.word(n); return w[0].toUpperCase() + w.slice(1); },
+  ppl: n => Math.round(n) + (Math.round(n) === 1 ? ' person' : ' people'),
+  podsW: n => n === 0 ? 'No pods' : FMTS.Word(n) + (Math.round(n) === 1 ? ' pod' : ' pods'),
   text: v => String(v),
 };
 function trimZeros(s) { return s.replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, ''); }
@@ -781,11 +765,10 @@ const NUMS = [
     ['entityFee', 'Technology fee per entity, a month', 'usd', 1250],
     ['cityClubs', 'City clubs', 'int', 17],
     ['cityFee', 'Technology fee per city club, a month', 'usd', 500],
-    ['svcMo', 'Services team fee, a month', 'usd', 205000],
   ]],
   ['Implementation and return', [
-    ['impl', 'Implementation, one time', 'M', 2900000],
-    ['hyperMonths', 'Months of hypercare', 'int', 9],
+    ['hyperMonths', 'Implementation months (rollout and hypercare)', 'int', 9],
+    ['implOther', 'Other implementation costs, one time (migration, licences)', 'usd', 160400],
     ['years', 'Return period, years', 'int', 5],
     ['goLiveFrom', 'Clubs go live from month (return, net and breakeven are worked out from this ramp)', 'int', 8],
     ['goLiveTo', 'Clubs go live until month', 'int', 18],
@@ -812,11 +795,11 @@ const NUMS = [
     ['roles', 'Staff and member roles simulated', 'int', 38],
     ['goals', 'Goals checked every run', 'int', 790],
   ]],
-  ['The team', [
-    ['leadPpl', 'Delivery lead, people', 'int', 1],
-    ['platformPpl', 'People in Platform and quality', 'int', 4],
-    ['supportPpl', 'People in Support', 'int', 4],
-    ['podSize', 'People per pod', 'int', 2],
+  ['Price overrides (leave at 0 to charge exactly what the team table adds up to)', [
+    ['svcOverride', 'Services fee a month, instead of the team table', 'usd', 0],
+    ['implOverride', 'Implementation fee, one time, instead of the team table', 'usd', 0],
+  ]],
+  ['The team (people, hours and fees come from the team table)', [
     ['pod1Sys', 'Pod 1 Membership and Sales: systems once spread over', 'int', 10],
     ['pod2Sys', 'Pod 2 Digital and Front Desk: systems', 'int', 6],
     ['pod3Sys', 'Pod 3 Golf and Racquets: systems', 'int', 5],
@@ -868,18 +851,56 @@ const NUMS = [
 ];
 const DEFAULTS = {}, KEYFMT = {}, KEYLABEL = {};
 NUMS.forEach(([, rows]) => rows.forEach(([k, label, f, d]) => { DEFAULTS[k] = d; KEYFMT[k] = f; KEYLABEL[k] = label; }));
-Object.assign(KEYFMT, {techYear: 'M', svcYear: 'M', total: 'M', saving: 'M', savingPct: 'pct', clubs: 'int', bought: 'int', stay: 'int', sharedPpl: 'int', podPpl: 'int', blended: 'usd', peopleMs: 'int', hoursMs: 'int', peopleImpl: 'int', hoursImpl: 'int', jobs: 'int', ardnCarries: 'int', records: 'int', podCount: 'int', roi: 'x', net: 'M', breakeven: 'int'});
+Object.assign(KEYFMT, {techYear: 'M', svcMo: 'usd', impl: 'M', svcYear: 'M', svcMonthly: 'usd', implTeam: 'M', leadPpl: 'int', platformPpl: 'int', supportPpl: 'int', pod1Ppl: 'int', pod2Ppl: 'int', pod3Ppl: 'int', pod4Ppl: 'int', pod5Ppl: 'int', pod6Ppl: 'int', total: 'M', saving: 'M', savingPct: 'pct', clubs: 'int', bought: 'int', stay: 'int', sharedPpl: 'int', podPpl: 'int', blended: 'usd', peopleMs: 'int', hoursMs: 'int', peopleImpl: 'int', hoursImpl: 'int', jobs: 'int', ardnCarries: 'int', records: 'int', podCount: 'int', roi: 'x', net: 'M', breakeven: 'int'});
 // what each derived figure is computed from, so the staff tab can say where an input shows up
-const DEPS = {techYear: ['entities', 'entityFee', 'cityClubs', 'cityFee'], svcYear: ['svcMo'], total: ['techYear', 'svcYear'], saving: ['today', 'total'], savingPct: ['saving', 'today'],
-  clubs: ['entities', 'cityClubs'], bought: ['systems', 'inHouse'], stay: ['connect', 'keep'], sharedPpl: ['platformPpl', 'supportPpl'], podPpl: ['peopleMs', 'sharedPpl'], blended: ['svcMo', 'hoursMs'],
-  net: ['saving', 'impl', 'goLiveFrom', 'goLiveTo', 'years'], roi: ['net', 'impl'], breakeven: ['saving', 'impl', 'goLiveFrom', 'goLiveTo', 'years'], records: ['leadsDemo', 'leadCopies'], podCount: []};
-// the published headcount and hours; this is all the page ever learns of the team table
-// roles: hours of each person at go-live (i) and after rollout (m), by role; the step-ups shown on The team and Org chart come from it
+const DEPS = {techYear: ['entities', 'entityFee', 'cityClubs', 'cityFee'], svcMo: ['svcOverride', 'svcMonthly'], impl: ['implOverride', 'implMonthly', 'hyperMonths', 'implOther'], svcYear: ['svcMo'], total: ['techYear', 'svcYear'], saving: ['today', 'total'], savingPct: ['saving', 'today'],
+  clubs: ['entities', 'cityClubs'], bought: ['systems', 'inHouse'], stay: ['connect', 'keep'], blended: ['svcMo', 'hoursMs'],
+  net: ['saving', 'impl', 'goLiveFrom', 'goLiveTo', 'years'], roi: ['net', 'impl'], breakeven: ['saving', 'impl', 'goLiveFrom', 'goLiveTo', 'years'], records: ['leadsDemo', 'leadCopies']};
+
+/* The team as the proposal knows it: the groups of people with their hours, and the two fees the bill rates add up to.
+   The server builds this from the team table when Ardn publishes, and the staff tab builds the same from its draft.
+   It carries no cost, bill rate or margin. People, hours, pods and step-ups are all counted from it in derive(). */
+const GROUPS = ['lead', 'platform', 'support', 'pod1', 'pod2', 'pod3', 'pod4', 'pod5', 'pod6'];
 const POD_KEYS = ['pod1Sys', 'pod2Sys', 'pod3Sys', 'pod4Sys', 'pod5Sys', 'pod6Sys'];
-const TEAM_DEFAULT = {peopleMs: 15, hoursMs: 2000, peopleImpl: 21, hoursImpl: 3280, roles: {
-  'Delivery Lead': {i: [160], m: [80]}, 'Solution Architect': {i: [80], m: [40]}, 'Release Manager': {i: [160], m: [80]},
-  'QA Automation': {i: [160, 160], m: [160]}, 'Integration & Data Engineer': {i: [160, 160], m: [160]},
-  'Second-line Support Lead': {i: [160], m: [160]}, 'L2 analyst (US shift)': {i: [160, 160, 160, 160], m: [160, 160]}, 'Trainer & Change Lead': {i: [160], m: [40]}}};
+const E = (role, i, m) => ({role, i, m});
+const TEAM_DEFAULT = {svcMonthly: 205000, implMonthly: 304400, groups: {
+  lead: [E('Delivery Lead', [160], [80])],
+  platform: [E('Solution Architect', [80], [40]), E('Release Manager', [160], [80]), E('QA Automation', [160, 160], [160]), E('Integration & Data Engineer', [160, 160], [160])],
+  support: [E('Second-line Support Lead', [160], [160]), E('L2 Analyst (US shift)', [160, 160, 160, 160], [160, 160]), E('Trainer & Change Lead', [160], [40])],
+  pod1: [E('Members lead', [160], [160]), E('Developer', [160], [])], pod2: [E('Developer', [160], [160])], pod3: [E('Developer', [160], [160])],
+  pod4: [E('Club Ops lead', [160], [160]), E('Developer', [160], [])], pod5: [E('Finance lead', [160], [160])], pod6: [E('Developer', [160], [160])]}};
+const hoursOk = a => Array.isArray(a) && a.length < 200 && a.every(h => typeof h === 'number' && isFinite(h) && h > 0);
+/** A snapshot of the right shape, or the defaults: a stale or damaged copy never breaks the page. */
+function cleanSnap(raw) {
+  if (!raw || typeof raw !== 'object' || !raw.groups || typeof raw.groups !== 'object') return TEAM_DEFAULT;
+  const groups = {};
+  for (const g of GROUPS) {
+    const list = raw.groups[g];
+    if (!Array.isArray(list)) return TEAM_DEFAULT;
+    if (!list.every(e => e && typeof e.role === 'string' && hoursOk(e.i) && hoursOk(e.m))) return TEAM_DEFAULT;
+    groups[g] = list.map(e => ({role: e.role, i: e.i, m: e.m}));
+  }
+  const fee = v => typeof v === 'number' && isFinite(v) && v >= 0;
+  if (!fee(raw.svcMonthly) || !fee(raw.implMonthly)) return TEAM_DEFAULT;
+  return {groups, svcMonthly: raw.svcMonthly, implMonthly: raw.implMonthly};
+}
+/** The snapshot of a team table: the same sum the server does when it publishes (staff tab only, from its draft). */
+function snapFromRows(rows) {
+  const groups = {};
+  GROUPS.forEach(g => { groups[g] = []; });
+  for (const t of rows) {
+    if (!(t.impl > 0) && !(t.ms > 0)) continue;
+    const list = groups[groups[t.grp] ? t.grp : 'platform'];
+    let e = list.find(x => x.role === t.role);
+    if (!e) list.push(e = {role: t.role, i: [], m: []});
+    if (t.impl > 0) e.i.push(t.impl);
+    if (t.ms > 0) e.m.push(t.ms);
+  }
+  const cents = n => Math.round(n * 100) / 100;
+  return {groups, svcMonthly: cents(rows.reduce((a, t) => a + t.bill * t.ms, 0)), implMonthly: cents(rows.reduce((a, t) => a + t.bill * t.impl, 0))};
+}
+const sumH = a => a.reduce((x, h) => x + h, 0);
+const countOf = list => ({pm: list.reduce((a, e) => a + e.m.length, 0), pi: list.reduce((a, e) => a + e.i.length, 0), hm: list.reduce((a, e) => a + sumH(e.m), 0), hi: list.reduce((a, e) => a + sumH(e.i), 0)});
 
 /** Keeps only figures this page knows, with the right kind of value. */
 function cleanNums(raw) {
@@ -892,8 +913,7 @@ function cleanNums(raw) {
 }
 // the server puts what Ardn published into the page, so the figures are right on the first paint
 const ST = window.__PROPOSAL_STATE__ || {};
-let NV = {...DEFAULTS, ...cleanNums(ST.nums)}, PUBT = {...TEAM_DEFAULT, ...(ST.snap || {})}, V = {};
-if (!PUBT.roles || typeof PUBT.roles !== 'object') PUBT.roles = TEAM_DEFAULT.roles;
+let NV = {...DEFAULTS, ...cleanNums(ST.nums)}, PUBT = cleanSnap(ST.snap), V = {}, PUBHASH = ST.hash || '';
 
 /* The compare table: who carries each of twelve jobs, and its weight. I Invited, V vendor, S shared, A Ardn.
    Cost to Invited: a job it carries costs 3 (high) or 2 (medium); a shared one costs a level less; a vendor's or Ardn's own is in the fee.
@@ -920,19 +940,31 @@ const JOB_COLS = [0, 1, 2, 3].map(c => {
 });
 
 function derive(n, t) {
-  const d = {...n, ...t};
+  const d = {...n};
   d.clubs = n.entities + n.cityClubs;
   d.techYear = (n.entities * n.entityFee + n.cityClubs * n.cityFee) * 12;
-  d.svcYear = n.svcMo * 12;
+  // People, hours and fees come from the team table (as published, or the staff draft being previewed); nothing here is typed in
+  const c = {};
+  GROUPS.forEach(g => { c[g] = countOf(t.groups[g]); });
+  d.leadPpl = c.lead.pm; d.platformPpl = c.platform.pm; d.supportPpl = c.support.pm;
+  POD_KEYS.forEach((_, k) => { d['pod' + (k + 1) + 'Ppl'] = c['pod' + (k + 1)].pm; });
+  d.podPpl = POD_KEYS.reduce((a, _, k) => a + c['pod' + (k + 1)].pm, 0);
+  d.podCount = POD_KEYS.filter((_, k) => c['pod' + (k + 1)].pm > 0).length;
+  d.sharedPpl = d.platformPpl + d.supportPpl;
+  d.peopleMs = GROUPS.reduce((a, g) => a + c[g].pm, 0); d.peopleImpl = GROUPS.reduce((a, g) => a + c[g].pi, 0);
+  d.hoursMs = GROUPS.reduce((a, g) => a + c[g].hm, 0); d.hoursImpl = GROUPS.reduce((a, g) => a + c[g].hi, 0);
+  // Fees: the team's hours at the bill rates, unless Ardn typed an override
+  d.svcMonthly = t.svcMonthly;
+  d.implTeam = t.implMonthly * n.hyperMonths + n.implOther;
+  d.svcMo = n.svcOverride > 0 ? n.svcOverride : t.svcMonthly;
+  d.impl = n.implOverride > 0 ? n.implOverride : d.implTeam;
+  d.svcYear = d.svcMo * 12;
   d.total = d.techYear + d.svcYear;
   d.saving = n.today - d.total;
   d.savingPct = n.today ? d.saving / n.today * 100 : 0;
   d.bought = n.systems - n.inHouse;
   d.stay = n.connect + n.keep;
-  d.sharedPpl = n.platformPpl + n.supportPpl;
-  d.podPpl = Math.max(0, t.peopleMs - n.leadPpl - d.sharedPpl);
-  d.podCount = POD_KEYS.length;
-  d.blended = t.hoursMs ? n.svcMo / t.hoursMs : 0;
+  d.blended = d.hoursMs ? d.svcMo / d.hoursMs : 0;
   d.jobs = JOBS.length;
   d.ardnCarries = JOBS.filter(j => j[5] === 'A').length;
   d.records = n.leadsDemo * n.leadCopies;
@@ -974,22 +1006,47 @@ function paint() {
     else { e.textContent = '$ to size'; e.classList.add('flag'); e.setAttribute('style', e.dataset.orig); }
   });
   document.body.classList.toggle('noflags', !V.showFlags);
-  $$('[data-step]').forEach(e => { e.textContent = stepText(e.dataset.step, e.dataset.sf === 'long'); });
+  $$('[data-step]').forEach(e => { e.textContent = groupStep(e.dataset.step, e.dataset.sf === 'long'); });
+  paintTeam();
   const md = $('meta[name=description]'); if (md) md.content = `Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of ${V.systems} systems.`;
   paintCompare(); paintCalc(); paintDetail();
   if (typeof paintAdminNote === 'function') paintAdminNote();
 }
 
-// how a role steps up at go-live, from the published hours of each person
+// how a role steps up at go-live, from the hours of each person
 const SHORT = {full: 'full', half: 'half', part: 'part', tq: '¾'}, LONG = {full: 'Full-time', half: 'Half-time', part: 'Part-time', tq: '¾ time', off: 'Off'};
 const hrLab = h => h >= 140 ? 'full' : h >= 100 ? 'tq' : h >= 60 ? 'half' : h > 0 ? 'part' : 'off';
-function stepText(role, long) {
-  const r = (PUBT.roles || {})[role]; if (!r) return '—';
+function stepOf(r, long) {
   if (r.i.length > 1 || r.m.length > 1) return r.i.length === r.m.length ? String(r.i.length) : r.m.length + ' → ' + r.i.length;
   const a = hrLab(r.m[0] || 0), b = hrLab(r.i[0] || 0);
   if (a === b) return long ? LONG[b].toLowerCase() : LONG[b];
   const s = SHORT[a] + ' → ' + SHORT[b];
   return long ? s + '-time' : s[0].toUpperCase() + s.slice(1);
+}
+const groupEntry = g => ({i: PUBT.groups[g].flatMap(e => e.i), m: PUBT.groups[g].flatMap(e => e.m)});
+const groupStep = (g, long) => { const r = groupEntry(g); return r.i.length || r.m.length ? stepOf(r, long) : 'not assigned'; };
+
+/* The Platform and Support lists and the six pods are drawn from the groups, so a role added to the team table appears
+   and a removed one goes. Role names are text from the table: escaped, never markup. */
+const POD_INFO = [['Membership & Sales', 'pod1Sys'], ['Digital & Front Desk', 'pod2Sys'], ['Golf & Racquets', 'pod3Sys'], ['Dining & Events', 'pod4Sys'], ['Billing & Finance', 'pod5Sys'], ['Data & Integrations', 'pod6Sys']];
+const podLine = (e, w) => esc(e.role) + (w > 1 ? ' × ' + w : '');
+function paintTeam() {
+  const none = (cls, st) => `<span class="${cls}" style="${st}color:#8E95B5;">No one assigned</span>`;
+  $$('[data-roles]').forEach(el => {
+    const list = PUBT.groups[el.dataset.roles], org = el.dataset.rv === 'org';
+    if (!list.length) { el.innerHTML = org ? '<div style="font-size:max(14px,.8em);color:#8E95B5;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);">No one assigned</div>' : none('', 'grid-column:1/-1;'); return; }
+    el.innerHTML = list.map(e => org
+      ? `<div style="display:flex;justify-content:space-between;gap:.5em;font-size:max(14px,.8em);color:#C9CCDD;padding:.15em 0;border-top:1px solid rgba(244,241,234,.08);"><span>${esc(e.role)}</span><span style="color:#F4F1EA;white-space:nowrap;">${esc(stepOf(e))}</span></div>`
+      : `<span>${esc(e.role)}</span><span style="color:#F4F1EA;">${esc(stepOf(e))}</span>`).join('');
+  });
+  const card = (n, name) => {
+    const list = PUBT.groups['pod' + n], c = countOf(list), k = POD_KEYS[n - 1];
+    const who = list.length ? list.map(e => podLine(e, Math.max(e.m.length, e.i.length))).join(' + ') + (c.pi !== c.pm ? ' · ' + c.pi + ' at go-live' : '') : 'No one assigned';
+    const sys = n === 6 ? `Area once spread over ${V[k]} systems + ${V.feeds} feeds` : `Area once spread over ${V[k]} systems`;
+    return `<div style="background:rgba(244,241,234,.05);border-radius:8px;padding:.5em .65em;display:grid;grid-template-columns:auto 1fr;gap:.1em .65em;align-items:center;"><div style="grid-row:span 3;text-align:center;min-width:2.8em;"><div style="font-family:'Instrument Serif',Georgia,serif;font-size:2em;line-height:.9;color:${c.pm || c.pi ? '#F6BD60' : '#8E95B5'};">${c.pm || c.pi ? c.pm : '—'}</div><div style="font-size:max(14px,.72em);color:#8E95B5;">${c.pm || c.pi ? (c.pm === 1 ? 'person' : 'people') : 'unstaffed'}</div></div><div style="font-weight:700;color:#F4F1EA;line-height:1.2;">${esc(name)}</div><div style="font-size:max(14px,.8em);color:#C9CCDD;">${who}</div><div style="font-size:max(14px,.78em);color:#8E95B5;">${sys}</div></div>`;
+  };
+  $$('[data-pods="team"]').forEach(el => { el.innerHTML = POD_INFO.map(([name], k) => card(k + 1, name)).join(''); });
+  $$('[data-podn]').forEach(e => { const c = countOf(PUBT.groups['pod' + e.dataset.podn]); e.textContent = c.pm || c.pi ? String(c.pm) : 'none'; e.style.color = c.pm || c.pi ? '#F6BD60' : '#8E95B5'; });
 }
 
 function paintCompare() {
@@ -1290,6 +1347,27 @@ $('#cmForm').addEventListener('submit', async e => {
   $('#cmSend').disabled = false;
 });
 loadComments();
+
+/* ---------- the published figures stay current ----------
+   An open page asks for the published figures every minute and when the tab comes back into view; when Ardn has published
+   something new the figures change in place, with no reload. What comes back is the published figures and their hash only. */
+let PUB = {nv: NV, t: PUBT, hash: PUBHASH}, polling = false;
+async function pollPublished() {
+  if (polling) return;
+  polling = true;
+  try {
+    const r = await fetch('/api/proposals/published-numbers?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'});
+    const j = r.ok ? await r.json() : null;
+    if (j && j.ok && (j.hash || '') !== PUB.hash) {
+      PUB = {nv: {...DEFAULTS, ...cleanNums(j.nums)}, t: cleanSnap(j.snap), hash: j.hash || ''};
+      if (typeof staffRefresh === 'function') staffRefresh(); else { NV = PUB.nv; PUBT = PUB.t; paint(); }
+    }
+  } catch (e) { /* offline or signed out: keep what is on the page */ }
+  polling = false;
+}
+setInterval(pollPublished, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) pollPublished(); });
+addEventListener('focus', pollPublished);
 
 /* ---------- start: the server has already put the published figures in the page ---------- */
 document.addEventListener('DOMContentLoaded', () => {

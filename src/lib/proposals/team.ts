@@ -17,18 +17,27 @@ import { readProposalFile, writeProposalFile } from "./store";
 export const TEAM_DRAFT_SUFFIX = "--team-draft";
 export const TEAM_PUB_SUFFIX = "--team-pub";
 
-export type TeamRow = { id: number; role: string; name: string; loc: "on" | "off"; cost: number; bill: number; impl: number; ms: number };
+/** Where a person sits on the proposal: the delivery lead, the shared platform and support teams, or one of the six pods. */
+export const GROUPS = ["lead", "platform", "support", "pod1", "pod2", "pod3", "pod4", "pod5", "pod6"] as const;
+export type Group = (typeof GROUPS)[number];
+const isGroup = (v: unknown): v is Group => (GROUPS as readonly unknown[]).includes(v);
+
+export type TeamRow = { id: number; role: string; name: string; grp: Group; loc: "on" | "off"; cost: number; bill: number; impl: number; ms: number };
 export type RateRow = { id: number; label: string; cost: number; bill: number };
 /** The proposal's numbers by key; numbers, except the few keys listed in TEXT_KEYS. */
 export type Nums = Record<string, number | string>;
 export type TeamDraft = { team: TeamRow[]; rates: RateRow[]; nums: Nums; hash: string; at: string; by: string };
-/** Hours of each person at go-live (i) and after rollout (m), by role: what the step-ups on the proposal are drawn from. No rates. */
-export type Snap = { peopleMs: number; hoursMs: number; peopleImpl: number; hoursImpl: number; roles: Record<string, { i: number[]; m: number[] }> };
+/**
+ * What the proposal learns of the team table: for each group, each role with the hours of each person at go-live (i)
+ * and after rollout (m), plus the two fees the bill rates add up to. People, hours and step-ups are all counted from it.
+ * No cost, no bill rate, no margin.
+ */
+export type Snap = { groups: Record<Group, { role: string; i: number[]; m: number[] }[]>; svcMonthly: number; implMonthly: number };
 export type TeamPub = { snap: Snap; nums: Nums; hash: string; at: string; by: string };
 
 const TEXT_KEYS = new Set(["priceHold", "redesignDate", "devDate"]);
 /** The figures the proposal page reads; the page lists the same keys. Anything else in a save is dropped. */
-const NUM_KEYS = new Set(["today", "entities", "entityFee", "cityClubs", "cityFee", "svcMo", "impl", "hyperMonths", "years", "goLiveFrom", "goLiveTo", "systems", "retire", "partial", "connect", "keep", "inHouse", "leadsDemo", "leadCopies", "rowsBuilt", "rowsTotal", "rowsWaiting", "screens", "memberPages", "dbChanges", "tests", "journeys", "roles", "goals", "leadPpl", "platformPpl", "supportPpl", "podSize", "pod1Sys", "pod2Sys", "pod3Sys", "pod4Sys", "pod5Sys", "pod6Sys", "feeds", "onshoreRate", "offshoreRate", "podDevs", "noticeDays", "p1RespMin", "p1RestoreH", "p2RespH", "p2FixD", "p3RespD", "p3FixD", "p4RespD", "p1TodayLo", "p1TodayHi", "priceHold", "day1", "day2", "day3", "sinceYear", "yearsTogether", "redesignDate", "devDate", "redesignWeeks", "partnerSince", "saveApp", "saveTeam", "saveQa", "saveDefect", "saveRoadmap", "saveLead", "showFlags"]);
+const NUM_KEYS = new Set(["today", "entities", "entityFee", "cityClubs", "cityFee", "implOther", "svcOverride", "implOverride", "hyperMonths", "years", "goLiveFrom", "goLiveTo", "systems", "retire", "partial", "connect", "keep", "inHouse", "leadsDemo", "leadCopies", "rowsBuilt", "rowsTotal", "rowsWaiting", "screens", "memberPages", "dbChanges", "tests", "journeys", "roles", "goals", "pod1Sys", "pod2Sys", "pod3Sys", "pod4Sys", "pod5Sys", "pod6Sys", "feeds", "onshoreRate", "offshoreRate", "podDevs", "noticeDays", "p1RespMin", "p1RestoreH", "p2RespH", "p2FixD", "p3RespD", "p3FixD", "p4RespD", "p1TodayLo", "p1TodayHi", "priceHold", "day1", "day2", "day3", "sinceYear", "yearsTogether", "redesignDate", "devDate", "redesignWeeks", "partnerSince", "saveApp", "saveTeam", "saveQa", "saveDefect", "saveRoadmap", "saveLead", "showFlags"]);
 
 /** What a new row and a new rate start from in the staff tab; kept here so no rate is ever written into the page. */
 export const NEW_ROW = { cost: 22, bill: 60 };
@@ -45,25 +54,29 @@ export const DEFAULT_RATE_CARD: RateRow[] = [
   { id: 5, label: "Offshore QA / support", cost: 18, bill: 45 },
 ];
 
-/** The team as first drawn: [role, location, cost, bill, impl hours per person, managed-service hours per person]. */
-const SEED: [string, "on" | "off", number, number, number[], number[]][] = [
-  ["Delivery Lead", "on", 95, 175, [160], [80]],
-  ["Solution Architect", "on", 95, 175, [80], [40]],
-  ["Release Manager", "on", 80, 150, [160], [80]],
-  ["QA Automation", "off", 18, 45, [160, 160], [160, 0]],
-  ["Integration & Data Engineer", "off", 30, 60, [160, 160], [160, 0]],
-  ["Second-line Support Lead", "on", 80, 150, [160], [160]],
-  ["L2 analyst (US shift)", "off", 18, 45, [160, 160, 160, 160], [160, 160, 0, 0]],
-  ["Trainer & Change Lead", "on", 80, 150, [160], [40]],
-  ["Members lead", "on", 95, 175, [160], [160]],
-  ["Club Ops lead", "on", 95, 175, [160], [160]],
-  ["Finance lead", "on", 95, 175, [160], [160]],
-  ["Developer", "off", 22, 60, [160, 160, 160, 160, 160], [160, 160, 160, 0, 0]],
+/** The team as first drawn: [role, group, location, cost, bill, impl hours per person, managed-service hours per person]. */
+const SEED: [string, Group, "on" | "off", number, number, number[], number[]][] = [
+  ["Delivery Lead", "lead", "on", 95, 150, [160], [80]],
+  ["Solution Architect", "platform", "on", 95, 175, [80], [40]],
+  ["Release Manager", "platform", "on", 80, 150, [160], [80]],
+  ["QA Automation", "platform", "off", 18, 45, [160, 160], [160, 0]],
+  ["Integration & Data Engineer", "platform", "off", 30, 60, [160, 160], [160, 0]],
+  ["Second-line Support Lead", "support", "on", 80, 150, [160], [160]],
+  ["L2 Analyst (US shift)", "support", "off", 18, 45, [160, 160, 160, 160], [160, 160, 0, 0]],
+  ["Trainer & Change Lead", "support", "on", 80, 150, [160], [40]],
+  ["Members lead", "pod1", "on", 95, 175, [160], [160]],
+  ["Developer", "pod1", "off", 22, 60, [160], [0]],
+  ["Developer", "pod2", "off", 22, 60, [160], [160]],
+  ["Developer", "pod3", "off", 22, 60, [160], [160]],
+  ["Club Ops lead", "pod4", "on", 95, 175, [160], [160]],
+  ["Developer", "pod4", "off", 22, 60, [160], [0]],
+  ["Finance lead", "pod5", "on", 95, 175, [160], [160]],
+  ["Developer", "pod6", "off", 22, 60, [160], [160]],
 ];
 export function defaultTeam(): TeamRow[] {
   const rows: TeamRow[] = [];
   let id = 1;
-  for (const [role, loc, cost, bill, impl, ms] of SEED) impl.forEach((h, k) => rows.push({ id: id++, role, name: "", loc, cost, bill, impl: h, ms: ms[k] || 0 }));
+  for (const [role, grp, loc, cost, bill, impl, ms] of SEED) impl.forEach((h, k) => rows.push({ id: id++, role, name: "", grp, loc, cost, bill, impl: h, ms: ms[k] || 0 }));
   return rows;
 }
 
@@ -78,7 +91,8 @@ export function cleanDraftInput(body: { team?: unknown; rates?: unknown; nums?: 
   for (const r of body.team as Record<string, unknown>[]) {
     const id = num(r?.id, 1e15), cost = num(r?.cost, 5000), bill = num(r?.bill, 5000), impl = num(r?.impl, 744), ms = num(r?.ms, 744);
     if (id === null || cost === null || bill === null || impl === null || ms === null) return null;
-    team.push({ id, role: text(r.role, 80), name: text(r.name, 80), loc: r.loc === "on" ? "on" : "off", cost, bill, impl, ms });
+    // a row from before groups existed (or with a group this page does not know) lands in Platform & quality
+    team.push({ id, role: text(r.role, 80), name: text(r.name, 80), grp: isGroup(r.grp) ? r.grp : "platform", loc: r.loc === "on" ? "on" : "off", cost, bill, impl, ms });
   }
   const rates: RateRow[] = [];
   for (const r of body.rates as Record<string, unknown>[]) {
@@ -101,21 +115,30 @@ export function cleanDraftInput(body: { team?: unknown; rates?: unknown; nums?: 
 
 export const hashOf = (d: { team: TeamRow[]; rates: RateRow[]; nums: Nums }) => crypto.createHash("sha1").update(JSON.stringify([d.team, d.rates, d.nums])).digest("hex").slice(0, 16);
 
-/** Headcount and hours only: the one thing a viewer learns about the team table. */
+const cents = (n: number) => Math.round(n * 100) / 100;
+
+/**
+ * Who is in each group, with their hours, and the two fees the bill rates add up to (managed service a month,
+ * implementation a month). A row with no hours in either phase is not a person. The page's staff tab runs the same sum
+ * on the draft it is editing; keep the two in step.
+ */
 export function snapOf(team: TeamRow[]): Snap {
-  const sum = (k: "impl" | "ms") => team.reduce((a, t) => a + t[k], 0);
-  const roles: Snap["roles"] = {};
+  const groups = Object.fromEntries(GROUPS.map((g) => [g, [] as Snap["groups"][Group]])) as Snap["groups"];
   for (const t of team) {
-    const r = (roles[t.role] ||= { i: [], m: [] });
-    if (t.impl > 0) r.i.push(t.impl);
-    if (t.ms > 0) r.m.push(t.ms);
+    if (!(t.impl > 0) && !(t.ms > 0)) continue;
+    const list = groups[isGroup(t.grp) ? t.grp : "platform"];
+    const e = list.find((x) => x.role === t.role) || list[list.push({ role: t.role, i: [], m: [] }) - 1];
+    if (t.impl > 0) e.i.push(t.impl);
+    if (t.ms > 0) e.m.push(t.ms);
   }
-  return { peopleMs: team.filter((t) => t.ms > 0).length, hoursMs: sum("ms"), peopleImpl: team.filter((t) => t.impl > 0).length, hoursImpl: sum("impl"), roles };
+  return { groups, svcMonthly: cents(team.reduce((a, t) => a + t.bill * t.ms, 0)), implMonthly: cents(team.reduce((a, t) => a + t.bill * t.impl, 0)) };
 }
 
 export async function getDraft(slug: string): Promise<TeamDraft | null> {
   const d = (await readProposalFile(slug + TEAM_DRAFT_SUFFIX)) as TeamDraft | null;
-  return d && Array.isArray(d.team) ? d : null;
+  if (!d || !Array.isArray(d.team)) return null;
+  d.team = d.team.map((t) => ({ ...t, grp: isGroup(t.grp) ? t.grp : "platform" }));
+  return d;
 }
 
 /** null when the stored draft is no longer the one the editor started from (someone else saved, or saved first). */
@@ -129,7 +152,8 @@ export async function saveDraft(slug: string, email: string, input: { team: Team
 
 export async function getPub(slug: string): Promise<TeamPub | null> {
   const p = (await readProposalFile(slug + TEAM_PUB_SUFFIX)) as TeamPub | null;
-  return p && p.snap ? p : null;
+  // a document published before the snapshot carried groups cannot be drawn: the page falls back to its own defaults
+  return p && p.snap && p.snap.groups ? p : null;
 }
 
 /** Publishes what was last saved, so a publish never carries unsaved edits. */
@@ -137,7 +161,9 @@ export async function publishDraft(slug: string, email: string, expectedHash: st
   const d = await getDraft(slug);
   if (!d) return "none";
   if (d.hash !== expectedHash) return "conflict";
-  const pub: TeamPub = { snap: snapOf(d.team), nums: d.nums, hash: d.hash, at: new Date().toISOString(), by: email.trim().toLowerCase() };
+  // only figures the page reads go out, even if an older draft stored others
+  const nums = Object.fromEntries(Object.entries(d.nums).filter(([k]) => NUM_KEYS.has(k)));
+  const pub: TeamPub = { snap: snapOf(d.team), nums, hash: d.hash, at: new Date().toISOString(), by: email.trim().toLowerCase() };
   await writeProposalFile(slug + TEAM_PUB_SUFFIX, pub);
   return pub;
 }
