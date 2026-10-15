@@ -1,4 +1,4 @@
-<!--STAFF-TAB--><a href="#admin" id="tabAdmin"><i>◆</i>Team admin</a><!--/STAFF-TAB-->
+<!--STAFF-TAB--><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team admin</span></a><!--/STAFF-TAB-->
 <!--STAFF-VIEW--><div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
 <main data-screen-label="10 Team admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
@@ -65,7 +65,7 @@
       <div style="display:flex;flex-wrap:wrap;gap:.5em;align-items:center;margin-top:.55em;">
         <b style="color:#F6BD60;font-size:max(14px,.9em);"><span data-v="teamTitle"></span></b>
         <button data-act="addRole" data-ev="click" style="font:inherit;font-size:max(14px,.86em);font-weight:700;background:none;border:1px solid rgba(246,189,96,.6);color:#F9D08A;border-radius:8px;padding:.3em .8em;cursor:pointer;">+ Add person</button>
-        <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · the implementation and managed-service teams are separate rosters.</span>
+        <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · the implementation and production support teams are separate rosters.</span>
         <span style="margin-left:auto;"></span>
         <button data-act="copyTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(60,162,255,.6);color:#F4F1EA;border-radius:8px;padding:.3em .8em;cursor:pointer;"><span data-v="copyLbl"></span></button>
         <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#E8EAF2;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to draft</button>
@@ -187,9 +187,9 @@ function renderAdmin() {
   setV('admRev', money(rev)); setV('admRun', money(run)); setV('admMargin', money(mar)); setV('admMarginPct', pctOf(mar, rev));
   setV('admHours', hrs.toLocaleString('en-US')); setV('admUtil', util); setV('admPeople', nPeople);
   setV('admBlendCost', hrs ? money(run / hrs) + '/h' : '—'); setV('admBlendBill', hrs ? money(rev / hrs) + '/h' : '—');
-  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'services fee a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
+  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'production support fee a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
   setV('selCount', sel.length);
-  setV('teamTitle', ph === 'impl' ? 'Implementation team' : 'Managed-service team'); setV('copyLbl', ph === 'impl' ? 'Copy from Managed-service team' : 'Copy from Implementation team');
+  setV('teamTitle', ph === 'impl' ? 'Implementation team' : 'Production support team'); setV('copyLbl', ph === 'impl' ? 'Copy from Managed-service team' : 'Copy from Implementation team');
   const f = A.fill, inFill = i => f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
   const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, hours: v} : x));
   const rows = team.map((t, idx) => {
@@ -339,11 +339,11 @@ function renderNums() {
   const bad = ['retire', 'partial', 'connect', 'keep'].filter(k => cnt[k] !== A.nums[k]);
   if (SYS.length !== A.nums.systems) bad.unshift('systems');
   const d = curDerived();
-  const prev = [['Technology a year', d.techYear, 'M'], ['Services a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven month', d.breakeven, 'int']];
+  const prev = [['Technology a year', d.techYear, 'M'], ['Production support a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven month', d.breakeven, 'int']];
   const sn = snapFromTeams(A.implTeam, A.msTeam), delta = (over, team) => over > 0 ? ` An override of ${money(over)} replaces it: ${over >= team ? '+' : '−'}${money(Math.abs(over - team))} (${team ? (over >= team ? '+' : '−') + Math.abs(Math.round((over - team) / team * 1000) / 10) + '%' : 'n/a'}) against the team table.` : ' No override: this is exactly what the team table adds up to.';
   const work = (title, big, text, over) => `<div style="background:#0F1A4E;border:1px solid ${over > 0 ? '#F08A6C' : 'rgba(246,189,96,.5)'};border-radius:12px;padding:.6em .9em;display:flex;flex-direction:column;gap:.2em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700">${title}</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.9em;line-height:1.05;color:#F4F1EA">${big}</div><div style="color:#E8EAF2">${text}</div></div>`;
   const fees = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(24em,1fr));gap:.6em">` +
-    work('Services fee a month, worked out', money(d.svcMo), `${money(sn.svcMonthly)} = ${d.hoursMs.toLocaleString('en-US')} h at a blended ${d.hoursMs ? '$' + (sn.svcMonthly / d.hoursMs).toFixed(2) : '—'} (managed-service hours × bill rates, ${d.peopleMs} people).` + delta(A.nums.svcOverride, sn.svcMonthly), A.nums.svcOverride) +
+    work('Services fee a month, worked out', money(d.svcMo), `${money(sn.svcMonthly)} = ${d.hoursMs.toLocaleString('en-US')} h at a blended ${d.hoursMs ? '$' + (sn.svcMonthly / d.hoursMs).toFixed(2) : '—'} (production support hours × bill rates, ${d.peopleMs} people).` + delta(A.nums.svcOverride, sn.svcMonthly), A.nums.svcOverride) +
     work('Implementation fee, one time, worked out', money(d.impl), `${money(d.implTeam)} = ${money(sn.implMonthly)} a month (${d.hoursImpl.toLocaleString('en-US')} h, ${d.peopleImpl} people) × ${A.nums.hyperMonths} months + ${money(A.nums.implOther)} other implementation costs.` + delta(A.nums.implOverride, d.implTeam), A.nums.implOverride) + '</div>';
   root.innerHTML = fees + `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.6em;line-height:1.15;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#E8EAF2">${l}, worked out</div></div>`).join('') + '</div>' +
     (bad.length ? `<div style="color:#F08A6C;border:1px solid #F08A6C;border-radius:8px;padding:.4em .7em">The Detail tab lists ${SYS.length} systems (${cnt.retire} retire, ${cnt.partial} in part, ${cnt.connect} connect, ${cnt.keep} keep). These estate counts differ: ${bad.join(', ')}. Update the list in the page or these counts.</div>` : '') + `<div style="color:#8E95B5;font-size:max(14px,.86em)">The fees, people and hours come from the team table. Totals, the saving, the bars and the capacity calculator are worked out from these inputs and the team. Return multiple, net return and breakeven month are worked out from the implementation fee, the saving and the go-live ramp. Every change shows on the client tabs in this browser at once; Invited sees it after Publish. Save the draft, then publish, to show a change to Invited.</div>` +
@@ -364,7 +364,7 @@ Object.assign(ACT, {
   ph_impl: () => { A.phase = 'impl'; A.sel = []; renderAdmin(); }, ph_ms: () => { A.phase = 'ms'; A.sel = []; renderAdmin(); },
   copyTeam: () => {
     const from = A.phase === 'impl' ? A.msTeam : A.implTeam, to = A.phase === 'impl' ? 'implementation' : 'managed-service';
-    if (A.team.length && !confirm('Replace the ' + to + ' team with a copy of the ' + (A.phase === 'impl' ? 'managed-service' : 'implementation') + ' team? They stay separate afterwards.')) return;
+    if (A.team.length && !confirm('Replace the ' + to + ' team with a copy of the ' + (A.phase === 'impl' ? 'production support' : 'implementation') + ' team? They stay separate afterwards.')) return;
     const stamp = Date.now(); A.team = clone(from).map((t, i) => ({...t, id: stamp + i})); A.sel = []; renderAdmin();
   },
   toggleAll: e => { A.sel = A.sel.length === A.team.length ? [] : A.team.map(t => t.id); renderAdmin(); },

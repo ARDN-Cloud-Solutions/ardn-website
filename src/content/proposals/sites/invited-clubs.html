@@ -37,20 +37,59 @@ button{font:inherit;color:inherit}
 @keyframes viewIn{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.view:not([hidden]){animation:none}}
 
-/* header: the brand bar and the tabs */
-.brandbar{font-size:max(14px,min(1em,15px));display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6em 1.6em;padding:.7em 1.8em;border-bottom:1px solid rgba(246,189,96,.28)}
-.bb-l{display:flex;align-items:center;gap:.9em}
-.brandbar img{height:1.5em;width:auto;display:block}
-.brandbar .for{font-size:.85em;color:var(--soft)}
-.brandbar .for b{color:var(--ink);font-weight:700}
-.tabs{display:flex;flex-wrap:wrap;gap:.3em 1.4em;font-size:.92em}
-.tabs a{display:flex;gap:.45em;padding:.3em 0;border-bottom:2px solid transparent;color:var(--ink);text-decoration:none;white-space:nowrap}
-.tabs a:hover{text-decoration:none;color:var(--brass2)}
-.tabs a i{font-style:normal;color:var(--brass);font-weight:600}
-.tabs a[aria-current=page]{border-bottom-color:var(--brass)}
-.tabs a#tabAdmin i{color:var(--teal)}
+/* sidebar: logo, one item per tab, prices and comments at the foot. Collapses to icons only. */
+.px{display:grid;grid-template-columns:auto minmax(0,1fr)}
+.col{display:flex;flex-direction:column;min-width:0;min-height:100vh;min-height:100dvh}
+.side{width:13em;position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;gap:.7em;padding:.8em .6em;font-size:max(14px,min(1em,15px));border-right:1px solid rgba(246,189,96,.28);background:var(--night);z-index:5;overflow:hidden}
+.side-top{display:flex;align-items:center;justify-content:space-between;gap:.5em;padding:0 .3em}
+.side-top img{height:1.5em;width:auto;display:block}
+.sidebtn,.menubtn{background:none;border:1px solid transparent;border-radius:8px;color:var(--soft);padding:.3em;display:grid;place-items:center}
+.sidebtn:hover,.menubtn:hover{border-color:var(--line2);color:var(--brass2)}
+.sidebtn svg,.menubtn svg{width:1.2em;height:1.2em}
+.menubtn{display:none}
+.side .for{font-size:.86em;color:var(--soft);padding:0 .4em}
+.side .for b{color:var(--ink);font-weight:700}
+.tabs{display:flex;flex-direction:column;gap:.2em;flex:1;min-height:0}
+.tabs a{display:flex;align-items:center;gap:.7em;padding:.5em .65em;border-radius:8px;color:var(--ink);text-decoration:none;white-space:nowrap;border:1px solid transparent}
+.tabs a:hover{background:rgba(244,241,234,.06);text-decoration:none;color:var(--ink)}
+.tabs a .ic{color:var(--brass);display:grid;flex:none}
+.tabs a .ic svg{width:1.3em;height:1.3em}
+.tabs a[aria-current=page]{background:rgba(246,189,96,.16);border-color:rgba(246,189,96,.6);color:var(--ink)}
+.tabs a.hid{opacity:.55;border-style:dashed;border-color:rgba(246,189,96,.35)}
+.tabs a#tabAdmin{margin-top:auto;border-top:1px solid rgba(244,241,234,.14);border-radius:0 0 8px 8px;padding-top:.7em}
+.tabs a#tabAdmin .ic{color:var(--teal)}
 .tabs a[hidden]{display:none}
+.side-bot{display:flex;flex-direction:column;gap:.5em;padding:.3em .3em 0}
+.side-bot .hold{font-size:.86em}
+.side-bot .cm-open{display:flex;align-items:center;gap:.6em;justify-content:flex-start}
+.side-bot .cm-open svg{width:1.2em;height:1.2em;flex:none}
+.px.sidecol .side{width:3.9em;padding-left:.5em;padding-right:.5em}
+.px.sidecol .side .lbl,.px.sidecol .side .for,.px.sidecol .side-bot .hold,.px.sidecol .side-top img{display:none}
+.px.sidecol .side-top{justify-content:center;padding:0}
+.px.sidecol .sidebtn svg{transform:rotate(180deg)}
+.px.sidecol .tabs a,.px.sidecol .side-bot .cm-open{justify-content:center;padding-left:0;padding-right:0}
+.px.sidecol .side-bot .cm-open{padding:.45em 0}
+.px.sidecol .cm-n{display:none}
 .hold{font-size:.88em;color:var(--muted)}
+/* home: one card per tab */
+.cta{background:rgba(246,189,96,.16);border:1px solid rgba(246,189,96,.6);color:var(--ink);border-radius:999px;padding:.5em 1.1em;font-weight:700;text-decoration:none}
+.px a.cta:hover{color:var(--ink);background:rgba(246,189,96,.26);text-decoration:none}
+.homecards{flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(0,13em);align-content:center;gap:1em}
+.hc{display:flex;flex-direction:column;gap:.5em;justify-content:center;padding:1em 1.3em;background:var(--deep);border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none}
+.px a.hc:hover{border-color:rgba(246,189,96,.7);background:var(--raise);color:var(--ink);text-decoration:none}
+.hc.hid{opacity:.6;border-style:dashed}
+.hci{width:2.6em;height:2.6em;border-radius:10px;background:rgba(246,189,96,.12);color:var(--brass);display:grid;place-items:center}
+.hci svg{width:1.4em;height:1.4em}
+.hcn{font-family:var(--serif);font-weight:500;font-size:1.4em;line-height:1.15}
+.hcl{color:var(--soft)}
+.hct{font-size:max(14px,.86em);color:var(--brass)}
+.homecards{min-height:0}
+.homecards.dense{grid-auto-rows:minmax(0,1fr);gap:.7em}
+.homecards.dense .hc{display:grid;grid-template-columns:auto 1fr;column-gap:.9em;row-gap:0;align-content:center;padding:.5em 1em}
+.homecards.dense .hci{grid-row:span 3;width:2.2em;height:2.2em}
+.homecards.dense .hcn{font-size:1.2em}
+@media (max-width:900px){.homecards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.homecards{grid-template-columns:1fr}}
 
 /* footer: previous, where you are, next. Room on the right for the floating comments button. */
 .pxfoot{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.4em 1.8em;border-top:1px solid rgba(244,241,234,.1);font-size:.86em;color:var(--muted)}
@@ -72,9 +111,19 @@ body.noflags .flag{display:none}
 .scrollx{overflow-x:auto}
 
 /* phones: everything stacks and scrolls */
-@media (max-width:640px){
-  .brandbar{padding:.6em 1em}
-  .tabs{overflow-x:auto;flex-wrap:nowrap;width:100%;scrollbar-width:none}
+@media (max-width:760px){
+  .px,.px.sidecol{display:block}
+  .col{min-height:0}
+  .side,.px.sidecol .side{position:sticky;width:auto;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.5em 1em;border-right:0;border-bottom:1px solid rgba(246,189,96,.28);overflow:visible}
+  .side .for,.side-bot{display:none}
+  .side-top{flex:1;padding:0}
+  .px.sidecol .side-top img{display:block}
+  .sidebtn{display:none}.menubtn{display:grid}
+  .tabs{display:none;flex:0 0 100%;order:3}
+  .px.menuopen .tabs{display:flex}
+  .px.menuopen .side-bot{display:flex;flex:0 0 100%;order:4;flex-direction:row;align-items:center;justify-content:space-between}
+  .px.sidecol .side .lbl{display:inline}
+  .px.sidecol .tabs a{justify-content:flex-start;padding:.55em .65em}
   .pxfoot{padding:.55em 1em}
   main{padding-left:1em!important;padding-right:1em!important}
 }
@@ -119,8 +168,8 @@ body.noflags .flag{display:none}
 #lightbox[hidden],#drawer[hidden]{display:none!important}
 [data-flex]>[data-n]{margin-right:.3em}
 .pillars .flag{display:inline-block;margin-left:.4em}
-.pxfoot .cm-open{position:static;border:1px solid var(--line2);background:rgba(22,36,95,.82);padding:.1em 1em;box-shadow:none;transform:none;font-size:14px;line-height:1.5}
-.pxfoot .cm-open:hover{transform:none}
+.side-bot .cm-open{position:static;border:1px solid var(--line2);background:rgba(22,36,95,.82);padding:.1em 1em;box-shadow:none;transform:none;font-size:14px;line-height:1.5}
+.side-bot .cm-open:hover{transform:none}
 .tl>div>div:nth-child(n+2){display:inline}.tl>div>div:nth-child(2){margin-right:.5em}
 .pods>div{display:block!important;position:relative;padding:.4em .65em!important}
 .pods>div>div:first-child{position:absolute;right:.65em;top:.3em;display:flex;gap:.3em;align-items:baseline;text-align:right!important;min-width:0!important}
@@ -155,11 +204,17 @@ body.noflags .flag{display:none}
 </style>
 
 <div class="px" id="px">
-<header class="brandbar">
-  <div class="bb-l"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"><span class="for">Club Steward · prepared for <b>Invited</b></span></div>
-  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#summary"><i>01</i>Summary</a><a href="#team"><i>02</i>The team</a><a href="#org"><i>03</i>Org chart</a><a href="#value"><i>04</i>Value</a><a href="#compare"><i>05</i>Compare</a><a href="#detail"><i>06</i>Detail</a><a href="#screens"><i>07</i>Screens</a><a href="#videos"><i>08</i>Videos</a><a href="#demo"><i>09</i>Demo</a><!--STAFF-TAB--></nav>
-</header>
+<aside class="side" id="side">
+  <div class="side-top"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"><button type="button" id="sideToggle" class="sidebtn"></button><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
+  <div class="for">Prepared for <b>Invited</b></div>
+  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org chart</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
+  <div class="side-bot"><span class="hold">Prices hold to <span data-n="priceHold"></span></span></div>
+</aside>
+<div class="col">
 <div class="views">
+<div class="view" id="v-home" data-view="home" data-tab="home" hidden>
+<main data-screen-label="01 Home" style="flex:1;display:flex;flex-direction:column;gap:1.2em;padding:1.2em 1.8em;"><section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2em;"><div><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.45em;">Proposal</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Club Steward, prepared for Invited</h1><p style="margin:.5em 0 0;color:#E8EAF2;font-size:1.05em;line-height:1.45;">One club platform, built, run and supported by Ardn.</p></div><a class="cta" href="#summary">Start with the Summary →</a></section><section id="homeCards" class="homecards"></section></main>
+</div>
 <div class="view" id="v-summary" data-view="summary" data-tab="summary" hidden>
 <main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:.5em;justify-content:space-between;padding:.8em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2.4em;">
@@ -230,7 +285,7 @@ body.noflags .flag{display:none}
 
   <section style="display:flex;flex-wrap:wrap;gap:1em;">
     <div style="flex:1.3 1 26em;display:grid;grid-template-columns:1fr 1fr;gap:.6em;">
-      <div style="border:1px solid rgba(246,189,96,.4);border-radius:10px;padding:.45em .9em;display:flex;flex-direction:column;justify-content:center;"><div style="font-size:max(14px,.85em);color:#8E95B5;white-space:nowrap;">Run cost a year<span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F6BD60;border:1px solid rgba(246,189,96,.6);border-radius:999px;padding:.05em .6em;margin-left:.5em;white-space:nowrap;">per year</span></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .7em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.45em;color:#F6BD60;"><span data-n="total"></span></span><span style="font-size:max(14px,.84em);color:#E8EAF2;"><span data-n="techYear"></span> technology + <span data-n="svcYear"></span> services</span></div></div>
+      <div style="border:1px solid rgba(246,189,96,.4);border-radius:10px;padding:.45em .9em;display:flex;flex-direction:column;justify-content:center;"><div style="font-size:max(14px,.85em);color:#8E95B5;white-space:nowrap;">Run cost a year<span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F6BD60;border:1px solid rgba(246,189,96,.6);border-radius:999px;padding:.05em .6em;margin-left:.5em;white-space:nowrap;">per year</span></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .7em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.45em;color:#F6BD60;"><span data-n="total"></span></span><span style="font-size:max(14px,.84em);color:#E8EAF2;"><span data-n="techYear"></span> technology + <span data-n="svcYear"></span> production support</span></div></div>
       <div style="border:1px dashed #3CA2FF;background:rgba(60,162,255,.10);border-radius:10px;padding:.45em .9em;display:flex;flex-direction:column;justify-content:center;"><div style="font-size:max(14px,.85em);color:#E8EAF2;white-space:nowrap;">One-time implementation fee<span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3CA2FF;border:1px solid #3CA2FF;border-radius:999px;padding:.05em .6em;margin-left:.5em;white-space:nowrap;">one time</span></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .7em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.45em;"><span data-n="impl"></span></span><span style="font-size:max(14px,.84em);color:#E8EAF2;">Paid once</span></div></div>
     </div>
     <div style="flex:1 1 30em;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);color:#F4F1EA;border-radius:12px;padding:.7em 1.1em;display:flex;flex-direction:column;gap:.5em;">
@@ -257,7 +312,7 @@ body.noflags .flag{display:none}
     </div>
     <div style="display:grid;grid-template-columns:repeat(2,auto);border:1px solid rgba(246,189,96,.35);border-radius:12px;">
       <div style="padding:.65em 1em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;color:#F6BD60;line-height:1;"><span data-n="hoursImpl"></span></div><div style="font-size:max(14px,.86em);color:#E8EAF2;margin-top:.3em;">hours a month, <span data-n="peopleImpl" data-f="ppl"></span>, during rollout<br>covered by the <span data-n="impl"></span> one-time fee</div></div>
-      <div style="padding:.65em 1em;border-left:1px solid rgba(246,189,96,.2);"><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span></div><div style="font-size:max(14px,.86em);color:#E8EAF2;margin-top:.3em;">on the ongoing team, ~<span data-n="hoursMs"></span> hrs a month<br>covered by <span data-n="svcMo" data-f="k"></span> a month · US and offshore</div></div>
+      <div style="padding:.65em 1em;border-left:1px solid rgba(246,189,96,.2);"><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;color:#F6BD60;line-height:1;"><span data-n="peopleMs"></span></div><div style="font-size:max(14px,.86em);color:#E8EAF2;margin-top:.3em;">on the production support team, ~<span data-n="hoursMs"></span> hrs a month<br>covered by <span data-n="svcMo" data-f="k"></span> a month · US and offshore</div></div>
     </div>
   </section>
 
@@ -303,7 +358,7 @@ body.noflags .flag{display:none}
         <span style="color:#E8EAF2;">People added</span><span style="white-space:nowrap;">+<span id="cPeople"></span> <span style="color:#8E95B5;">→ <span id="cTeam"></span></span></span>
         <span style="color:#E8EAF2;">Added a month</span><span><span id="cAddedMo"></span></span>
         <span style="color:#E8EAF2;">Added over <span id="cMonthsN2"></span> mo</span><span><span id="cAddedPeriod"></span></span>
-        <span style="color:#E8EAF2;">Services fee a month</span><span><span id="cFee"></span></span>
+        <span style="color:#E8EAF2;">Production support fee a month</span><span><span id="cFee"></span></span>
         <span style="color:#E8EAF2;">Total a year</span><span><span id="cTotal"></span></span>
       </div>
       <div style="background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);color:#F4F1EA;border-radius:3px;padding:.55em .75em;display:flex;justify-content:space-between;align-items:baseline;gap:.6em;">
@@ -360,7 +415,7 @@ body.noflags .flag{display:none}
   </div></section>
   <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4em 1.4em;padding-top:.45em;border-top:1px solid rgba(244,241,234,.13);font-size:max(14px,.84em);color:#E8EAF2;">
     <span>Invited also brings club champions at each pilot club, and change and comms</span>
-    <span><b style="color:#F4F1EA;">Ardn team: <span data-n="peopleMs" data-f="ppl"></span></b> ongoing · rollout team of <span data-n="peopleImpl" data-f="ppl"></span>, <span data-n="hoursImpl"></span> h a month</span>
+    <span><b style="color:#F4F1EA;">Ardn team: <span data-n="peopleMs" data-f="ppl"></span></b> production support · rollout team of <span data-n="peopleImpl" data-f="ppl"></span>, <span data-n="hoursImpl"></span> h a month</span>
   </div>
 </main>
 </div>
@@ -394,7 +449,7 @@ body.noflags .flag{display:none}
           <div style="color:#8E95B5;margin-top:.3em;"><span data-n="entityFee" data-f="usd"></span>/mo × <span data-n="entities"></span> entities · <span data-n="cityFee" data-f="usd"></span>/mo × <span data-n="cityClubs"></span> city clubs</div>
         </div>
         <div style="border-top:2px solid #3CA2FF;padding-top:.55em;">
-          <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Services team</span><span><span data-n="svcYear"></span></span></div>
+          <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Production support team</span><span><span data-n="svcYear"></span></span></div>
           <div style="color:#E8EAF2;margin-top:.3em;"><span data-n="peopleMs" data-f="ppl"></span>, ranked by your CIO.</div>
           <div style="color:#8E95B5;margin-top:.3em;"><span data-n="svcMo" data-f="usd"></span> a month</div>
           <div style="margin-top:.4em;background:rgba(246,189,96,.16);box-shadow:inset 0 0 0 1px rgba(246,189,96,.6);border-radius:3px;padding:.2em .5em;font-weight:700;color:#F4F1EA;">Includes tier 1 support: first call, access, how-to</div>
@@ -634,7 +689,8 @@ body.noflags .flag{display:none}
 </div>
 <!--STAFF-VIEW-->
 </div>
-<footer class="pxfoot"><button type="button" id="fPrev"></button><span><span id="fPos"></span><span class="hold"> · Prices hold to <span data-n="priceHold"></span></span></span><button type="button" id="fNext"></button></footer>
+<footer class="pxfoot"><button type="button" id="fPrev"></button><span id="fPos"></span><button type="button" id="fNext"></button></footer>
+</div>
 </div>
 <div id="drawer" hidden>
 <div data-act="closeDrawer" data-ev="click" style="position:fixed;inset:0;background:rgba(4,8,30,.6);"></div>
@@ -812,6 +868,7 @@ const NUMS = [
     ['saveLead', 'Leadership view', 'M', 0],
   ]],
   ['Tabs shown to Invited (1 shown, 0 hidden; staff always see every tab)', [
+    ['showHome', 'Home', 'int', 1],
     ['showTeam', 'The team', 'int', 0],
     ['showOrg', 'Org chart', 'int', 0],
     ['showDetail', 'Detail', 'int', 0],
@@ -1003,7 +1060,7 @@ function paint() {
 const LONG = {full: 'Full-time', half: 'Half-time', part: 'Part-time', tq: '¾ time'};
 const hrLab = h => h >= 140 ? 'full' : h >= 100 ? 'tq' : h >= 60 ? 'half' : 'part';
 const dash = n => n ? String(n) : '–';
-const groupLine = g => `Ongoing ${countOf(PUBT.ms.groups[g]).n} · Rollout ${countOf(PUBT.impl.groups[g]).n}`;
+const groupLine = g => `Support ${countOf(PUBT.ms.groups[g]).n} · Rollout ${countOf(PUBT.impl.groups[g]).n}`;
 /** What an ongoing role shows on the org chart: its headcount, or its time when it is one person. */
 const orgLabel = e => e.h.length > 1 ? '× ' + e.h.length : LONG[hrLab(e.h[0])];
 /** The roles of a group across both teams, with the people on each (i rollout, m ongoing; the lists read ongoing · rollout). */
@@ -1022,7 +1079,7 @@ function rolesOf(g) {
 const POD_INFO = [['Membership & Sales', 'pod1Sys'], ['Digital & Front Desk', 'pod2Sys'], ['Golf & Racquets', 'pod3Sys'], ['Dining & Events', 'pod4Sys'], ['Billing & Finance', 'pod5Sys'], ['Data & Integrations', 'pod6Sys']];
 const podLine = (e, w) => esc(e.role) + (w > 1 ? ' × ' + w : '');
 function paintTeam() {
-  $$('[data-gh]').forEach(e => { const g = e.dataset.gh; e.textContent = `Ongoing ${countOf(PUBT.ms.groups[g]).n} · Rollout ${countOf(PUBT.impl.groups[g]).n}`; });
+  $$('[data-gh]').forEach(e => { const g = e.dataset.gh; e.textContent = `Support ${countOf(PUBT.ms.groups[g]).n} · Rollout ${countOf(PUBT.impl.groups[g]).n}`; });
   $$('[data-roles]').forEach(el => {
     const g = el.dataset.roles, org = el.dataset.rv === 'org';
     if (org) {
@@ -1228,13 +1285,13 @@ renderSlot(slotOf('memberPeople'), [
 ].map(([name, role, see, next]) => ({name, role, see, first: name.split(' ')[0], href: DEMO.member + '/login?roster=1&as=' + encodeURIComponent(name) + '&next=' + encodeURIComponent(next)})));
 
 /* ---------- tabs, footer, keys, the drawer ---------- */
-const TABS = [['summary', 'Summary'], ['team', 'The team'], ['org', 'Org chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
+const TABS = [['home', 'Home'], ['summary', 'Summary'], ['team', 'The team'], ['org', 'Org chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
 const VIEWKEYS = [...TABS.map(t => t[0]), 'admin'];
 // links from the earlier version of this page
 const ALIAS = {'full-proposal': 'detail', 'one-system': 'summary'};
 let canEdit = false;
 // The team, org chart and detail tabs are shown to Invited only when the published settings switch them on; staff always see every tab
-const GATE = {team: 'showTeam', org: 'showOrg', detail: 'showDetail'};
+const GATE = {home: 'showHome', team: 'showTeam', org: 'showOrg', detail: 'showDetail'};
 const tabOn = k => !GATE[k] || NV[GATE[k]] > 0;
 const navTabs = () => TABS.filter(t => canEdit || tabOn(t[0]));
 function paintFoot(key) {
@@ -1248,21 +1305,77 @@ function paintFoot(key) {
   $('#fPos').style.color = i >= 0 && !on ? '#F6BD60' : '';
 }
 function paintTabs() {
-  let n = 0;
+  const col = document.getElementById('px').classList.contains('sidecol');
   $$('#tabs a').forEach(a => {
-    const k = a.getAttribute('href').slice(1);
-    if (k === 'admin') return;
+    const k = a.getAttribute('href').slice(1), lbl = $('.lbl', a).textContent;
+    a.setAttribute('aria-label', lbl);
+    if (k === 'admin') { a.title = col ? lbl : ''; return; }
     const on = tabOn(k);
     a.hidden = !canEdit && !on;
     a.classList.toggle('hid', canEdit && !on);
-    a.title = canEdit && !on ? 'Hidden from Invited' : '';
-    const i = $('i', a); if (i) i.textContent = on ? String(++n).padStart(2, '0') : '·';
+    a.title = canEdit && !on ? lbl + ' · hidden from Invited' : col ? lbl : '';
   });
   const cur = document.body.dataset.view;
   if (cur && !canEdit && cur !== 'admin' && !tabOn(cur)) show('summary'); else if (cur) paintFoot(cur);
+  paintHome();
 }
+/* lucide icons, inline */
+const ICONS = {
+  home: '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  summary: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  value: '<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>',
+  compare: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/>',
+  screens: '<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>',
+  videos: '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>',
+  demo: '<path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/>',
+  team: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  org: '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>',
+  detail: '<line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/>',
+  admin: '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',
+  comments: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  collapse: '<path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/>',
+  menu: '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>',
+};
+const icon = k => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]}</svg>`;
+$$('#tabs a').forEach(a => { a.querySelector('.ic').innerHTML = icon(a.getAttribute('href').slice(1)); });
+$('#sideToggle').innerHTML = icon('collapse'); $('#menuBtn').innerHTML = icon('menu');
+
+/* the home page: one card per tab the reader can open */
+const TAB_INFO = {
+  summary: 'The answer, the saving and the ask',
+  value: 'Price, saving and the one-time fee',
+  compare: () => `How the options compare on ${JOBS.length} jobs`,
+  screens: 'The real product, on sample data',
+  videos: 'Four short films on the whole club',
+  demo: 'Sign in as a club person and try it',
+  team: 'Who runs it, and what each role does',
+  org: 'How Ardn and Invited work together',
+  detail: 'Systems, testing and rollout in depth',
+};
+function paintHome() {
+  const box = $('#homeCards'); if (!box) return;
+  box.innerHTML = navTabs().filter(t => TAB_INFO[t[0]]).map(([k, name]) => {
+    const line = typeof TAB_INFO[k] === 'function' ? TAB_INFO[k]() : TAB_INFO[k], hid = !tabOn(k);
+    return `<a class="hc${hid ? ' hid' : ''}" href="#${k}"><span class="hci">${icon(k)}</span><span class="hcn">${esc(name)}</span><span class="hcl">${esc(line)}</span>${hid ? '<span class="hct">Hidden from Invited</span>' : ''}</a>`;
+  }).join('');
+  box.dataset.n = String(box.children.length); box.classList.toggle('dense', box.children.length > 6);
+}
+
+/* the sidebar: expanded or icons only. A saved choice wins; with none, narrow windows start collapsed. */
+const SIDE_KEY = 'ardn-invited-side';
+let sideChoice = ''; try { sideChoice = localStorage.getItem(SIDE_KEY) || ''; } catch (e) {}
+function applySide() {
+  const col = sideChoice ? sideChoice === 'collapsed' : innerWidth < 1400;
+  $('#px').classList.toggle('sidecol', col);
+  const t = $('#sideToggle'); t.setAttribute('aria-expanded', String(!col)); t.setAttribute('aria-label', col ? 'Expand menu' : 'Collapse menu'); t.title = col ? 'Expand menu' : 'Collapse menu';
+  paintTabs();
+}
+$('#sideToggle').onclick = () => { sideChoice = $('#px').classList.contains('sidecol') ? 'open' : 'collapsed'; try { localStorage.setItem(SIDE_KEY, sideChoice); } catch (e) {} applySide(); };
+addEventListener('resize', () => { if (!sideChoice) applySide(); });
+$('#menuBtn').onclick = () => { const o = $('#px').classList.toggle('menuopen'); $('#menuBtn').setAttribute('aria-expanded', String(o)); };
+$('#tabs').addEventListener('click', e => { if (e.target.closest('a')) { $('#px').classList.remove('menuopen'); $('#menuBtn').setAttribute('aria-expanded', 'false'); } });
 function show(key) {
-  if (key === 'admin' && !canEdit) key = 'summary';
+  if (key === 'admin' && !canEdit) key = 'home';
   if (!canEdit && !tabOn(key)) { key = 'summary'; if (location.hash && location.hash !== '#summary') history.replaceState(null, '', '#summary'); }
   $$('.view').forEach(v => { v.hidden = v.dataset.view !== key; });
   $$('#tabs a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + key ? 'page' : 'false'));
@@ -1276,10 +1389,9 @@ function show(key) {
 }
 function route() {
   let h = decodeURIComponent(location.hash.slice(1));
-  if (h === 'comments') { if (!document.body.dataset.view) show('summary'); openComments(); return; }
+  if (h === 'comments') { if (!document.body.dataset.view) show('home'); openComments(); return; }
   h = ALIAS[h] || h;
-  if (!h) { try { h = localStorage.getItem('ardn-invited-tab') || ''; } catch (e) {} }
-  show(VIEWKEYS.includes(h) ? h : 'summary');
+  show(VIEWKEYS.includes(h) ? h : 'home');
 }
 addEventListener('hashchange', route);
 addEventListener('keydown', e => {
@@ -1311,7 +1423,7 @@ function whereNow() {
 /* ---------- comments (unchanged behaviour) ---------- */
 const el = (t, a = {}, h = '') => { const e = document.createElement(t); for (const k in a) e.setAttribute(k, a[k]); if (h) e.innerHTML = h; return e; };
 let cmts = [], replyTo = '';
-const cmBtn = el('button', {class: 'cm-open', type: 'button', 'aria-haspopup': 'dialog'}, 'Comments <span class="cm-n" id="cmN"></span>');
+const cmBtn = el('button', {class: 'cm-open', type: 'button', 'aria-haspopup': 'dialog'}, icon('comments') + '<span class="lbl">Comments</span> <span class="cm-n" id="cmN"></span>');
 const cmPanel = el('aside', {class: 'cm ardn-track-ui', id: 'cmPanel', 'aria-label': 'Comments', hidden: ''}, `
   <div class="cm-head"><h3>Comments</h3><button type="button" class="chip" id="cmClose">Close</button></div>
   <p class="cm-intro">Ask a question or leave a note for Ardn. Ardn answers here, and you get an email when we do.</p>
@@ -1323,8 +1435,8 @@ const cmPanel = el('aside', {class: 'cm ardn-track-ui', id: 'cmPanel', 'aria-lab
     <div class="cm-row"><span class="src" id="cmWhere"></span><button type="submit" class="cm-send" id="cmSend">Post</button></div>
     <p class="cm-err" id="cmErr" role="alert"></p>
   </form>`);
-// the button sits in the footer so it never covers a tab's content
-$('.pxfoot').insertBefore(cmBtn, $('#fNext')); document.body.append(cmPanel);
+// the button sits at the foot of the sidebar so it never covers a tab's content
+$('.side-bot').append(cmBtn); document.body.append(cmPanel);
 const cmWhen = iso => new Date(iso).toLocaleString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York'}) + ' ET';
 function drawComments() {
   const roots = cmts.filter(c => !c.parentId);
@@ -1396,6 +1508,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // the staff tab and its script only exist in the page when a staff member asked for it
   if (canEdit && typeof initAdmin === 'function') { initAdmin(); loadAdmin(); }
   paint();
+  applySide();
   route();
 });
 
