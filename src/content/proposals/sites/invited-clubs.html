@@ -708,34 +708,86 @@ section.vpage{padding-top:150px;border-top:0}
 .op-valid{font-size:var(--op-fs-s);font-weight:600;color:var(--brass2);margin-top:calc(var(--op-gap)*.6)!important}
 .op-src{grid-area:src;font-size:var(--op-fs-s);color:var(--muted);padding-right:180px;line-height:1.3}
 .op-link{color:var(--brass2);text-decoration:underline;white-space:nowrap}
-.op-page.op-svc{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);grid-template-rows:auto minmax(min-content,1fr) auto;grid-template-areas:"head head" "left right" "src src"}
-.op-svc .op-head{grid-area:head}.op-svc .op-src{grid-area:src}
-.sv-l,.sv-r{display:flex;flex-direction:column;gap:var(--op-gap);min-width:0}
-.sv-l{grid-area:left}.sv-r{grid-area:right}
-.sv-pods{flex:1}
-.sv-t{font-size:inherit;line-height:inherit;table-layout:fixed;width:100%;border-collapse:collapse;flex:1}
-.sv-t th,.sv-t td{text-align:left;vertical-align:middle;padding:calc(var(--op-gap)*.45) 8px calc(var(--op-gap)*.45) 0;border-top:1px solid var(--line);font-weight:400}
-.sv-t thead th{font-size:var(--op-fs-s);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:0;padding-top:0;vertical-align:bottom}
-.sv-t tbody th{color:var(--ink);font-weight:700}
-.sv-t col.c1{width:26%}
-.sv-t td:nth-child(2){color:var(--soft)}
-.sv-t td b{color:var(--brass2);font-weight:600;margin-left:3px}
-.sv-note{font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px}
-.sv-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--op-gap)*.5) var(--op-colgap)}
-.sv-chips li{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:calc(var(--op-gap)*.4);line-height:1.25}
-.sv-chips li b{color:var(--ink)}.sv-nm{min-width:0}.sv-chips li .num{flex:none;color:var(--brass2);font-weight:600}
+.op-svc .op-head{grid-area:head}.op-svc .op-src{grid-area:src;padding-right:0;align-self:start}
 .sv-sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--op-colgap)}
 .sv-sizes .op-n{font-size:min(var(--op-fs-big),3vw)}
-.sv-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:var(--op-gap)}
-.sv-tiers li{border-top:2px solid var(--op-blue);padding-top:calc(var(--op-gap)*.4);line-height:1.25}
-.sv-tiers li:nth-child(2){border-color:var(--brass)}.sv-tiers li:nth-child(3){border-color:var(--ink)}
-.sv-tiers b{display:block;color:var(--ink)}.sv-tiers span{color:var(--soft);font-size:var(--op-fs-s)}
+.op-page.op-svc{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto minmax(42px,auto);grid-template-areas:"head head" "org right" "strip strip" "src btn"}
+.sv-org{grid-area:org}
+.sv-r{grid-area:right;display:flex;flex-direction:column;gap:var(--op-gap);min-width:0}
+.op-svc small,.op-svc .org small{font-size:var(--op-fs-s)}
+.sv-note{font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px}
+.sv-key{display:inline-block;width:.7em;height:.7em;border-radius:50%;margin-right:5px;vertical-align:-1px;flex:none}
+.sv-key.on{background:var(--brass)}.sv-key.off{background:var(--teal)}
+.sv-note .sv-key{margin-left:8px}
+.org{flex:1;display:flex;flex-direction:column;min-height:0}
+.org-box{border:1px solid var(--line2);border-radius:8px;padding:calc(var(--op-gap)*.6) calc(var(--op-pad)*.9);background:rgba(244,241,234,.03);line-height:1.25}
+.org-box b{display:block;color:var(--ink)}.org-box b small{font-weight:400;color:var(--muted);margin-left:4px}
+.org-box>span{color:var(--soft)}
+.org em,.org-lead em{font-style:normal;color:var(--brass2);font-weight:600;margin-left:4px}
+.org-top{display:flex;justify-content:center;align-items:stretch}
+.org-link{align-self:center;width:clamp(16px,3vw,44px);height:2px;background:var(--line2);position:relative}
+.org-link::after{content:"";position:absolute;right:0;top:-3px;border-left:6px solid var(--line2);border-top:4px solid transparent;border-bottom:4px solid transparent}
+.org-box.cio{border-color:rgba(60,162,255,.6);background:rgba(60,162,255,.10)}
+.org-box.dl{border-color:rgba(246,189,96,.7);background:rgba(246,189,96,.08)}
+.org-shared{position:relative;display:grid;grid-template-columns:minmax(0,1fr) clamp(20px,2.4vw,40px) minmax(0,1fr);margin-top:calc(var(--op-gap)*1.6)}
+.org-shared::before{content:"";position:absolute;left:50%;top:calc(var(--op-gap)*-1.6);height:calc(var(--op-gap)*1.6);width:1px;background:var(--line2)}
+.org-trunk{position:relative;display:block}
+.org-trunk::before{content:"";position:absolute;left:50%;top:0;bottom:calc(var(--op-gap)*-1.6);width:1px;background:var(--line2)}
+.org-trunk::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line2)}
+.org-shared ul{display:grid;gap:2px;margin-top:3px}
+.org-shared li{display:flex;align-items:baseline;gap:2px;line-height:1.25}
+.org-shared li em{margin-left:auto;padding-left:6px;white-space:nowrap}
+.org-pods{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:calc(var(--op-gap)*1.6);flex:1;align-items:stretch}
+.org-grp{position:relative;display:flex;flex-direction:column;padding:calc(var(--op-gap)*1.1) 3px 0}
+.org-grp.g2{grid-column:span 2}.org-grp.g1{grid-column:span 1}
+.org-grp::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line2)}
+.org-grp:first-child::before{left:50%}.org-grp:last-child::before{right:50%}
+.org-grp::after{content:"";position:absolute;top:0;left:50%;height:calc(var(--op-gap)*1.1);width:1px;background:var(--line2)}
+.org-lead{border:1px solid rgba(246,189,96,.7);border-radius:8px;padding:calc(var(--op-gap)*.4) 8px;color:var(--ink);font-weight:700;line-height:1.2;background:rgba(246,189,96,.08);text-align:center}
+.org-lead small{display:block;font-weight:400;color:var(--muted)}
+.org-grp>ul{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;margin-top:calc(var(--op-gap)*.8);flex:1}
+.org-pod{border:1px solid var(--line);border-radius:8px;padding:calc(var(--op-gap)*.6) 7px;display:flex;flex-direction:column;gap:3px;line-height:1.22;background:var(--deep)}
+.org-pod b{color:var(--ink)}
+.org-pod>span{color:var(--soft);font-size:var(--op-fs-s)}
+.org-dev{margin-top:auto!important;border-top:1px dashed var(--line2);padding-top:3px;color:var(--soft);font-size:var(--op-fs-s)}
+.sv-sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--op-colgap)}
+.sv-sizes .op-n{font-size:min(var(--op-fs-big),3vw)}
+.sv-strip{grid-area:strip;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1.1fr);gap:var(--op-colgap)}
+.sv-cap{overflow:visible}
+.sv-cap p{line-height:1.28;margin-bottom:calc(var(--op-gap)*.5)!important}
+.sv-cap p b{color:var(--ink)}
+.sv-unit{color:var(--brass2)}.sv-unit b{color:var(--brass2)!important}
+.sv-in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:end;margin-bottom:calc(var(--op-gap)*.7)}
+.sv-step label{display:block;font-size:var(--op-fs-s);line-height:1.15;color:var(--soft);margin-bottom:3px}
+.sv-step>div{display:flex;align-items:stretch;border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+.sv-step button{flex:none;width:2em;background:rgba(244,241,234,.06);border:0;color:var(--ink);font:600 1.1em/1 var(--sans);cursor:pointer}
+.sv-step button:hover{background:rgba(246,189,96,.18)}
+.sv-step input{min-width:0;width:100%;text-align:center;background:transparent;border:0;color:var(--ink);font:600 var(--op-fs)/1.5 var(--sans);-moz-appearance:textfield}
+.sv-step input::-webkit-outer-spin-button,.sv-step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.sv-out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--op-gap)*.5) var(--op-colgap);margin:0}
+.sv-out>div{border-top:1px solid var(--line);padding-top:calc(var(--op-gap)*.4)}
+.sv-out dt{font-size:var(--op-fs-s);line-height:1.2;color:var(--soft)}
+.sv-out dd{margin:0;font:400 calc(var(--op-fs)*1.35)/1.15 var(--serif);color:var(--brass2)}
+.sv-rates{margin-top:calc(var(--op-gap)*.25)!important;margin-bottom:0!important;font-size:var(--op-fs-s);color:var(--muted)}
+.sv-rates b{color:var(--soft);font-weight:600}
+.sv-edit{display:grid;grid-template-columns:1fr 1fr auto;gap:6px 8px;align-items:end;margin-top:calc(var(--op-gap)*.5);font-size:var(--op-fs-s);color:var(--soft)}
+.sv-edit[hidden]{display:none}
+.op-svc>.sv-edit{grid-area:btn;align-self:start;margin:0 150px 0 0;position:relative}
+.sv-edit label{display:block;line-height:1.15}
+.sv-edit input{display:block;width:100%;margin-top:2px;background:rgba(244,241,234,.05);border:1px solid var(--line2);border-radius:6px;color:var(--ink);font:600 var(--op-fs)/1.4 var(--sans);padding:0 6px}
+.sv-edit button{background:var(--brass);color:var(--night);border:0;border-radius:6px;font:700 var(--op-fs-s)/1.4 var(--sans);padding:2px 10px;cursor:pointer}
+.sv-status{grid-column:1/-1;margin:0!important;color:var(--brass2);min-height:0}
+.sv-status:empty{display:none}
+.sv-tiers{display:grid;gap:2px;margin-bottom:calc(var(--op-gap)*.5);line-height:1.25}
+.sv-tiers b{color:var(--ink)}
+.sv-relline{line-height:1.25;margin:0!important}
+.sv-prio .op-h .sv-prop{margin-left:6px}
+.sv-p{table-layout:auto}
 .sv-p{font-size:var(--op-fs-s);line-height:1.2;width:100%;border-collapse:collapse}
 .sv-p th,.sv-p td{text-align:left;font-weight:400;padding:calc(var(--op-gap)*.3) 6px calc(var(--op-gap)*.3) 0;border-top:1px solid var(--line);vertical-align:top}
 .sv-p thead th{border-top:0;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .sv-p tbody th{color:var(--ink);font-weight:700}
 .sv-prop{font-style:normal;text-transform:none;letter-spacing:0;font-weight:600;color:var(--brass2);border:1px dashed rgba(246,189,96,.6);border-radius:10px;padding:0 6px;margin-left:4px}
-.sv-rel p{line-height:1.3}
 body[data-view=value] .cm-open{bottom:12px}
 body[data-view=summary] .cm-open{bottom:12px}
 @media (prefers-reduced-motion:reduce){.op-bar{transition:none}}
@@ -751,7 +803,8 @@ body[data-view=summary] .cm-open{bottom:12px}
 @media (max-width:1100px){
   .op-page{height:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:none;
     grid-template-areas:"head head" "time time" "pain prop" "econ why" "ask ask" "src src"}
-  .op-page.op-svc{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "left" "right" "src"}
+  .op-page.op-svc{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "org" "right" "strip" "src"}
+  .sv-strip{grid-template-columns:1fr}
   .op-why-list{grid-template-columns:1fr}
 }
 @media (max-width:760px){
@@ -768,12 +821,23 @@ body[data-view=summary] .cm-open{bottom:12px}
   .op-pt td:first-child{color:var(--muted)}
   .op-pt td+td::before{top:2px}
   .op-src{padding-right:0;padding-bottom:64px}
-  .op-page.op-svc{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "left" "right" "src"}
-  .sv-t,.sv-t tbody,.sv-t tr,.sv-t td,.sv-t tbody th{display:block}
-  .sv-t thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .sv-t tr{border-top:1px solid var(--line);padding:6px 0}
-  .sv-t th,.sv-t td{border-top:0;padding:1px 0}
-  .sv-chips,.sv-sizes{grid-template-columns:1fr}
+  .op-page.op-svc{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "org" "right" "strip" "src"}
+  .sv-sizes{grid-template-columns:1fr}
+  .op-svc>.sv-edit{grid-area:auto;margin:var(--op-gap) 0 64px}
+  .sv-strip{grid-template-columns:1fr}
+  .sv-in{grid-template-columns:1fr}
+  .sv-step label{min-height:0}
+  .sv-edit{grid-template-columns:1fr}
+  .org-shared{grid-template-columns:1fr;gap:var(--op-gap)}
+  .org-trunk,.org-shared::before{display:none}
+  .org-pods{grid-template-columns:1fr;gap:var(--op-gap)}
+  .org-grp.g2,.org-grp.g1{grid-column:auto}
+  .org-grp::before,.org-grp::after{display:none}
+  .org-grp{padding-top:0}
+  .org-grp>ul{grid-auto-flow:row}
+  .org-top{flex-direction:column;align-items:stretch}
+  .org-link{width:2px;height:14px;margin:0 auto}
+  .org-link::after{display:none}
   .op-n{font-size:25px}
   .op-fig3{gap:8px}
   .op-vs{grid-template-columns:1fr}
@@ -1139,70 +1203,127 @@ body[data-view=summary] .cm-open{bottom:12px}
     <p class="op-sub">One Ardn team behind Invited's help desk: 40 retired systems, 14 live connectors, 143 clubs.</p>
   </header>
 
-  <div class="sv-l">
-    <section class="op-card sv-pods" aria-labelledby="sv-h-pods">
-      <h2 class="op-h" id="sv-h-pods">Six pods, each with a lead and developers</h2>
-      <table class="sv-t">
-        <caption class="op-vh">Pods, the systems each replaces, and its people in full-time equivalents at steady state</caption>
-        <thead><tr><th scope="col">Pod (systems absorbed)</th><th scope="col">Replaces, for example</th><th scope="col">Onshore lead, FTE</th><th scope="col">Offshore developers, FTE</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Membership &amp; Sales (10)</th><td>MemberPride, ProspectPro, Salesforce, Pardot, DocuSign</td><td>Members lead <b class="num">0.6</b></td><td><b class="num">0.5</b></td></tr>
-          <tr><th scope="row">Billing, Finance &amp; Books (9)</th><td>Oracle EBS, AR, GL, Fusion; MAGIC; Lanvera, CardX, Paymentus</td><td>Finance lead <b class="num">1.0</b></td><td><b class="num">0.75</b></td></tr>
-          <tr><th scope="row">Golf, Racquets &amp; Fitness (5)</th><td>Tee Times, GLF, CourtReserve, Turf Assistant</td><td>Club Ops lead <b class="num">0.4</b></td><td><b class="num">0.5</b></td></tr>
-          <tr><th scope="row">Dining, POS &amp; Events (8)</th><td>MICROS, R&amp;A, Checkbook, CaterPro, AllSeated</td><td>Club Ops lead <b class="num">0.6</b></td><td><b class="num">0.75</b></td></tr>
-          <tr><th scope="row">Digital, Front Desk &amp; People (6)</th><td>Mobile App, Portal, MembersFirst, MIV</td><td>Members lead <b class="num">0.4</b></td><td><b class="num">0.5</b></td></tr>
-          <tr><th scope="row">Data &amp; Integrations (2 + 14 feeds)</th><td>CSI, Power BI; ADP, Opera, GHIN, PACE, Golf Genius, warehouse</td><td>Solution architect <b class="num">0.25</b></td><td>Integration engineer <b class="num">1.0</b></td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section class="op-card sv-shared" aria-labelledby="sv-h-shared">
-      <h2 class="op-h" id="sv-h-shared">Shared by every pod <span class="sv-note">FTE at steady state (at go-live)</span></h2>
-      <ul class="sv-chips">
-        <li><span class="sv-nm"><b>Delivery lead</b>, accountable to the CIO</span><span class="num">0.5 (1.0)</span></li>
-        <li><span class="sv-nm"><b>Solution architect</b></span><span class="num">0.25 (0.5)</span></li>
-        <li><span class="sv-nm"><b>Release manager</b>, offshore</span><span class="num">0.5 (1.0)</span></li>
-        <li><span class="sv-nm"><b>QA automation lead</b> and offshore QA</span><span class="num">1.0 (2.0)</span></li>
-        <li><span class="sv-nm"><b>Second-line support lead</b>, on call</span><span class="num">1.0 (1.0)</span></li>
-        <li><span class="sv-nm"><b>L2 analysts</b>, offshore, US shift</span><span class="num">2.0 (4.0)</span></li>
-        <li><span class="sv-nm"><b>Integration and data engineer</b></span><span class="num">1.0 (2.0)</span></li>
-        <li><span class="sv-nm"><b>Trainer and change lead</b></span><span class="num">0.25 (1.0)</span></li>
-      </ul>
+  <section class="op-card sv-org" aria-labelledby="sv-h-org">
+    <h2 class="op-h" id="sv-h-org">Team structure <span class="sv-note"><span class="sv-key on"></span>onshore (US) <span class="sv-key off"></span>offshore · FTE at steady state (at go-live)</span></h2>
+    <div class="org">
+      <div class="org-top">
+        <div class="org-box cio"><b>Invited CIO</b><span>ranks the backlog</span></div>
+        <span class="org-link" aria-hidden="true"></span>
+        <div class="org-box dl"><b>Ardn Delivery Lead</b><span><i class="sv-key on"></i>onshore · accountable to the CIO <em class="num">0.5 (1.0)</em></span></div>
+      </div>
+      <div class="org-shared">
+        <div class="org-box shared">
+          <b>Platform &amp; quality <small>shared by every pod</small></b>
+          <ul>
+            <li><i class="sv-key on"></i>Solution Architect <em class="num">0.25 (0.5)</em></li>
+            <li><i class="sv-key off"></i>Release Manager <em class="num">0.5 (1.0)</em></li>
+            <li><i class="sv-key off"></i>QA Automation Lead + offshore QA <em class="num">1.0 (2.0)</em></li>
+            <li><i class="sv-key off"></i>Integration &amp; Data Engineer <em class="num">1.0 (2.0)</em></li>
+          </ul>
+        </div>
+        <span class="org-trunk" aria-hidden="true"></span>
+        <div class="org-box shared">
+          <b>Support <small>shared by every pod</small></b>
+          <ul>
+            <li><i class="sv-key on"></i>Second-line Support Lead, on call <em class="num">1.0 (1.0)</em></li>
+            <li><i class="sv-key off"></i>L2 analysts, US shift <em class="num">2.0 (4.0)</em></li>
+            <li><i class="sv-key on"></i>Trainer &amp; Change Lead <em class="num">0.25 (1.0)</em></li>
+          </ul>
+        </div>
+      </div>
+      <ol class="org-pods">
+        <li class="org-grp g2">
+          <p class="org-lead"><i class="sv-key on"></i>Members lead <em class="num">1.0</em> <small>covers both pods</small></p>
+          <ul>
+            <li class="org-pod"><b>Membership &amp; Sales</b><span>10 systems: MemberPride, ProspectPro, Salesforce</span><p class="org-dev"><i class="sv-key off"></i>Developers <em class="num">0.5</em></p></li>
+            <li class="org-pod"><b>Digital, Front Desk &amp; People</b><span>6 systems: Mobile App, Portal, MembersFirst</span><p class="org-dev"><i class="sv-key off"></i>Developers <em class="num">0.5</em></p></li>
+          </ul>
+        </li>
+        <li class="org-grp g2">
+          <p class="org-lead"><i class="sv-key on"></i>Club Ops lead <em class="num">1.0</em> <small>covers both pods</small></p>
+          <ul>
+            <li class="org-pod"><b>Golf, Racquets &amp; Fitness</b><span>5 systems: Tee Times, GLF, CourtReserve</span><p class="org-dev"><i class="sv-key off"></i>Developers <em class="num">0.5</em></p></li>
+            <li class="org-pod"><b>Dining, POS &amp; Events</b><span>8 systems: MICROS, Checkbook, CaterPro</span><p class="org-dev"><i class="sv-key off"></i>Developers <em class="num">0.75</em></p></li>
+          </ul>
+        </li>
+        <li class="org-grp g1">
+          <p class="org-lead"><i class="sv-key on"></i>Finance lead <em class="num">1.0</em></p>
+          <ul>
+            <li class="org-pod"><b>Billing, Finance &amp; Books</b><span>9 systems: Oracle EBS, Lanvera, CardX</span><p class="org-dev"><i class="sv-key off"></i>Developers <em class="num">0.75</em></p></li>
+          </ul>
+        </li>
+        <li class="org-grp g1">
+          <p class="org-lead"><i class="sv-key on"></i>Solution Architect <small>as above</small></p>
+          <ul>
+            <li class="org-pod"><b>Data &amp; Integrations</b><span>2 systems + 14 feeds: CSI, Power BI, ADP</span><p class="org-dev"><i class="sv-key off"></i>Integration engineer <em class="num">1.0</em></p></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="sv-r">
+    <section class="op-card sv-cap" id="svCalc" aria-labelledby="sv-h-cap">
+      <h2 class="op-h" id="sv-h-cap">Add capacity when Invited needs it</h2>
+      <p>The fee buys a team, not tickets: <b>12.5 people at steady state (about 2,000 hours a month).</b> Invited's CIO decides what they work on.</p>
+      <p>Need more horsepower? Add people for as long as the need lasts, on 30 days' notice: a new club wave, an acquisition, a busy season. Scale back the same way.</p>
+      <p class="sv-unit"><b>One pod</b> = 1 onshore functional lead + 3 offshore developers</p>
+      <div class="sv-in">
+        <div class="sv-step"><label for="svPods">Pods to add</label><div><button type="button" data-d="-1" data-for="svPods" aria-label="Fewer pods">−</button><input id="svPods" type="number" inputmode="numeric" min="0" max="6" step="1" value="1"><button type="button" data-d="1" data-for="svPods" aria-label="More pods">+</button></div></div>
+        <div class="sv-step"><label for="svExtra">Extra developers</label><div><button type="button" data-d="-1" data-for="svExtra" aria-label="Fewer extra developers">−</button><input id="svExtra" type="number" inputmode="numeric" min="0" max="10" step="1" value="0"><button type="button" data-d="1" data-for="svExtra" aria-label="More extra developers">+</button></div></div>
+        <div class="sv-step"><label for="svMonths">For how many months</label><div><button type="button" data-d="-1" data-for="svMonths" aria-label="Fewer months">−</button><input id="svMonths" type="number" inputmode="numeric" min="1" max="24" step="1" value="6"><button type="button" data-d="1" data-for="svMonths" aria-label="More months">+</button></div></div>
+      </div>
+      <dl class="sv-out">
+        <div><dt>Added people</dt><dd class="num" id="svPeople">4</dd></div>
+        <div><dt>Added cost a month</dt><dd class="num" id="svAdd">$56,800</dd></div>
+        <div><dt>Added cost over <span id="svMo">6</span> months</dt><dd class="num" id="svTot">$340,800</dd></div>
+        <div><dt>New services fee a month</dt><dd class="num" id="svFee">$261,800</dd></div>
+        <div><dt>Club Steward total a year while on</dt><dd class="num" id="svYear">$5.13M</dd></div>
+        <div><dt>Saving vs $8.3M while on</dt><dd class="num" id="svSave">$3.17M</dd></div>
+      </dl>
+      <p class="sv-rates" id="svRates">Onshore lead <b class="num">$28,000</b> a month · offshore developer <b class="num">$9,600</b> a month</p>
+      <form class="sv-edit" id="svEdit" hidden>
+        <label>Onshore, $ a month <input id="svOn" type="number" inputmode="numeric" min="1000" max="100000" step="1" value="28000"></label>
+        <label>Offshore, $ a month <input id="svOff" type="number" inputmode="numeric" min="1000" max="100000" step="1" value="9600"></label>
+        <button type="submit" id="svSaveBtn">Save rates</button>
+        <p class="sv-status" id="svStatus" role="status"></p>
+      </form>
     </section>
   </div>
 
-  <div class="sv-r">
+  <div class="sv-strip">
     <section class="op-card sv-team" aria-labelledby="sv-h-team">
       <h2 class="op-h" id="sv-h-team">Team size</h2>
       <div class="sv-sizes">
-        <div><p class="op-n num">20.5</p><p class="op-nl"><b>people at go-live and hypercare</b><br>covered by the implementation fee</p></div>
-        <div><p class="op-n num">12.5</p><p class="op-nl"><b>people at steady state</b>: 5 US, 7.5 offshore<br>covered by the $205K a month</p></div>
+        <div><p class="op-n num">20.5</p><p class="op-nl"><b>go-live and hypercare</b><br>covered by the implementation fee</p></div>
+        <div><p class="op-n num">12.5</p><p class="op-nl"><b>steady state</b>: 5 US, 7.5 offshore<br>covered by the $205K a month</p></div>
       </div>
     </section>
     <section class="op-card sv-sup" aria-labelledby="sv-h-sup">
       <h2 class="op-h" id="sv-h-sup">Support, in three tiers</h2>
       <ol class="sv-tiers">
-        <li><b>L1 · Invited help desk</b><span>access, how-to, reproduce</span></li>
-        <li><b>L2 · Ardn pod</b><span>triage, configuration, data, workarounds</span></li>
-        <li><b>L3 · Developer fix</b><span>with a test, next daily release</span></li>
+        <li><b>L1 · Invited help desk</b> access, how-to, reproduce</li>
+        <li><b>L2 · Ardn pod</b> triage, configuration, data, workarounds</li>
+        <li><b>L3 · Developer fix</b> with a test, next daily release</li>
       </ol>
+      <p class="sv-relline"><b>Releases:</b> daily fixes; features on per club every two weeks; frozen at month-end close.</p>
+    </section>
+    <section class="op-card sv-prio" aria-labelledby="sv-h-prio">
+      <h2 class="op-h" id="sv-h-prio">Priorities <i class="sv-prop">proposed</i></h2>
       <table class="sv-p">
         <caption class="op-vh">Proposed response and resolution targets by priority</caption>
-        <thead><tr><th scope="col">Priority <i class="sv-prop">proposed</i></th><th scope="col">Response</th><th scope="col">Resolution</th></tr></thead>
+        <thead><tr><th scope="col">Priority</th><th scope="col">Response</th><th scope="col">Resolution</th></tr></thead>
         <tbody>
-          <tr><th scope="row">P1</th><td>30 minutes, 24×7</td><td>service restored in 4 hours</td></tr>
+          <tr><th scope="row">P1</th><td>30 minutes, 24×7</td><td>restored in 4 hours</td></tr>
           <tr><th scope="row">P2</th><td>2 hours</td><td>2 business days</td></tr>
           <tr><th scope="row">P3</th><td>1 business day</td><td>10 business days</td></tr>
-          <tr><th scope="row">P4</th><td>2 business days</td><td>into the backlog, at the CIO's rank</td></tr>
+          <tr><th scope="row">P4</th><td>2 business days</td><td>into the backlog</td></tr>
         </tbody>
       </table>
     </section>
-    <section class="op-card sv-rel" aria-labelledby="sv-h-rel">
-      <h2 class="op-h" id="sv-h-rel">Releases</h2>
-      <p>Fixes ship daily. Features are switched on per club every two weeks. Frozen at month-end close.</p>
-    </section>
   </div>
 
-  <p class="op-src">FTE: full-time equivalents; onshore means US. Figures in brackets are for go-live and hypercare. Response and resolution targets are proposed.</p>
+  <p class="op-src">FTE: full-time equivalents; onshore means US. Figures in brackets are for go-live and hypercare. Add-on rates are per person per month at 160 hours. Response and resolution targets are proposed.</p>
 </section>
 
 <section class="ch vpage" id="value-page">
@@ -2942,6 +3063,60 @@ $('#appMap').innerHTML = APPMAP.map(([n, d]) => `<div><h4>${esc(n)}</h4><p>${esc
 
 /* ---------- comments: Invited asks, Ardn answers, all on the proposal ---------- */
 const SLUG = window.__PROPOSAL_SLUG__ || 'invited-clubs';
+
+// The services slide: what it costs to add capacity, from the same costOf() / PRICE model as the rest.
+(() => {
+  const root = document.getElementById('svCalc');
+  if (!root) return;
+  const g = id => document.getElementById(id);
+  let rates = {onshore: 28000, offshore: 9600};
+  const num = (id, lo, hi) => Math.min(hi, Math.max(lo, Math.round(parseFloat(g(id).value) || 0)));
+  const pod = r => r.onshore + 3 * r.offshore;
+  function show() {
+    const pods = num('svPods', 0, 6), extra = num('svExtra', 0, 10), months = num('svMonths', 1, 24);
+    const add = pods * pod(rates) + extra * rates.offshore;
+    const c = costOf({...PRICE, svc: PRICE.svc + add});
+    g('svPeople').textContent = String(pods * 4 + extra);
+    g('svAdd').textContent = fmt(add);
+    g('svMo').textContent = String(months);
+    g('svTot').textContent = fmt(add * months);
+    g('svFee').textContent = fmt(PRICE.svc + add);
+    g('svYear').textContent = fmtM2(c.year);
+    g('svSave').textContent = fmtM2(c.save);
+    g('svRates').innerHTML = `Onshore lead <b class="num">${fmt(rates.onshore)}</b> a month · offshore developer <b class="num">${fmt(rates.offshore)}</b> a month`;
+  }
+  root.querySelectorAll('.sv-step input').forEach(i => i.addEventListener('input', show));
+  root.querySelectorAll('.sv-step button').forEach(b => b.addEventListener('click', () => {
+    const i = g(b.dataset.for);
+    i.value = String(Math.min(+i.max, Math.max(+i.min, (parseInt(i.value, 10) || 0) + +b.dataset.d)));
+    show();
+  }));
+  show();
+  // Ardn staff can change the rates; everyone else only reads them. Locally the API is absent, so the defaults stand.
+  const edit = g('svEdit'), status = g('svStatus');
+  fetch('/api/proposals/rates?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'})
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d || !d.ok || !d.rates) return;
+      rates = {onshore: +d.rates.onshore || rates.onshore, offshore: +d.rates.offshore || rates.offshore};
+      g('svOn').value = rates.onshore; g('svOff').value = rates.offshore;
+      show();
+      if (d.canEdit) { edit.hidden = false; root.closest('.op-svc').appendChild(edit); }
+    })
+    .catch(() => {});
+  edit.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.textContent = 'Saving…';
+    try {
+      const r = await fetch('/api/proposals/rates', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, onshore: +g('svOn').value, offshore: +g('svOff').value})});
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || !d.ok) { status.textContent = d.message || 'The rates didn’t save. Try again.'; return; }
+      rates = {onshore: d.rates.onshore, offshore: d.rates.offshore};
+      show();
+      status.textContent = 'Saved: everyone viewing now sees these rates (' + new Date(d.rates.updatedAt).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'}) + ').';
+    } catch { status.textContent = 'The rates didn’t save. Try again.'; }
+  });
+})();
 let cmts = [], replyTo = '';
 const cmBtn = el('button', {class: 'cm-open', type: 'button', 'aria-haspopup': 'dialog'}, 'Comments <span class="cm-n" id="cmN"></span>');
 const cmPanel = el('aside', {class: 'cm ardn-track-ui', id: 'cmPanel', 'aria-label': 'Comments', hidden: ''}, `
