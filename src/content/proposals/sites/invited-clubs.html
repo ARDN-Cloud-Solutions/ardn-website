@@ -7,31 +7,31 @@
 /* Co-branded light theme: Invited navy and gold on warm paper, Ardn blue as the accent. Every colour is a token here; the
    sidebar and the staff admin are dark islands that redefine the tokens below. */
 :root{
-  --night:#F6F4EF; --deep:#FFFFFF; --raise:#FBFAF6; --field:#FFFFFF; --chip:#FFFFFF; --cardline:#E6E1D6;
-  --line:rgba(11,22,64,.13); --line2:rgba(11,22,64,.26);
-  --ink:#0B1640; --soft:#1F2A4D; --muted:#5B6380;
-  --brass:#8A5A0C; --brass2:#6E4608; --gold:#B8801E; --sand:#6E5A2C; --teal:#1B63BD; --slate:#566077; --alarm:#B14226; --good:#17754A;
-  --fgrgb:11,22,64; --goldrgb:168,116,26; --bluergb:31,111,209; --alarmrgb:196,85,58; --slatergb:91,99,128; --goodrgb:30,142,87;
-  --navy:#0F206C; --indigo:#3A4289; --violet:#4E42E4;
-  --bar-today:#C9CED9; --bar-a:#0F1A4E; --bar-b:#1F6FD1;
-  --shadow:0 1px 2px rgba(8,17,59,.06),0 4px 16px rgba(8,17,59,.04);
+  --night:#F3F5FA; --deep:#FFFFFF; --raise:#F8FAFF; --field:#FFFFFF; --chip:#FFFFFF; --cardline:#D9DEEE;
+  --line:rgba(28,32,69,.13); --line2:rgba(28,32,69,.26);
+  --ink:#1C2045; --soft:#2E3563; --muted:#5B6380;
+  --brass:#4B3FD8; --brass2:#3B4289; --gold:#8E8AF8; --sand:#4A5578; --teal:#1B63BD; --slate:#566077; --alarm:#B14226; --good:#17754A;
+  --fgrgb:28,32,69; --goldrgb:108,99,240; --bluergb:31,111,209; --alarmrgb:196,85,58; --slatergb:91,99,128; --goodrgb:30,142,87;
+  --navy:#1C2045; --indigo:#3A4289; --violet:#4E42E4;
+  --bar-today:#C9D0E6; --bar-a:#272D63; --bar-b:#1F6FD1;
+  --shadow:0 1px 2px rgba(28,32,69,.06),0 4px 16px rgba(28,32,69,.04);
   --sidew:56px; --sidew-open:224px;
   --serif:"Source Serif 4",Georgia,serif; --sans:Manrope,system-ui,sans-serif;
   --out:cubic-bezier(.22,.8,.24,1);
   color-scheme:light;
 }
 /* dark islands: the sidebar, the staff admin and the comments panel keep the navy look */
-.side,#v-admin,.cm{
-  --night:#08113B; --deep:#0F1A4E; --raise:#16245F; --field:#08113B; --chip:#FFFFFF; --cardline:rgba(244,241,234,.13);
-  --line:rgba(244,241,234,.13); --line2:rgba(244,241,234,.26);
-  --ink:#F4F1EA; --soft:#E8EAF2; --muted:#9AA1C0;
-  --brass:#F6BD60; --brass2:#F9D08A; --gold:#F6BD60; --sand:#EFD9AE; --teal:#3CA2FF; --slate:#8A94A8; --alarm:#F08A6C; --good:#5FD08A;
-  --fgrgb:244,241,234; --goldrgb:246,189,96; --bluergb:60,162,255; --alarmrgb:240,138,108; --slatergb:138,148,168; --goodrgb:95,208,138;
+.side,#v-admin{
+  --night:#1C2045; --deep:#272D63; --raise:#313874; --field:#1C2045; --chip:#FFFFFF; --cardline:rgba(238,242,255,.13);
+  --line:rgba(238,242,255,.13); --line2:rgba(238,242,255,.26);
+  --ink:#F3F5FF; --soft:#E6EAFB; --muted:#9AA1C0;
+  --brass:#A9B4FF; --brass2:#C9D0FF; --gold:#A9B4FF; --sand:#C9D0FF; --teal:#3CA2FF; --slate:#8A94A8; --alarm:#F08A6C; --good:#5FD08A;
+  --fgrgb:238,242,255; --goldrgb:169,180,255; --bluergb:60,162,255; --alarmrgb:240,138,108; --slatergb:138,148,168; --goodrgb:95,208,138;
   color-scheme:dark;
 }
-#v-admin{background:#08113B;color:var(--ink)}
+#v-admin{background:#1C2045;color:var(--ink)}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:#F6F4EF}
+html,body{margin:0;padding:0;background:#F3F5FA}
 body{color:var(--ink);font:400 16px/1.4 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--brass)}
 :focus-visible{outline:2px solid var(--brass2);outline-offset:3px;border-radius:4px}
@@ -40,7 +40,7 @@ button{font:inherit;color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* the page: header, one view that fills the screen, footer. Root size follows the screen, never under 14px. */
-.px{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:linear-gradient(180deg,#F7F5F0,#F1EEE7) fixed;color:var(--ink);font-family:var(--sans);font-size:clamp(14px,calc(1.1vh + .48vw),20px);line-height:1.3;font-variant-numeric:tabular-nums}
+.px{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:linear-gradient(180deg,#F8FAFF,#EEF1FA) fixed;color:var(--ink);font-family:var(--sans);font-size:clamp(14px,calc(1.1vh + .48vw),20px);line-height:1.3;font-variant-numeric:tabular-nums}
 .px h1,.px h2,.px h3{max-width:none;letter-spacing:normal}
 .px a:hover{color:var(--brass2);text-decoration:underline}
 .px input[type=range]{accent-color:var(--brass);width:100%;margin:0}
@@ -55,11 +55,12 @@ button{font:inherit;color:inherit}
 /* sidebar: always icons; it opens over the page on hover or keyboard focus and the page never moves (its grid column is fixed). */
 .px{display:grid;grid-template-columns:var(--sidew) minmax(0,1fr)}
 .col{display:flex;flex-direction:column;min-width:0;min-height:100vh;min-height:100dvh}
-.side{width:var(--sidew);position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;gap:.7em;padding:.8em 8px;font-size:15px;background:#08113B;color:var(--ink);z-index:30;overflow:hidden;white-space:nowrap;transition:width .15s ease,box-shadow .15s ease}
-.side:hover,.side:focus-within{width:var(--sidew-open);box-shadow:8px 0 32px rgba(8,17,59,.28)}
-.side-top{display:flex;align-items:center;gap:.5em;padding:0 .3em;height:1.9em}
-.side-top img{height:1.5em;width:auto;display:block;opacity:0;transition:opacity .15s ease}
-.side:hover .side-top img,.side:focus-within .side-top img{opacity:1}
+.side{width:var(--sidew);position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;gap:.7em;padding:.8em 8px;font-size:15px;background:#1C2045;color:var(--ink);z-index:30;overflow:hidden;white-space:nowrap;transition:width .15s ease,box-shadow .15s ease}
+.side:hover,.side:focus-within{width:var(--sidew-open);box-shadow:8px 0 32px rgba(28,32,69,.28)}
+.side-top{display:flex;align-items:center;gap:.5em;padding:0;height:2em}
+.side-top .logo{display:block;flex:none;width:2.1em;height:1.1em;margin-left:.3em;overflow:hidden;transition:width .15s ease,height .15s ease}
+.side-top img{height:100%;width:auto;max-width:none;display:block}
+.side:hover .side-top .logo,.side:focus-within .side-top .logo{width:5.9em;height:1.5em;margin-left:.3em}
 .menubtn{background:none;border:1px solid transparent;border-radius:8px;color:var(--soft);padding:.3em;display:none;place-items:center}
 .menubtn svg{width:1.2em;height:1.2em}
 .side .for,.side .lbl,.side-bot .hold{opacity:0;transition:opacity .15s ease}
@@ -68,12 +69,12 @@ button{font:inherit;color:inherit}
 .side .for b{color:var(--ink);font-weight:700}
 .tabs{display:flex;flex-direction:column;gap:.2em;flex:1;min-height:0}
 .tabs a{display:flex;align-items:center;gap:.8em;padding:.5em .6em;border-radius:8px;color:var(--ink);text-decoration:none;white-space:nowrap;border:1px solid transparent}
-.tabs a:hover{background:rgba(244,241,234,.08);text-decoration:none;color:var(--ink)}
+.tabs a:hover{background:rgba(238,242,255,.08);text-decoration:none;color:var(--ink)}
 .tabs a .ic{color:var(--brass);display:grid;flex:none}
 .tabs a .ic svg{width:1.3em;height:1.3em}
-.tabs a[aria-current=page]{background:rgba(246,189,96,.16);border-color:rgba(246,189,96,.6);color:var(--ink)}
-.tabs a.hid{opacity:.7;border-style:dashed;border-color:rgba(246,189,96,.35)}
-.tabs a#tabAdmin{margin-top:auto;border-top:1px solid rgba(244,241,234,.14);border-radius:0 0 8px 8px;padding-top:.7em}
+.tabs a[aria-current=page]{background:rgba(169,180,255,.16);border-color:rgba(169,180,255,.6);color:var(--ink)}
+.tabs a.hid{opacity:.7;border-style:dashed;border-color:rgba(169,180,255,.35)}
+.tabs a#tabAdmin{margin-top:auto;border-top:1px solid rgba(238,242,255,.14);border-radius:0 0 8px 8px;padding-top:.7em}
 .tabs a#tabAdmin .ic{color:var(--teal)}
 .tabs a[hidden]{display:none}
 .side-bot{display:flex;flex-direction:column;gap:.5em;padding:.3em 0 0}
@@ -84,13 +85,13 @@ button{font:inherit;color:inherit}
 @media (prefers-reduced-motion:reduce){.side,.side *{transition:none!important}}
 .hold{font-size:.88em;color:var(--muted)}
 /* home: one card per tab */
-.cta{background:rgba(246,189,96,.16);border:1px solid rgba(246,189,96,.6);color:var(--ink);border-radius:999px;padding:.5em 1.1em;font-weight:700;text-decoration:none}
-.px a.cta:hover{color:var(--ink);background:rgba(246,189,96,.26);text-decoration:none}
+.cta{background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--ink);border-radius:999px;padding:.5em 1.1em;font-weight:700;text-decoration:none}
+.px a.cta:hover{color:var(--ink);background:rgba(169,180,255,.26);text-decoration:none}
 .homecards{flex:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:13em;gap:1em}
 .hc{display:flex;flex-direction:column;gap:.5em;justify-content:center;padding:1em 1.3em;background:var(--deep);border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none}
-.px a.hc:hover{border-color:rgba(246,189,96,.7);background:var(--raise);color:var(--ink);text-decoration:none}
+.px a.hc:hover{border-color:rgba(169,180,255,.7);background:var(--raise);color:var(--ink);text-decoration:none}
 .hc.hid{border-style:dashed;border-color:rgba(var(--goldrgb),.6)}
-.hci{width:2.6em;height:2.6em;border-radius:10px;background:rgba(246,189,96,.12);color:var(--brass);display:grid;place-items:center}
+.hci{width:2.6em;height:2.6em;border-radius:10px;background:rgba(169,180,255,.12);color:var(--brass);display:grid;place-items:center}
 .hci svg{width:1.4em;height:1.4em}
 .hcn{font-family:var(--serif);font-weight:500;font-size:1.4em;line-height:1.15}
 .hcl{color:var(--soft)}
@@ -104,7 +105,7 @@ button{font:inherit;color:inherit}
 @media (max-width:560px){.homecards{grid-template-columns:1fr}}
 
 /* footer: previous, where you are, next. Room on the right for the floating comments button. */
-.pxfoot{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.4em 1.8em;border-top:1px solid rgba(244,241,234,.1);font-size:.86em;color:var(--muted)}
+.pxfoot{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.4em 1.8em;border-top:1px solid rgba(238,242,255,.1);font-size:.86em;color:var(--muted)}
 .pxfoot button{background:none;border:0;padding:0;font:inherit}
 #fPrev{color:var(--muted)}
 #fNext{color:var(--brass);font-weight:700}
@@ -112,9 +113,9 @@ button{font:inherit;color:inherit}
 
 /* review flags (TBC, $ to size) show only while the staff tab has them on */
 body.noflags .flag{display:none}
-.dchip{border:1px solid rgba(244,241,234,.2)}
-.dchip.on{background:rgba(246,189,96,.16);border-color:rgba(246,189,96,.7)}
-.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.5em}
+.dchip{border:1px solid rgba(238,242,255,.2)}
+.dchip.on{background:rgba(169,180,255,.16);border-color:rgba(169,180,255,.7)}
+.pillars{min-height:13.5em;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.5em}
 @media (min-width:640px){.pillars{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1180px){.pillars{grid-template-columns:repeat(6,minmax(0,1fr))}}
 .admstats{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -130,7 +131,8 @@ body.noflags .flag{display:none}
   .side:hover,.side:focus-within{width:auto;box-shadow:none}
   .side .for{display:none}
   .side-top{flex:1;padding:0}
-  .side-top img,.side .lbl,.side-bot .hold{opacity:1}
+  .side-top .logo{width:5.9em;height:1.5em}
+  .side .lbl,.side-bot .hold{opacity:1}
   .menubtn{display:grid}
   .tabs{display:none;flex:0 0 100%;order:3}
   .px.menuopen .tabs{display:flex}
@@ -143,7 +145,7 @@ body.noflags .flag{display:none}
 }
 
 /* comments: Invited asks, Ardn answers, all on the proposal */
-.cm-open{position:fixed;right:18px;bottom:8px;z-index:2147482999;border:1px solid var(--line2);background:rgba(22,36,95,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);border-radius:22px;padding:10px 18px;font:600 14px var(--sans);cursor:pointer;box-shadow:0 8px 24px -8px rgba(0,0,0,.55);display:inline-flex;gap:8px;align-items:center;transition:border-color .2s,transform .2s var(--out)}
+.cm-open{position:fixed;right:18px;bottom:8px;z-index:2147482999;border:1px solid var(--line2);background:rgba(39,45,99,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);border-radius:22px;padding:10px 18px;font:600 14px var(--sans);cursor:pointer;box-shadow:0 8px 24px -8px rgba(0,0,0,.55);display:inline-flex;gap:8px;align-items:center;transition:border-color .2s,transform .2s var(--out)}
 .cm-open:hover{border-color:var(--brass);transform:translateY(-1px)}
 .cm-n:empty{display:none}
 .cm-n{background:var(--brass);color:var(--night);border-radius:10px;padding:0 7px;font-size:14px;line-height:18px}
@@ -156,12 +158,12 @@ body.noflags .flag{display:none}
 .cm-intro{color:var(--soft);font-size:14.5px;margin:8px 0 14px}
 .cm-list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding-right:4px}
 .cm-t{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
-.cm-c{border-radius:10px;padding:10px 12px;background:rgba(244,241,234,.05)}
+.cm-c{border-radius:10px;padding:10px 12px;background:rgba(238,242,255,.05)}
 .cm-c+.cm-c{margin-left:18px}
 .cm-c.ardn{background:rgba(60,162,255,.12);border:1px solid rgba(60,162,255,.3)}
 .cm-meta{font-size:14px;color:var(--muted)}
 .cm-meta b{color:var(--ink);font-weight:600}
-.cm-tag{margin-left:6px;font-size:14px;font-weight:700;color:var(--night);background:#9fd0ff;border-radius:8px;padding:0 6px}
+.cm-tag{margin-left:6px;font-size:14px;font-weight:700;color:var(--night);background:#C9D8FF;border-radius:8px;padding:0 6px}
 .cm-c p{margin:4px 0 0;font-size:15px;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
 .cm-rbtn{align-self:flex-start;border:0;background:transparent;color:var(--brass2);font-weight:600;font-size:14px;cursor:pointer;padding:2px 0}
 .cm-form{border-top:1px solid var(--line2);padding-top:12px;margin-top:12px}
@@ -182,7 +184,7 @@ body.noflags .flag{display:none}
 #lightbox[hidden],#drawer[hidden]{display:none!important}
 [data-flex]>[data-n]{margin-right:.3em}
 .pillars .flag{display:inline-block;margin-left:.4em}
-.side-bot .cm-open{position:static;border:1px solid var(--line2);background:rgba(22,36,95,.92);padding:.1em 1em;box-shadow:none;transform:none;font-size:14px;line-height:1.5}
+.side-bot .cm-open{position:static;border:1px solid var(--line2);background:rgba(39,45,99,.92);padding:.1em 1em;box-shadow:none;transform:none;font-size:14px;line-height:1.5}
 .side-bot .cm-open:hover{transform:none}
 .tl>div>div:nth-child(n+2){display:inline}.tl>div>div:nth-child(2){margin-right:.5em}
 .pods>div{display:block!important;position:relative;padding:.4em .65em!important}
@@ -197,7 +199,7 @@ body.noflags .flag{display:none}
 @media (min-width:1180px){.vids{grid-template-columns:repeat(4,minmax(0,1fr));align-content:start}}
 
 .tabs a[hidden]{display:none!important}
-.tabs a.hid{opacity:.6;border-bottom:1px dashed rgba(246,189,96,.7)}
+.tabs a.hid{opacity:.6;border-bottom:1px dashed rgba(169,180,255,.7)}
 
 .valgrid{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:1fr auto}
 @media (max-width:860px){.valgrid{grid-template-columns:1fr;grid-template-rows:none}}
@@ -214,7 +216,7 @@ body.noflags .flag{display:none}
 /* cards: white on paper with a very soft shadow */
 .view:not(#v-admin) [style*="background:var(--deep)"],.hc{box-shadow:var(--shadow)}
 .hc{border-color:var(--cardline)}
-.px a.hc:hover{background:var(--deep);border-color:rgba(var(--goldrgb),.7);box-shadow:0 2px 4px rgba(8,17,59,.08),0 8px 24px rgba(8,17,59,.08)}
+.px a.hc:hover{background:var(--deep);border-color:rgba(var(--goldrgb),.7);box-shadow:0 2px 4px rgba(28,32,69,.08),0 8px 24px rgba(28,32,69,.08)}
 .hci{background:rgba(var(--goldrgb),.12)}
 .cta{background:rgba(var(--goldrgb),.1);border:1px solid rgba(var(--goldrgb),.45);color:var(--ink)}
 .px a.cta:hover{background:rgba(var(--goldrgb),.18);color:var(--ink)}
@@ -240,15 +242,16 @@ body.noflags .flag{display:none}
 .shottile:hover{border-color:rgba(var(--goldrgb),.7)}
 .shotimg{display:block;width:100%;flex:1 1 0;min-height:0;object-fit:cover;object-position:top left;background:var(--raise)}
 .shotcap{flex:none;box-sizing:border-box;height:50px;padding:6px 10px 8px;color:var(--ink);font-size:14px;line-height:18px}
-.shotcap span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.shotcap span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.shotcap small{display:block;font-size:14px;line-height:18px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (max-width:760px){.shotgrid{grid-template-rows:none;grid-auto-rows:13em}.shotimg{height:8.5em;flex:none}}
-#lightbox{position:fixed;inset:0;z-index:50;background:rgba(11,22,64,.72);display:flex;align-items:center;justify-content:center;gap:1em;padding:1.2em;cursor:zoom-out}
+#lightbox{position:fixed;inset:0;z-index:50;background:rgba(28,32,69,.72);display:flex;align-items:center;justify-content:center;gap:1em;padding:1.2em;cursor:zoom-out}
 #lightbox[hidden]{display:none}
-#lbBox{margin:0;max-width:min(1400px,calc(100% - 9em));max-height:100%;min-width:0;display:flex;flex-direction:column;background:var(--deep);border:1px solid var(--cardline);border-radius:12px;box-shadow:0 12px 48px rgba(8,17,59,.35);overflow:hidden;cursor:default;font-size:16px;color:var(--ink)}
+#lbBox{margin:0;max-width:min(1400px,calc(100% - 9em));max-height:100%;min-width:0;display:flex;flex-direction:column;background:var(--deep);border:1px solid var(--cardline);border-radius:12px;box-shadow:0 12px 48px rgba(28,32,69,.35);overflow:hidden;cursor:default;font-size:16px;color:var(--ink)}
 .lbimgwrap{min-height:0;display:flex;justify-content:center;background:var(--raise)}
 #lbImg{display:block;max-width:100%;max-height:calc(100vh - 11em);object-fit:contain}
 #lbBox figcaption{display:flex;gap:.4em 1em;align-items:baseline;flex-wrap:wrap;padding:.7em 1em}
-#lbArea{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-weight:700}
+#lbArea{flex:0 1 auto;max-width:100%;white-space:normal;overflow-wrap:anywhere;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-weight:700}
 #lbCap{flex:1 1 14em;color:var(--ink)}
 #lbCount{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
 #lbClose{border:1px solid var(--cardline);background:var(--deep);border-radius:999px;padding:.15em .9em;font-size:14px;cursor:pointer;color:var(--ink)}
@@ -260,31 +263,31 @@ body.noflags .flag{display:none}
 .vids{display:grid;flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8em;align-content:start}
 .vidtile{display:flex;flex-direction:column;min-height:0;text-align:left;background:var(--deep);border:1px solid var(--cardline);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;color:var(--ink);font:inherit;box-shadow:var(--shadow)}
 .vidtile:hover{border-color:rgba(var(--goldrgb),.7)}
-.vidposter{position:relative;display:block;flex:1 1 0;min-height:0;background:#0F1A4E;aspect-ratio:16/9}
+.vidposter{position:relative;display:block;flex:1 1 0;min-height:0;background:#272D63;aspect-ratio:16/9}
 .vidposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vidplay{position:absolute;left:50%;top:50%;width:3.4em;height:3.4em;margin:-1.7em 0 0 -1.7em;border-radius:50%;background:rgba(11,22,64,.82);color:#fff;display:grid;place-items:center;box-shadow:0 2px 12px rgba(8,17,59,.4)}
-.vidtile:hover .vidplay{background:#B8801E}
+.vidplay{position:absolute;left:50%;top:50%;width:3.4em;height:3.4em;margin:-1.7em 0 0 -1.7em;border-radius:50%;background:rgba(28,32,69,.82);color:#fff;display:grid;place-items:center;box-shadow:0 2px 12px rgba(28,32,69,.4)}
+.vidtile:hover .vidplay{background:#8E8AF8}
 .vidcap{display:flex;flex-direction:column;gap:.15em;padding:.55em .9em .65em}
 .vidcap b{color:var(--ink)}
 .viddur{color:var(--muted);font-size:max(14px,.86em);white-space:nowrap}
 .vidwho{font-size:max(14px,.84em);color:var(--soft)}
 @media (min-width:1000px){.vids{grid-auto-rows:1fr;align-content:stretch;flex:1;min-height:0}.vidposter{aspect-ratio:auto}}
 @media (max-width:760px){.vids{grid-template-columns:1fr}}
-#theatre{position:fixed;inset:0;z-index:60;background:rgba(6,10,30,.94);display:flex;align-items:center;justify-content:center;gap:.6em;padding:1em;cursor:zoom-out;color:#F4F1EA}
+#theatre{position:fixed;inset:0;z-index:60;background:rgba(6,10,30,.94);display:flex;align-items:center;justify-content:center;gap:.6em;padding:1em;cursor:zoom-out;color:#F3F5FF}
 #theatre[hidden]{display:none}
 #thBox{display:flex;flex-direction:column;gap:.5em;cursor:default;min-width:0}
 .thhead{display:flex;align-items:center;gap:.4em 1em;flex-wrap:wrap;font-size:16px}
 #thTitle{font-weight:700;font-size:1.1em}
 #thWho{color:#C9CEE3;flex:1 1 auto}
 #thCount{color:#C9CEE3;font-size:14px}
-.thhead button{font:inherit;font-size:14px;font-weight:600;color:#F4F1EA;background:rgba(244,241,234,.12);border:1px solid rgba(244,241,234,.35);border-radius:999px;padding:.3em .9em;cursor:pointer}
-.thhead button:hover{background:rgba(244,241,234,.24)}
+.thhead button{font:inherit;font-size:14px;font-weight:600;color:#F3F5FF;background:rgba(238,242,255,.12);border:1px solid rgba(238,242,255,.35);border-radius:999px;padding:.3em .9em;cursor:pointer}
+.thhead button:hover{background:rgba(238,242,255,.24)}
 #thClose{width:2.4em;padding:.3em 0}
 #thVideo{display:block;width:min(92vw,calc(86vh * 16 / 9));max-height:86vh;aspect-ratio:16/9;background:#000;object-fit:contain;border-radius:8px}
-.thnav{flex:none;width:3em;height:3em;border-radius:50%;border:1px solid rgba(244,241,234,.4);background:rgba(244,241,234,.12);color:#F4F1EA;font-size:1.8em;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 .1em}
+.thnav{flex:none;width:3em;height:3em;border-radius:50%;border:1px solid rgba(238,242,255,.4);background:rgba(238,242,255,.12);color:#F3F5FF;font-size:1.8em;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 .1em}
 .thnav:disabled{opacity:.35;cursor:default}
 @media (max-width:760px){.thnav{display:none}#theatre{padding:.5em}#thVideo{width:100%;max-height:none}#thBox{width:100%}}
-.xf0:focus{border-color:rgba(246,189,96,.7);background:#08113B;outline:none;}
+.xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
 .xh1:hover{color:#F08A6C;}
 .xh2:hover{border-color:var(--ink);}
 .xh3:hover{border-color:rgba(var(--goldrgb),.7);background:var(--raise);}
@@ -292,18 +295,18 @@ body.noflags .flag{display:none}
 
 <div class="px" id="px">
 <aside class="side" id="side">
-  <div class="side-top"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
+  <div class="side-top"><span class="logo"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"></span><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
   <div class="for">Prepared for <b>Invited</b></div>
-  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The Team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org Chart</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
+  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Executive Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The Team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org Chart</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
   <div class="side-bot"><span class="hold">Prices hold to <span data-n="priceHold"></span></span></div>
 </aside>
 <div class="col">
 <div class="views">
 <div class="view" id="v-home" data-view="home" data-tab="home" hidden>
-<main data-screen-label="01 Home" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:2em;padding:1.2em 1.8em;"><section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2em;"><div><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Proposal</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Club Steward, Prepared for Invited</h1><p style="margin:.5em 0 0;color:var(--soft);font-size:1.05em;line-height:1.45;">One club platform, built, run and supported by Ardn.</p></div><a class="cta" href="#summary">Start With the Summary →</a></section><section id="homeCards" class="homecards"></section></main>
+<main data-screen-label="01 Home" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:2em;padding:1.2em 1.8em;"><section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2em;"><div><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Proposal</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Club Steward, Prepared for Invited</h1><p style="margin:.5em 0 0;color:var(--soft);font-size:1.05em;line-height:1.45;">One club platform, built, run and supported by Ardn.</p></div><a class="cta" href="#summary">Start With the Executive Summary →</a></section><section id="homeCards" class="homecards"></section></main>
 </div>
 <div class="view" id="v-summary" data-view="summary" data-tab="summary" hidden>
-<main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:.5em;justify-content:space-between;padding:.8em 1.8em;">
+<main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.5em;padding:1em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2.4em;">
     <div style="flex:1 1 30em;max-width:46em;">
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Club Steward · Proposal</div>
@@ -324,9 +327,9 @@ body.noflags .flag{display:none}
       <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.3em;line-height:1.15;">One platform for <span data-n="clubs"></span> clubs. <span data-n="retire"></span> systems retire.</div>
       <div>
         <div style="display:flex;height:1.6em;border-radius:2px;overflow:hidden;font-size:max(14px,.85em);font-weight:700;">
-          <div data-flex="retire" style="flex:36;background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);display:flex;align-items:center;padding-left:.5em;"><span data-n="retire"></span> Retire</div>
-          <div data-flex="partial" style="flex:4;background:repeating-linear-gradient(135deg,rgba(var(--bluergb),.30) 0 6px,rgba(var(--bluergb),.14) 6px 12px);display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;color:var(--ink);">+<span data-n="partial"></span> In Part</div>
-          <div data-flex="stay" style="flex:14;background:rgba(var(--fgrgb),.30);color:var(--ink);display:flex;align-items:center;justify-content:center;"><span data-n="stay"></span> Stay</div>
+          <div data-flex="retire" style="flex:36;background:#4B3FD8;color:#fff;display:flex;align-items:center;padding-left:.5em;"><span data-n="retire"></span> Retire</div>
+          <div data-flex="partial" style="flex:4;background:repeating-linear-gradient(135deg,#B9B4FF 0 6px,#DAD7FF 6px 12px);display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;color:#1C2045;">+<span data-n="partial"></span> In Part</div>
+          <div data-flex="stay" style="flex:14;background:#4A5578;color:#fff;display:flex;align-items:center;justify-content:center;"><span data-n="stay"></span> Stay</div>
         </div>
         
       </div>
@@ -334,36 +337,36 @@ body.noflags .flag{display:none}
     </div>
   </section>
 
-  <section style="display:flex;flex-direction:column;gap:.45em;">
+  <section style="display:flex;flex-direction:column;gap:.6em;">
     <span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">How Ardn supports Invited, and where the <span data-n="saving"></span> comes from</span>
     <div class="pillars">
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
-        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">The App</b></div>
+        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">The App</b></div>
         <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;">Replaces <span data-n="retire"></span> systems.</div>
         <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Licenses, upkeep</span></span><span data-save="saveApp" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
-        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">The Team</b></div>
+        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">The Team</b></div>
         <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;">One team. Tier 1 included.</div>
         <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Vendor management</span></span><span data-save="saveTeam" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
-        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">QA Automation</b></div>
+        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">QA Automation</b></div>
         <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;"><span data-n="tests"></span> tests every night.</div>
         <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Regression labor</span></span><span data-save="saveQa" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
-        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">Defects</b></div>
+        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">Defects</b></div>
         <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;">Found before members do.</div>
         <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Repeat fixes</span></span><span data-save="saveDefect" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
-        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M10 12h11"/><path d="M10 18h11"/><path d="M10 6h11"/><path d="M4 10h2"/><path d="M4 6h1v4"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">IT Roadmap</b></div>
+        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M10 12h11"/><path d="M10 18h11"/><path d="M10 6h11"/><path d="M4 10h2"/><path d="M4 6h1v4"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">IT Roadmap</b></div>
         <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;">CIO-ranked backlog.</div>
         <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Change orders</span></span><span data-save="saveRoadmap" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
-        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">Leadership View</b></div>
+        <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">Leadership View</b></div>
         <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;">Member 360, live P&amp;L.</div>
         <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Reporting, churn</span></span><span data-save="saveLead" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
@@ -510,16 +513,19 @@ body.noflags .flag{display:none}
   <section class="valgrid" style="flex:1;gap:1em;">
     <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;display:flex;flex-direction:column;justify-content:space-between;gap:1em;">
       <div style="display:flex;align-items:center;gap:.7em;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Run Cost a Year</span><span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--gold);border-radius:999px;padding:.05em .7em;white-space:nowrap;">Per Year</span></div>
-      <div style="display:grid;grid-template-columns:6em 1fr auto;gap:.9em 1em;align-items:center;">
+      <div style="display:grid;grid-template-columns:6em 1fr auto;gap:.6em 1em;align-items:center;">
         <span style="color:var(--soft);">Today</span>
-        <div style="height:2.8em;background:var(--bar-today);border-radius:3px;"></div>
+        <div style="height:2.2em;background:var(--bar-today);border-radius:3px;"></div>
         <span style="font-weight:700;font-size:1.25em;text-align:right;"><span data-n="today"></span></span>
         <span style="color:var(--soft);">Club Steward</span>
-        <div data-flex="totalW" style="display:flex;width:49.4%;height:2.8em;border-radius:3px;overflow:hidden;font-weight:700;color:var(--ink);">
+        <div data-flex="totalW" style="display:flex;width:49.4%;height:2.2em;border-radius:3px;overflow:hidden;font-weight:700;color:var(--ink);">
           <div data-flex="techYear" style="flex:1.99;background:var(--bar-a);color:#fff;display:flex;align-items:center;padding-left:.6em;"><span data-n="techYear"></span></div>
           <div data-flex="svcYear" style="flex:2.46;background:var(--bar-b);color:#fff;display:flex;align-items:center;padding-left:.6em;border-left:2px solid var(--deep);"><span data-n="svcYear"></span></div>
         </div>
         <span style="font-weight:700;font-size:1.25em;color:var(--brass);text-align:right;"><span data-n="total"></span></span>
+        <span style="color:var(--soft);">One-Time Fee</span>
+        <div style="height:1.6em;display:flex;"><div data-wimpl style="height:100%;width:32%;background:#7C83F5;border-radius:3px;"></div></div>
+        <span data-n="impl" style="font-weight:700;font-size:1.25em;text-align:right;">$2.9M</span>
         <span style="color:var(--good);font-weight:700;">You Save</span>
         <div style="border-top:1px dashed rgba(var(--fgrgb),.25);"></div>
         <span style="font-weight:700;font-size:1.25em;color:var(--good);text-align:right;white-space:nowrap;"><span data-n="saving"></span> · <span data-n="savingPct"></span></span>
@@ -544,16 +550,18 @@ body.noflags .flag{display:none}
       <div style="padding-top:.7em;border-top:1px solid rgba(var(--fgrgb),.1);color:var(--soft);">Built on and integrated with <b style="color:var(--brass);">InvitedAI</b>, Invited's AI tech stack. No parallel stack. <span class="flag" style="font-size:max(14px,.84em);font-weight:700;color:var(--ink);background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);border-radius:2px;padding:0 .3em;">TBC</span></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:1em;">
-      <div style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;border-color:rgba(var(--goldrgb),.45);display:flex;flex-direction:column;justify-content:space-between;gap:.8em;">
+      <div style="flex:none;background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;border-color:rgba(var(--goldrgb),.45);display:flex;flex-direction:column;justify-content:flex-start;gap:.7em;">
         <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Return</div>
         <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;"><span data-n="roi"></span></span><span style="color:var(--soft);">return on the <span data-n="impl"></span> one-time fee over <span data-n="years"></span> years</span></div>
         <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;"><span data-n="net"></span></span><span style="color:var(--soft);">net over <span data-n="years"></span> years</span></div>
         <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;">Mo <span data-n="breakeven"></span></span><span style="color:var(--soft);">breakeven, all costs included</span></div>
         <div style="color:var(--muted);">Fees start per club at go-live.</div>
+        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Cumulative Net by Month</div>
+        <div id="roiBox" style="position:relative;height:4.6em;margin:.1em .2em .2em;"></div>
       </div>
-      <div style="background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);border-radius:12px;padding:.8em 1.2em;">
-        <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.25em;font-weight:700;">Approve Mobilization</div>
-        <div style="font-weight:500;margin-top:.3em;line-height:1.4;">Day <span data-n="day1"></span>: savings confirmed against invoices<br>Day <span data-n="day2"></span>: design signed, pilots chosen<br>Day <span data-n="day3"></span>: first data migration rehearsed</div>
+      <div style="background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);border-radius:12px;padding:.8em 1.2em;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.7em;font-weight:700;">Approve Mobilization</div>
+        <div style="font-weight:500;margin-top:.7em;line-height:2;font-size:1.08em;">Day <span data-n="day1"></span>: savings confirmed against invoices<br>Day <span data-n="day2"></span>: design signed, pilots chosen<br>Day <span data-n="day3"></span>: first data migration rehearsed</div>
       </div>
     </div>
     <div style="grid-column:1/-1;background:rgba(var(--bluergb),.10);border:1px dashed var(--teal);border-radius:12px;padding:.8em 1.2em;display:flex;flex-wrap:wrap;align-items:center;gap:.5em 1.6em;">
@@ -572,7 +580,7 @@ body.noflags .flag{display:none}
   </section>
   <section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em 1em .4em;overflow-x:auto;">
     <table style="width:100%;border-collapse:separate;border-spacing:0;font-size:1em;min-width:44em;">
-      <thead><tr><th scope="col" style="text-align:left;vertical-align:bottom;padding:.5em .6em .5em 0;font-size:max(14px,.82em);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;">Job</th><th scope="col" style="padding:.5em .6em;vertical-align:bottom;font-weight:400;"><div style="height:2.2em;display:flex;justify-content:center;margin:0 auto .3em;"></div><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Oracle Estate + In-House</div><div style="font-size:max(14px,.76em);color:var(--muted);">Infrastructure</div></th><th scope="col" style="padding:.5em .6em;vertical-align:bottom;font-weight:400;"><div style="height:2.2em;display:flex;justify-content:center;margin:0 auto .3em;"><span style="display:inline-flex;align-items:center;justify-content:center;background:var(--chip);border:1px solid var(--cardline);border-radius:6px;padding:.2em .45em;height:2.2em;"><img src="/proposal-sites/invited-clubs/img/logo-salesforce.png" alt="Salesforce" style="max-height:1.8em;max-width:4em;object-fit:contain;display:block;"></span></div><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Salesforce</div><div style="font-size:max(14px,.76em);color:var(--muted);">Platform</div></th><th scope="col" style="padding:.5em .6em;vertical-align:bottom;font-weight:400;"><div style="display:flex;gap:.3em;justify-content:center;margin-bottom:.3em;"><div style="height:2.2em;"><span style="display:inline-flex;align-items:center;justify-content:center;background:var(--chip);border:1px solid var(--cardline);border-radius:6px;padding:.2em .45em;height:2.2em;"><img src="/proposal-sites/invited-clubs/img/logo-clubcaddie.webp" alt="Club Caddie" style="max-height:1.8em;max-width:5.2em;object-fit:contain;display:block;"></span></div><div style="height:2.2em;"><span style="display:inline-flex;align-items:center;justify-content:center;background:var(--chip);border:1px solid var(--cardline);border-radius:6px;padding:.2em .45em;height:2.2em;"><img src="/proposal-sites/invited-clubs/img/logo-northstar.png" alt="Northstar" style="max-height:1.8em;max-width:2em;object-fit:contain;display:block;"></span></div></div><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Club Caddie · Northstar</div><div style="font-size:max(14px,.76em);color:var(--muted);">Software As a Service</div></th><th scope="col" style="position:relative;padding:.9em .6em .5em;vertical-align:bottom;font-weight:400;background:linear-gradient(180deg,rgba(var(--goldrgb),.28),rgba(var(--goldrgb),.12));border:2px solid var(--gold);border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -6px 24px rgba(var(--goldrgb),.25);"><span style="position:absolute;top:-.85em;left:50%;transform:translateX(-50%);background:var(--gold);color:#08113B;font-size:max(14px,.7em);font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25em .7em;border-radius:999px;white-space:nowrap;">Recommended</span><div style="height:2.2em;display:flex;align-items:center;justify-content:center;margin-bottom:.3em;"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn" style="height:2.2em;box-sizing:border-box;padding:.35em .6em;background:var(--bar-a);border-radius:6px;"></div><div style="font-weight:800;color:var(--ink);font-size:1em;">Club Steward by Ardn</div><div style="font-size:max(14px,.76em);color:var(--muted);">Managed Product</div></th></tr></thead>
+      <thead><tr><th scope="col" style="text-align:left;vertical-align:bottom;padding:.5em .6em .5em 0;font-size:max(14px,.82em);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;">Job</th><th scope="col" style="padding:.5em .6em;vertical-align:bottom;font-weight:400;"><div style="height:2.2em;display:flex;justify-content:center;margin:0 auto .3em;"></div><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Oracle Estate + In-House</div><div style="font-size:max(14px,.76em);color:var(--muted);">Infrastructure</div></th><th scope="col" style="padding:.5em .6em;vertical-align:bottom;font-weight:400;"><div style="height:2.2em;display:flex;justify-content:center;margin:0 auto .3em;"><span style="display:inline-flex;align-items:center;justify-content:center;background:var(--chip);border:1px solid var(--cardline);border-radius:6px;padding:.2em .45em;height:2.2em;"><img src="/proposal-sites/invited-clubs/img/logo-salesforce.png" alt="Salesforce" style="max-height:1.8em;max-width:4em;object-fit:contain;display:block;"></span></div><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Salesforce</div><div style="font-size:max(14px,.76em);color:var(--muted);">Platform</div></th><th scope="col" style="padding:.5em .6em;vertical-align:bottom;font-weight:400;"><div style="display:flex;gap:.3em;justify-content:center;margin-bottom:.3em;"><div style="height:2.2em;"><span style="display:inline-flex;align-items:center;justify-content:center;background:var(--chip);border:1px solid var(--cardline);border-radius:6px;padding:.2em .45em;height:2.2em;"><img src="/proposal-sites/invited-clubs/img/logo-clubcaddie.webp" alt="Club Caddie" style="max-height:1.8em;max-width:5.2em;object-fit:contain;display:block;"></span></div><div style="height:2.2em;"><span style="display:inline-flex;align-items:center;justify-content:center;background:var(--chip);border:1px solid var(--cardline);border-radius:6px;padding:.2em .45em;height:2.2em;"><img src="/proposal-sites/invited-clubs/img/logo-northstar.png" alt="Northstar" style="max-height:1.8em;max-width:2em;object-fit:contain;display:block;"></span></div></div><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Club Caddie · Northstar</div><div style="font-size:max(14px,.76em);color:var(--muted);">Software As a Service</div></th><th scope="col" style="position:relative;padding:.9em .6em .5em;vertical-align:bottom;font-weight:400;background:linear-gradient(180deg,rgba(var(--goldrgb),.28),rgba(var(--goldrgb),.12));border:2px solid var(--gold);border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -6px 24px rgba(var(--goldrgb),.25);"><span style="position:absolute;top:-.85em;left:50%;transform:translateX(-50%);background:var(--gold);color:#1C2045;font-size:max(14px,.7em);font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25em .7em;border-radius:999px;white-space:nowrap;">Recommended</span><div style="height:2.2em;display:flex;align-items:center;justify-content:center;margin-bottom:.3em;"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn" style="height:2.2em;box-sizing:border-box;padding:.35em .6em;background:var(--bar-a);border-radius:6px;"></div><div style="font-weight:800;color:var(--ink);font-size:1em;">Club Steward by Ardn</div><div style="font-size:max(14px,.76em);color:var(--muted);">Managed Product</div></th></tr></thead>
       <tbody id="cmpBody"></tbody>
       <tfoot id="cmpFoot"></tfoot>
     </table>
@@ -656,7 +664,7 @@ body.noflags .flag{display:none}
   <section style="flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(19em,1fr));gap:.8em;">
     <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;display:flex;flex-direction:column;gap:.6em;">
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Five phases · Invited signs every gate</div>
-      <div style="display:flex;flex-direction:column;gap:.5em;font-size:max(14px,.92em);"><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#08113B;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">1</span><span><b style="color:var(--ink);">Mobilize and design.</b> <span style="color:var(--soft);">Signed by the CIO and department leads.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#08113B;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">2</span><span><b style="color:var(--ink);">Build everything.</b> <span style="color:var(--soft);">Releases reviewed every two weeks.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#08113B;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">3</span><span><b style="color:var(--ink);">City clubs.</b> <span style="color:var(--soft);">Prove at one, then roll out.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#08113B;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">4</span><span><b style="color:var(--ink);">Golf clubs.</b> <span style="color:var(--soft);">Prove at one, then roll out.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;border:2px solid var(--gold);color:var(--brass);box-sizing:border-box;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">5</span><span><b style="color:var(--ink);">Legacy retires.</b> <span style="color:var(--soft);">After every club on it is live.</span></span></div></div>
+      <div style="display:flex;flex-direction:column;gap:.5em;font-size:max(14px,.92em);"><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#1C2045;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">1</span><span><b style="color:var(--ink);">Mobilize and design.</b> <span style="color:var(--soft);">Signed by the CIO and department leads.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#1C2045;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">2</span><span><b style="color:var(--ink);">Build everything.</b> <span style="color:var(--soft);">Releases reviewed every two weeks.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#1C2045;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">3</span><span><b style="color:var(--ink);">City clubs.</b> <span style="color:var(--soft);">Prove at one, then roll out.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#1C2045;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">4</span><span><b style="color:var(--ink);">Golf clubs.</b> <span style="color:var(--soft);">Prove at one, then roll out.</span></span></div><div style="display:grid;grid-template-columns:1.7em 1fr;gap:.55em;align-items:start;"><span style="width:1.7em;height:1.7em;border-radius:50%;border:2px solid var(--gold);color:var(--brass);box-sizing:border-box;display:grid;place-items:center;font-weight:700;font-size:max(14px,.78em);">5</span><span><b style="color:var(--ink);">Legacy retires.</b> <span style="color:var(--soft);">After every club on it is live.</span></span></div></div>
       <div style="margin-top:auto;padding-top:.55em;border-top:1px solid rgba(var(--fgrgb),.13);font-size:max(14px,.86em);color:var(--soft);">Legacy runs alongside the whole way. Durations are estimates.</div>
     </div>
     <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;display:flex;flex-direction:column;gap:.6em;">
@@ -687,23 +695,23 @@ body.noflags .flag{display:none}
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">The Hard Questions</div>
       <div style="display:flex;flex-direction:column;">
         <div style="display:grid;grid-template-columns:2.1em 1fr;gap:.7em;align-items:start;padding:.55em 0;border-top:1px solid rgba(var(--fgrgb),.1);">
-          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
           <div><div style="font-size:max(14px,.82em);color:var(--muted);">If Ardn can't continue?</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.35em;line-height:1.15;color:var(--ink);">Code in Escrow</div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.1em;">Key-person terms · standard stack any team can run</div></div>
         </div>
         <div style="display:grid;grid-template-columns:2.1em 1fr;gap:.7em;align-items:start;padding:.55em 0;border-top:1px solid rgba(var(--fgrgb),.1);">
-          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>
+          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>
           <div><div style="font-size:max(14px,.82em);color:var(--muted);">Is our data locked in?</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.35em;line-height:1.15;color:var(--ink);">No. You own it</div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.1em;">Scheduled exports in open formats</div></div>
         </div>
         <div style="display:grid;grid-template-columns:2.1em 1fr;gap:.7em;align-items:start;padding:.55em 0;border-top:1px solid rgba(var(--fgrgb),.1);">
-          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg></span>
+          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg></span>
           <div><div style="font-size:max(14px,.82em);color:var(--muted);">If the pilot goes badly?</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.35em;line-height:1.15;color:var(--ink);">Nothing else moves</div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.1em;">The pilot club falls back to legacy</div></div>
         </div>
         <div style="display:grid;grid-template-columns:2.1em 1fr;gap:.7em;align-items:start;padding:.55em 0;border-top:1px solid rgba(var(--fgrgb),.1);">
-          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span>
           <div><div style="font-size:max(14px,.82em);color:var(--muted);">AI-built means less control?</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.35em;line-height:1.15;color:var(--ink);">More Evidence</div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.1em;">The AI that builds never tests · a person approves every release</div></div>
         </div>
         <div style="display:grid;grid-template-columns:2.1em 1fr;gap:.7em;align-items:start;padding:.55em 0;border-top:1px solid rgba(var(--fgrgb),.1);">
-          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#A8741A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span style="width:2.1em;height:2.1em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
           <div><div style="font-size:max(14px,.82em);color:var(--muted);">What about today's IT staff?</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.35em;line-height:1.15;color:var(--ink);">Invited decides</div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.1em;">That capacity goes where you choose</div></div>
         </div>
       </div>
@@ -1077,9 +1085,10 @@ function derive(n, t) {
   // Return: clubs go live evenly between two months (counted mid-month), the saving starts with each club, and the fee for
   // implementation is paid back from it. Net, return multiple and breakeven month are worked out here, not typed in.
   const monthly = d.saving / 12, span = Math.max(1, n.goLiveTo - n.goLiveFrom), horizon = Math.max(1, Math.round(n.years * 12));
-  let cum = 0, be = 0;
+  let cum = 0, be = 0; d.curve = [-d.impl];
   for (let m = 1; m <= horizon; m++) {
     cum += Math.min(1, Math.max(0, (m - 0.5 - n.goLiveFrom) / span)) * monthly;
+    d.curve.push(cum - d.impl);
     if (!be && cum >= d.impl) be = m;
   }
   d.net = cum - d.impl;
@@ -1108,6 +1117,7 @@ function paint() {
     if (k === 'totalW') e.style.width = (V.today ? Math.min(100, V.total / V.today * 100) : 100) + '%';
     else e.style.flexGrow = String(Math.max(V[k], 0)), e.style.flexBasis = '0';
   });
+  $$('[data-wimpl]').forEach(e => { e.style.width = (V.today ? Math.min(100, V.impl / V.today * 100) : 0) + '%'; });
   const span = Math.max(1, V.years * 12), pc = n => (n / span * 100) + '%';
   $$('[data-ramp]').forEach(e => {
     const r = e.dataset.ramp;
@@ -1123,7 +1133,7 @@ function paint() {
   });
   document.body.classList.toggle('noflags', !V.showFlags);
   $$('[data-step]').forEach(e => { e.textContent = groupLine(e.dataset.step); });
-  paintTeam();
+  paintTeam(); paintRoi();
   const md = $('meta[name=description]'); if (md) md.content = `Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of ${V.systems} systems.`;
   paintTabs(); paintCompare(); paintCalc(); paintDetail();
   if (typeof paintAdminNote === 'function') paintAdminNote();
@@ -1182,10 +1192,10 @@ function paintCompare() {
     const st = {V: ['var(--slate)', 'rgba(var(--slatergb),.10)', 'var(--soft)', 500, 'Vendor'], I: ['var(--alarm)', 'rgba(var(--alarmrgb),.12)', 'var(--ink)', 500, 'Invited'], S: ['var(--sand)', 'rgba(var(--goldrgb),.10)', c === 3 ? 'var(--ink)' : 'var(--soft)', 500, 'Shared'], A: ['var(--brass)', 'rgba(var(--goldrgb),.18)', 'var(--ink)', 700, 'Ardn']}[who];
     return `<span style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:100%;line-height:1.25;padding:.12em .4em;border-radius:999px;border:1px solid ${st[0]};background:${st[1]};color:${st[2]};font-size:max(14px,.78em);font-weight:${st[3]};">${st[4]}</span>`;
   };
-  const cost = l => l ? `<span style="letter-spacing:.05em;"><b style="color:var(--good);">${'$'.repeat(l)}</b><span aria-hidden="true" style="color:var(--muted);font-weight:400;">${'$'.repeat(3 - l)}</span></span>` : '';
+  const cost = l => l ? `<span role="img" aria-label="Cost to Invited ${l} of 3" style="display:inline-flex;gap:.18em;">${[1, 2, 3].map(i => `<i style="width:.62em;height:.62em;border-radius:50%;background:${i <= l ? 'var(--good)' : 'rgba(var(--fgrgb),.16)'};"></i>`).join('')}</span>` : '';
   const body = JOBS.map(j => `<tr><th scope="row" style="text-align:left;padding:var(--rowpad) .6em var(--rowpad) 0;border-top:1px solid rgba(var(--fgrgb),.1);font-weight:500;color:var(--soft);font-size:max(14px,.86em);">${esc(j[0])}</th>` +
     [0, 1, 2, 3].map(c => `<td style="padding:var(--rowpad) .5em;border-top:1px solid rgba(var(--fgrgb),.1);text-align:center;${colStyle(c)}"><span style="display:inline-grid;grid-template-columns:4.8em 3.1em;align-items:center;justify-items:start;gap:.4em;">${pill(j[c + 2], c)}<span style="font-size:max(14px,.8em);line-height:1;white-space:nowrap;text-align:left;">${cost(jobCost(j[1], j[c + 2], c))}</span></span></td>`).join('') + '</tr>').join('');
-  const foot = `<tr><th scope="row" style="text-align:left;padding:.45em .6em .3em 0;border-top:1px solid rgba(var(--fgrgb),.26);color:var(--ink);font-size:max(14px,.9em);">What Invited Still Carries<div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;"><b style="color:var(--good);">$ $$ $$$</b> cost to Invited</div><div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;">Club Steward integrates with InvitedAI.</div></th>` +
+  const foot = `<tr><th scope="row" style="text-align:left;padding:.45em .6em .3em 0;border-top:1px solid rgba(var(--fgrgb),.26);color:var(--ink);font-size:max(14px,.9em);">What Invited Still Carries<div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;"><span style="display:inline-flex;gap:.18em;vertical-align:middle;"><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:rgba(var(--fgrgb),.16);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:rgba(var(--fgrgb),.16);"></i></span> to <span style="display:inline-flex;gap:.18em;vertical-align:middle;"><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i></span> cost to Invited</div><div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;">Club Steward integrates with InvitedAI.</div></th>` +
     JOB_COLS.map((c, i) => `<td style="padding:.28em .5em;border-top:1px solid rgba(var(--fgrgb),.1);text-align:center;padding-top:.45em;${i === 3 ? colStyle(i) + 'border-bottom:2px solid var(--gold);border-radius:0 0 12px 12px;box-shadow:0 8px 24px rgba(var(--goldrgb),.2);' : ''}">` +
       `<div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:${i === 3 ? 'var(--brass)' : 'var(--alarm)'};">${c.full} <span style="font-size:max(14px,.5em);color:var(--muted);">of ${JOBS.length} jobs</span></div>` +
       `<div style="font-size:max(14px,.76em);color:var(--muted);">${c.shared ? '+ ' + c.shared + ' shared' : ''}</div>` +
@@ -1209,6 +1219,20 @@ function paintCalc() {
   put('#cSaving', FMTS.M(saving) + ' · ' + Math.round(V.today ? saving / V.today * 100 : 0) + '%');
 }
 ['#cPods', '#cDevs', '#cMonths'].forEach(id => $(id).addEventListener('input', paintCalc));
+
+/* Cumulative net by month as an area chart, drawn from the same derived figures as the Return card, so it moves with the admin numbers. */
+function paintRoi() {
+  const box = $('#roiBox'); if (!box || !V.curve) return;
+  const c = V.curve, lo = Math.min(...c, 0), hi = Math.max(...c, 0), W = 300, H = 70, rng = (hi - lo) || 1;
+  const x = i => (i / Math.max(1, c.length - 1) * W).toFixed(1), y = v => (H - (v - lo) / rng * H).toFixed(1), z = y(0);
+  const pts = c.map((v, i) => x(i) + ',' + y(v)).join(' ');
+  const be = Math.min(V.breakeven, c.length - 1), bx = be / Math.max(1, c.length - 1) * 100;
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Cumulative net value by month, breaking even in month ${be}" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">`
+    + `<polygon points="0,${z} ${pts} ${W},${z}" fill="rgba(75,63,216,.16)"/><line x1="0" x2="${W}" y1="${z}" y2="${z}" stroke="rgba(var(--fgrgb),.35)" stroke-width="1" vector-effect="non-scaling-stroke"/>`
+    + `<line x1="${x(be)}" x2="${x(be)}" y1="0" y2="${H}" stroke="#4B3FD8" stroke-dasharray="3 3" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`
+    + `<polyline points="${pts}" fill="none" stroke="#4B3FD8" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`
+    + `<span style="position:absolute;top:0;left:${bx}%;transform:translateX(${bx > 70 ? '-105%' : '6px'});font-size:max(14px,.8em);font-weight:700;color:var(--brass);white-space:nowrap;">Breakeven Mo ${be}</span>`;
+}
 
 /* ---------- loops: a template per list, filled from items that carry their own handlers ---------- */
 const getPath = (o, p) => p.split('.').reduce((v, k) => v?.[k], o);
@@ -1340,7 +1364,7 @@ renderSlot(slotOf('memberPeople'), [
 ].map(([name, role, see]) => ({name, role, see, first: name.split(' ')[0], href: DEMO.member + '/login?roster=1&as=' + encodeURIComponent(name)})));
 
 /* ---------- tabs, footer, keys, the drawer ---------- */
-const TABS = [['home', 'Home'], ['summary', 'Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
+const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
 const VIEWKEYS = [...TABS.map(t => t[0]), 'admin'];
 // links from the earlier version of this page
 const ALIAS = {'full-proposal': 'detail', 'one-system': 'summary'};
@@ -1470,11 +1494,11 @@ function whereNow() {
   return t ? t[1] : v === 'admin' ? 'Team Admin' : '';
 }
 /* ---------- Screens: one app at a time, a page of thumbnails that fits the screen, and a viewer that steps through them ---------- */
-const SHOT_GROUPS = ["Member Portal", "Sales & Membership", "Golf & Amenities", "POS & Dining", "Events & Catering", "Billing & Accounting", "Marketing", "Member Service", "HR, Payroll & Staff", "Platform, Security & AI"];
-// [file, caption] by group, strongest first
-const SHOT_DATA = [[["B/F22-1.jpg","The member home page invites the member to add the club to the phone Home Screen, so it opens like an app."],["B/F22-2.jpg","The digital member card with its QR code and member number, shown at the desk."],["B/F22-3.jpg","Every person on the membership has their own card with a QR code."],["B/F24-1.jpg","One list of what is coming up for the whole household: a family tee time, a club event and a dinner table."],["B/F24-2.jpg","Past and canceled bookings across golf, dining, courts, events and programs in the same list."],["B/F25-2.jpg","The tee sheet: open times by course with the price for the day."],["B/F25-3.jpg","Find a Table: pick the dining room, day and party size, then a lunch or dinner time."],["B/F26-1.jpg","Right after booking: the confirmation with the receipt and the scorecard one tap away."],["B/F27-1.jpg","Club credit in the wallet, some locked to the pro shop or golf and some good anywhere at the club."],["B/F28-1.jpg","Dues and autopay: monthly dues, next charge, last payment and the card on file."],["B/F29-1.jpg","The group scorecard for a booked round, with hole distances, hazards and wind."],["B/F30-2.jpg","Network Clubs: the other clubs in the same network as the member’s home club."],["B/X06-1.jpg","My Membership: change the plan, put it on hold, or resign."],["B/X06-2.jpg","Resigning asks why the member is leaving before anything is sent."],["B/X21-1.jpg","Phone alerts: the member chooses which topics reach their phone."],["B/X35-1.jpg","Waivers the membership asks the member to sign, ready to read and sign."],["B/C20-1.jpg","The member directory lists only members who chose to be listed."],["B/F23-1.jpg","Add to Apple Wallet and Add to Google Wallet buttons on the member card."],["C/C07-1.jpg","The member's golf app: the next tee time, keep score for the group, and the other bookings."],["C/C07-2.jpg","The scorecard, hole by hole, for the round being played."],["D/C37-1.jpg","The club's own online pro shop for members, with pickup at the shop or at their tee time."],["A/F07-1.jpg","A prospect picks a membership online and sees exactly what is due today and each month."],["A/F07-2.jpg","Add-ons and how payment works, before they sign and pay online."],["A/F08-1.jpg","Someone planning a wedding picks the date and guest count and sees open dates live."],["A/F08-2.jpg","The club's public events page, where anyone can start a priced quote."],["B/F26-3.jpg","The member moves their own tee time: same group, pick a new day and time."]],[["A/F01-1.jpg","New leads land in one list, graded and rated, with their source and owner."],["A/F01-3.jpg","An open-house sign-in sheet comes in through Import Leads in a few clicks."],["A/F02-1.jpg","The membership pipeline by stage, with the value of every open deal."],["A/F02-3.jpg","Booked club tours, with the ones still needing a host called out."],["A/F04-1.jpg","Every contract out for signature, and where each one stands."],["A/F09-2.jpg","Each salesperson's follow-ups in one list, overdue ones first."],["A/X05-1.jpg","Online applications that need a decision, with payment, check result and duplicate warnings."],["A/X05-2.jpg","Every application and what happened next, from submitted to joined."],["A/F06-1.jpg","Joining fees paid over time: what is left to bill, what is behind and each member's next payment."],["A/F01-2.jpg","A lead that may already be in the system is flagged as a possible duplicate before anyone calls."],["A/F02-2.jpg","Each opportunity shows its stage, guidance, next task and full activity timeline."],["A/F03-1.jpg","One screen builds the whole sale: plan, household, add-ons and pricing, with the totals alongside."],["A/F04-2.jpg","A signed membership agreement, countersigned by the club, with its full signing record."],["A/F05-1.jpg","A plan change is tracked from request to signed amendment, with the fee difference worked out."],["A/F05-2.jpg","Staff pick the new plan and see the new dues and when the change takes effect."]],[["C/F32-1.jpg","Today's tee sheet: every booking across the courses, with check-in, rounds, carts and money on one line."],["C/F32-2.jpg","The Saturday waitlist: members waiting on a window, with open times offered and held for them."],["C/F32-3.jpg","Standing tee times book themselves each week; the coming weeks show what was booked."],["C/F33-1.jpg","Booking rules per membership: how far ahead each plan may book, which courses and the earliest time."],["C/F34-1.jpg","The turn stand: groups order from the course and staff see when each group reaches the turn."],["C/F34-2.jpg","Plan the Day with the weather strip, a weather delay that moves the sheet and texts the players, and the league blocks."],["C/F35-1.jpg","The cart sheet: which groups are riding and which cart each golfer is in."],["C/F35-2.jpg","Each cart keeps its inspection history; staff record a pass or take it out of service."],["C/F36-1.jpg","Marking a no-show applies the club's fee or waives it with a reason, and can give a rain check to the member's wallet."],["C/F36-2.jpg","Cancellation and no-show fees are the club's own policies, set once."],["C/F37-1.jpg","The superintendent's application log: products and rates, acres, the licensed applicator and the weather at that hour."],["C/F37-2.jpg","The chemical shed: label rates, re-entry hours, stock on hand and what to reorder."],["C/F39-1.jpg","The court sheet: courts, cabanas and range bays on one day, booked and free."],["C/F39-2.jpg","Facility types every club draws from: courts, kids club, event spaces, cabanas."],["C/X03-1.jpg","The Play Center live board: each child checked in, the time left, and overtime once a pick-up is late."],["C/X10-1.jpg","The week's classes on one calendar; click a class for its roster."],["C/X10-2.jpg","Session packages members buy or staff grant, and the appointment types they redeem for."],["C/X10-3.jpg","Registrable programs: camps, leagues and courses with member and non-member prices."],["C/X11-1.jpg","The day sheet of lessons and training: who is still to come, with each pro."],["C/X11-2.jpg","A missed lesson is recorded as a no-show and its fee is owed straight away."],["C/C03-1.jpg","The starter screen on a tablet: the group on the tee, who is here, and the groups on deck."],["C/C03-2.jpg","The turn screen records each group as it makes the turn."],["C/C04-1.jpg","Course Live: every group on the map, worst pace first, with minutes behind and who is holding up whom."],["C/C04-2.jpg","The ranger's phone: the groups holding others up come first, then each group's minutes behind, hole by hole."],["C/C05-2.jpg","Each league places its blocks on the tee sheet on its own schedule, front or back nine."],["C/C12-1.jpg","Punch cards and vouchers sold at the desk or in the app, with uses left and expiry."],["C/C16-1.jpg","Booking reminders: an email with Confirm and Cancel before each tee time, court or lesson; texts where opted in."],["C/X32-1.jpg","The course map drawn from open map data: holes, greens, bunkers, water and cart paths."]],[["D/F40-1.jpg","The Grill Room on the iPad: every table, its server and how far along each party is."],["D/F40-2.jpg","An open check, seat by seat, ready to send to the kitchen or close out."],["D/F41-2.jpg","Clock-in rules per club: where staff must be and whether a photo is taken."],["D/F43-3.jpg","One menu for the whole club: each dish written once and sold in the restaurant, at the bar or at events."],["D/F44-1.jpg","Pro shop inventory: what is on the shelf, the reorder line and when it was last counted."],["D/F45-1.jpg","Tip pools split by hours and points, with the payroll entry it will post."],["D/F45-2.jpg","Commissions earned on event and membership sales, waiting for approval."],["D/F45-3.jpg","Caddie loops for the day: bags carried, caddie fees and gratuities, paid through payroll."],["D/F46-1.jpg","A member offer at the register: 15% off in the golf shop for Member Appreciation Week."],["D/X39-1.jpg","Online shop orders, marked picked up item by item as the member collects them."],["D/C37-2.jpg","Shop products with live stock counts, shared by the register and the online store."],["D/X33-1.jpg","The beverage cart's view on a phone: orders by hole on the course map."],["D/X34-1.jpg","Registers with their card readers paired, set up per outlet."],["D/X34-2.jpg","Card readers tracked as club assets, alongside carts and rental sets."],["D/F41-3.jpg","The pro shop register: scan a member card to pick the member and their prices."]],[["B/F51-4.jpg","Events Home: open inquiries, pipeline value, booking rate, contracted business and deposits due."],["B/X25-1.jpg","The Booked, Not Paid view lists every event that was booked but not yet paid, so anyone can reach out."],["B/X25-2.jpg","Deposits and cancellation terms: what is due up front, when the balance is due, and what is kept on a cancellation."],["B/X25-3.jpg","Event reminders: each reminder the club sends about its events, when it goes out and who gets it."],["B/X26-1.jpg","One menu package library: each package is written once and offered at every club, with its own price at each."],["B/X45-1.jpg","Event Vendors: who the club works with, whether this club allows them, their insurance, and who to call."],["B/F47-0.jpg","A wedding in planning: event date, guests against room size, room holds and the sales stage."],["B/F47-1.jpg","Each function with its room, layout and guest count, and the room hold with when it runs out."],["B/F50-1.jpg","The captain app on the night: the run of show live, what is late and what is next, and one tap to move everything still to come."],["B/F51-1.jpg","A signed event: proposal accepted, deposit paid and the rooms held for good, ready to close out after the day."],["B/F51-2.jpg","Event profit: revenue by line, what it cost the club, margin and revenue per guest."],["B/F51-3.jpg","Profit from the final invoice of a finished anniversary dinner."],["B/X45-2.jpg","Asking a vendor for their papers: one email with a private link where they send their W-9 and certificate of insurance in one visit."]],[["D/F52-1.jpg","Dues standing for every member: plan, next charge, autopay and who is past due."],["D/F52-2.jpg","Dues billing settings: the draft day, reminders and the retry schedule for failed payments."],["D/F52-3.jpg","Finance home: revenue, failed payments and the members who need a follow-up."],["D/F53-2.jpg","The general ledger for an account, with every entry behind the balance."],["D/F53-3.jpg","Month-end close: the checklist for every club before the month is locked."],["D/F55-1.jpg","Loans and lines of credit, with the next payment and how each covenant stands."],["D/F55-2.jpg","Leases across the clubs, with the monthly entries they post on their own."],["D/F55-3.jpg","Corporate finance in one place: shared services, debt, leases, cash forecast and purchasing."],["D/F56-1.jpg","The fixed asset register: what each asset cost, its depreciation and what is left on the books."],["D/F57-1.jpg","Shop returns: what came back, what went back on the shelf and how the money was returned."],["D/F58-1.jpg","The credit card surcharge, set by card brand and checked against each state's rules."],["D/F59-1.jpg","Data feeds out to the data warehouse, BI tools and lenders, with failed runs retried."],["D/F59-2.jpg","Feeds into the books from billing, the tee sheet, the shop and Stripe."],["D/X02-1.jpg","Gift cards sold at the club and what is left on each one."],["D/X17-1.jpg","Purchase requests with approval limits, suggested reorders and three-way match."],["D/X17-2.jpg","A 13-week cash forecast built from dues, bills, payroll and loan schedules."],["D/X17-3.jpg","A request over the department's limit waits for the next approver."],["D/X40-2.jpg","The card fee is shown to the member before they pay."],["D/X42-1.jpg","Bank accounts tied to the books, with processor deposits matched for review."],["D/X42-2.jpg","Card processing fees by payment, for each processor and club."],["D/X44-1.jpg","Past-due members, with how long each has been behind and the next step."],["D/C39-1.jpg","Prepaid tee times held as a liability until they are played."],["D/C39-2.jpg","Deferred initiation fees earned month by month."],["D/F54-1.jpg","House accounts by member, with statements run from here."],["D/C40-2.jpg","Members with no card or bank account on file, ready for a reminder."],["D/X02-2.jpg","One gift card's history: sold, topped up and spent."],["D/X41-1.jpg","A membership's billing record: plan, dues, initiation fee and autopay."]],[["A/F10-2.jpg","Every automation in one list, with the ones that need attention called out."],["A/F11-1.jpg","Every email the club sends, filed by the team that owns it and sent in the club's own brand."],["A/F13-1.jpg","Revenue credited to each form and campaign, with first-touch, last-touch or split credit."],["A/F15-3.jpg","The website's inquiry forms and the pipeline each one feeds."],["A/X01-1.jpg","Fundraising campaigns with goals, amounts raised and gift counts."],["A/X01-2.jpg","Pledges paid over time, with what is left and what is overdue."],["A/X01-3.jpg","Batches of checks keyed against a control total and posted only when they balance."],["A/X07-1.jpg","Members who may be about to leave, the reasons in their own activity, and the calls made to keep them."],["A/C27-1.jpg","Each club sets how many points members earn in the golf shop and dining room and what they are worth."],["A/C27-2.jpg","Club credit given this month, by where it can be spent and who gave it."],["A/C30-1.jpg","The club's online forms, with how many people have filled each one in."],["A/C28-1.jpg","Texting is set up per club: the number members text, who answers, and the after-hours reply."],["A/F10-1.jpg","An automation drawn as a flow: a trigger, emails filled in with each person's name, and a wait between them."],["A/F12-2.jpg","A campaign's audience and subject line, with the member's first name filled in on send."],["A/F15-2.jpg","Staff edit a page section by section and publish it themselves."],["A/F16-1.jpg","Every email and text the club sent a member, on their record, with its delivery status."],["A/C30-2.jpg","A sign-up form that takes the clinic fee by card when it is sent."]],[["A/F17-1.jpg","The service dashboard shows how fast the club answers, case by case and chat by chat."],["A/F17-2.jpg","Every open case in one list, with its team, priority, channel and owner."],["A/F18-1.jpg","Anyone can report a problem from any page; their last steps are attached for them."],["A/F19-1.jpg","Staff get an alert the moment something needs them, like a club tour no one has claimed."],["A/F20-1.jpg","Who’s Here shows who is expected today and why, so staff can greet them by name."],["A/X28-2.jpg","Each team sets its hours and who takes chats, and sees who is waiting."],["A/X30-1.jpg","Incoming questions are sorted by topic and sent to the right person, with a count of how often staff changed the sort."],["A/C32-1.jpg","Staff file Facilities and IT requests and follow them in one list."],["A/C32-2.jpg","Each request shows what was asked and who has it, and the asker can reply."],["B/F27-2.jpg","The club wallet for staff: credit given this month, split by pro shop, golf, dining and anywhere at the club."],["B/X04-1.jpg","The front desk check-in screen: scan a member card or guest pass, with today's classes and volunteer shifts beside it."],["B/X04-2.jpg","Looking up a member at the front desk: everyone on the membership with how they are related, ready to tick who is here."],["B/X08-1.jpg","Staff see every committee with its chair, how many members serve and when it meets next."],["B/X20-2.jpg","Club settings for payment plans, financial assistance and referral rewards, set per club."],["B/X37-1.jpg","Self check-in: choose which classes, programs, events and courts members can check into at the iPad by the door."],["A/F17-3.jpg","A case shows the conversation, its owner, and whether the first answer was on time."],["A/F21-2.jpg","Walk Me Through shows the steps for the job at hand, and which are done."],["A/X28-1.jpg","A website chat becomes a case with the full conversation, answered by the right team."]],[["C/F60-1.jpg","Pay periods: each period's hours, gross pay and status, ready to export to the payroll provider."],["C/F61-1.jpg","Open job postings with applicants waiting at each stage."],["C/F62-1.jpg","The week's schedule: every shift by person and day, with labor cost against forecast and overtime caught before it is sent."],["C/F63-1.jpg","Face sign-in at the time clock: two random head moves prove a live person, so no one clocks in a coworker with a photo."],["C/F64-1.jpg","Time off and coverage for the week: who is off, the balance left after, and blackout weeks flagged."],["C/F64-2.jpg","Time-off balances for everyone, what the club owes for them, and an adjustment on any line."],["C/F60-2.jpg","Closing a pay period: the checklist that takes it from approved hours to the payroll file and the books."],["C/F61-2.jpg","One posting's applicants, ranked by AI against the job so the best fits are interviewed first."]],[["D/F65-1.jpg","One club switcher scopes every screen: a single club, a region or all clubs."],["D/F65-2.jpg","The club hierarchy: corporate, regions and each club's team."],["D/F66-1.jpg","Jobs decide what staff can do, at every club they work at."],["D/F66-2.jpg","Record sharing: who can see each kind of record, club by club."],["D/F66-3.jpg","The reporting line: who is senior to whom."],["D/F69-1.jpg","Rules for what a step needs before it can run, set without code."],["D/F70-1.jpg","Expense reports and card charges, with suggested coding read from each receipt."],["D/F70-3.jpg","Staff photograph a receipt and it is read for them: merchant, amount, date and tax."],["D/F71-1.jpg","The audit trail: every change, who made it and when."],["D/F72-1.jpg","Corporate view across all clubs: inquiries, conversion, response times and clubs that need attention."],["D/X15-1.jpg","The report library: standard reports by topic, team folders and your own."],["D/X15-2.jpg","Dashboards for each role, each with its own refresh and club view."],["D/X19-1.jpg","Approvals decided up the line, with who asked and why."],["D/X24-1.jpg","Who can refund a payment, and which jobs give them that."],["D/X24-2.jpg","Why one staff member can do something, step by step."],["D/X29-1.jpg","Guided flows for each process, with how many times each has been walked."],["D/X36-1.jpg","Choose which fields keep a history of every change."],["D/C47-1.jpg","Members who may be about to leave, the reasons from their own activity, and the calls made to keep them."],["D/F67-1.jpg","From a member's record, staff can see the member's portal or log in as the member."],["D/F67-2.jpg","Before logging in as a member, staff see what is real and what stays with the member."],["D/F68-1.jpg","Merging two records: a preview of what moves before anything changes."],["D/F72-2.jpg","The Club Overview dashboard for every club at once."],["D/X15-3.jpg","The Dues and Collections dashboard: billed, collected, past due and autopay."],["D/X29-2.jpg","On a sale, the guided flow sits beside the real work and checks each step."]]];
+const SHOT_GROUPS = ["Highlights"];
+// [file, caption, tile title, app] for the hero screens only: a short list, not the whole product
+const SHOT_DATA = [[["B/F22-1.jpg","The member home page invites the member to add the club to the phone Home Screen, so it opens like an app.","Member Home","Member Portal"],["B/F22-2.jpg","The digital member card with its QR code and member number, shown at the desk.","Digital Member Card","Member Portal"],["B/F24-1.jpg","One list of what is coming up for the whole household: a family tee time, a club event and a dinner table.","Household Bookings","Member Portal"],["A/F02-1.jpg","The membership pipeline by stage, with the value of every open deal.","Membership Pipeline","Sales & Membership"],["C/F32-1.jpg","Today's tee sheet: every booking across the courses, with check-in, rounds, carts and money on one line.","Today's Tee Sheet","Golf & Amenities"],["C/C04-1.jpg","Course Live: every group on the map, worst pace first, with minutes behind and who is holding up whom.","Course Live Pace Map","Golf & Amenities"],["D/F40-1.jpg","The Grill Room on the iPad: every table, its server and how far along each party is.","Grill Room on iPad","POS & Dining"],["B/F51-4.jpg","Events Home: open inquiries, pipeline value, booking rate, contracted business and deposits due.","Events Home","Events & Catering"],["B/F47-0.jpg","A wedding in planning: event date, guests against room size, room holds and the sales stage.","Wedding in Planning","Events & Catering"],["D/F52-3.jpg","Finance home: revenue, failed payments and the members who need a follow-up.","Finance Home","Billing & Accounting"],["D/F52-1.jpg","Dues standing for every member: plan, next charge, autopay and who is past due.","Dues Standing","Billing & Accounting"],["A/X07-1.jpg","Members who may be about to leave, the reasons in their own activity, and the calls made to keep them.","Members at Risk","Marketing"],["A/F17-1.jpg","The service dashboard shows how fast the club answers, case by case and chat by chat.","Service Dashboard","Member Service"],["C/F62-1.jpg","The week's schedule: every shift by person and day, with labor cost against forecast and overtime caught before it is sent.","Weekly Staff Schedule","HR, Payroll & Staff"],["D/F72-1.jpg","Corporate view across all clubs: inquiries, conversion, response times and clubs that need attention.","Corporate View","Platform, Security & AI"],["D/F72-2.jpg","The Club Overview dashboard for every club at once.","Club Overview Dashboard","Platform, Security & AI"],["D/X15-3.jpg","The Dues and Collections dashboard: billed, collected, past due and autopay.","Dues and Collections","Platform, Security & AI"]]];
 const SHOT_BASE = '/proposal-sites/invited-clubs/shots/';
-const SHOT_FLAT = SHOT_DATA.flatMap((list, g) => list.map(([file, cap], i) => ({file, cap, g, i})));
+const SHOT_FLAT = SHOT_DATA.flatMap((list, g) => list.map(([file, cap, , app], i) => ({file, cap, app, g, i})));
 let shotApp = 0, shotPage = 0, shotPer = 12, viewerAt = -1;
 const flatIndex = (g, i) => SHOT_FLAT.findIndex(s => s.g === g && s.i === i);
 
@@ -1498,13 +1522,15 @@ function shotLayout() {
 }
 function paintShots() {
   const apps = $('#shotApps'); if (!apps) return;
+  apps.hidden = SHOT_GROUPS.length < 2;
   apps.innerHTML = SHOT_GROUPS.map((n, g) => `<button type="button" role="tab" class="shotchip" aria-selected="${g === shotApp}" data-g="${g}">${esc(n)} <b>${SHOT_DATA[g].length}</b></button>`).join('');
   shotLayout();
   const list = SHOT_DATA[shotApp], pages = Math.max(1, Math.ceil(list.length / shotPer));
   shotPage = Math.min(shotPage, pages - 1);
   const from = shotPage * shotPer, part = list.slice(from, from + shotPer);
-  $('#shotGrid').innerHTML = part.map(([file, cap], k) => `<button type="button" class="shottile" data-i="${from + k}" aria-label="${esc(cap)}"><img class="shotimg" src="${SHOT_BASE}${file}" alt="" loading="lazy" decoding="async"><span class="shotcap"><span>${esc(cap)}</span></span></button>`).join('');
+  $('#shotGrid').innerHTML = part.map(([file, cap, title, app], k) => `<button type="button" class="shottile" data-i="${from + k}" aria-label="${esc(cap)}"><img class="shotimg" src="${SHOT_BASE}${file}" alt="" loading="lazy" decoding="async"><span class="shotcap"><span>${esc(title)}</span><small>${esc(app)}</small></span></button>`).join('');
   $('#shotRange').textContent = `${from + 1}–${from + part.length} of ${list.length}`;
+  $('#shotPrev').hidden = $('#shotNext').hidden = SHOT_DATA.length === 1 && pages === 1;
   $('#shotPrev').disabled = shotApp === 0 && shotPage === 0;
   $('#shotNext').disabled = shotApp === SHOT_DATA.length - 1 && shotPage === pages - 1;
 }
@@ -1528,7 +1554,7 @@ let viewerFrom = null;
 function showViewer() {
   const s = SHOT_FLAT[viewerAt]; if (!s) return;
   const img = $('#lbImg'); img.src = SHOT_BASE + s.file; img.alt = s.cap;
-  $('#lbArea').textContent = SHOT_GROUPS[s.g]; $('#lbCap').textContent = s.cap;
+  $('#lbArea').textContent = s.app; $('#lbCap').textContent = s.cap;
   const n = SHOT_DATA[s.g].length; $('#lbCount').textContent = `${s.i + 1} of ${n}`;
   $('#lbPrev').disabled = viewerAt === 0; $('#lbNext').disabled = viewerAt === SHOT_FLAT.length - 1;
   // the neighbours load before they are asked for
