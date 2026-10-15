@@ -271,7 +271,11 @@ export async function POST(req: Request) {
   if (mirror && process.env.FUNNEL_HUB_ENABLED === "true") after(() => mirror(meta));
 
   const { subject, html, text: textBody } = accepted.email(meta);
-  const result = { status: routing.status, offer: routing.offer };
+  const result = {
+    status: routing.status,
+    offer: routing.offer,
+    ...(routing.status === "qualified" && accepted.adsConversion === false ? { adsConversion: false } : {}),
+  };
 
   try {
     await sendMail({ subject, html, text: textBody, replyTo: meta.contact.email });

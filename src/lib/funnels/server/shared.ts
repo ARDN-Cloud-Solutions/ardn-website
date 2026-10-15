@@ -99,6 +99,12 @@ export type MailContent = { subject: string; html: string; text: string };
 /** A funnel's answers, validated: the routing and everything that depends on them. */
 export type Accepted = {
   routing: Routing;
+  /**
+   * False keeps a qualified lead out of the Google Ads "Qualified lead"
+   * conversion (it is still emailed and still a GA4 qualified_lead), so ad
+   * results only count leads our pricing fits. Omitted = true.
+   */
+  adsConversion?: boolean;
   email(meta: LeadMeta): MailContent;
   /** The "next step" email to a qualified lead. */
   confirmation(meta: LeadMeta): MailContent;

@@ -74,10 +74,9 @@ export const CLUB_HOOKS: LandingHook[] = [
 
 // ── Ardn CRM ───────────────────────────────────────────────────────────────
 
-// Field-service-level copy for trades the product site doesn't name (HVAC,
-// landscaping, home services): ardnai.com says "Construction and real
-// estate"; /construction-crm says "Construction & field service". So these
-// hooks claim only the field-service features, never a trade specialism.
+// HVAC, landscaping and home services: the owner confirmed on 2026-10-15
+// that Ardn CRM serves these trades. The hooks name the trade (to match the
+// search) but claim only the field-service features the product has.
 const SERVICE_SUBHEAD =
   "Every service request gets an SLA clock by priority and escalates automatically if it slips. A dispatch board shows crews, work orders and bookings by day and location, and quotes become jobs in one click."; // [CRM] FAQ + tour
 
@@ -153,9 +152,9 @@ export const CRM_HOOKS: LandingHook[] = [
   {
     // "hvac crm", "hvac software" — field-service claims only (see above)
     slug: "hvac-crm",
-    title: "Field Service CRM | Ardn CRM",
+    title: "HVAC CRM | Ardn CRM",
     description: "Service requests on an SLA clock and crews on one dispatch board, priced by modules and locations, never per seat.",
-    eyebrow: "Ardn CRM · Field service", // [CRM] "Construction & field service"
+    eyebrow: "Ardn CRM · HVAC, plumbing & electrical", // owner-confirmed trade, 2026-10-15
     headline: "Service requests on an SLA clock, crews on one dispatch board", // [CRM] tour "Service desk", "Dispatch"
     mobileHeadline: "Service on the clock, crews on one board",
     subhead: SERVICE_SUBHEAD,
@@ -163,9 +162,9 @@ export const CRM_HOOKS: LandingHook[] = [
   {
     // "landscaping crm", "landscaping software" — field-service claims only
     slug: "landscaping-crm",
-    title: "Field Service CRM | Ardn CRM",
+    title: "Landscaping CRM | Ardn CRM",
     description: "Quotes that become jobs in one click and crews on one dispatch board, never priced per seat.",
-    eyebrow: "Ardn CRM · Field service", // [CRM]
+    eyebrow: "Ardn CRM · Landscaping & lawn care", // owner-confirmed trade, 2026-10-15
     headline: "Quotes that become jobs, and every crew on one dispatch board", // [CRM] promises
     mobileHeadline: "Quote to job, crews on one board",
     // [CRM] tour "Quotes to jobs" + "Dispatch"
@@ -175,9 +174,9 @@ export const CRM_HOOKS: LandingHook[] = [
   {
     // "home services crm", "home service software" — field-service + home improvement claims only
     slug: "home-services-crm",
-    title: "Home Improvement & Service CRM | Ardn CRM",
+    title: "Home Services CRM | Ardn CRM",
     description: "Quotes, jobs and service calls on one record for home improvement and field service teams. Never priced per seat.",
-    eyebrow: "Ardn CRM · Home improvement & field service", // [CRM] lede "home improvement"; eyebrow "field service"
+    eyebrow: "Ardn CRM · Home services & improvement", // owner-confirmed trade, 2026-10-15; [CRM] lede "home improvement"
     headline: "Quotes, jobs and service calls, on one record", // [CRM] promises "The customer, the site, the quote, the job and the service call are one story."
     mobileHeadline: "Quotes, jobs and service, one record",
     // [CRM] promises sub + modules
