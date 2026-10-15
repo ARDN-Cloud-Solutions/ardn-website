@@ -31,11 +31,12 @@ export function lockedAllowed(slug: string, email: string): boolean | null {
 const SEEDS: Record<string, Proposal> = { "invited-clubs": invited as Proposal };
 
 /**
- * "<slug>--comments" (lib/proposals/comments.ts) and "<slug>--rates"
- * (lib/proposals/rates.ts) are documents kept beside a proposal in the same
+ * "<slug>--comments" (lib/proposals/comments.ts), "<slug>--rates"
+ * (lib/proposals/rates.ts) and "<slug>--team-draft" / "<slug>--team-pub"
+ * (lib/proposals/team.ts) are documents kept beside a proposal in the same
  * store. They are never proposals themselves.
  */
-const isCompanionDoc = (slug: string) => /--(comments|rates)$/.test(slug);
+const isCompanionDoc = (slug: string) => /--(comments|rates|team-draft|team-pub)$/.test(slug);
 
 export async function getProposal(slug: string): Promise<Proposal | null> {
   if (!/^[a-z0-9-]+$/.test(slug) || isCompanionDoc(slug)) return null;
