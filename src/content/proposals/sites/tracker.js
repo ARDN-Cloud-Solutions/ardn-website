@@ -93,6 +93,8 @@
     };
   }
   window.__ardnReport = report;
+  // The page reports video plays and the like through the same call.
+  window.__ardnTrack = function (type, data) { send(type, data); };
   function esc(x) { return String(x == null ? "" : x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function printHtml(r) {
     var d = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });

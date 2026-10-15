@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 import * as store from "./store";
 import { getProposal, lockedAllowed } from "@/content/proposals";
 import { visitEmail } from "./visitEmail";
+import { nameFromEmail, type ProposalComment } from "./comments";
 
 /**
  * Server side of the proposal area.
@@ -163,6 +164,40 @@ export async function notifyVisit(slug: string, sessionId: string, email: string
     await sendMail(to, mail.subject, mail.text, mail.html);
   } catch (err) {
     console.error("notifyVisit", err);
+  }
+}
+
+/**
+ * A new comment on a proposal. When the client writes, Ardn hears about it;
+ * when Ardn answers, everyone on the client side of that thread does, with a
+ * link back to the proposal where the whole thread is.
+ */
+export async function notifyComment(slug: string, c: ProposalComment, thread: ProposalComment[]) {
+  const base = process.env.NEXT_PUBLIC_BASE_URL || "https://ardncloudsolutions.com";
+  const link = `${base}/proposals/${slug}/site#comments`;
+  const esc = (x: string) => x.replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch] as string);
+  const html = (lead: string) => `<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;padding:28px;color:#0A0F2C">
+  <p style="margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#3A4289">Club Steward proposal</p>
+  <p style="margin:0 0 14px;font-size:16px">${esc(lead)}</p>
+  <blockquote style="margin:0 0 18px;padding:12px 16px;border-left:3px solid #F6BD60;background:#FAF9F7;font-size:15px;white-space:pre-wrap">${esc(c.text)}</blockquote>
+  <p style="margin:0"><a href="${link}" style="color:#3A4289;font-weight:600">Open the proposal to reply</a></p></div>`;
+  try {
+    if (c.side === "client") {
+      const to = process.env.PROPOSALS_NOTIFY_EMAIL || process.env.CONTACT_RECEIVER_EMAIL;
+      if (!to) return;
+      const lead = `${nameFromEmail(c.email)} (${c.email}) ${c.parentId ? "replied" : "commented"} on the ${slug} proposal${c.where ? `, from ${c.where}` : ""}:`;
+      await sendMail(to, `Proposal comment: ${slug} by ${c.email}`, `${lead}\n\n${c.text}\n\nReply: ${link}`, html(lead));
+      return;
+    }
+    // Ardn answered: tell the client people in this thread (or, for a new note, everyone who has commented).
+    const root = c.parentId || c.id;
+    const inThread = thread.filter((x) => (c.parentId ? x.id === root || x.parentId === root : true) && x.side === "client");
+    const to = Array.from(new Set(inThread.map((x) => x.email)));
+    if (!to.length) return;
+    const lead = `Ardn ${c.parentId ? "answered your comment" : "posted a note"} on the Club Steward proposal:`;
+    await sendMail(to.join(", "), "Ardn answered on the Club Steward proposal", `${lead}\n\n${c.text}\n\nOpen the proposal: ${link}`, html(lead));
+  } catch (err) {
+    console.error("notifyComment", err);
   }
 }
 

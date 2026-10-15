@@ -248,30 +248,6 @@ h3{font:600 19px/1.3 var(--sans);margin:0 0 8px}
 .race.play .bar div{animation:grow .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*.18s)}
 @keyframes grow{from{transform:scaleX(.02)}to{transform:none}}
 .lane .bar div small{display:block;margin-top:5px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-/* the cost of one P1 */
-.p1{margin-top:56px;border-top:1px solid var(--line2);padding-top:34px}
-.p1 h3{font:400 clamp(26px,2.6vw,34px)/1.1 var(--serif);margin:0 0 10px}
-.p1>.intro{margin-bottom:26px;max-width:none}
-.p1rates{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px 24px;margin:0 0 22px}
-.p1rates label{font-size:14px;color:var(--soft)}
-.p1rates label small{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
-@media (max-width:900px){.p1rates{grid-template-columns:1fr 1fr}}
-.p1cmp{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media (max-width:900px){.p1cmp{grid-template-columns:1fr}}
-.p1col{border:1px solid var(--line2);border-radius:14px;padding:24px;background:var(--deep)}
-.p1col.p1now{border-color:rgba(240,138,108,.45)}
-.p1col.p1us{border-color:rgba(60,162,255,.5)}
-.p1col h4{margin:0 0 8px;font-size:15px;font-weight:600;color:var(--soft)}
-.p1col .big{font:400 clamp(44px,4.6vw,64px)/1 var(--serif);margin:0 0 6px;color:var(--brass2)}
-.p1col.p1us .big{color:#9fd0ff}
-.p1col .meta{margin:0 0 18px;color:var(--soft);font-size:14.5px}
-.p1col ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.p1col li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
-.p1col li b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
-.p1col li small{color:var(--muted);font-size:12.5px}
-.p1col li span.n{color:var(--muted);font-size:12.5px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-.p1col .yr{margin:16px 0 0;font-size:15px;color:var(--ink)}
-.p1col .yr b{font-weight:700}
 @media (max-width:640px){.lane.fast .bar{width:auto;min-width:0}.lane .bar{flex-direction:column}.lane .bar div{flex:none}}
 .found{margin-top:40px;border-left:2px solid var(--teal);padding:4px 0 4px 22px;max-width:120ch}
 .found p{margin:0 0 6px;font-size:18px}
@@ -578,6 +554,216 @@ section.ch.pick .foryou{display:inline-block}
   .pill{animation:none}
   *{transition:none!important}
 }
+
+/* ---------- the proposal home: five tabs over one page ---------- */
+:root{--out:cubic-bezier(.22,.8,.24,1);--lift:0 14px 34px -14px rgba(0,0,0,.6),0 2px 6px rgba(0,0,0,.18)}
+.view:not([hidden]){animation:viewIn .45s var(--out) both}
+@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s var(--out),transform .7s var(--out)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.view:not([hidden]){animation:none}.reveal{opacity:1;transform:none;transition:none}.tabs .tab-pill{transition:none}}
+@media print{.reveal{opacity:1!important;transform:none!important}}
+.tabs{display:flex;gap:2px;margin-left:10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs{position:relative;padding:3px;border-radius:22px;background:rgba(244,241,234,.045);border:1px solid var(--line)}
+.tabs a{position:relative;z-index:1;color:var(--soft);text-decoration:none;font-size:14px;font-weight:600;padding:6px 14px;border-radius:18px;white-space:nowrap;transition:color .25s var(--out)}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current=page]{color:var(--night)}
+.tabs .tab-pill{position:absolute;z-index:0;top:3px;bottom:3px;left:0;width:0;border-radius:18px;background:var(--ink);box-shadow:0 2px 10px rgba(0,0,0,.25);transition:transform .38s var(--out),width .38s var(--out);pointer-events:none}
+.tabs:not(.ready) .tab-pill{transition:none}
+.tabs:not(.has-pill) a[aria-current=page]{background:var(--ink)}
+@media (max-width:1240px){.brandbar{flex-wrap:wrap;row-gap:6px}.tabs{order:10;flex-basis:100%;margin:0 -6px;overflow-x:auto}}
+.view[hidden]{display:none!important}
+body:not([data-view=detail]) .rail,body:not([data-view=detail]) .progress,body:not([data-view=detail]) .lens{display:none}
+body:not([data-view=detail]) .brandbar{background:rgba(8,17,59,.78);-webkit-backdrop-filter:saturate(160%) blur(14px);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+section.vpage{padding-top:150px;border-top:0}
+@media (max-width:1240px){section.vpage{padding-top:170px}}
+.vpage h1{max-width:none;font-size:clamp(40px,5.6vw,80px)}
+.vpage .lede{max-width:none}
+.vhead{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px 64px;align-items:end;margin:0 0 44px}
+.vhead h2{margin:0}
+.vhead p{margin:0;color:var(--soft);font-size:18px}
+.vhead p.kicker{color:var(--brass);font-size:15px;margin:0 0 14px}
+@media (max-width:1000px){.vhead{grid-template-columns:1fr}}
+.block{margin-top:88px;padding-top:40px;border-top:1px solid var(--line2)}
+.block>h3{font:400 clamp(30px,3.4vw,44px)/1.08 var(--serif);margin:0 0 12px}
+.block>.intro{max-width:none;margin:0 0 30px}
+
+/* summary: the figures */
+.sumstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line2);margin-top:48px}
+.sumstats div{padding:24px 22px 24px 0;border-bottom:1px solid var(--line)}
+.sumstats div+div{padding-left:22px;border-left:1px solid var(--line)}
+.sumstats .big{font:400 clamp(40px,4.4vw,62px)/1 var(--serif);color:var(--brass2);margin:0 0 10px}
+.sumstats p:not(.big){margin:0;color:var(--soft);font-size:15.5px}
+@media (max-width:1000px){.sumstats{grid-template-columns:1fr 1fr}.sumstats div:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:560px){.sumstats{grid-template-columns:1fr}.sumstats div+div{padding-left:0;border-left:0}}
+.points{list-style:none;margin:0;padding:0;counter-reset:pt;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px}
+.points li{counter-increment:pt;border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;background:linear-gradient(180deg,rgba(244,241,234,.035),transparent 60%),var(--deep)}
+.points li::before{content:counter(pt);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brass);color:var(--night);font-weight:700;font-size:14px;margin-bottom:12px}
+.points h4{margin:0 0 6px;font-size:17px}
+.points p{margin:0;color:var(--soft);font-size:15.5px}
+
+/* summary: the cost */
+.cost{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px}
+@media (max-width:1000px){.cost{grid-template-columns:1fr}}
+.cost-in{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;align-content:start}
+@media (max-width:560px){.cost-in{grid-template-columns:1fr}}
+.cost-in label{font-size:14.5px;color:var(--soft);display:block}
+.cost-in label small{display:block;color:var(--muted);font-size:12.5px;margin-bottom:6px}
+.cost-in input{display:block;width:100%;margin-top:6px;background:var(--night);border:1px solid var(--line2);border-radius:10px;color:var(--ink);font:600 18px var(--sans);padding:10px 12px;font-variant-numeric:tabular-nums;transition:border-color .2s,box-shadow .2s}
+.cost-in input:hover{border-color:rgba(244,241,234,.4)}
+.cost-in input:focus{border-color:var(--brass);outline:none}
+.cost-out{border:1px solid var(--line2);border-radius:16px;padding:26px;background:radial-gradient(120% 80% at 100% 0,rgba(60,162,255,.08),transparent 60%),var(--deep);box-shadow:var(--lift)}
+.cost-out .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+@media (max-width:560px){.cost-out .row2{grid-template-columns:1fr}}
+.cost-out h4{margin:0 0 6px;font-size:14px;font-weight:600;color:var(--soft)}
+.cost-out .big{font:400 clamp(38px,4vw,56px)/1 var(--serif);margin:0;color:var(--brass2)}
+.cost-out .big.cs{color:#9fd0ff}
+.cost-out .meta{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+.bars{display:grid;gap:10px;margin:6px 0 20px}
+.bars div{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;font-size:14px;color:var(--soft)}
+.bars i{display:block;height:14px;border-radius:8px;min-width:4px;transition:width .6s var(--out)}
+.cost-out dl{display:grid;grid-template-columns:1fr auto;margin:0;border-top:1px solid var(--line)}
+.cost-out dt,.cost-out dd{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.cost-out dt{color:var(--soft)}
+.cost-out dt small{display:block;color:var(--muted);font-size:12.5px}
+.cost-out dd{margin:0;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.cost-out dd.save{color:var(--brass2)}
+.support{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.support div{border:1px solid var(--line);border-radius:14px;padding:22px;background:linear-gradient(180deg,rgba(244,241,234,.035),transparent 60%),var(--deep)}
+.support div.ardn{border-color:rgba(60,162,255,.5)}
+.support h4{margin:0 0 4px;font-size:17px}
+.support .who{margin:0 0 12px;color:var(--brass2);font-size:13.5px;font-weight:600}
+.support .ardn .who{color:#9fd0ff}
+.support ul{margin:0;padding-left:18px;color:var(--soft);font-size:15px}
+.support li{margin:4px 0}
+.explore{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.explore{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.explore{grid-template-columns:1fr}}
+.explore a{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line2);border-radius:14px;padding:22px;background:linear-gradient(180deg,rgba(244,241,234,.035),transparent 60%),var(--deep);transition:border-color .3s var(--out),transform .3s var(--out),box-shadow .3s var(--out)}
+.explore a:hover{border-color:rgba(246,189,96,.6);transform:translateY(-3px);box-shadow:var(--lift)}
+.explore em::after{content:" →";display:inline-block;transition:transform .3s var(--out)}
+.explore a:hover em::after{transform:translateX(4px)}
+.explore b{display:block;font:400 28px/1.1 var(--serif);margin-bottom:6px}
+.explore span{color:var(--soft);font-size:15px}
+.explore em{display:block;margin-top:14px;font-style:normal;color:var(--brass2);font-weight:600;font-size:14px}
+
+/* screenshots */
+.shotgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:18px;margin-top:26px}
+.shotcard{display:flex;flex-direction:column;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--deep);padding:0;overflow:hidden;cursor:pointer;color:var(--ink);font:inherit;transition:border-color .3s var(--out),transform .3s var(--out),box-shadow .3s var(--out)}
+.shotcard:hover{border-color:rgba(246,189,96,.55);transform:translateY(-3px);box-shadow:var(--lift)}
+.shotcard .ph{display:block;overflow:hidden;aspect-ratio:16/10;background:linear-gradient(110deg,var(--night) 30%,var(--raise) 50%,var(--night) 70%) 0 0/250% 100%;border-bottom:1px solid var(--line)}
+.shotcard img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .5s var(--out),transform .6s var(--out)}
+.shotcard img.ok{opacity:1}
+.shotcard:hover img{transform:scale(1.025)}
+.shotcard .for{font-size:12.5px;color:var(--muted);margin-top:auto;padding-top:4px}
+.shotcard .for i{font-style:normal;font-weight:600;color:var(--soft);margin-right:2px}
+.shotWho{margin:6px 0 0;font-size:13.5px;color:var(--soft)}
+.shotWho:empty{display:none}
+.shotWho b{color:var(--ink);font-weight:600}
+.jobpick{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted)}
+.jobpick select{appearance:none;-webkit-appearance:none;background:var(--night) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F9D08A' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;border:1px solid var(--line2);border-radius:22px;color:var(--ink);font:600 14px var(--sans);padding:9px 38px 9px 16px;cursor:pointer;max-width:100%}
+.jobpick select:focus{border-color:var(--brass);outline:none}
+@media (max-width:560px){.jobpick{width:100%}.jobpick select{flex:1}}
+.shotcard .t{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.shotcard .t b{font-size:14.5px;font-weight:600;line-height:1.35}
+.shotcard .t span{font-size:13.5px;color:var(--soft);line-height:1.45}
+.where{display:inline-flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:12.5px;color:var(--brass2);font-weight:600}
+.shotfoot .where{margin-top:4px}
+.shotOpen{display:inline-block;margin-top:8px;font-size:13.5px;font-weight:600}
+.shotsearch{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
+.shotsearch input{flex:1 1 260px;background:var(--night);border:1px solid var(--line2);border-radius:22px;color:var(--ink);font:15px var(--sans);padding:9px 16px;transition:border-color .2s,box-shadow .2s}
+.shotsearch input:focus,.jobpick select:focus,.cost-in input:focus,.cm-form textarea:focus{border-color:var(--brass);box-shadow:0 0 0 3px rgba(246,189,96,.16);outline:none}
+.shotcount{color:var(--muted);font-size:14px}
+
+/* videos */
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+@media (max-width:1000px){.vids{grid-template-columns:1fr}}
+.vid{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--deep);transition:box-shadow .3s var(--out),border-color .3s var(--out)}
+.vid:hover{border-color:var(--line2);box-shadow:var(--lift)}
+.vid video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.vid .t{padding:18px 20px 20px}
+.vid h3{font:400 26px/1.15 var(--serif);margin:0 0 6px}
+.vid p{margin:0 0 12px;color:var(--soft);font-size:15px}
+.vid .len{color:var(--muted);font-size:13px;font-weight:600;margin:0 0 8px}
+.chaps{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.chaps button{border:1px solid var(--line2);background:transparent;border-radius:16px;padding:4px 11px;font:13px var(--sans);color:var(--soft);cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.chaps button.on{border-color:var(--brass);color:var(--ink);background:rgba(246,189,96,.1)}
+.chaps button:hover{border-color:var(--brass);color:var(--ink)}
+.chaps button b{font-weight:600;color:var(--muted);margin-right:6px;font-variant-numeric:tabular-nums}
+.tryit{border-top:1px solid var(--line);padding-top:12px;margin:0;font-size:14px;color:var(--soft)}
+.tryit b{color:var(--brass2)}
+
+/* demo logins */
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+@media (max-width:1000px){.doors{grid-template-columns:1fr}}
+.door{border:1px solid var(--line);border-radius:16px;background:var(--deep);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s var(--out),border-color .3s var(--out)}
+.door:hover{border-color:var(--line2);box-shadow:var(--lift)}
+.door img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.door .t{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.door h3{font:400 30px/1.1 var(--serif);margin:0}
+.door ol{margin:0;padding-left:20px;color:var(--soft);font-size:15.5px}
+.door li{margin:5px 0}
+.door .go{align-self:flex-start;margin-top:auto;background:var(--brass);color:var(--night);font-weight:700;text-decoration:none;border-radius:22px;padding:10px 18px;font-size:15px;transition:background .2s,transform .2s var(--out),box-shadow .2s}
+.door .go::after{content:" ↗";font-weight:600}
+.door .go:hover{background:var(--brass2);transform:translateY(-1px);box-shadow:0 6px 18px -6px rgba(246,189,96,.55)}
+.door .url{font-size:12.5px;color:var(--muted);word-break:break-all}
+.note{border:1px solid rgba(246,189,96,.4);background:rgba(246,189,96,.07);border-radius:12px;padding:14px 18px;color:var(--soft);font-size:15px;margin:22px 0 0}
+.note b{color:var(--ink)}
+.who-t{width:100%;border-collapse:collapse;font-size:15px}
+.who-t th,.who-t td{text-align:left;vertical-align:top;padding:14px 16px 14px 0;border-bottom:1px solid var(--line)}
+.who-t thead th{font-size:13px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line2)}
+.who-t td{color:var(--soft)}
+.who-t th b{display:block;font-size:16px;color:var(--ink)}
+.who-t th small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.who-t .start{display:inline-block;margin-top:6px;font-size:11.5px;font-weight:700;color:var(--night);background:var(--brass);border-radius:10px;padding:1px 8px}
+.who-t .pos{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;border:1px solid var(--line2);border-radius:10px;padding:0 7px;color:var(--soft);vertical-align:2px}
+.path{color:var(--brass2);font-weight:600}
+@media (max-width:760px){.who-t thead{display:none}.who-t tr{display:block;border-bottom:1px solid var(--line);padding:12px 0}.who-t th,.who-t td{display:block;border:0;padding:4px 0}}
+.appmap{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px}
+.appmap div{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--deep);transition:border-color .25s}
+.appmap div:hover{border-color:var(--line2)}
+.appmap h4{margin:0 0 6px;font-size:16px}
+.appmap p{margin:0;color:var(--soft);font-size:14px}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+@media (max-width:1000px){.figrow{grid-template-columns:1fr}}
+.figrow figure{margin:0;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:var(--deep)}
+.figrow img{display:block;width:100%}
+.figrow figcaption{padding:12px 16px;color:var(--soft);font-size:14px}
+
+/* comments */
+.cm-open{position:fixed;right:18px;bottom:70px;z-index:2147482999;border:1px solid var(--line2);background:rgba(22,36,95,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);border-radius:22px;padding:10px 18px;font:600 14px var(--sans);cursor:pointer;box-shadow:0 8px 24px -8px rgba(0,0,0,.55);display:inline-flex;gap:8px;align-items:center;transition:border-color .2s,transform .2s var(--out)}
+.cm-open:hover{border-color:var(--brass);transform:translateY(-1px)}
+.cm-n:empty{display:none}
+.cm-n{background:var(--brass);color:var(--night);border-radius:10px;padding:0 7px;font-size:12px;line-height:18px}
+.cm{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);z-index:2147483001;background:var(--deep);border-left:1px solid var(--line2);box-shadow:-12px 0 40px rgba(0,0,0,.45);display:flex;flex-direction:column;padding:20px 20px 16px;animation:cmIn .35s var(--out) both}
+@keyframes cmIn{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.cm{animation:none}}
+.cm[hidden]{display:none}
+.cm-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cm-head h3{font:400 30px/1.1 var(--serif);margin:0}
+.cm-intro{color:var(--soft);font-size:14.5px;margin:8px 0 14px}
+.cm-list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding-right:4px}
+.cm-t{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.cm-c{border-radius:10px;padding:10px 12px;background:rgba(244,241,234,.05)}
+.cm-c+.cm-c{margin-left:18px}
+.cm-c.ardn{background:rgba(60,162,255,.12);border:1px solid rgba(60,162,255,.3)}
+.cm-meta{font-size:12.5px;color:var(--muted)}
+.cm-meta b{color:var(--ink);font-weight:600}
+.cm-tag{margin-left:6px;font-size:11px;font-weight:700;color:var(--night);background:#9fd0ff;border-radius:8px;padding:0 6px}
+.cm-c p{margin:4px 0 0;font-size:15px;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.cm-rbtn{align-self:flex-start;border:0;background:transparent;color:var(--brass2);font-weight:600;font-size:13px;cursor:pointer;padding:2px 0}
+.cm-form{border-top:1px solid var(--line2);padding-top:12px;margin-top:12px}
+.cm-form textarea{width:100%;resize:vertical;min-height:76px;background:var(--night);border:1px solid var(--line2);border-radius:10px;color:var(--ink);font:15px/1.5 var(--sans);padding:10px 12px}
+.cm-form textarea:focus{border-color:var(--brass);outline:none}
+.cm-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.cm-send{border:0;background:var(--brass);color:var(--night);font-weight:700;border-radius:20px;padding:8px 18px;cursor:pointer;font-size:14px;transition:background .2s}
+.cm-send:hover:not(:disabled){background:var(--brass2)}
+.cm-send:disabled{opacity:.6;cursor:default}
+.cm-reply{margin:0 0 8px;font-size:13.5px;color:var(--soft)}
+.cm-err{margin:6px 0 0;color:var(--alarm);font-size:13.5px}
+.cm-err:empty{display:none}
+@media print{.cm,.cm-open{display:none!important}}
 </style>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -585,6 +771,9 @@ section.ch.pick .foryou{display:inline-block}
 <div class="brandbar">
   <img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn">
   <span class="for">Club Steward · prepared for <b>Invited</b></span>
+  <nav class="tabs" id="tabs" aria-label="Proposal">
+    <a href="#summary">Executive summary</a><a href="#full-proposal">Detail</a><a href="#screens">Screenshots</a><a href="#videos">Videos</a><a href="#demo">Demo logins</a>
+  </nav>
   <span class="sp"></span>
   <div class="lens" role="group" aria-label="Read as"><span>Read as</span>
     <button data-lens="all" aria-pressed="true">Everyone</button><button data-lens="ceo" aria-pressed="false">CEO</button><button data-lens="cfo" aria-pressed="false">CFO</button><button data-lens="cio" aria-pressed="false">CIO</button><button data-lens="coo" aria-pressed="false">Operations</button>
@@ -592,6 +781,92 @@ section.ch.pick .foryou{display:inline-block}
   <button class="filmbtn" id="openFilm">Play the film</button>
 </div>
 
+<div class="view" id="v-summary" data-view="summary">
+<section class="ch vpage" id="summary-page">
+  <div class="wrap">
+    <p class="from">A proposal from Ardn to Invited · October 2026</p>
+    <p class="kicker">Executive summary</p>
+    <h1>Fifty-four systems. <em>One</em> club platform.</h1>
+    <p class="lede">Ardn proposes that Invited move its clubs onto Club Steward, a club platform that Ardn builds, runs, tests and supports for one flat monthly fee per entity. Thirty-six systems retire outright and four retire in part. The money and effort that now go into keeping those systems running go back into the clubs and to the bottom line, without asking the clubs to work harder or give anything up.</p>
+    <div class="sumstats">
+      <div><p class="big num">54 → 1</p><p>Systems in use today. 36 retire outright, 4 retire in part, and 18 stay connected for a stated reason. <span class="tag F">Systems sheet</span></p></div>
+      <div><p class="big num">126 + 17</p><p>Golf and country club entities, priced per entity as Invited buys today, plus 17 city clubs on a lighter fee. <span class="tag F">Invited</span></p></div>
+      <div><p class="big num">432 / 484</p><p>Rows of Invited's capability workbook already built at the October 7 review. 45 more wait only on an account or file from Invited. <span class="tag F">Fit-gap review</span></p></div>
+      <div><p class="big num">Nightly</p><p>1,693 automated test files and 116 full browser journeys run every night, so defects are found before a club finds them. <span class="tag F">Quality records</span></p></div>
+    </div>
+
+    <div class="block" id="cost">
+      <h3>Your cost</h3>
+      <p class="intro">Club Steward is one fee for each golf and country club entity, a lighter fee for each city club (memberships, events, catering and point of sale, with no golf), and a one-time fee to implement and set it up. Hosting, upgrades, fixes, nightly testing and second-line support are inside the fee. Every figure below can be changed, and the results update as you type.</p>
+      <div class="cost">
+        <div class="cost-in" id="costIn">
+          <label><small>Invited, October 13</small>What Invited spends today, a year<input type="text" inputmode="numeric" class="n" id="cToday" aria-label="What Invited spends today, a year"></label>
+          <label><small>Invited, October 13</small>Golf and country club entities<input type="text" inputmode="numeric" id="cEnt" aria-label="Golf and country club entities"></label>
+          <label><small>Ardn's proposal</small>Fee per entity, a month<input type="text" inputmode="numeric" class="n" id="cEntFee" aria-label="Fee per entity, a month"></label>
+          <label><small>Invited's website</small>City clubs<input type="text" inputmode="numeric" id="cCity" aria-label="City clubs"></label>
+          <label><small>Ardn's proposal</small>Fee per city club, a month<input type="text" inputmode="numeric" class="n" id="cCityFee" aria-label="Fee per city club, a month"></label>
+          <label><small>Ardn's proposal</small>Second-line support, a month<input type="text" inputmode="numeric" class="n" id="cSupport" aria-label="Second-line support, a month"></label>
+          <label><small>Ardn's proposal</small>Implementation and setup, one time<input type="text" inputmode="numeric" class="n" id="cImpl" aria-label="Implementation and setup, one time"></label>
+          <label><small>For the total below</small>Years to compare<input type="text" inputmode="numeric" id="cYears" aria-label="Years to compare"></label>
+        </div>
+        <div class="cost-out" aria-live="polite">
+          <div class="row2">
+            <div><h4>Club Steward, a year</h4><p class="big cs num" id="cYear"></p><p class="meta" id="cYearMeta"></p></div>
+            <div><h4>Less than today, a year</h4><p class="big num" id="cSave"></p><p class="meta" id="cSaveMeta"></p></div>
+          </div>
+          <div class="bars" id="cBars"></div>
+          <dl id="cList"></dl>
+        </div>
+      </div>
+      <p class="src" style="margin-top:14px">The spend today is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. The <a href="#calc">system-by-system calculator</a> in the detail shows where today's spend goes.</p>
+    </div>
+
+    <div class="block">
+      <h3>Shared support: Invited's help desk takes the first call</h3>
+      <p class="intro">Support works the way Invited described it. Invited's help desk stays the first call for club staff, and anything it can't resolve goes to Ardn, with what the staff member saw already attached.</p>
+      <div class="support">
+        <div><p class="who">First line · Invited's help desk</p><h4>Access and everyday questions</h4><ul><li>"I can't get in", password and access requests</li><li>"How do I…" questions from club staff</li><li>"This screen isn't working": reproduce it, then pass it on</li></ul></div>
+        <div class="ardn"><p class="who">Second line · Ardn</p><h4>Everything the help desk can't resolve</h4><ul><li>Staff report a problem from any screen, and their last steps are attached</li><li>Ardn fixes it, adds a test so it can't come back, and ships it in the next daily release</li><li>Included in the fee, with no separate statement of work</li></ul></div>
+        <div class="ardn"><p class="who">Before anyone calls · the product</p><h4>Defects found first</h4><ul><li>A P1 takes Invited 8 to 10 hours to resolve today, sometimes across more than one day</li><li>On Club Steward the nightly run looks for defects before a club meets them</li><li>A recent cross-club defect was found by the nightly checks and fixed the next day, before anyone ran into it</li></ul></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>The case in five points</h3>
+      <ol class="points">
+        <li><h4>One platform, one accountable team</h4><p>Ardn takes responsibility for the outcome: the product, the work that keeps it healthy and the changes your clubs ask for, all under one contract.</p></li>
+        <li><h4>Built for the enterprise as well as the club</h4><p>One product governs every club from corporate: shared plans, rules, reports and access, instead of more than a hundred separate instances run by hand.</p></li>
+        <li><h4>Already built against Invited's requirements</h4><p>509 staff screens and 129 member pages exist today. Look through the screenshots, or sign in to the demo as any of 12 people.</p></li>
+        <li><h4>Low disruption to the business</h4><p>Ardn builds everything first, proves it at one city club, then one golf club, and rolls out club by club. Legacy systems run alongside, and each phase ends at a gate that Invited signs.</p></li>
+        <li><h4>Invited keeps control</h4><p>Source code in escrow, data exported to Invited on a schedule in open formats, and a pilot that can fall back to its legacy systems.</p></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <h3>What we are asking for</h3>
+      <p class="intro">Approve mobilization and the build. Nothing goes live at a club until the build is accepted, and no system retires until every club that uses it is live.</p>
+      <ol class="points">
+        <li><h4>30 days</h4><p>Replace the estimates with Invited's invoices and staffing, agree the fee per entity, and name an owner at Invited and a delivery lead at Ardn.</p></li>
+        <li><h4>60 days</h4><p>Design signed off by the CIO and the department leads, pilot city club and pilot golf club chosen, and the build under way.</p></li>
+        <li><h4>90 days</h4><p>First data migration rehearsal reconciled, pilot staff walk through their own work on Club Steward, and the savings confirmed against invoices.</p></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <h3>See it for yourself</h3>
+      <div class="explore">
+        <a href="#full-proposal"><b>Detail</b><span>The full proposal: the estate system by system, the fit-gap, the rollout and the savings calculator.</span><em>Read the detail</em></a>
+        <a href="#screens"><b>Screenshots</b><span><span id="sumShotN"></span> screens from the real product, each labeled with where to find it.</span><em>Browse the screens</em></a>
+        <a href="#videos"><b>Videos</b><span>Four short films, about six minutes in all: the whole club, events, point of sale, and service and HR.</span><em>Watch the videos</em></a>
+        <a href="#demo"><b>Demo logins</b><span>Sign in as a general manager, a controller, a server or a member. No password needed.</span><em>Open the demo</em></a>
+      </div>
+    </div>
+    <p class="sig">Ardn Cloud Solutions · Club Steward · Prepared for Invited, October 2026</p>
+  </div>
+</section>
+</div>
+
+<div class="view" id="v-detail" data-view="detail" hidden>
 <header class="hero" id="top" data-ch="Overview">
   <div class="hero-stage">
     <img class="hero-photo" id="heroPhoto" src="/proposal-sites/invited-clubs/img/island-green.jpg" alt="">
@@ -741,7 +1016,7 @@ section.ch.pick .foryou{display:inline-block}
     <dialog class="shotbox" id="shotBox" aria-labelledby="shotTitle">
       <div class="shothead"><h3 id="shotTitle"></h3><button class="chip" id="shotClose">Close</button></div>
       <img id="shotImg" alt="">
-      <div class="shotfoot"><div><p id="shotCap"></p><small id="shotWhere"></small></div><div class="shotnav"><button class="chip" id="shotPrev">Previous</button><button class="chip" id="shotNext">Next</button></div></div>
+      <div class="shotfoot"><div><p id="shotCap"></p><small id="shotWhere"></small><p class="shotWho" id="shotWho"></p><a class="shotOpen" id="shotOpen" target="_blank" rel="noopener" hidden>Open this screen in the demo (sign in first)</a></div><div class="shotnav"><button class="chip" id="shotPrev">Previous</button><button class="chip" id="shotNext">Next</button></div></div>
     </dialog>
   </div>
 </section>
@@ -809,7 +1084,7 @@ section.ch.pick .foryou{display:inline-block}
     <h2>The product finds defects before a member or a club manager does</h2>
     <div class="race" id="race">
       <div class="lane slow">
-        <h3>How defects are usually found <span class="cost" id="laneSlowCost"></span></h3>
+        <h3>How defects are usually found</h3>
         <div class="bar">
           <div class="hurt" style="--w:2;--i:0">A member or staff member hits the defect</div>
           <div style="--w:1.6;--i:1">A ticket is raised</div>
@@ -821,7 +1096,7 @@ section.ch.pick .foryou{display:inline-block}
         <p class="end">Clubs feel it first. Each P1 takes 8 to 10 hours to resolve, sometimes across more than one day.</p>
       </div>
       <div class="lane fast">
-        <h3>How it works on Club Steward <span class="cost" id="laneFastCost"></span></h3>
+        <h3>How it works on Club Steward</h3>
         <div class="bar">
           <div style="--w:1.2;--i:0">The nightly run finds it</div>
           <div style="--w:1;--i:1">Fixed with a new test</div>
@@ -830,22 +1105,6 @@ section.ch.pick .foryou{display:inline-block}
         </div>
         <p class="end">The test stays forever, so the same defect cannot come back unnoticed.</p>
       </div>
-    </div>
-    <div class="p1" id="p1">
-      <h3>What one P1 costs Invited today, in people and hours</h3>
-      <p class="intro">A P1 pulls in far more than the person who found it. By the time the vendor is on the call, Invited usually has the CIO, VPs of the affected departments and the IT team on a bridge, often 7 to 10 people, and they stay on it until it is fixed: 8 to 10 hours, sometimes across more than one day. So every person counts for every hour. Every rate and headcount here is an <span class="tag A">Assumption</span> for Invited to replace with its own figures.</p>
-      <div class="p1rates">
-        <label><small>Invited: 8 to 10</small>Hours to resolve one P1<input type="number" min="0" step="1" id="p1Hours"></label>
-        <label><small>Invited: more than $100,000</small>Engineer cost a year<input type="text" inputmode="numeric" class="n" id="p1EngYear"></label>
-        <label><small>Assumption</small>Executive rate, per hour<input type="number" min="0" step="5" id="p1RateX"></label>
-        <label><small>Assumption</small>Manager rate, per hour<input type="number" min="0" step="5" id="p1RateM"></label>
-        <label><small>Assumption</small>P1s a year<input type="number" min="0" step="1" id="p1PerYear"></label>
-      </div>
-      <div class="p1cmp" aria-live="polite">
-        <div class="p1col p1now"><h4>Today</h4><p class="big num" id="p1Cost"></p><p class="meta" id="p1Meta"></p><ol id="p1TodaySteps"></ol><p class="yr" id="p1Year"></p></div>
-        <div class="p1col p1us"><h4>On Club Steward</h4><p class="big num" id="p1UsCost"></p><p class="meta" id="p1UsMeta"></p><ol id="p1UsSteps"></ol><p class="yr" id="p1UsYear"></p></div>
-      </div>
-      <p class="src" style="margin-top:14px">Rates are loaded hourly costs (pay plus benefits and overhead). Vendor time is left out because the vendor's contract covers it; on Club Steward, Ardn's engineering time is inside the fee. Engineer cost a year becomes an hourly cost over 2,080 working hours. The eight people on the bridge are an Assumption; tell us Invited's and we will put them in.</p>
     </div>
     <div class="found">
       <p>A recent example: our nightly checks found a defect in which one club's records could be reached from another club. It was fixed the next day, before any user ran into it.</p>
@@ -1036,6 +1295,98 @@ section.ch.pick .foryou{display:inline-block}
     </dialog>
   </div>
 </footer>
+</div>
+
+<div class="view" id="v-screens" data-view="screens" hidden>
+<section class="ch vpage" id="screens-page">
+  <div class="wrap">
+    <div class="vhead"><div><p class="kicker">Screenshots</p><h2>The real product, screen by screen</h2></div>
+    <p>Every screen comes from Club Steward running on sample data. Each one says where it sits in the menu and which jobs use it, so you can see a screen through the eyes of the person who works in it, then sign in as them in the demo.</p></div>
+    <div class="filters" role="group" aria-label="Filter by area" id="shotFilters"></div>
+    <div class="shotsearch"><input type="search" id="shotQ" placeholder="Search the screens, for example “tee sheet” or “invoice”" aria-label="Search the screenshots"><label class="jobpick"><span>Used by</span><select id="shotJob" aria-label="Show the screens one job uses"></select></label><span class="shotcount num" id="shotCount"></span></div>
+    <div class="shotgrid" id="shotGrid"></div>
+  </div>
+</section>
+</div>
+
+<div class="view" id="v-videos" data-view="videos" hidden>
+<section class="ch vpage" id="videos-page">
+  <div class="wrap">
+    <div class="vhead"><div><p class="kicker">Videos</p><h2>Four short films, about six minutes in all</h2></div>
+    <p>Start with the whole club in two minutes, then go deeper on events, point of sale, and service and HR. Jump to any chapter, and see whom to sign in as to try it yourself.</p></div>
+    <div class="vids" id="vids"></div>
+  </div>
+</section>
+</div>
+
+<div class="view" id="v-demo" data-view="demo" hidden>
+<section class="ch vpage" id="demo-page">
+  <div class="wrap">
+    <div class="vhead"><div><p class="kicker">Demo logins</p><h2>Sign in as anyone at the club, with one tap</h2></div>
+    <p>The demo runs on sample data at three clubs. There are no passwords to remember: open the staff app or the member portal, and tap the person you want to be. You see exactly what that person's job lets them see.</p></div>
+    <div class="doors">
+      <div class="door">
+        <img src="/proposal-sites/invited-clubs/demo/staff-roster.jpg" alt="The staff sign-in page with the demo people listed by department" loading="lazy">
+        <div class="t">
+          <h3>Staff app</h3>
+          <ol>
+            <li>Open the staff app.</li>
+            <li>Scroll to <b>Staff Sign-In · Demo</b>.</li>
+            <li>Tap a person. You land on their home page with the apps their job opens.</li>
+            <li>For the point of sale, tap a person under <b>Quick POS Sign-In</b> at the top instead.</li>
+          </ol>
+          <a class="go" id="staffGo" target="_blank" rel="noopener">Open the staff app</a>
+          <span class="url" id="staffUrl"></span>
+        </div>
+      </div>
+      <div class="door">
+        <img src="/proposal-sites/invited-clubs/demo/member-roster.jpg" alt="The member sign-in page with the demo members listed" loading="lazy">
+        <div class="t">
+          <h3>Member portal</h3>
+          <ol>
+            <li>Open the member portal.</li>
+            <li>Under <b>Demo Sign-In</b>, tap a member.</li>
+            <li>You land on their home page: dues, benefits, bookings, household and their member card.</li>
+          </ol>
+          <a class="go" id="memberGo" target="_blank" rel="noopener">Open the member portal</a>
+          <span class="url" id="memberUrl"></span>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>A shared demo.</b> Anyone with these links signs in as the same sample people, so anything you add or change can be seen by others. Nothing here is real member or club data. To sign out and try someone else, use the menu under the name at the top right.</p>
+
+    <div class="block">
+      <h3>Whom to sign in as</h3>
+      <p class="intro">Start with the general manager to see the most. Then sign in as the people whose work you want to see.</p>
+      <table class="who-t">
+        <thead><tr><th scope="col">Person</th><th scope="col">What they see</th><th scope="col">Try this</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><b>Grant Whitaker</b><small>General Manager · Brookhaven Country Club</small><span class="start">Start here</span></th><td>The whole club: all 12 apps, from Sales to Reports. Home lists what needs him, most urgent first.</td><td>Open <span class="path">Needs You</span> on Home, then any app tile. Type a page name in <span class="path">Search apps and pages</span> at the top.</td></tr>
+          <tr><th scope="row"><b>Elena Ruiz</b><small>VP Membership · All clubs</small></th><td>Membership sales across a region of clubs, from the first inquiry to the signed contract.</td><td><span class="path">Sales › Pipeline › Leads</span>, then <span class="path">Pipeline</span>, <span class="path">Tours</span> and <span class="path">Contracts</span>.</td></tr>
+          <tr><th scope="row"><b>Ruth Abernathy</b><small>Club Controller · Brookhaven</small></th><td>Billing, collections and the ledger.</td><td><span class="path">Accounting &amp; Finance › Billing</span>, then <span class="path">Books › Month-End Close</span> and <span class="path">Financial Reports</span>.</td></tr>
+          <tr><th scope="row"><b>Morgan Ellis</b><small>Private Events Director · Brookhaven</small></th><td>Private events from inquiry to final invoice: rooms, layouts, decor, menus, the banquet event order and deposits.</td><td><span class="path">Events &amp; Dining › Private Events</span>, open an event, then <span class="path">Event Calendar</span>, <span class="path">Banquet Kitchen</span> and <span class="path">Event Vendors</span>.</td></tr>
+          <tr><th scope="row"><b>Riley Brooks</b><span class="pos">POS</span><small>Golf Shop Staff · Brookhaven</small></th><td>The golf shop counter: tee times, checking players in, and selling.</td><td><span class="path">Golf &amp; Pro Shop › Tee Sheet</span>. Or use Quick POS Sign-In to open the pro shop register.</td></tr>
+          <tr><th scope="row"><b>Walt Henderson</b><small>Starter / Ranger · Brookhaven</small></th><td>The first tee: sending groups off, pace of play and carts.</td><td><span class="path">Golf &amp; Pro Shop › Tee Sheet</span> and <span class="path">Carts</span>.</td></tr>
+          <tr><th scope="row"><b>Carmen Ruiz</b> or <b>Jamie Cole</b><span class="pos">POS</span><small>Server / Bartender · Brookhaven</small></th><td>Their own tables, checks and shift on the dining floor.</td><td>Use Quick POS Sign-In, then open a check and charge it to a member.</td></tr>
+          <tr><th scope="row"><b>Michael Johnson</b><small>Member · Full Golf, family household</small></th><td>The member portal: dues, benefits, bookings, household and the member card.</td><td><span class="path">Book a Tee Time</span>, <span class="path">Billing</span>, <span class="path">Household</span> and <span class="path">Show My Card</span>.</td></tr>
+          <tr><th scope="row"><b>Jane Johnson</b><small>Member · family dependent</small></th><td>What a dependent on someone else's membership sees.</td><td>Compare her <span class="path">Home</span> and <span class="path">Billing</span> with Michael's.</td></tr>
+          <tr><th scope="row"><b>William Ashby</b> or <b>Jane Smith</b><small>Members · Golf, and Pickleball</small></th><td>A golf member, and a racquet member who books courts.</td><td><span class="path">Bookings &amp; Events</span> and <span class="path">Benefits</span>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <h3>Where things are in the staff app</h3>
+      <p class="intro">After signing in, Home shows a tile for every app the person's job opens. Each app has its own menu on the left. Search at the top finds any page by name.</p>
+      <div class="appmap" id="appMap"></div>
+      <div class="figrow">
+        <figure><img src="/proposal-sites/invited-clubs/demo/staff-home-gm.jpg" alt="The general manager's home page with a tile for each app" loading="lazy"><figcaption>The general manager's Home: the app tiles under <b>Your Apps</b>, search at the top, and <b>Needs You</b> below.</figcaption></figure>
+        <figure><img src="/proposal-sites/invited-clubs/demo/member-home.jpg" alt="A member's home page in the member portal" loading="lazy"><figcaption>A member's Home: the menu across the top (Home, Benefits, Billing, Bookings &amp; Events, Household, Pro Shop, Reserve a Table, Book a Tee Time).</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
 
 <div class="film" id="film" role="dialog" aria-modal="true" aria-label="Club Steward film">
   <div class="stage" id="stage">
@@ -1327,8 +1678,7 @@ $('#ctBody').innerHTML =
   bucket('b3', 'Built in-house', 'No license. Support is the people and hosting that keep each one running') +
   IH.map(([n, who], i) => row(esc(n), esc(who), '', DASH, num('ih' + i, n + ' yearly support cost'), `iT${i}`, 'on-i' + i)).join('') +
   bucket('b4', 'Across every system', 'Effort that goes away with one tested product') +
-  row('Release testing returned', '<span id="qaNote"></span>', `<input type="text" inputmode="numeric" class="n" id="qaPeople" aria-label="People testing releases today"><small>testers</small>`, DASH, DASH, 'qaT') +
-  row('Critical defects handled faster', '<span id="p1CalcNote"></span>. Set in <a href="#p1">the P1 comparison</a>.', '', DASH, DASH, 'p1T');
+  row('Release testing returned', '<span id="qaNote"></span>', `<input type="text" inputmode="numeric" class="n" id="qaPeople" aria-label="People testing releases today"><small>testers</small>`, DASH, DASH, 'qaT');
 function applyScen(k) {
   scen = SCEN[k]; $('#clubs').value = $('#clubs').value || 140;
   $('#disc').value = scen.disc; $('#mult').value = scen.mult; $('#qaPeople').value = scen.qaPeople;
@@ -1346,8 +1696,8 @@ const showN = e => { if (e === document.activeElement || e.value.trim() === '') 
 const showAllN = () => document.querySelectorAll('.calc2 input.n').forEach(showN);
 document.querySelectorAll('.calc2 input.n').forEach(e => e.addEventListener('blur', () => showN(e)));
 const TARGET = 10e6;
-// Set by the P1 comparison: the yearly cost of P1s today less the same P1s on Club Steward.
-let p1Saved = 0, p1Note = '';
+// The P1 people-and-hours comparison was taken out (Invited, October 13); nothing feeds the calculator from it now.
+const p1Saved = 0;
 let last = {}, saveTimer = 0, store = null, me = null, restoring = false;
 function calc() {
   const disc = v('disc') / 100, mult = v('mult');
@@ -1362,7 +1712,7 @@ function calc() {
   IH.forEach((_, i) => line('b3', 0, v('ih' + i), 'iT' + i, 'on-i' + i));
   const qa = v('qaPeople') * scen.qaCost * scen.qaShare / 100, p1 = p1Saved;
   $('#qaNote').textContent = `${v('qaPeople')} people test releases today at about ${fmt(scen.qaCost)} each; automated checks return ${scen.qaShare}% of that effort (Forrester measured 50%).`;
-  put('qaT', qa); put('p1T', p1); $('#p1CalcNote').textContent = p1Note;
+  put('qaT', qa);
   sum.b4 = [0, 0];
   for (const b in sum) { put(b + 'L', sum[b][0]); put(b + 'S', sum[b][1]); put(b + 'T', sum[b][0] + sum[b][1] + (b === 'b4' ? qa + p1 : 0)); }
   ['b4L', 'b4S'].forEach(id => $('#' + id).textContent = '');
@@ -1371,7 +1721,7 @@ function calc() {
   put('tLic', lic); put('tSup', sup + ih); put('tAll', gross);
   $('#discOut').textContent = Math.round(disc * 100) + '%'; $('#multOut').textContent = mult.toFixed(1) + '×';
   $('#gross').textContent = fmtM(gross);
-  const parts = [['Licenses', lic, '#F6BD60'], ['Support for licensed systems', sup, '#B98A3E'], ['Built in-house', ih, '#3CA2FF'], ['Testing and critical defects', qa + p1, '#9FA8FF']];
+  const parts = [['Licenses', lic, '#F6BD60'], ['Support for licensed systems', sup, '#B98A3E'], ['Built in-house', ih, '#3CA2FF'], ['Release testing', qa + p1, '#9FA8FF']];
   const scale = Math.max(gross, TARGET) * 1.08;
   $('#stack').innerHTML = parts.map(([n, x, c]) => `<div title="${n}" style="width:${x / scale * 100}%;background:${c}"></div>`).join('') + `<div class="target" style="left:${TARGET / scale * 100}%"><span>$10M target</span></div>`;
   $('#keys').innerHTML = parts.map(([n, x, c]) => `<span><i style="background:${c}"></i>${n}</span><output>${fmt(x)}</output>`).join('');
@@ -1402,7 +1752,7 @@ $('#fee').addEventListener('input', calc); $('#clubs').addEventListener('input',
 const ALLOWED = /^(disc|mult|fee|clubs|qaPeople|sfSupU|pr\d+|q\d+|lS\d+|uL\d+|uS\d+|ih\d+|on-[lui]\d+|p1(Hours|EngYear|RateX|RateM|PerYear))$/;
 const LOG_MAX = 400;
 let log = [], lastVals = null, lastAuto = [];
-const calcInputs = () => document.querySelectorAll('.calc2 input, .p1rates input');
+const calcInputs = () => document.querySelectorAll('.calc2 input');
 function snapshot() {
   const vals = {}, auto = [];
   calcInputs().forEach(e => { if (!ALLOWED.test(e.id)) return; vals[e.id] = e.type === 'checkbox' ? e.checked : e.value; if (e.dataset.auto) auto.push(e.id); });
@@ -1426,7 +1776,6 @@ function restore(c) {
   for (const [id, x] of Object.entries(c.vals)) {
     if (!ALLOWED.test(id)) continue; const e = $('#' + id); if (!e) continue;
     if (e.type === 'checkbox') e.checked = x !== false; else e.value = String(x ?? '');
-    if (id.startsWith('p1')) e.dispatchEvent(new Event('input'));
   }
   document.querySelectorAll('.calc2 [id^=lS],.calc2 [id^=uS]').forEach(e => { if ((c.auto || []).includes(e.id)) e.dataset.auto = '1'; else delete e.dataset.auto; });
   document.querySelectorAll('[data-scen]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scen === c.scen)));
@@ -1582,7 +1931,11 @@ function drawShot() {
   $('#shotImg').src = '/proposal-sites/invited-clubs/shots/' + s.file.replace(/^shots\//, '');
   $('#shotImg').alt = s.caption;
   $('#shotCap').textContent = s.caption;
-  $('#shotWhere').textContent = `${s.app} · ${shotAt + 1} of ${shotList.length}`;
+  const w = s.where || shotWhere(s), u = demoUrl(s);
+  $('#shotWhere').textContent = `${w.app}${w.place ? ' › ' + w.place : ''} · ${shotAt + 1} of ${shotList.length}`;
+  $('#shotOpen').hidden = !u; if (u) $('#shotOpen').href = u;
+  const who = s.who || shotWho(s);
+  $('#shotWho').innerHTML = who.main.length ? `<b>Used by</b> ${esc(who.main.join(', '))}${who.more ? `, and open to ${who.more} other ${who.more === 1 ? 'job' : 'jobs'}` : ''}.${who.as ? ` In the demo, sign in as <b>${esc(who.as)}</b>.` : ''}` : '';
   $('#shotPrev').disabled = shotAt === 0; $('#shotNext').disabled = shotAt === shotList.length - 1;
 }
 function openShots(id, from) {
@@ -1641,50 +1994,6 @@ shotBox.addEventListener('keydown', e => { if (e.key === 'ArrowRight') $('#shotN
   render();
   const cc = vendors.find(v => v.name === 'Club Caddie');
   if (cc) { const r = theirs(cc, all); $('#ccFit').textContent = `Its public website advertises ${r.f} of the ${r.t} features in our fit-gap in full and ${r.p} more in part.`; }
-})();
-
-/* the cost of one P1: every figure an assumption the reader can change */
-(() => {
-  // Everyone on a P1 stays on it until it is fixed: Invited says 8 to 10 hours, sometimes across days.
-  const RATE = {x: 175, m: 95};
-  let engYear = 100000, hours = 10, perYear = 12;
-  const TEAM = [['CIO', 'x', 1], ['VPs of the affected departments', 'x', 2], ['IT director', 'm', 1], ['Engineers', 'e', 4]];
-  const US = [['Invited release approver', 'm', 1, .5]];
-  const rate = {...RATE};
-  const hrs = n => (Math.round(n * 10) / 10).toLocaleString('en-US');
-  const perHour = l => l === 'e' ? engYear / 2080 : rate[l];
-  const team = () => TEAM.map(([n, l, c]) => [n, l, c, hours]);
-  const totals = rows => rows.reduce((a, r) => ({people: a.people + r[2], hours: a.hours + r[2] * r[3], cost: a.cost + r[2] * r[3] * perHour(r[1])}), {people: 0, hours: 0, cost: 0});
-  const people = n => `${n} ${n === 1 ? 'person' : 'people'}`;
-  const list = rows => rows.map(r => `<li><span>${esc(r[0])}</span><b>${fmt(r[2] * r[3] * perHour(r[1]))}</b><small>${r[1] === 'e' ? `${fmt(engYear)} a year each, about ${fmt(perHour('e'))} an hour` : `${fmt(perHour(r[1]))} an hour`}</small><span class="n">${people(r[2])} · ${hrs(r[3])} h${r[2] > 1 ? ' each' : ''}</span></li>`).join('');
-  function show() {
-    const t = totals(team()), u = totals(US);
-    $('#p1Cost').textContent = fmt(t.cost);
-    $('#p1Meta').textContent = `per P1 · ${people(t.people)} on it for ${hrs(hours)} hours, start to fix · ${hrs(t.hours)} hours in all`;
-    $('#p1TodaySteps').innerHTML = list(team());
-    $('#p1Year').innerHTML = `<b>${fmt(t.cost * perYear)}</b> a year at ${perYear} P1${perYear === 1 ? '' : 's'}`;
-    $('#p1UsCost').textContent = fmt(u.cost);
-    $('#p1UsMeta').textContent = `per P1 · found by the nightly run and fixed by the next daily release · ${people(u.people)} · ${hrs(u.hours)} hours`;
-    $('#p1UsSteps').innerHTML = list(US);
-    $('#p1UsYear').innerHTML = `<b>${fmt(u.cost * perYear)}</b> a year at ${perYear} P1${perYear === 1 ? '' : 's'}`;
-    // the same totals, summed up on the two lanes
-    const yr = perYear ? ` · ${fmt(t.cost * perYear)} a year at ${perYear} P1${perYear === 1 ? '' : 's'}` : '';
-    $('#laneSlowCost').innerHTML = `<b>${fmt(t.cost)}</b>per P1 · ${people(t.people)} for ${hrs(hours)} hours · ${hrs(t.hours)} hours in all${yr}<a href="#p1">See the breakdown</a>`;
-    $('#laneFastCost').innerHTML = `<b>${fmt(u.cost)}</b>per P1 · ${people(u.people)} · ${hrs(u.hours)} hours${perYear ? ` · ${fmt(u.cost * perYear)} a year` : ''}`;
-    // and carried into the path to $10M
-    p1Saved = Math.max(0, (t.cost - u.cost) * perYear);
-    p1Note = `${perYear} P1${perYear === 1 ? '' : 's'} a year at ${fmt(t.cost)} each today, ${fmt(u.cost)} on Club Steward`;
-    calc();
-  }
-  const num = v => Math.max(0, parseFloat(String(v).replace(/[^0-9.]/g, '')) || 0);
-  $('#p1Hours').value = hours; $('#p1RateX').value = rate.x; $('#p1RateM').value = rate.m; $('#p1EngYear').value = engYear.toLocaleString('en-US'); $('#p1PerYear').value = perYear;
-  $('#p1Hours').oninput = e => { hours = num(e.target.value); show(); };
-  $('#p1RateX').oninput = e => { rate.x = num(e.target.value); show(); };
-  $('#p1RateM').oninput = e => { rate.m = num(e.target.value); show(); };
-  $('#p1EngYear').oninput = e => { engYear = num(e.target.value); show(); };
-  $('#p1EngYear').onblur = e => { e.target.value = engYear.toLocaleString('en-US'); };
-  $('#p1PerYear').oninput = e => { perYear = Math.round(num(e.target.value)); show(); };
-  show();
 })();
 
 const LENS = {
@@ -1858,4 +2167,279 @@ addEventListener('keydown', e => {
 if (location.hash === '#film' || location.hash === '#film-rec') openFilm(location.hash === '#film-rec');
 
 onScroll();
+
+/* ---------- the proposal home: tabs, cost, screenshots, videos, demo, comments ---------- */
+const DEMO = {
+  staff: 'https://qa-invited-clubs-tenant-admin-web.developer-bef.workers.dev',
+  member: 'https://qa-invited-clubs-member-portal-web.developer-bef.workers.dev',
+};
+// The shot viewer and the saved-settings box sit inside the detail; they open from every tab.
+['shotBox', 'ardnBox'].forEach(id => { const d = document.getElementById(id); if (d) document.body.append(d); });
+
+/* tabs: one hash per view; any other hash is a place inside the detail */
+const VIEWS = ['summary', 'full-proposal', 'screens', 'videos', 'demo'];
+const viewKey = v => v === 'full-proposal' ? 'detail' : v;
+function showView(v) {
+  const key = viewKey(v);
+  const was = document.body.dataset.view;
+  document.querySelectorAll('.view').forEach(x => { x.hidden = x.dataset.view !== key; });
+  document.querySelectorAll('#tabs a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + v ? 'page' : 'false'));
+  document.body.dataset.view = key;
+  movePill();
+  if (key === 'detail' && was !== 'detail') { dispatchEvent(new Event('resize')); onScroll(); }
+  if (key !== 'videos') document.querySelectorAll('#vids video').forEach(x => x.pause());
+}
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h === 'film' || h === 'film-rec') return;
+  if (h === 'comments') { if (!document.body.dataset.view) showView('summary'); openComments(); return; }
+  if (!h || VIEWS.includes(h)) { showView(h || 'summary'); scrollTo({top: 0, behavior: 'instant'}); return; }
+  const t = document.getElementById(h), v = t && t.closest('.view');
+  if (!v) { showView('summary'); return; }
+  showView(v.dataset.view === 'detail' ? 'full-proposal' : v.dataset.view);
+  requestAnimationFrame(() => t.scrollIntoView());
+}
+addEventListener('hashchange', route);
+// The tab pill slides to the open tab; on a narrow screen the tab row scrolls it into sight.
+const tabEl = $('#tabs'), tabPill = document.createElement('span');
+tabPill.className = 'tab-pill'; tabPill.setAttribute('aria-hidden', 'true'); tabEl.prepend(tabPill); tabEl.classList.add('has-pill');
+function movePill() {
+  const a = tabEl.querySelector('a[aria-current=page]'); if (!a) return;
+  tabPill.style.width = a.offsetWidth + 'px'; tabPill.style.transform = `translateX(${a.offsetLeft}px)`;
+  if (tabEl.scrollWidth > tabEl.clientWidth) tabEl.scrollTo({left: a.offsetLeft - 24, behavior: tabEl.classList.contains('ready') ? 'smooth' : 'auto'});
+}
+addEventListener('resize', movePill);
+document.fonts && document.fonts.ready.then(movePill);
+// Sections ease in once as they come into view; printing and reduced motion show everything at once.
+const revealer = 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches
+  ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealer.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'}) : null;
+if (revealer) document.querySelectorAll('.vpage .block, .sumstats > div, .door, .vid').forEach(x => { x.classList.add('reveal'); revealer.observe(x); });
+addEventListener('beforeprint', () => document.querySelectorAll('.reveal').forEach(x => x.classList.add('in')));
+/** Where the reader is, for a comment: the tab, and the chapter inside the detail. */
+function whereNow() {
+  const v = document.body.dataset.view;
+  const tab = {summary: 'Executive summary', detail: 'Detail', screens: 'Screenshots', videos: 'Videos', demo: 'Demo logins'}[v] || '';
+  if (v !== 'detail') return tab;
+  let ch = ''; chapters.forEach(c => { if (c.getBoundingClientRect().top < innerHeight * .45) ch = c.dataset.ch; });
+  return ch ? `${tab} › ${ch}` : tab;
+}
+
+/* ---------- your cost ---------- */
+// Ardn's prices; Invited's own figures (spend today, entities) come from the October 13 call.
+const PRICE = {today: 8300000, entities: 126, entityFee: 400, city: CLUBS.city, cityFee: 300, support: 25000, impl: 0, years: 5};
+const cIds = {cToday: 'today', cEnt: 'entities', cEntFee: 'entityFee', cCity: 'city', cCityFee: 'cityFee', cSupport: 'support', cImpl: 'impl', cYears: 'years'};
+const cMoney = new Set(['cToday', 'cEntFee', 'cCityFee', 'cSupport', 'cImpl']);
+const cNum = id => Math.max(0, parseFloat(String($('#' + id).value).replace(/[^0-9.]/g, '')) || 0);
+function cShow(id) { const e = $('#' + id); if (document.activeElement === e) return; const n = cNum(id); e.value = cMoney.has(id) ? fmt(n) : n.toLocaleString('en-US'); }
+function cost() {
+  const today = cNum('cToday'), ent = cNum('cEnt'), city = cNum('cCity'), years = Math.max(1, Math.round(cNum('cYears')));
+  const entY = ent * cNum('cEntFee') * 12, cityY = city * cNum('cCityFee') * 12, supY = cNum('cSupport') * 12, impl = cNum('cImpl');
+  const year = entY + cityY + supY, save = today - year;
+  const total = today * years - (year * years + impl);
+  $('#cYear').textContent = fmtM(year);
+  $('#cYearMeta').textContent = `${fmt(year / 12)} a month for ${ent.toLocaleString('en-US')} entities and ${city.toLocaleString('en-US')} city clubs, support included`;
+  $('#cSave').textContent = fmtM(save);
+  $('#cSaveMeta').textContent = today ? `${Math.round(save / today * 100)}% less than the ${fmtM(today)} Invited spends today` : 'Enter what Invited spends today';
+  const top = Math.max(today, year, 1);
+  $('#cBars').innerHTML = `<div><span>Today</span><i style="width:${today / top * 100}%;background:var(--brass)"></i></div><div><span>Club Steward</span><i style="width:${year / top * 100}%;background:var(--teal)"></i></div>`;
+  $('#cList').innerHTML =
+    `<dt>Golf and country club entities<small>${ent.toLocaleString('en-US')} × ${fmt(cNum('cEntFee'))} a month</small></dt><dd>${fmt(entY)} a year</dd>` +
+    `<dt>City clubs<small>${city.toLocaleString('en-US')} × ${fmt(cNum('cCityFee'))} a month</small></dt><dd>${fmt(cityY)} a year</dd>` +
+    `<dt>Second-line support<small>Invited's help desk stays the first call</small></dt><dd>${fmt(supY)} a year</dd>` +
+    `<dt>Implementation and setup<small>One time, in the first year</small></dt><dd>${impl ? fmt(impl) : 'Included'}</dd>` +
+    `<dt>First year, with setup</dt><dd>${fmt(year + impl)}</dd>` +
+    `<dt>Less than today over ${years} year${years === 1 ? '' : 's'}<small>Today's spend × ${years}, less Club Steward and setup</small></dt><dd class="save">${fmtM(total)}</dd>`;
+}
+Object.entries(cIds).forEach(([id, k]) => {
+  const e = $('#' + id); e.value = PRICE[k];
+  e.addEventListener('input', cost);
+  e.addEventListener('blur', () => cShow(id));
+  e.addEventListener('focus', () => { e.value = String(cNum(id)); });
+  cShow(id);
+});
+cost();
+
+/* ---------- screenshots: every one, with where it lives ---------- */
+// Staff app menus (tenant-admin-web lib/workspaceNav.ts NAV_GROUPS): path → [app, section, page].
+const NAVMAP = {"/dashboard/contacts":["Sales","Members","Contacts"],"/dashboard/members":["Sales","Members","Members"],"/dashboard/households":["Sales","Members","Households"],"/dashboard/members/onboarding":["Sales","Members","Onboarding"],"/dashboard/members/waivers":["Sales","Members","Waivers"],"/dashboard/committees":["Sales","Members","Committees"],"/dashboard/memberships/subscriptions":["Sales","Members","Memberships"],"/dashboard/memberships/missing-payment-method":["Sales","Members","Missing Payment Method"],"/dashboard/memberships":["Sales","Members","Plans"],"/dashboard/memberships/increases":["Sales","Members","Dues Increases"],"/dashboard/financial-assistance":["Sales","Members","Financial Assistance"],"/dashboard/retention":["Sales","Members","Retention"],"/dashboard/leads":["Sales","Pipeline","Leads"],"/dashboard/sales-pipeline":["Sales","Pipeline","Pipeline"],"/dashboard/running-out-early":["Sales","Pipeline","Running Out Early"],"/dashboard/tours":["Sales","Pipeline","Tours"],"/dashboard/guest-leads":["Sales","Pipeline","Guest Leads"],"/dashboard/membership-applications":["Sales","Pipeline","Applications"],"/dashboard/contracts":["Sales","Pipeline","Contracts"],"/dashboard/waitlist":["Sales","Pipeline","Waitlist"],"/dashboard/sales":["Sales","","Sales Home"],"/dashboard/service":["Service","","Service Dashboard"],"/dashboard/service/cases":["Service","","Cases"],"/dashboard/incidents":["Service","","Incidents"],"/dashboard/service/chats":["Service","","Live Chats"],"/dashboard/service/texts":["Service","","Texts"],"/dashboard/service/unknown-calls":["Service","","Unknown Calls"],"/dashboard/service/queues":["Service","","Service Queues"],"/dashboard/marketing/surveys":["Service","","Surveys"],"/dashboard/marketing":["Marketing","Campaigns","Campaigns"],"/dashboard/marketing/announcements":["Marketing","Campaigns","Announcements"],"/dashboard/marketing/journeys":["Marketing","Campaigns","Journeys"],"/dashboard/marketing/email-templates":["Marketing","Campaigns","Email Templates"],"/dashboard/marketing/revenue":["Marketing","Campaigns","Revenue From Marketing"],"/dashboard/marketing/website-traffic":["Marketing","Website","Website Traffic"],"/dashboard/website":["Marketing","Website","Pages"],"/dashboard/website/nav":["Marketing","Website","Menu"],"/dashboard/website/media":["Marketing","Website","Media"],"/dashboard/website/identity":["Marketing","Website","Brand"],"/dashboard/website/portal-images":["Marketing","Website","Member Portal Images"],"/dashboard/website/forms":["Marketing","Website","Web Forms"],"/dashboard/marketing/home":["Marketing","","Marketing Home"],"/dashboard/fundraising":["Fundraising","","Fundraising Home"],"/dashboard/donations/campaigns":["Fundraising","","Campaigns"],"/dashboard/donations":["Fundraising","","Donations"],"/dashboard/pledges":["Fundraising","","Pledges"],"/dashboard/moves":["Fundraising","","Donor Prospects"],"/dashboard/gift-batches":["Fundraising","","Gift Batches"],"/dashboard/acknowledgments":["Fundraising","","Thank-yous"],"/dashboard/soft-credits":["Fundraising","","Soft Credits"],"/dashboard/grants":["Fundraising","","Grants"],"/dashboard/organizations":["Fundraising","","Organizations"],"/pos":["POS","","Point of Sale"],"/pos/shop":["POS","","Register"],"/pos/dining":["POS","","Floor"],"/dashboard/billing":["Accounting & Finance","Billing","Billing"],"/dashboard/billing/dues-standing":["Accounting & Finance","Billing","Dues"],"/dashboard/billing/opera-charges":["Accounting & Finance","Billing","Charges From Opera"],"/dashboard/revenue":["Accounting & Finance","Billing","Revenue"],"/dashboard/wallet":["Accounting & Finance","Billing","Wallet"],"/dashboard/gift-cards":["Accounting & Finance","Billing","Gift Cards"],"/dashboard/books":["Accounting & Finance","Books","Books"],"/dashboard/books/accounts":["Accounting & Finance","Books","Chart of Accounts"],"/dashboard/books/journal":["Accounting & Finance","Books","Journal Entries"],"/dashboard/books/ledger":["Accounting & Finance","Books","Ledger"],"/dashboard/books/banking":["Accounting & Finance","Books","Banking"],"/dashboard/books/reconcile":["Accounting & Finance","Books","Reconcile"],"/dashboard/books/members":["Accounting & Finance","Books","House Accounts"],"/dashboard/books/payment-plans":["Accounting & Finance","Books","Payment Plans"],"/dashboard/books/payables":["Accounting & Finance","Books","Payables"],"/dashboard/books/deferred":["Accounting & Finance","Books","Deferred Revenue"],"/dashboard/books/assets":["Accounting & Finance","Books","Fixed Assets"],"/dashboard/books/purchasing":["Accounting & Finance","Books","Purchase Requests"],"/dashboard/books/budgets":["Accounting & Finance","Books","Budgets"],"/dashboard/books/reports":["Accounting & Finance","Books","Financial Reports"],"/dashboard/books/close":["Accounting & Finance","Books","Month-End Close"],"/dashboard/books/feeds":["Accounting & Finance","Books","Feeds"],"/dashboard/finance":["Accounting & Finance","","Finance Home"],"/dashboard/people":["HR","People","People & Pay"],"/dashboard/staff":["HR","People","Staff"],"/dashboard/people/now":["HR","People","Who’s Working Now"],"/dashboard/staff-schedule":["HR","People","Staff Schedule"],"/dashboard/people/org-chart":["HR","People","Org Chart"],"/dashboard/people/reviews":["HR","People","Reviews"],"/dashboard/people/timesheets":["HR","Time & Pay","Timesheets"],"/dashboard/people/approvals":["HR","Time & Pay","Pay Approvals"],"/dashboard/people/pay-periods":["HR","Time & Pay","Pay Periods"],"/dashboard/hiring":["HR","Hiring","Job Postings"],"/dashboard/hiring/interviews":["HR","Hiring","My Interviews"],"/dashboard/people/onboarding":["HR","Hiring","Onboarding"],"/dashboard/events-home":["Events & Dining","Events","Events Home"],"/dashboard/private-events":["Events & Dining","Events","Private Events"],"/dashboard/private-events/calendar":["Events & Dining","Events","Event Calendar"],"/dashboard/inventory":["Events & Dining","Events","Event Inventory"],"/dashboard/vendors":["Events & Dining","Events","Event Vendors"],"/dashboard/events":["Events & Dining","Events","Club Events"],"/dashboard/volunteers":["Events & Dining","Events","Volunteers"],"/dashboard/dining":["Events & Dining","Dining","Dining Rooms"],"/dashboard/menus":["Events & Dining","Dining","Menus"],"/dashboard/kitchen":["Events & Dining","Dining","Banquet Kitchen"],"/dashboard/tee-sheet":["Golf & Pro Shop","Golf","Tee Sheet"],"/dashboard/club-conditions":["Golf & Pro Shop","Golf","Today’s Conditions"],"/dashboard/tee-sheet/lists":["Golf & Pro Shop","Golf","Tee Lists"],"/dashboard/tee-sheet/carts":["Golf & Pro Shop","Golf","Carts"],"/dashboard/tee-sheet/caddies":["Golf & Pro Shop","Golf","Caddies"],"/dashboard/people/caddies":["Golf & Pro Shop","Golf","Caddie Loops"],"/dashboard/tee-sheet/punch-cards":["Golf & Pro Shop","Golf","Punch Cards"],"/dashboard/golf/live-carts":["Golf & Pro Shop","Golf","Live Carts"],"/dashboard/golf/agronomy":["Golf & Pro Shop","Golf","Agronomy"],"/dashboard/golf/course-map":["Golf & Pro Shop","Golf","Course Map"],"/dashboard/golf-performance":["Golf & Pro Shop","Golf","Performance"],"/dashboard/golf-performance/lessons":["Golf & Pro Shop","Golf","Lessons by Pro"],"/dashboard/pro-shop/shop-orders":["Golf & Pro Shop","Pro Shop","Online Orders"],"/dashboard/pro-shop/returns":["Golf & Pro Shop","Pro Shop","Returns"],"/dashboard/pro-shop/inventory":["Golf & Pro Shop","Pro Shop","Inventory"],"/dashboard/pro-shop":["Golf & Pro Shop","Pro Shop","Products"],"/dashboard/pro-shop/promotions":["Golf & Pro Shop","Pro Shop","Offers"],"/dashboard/pro-shop/bundles":["Golf & Pro Shop","Pro Shop","Bundles"],"/dashboard/pro-shop/groups":["Golf & Pro Shop","Pro Shop","Product Groups"],"/dashboard/pro-shop/goes-with":["Golf & Pro Shop","Pro Shop","Goes-With"],"/dashboard/pro-shop/profit":["Golf & Pro Shop","Pro Shop","Profit by Item"],"/dashboard/pro-shop/baskets":["Golf & Pro Shop","Pro Shop","Baskets Left Behind"],"/dashboard/golf":["Golf & Pro Shop","","Golf Home"],"/dashboard/courts":["Front Desk","Courts & Classes","Court Sheet"],"/dashboard/appointments":["Front Desk","Courts & Classes","Appointments"],"/dashboard/classes":["Front Desk","Courts & Classes","Classes"],"/dashboard/programs":["Front Desk","Courts & Classes","Programs"],"/dashboard/front-desk":["Front Desk","","Front Desk Home"],"/dashboard/checkin":["Front Desk","","Check-In"],"/dashboard/members/who-is-here":["Front Desk","","Who’s Here"],"/dashboard/members/guest-passes":["Front Desk","","Guest Passes"],"/dashboard/benefits/redeem":["Front Desk","","Redeem"],"/dashboard/play-center":["Front Desk","","Play Center"],"/dashboard/assets":["Assets","","Assets"],"/dashboard/assets/due":["Assets","","Due Now"],"/dashboard/assets/licenses":["Assets","","Licenses & Certificates"],"/dashboard/reporting/reports":["Reports","","Reports"],"/dashboard/reporting/dashboards":["Reports","","Dashboards"],"/dashboard/reporting/satisfaction":["Reports","","Satisfaction"],"/dashboard/corporate":["Reports","","Corporate"],"/dashboard/reporting/benefits":["Reports","","Benefit Use"],"/dashboard/reporting/sales-goals":["Reports","","Sales Goals"]};
+const PORTAL = [['/account/billing', 'Billing'], ['/account/bookings', 'Bookings & Events'], ['/account/household', 'Household'], ['/account/membership', 'Home › Membership'], ['/account/wallet', 'Billing › Wallet'], ['/account/waivers', 'Home › Waivers'], ['/account/notifications', 'Notifications'], ['/account/directory', 'Member directory'], ['/account/club', 'My club'], ['/account', 'Home'], ['/book/tee-time', 'Book a Tee Time'], ['/book/manage', 'Bookings & Events › a booking'], ['/book/scorecard', 'Book a Tee Time › Scorecard'], ['/dining', 'Reserve a Table'], ['/shop', 'Pro Shop'], ['/app/scores', 'Club app › Post a score'], ['/app/card', 'Club app › Member card'], ['/app', 'Club app (phone)'], ['/join', 'The club’s public page › Join'], ['/host-an-event/quote', 'The club’s public page › Host an event › Quote'], ['/host-an-event', 'The club’s public page › Host an event']];
+const STAFF_EXTRA = [['/dashboard/home', 'Home'], ['/dashboard/my-tasks', 'My Tasks'], ['/dashboard/my-notifications', 'Notifications (bell, top right)'], ['/dashboard/my-requests', 'Your menu › My Requests'], ['/dashboard/approvals', 'Approvals'], ['/dashboard/workflows', 'Marketing › Automations'], ['/dashboard/forms', 'Marketing › Website Forms'], ['/dashboard/wallet', 'Accounting & Finance › Wallet'], ['/dashboard/registers', 'POS › Registers'], ['/dashboard/menus', 'Events & Dining › Dining › Menus'], ['/dashboard/people/setup', 'HR › People & Pay Setup'], ['/dashboard/people/time-off', 'HR › Time Off'], ['/dashboard/settings', 'Settings (administrators)'], ['/dashboard/staff-access', 'Settings › Staff access (administrators)'], ['/dashboard/roles', 'Settings › Staff access (administrators)'], ['/dashboard/audit', 'Settings › Audit history (administrators)'], ['/pos/tee-sheet', 'POS › Tee sheet'], ['/m/', 'Staff phone app']];
+function shotPath(s) { return String(s.url || '').replace(/^https?:\/\/[^/]+/, '').split('#')[0]; }
+function shotWhere(s) {
+  const path = shotPath(s), bare = path.split('?')[0];
+  if (s.app === 'Member portal') {
+    const hit = PORTAL.find(([p]) => bare.includes(p));
+    return {app: 'Member portal', place: hit ? hit[1] : ''};
+  }
+  let best = '';
+  for (const k in NAVMAP) if ((bare === k || bare.startsWith(k + '/')) && k.length > best.length) best = k;
+  if (best) { const [app, sec, page] = NAVMAP[best]; return {app: 'Staff app', place: [app, sec, page].filter(Boolean).join(' › ') + (bare !== best ? ' › a record' : '')}; }
+  const x = STAFF_EXTRA.find(([p]) => bare.startsWith(p));
+  return {app: 'Staff app', place: x ? x[1] : ''};
+}
+/** A link that opens the same screen in the demo, when the screen is a list or a page anyone can reach. */
+function demoUrl(s) {
+  const path = shotPath(s), bare = path.split('?')[0];
+  if (/\[|[0-9a-f]{8}-|demo-|seed-|_fa4d|\/(m|pos)\//.test(bare)) return '';
+  if (s.app === 'Member portal') return /^\/(account|book\/tee-time|dining|shop)/.test(bare) ? DEMO.member + bare : '';
+  if (/^\/dashboard\/(settings|staff-access|roles|audit)/.test(bare)) return '';
+  return /^\/dashboard\//.test(bare) ? DEMO.staff + bare : '';
+}
+// Who sees each screen: the demo jobs whose permissions open it (the staff app's own menu rules, read off the demo club's jobs).
+const SHOT_JOBS = {"roles":{"ap_clerk":"AP Clerk","caddie":"Caddie","club_controller":"Club Controller","clubline":"ClubLine Concierge","executive_chef":"Executive Chef","facilities":"Facilities","fitness_manager":"Fitness Manager","fb_director":"Food & Beverage Director","front_desk":"Front Desk / Member Services","general_manager":"General Manager","golf_shop_staff":"Golf Shop Staff","golf_superintendent":"Golf Superintendent","golf_teaching_pro":"Golf Teaching Professional","head_golf_pro":"Head Golf Professional","bag_room":"Locker & Bag Attendant","marketing":"Marketing","membership_director":"Membership Director","personal_trainer":"Personal Trainer","events_director":"Private Events Director","racquet_sports_director":"Racquet Sports Director","server_bartender":"Server / Bartender","starter_ranger":"Starter / Ranger","vpm_membership":"VP Membership","vp_events":"VP, Private Events"},"paths":{"/dashboard/sales":"*","/dashboard/marketing/home":"*","/dashboard/fundraising":"*","/dashboard/finance":"*","/dashboard/golf":"*","/dashboard/front-desk":"*","/dashboard/home":"*","/dashboard":{"m":["vpm_membership","marketing","golf_superintendent","club_controller","front_desk","head_golf_pro","events_director","membership_director","general_manager"],"w":[],"l":["fitness_manager","racquet_sports_director","vp_events"]},"/dashboard/checkin":{"m":["front_desk","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","head_golf_pro"],"l":[]},"/dashboard/self-check-in":{"m":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","front_desk","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/benefits/redeem":{"m":["general_manager"],"w":[],"l":[]},"/dashboard/play-center":{"m":["front_desk","general_manager"],"w":[],"l":[]},"/dashboard/club-conditions":{"m":["golf_shop_staff","golf_superintendent","head_golf_pro","general_manager"],"w":["front_desk"],"l":[]},"/dashboard/courts":{"m":["front_desk","clubline","general_manager"],"w":["racquet_sports_director","membership_director","bag_room","caddie","fitness_manager","golf_shop_staff","head_golf_pro"],"l":["facilities"]},"/dashboard/contacts":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["server_bartender","clubline","marketing","fb_director","club_controller","golf_teaching_pro"]},"/dashboard/members":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/members/who-is-here":{"m":["front_desk","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","head_golf_pro","events_director","vpm_membership","membership_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/members/onboarding":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/members/waivers":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/members/guest-passes":{"m":["front_desk","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","head_golf_pro","events_director","vpm_membership","membership_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/households":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/committees":{"m":["vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/memberships/subscriptions":{"m":["membership_director","vpm_membership","general_manager"],"w":["front_desk","golf_superintendent","head_golf_pro","events_director","bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","club_controller"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director"]},"/dashboard/memberships/missing-payment-method":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/memberships":{"m":["vpm_membership","membership_director","general_manager"],"w":["front_desk","golf_superintendent","club_controller","head_golf_pro","events_director"],"l":[]},"/dashboard/memberships/increases":{"m":["vpm_membership","membership_director","general_manager"],"w":["club_controller"],"l":[]},"/dashboard/leads":{"m":["membership_director","vpm_membership","general_manager"],"w":["front_desk","marketing","events_director"],"l":[]},"/dashboard/sales-pipeline":{"m":["membership_director","vpm_membership","general_manager"],"w":["marketing","front_desk","events_director"],"l":[]},"/dashboard/running-out-early":{"m":["membership_director","vpm_membership","general_manager"],"w":["front_desk","marketing","events_director"],"l":[]},"/dashboard/retention":{"m":["vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/tours":{"m":["vpm_membership","membership_director","general_manager"],"w":["vp_events","events_director"],"l":[]},"/dashboard/contracts":{"m":["membership_director","general_manager"],"w":["vp_events","events_director"],"l":[]},"/dashboard/approvals":{"m":["club_controller","vp_events","fb_director","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/waitlist":{"m":["vpm_membership","membership_director","general_manager"],"w":["front_desk"],"l":[]},"/dashboard/guest-leads":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","clubline","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","club_controller","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","marketing","fb_director"]},"/dashboard/events-home":{"m":["events_director","vp_events","general_manager"],"w":[],"l":[]},"/dashboard/private-events":{"m":["events_director","vp_events","general_manager"],"w":["membership_director","vpm_membership"],"l":[]},"/dashboard/private-events/calendar":{"m":["events_director","vp_events","general_manager"],"w":[],"l":[]},"/dashboard/staff-schedule":{"m":["events_director","vp_events","fb_director","golf_superintendent","front_desk","head_golf_pro","vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/inventory":{"m":["fb_director","events_director","executive_chef","general_manager"],"w":[],"l":["vp_events","club_controller"]},"/dashboard/kitchen":{"m":["executive_chef","fb_director","vp_events","events_director","general_manager"],"w":["club_controller"],"l":[]},"/dashboard/vendors":{"m":["events_director","vp_events","general_manager"],"w":[],"l":["ap_clerk","facilities","executive_chef","fb_director","golf_superintendent","club_controller","head_golf_pro"]},"/dashboard/financial-assistance":{"m":["vpm_membership","membership_director","general_manager"],"w":["club_controller","front_desk"],"l":[]},"/dashboard/membership-applications":{"m":["vpm_membership","membership_director","general_manager"],"w":["bag_room","caddie","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["golf_teaching_pro","server_bartender","clubline","marketing","fb_director","club_controller"]},"/dashboard/settings/waivers":{"m":["golf_superintendent","head_golf_pro","events_director","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/settings/membership-sales":{"m":["vpm_membership","membership_director","front_desk","general_manager"],"w":[],"l":[]},"/dashboard/appointments":{"m":["front_desk","general_manager"],"w":["golf_teaching_pro","personal_trainer","fitness_manager","racquet_sports_director","golf_shop_staff","golf_superintendent","head_golf_pro","events_director"],"l":[]},"/dashboard/classes":{"m":["front_desk","general_manager"],"w":["fitness_manager","head_golf_pro"],"l":["golf_teaching_pro","personal_trainer","racquet_sports_director","golf_superintendent","events_director","vpm_membership","membership_director"]},"/dashboard/programs":{"m":["front_desk","general_manager"],"w":["fitness_manager","racquet_sports_director","golf_superintendent","head_golf_pro","events_director"],"l":[]},"/dashboard/events":{"m":["events_director","vp_events","fb_director","general_manager"],"w":["membership_director","marketing","head_golf_pro","vpm_membership"],"l":[]},"/dashboard/volunteers":{"m":["events_director","general_manager"],"w":["front_desk","membership_director"],"l":[]},"/dashboard/forms":{"m":["golf_superintendent","front_desk","head_golf_pro","events_director","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet":{"m":["caddie","golf_shop_staff","head_golf_pro","golf_superintendent","starter_ranger","bag_room","general_manager"],"w":["clubline","front_desk","vpm_membership","membership_director","fitness_manager","racquet_sports_director","club_controller","events_director"],"l":["golf_teaching_pro","facilities","server_bartender","marketing","fb_director"]},"/dashboard/tee-sheet/access":{"m":["head_golf_pro","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet/booking-rules":{"m":["head_golf_pro","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet/cancellation-fees":{"m":["head_golf_pro","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet/pricing":{"m":["head_golf_pro","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet/promotions":{"m":["head_golf_pro","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet/lists":{"m":["head_golf_pro","golf_shop_staff","starter_ranger","caddie","golf_superintendent","general_manager"],"w":["front_desk","vpm_membership","membership_director"],"l":[]},"/dashboard/tee-sheet/caddies":{"m":["head_golf_pro","golf_superintendent","starter_ranger","caddie","golf_shop_staff","general_manager"],"w":["fb_director","front_desk","events_director"],"l":[]},"/dashboard/tee-sheet/punch-cards":{"m":["head_golf_pro","bag_room","caddie","golf_shop_staff","general_manager"],"w":["server_bartender","fb_director","club_controller","front_desk"],"l":["vpm_membership"]},"/dashboard/tee-sheet/courses":{"m":["general_manager"],"w":[],"l":[]},"/dashboard/tee-sheet/carts":{"m":["head_golf_pro","golf_shop_staff","caddie","bag_room","golf_superintendent","starter_ranger","general_manager"],"w":["front_desk","facilities","clubline","membership_director","fitness_manager","club_controller","vpm_membership","executive_chef","racquet_sports_director","fb_director","events_director"],"l":["golf_teaching_pro","server_bartender","marketing"]},"/dashboard/golf-performance":{"m":["head_golf_pro","caddie","golf_shop_staff","golf_superintendent","general_manager"],"w":["vpm_membership","front_desk","membership_director","clubline","marketing","club_controller","events_director"],"l":["facilities","fitness_manager","racquet_sports_director","vp_events"]},"/dashboard/golf-performance/lessons":{"m":["golf_teaching_pro","golf_shop_staff","head_golf_pro","general_manager"],"w":["club_controller","front_desk","vpm_membership"],"l":[]},"/dashboard/golf/course-map":{"m":["head_golf_pro","golf_shop_staff","caddie","golf_superintendent","starter_ranger","general_manager"],"w":["front_desk","vpm_membership","clubline","membership_director"],"l":["facilities"]},"/dashboard/golf/live-carts":{"m":["starter_ranger","golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/golf/agronomy":{"m":["golf_superintendent","head_golf_pro","general_manager"],"w":["vpm_membership"],"l":[]},"/dashboard/people/caddies":{"m":["head_golf_pro","golf_shop_staff","general_manager"],"w":[],"l":[]},"/pos/dining":{"m":["server_bartender","executive_chef","fb_director","general_manager"],"w":["front_desk","clubline","membership_director"],"l":[]},"/dashboard/dining":{"m":["fb_director","executive_chef","server_bartender","general_manager"],"w":["front_desk","clubline","membership_director"],"l":[]},"/dashboard/menus":{"m":["executive_chef","fb_director","vp_events","events_director","server_bartender","general_manager"],"w":["clubline","club_controller","front_desk","membership_director"],"l":[]},"/dashboard/service":{"m":["vp_events","fb_director","head_golf_pro","events_director","vpm_membership","membership_director","general_manager"],"w":[],"l":["marketing"]},"/dashboard/service/cases":{"m":["clubline","front_desk","general_manager"],"w":["club_controller","vpm_membership","facilities","vp_events","golf_shop_staff","fb_director","head_golf_pro","events_director","membership_director"],"l":["marketing"]},"/dashboard/incidents":{"m":["facilities","executive_chef","fitness_manager","racquet_sports_director","fb_director","golf_superintendent","head_golf_pro","events_director","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/service/chats":{"m":["clubline","front_desk","general_manager"],"w":["vp_events","golf_shop_staff","fb_director","head_golf_pro","events_director","vpm_membership","membership_director"],"l":[]},"/dashboard/service/texts":{"m":["clubline","front_desk","general_manager"],"w":["vp_events","golf_shop_staff","fb_director","head_golf_pro","events_director","vpm_membership","membership_director"],"l":[]},"/dashboard/service/unknown-calls":{"m":["clubline","front_desk","general_manager"],"w":[],"l":[]},"/dashboard/service/queues":{"m":["clubline","front_desk","general_manager"],"w":["vpm_membership","vp_events","fb_director","head_golf_pro","events_director","membership_director","golf_shop_staff"],"l":["marketing"]},"/dashboard/service/assistant":{"m":["general_manager"],"w":[],"l":[]},"/dashboard/marketing/surveys":{"m":["membership_director","general_manager"],"w":[],"l":["clubline","vp_events","golf_shop_staff","marketing","fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership"]},"/dashboard/hiring":{"m":["executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","golf_superintendent","head_golf_pro","events_director","vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/hiring/interviews":{"m":["executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","golf_superintendent","head_golf_pro","events_director","vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/hiring/setup":{"m":["general_manager"],"w":[],"l":[]},"/dashboard/people":{"m":["club_controller","general_manager"],"w":["fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership"],"l":[]},"/dashboard/people/now":{"m":["fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","executive_chef","fitness_manager","racquet_sports_director","general_manager"],"w":[],"l":["server_bartender","bag_room","caddie","golf_shop_staff"]},"/dashboard/people/timesheets":{"m":["fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","general_manager"],"w":[],"l":[]},"/dashboard/people/approvals":{"m":["club_controller","general_manager"],"w":["vp_events","vpm_membership"],"l":[]},"/dashboard/people/pay-periods":{"m":["club_controller","general_manager"],"w":["vpm_membership"],"l":[]},"/dashboard/people/onboarding":{"m":["club_controller","general_manager"],"w":["executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership","membership_director"],"l":[]},"/dashboard/people/reviews":{"m":["general_manager"],"w":[],"l":[]},"/dashboard/people/org-chart":{"m":["club_controller","general_manager"],"w":["executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership","membership_director"],"l":[]},"/dashboard/people/org-chart/seats":{"m":["executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","golf_superintendent","club_controller","front_desk","head_golf_pro","events_director","vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/people/setup":{"m":["general_manager"],"w":[],"l":[]},"/pos/shop":{"m":["bag_room","caddie","golf_shop_staff","head_golf_pro","general_manager"],"w":["front_desk"],"l":[]},"/dashboard/pro-shop":{"m":["golf_shop_staff","head_golf_pro","bag_room","caddie","general_manager"],"w":["front_desk"],"l":[]},"/dashboard/pro-shop/shop-orders":{"m":["bag_room","caddie","golf_shop_staff","head_golf_pro","general_manager"],"w":["front_desk","club_controller","membership_director"],"l":[]},"/dashboard/pro-shop/inventory":{"m":["golf_shop_staff","head_golf_pro","bag_room","caddie","general_manager"],"w":["club_controller","front_desk"],"l":[]},"/dashboard/pro-shop/profit":{"m":["golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/pro-shop/groups":{"m":["golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/pro-shop/bundles":{"m":["golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/pro-shop/goes-with":{"m":["golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/pro-shop/returns":{"m":["bag_room","caddie","golf_shop_staff","head_golf_pro","general_manager"],"w":["club_controller","front_desk","membership_director"],"l":[]},"/dashboard/pro-shop/promotions":{"m":["golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/pro-shop/baskets":{"m":["bag_room","caddie","golf_shop_staff","head_golf_pro","general_manager"],"w":["front_desk"],"l":[]},"/dashboard/pro-shop/kiosks":{"m":["golf_shop_staff","head_golf_pro","general_manager"],"w":[],"l":[]},"/dashboard/donations/campaigns":{"m":["membership_director","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/donations":{"m":["membership_director","general_manager"],"w":["events_director","club_controller"],"l":["front_desk","vpm_membership"]},"/dashboard/pledges":{"m":["membership_director","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/moves":{"m":["membership_director","vpm_membership","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/gift-batches":{"m":["membership_director","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/acknowledgments":{"m":["membership_director","general_manager"],"w":["events_director","club_controller"],"l":[]},"/dashboard/soft-credits":{"m":["membership_director","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/grants":{"m":["membership_director","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/organizations":{"m":["membership_director","general_manager"],"w":["club_controller","events_director"],"l":[]},"/dashboard/marketing":{"m":["marketing","membership_director"],"w":["events_director"],"l":["vpm_membership"]},"/dashboard/marketing/website-traffic":{"m":["marketing","general_manager"],"w":[],"l":["vpm_membership","membership_director"]},"/dashboard/marketing/revenue":{"m":["marketing","membership_director"],"w":[],"l":["events_director","vpm_membership"]},"/dashboard/marketing/journeys":{"m":["marketing","membership_director"],"w":[],"l":["events_director","vpm_membership"]},"/dashboard/marketing/announcements":{"m":["marketing","membership_director"],"w":["events_director"],"l":["vpm_membership"]},"/dashboard/marketing/email-templates":{"m":["marketing","membership_director"],"w":["events_director"],"l":[]},"/dashboard/workflows":{"m":["marketing","membership_director"],"w":[],"l":[]},"/dashboard/settings/guided-flows":{"m":["marketing","membership_director","general_manager"],"w":[],"l":["vpm_membership"]},"/dashboard/billing":{"m":["club_controller","general_manager"],"w":["front_desk","head_golf_pro","membership_director"],"l":[]},"/dashboard/billing/dues-standing":{"m":["club_controller","general_manager"],"w":["front_desk","head_golf_pro","membership_director"],"l":["vpm_membership"]},"/dashboard/billing/opera-charges":{"m":["club_controller","general_manager"],"w":["front_desk","head_golf_pro","membership_director","server_bartender","executive_chef","golf_shop_staff","fb_director"],"l":[]},"/dashboard/revenue":{"m":["club_controller","general_manager"],"w":["vpm_membership","marketing","golf_superintendent","front_desk","head_golf_pro","events_director","membership_director"],"l":["fitness_manager","racquet_sports_director","vp_events"]},"/dashboard/books":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/setup":{"m":["club_controller"],"w":[],"l":[]},"/dashboard/books/accounts":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/journal":{"m":["club_controller"],"w":[],"l":[]},"/dashboard/books/ledger":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/banking":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/reconcile":{"m":["club_controller"],"w":[],"l":[]},"/dashboard/books/members":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/payment-plans":{"m":["club_controller","ap_clerk","general_manager"],"w":["vpm_membership","membership_director"],"l":[]},"/dashboard/books/payables":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/deferred":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/assets":{"m":["ap_clerk","club_controller","general_manager"],"w":["fb_director","golf_superintendent","head_golf_pro"],"l":[]},"/dashboard/books/purchasing":{"m":["ap_clerk","club_controller","general_manager"],"w":["fb_director","golf_superintendent","head_golf_pro","facilities","executive_chef","fitness_manager","racquet_sports_director","events_director","membership_director"],"l":[]},"/dashboard/books/budgets":{"m":["ap_clerk","club_controller","general_manager"],"w":["fb_director","golf_superintendent","head_golf_pro"],"l":[]},"/dashboard/books/reports":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/close":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/feeds":{"m":["ap_clerk","club_controller","general_manager"],"w":[],"l":[]},"/dashboard/books/apps":{"m":[],"w":[],"l":[]},"/dashboard/wallet":{"m":["club_controller","general_manager"],"w":[],"l":[]},"/dashboard/gift-cards":{"m":["club_controller","general_manager"],"w":["server_bartender","bag_room","caddie","golf_shop_staff","fb_director","front_desk","head_golf_pro"],"l":[]},"/dashboard/assets":{"m":["facilities","general_manager"],"w":["golf_superintendent","executive_chef","fitness_manager"],"l":["club_controller","head_golf_pro"]},"/dashboard/assets/due":{"m":["facilities","general_manager"],"w":["golf_superintendent","executive_chef","fitness_manager","fb_director"],"l":["club_controller","head_golf_pro"]},"/dashboard/assets/licenses":{"m":["facilities","general_manager"],"w":["golf_superintendent","executive_chef","fitness_manager"],"l":["club_controller","head_golf_pro"]},"/dashboard/assets/categories":{"m":["facilities","golf_superintendent","executive_chef","fitness_manager","general_manager"],"w":[],"l":["club_controller","head_golf_pro"]},"/dashboard/website":{"m":["marketing"],"w":[],"l":[]},"/dashboard/website/nav":{"m":["marketing"],"w":[],"l":[]},"/dashboard/website/media":{"m":["marketing"],"w":[],"l":[]},"/dashboard/website/identity":{"m":[],"w":[],"l":[]},"/dashboard/website/portal-images":{"m":["marketing"],"w":[],"l":[]},"/dashboard/website/forms":{"m":["marketing","membership_director","general_manager"],"w":["golf_superintendent","front_desk","head_golf_pro","events_director"],"l":[]},"/dashboard/corporate":{"m":["club_controller","general_manager"],"w":["front_desk","vpm_membership","membership_director","vp_events","marketing","golf_superintendent","head_golf_pro","events_director"],"l":["fitness_manager","racquet_sports_director"]},"/dashboard/reporting/benefits":{"m":["club_controller","general_manager"],"w":["golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership","membership_director","bag_room","caddie","clubline","fitness_manager","racquet_sports_director","golf_shop_staff"],"l":["marketing","golf_teaching_pro","server_bartender","fb_director"]},"/dashboard/reporting/satisfaction":{"m":["membership_director","general_manager"],"w":[],"l":["clubline","vp_events","golf_shop_staff","marketing","fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership"]},"/dashboard/reporting/reports":{"m":["club_controller","general_manager"],"w":["vpm_membership","marketing","golf_superintendent","front_desk","head_golf_pro","events_director","membership_director"],"l":["fitness_manager","racquet_sports_director","vp_events"]},"/dashboard/reporting/dashboards":"*","/dashboard/reporting/sales-goals":{"m":["club_controller","general_manager"],"w":["vpm_membership","membership_director","marketing","golf_superintendent","front_desk","head_golf_pro","events_director"],"l":["fitness_manager","racquet_sports_director"]},"/dashboard/reporting/objects":{"m":[],"w":[],"l":[]},"/dashboard/reporting/datasets":{"m":["marketing","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/reporting/folders":{"m":["marketing","golf_superintendent","head_golf_pro","events_director","vpm_membership","club_controller","front_desk","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/my-schedule":"*","/dashboard/my-tasks":"*","/dashboard/my-notifications":"*","/dashboard/my-requests":"*","/m/shifts":{"m":["ap_clerk","personal_trainer","facilities","server_bartender","bag_room","caddie","clubline","executive_chef","fitness_manager","racquet_sports_director","golf_shop_staff","marketing","fb_director","golf_superintendent","club_controller","front_desk","head_golf_pro","events_director","vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/pos":{"m":["server_bartender","caddie","executive_chef","golf_shop_staff","fb_director","head_golf_pro","starter_ranger","bag_room","golf_superintendent","general_manager"],"w":["front_desk","clubline","membership_director"],"l":[]},"/dashboard/chat":{"m":["starter_ranger","ap_clerk","personal_trainer","facilities","server_bartender","bag_room","caddie","clubline","executive_chef","fitness_manager","racquet_sports_director","vp_events","golf_shop_staff","marketing","fb_director","golf_superintendent","club_controller","front_desk","head_golf_pro","events_director","vpm_membership","membership_director","general_manager"],"w":[],"l":[]},"/dashboard/my-profile":"*","/dashboard/recycle-bin":{"m":[],"w":[],"l":[]},"/dashboard/my-help-center":"*","/dashboard/admin":{"m":["head_golf_pro","golf_superintendent","vpm_membership","facilities","club_controller","events_director","executive_chef","fitness_manager","front_desk","membership_director","racquet_sports_director","vp_events","golf_shop_staff","fb_director","general_manager"],"w":[],"l":[]},"/dashboard/admin/apps":{"m":["general_manager"],"w":[],"l":["marketing","vpm_membership"]},"/dashboard/locations":{"m":["facilities","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/staff":{"m":["club_controller","general_manager"],"w":["executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership","membership_director"],"l":[]},"/dashboard/staff-access":{"m":["vpm_membership","golf_superintendent","head_golf_pro","events_director","executive_chef","fitness_manager","racquet_sports_director","vp_events","fb_director","club_controller","front_desk","membership_director","general_manager"],"w":[],"l":["marketing"]},"/dashboard/audit":{"m":["general_manager"],"w":[],"l":["marketing","vpm_membership"]},"/dashboard/issues":{"m":["membership_director","general_manager"],"w":[],"l":[]},"/dashboard/notifications":{"m":["marketing","general_manager"],"w":[],"l":["front_desk","vpm_membership","membership_director"]},"/dashboard/background-check-logs":{"m":["general_manager"],"w":[],"l":["vpm_membership","membership_director"]},"/dashboard/settings/markets":{"m":["general_manager"],"w":[],"l":[]},"/dashboard/settings/regions":{"m":["facilities","golf_superintendent","front_desk","head_golf_pro","events_director","vpm_membership","general_manager"],"w":[],"l":[]},"/dashboard/quality":"*","/dashboard/quality/runs":{"m":[],"w":[],"l":[]},"/dashboard/quality/findings":{"m":[],"w":[],"l":[]},"/dashboard/quality/pixels":{"m":[],"w":[],"l":[]},"/dashboard/quality/cases":{"m":[],"w":[],"l":[]},"/dashboard/quality/personas":{"m":[],"w":[],"l":[]},"/dashboard/quality/permissions":{"m":[],"w":[],"l":[]},"/dashboard/quality/run":{"m":[],"w":[],"l":[]},"/dashboard/quality/schedules":{"m":[],"w":[],"l":[]},"/dashboard/quality/readiness":{"m":[],"w":[],"l":[]},"/dashboard/quality/ledger":{"m":[],"w":[],"l":[]},"/dashboard/quality/coverage-map":{"m":[],"w":[],"l":[]},"/dashboard/quality/traceability":{"m":[],"w":[],"l":[]},"/dashboard/quality/untested":{"m":[],"w":[],"l":[]},"/dashboard/quality/fields":{"m":[],"w":[],"l":[]},"/dashboard/quality/treemap":{"m":[],"w":[],"l":[]},"/dashboard/quality/replays":{"m":[],"w":[],"l":[]},"/dashboard/quality/loads":{"m":[],"w":[],"l":[]}}};
+const AS = {general_manager: 'Grant Whitaker', vpm_membership: 'Elena Ruiz', club_controller: 'Ruth Abernathy', events_director: 'Morgan Ellis', golf_shop_staff: 'Riley Brooks', starter_ranger: 'Walt Henderson', server_bartender: 'Carmen Ruiz'};
+function shotWho(s) {
+  const bare = shotPath(s).split('?')[0];
+  if (s.app === 'Member portal') {
+    if (bare.includes('/join')) return {main: ['people thinking of joining'], keys: ['@prospect'], more: 0, as: ''};
+    if (bare.includes('/host-an-event')) return {main: ['people planning an event at the club'], keys: ['@host'], more: 0, as: ''};
+    return {main: ['members'], keys: ['@member'], more: 0, as: 'Michael Johnson'};
+  }
+  let best = '';
+  for (const k in SHOT_JOBS.paths) if ((bare === k || bare.startsWith(k + '/')) && k.length > best.length) best = k;
+  const j = best ? SHOT_JOBS.paths[best] : null, R = SHOT_JOBS.roles;
+  if (!j) return {main: [], keys: [], more: 0, as: ''};
+  if (j === '*') return {main: ['every staff member'], keys: Object.keys(R), more: 0, as: 'Grant Whitaker (General Manager)'};
+  if (!j.m.length) return {main: ['administrators'], keys: ['@admin'], more: 0, as: ''};
+  // The job picker finds a screen for anyone who works in it; a job that can only look isn't listed.
+  const k = j.m.find(x => AS[x] && x !== 'general_manager') || [...j.m, ...j.w].find(x => AS[x] && x !== 'general_manager') || 'general_manager';
+  return {main: j.m.map(x => R[x]), keys: [...j.m, ...j.w], more: j.w.length + j.l.length, as: `${AS[k]} (${R[k]})`};
+}
+const whoShort = w => !w.main.length ? '' : w.main.length <= 3 ? w.main.join(', ') : `${w.main.slice(0, 2).join(', ')} and ${w.main.length - 2} more`;
+const ALLSHOTS = FITGAP.apps.flatMap(a => a.features.flatMap(f => (SHOTS[f.id] || []).map(s => ({...s, area: a.name, feature: f.name, where: shotWhere(s), who: shotWho(s)}))));
+$('#sumShotN').textContent = ALLSHOTS.length.toLocaleString('en-US');
+let shotArea = 'all';
+function drawShots() {
+  const q = $('#shotQ').value.trim().toLowerCase(), job = $('#shotJob').value;
+  const list = ALLSHOTS.filter(s => (shotArea === 'all' || s.area === shotArea) && (!job || s.who.keys.includes(job)) && (!q || `${s.caption} ${s.feature} ${s.area} ${s.where.app} ${s.where.place} ${s.who.main.join(' ')}`.toLowerCase().includes(q)));
+  $('#shotCount').textContent = `${list.length.toLocaleString('en-US')} of ${ALLSHOTS.length.toLocaleString('en-US')} screens`;
+  $('#shotGrid').innerHTML = list.map(s => `<button class="shotcard" data-i="${ALLSHOTS.indexOf(s)}"><span class="ph"><img src="/proposal-sites/invited-clubs/shots/${esc(s.file)}" alt="" loading="lazy" decoding="async"></span><span class="t"><span class="where">${esc(s.where.app)}${s.where.place ? ' › ' + esc(s.where.place) : ''}</span><b>${esc(s.caption)}</b>${s.who.main.length ? `<span class="for"><i>Used by</i> ${esc(whoShort(s.who))}</span>` : ''}</span></button>`).join('') || '<p class="src">No screens match that search.</p>';
+  $('#shotGrid').querySelectorAll('img').forEach(i => { if (i.complete) i.classList.add('ok'); });
+}
+const areas = FITGAP.apps.map(a => [a.name, ALLSHOTS.filter(s => s.area === a.name).length]).filter(a => a[1]);
+$('#shotFilters').innerHTML = [['all', 'Every area', ALLSHOTS.length], ...areas.map(([n, c]) => [n, n, c])].map(([k, n, c]) => `<button class="chip" data-area="${esc(k)}" aria-pressed="${k === 'all'}">${esc(n)}<span class="n">${c}</span></button>`).join('');
+$('#shotFilters').addEventListener('click', e => { const b = e.target.closest('[data-area]'); if (!b) return; shotArea = b.dataset.area; document.querySelectorAll('#shotFilters .chip').forEach(x => x.setAttribute('aria-pressed', String(x === b))); drawShots(); });
+// The job picker: members and visitors first, then every staff job that opens at least one screen.
+const jobN = k => ALLSHOTS.filter(s => s.who.keys.includes(k)).length;
+const jobOpts = [['@member', 'Members'], ['@prospect', 'People thinking of joining'], ['@host', 'People planning an event'], ...Object.entries(SHOT_JOBS.roles).sort((a, b) => a[1].localeCompare(b[1], 'en-US')), ['@admin', 'Administrators']].map(([k, n]) => [k, n, jobN(k)]).filter(o => o[2]);
+$('#shotJob').innerHTML = '<option value="">Every job</option>' + jobOpts.map(([k, n, c]) => `<option value="${esc(k)}">${esc(n)} (${c})</option>`).join('');
+$('#shotJob').addEventListener('change', drawShots);
+$('#shotQ').addEventListener('input', drawShots);
+// Each screenshot fades in once it has loaded, over a quiet placeholder.
+$('#shotGrid').addEventListener('load', e => { if (e.target.tagName === 'IMG') e.target.classList.add('ok'); }, true);
+$('#shotGrid').addEventListener('error', e => { if (e.target.tagName === 'IMG') e.target.classList.add('ok'); }, true);
+$('#shotGrid').addEventListener('click', e => {
+  const b = e.target.closest('.shotcard'); if (!b) return;
+  const s = ALLSHOTS[+b.dataset.i];
+  // Page through the screens of the same feature, starting from the one tapped.
+  shotList = ALLSHOTS.filter(x => x.feature === s.feature); shotAt = shotList.indexOf(s); shotFrom = b;
+  $('#shotTitle').textContent = s.feature;
+  drawShot(); shotBox.showModal();
+});
+drawShots();
+requestAnimationFrame(() => tabEl.classList.add('ready'));
+
+/* ---------- videos ---------- */
+const VIDS = [
+  {slug: 'club-steward-run-the-whole-club', name: 'Run the whole club on one platform', len: '2 min', about: 'Website and marketing, HR, membership sales and the members app, tee times, events and catering, point of sale, billing and dues, member service, Active AI and security.', chapters: [[0, 'One club, too many systems'], [15, 'Website & Marketing and HR'], [31, 'Membership Sales and Members App'], [47, 'Tee Times, Events & Catering'], [59, 'Point of Sale, e-Commerce and Billing'], [78, 'Member Service with Chatbot'], [95, 'Active AI'], [106, 'Security and next steps']], try: 'Sign in as <b>Grant Whitaker</b>, the general manager, to see every app.'},
+  {slug: 'club-steward-events-catering', name: 'Events & Catering, start to finish', len: '1 min 37 s', about: 'Room holds, instant online quotes, one club-wide menu, the host’s planning portal, kitchen prep and ordering, staffing, vendors, event day on the captain’s phone, and the final bill.', chapters: [[0, 'Meet Events & Catering'], [15, 'Booking and instant quotes'], [35, 'One menu and the host portal'], [53, 'Kitchen and staffing'], [66, 'Vendors and event day'], [82, 'Close-out and profit']], try: 'Sign in as <b>Morgan Ellis</b>, then open <b>Events &amp; Dining › Private Events</b>.'},
+  {slug: 'club-steward-point-of-sale', name: 'Point of Sale: one checkout for the whole club', len: '38 s', about: 'The dining room, the bar, the pro shop and the halfway house on one checkout, with every charge on the member’s statement the moment it is made.', chapters: [[0, 'One checkout for every outlet'], [13, 'Charging members and bookings'], [27, 'On the statement, instantly']], try: 'Use <b>Quick POS Sign-In</b> on the staff sign-in page: Riley Brooks for the pro shop, Carmen Ruiz or Jamie Cole for dining.'},
+  {slug: 'club-steward-member-service-hr', name: 'Member Service & HR', len: '1 min 47 s', about: 'A website assistant that answers from the club’s own approved answers, live chats matched to the member, cases with an owner and an answer-by time, and hiring with ranked applicants.', chapters: [[0, 'Meet Member Service & HR'], [35, 'Cases and member records'], [62, 'Ranked applicants and scorecards'], [101, 'Book a walkthrough']], try: 'Sign in as <b>Grant Whitaker</b>, then open <b>Service</b> and <b>HR</b>.'},
+];
+const mmss = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
+$('#vids').innerHTML = VIDS.map((v, i) => `<article class="vid"><video controls playsinline preload="none" poster="/videos/${v.slug}-poster.webp" data-v="${i}" aria-label="${esc(v.name)}"><source src="/videos/${v.slug}.mp4" type="video/mp4"><track kind="captions" srclang="en" label="English" src="/videos/${v.slug}.vtt"></video><div class="t"><p class="len">${v.len}</p><h3>${esc(v.name)}</h3><p>${esc(v.about)}</p><div class="chaps">${v.chapters.map(([t, n]) => `<button data-v="${i}" data-t="${t}"><b>${mmss(t)}</b>${esc(n)}</button>`).join('')}</div><p class="tryit">Try it yourself: ${v.try} <a href="#demo">Demo logins</a></p></div></article>`).join('');
+// The chapter playing is marked as the film runs.
+document.querySelectorAll('#vids video').forEach(vid => vid.addEventListener('timeupdate', () => {
+  const bs = [...document.querySelectorAll(`#vids .chaps button[data-v="${vid.dataset.v}"]`)];
+  const on = bs.filter(b => +b.dataset.t <= vid.currentTime).pop();
+  bs.forEach(b => b.classList.toggle('on', b === on));
+}));
+$('#vids').addEventListener('click', e => {
+  const b = e.target.closest('.chaps button'); if (!b) return;
+  const vid = $(`#vids video[data-v="${b.dataset.v}"]`);
+  const go = () => { vid.currentTime = +b.dataset.t; vid.play().catch(() => {}); };
+  if (vid.readyState >= 1) go(); else { vid.preload = 'metadata'; vid.addEventListener('loadedmetadata', go, {once: true}); vid.load(); }
+});
+document.querySelectorAll('#vids video').forEach((v, i) => v.addEventListener('play', () => window.__ardnTrack && window.__ardnTrack('video', {name: VIDS[i].name})));
+
+/* ---------- demo logins ---------- */
+$('#staffGo').href = DEMO.staff + '/'; $('#staffUrl').textContent = DEMO.staff.replace('https://', '');
+$('#memberGo').href = DEMO.member + '/login?roster=1'; $('#memberUrl').textContent = DEMO.member.replace('https://', '') + '/login';
+const APPMAP = [
+  ['Sales', 'Members, households and memberships; Leads, Pipeline, Tours, Applications, Contracts and the Waitlist.'],
+  ['Service', 'Cases, Live Chats, Texts and the Service Dashboard: how quickly each team answers.'],
+  ['Marketing', 'Campaigns, Journeys, Email Templates, Announcements, and the club websites and their forms.'],
+  ['Fundraising', 'Campaigns, Donations, Pledges, Gift Batches and Thank-yous.'],
+  ['POS', 'The pro shop register and the dining floor, charged straight to the member’s account.'],
+  ['Accounting & Finance', 'Billing and Dues; Books with the ledger, banking, payables, budgets, Financial Reports and Month-End Close.'],
+  ['HR', 'Staff, Who’s Working Now, schedules, Timesheets, Pay Periods, Job Postings and Onboarding.'],
+  ['Events & Dining', 'Private Events, Event Calendar, Event Inventory, Event Vendors, Dining Rooms, Menus and the Banquet Kitchen.'],
+  ['Golf & Pro Shop', 'Tee Sheet, Carts, Caddies, Course Map, Agronomy; shop Products, Inventory, Online Orders and Returns.'],
+  ['Front Desk', 'Check-In, Who’s Here, Guest Passes, the Court Sheet, Classes and Appointments.'],
+  ['Assets', 'Equipment the club owns, what is due for service, and licenses.'],
+  ['Reports', 'Reports, Dashboards, member satisfaction, benefits used and sales goals.'],
+];
+$('#appMap').innerHTML = APPMAP.map(([n, d]) => `<div><h4>${esc(n)}</h4><p>${esc(d)}</p></div>`).join('');
+
+/* ---------- comments: Invited asks, Ardn answers, all on the proposal ---------- */
+const SLUG = window.__PROPOSAL_SLUG__ || 'invited-clubs';
+let cmts = [], replyTo = '';
+const cmBtn = el('button', {class: 'cm-open', type: 'button', 'aria-haspopup': 'dialog'}, 'Comments <span class="cm-n" id="cmN"></span>');
+const cmPanel = el('aside', {class: 'cm ardn-track-ui', id: 'cmPanel', 'aria-label': 'Comments', hidden: ''}, `
+  <div class="cm-head"><h3>Comments</h3><button type="button" class="chip" id="cmClose">Close</button></div>
+  <p class="cm-intro">Ask a question or leave a note for Ardn. Ardn answers here, and you get an email when we do.</p>
+  <div class="cm-list" id="cmList"><p class="src">Loading…</p></div>
+  <form class="cm-form" id="cmForm">
+    <p class="cm-reply" id="cmReply" hidden></p>
+    <label class="sr" for="cmText">Your comment</label>
+    <textarea id="cmText" rows="3" maxlength="4000" placeholder="Write a comment or question"></textarea>
+    <div class="cm-row"><span class="src" id="cmWhere"></span><button type="submit" class="cm-send" id="cmSend">Post</button></div>
+    <p class="cm-err" id="cmErr" role="alert"></p>
+  </form>`);
+document.body.append(cmBtn, cmPanel);
+const cmWhen = iso => new Date(iso).toLocaleString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York'}) + ' ET';
+function drawComments() {
+  const roots = cmts.filter(c => !c.parentId);
+  $('#cmN').textContent = cmts.length ? String(cmts.length) : '';
+  const one = c => `<div class="cm-c ${c.side}"><div class="cm-meta"><b>${esc(c.name)}</b>${c.side === 'ardn' ? '<span class="cm-tag">Ardn</span>' : ''} · ${cmWhen(c.createdAt)}${c.where ? ` · <span>${esc(c.where)}</span>` : ''}</div><p>${esc(c.text)}</p></div>`;
+  $('#cmList').innerHTML = roots.length ? roots.slice().reverse().map(r => `<div class="cm-t">${one(r)}${cmts.filter(c => c.parentId === r.id).map(one).join('')}<button type="button" class="cm-rbtn" data-r="${esc(r.id)}">Reply</button></div>`).join('') : '<p class="src">No comments yet. Yours will be the first.</p>';
+}
+async function loadComments() {
+  try {
+    const r = await fetch('/api/proposals/comments?slug=' + encodeURIComponent(SLUG), {cache: 'no-store'});
+    const j = await r.json(); if (j.ok) { cmts = j.comments; drawComments(); }
+    else $('#cmList').innerHTML = '<p class="src">Sign in again to see the comments.</p>';
+  } catch { $('#cmList').innerHTML = '<p class="src">The comments didn’t load. Close this and try again.</p>'; }
+}
+function setReply(id) {
+  replyTo = id; const r = cmts.find(c => c.id === id);
+  $('#cmReply').hidden = !r;
+  $('#cmReply').innerHTML = r ? `Replying to ${esc(r.name)} <button type="button" class="cm-rbtn" id="cmNoReply">Cancel</button>` : '';
+  if (r) $('#cmText').focus();
+}
+function openComments() {
+  cmPanel.hidden = false; cmBtn.setAttribute('aria-expanded', 'true');
+  $('#cmWhere').textContent = whereNow() ? 'From ' + whereNow() : '';
+  loadComments(); $('#cmText').focus();
+}
+function closeComments() { cmPanel.hidden = true; cmBtn.setAttribute('aria-expanded', 'false'); if (location.hash === '#comments') history.replaceState(null, '', location.pathname + location.search); cmBtn.focus(); }
+cmBtn.onclick = () => cmPanel.hidden ? openComments() : closeComments();
+$('#cmClose').onclick = closeComments;
+cmPanel.addEventListener('keydown', e => { if (e.key === 'Escape') closeComments(); });
+cmPanel.addEventListener('click', e => { const b = e.target.closest('[data-r]'); if (b) setReply(b.dataset.r); if (e.target.id === 'cmNoReply') setReply(''); });
+$('#cmForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const text = $('#cmText').value.trim(); if (!text) { $('#cmErr').textContent = 'Write a comment first.'; return; }
+  $('#cmSend').disabled = true; $('#cmErr').textContent = '';
+  try {
+    const r = await fetch('/api/proposals/comments', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({slug: SLUG, text, parentId: replyTo, where: whereNow()})});
+    const j = await r.json();
+    if (!j.ok) throw new Error(j.message || 'Your comment didn’t send. Try again.');
+    cmts = j.comments; $('#cmText').value = ''; setReply(''); drawComments();
+  } catch (err) { $('#cmErr').textContent = err.message || 'Your comment didn’t send. Try again.'; }
+  $('#cmSend').disabled = false;
+});
+loadComments();
+
+route();
 </script>

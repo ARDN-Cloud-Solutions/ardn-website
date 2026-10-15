@@ -31,7 +31,8 @@ export function lockedAllowed(slug: string, email: string): boolean | null {
 const SEEDS: Record<string, Proposal> = { "invited-clubs": invited as Proposal };
 
 export async function getProposal(slug: string): Promise<Proposal | null> {
-  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  // "<slug>--comments" holds a proposal's comment thread (lib/proposals/comments.ts), never a proposal.
+  if (!/^[a-z0-9-]+$/.test(slug) || slug.endsWith("--comments")) return null;
   const saved = (await readProposalFile(slug)) as Proposal | null;
   const p = saved || SEEDS[slug];
   if (!p) return null;
@@ -44,7 +45,7 @@ export async function getProposal(slug: string): Promise<Proposal | null> {
 }
 
 export async function listProposals(): Promise<Proposal[]> {
-  const slugs = Array.from(new Set([...Object.keys(SEEDS), ...(await listProposalSlugs())])).filter((s) => s !== "admin");
+  const slugs = Array.from(new Set([...Object.keys(SEEDS), ...(await listProposalSlugs())])).filter((s) => s !== "admin" && !s.endsWith("--comments"));
   return (await Promise.all(slugs.map((s) => getProposal(s)))).filter((p): p is Proposal => !!p);
 }
 
