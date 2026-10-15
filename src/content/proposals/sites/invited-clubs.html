@@ -861,6 +861,43 @@ section.vpage{padding-top:150px;border-top:0}
 .cm-err{margin:6px 0 0;color:var(--alarm);font-size:13.5px}
 .cm-err:empty{display:none}
 @media print{.cm,.cm-open{display:none!important}}
+/* one system: the thread, three leadership views, and today vs Club Steward */
+.os-thread{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:os;border-top:2px solid var(--brass)}
+.os-thread li{counter-increment:os;padding:22px 20px 22px 0;position:relative}
+.os-thread li+li{padding-left:20px;border-left:1px solid var(--line)}
+.os-thread li::before{content:counter(os,decimal-leading-zero);display:block;font:400 30px/1 var(--serif);color:var(--brass2);margin:0 0 12px}
+.os-thread b{display:block;font-size:17px;color:var(--ink);margin:0 0 6px}
+.os-thread p{margin:0 0 10px;color:var(--soft);font-size:15px;line-height:1.5}
+.tag.live{border-color:rgba(124,214,160,.55);color:#a8e6c1}
+.tag.build{border-color:rgba(246,189,96,.55);color:var(--brass2)}
+@media (max-width:1100px){.os-thread{grid-template-columns:1fr 1fr}.os-thread li+li{border-left:0;padding-left:0}.os-thread li:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}}
+@media (max-width:600px){.os-thread{grid-template-columns:1fr}.os-thread li:nth-child(even){padding-left:0;border-left:0}}
+.os-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:1100px){.os-views{grid-template-columns:1fr}}
+.os-view{border:1px solid var(--line2);border-radius:12px;background:var(--deep);overflow:hidden;display:flex;flex-direction:column}
+.os-view .os-shot{display:block;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:#fff}
+.os-view .os-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.os-view .body{padding:20px 22px 22px}
+.os-view .who{color:var(--brass);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}
+.os-view h4{font:400 26px/1.15 var(--serif);margin:0 0 10px;color:var(--ink)}
+.os-view ul{margin:0;padding-left:18px;color:var(--soft);font-size:15px}
+.os-view li{margin:0 0 6px}
+.os-view .cap{margin:12px 0 0;font-size:13px;color:var(--muted)}
+.os-road{aspect-ratio:16/10;border-bottom:1px solid var(--line);background:#F7F8FB;color:#1b2340;padding:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;font:500 11.5px/1.35 var(--sans);position:relative}
+.os-road .col{display:flex;flex-direction:column;gap:7px;min-width:0}
+.os-road .col>span{font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#5b6385}
+.os-road .card{background:#fff;border:1px solid #e3e6ef;border-radius:7px;padding:7px 8px;box-shadow:0 1px 2px rgba(16,24,64,.06)}
+.os-road .card i{display:block;font-style:normal;color:#6b7394;font-size:10.5px;margin-top:3px}
+.os-road .card em{font-style:normal;font-weight:700;font-size:10px;padding:1px 6px;border-radius:10px;margin-right:4px}
+.os-road .ok{background:#dff5e8;color:#1d7a46}.os-road .run{background:#fdf0d6;color:#8a5a06}.os-road .plan{background:#e7ecfb;color:#2c3f8c}
+.os-road .concept{position:absolute;right:10px;bottom:8px;font-size:10px;color:#8a90a8}
+.os-cmp{width:100%;border-collapse:collapse;font-size:16px}
+.os-cmp th,.os-cmp td{text-align:left;vertical-align:top;padding:14px 16px 14px 0;border-bottom:1px solid var(--line)}
+.os-cmp thead th{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line2)}
+.os-cmp td:first-child{color:var(--ink);font-weight:600;width:18%}
+.os-cmp td:nth-child(2){color:var(--muted);width:38%}
+.os-cmp td:nth-child(3){color:var(--ink)}
+@media (max-width:700px){.os-cmp thead{display:none}.os-cmp tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}.os-cmp td{display:block;width:auto!important;border:0;padding:3px 0}.os-cmp td:nth-child(2)::before{content:"Today: ";color:var(--muted)}.os-cmp td:nth-child(3)::before{content:"Club Steward: ";color:var(--brass2)}}
 </style>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -869,7 +906,7 @@ section.vpage{padding-top:150px;border-top:0}
   <img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn">
   <span class="for">Club Steward · prepared for <b>Invited</b></span>
   <nav class="tabs" id="tabs" aria-label="Proposal">
-    <a href="#summary">Executive summary</a><a href="#value">Value and pricing</a><a href="#full-proposal">Detail</a><a href="#screens">Screenshots</a><a href="#videos">Videos</a><a href="#demo">Demo logins</a>
+    <a href="#summary">Executive summary</a><a href="#value">Value and pricing</a><a href="#one-system">One system</a><a href="#full-proposal">Detail</a><a href="#screens">Screenshots</a><a href="#videos">Videos</a><a href="#demo">Demo logins</a>
   </nav>
   <span class="sp"></span>
   <div class="lens" role="group" aria-label="Read as"><span>Read as</span>
@@ -1036,6 +1073,70 @@ section.vpage{padding-top:150px;border-top:0}
       </div>
     </div>
     <p class="sig">Ardn Cloud Solutions · Club Steward · Prepared for Invited, October 2026</p>
+  </div>
+</section>
+</div>
+
+<div class="view" id="v-one-system" data-view="one-system" hidden>
+<section class="ch vpage" id="one-system-page">
+  <div class="wrap">
+    <div class="vhead"><div><p class="kicker">One system</p><h2>Every member, every dollar and every change, in one place</h2></div>
+    <p>Today Invited's picture is assembled from fifty-four systems and their vendors. In Club Steward the clubs, the books, the testing and the IT roadmap share one record, so leadership sees the business as it is today, and the IT team owns its own roadmap.</p></div>
+
+    <div class="block" style="margin-top:0;border-top:0;padding-top:0">
+      <h3>One thread, from the club floor to the boardroom</h3>
+      <p class="intro">Follow one request. Every step writes to the same system, so nothing is re-keyed, lost between vendors or invisible to leadership.</p>
+      <ol class="os-thread">
+        <li><b>The clubs work in Club Steward</b><p>Membership, dues, tee sheet, dining, events, front desk and the books, at all 143 entities.</p><span class="tag live">Live today</span></li>
+        <li><b>A problem is reported from the screen</b><p>Report a Problem files it with the steps the person took, the club and the page. No ticket to write, no vendor to call.</p><span class="tag live">Live today</span></li>
+        <li><b>It lands on Invited's IT roadmap</b><p>The project management app: one backlog the CIO prioritizes. Each item shows the clubs asking, the effort and the date.</p><span class="tag build">Built in implementation</span></li>
+        <li><b>The QA app proves it before release</b><p>Every feature is traced to its code and its tests, and the tests run every night as the real roles, through the real sign-in.</p><span class="tag live">Live today</span></li>
+        <li><b>It ships, and everyone sees it close</b><p>The release reaches the clubs; the item closes on the roadmap; the general manager who asked sees it done.</p><span class="tag live">Live today</span> <span class="tag build">Roadmap link in implementation</span></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <h3>Three views for leadership</h3>
+      <p class="intro">The same record, read three ways. Screens below are Club Steward on sample data.</p>
+      <div class="os-views">
+        <article class="os-view">
+          <a class="os-shot" href="/proposal-sites/invited-clubs/onesys/member.jpg" target="_blank" rel="noopener"><img src="/proposal-sites/invited-clubs/onesys/member.jpg" alt="A member's record in Club Steward: standing, balance, tenure, last visit, rounds played and a going-quiet warning" loading="lazy"></a>
+          <div class="body"><p class="who">Customers</p><h4>A 360 view of every member</h4>
+          <ul><li>Standing, balance, dues, household and tenure on one record</li><li>Visits, rounds, dining and event spend beyond dues</li><li>A flag when a member goes quiet, before they resign</li><li>The same member at every club, corporate rolls it up</li></ul></div>
+        </article>
+        <article class="os-view">
+          <a class="os-shot" href="/proposal-sites/invited-clubs/onesys/revenue.jpg" target="_blank" rel="noopener"><img src="/proposal-sites/invited-clubs/onesys/revenue.jpg" alt="The Revenue page: total revenue year to date, dues revenue, a 90-day forecast and revenue by club" loading="lazy"></a>
+          <div class="body"><p class="who">Top and bottom line</p><h4>Every club's numbers, live</h4>
+          <ul><li>Revenue by club and by line: dues, golf, dining, events</li><li>A 90-day forecast from the dues and bookings already on the books</li><li>What is past due and where, from the same billing the clubs run</li><li>Each entity's books close in Club Steward, so the bottom line rolls up without a spreadsheet</li></ul>
+          <p class="cap"><a href="/proposal-sites/invited-clubs/onesys/corporate.jpg" target="_blank" rel="noopener">Every club side by side</a> · <a href="/proposal-sites/invited-clubs/onesys/finance.jpg" target="_blank" rel="noopener">Finance home</a></p></div>
+        </article>
+        <article class="os-view">
+          <div class="os-road" role="img" aria-label="Concept of the IT roadmap: items in Now, Next and Later, each with the clubs asking and its test status">
+            <div class="col"><span>Now</span><div class="card"><em class="run">In QA</em>Shotgun starts on the tee sheet<i>14 clubs asked · ships Nov 4</i></div><div class="card"><em class="ok">Passed</em>Minimums by department<i>All golf clubs · ships Oct 28</i></div></div>
+            <div class="col"><span>Next</span><div class="card"><em class="plan">Planned</em>Payroll feed, second region<i>38 entities · Dec</i></div><div class="card"><em class="plan">Planned</em>Banquet floor plans<i>9 clubs asked · Dec</i></div></div>
+            <div class="col"><span>Later</span><div class="card"><em class="plan">Idea</em>Member app wallet passes<i>Raised by 6 GMs</i></div><div class="card"><em class="plan">Idea</em>Retire hotel interface<i>Saves a license</i></div></div>
+            <span class="concept">Concept · illustrative items</span>
+          </div>
+          <div class="body"><p class="who">IT roadmap</p><h4>Invited's roadmap, owned by Invited</h4>
+          <ul><li>One backlog for every club request and every reported problem</li><li>The CIO sets the order; Ardn's services team builds it, with no statement of work per change</li><li>Each item shows its clubs, its date and its live test status from the QA app</li><li>Leadership sees what IT is spending its time on, and why</li></ul>
+          <p class="cap">Built during implementation, on the same platform.</p></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>What changes for leadership</h3>
+      <table class="os-cmp">
+        <thead><tr><th></th><th>Today</th><th>With Club Steward</th></tr></thead>
+        <tbody>
+          <tr><td>A member</td><td>Pieces in the club system, billing, the tee sheet, dining and marketing</td><td>One record at every club, rolled up at corporate</td></tr>
+          <tr><td>The numbers</td><td>Assembled after month-end from each system's export</td><td>Live by club, from the same billing and books the clubs run</td></tr>
+          <tr><td>The roadmap</td><td>Each vendor's, set for all of their customers; Invited waits its turn</td><td>Invited's own, in the order Invited's CIO sets</td></tr>
+          <tr><td>Quality</td><td>Found when a club calls the help desk</td><td>Tested every night, before a release reaches a club</td></tr>
+          <tr><td>A problem</td><td>A ticket per vendor, re-explained each time</td><td>Filed from the screen with its steps, tracked to the release that fixes it</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 </div>
@@ -2351,7 +2452,7 @@ const DEMO = {
 ['shotBox', 'ardnBox'].forEach(id => { const d = document.getElementById(id); if (d) document.body.append(d); });
 
 /* tabs: one hash per view; any other hash is a place inside the detail */
-const VIEWS = ['summary', 'value', 'full-proposal', 'screens', 'videos', 'demo'];
+const VIEWS = ['summary', 'value', 'one-system', 'full-proposal', 'screens', 'videos', 'demo'];
 const viewKey = v => v === 'full-proposal' ? 'detail' : v;
 function showView(v) {
   const key = viewKey(v);
