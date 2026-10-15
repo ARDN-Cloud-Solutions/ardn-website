@@ -602,6 +602,17 @@ section.vpage{padding-top:150px;border-top:0}
 .points li::before{content:counter(pt);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brass);color:var(--night);font-weight:700;font-size:14px;margin-bottom:12px}
 .points h4{margin:0 0 6px;font-size:17px}
 .points p{margin:0;color:var(--soft);font-size:15.5px}
+.levers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:18px}
+.levers article{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;background:linear-gradient(180deg,rgba(246,189,96,.06),transparent 55%),var(--deep);transition:transform .25s var(--out),border-color .25s}
+.levers article:first-child{grid-column:1/-1}
+.levers article:first-child h4{font-size:21px}
+.levers article:hover{transform:translateY(-3px);border-color:var(--line2)}
+.levers .gone{margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass)}
+.levers h4{margin:0 0 8px;font-size:18px;line-height:1.3}
+.levers p{margin:0 0 14px;color:var(--soft);font-size:15px}
+.levers ul{margin:auto 0 0;padding:14px 0 0;border-top:1px solid var(--line);list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.levers li{font-size:13px;padding:3px 10px;border-radius:20px;border:1px solid rgba(60,162,255,.4);color:#9fd0ff}
+@media (prefers-reduced-motion:reduce){.levers article{transition:none}.levers article:hover{transform:none}}
 
 /* summary: the cost */
 .cost{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px}
@@ -793,6 +804,21 @@ section.vpage{padding-top:150px;border-top:0}
       <div><p class="big num">126 + 17</p><p>Golf and country club entities, priced per entity as Invited buys today, plus 17 city clubs on a lighter fee. <span class="tag F">Invited</span></p></div>
       <div><p class="big num">432 / 484</p><p>Rows of Invited's capability workbook already built at the October 7 review. 45 more wait only on an account or file from Invited. <span class="tag F">Fit-gap review</span></p></div>
       <div><p class="big num">Nightly</p><p>1,693 automated test files and 116 full browser journeys run every night, so defects are found before a club finds them. <span class="tag F">Quality records</span></p></div>
+    </div>
+
+    <div class="block" id="levers">
+      <h3>What takes the cost out</h3>
+      <p class="intro">The saving does not come from a cheaper license. It comes from what Invited no longer has to buy, run, test, connect and support. These are the features and services that do it.</p>
+      <div class="levers">
+        <article><p class="gone">Removes · licenses</p><h4>Thirty-six systems retire, with their licenses and renewals</h4><p>Salesforce, Pardot, DocuSign, Calendly, MemberPride, Oracle EBS, MICROS, SevenRooms, CourtReserve, CaterPro and AllSeated, among others, are replaced by features inside one product.</p><ul><li>E-signature built in</li><li>One messaging hub</li><li>Books: one ledger</li><li>Revenue attribution</li></ul></article>
+        <article><p class="gone">Removes · running the systems</p><h4>Ardn runs, maintains and changes it for one fee</h4><p>Hosting, backups, security patches, upgrades and fixes are included. The clubs' requests go into one backlog Invited prioritizes, with no statement of work for each change.</p><ul><li>Managed hosting</li><li>Continuous upgrades</li><li>One change backlog</li><li>No per-change SOW</li></ul></article>
+        <article><p class="gone">Removes · manual testing</p><h4>The product tests itself every night</h4><p>No one clicks through every screen when a release ships. 1,693 automated test files and 116 browser journeys run every night, and 37 checks stand between any change and the clubs.</p><ul><li>Nightly regression</li><li>38 simulated roles</li><li>Self-testing release gate</li></ul></article>
+        <article><p class="gone">Removes · P1 hours and triage</p><h4>Defects are found and fixed before a club calls</h4><p>A P1 takes Invited 8 to 10 hours to resolve today. On Club Steward the nightly run finds defects first, and when staff do report one, support sees exactly what they saw. Second-line support is in the fee.</p><ul><li>Report a Problem</li><li>Log in as</li><li>Permission explainer</li><li>Edit history</li></ul></article>
+        <article><p class="gone">Removes · integrations</p><h4>No middleware to build, run or reconcile</h4><p>Members, point of sale, dues, events and payments share one record and one ledger, so nobody reconciles data between systems. Payroll, hotel, handicap and fitness stay connected through built-in connectors.</p><ul><li>One member record</li><li>One ledger</li><li>Connectors: ADP, Opera, GHIN, TechnoGym</li></ul></article>
+        <article><p class="gone">Removes · manual work at the clubs</p><h4>Staff stop re-keying and start serving</h4><p>Prospects join, sign and pay online. Event quotes price themselves on the call. AI reads receipts, builds floor plans from a photo and routes inquiries, and members check themselves in.</p><ul><li>Online join</li><li>Instant event quotes</li><li>AI receipts, floor plans, inquiries</li><li>Self check-in</li></ul></article>
+        <article><p class="gone">Removes · training and report requests</p><h4>One way to work, and answers without IT</h4><p>Every club sells, books and reports the same way, so there is one process to train and support. Staff build their own reports and ask questions in plain words, and new staff get guided walkthroughs on day one.</p><ul><li>One sales process</li><li>Report builder</li><li>Ask Club Steward</li><li>Walk Me Through It</li></ul></article>
+      </div>
+      <p class="src" style="margin-top:16px">Each feature, and the cost it removes, is in the <a href="#built">detail</a>.</p>
     </div>
 
     <div class="block" id="cost">
