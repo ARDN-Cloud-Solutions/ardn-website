@@ -12,7 +12,7 @@ export async function GET(req: Request) {
   if (!s) return NextResponse.json({ ok: false }, { status: 401 });
   try {
     const pub = await getPub(slug);
-    return NextResponse.json({ ok: true, hash: pub?.hash ?? "", nums: pub?.nums ?? null, snap: pub?.snap ?? null }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ ok: true, hash: pub?.hash ?? "", nums: pub?.nums ?? null, snap: pub?.snap ?? null, at: pub?.at ?? "", by: pub?.by ?? "" }, { headers: { "Cache-Control": "no-store" } });
   } catch (err) {
     console.error("published-numbers", err);
     return NextResponse.json({ ok: false }, { status: 500 });

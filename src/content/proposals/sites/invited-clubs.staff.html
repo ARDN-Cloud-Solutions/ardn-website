@@ -1,25 +1,25 @@
-<!--STAFF-TAB--><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team admin</span></a><!--/STAFF-TAB-->
+<!--STAFF-TAB--><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team Admin</span></a><!--/STAFF-TAB-->
 <!--STAFF-VIEW--><div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
 <main data-screen-label="10 Team admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
-    <div style="flex:1 1 20em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-bottom:.35em;">Ardn staff only · never shown to Invited</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Team, rates and margin</h1></div>
+    <div style="flex:1 1 20em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-bottom:.35em;">Ardn Staff Only · Never Shown to Invited</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Team, Rates and Margin</h1></div>
     <div style="display:flex;gap:.4em;flex-wrap:wrap;align-items:center;">
       <span style="font-size:max(14px,.8em);padding:.25em .7em;border-radius:999px;font-weight:700;"><span data-v="pubStatus"></span></span><span style="font-size:max(14px,.78em);color:#8E95B5;margin-right:.4em;"><span data-v="pubWhen"></span></span>
       <button data-act="saveTeam" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;border:1px solid rgba(246,189,96,.7);background:rgba(246,189,96,.12);color:#F4F1EA;"><span data-v="teamSaveLabel"></span></button>
-      <button data-act="publishTeam" data-ev="click" id="admPublish" style="font:inherit;font-size:max(14px,.9em);font-weight:800;padding:.4em 1.1em;border-radius:999px;border:1px solid #5FD08A;background:rgba(95,208,138,.16);color:#F4F1EA;margin-right:.8em;">Publish to proposal</button>
-      <button id="phImpl" data-act="ph_impl" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Implementation</button><button id="phMs" data-act="ph_ms" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Managed service</button>
+      <button data-act="publishTeam" data-ev="click" id="admPublish" style="font:inherit;font-size:max(14px,.9em);font-weight:800;padding:.4em 1.1em;border-radius:999px;border:1px solid #5FD08A;background:rgba(95,208,138,.16);color:#F4F1EA;margin-right:.8em;">Publish to Proposal</button>
+      <button id="phImpl" data-act="ph_impl" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Implementation</button><button id="phMs" data-act="ph_ms" data-ev="click" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;">Managed Service</button>
     </div>
   </section>
   <section class="admstats" style="display:grid;gap:.5em;">
-    <div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRev"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">revenue a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRun"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">cost a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMargin"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">margin a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMarginPct"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">margin %</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admHours"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">hours a month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admUtil"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">utilization</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admContract"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;"><span data-v="admContractLbl"></span></div></div>
+    <div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRev"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">Revenue a Month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admRun"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">Cost a Month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMargin"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">Margin a Month</div></div><div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.55);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#5FD08A;"><span data-v="admMarginPct"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">Margin %</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admHours"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">Hours a Month</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admUtil"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;">Utilization</div></div><div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.5em .75em;"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:#F4F1EA;"><span data-v="admContract"></span></div><div style="font-size:max(14px,.76em);color:#E8EAF2;margin-top:.2em;"><span data-v="admContractLbl"></span></div></div>
   </section>
   <section style="flex:1;display:flex;gap:.7em;min-height:0;">
     <div data-show="sideClosed" style="display:contents">
-    <button data-act="toggleSide" data-ev="click" title="Show rate card and hours" style="flex:none;width:2.2em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;color:#F6BD60;cursor:pointer;font:inherit;display:flex;flex-direction:column;align-items:center;gap:.6em;padding:.6em 0;"><span style="font-size:1.1em;">›</span><span style="writing-mode:vertical-rl;font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;font-weight:700;">Rates &amp; hours</span></button>
+    <button data-act="toggleSide" data-ev="click" title="Show rate card and hours" style="flex:none;width:2.2em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;color:#F6BD60;cursor:pointer;font:inherit;display:flex;flex-direction:column;align-items:center;gap:.6em;padding:.6em 0;"><span style="font-size:1.1em;">›</span><span style="writing-mode:vertical-rl;font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;font-weight:700;">Rates &amp; Hours</span></button>
     </div>
     <div data-show="sideOpen" style="display:contents">
     <div style="flex:0 0 20em;background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.6em .7em;display:flex;flex-direction:column;gap:.4em;overflow:auto;">
-      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;">Rate card</span><button data-act="toggleSide" data-ev="click" title="Collapse" style="background:none;border:1px solid rgba(244,241,234,.2);color:#E8EAF2;border-radius:6px;width:1.7em;height:1.7em;cursor:pointer;font:inherit;line-height:1;">‹</button></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;">Rate Card</span><button data-act="toggleSide" data-ev="click" title="Collapse" style="background:none;border:1px solid rgba(244,241,234,.2);color:#E8EAF2;border-radius:6px;width:1.7em;height:1.7em;cursor:pointer;font:inherit;line-height:1;">‹</button></div>
       <div style="display:grid;grid-template-columns:1em minmax(0,1fr) 3em 3em;gap:.3em;font-size:max(14px,.72em);color:#8E95B5;text-transform:uppercase;letter-spacing:.08em;"><span></span><span>Drag onto a row</span><span style="text-align:right;">Cost</span><span style="text-align:right;">Bill</span></div>
       <div data-slot="rateCard" data-as="rc" style="display:contents"></div>
       <button data-act="addRate" data-ev="click" style="font:inherit;font-size:max(14px,.84em);background:none;border:1px dashed rgba(244,241,234,.3);color:#E8EAF2;border-radius:8px;padding:.3em;cursor:pointer;">+ Add rate</button>
@@ -68,12 +68,12 @@
         <span style="font-size:max(14px,.8em);color:#8E95B5;">Drag ⠿ to reorder · drag the blue ↓ to copy hours down · the implementation and production support teams are separate rosters.</span>
         <span style="margin-left:auto;"></span>
         <button data-act="copyTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(60,162,255,.6);color:#F4F1EA;border-radius:8px;padding:.3em .8em;cursor:pointer;"><span data-v="copyLbl"></span></button>
-        <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#E8EAF2;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to draft</button>
+        <button data-act="resetTeam" data-ev="click" style="font:inherit;font-size:max(14px,.86em);background:none;border:1px solid rgba(244,241,234,.25);color:#E8EAF2;border-radius:8px;padding:.3em .8em;cursor:pointer;">Revert to Draft</button>
       </div>
       <div style="margin-top:.8em;border-top:1px solid rgba(244,241,234,.13);padding-top:.6em;">
         <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By group · people and hours in this team, as the proposal shows them</div>
         <div id="admGroups" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;margin-bottom:.8em;"></div>
-        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By role</div>
+        <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:#F6BD60;font-weight:700;margin-bottom:.4em;">By Role</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.45em;">
           <div data-slot="roleCost" data-as="rc" style="display:contents"></div>
         </div>
@@ -94,7 +94,7 @@
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);text-align:center;"><input type="checkbox" checked="{{ row.sel }}" data-on-change="toggleSel" style="accent-color:#F6BD60;width:1em;height:1em;"></input></td><td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);color:#8E95B5;cursor:grab;text-align:center;">⠿</td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);min-width:15em;"><input value="{{ row.role }}" data-on-change="setRole" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><input value="{{ row.name }}" placeholder="Name" data-on-change="setName" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;" class="xf0"></input></td>
-              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.grp }}" data-on-change="setGrp" style="font:inherit;font-size:max(14px,.86em);background:#0F1A4E;color:#E8EAF2;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;max-width:11em;"><option value="lead">Delivery lead</option><option value="platform">Platform &amp; quality</option><option value="support">Support (tier 1–3)</option><option value="pod1">Pod 1 · Membership</option><option value="pod2">Pod 2 · Digital</option><option value="pod3">Pod 3 · Golf</option><option value="pod4">Pod 4 · Dining</option><option value="pod5">Pod 5 · Billing</option><option value="pod6">Pod 6 · Data</option></select></td>
+              <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.grp }}" data-on-change="setGrp" style="font:inherit;font-size:max(14px,.86em);background:#0F1A4E;color:#E8EAF2;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;max-width:11em;"><option value="lead">Delivery Lead</option><option value="platform">Platform &amp; Quality</option><option value="support">Support (Tier 1–3)</option><option value="pod1">Pod 1 · Membership</option><option value="pod2">Pod 2 · Digital</option><option value="pod3">Pod 3 · Golf</option><option value="pod4">Pod 4 · Dining</option><option value="pod5">Pod 5 · Billing</option><option value="pod6">Pod 6 · Data</option></select></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><select data-val="{{ row.loc }}" data-on-change="setLoc" style="font:inherit;font-size:max(14px,.86em);background:transparent;color:#E8EAF2;border:1px solid rgba(244,241,234,.2);border-radius:5px;padding:.1em .2em;"><option value="on">On</option><option value="off">Off</option></select></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.cost }}" data-on-change="setCost" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;" class="xf0"></input></span></td>
               <td style="padding:.3em .4em;border-top:1px solid rgba(244,241,234,.08);"><span style="display:flex;align-items:center;justify-content:flex-end;color:#8E95B5;">$<input type="number" value="{{ row.bill }}" data-on-change="setBill" style="font:inherit;font-size:max(14px,.95em);background:transparent;color:#F4F1EA;border:1px solid transparent;border-radius:5px;padding:.15em .3em;width:100%;text-align:right;font-variant-numeric:tabular-nums;width:3.8em;color:#F9D08A;" class="xf0"></input></span></td>
@@ -115,7 +115,7 @@
 
 /* ---------- Team admin: Ardn staff only. Built from the staff API; the client never receives any of this. ---------- */
 const CAP = 160;
-const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, implTeam: [], msTeam: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: '', view: 'draft'};
+const A = {newRow: {cost: 0, bill: 0}, newRate: {cost: 0, bill: 0}, loaded: false, implTeam: [], msTeam: [], rates: [], nums: {...DEFAULTS}, draft: null, baseJ: '', pub: null, phase: 'ms', sel: [], bulkHours: 160, sideClosed: false, fill: null, sub: 'team', msg: '', view: 'published'};
 // A.team is the roster of the phase being edited; the implementation team and the managed-service team are separate lists
 Object.defineProperty(A, 'team', {get() { return this.phase === 'impl' ? this.implTeam : this.msTeam; }, set(v) { if (this.phase === 'impl') this.implTeam = v; else this.msTeam = v; }});
 const clone = o => JSON.parse(JSON.stringify(o));
@@ -128,7 +128,7 @@ const isLive = () => !isUnsaved() && !!A.draft && !!A.pub && A.pub.hash === A.dr
 const money = n => (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
 const pctOf = (m, r) => r ? Math.round(m / r * 100) + '%' : '—';
 const mColor = (m, r) => !r ? '#8E95B5' : m / r >= .4 ? '#5FD08A' : m / r >= .2 ? '#F6BD60' : '#F08A6C';
-const GROUP_LABEL = {lead: 'Delivery lead', platform: 'Platform & quality', support: 'Support (tier 1–3)', pod1: 'Pod 1 · Membership & Sales', pod2: 'Pod 2 · Digital & Front Desk', pod3: 'Pod 3 · Golf & Racquets', pod4: 'Pod 4 · Dining & Events', pod5: 'Pod 5 · Billing & Finance', pod6: 'Pod 6 · Data & Integrations'};
+const GROUP_LABEL = {lead: 'Delivery Lead', platform: 'Platform & Quality', support: 'Support (Tier 1–3)', pod1: 'Pod 1 · Membership & Sales', pod2: 'Pod 2 · Digital & Front Desk', pod3: 'Pod 3 · Golf & Racquets', pod4: 'Pod 4 · Dining & Events', pod5: 'Pod 5 · Billing & Finance', pod6: 'Pod 6 · Data & Integrations'};
 const curDerived = () => derive(A.nums, snapFromTeams(A.implTeam, A.msTeam));
 const setV = (name, val) => $$(`[data-v="${name}"]`).forEach(e => { e.textContent = val; });
 const normDraft = d => ({...d, implTeam: (d.implTeam || []).map(t => ({...t, grp: GROUPS.includes(t.grp) ? t.grp : 'platform'})), msTeam: (d.msTeam || []).map(t => ({...t, grp: GROUPS.includes(t.grp) ? t.grp : 'platform'})), nums: {...DEFAULTS, ...cleanNums(d.nums)}});
@@ -161,7 +161,7 @@ function initAdmin() {
   const seg = document.createElement('div');
   seg.style.cssText = 'display:flex;gap:.4em;margin-right:.8em';
   const b = (id, label) => `<button type="button" id="${id}" style="font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.4em 1em;border-radius:999px;cursor:pointer;color:#F4F1EA;border:1px solid rgba(244,241,234,.2);background:transparent">${label}</button>`;
-  seg.innerHTML = b('subTeam', 'Team and rates') + b('subNums', 'Proposal numbers');
+  seg.innerHTML = b('subTeam', 'Team and Rates') + b('subNums', 'Proposal Numbers');
   $('#phImpl').parentElement.prepend(seg);
   $('#subTeam').onclick = () => { A.sub = 'team'; renderAdmin(); };
   $('#subNums').onclick = () => { A.sub = 'nums'; renderAdmin(); };
@@ -187,9 +187,9 @@ function renderAdmin() {
   setV('admRev', money(rev)); setV('admRun', money(run)); setV('admMargin', money(mar)); setV('admMarginPct', pctOf(mar, rev));
   setV('admHours', hrs.toLocaleString('en-US')); setV('admUtil', util); setV('admPeople', nPeople);
   setV('admBlendCost', hrs ? money(run / hrs) + '/h' : '—'); setV('admBlendBill', hrs ? money(rev / hrs) + '/h' : '—');
-  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'production support fee a month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
+  setV('admContract', money(contract)); setV('admContractLbl', ph === 'ms' ? 'Production Support Fee a Month' : 'impl. fee ÷ ' + A.nums.hyperMonths + ' months');
   setV('selCount', sel.length);
-  setV('teamTitle', ph === 'impl' ? 'Implementation team' : 'Production support team'); setV('copyLbl', ph === 'impl' ? 'Copy from Managed-service team' : 'Copy from Implementation team');
+  setV('teamTitle', ph === 'impl' ? 'Implementation team' : 'Production Support Team'); setV('copyLbl', ph === 'impl' ? 'Copy from Managed-service team' : 'Copy From Implementation Team');
   const f = A.fill, inFill = i => f && i >= Math.min(f.from, f.to) && i <= Math.max(f.from, f.to);
   const applyFill = (from, to, v) => setTeam(team.map((x, i) => i >= Math.min(from, to) && i <= Math.max(from, to) ? {...x, hours: v} : x));
   const rows = team.map((t, idx) => {
@@ -232,7 +232,7 @@ function renderAdmin() {
     setCost: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, cost: Math.max(0, +e.target.value || 0)} : x); renderAdmin(); },
     setBill: e => { A.rates = rates.map(x => x.id === rc.id ? {...x, bill: Math.max(0, +e.target.value || 0)} : x); renderAdmin(); },
     drag: e => { e.dataTransfer.setData('text/plain', 'rate:' + rc.id); e.dataTransfer.effectAllowed = 'copy'; }})));
-  renderSlot(slotOf('hourChips'), [[160, 'Full-time'], [120, '¾ time'], [80, 'Half-time'], [40, 'Part-time'], [20, 'Light'], [0, 'Off']].map(([h, label]) => ({h, label,
+  renderSlot(slotOf('hourChips'), [[160, 'Full-Time'], [120, '¾ time'], [80, 'Half-Time'], [40, 'Part-Time'], [20, 'Light'], [0, 'Off']].map(([h, label]) => ({h, label,
     drag: e => { e.dataTransfer.setData('text/plain', 'hours:' + h); e.dataTransfer.effectAllowed = 'copy'; }})));
   $('#bulkGrp').innerHTML = '<option value="">—</option>' + GROUPS.map(g => `<option value="${g}">${esc(GROUP_LABEL[g])}</option>`).join('');
   $('#bulkRate').innerHTML = '<option value="">—</option>' + rates.map(r => `<option value="${r.id}">${esc(r.label)}</option>`).join('');
@@ -264,29 +264,36 @@ function renderGroups() {
   }).join('');
 }
 
-/* What the client tabs show in this browser: the draft being edited, so every edit lands on all nine tabs at once, or the
-   published figures when asked. The banner sits in the footer, so the tabs keep their size. */
+/* What the client tabs show in this browser: the published figures, the same as everyone sees. Staff can turn on a draft
+   preview; it is off on every load and never stored. The footer says which one is on screen. */
+function fmtAt(at) { return at ? new Date(at).toLocaleString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) : ''; }
 function staffRefresh() {
-  let nv = PUB.nv, t = PUB.t, differs = false;
-  if (A.loaded) {
-    const dn = {...DEFAULTS, ...A.nums}, dt = snapFromTeams(A.implTeam, A.msTeam);
-    differs = canon({nv: dn, t: dt}) !== canon({nv: PUB.nv, t: PUB.t});
-    if (differs && A.view !== 'published') { nv = dn; t = dt; }
-  }
+  let nv = PUB.nv, t = PUB.t;
+  const preview = A.view === 'draft' && A.loaded;
+  if (preview) { nv = {...DEFAULTS, ...A.nums}; t = snapFromTeams(A.implTeam, A.msTeam); }
   NV = nv; PUBT = t; paint();
   let bar = $('#prevBar');
   if (!bar) {
     bar = document.createElement('span'); bar.id = 'prevBar';
-    bar.style.cssText = 'display:none;align-items:center;gap:.6em;font-size:max(14px,.84em);padding:.1em .3em .1em .8em;border-radius:999px;border:1px solid #F6BD60;background:rgba(246,189,96,.14);color:#F4F1EA';
-    bar.innerHTML = '<span id="prevTxt"></span><button type="button" id="prevBtn" style="font:inherit;font-weight:700;border:0;border-radius:999px;padding:.1em .8em;cursor:pointer;background:#F6BD60;color:#08113B"></button>';
+    bar.style.cssText = 'display:inline-flex;align-items:center;gap:.6em;font-size:max(14px,.84em);padding:.1em .3em .1em .8em;border-radius:999px;border:1px solid var(--gold);background:rgba(var(--goldrgb),.12);color:var(--ink)';
+    bar.innerHTML = '<span id="prevTxt"></span><button type="button" id="prevBtn" style="font:inherit;font-weight:700;border:0;border-radius:999px;padding:.1em .8em;cursor:pointer;background:var(--gold);color:#08113B"></button>';
     $('#fPos').parentElement.after(bar);
-    $('#prevBtn').onclick = () => { A.view = A.view === 'published' ? 'draft' : 'published'; staffRefresh(); };
+    $('#prevBtn').onclick = () => { A.view = A.view === 'draft' ? 'published' : 'draft'; staffRefresh(); };
   }
   const onClient = document.body.dataset.view !== 'admin';
-  bar.style.display = differs && onClient ? 'inline-flex' : 'none';
-  $('#prevTxt').textContent = A.view === 'published' ? 'Showing the published version' : 'Previewing unpublished draft';
-  $('#prevBtn').textContent = A.view === 'published' ? 'Back to draft' : 'View published';
+  bar.style.display = onClient ? 'inline-flex' : 'none';
+  $('#prevTxt').textContent = preview ? 'Showing: DRAFT (not what Invited sees)' : PUB.hash ? 'Showing: Published · ' + fmtAt(PUB.at) + (PUB.by ? ' by ' + PUB.by : '') : 'Showing: Published · Original Figures';
+  $('#prevBtn').textContent = preview ? 'Back to published' : 'Preview Draft';
+  renderDataCheck();
 }
+/* staff only: what to compare between two people's screens */
+function renderDataCheck() {
+  let el = $('#dataCheck'); const host = $('[data-v=pubWhen]'); if (!host) return;
+  if (!el) { el = document.createElement('div'); el.id = 'dataCheck'; el.style.cssText = 'font-size:max(14px,.8em);opacity:.8;margin-top:.3em'; host.parentElement.after(el); }
+  el.textContent = 'Data check · published ' + (PUB.hash || 'none') + (PUB.at ? ' · ' + fmtAt(PUB.at) : '') + ' · showing ' + (A.view === 'draft' ? 'draft' : 'published') + ' · fell back to defaults: ' + (FELL.length ? FELL.join(', ') : 'none');
+}
+/* unsaved edits live only in this editor's memory: say so before they are lost */
+addEventListener('beforeunload', e => { if (A.loaded && isUnsaved()) { e.preventDefault(); e.returnValue = ''; } });
 addEventListener('hashchange', () => { if (typeof staffRefresh === 'function') staffRefresh(); });
 
 function paintFill() {
@@ -299,14 +306,14 @@ function paintFill() {
 }
 function renderStatus() {
   const unsaved = isUnsaved(), live = isLive();
-  const label = unsaved ? 'Unsaved changes' : live ? 'Live on proposal' : A.draft ? 'Draft saved · not published' : 'Nothing saved yet';
+  const label = unsaved ? 'Unsaved Changes' : live ? 'Live on Proposal' : A.draft ? 'Draft Saved · Not Published' : 'Nothing Saved Yet';
   const col = unsaved ? '#F08A6C' : live ? '#5FD08A' : '#F6BD60';
   setV('pubStatus', label);
   const pill = $('[data-v=pubStatus]').parentElement; pill.style.border = '1px solid ' + col; pill.style.color = col;
   let rl = $('#admReload'); if (!rl) { rl = document.createElement('button'); rl.id = 'admReload'; rl.type = 'button'; rl.textContent = 'Reload'; rl.style.cssText = 'font:inherit;font-weight:700;margin-left:.6em;background:rgba(240,138,108,.16);color:#F4F1EA;border:1px solid #F08A6C;border-radius:999px;padding:.1em .9em;cursor:pointer'; rl.onclick = () => location.reload(); $('[data-v=pubWhen]').after(rl); }
   rl.hidden = !A.conflict;
   setV('pubWhen', A.msg || (A.pub ? 'Published ' + new Date(A.pub.at).toLocaleString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) : 'Proposal shows the original figures'));
-  setV('teamSaveLabel', unsaved || !A.draft ? 'Save draft' : 'Draft saved');
+  setV('teamSaveLabel', unsaved || !A.draft ? 'Save Draft' : 'Draft Saved');
   const pub = $('#admPublish'), off = unsaved || live || !A.draft || A.conflict;
   pub.disabled = off; pub.style.opacity = off ? .45 : 1; pub.style.cursor = off ? 'not-allowed' : 'pointer';
 }
@@ -323,8 +330,8 @@ function usedOn() {
   });
   $$('[id^=c]', $('#v-team')).forEach(() => {});
   // the capacity calculator reads the add-on rates, the pod size, the services fee and the cost basis
-  ['onshoreRate', 'offshoreRate', 'podDevs', 'svcMo', 'techYear', 'today', 'peopleMs'].forEach(k => add(k, 'The team'));
-  ['pod1Sys', 'pod2Sys', 'pod3Sys', 'pod4Sys', 'pod5Sys', 'pod6Sys'].forEach(k => add(k, 'The team'));
+  ['onshoreRate', 'offshoreRate', 'podDevs', 'svcMo', 'techYear', 'today', 'peopleMs'].forEach(k => add(k, 'The Team'));
+  ['pod1Sys', 'pod2Sys', 'pod3Sys', 'pod4Sys', 'pod5Sys', 'pod6Sys'].forEach(k => add(k, 'The Team'));
   add('showFlags', 'every tab'); ['saveApp', 'saveTeam', 'saveQa', 'saveDefect', 'saveRoadmap', 'saveLead'].forEach(k => add(k, 'Summary'));
   ['retire', 'partial', 'connect', 'keep', 'systems'].forEach(k => add(k, 'Detail'));
   const seen = (k, acc = new Set()) => { (direct[k] || []).forEach(x => acc.add(x)); Object.entries(DEPS).forEach(([d, ins]) => { if (ins.includes(k) && !acc.has('#' + d)) { acc.add('#' + d); seen(d, acc); } }); return acc; };
@@ -339,13 +346,13 @@ function renderNums() {
   const bad = ['retire', 'partial', 'connect', 'keep'].filter(k => cnt[k] !== A.nums[k]);
   if (SYS.length !== A.nums.systems) bad.unshift('systems');
   const d = curDerived();
-  const prev = [['Technology a year', d.techYear, 'M'], ['Production support a year', d.svcYear, 'M'], ['Run cost a year', d.total, 'M'], ['Saving a year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven month', d.breakeven, 'int']];
+  const prev = [['Technology a Year', d.techYear, 'M'], ['Production Support a Year', d.svcYear, 'M'], ['Run Cost a Year', d.total, 'M'], ['Saving a Year', d.saving, 'M'], ['Saving', d.savingPct, 'pct'], ['Return', d.roi, 'x'], ['Net', d.net, 'M'], ['Breakeven Month', d.breakeven, 'int']];
   const sn = snapFromTeams(A.implTeam, A.msTeam), delta = (over, team) => over > 0 ? ` An override of ${money(over)} replaces it: ${over >= team ? '+' : '−'}${money(Math.abs(over - team))} (${team ? (over >= team ? '+' : '−') + Math.abs(Math.round((over - team) / team * 1000) / 10) + '%' : 'n/a'}) against the team table.` : ' No override: this is exactly what the team table adds up to.';
   const work = (title, big, text, over) => `<div style="background:#0F1A4E;border:1px solid ${over > 0 ? '#F08A6C' : 'rgba(246,189,96,.5)'};border-radius:12px;padding:.6em .9em;display:flex;flex-direction:column;gap:.2em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#F6BD60;font-weight:700">${title}</div><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.9em;line-height:1.05;color:#F4F1EA">${big}</div><div style="color:#E8EAF2">${text}</div></div>`;
   const fees = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(24em,1fr));gap:.6em">` +
-    work('Services fee a month, worked out', money(d.svcMo), `${money(sn.svcMonthly)} = ${d.hoursMs.toLocaleString('en-US')} h at a blended ${d.hoursMs ? '$' + (sn.svcMonthly / d.hoursMs).toFixed(2) : '—'} (production support hours × bill rates, ${d.peopleMs} people).` + delta(A.nums.svcOverride, sn.svcMonthly), A.nums.svcOverride) +
-    work('Implementation fee, one time, worked out', money(d.impl), `${money(d.implTeam)} = ${money(sn.implMonthly)} a month (${d.hoursImpl.toLocaleString('en-US')} h, ${d.peopleImpl} people) × ${A.nums.hyperMonths} months + ${money(A.nums.implOther)} other implementation costs.` + delta(A.nums.implOverride, d.implTeam), A.nums.implOverride) + '</div>';
-  root.innerHTML = fees + `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.6em;line-height:1.15;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#E8EAF2">${l}, worked out</div></div>`).join('') + '</div>' +
+    work('Services Fee a Month, Worked Out', money(d.svcMo), `${money(sn.svcMonthly)} = ${d.hoursMs.toLocaleString('en-US')} h at a blended ${d.hoursMs ? '$' + (sn.svcMonthly / d.hoursMs).toFixed(2) : '—'} (production support hours × bill rates, ${d.peopleMs} people).` + delta(A.nums.svcOverride, sn.svcMonthly), A.nums.svcOverride) +
+    work('Implementation Fee, One Time, Worked Out', money(d.impl), `${money(d.implTeam)} = ${money(sn.implMonthly)} a month (${d.hoursImpl.toLocaleString('en-US')} h, ${d.peopleImpl} people) × ${A.nums.hyperMonths} months + ${money(A.nums.implOther)} other implementation costs.` + delta(A.nums.implOverride, d.implTeam), A.nums.implOverride) + '</div>';
+  root.innerHTML = fees + `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em">` + prev.map(([l, v, f]) => `<div style="background:#0F1A4E;border:1px solid rgba(95,208,138,.5);border-radius:12px;padding:.5em .8em"><div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.6em;line-height:1.15;color:#5FD08A">${FMTS[f](v)}</div><div style="color:#E8EAF2">${l}, Worked Out</div></div>`).join('') + '</div>' +
     (bad.length ? `<div style="color:#F08A6C;border:1px solid #F08A6C;border-radius:8px;padding:.4em .7em">The Detail tab lists ${SYS.length} systems (${cnt.retire} retire, ${cnt.partial} in part, ${cnt.connect} connect, ${cnt.keep} keep). These estate counts differ: ${bad.join(', ')}. Update the list in the page or these counts.</div>` : '') + `<div style="color:#8E95B5;font-size:max(14px,.86em)">The fees, people and hours come from the team table. Totals, the saving, the bars and the capacity calculator are worked out from these inputs and the team. Return multiple, net return and breakeven month are worked out from the implementation fee, the saving and the go-live ramp. Every change shows on the client tabs in this browser at once; Invited sees it after Publish. Save the draft, then publish, to show a change to Invited.</div>` +
     `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(22em,1fr));gap:.6em;align-items:start">` +
     NUMS.map(([title, rows]) => `<div style="background:#0F1A4E;border:1px solid rgba(244,241,234,.13);border-radius:12px;padding:.7em .9em;display:flex;flex-direction:column;gap:.4em"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700">${esc(title)}</div>` +
@@ -400,7 +407,7 @@ Object.assign(ACT, {
       if (r.status === 409) { A.conflict = true; A.msg = 'Someone else changed this draft. Reload to see their version.'; renderAdmin(); return; }
       if (!r.ok || !d.ok) { A.msg = d.message || 'The publish didn’t go through. Try again.'; renderStatus(); return; }
       A.pub = d.published; A.msg = '';
-      PUB = {nv: {...DEFAULTS, ...cleanNums(d.nums)}, t: cleanSnap(d.snap), hash: d.published.hash};
+      PUB = {nv: {...DEFAULTS, ...cleanNums(d.nums)}, t: cleanSnap(d.snap), hash: d.published.hash, at: d.published.at, by: d.published.by};
     } catch (e) { A.msg = 'The publish didn’t go through. Try again.'; }
     renderAdmin();
   },

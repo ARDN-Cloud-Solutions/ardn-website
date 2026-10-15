@@ -20,7 +20,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   // The document holds headcount, hours and client-facing numbers only, never a rate or a margin.
   const pub = await getPub(slug).catch(() => null);
   const staff = isArdnStaff(session.email);
-  const state = { nums: pub?.nums ?? null, snap: pub?.snap ?? null, hash: pub?.hash ?? "", canEdit: staff };
+  const state = { nums: pub?.nums ?? null, snap: pub?.snap ?? null, hash: pub?.hash ?? "", at: pub?.at ?? "", by: staff ? (pub?.by ?? "") : "", canEdit: staff };
   html = html.replace("<!--STATE-->", () => `<script>window.__PROPOSAL_STATE__=${inline(state)}</script>`);
 
   // The team admin tab, its markup and its script exist only in the page a staff member is sent.

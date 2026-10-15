@@ -50,11 +50,11 @@ const MAX_RATES = 30;
 
 /** Placeholder rates until the real rate card is supplied (README: open item). */
 export const DEFAULT_RATE_CARD: RateRow[] = [
-  { id: 1, label: "Onshore lead", cost: 95, bill: 175 },
-  { id: 2, label: "Onshore specialist", cost: 80, bill: 150 },
-  { id: 3, label: "Offshore senior", cost: 30, bill: 60 },
-  { id: 4, label: "Offshore developer", cost: 22, bill: 60 },
-  { id: 5, label: "Offshore QA / support", cost: 18, bill: 45 },
+  { id: 1, label: "Onshore Lead", cost: 95, bill: 175 },
+  { id: 2, label: "Onshore Specialist", cost: 80, bill: 150 },
+  { id: 3, label: "Offshore Senior", cost: 30, bill: 60 },
+  { id: 4, label: "Offshore Developer", cost: 22, bill: 60 },
+  { id: 5, label: "Offshore QA / Support", cost: 18, bill: 45 },
 ];
 
 /** The team as first drawn: [role, group, location, cost, bill, impl hours per person, managed-service hours per person]. */
@@ -64,16 +64,16 @@ const SEED: [string, Group, "on" | "off", number, number, number[], number[]][] 
   ["Release Manager", "platform", "on", 80, 150, [160], [80]],
   ["QA Automation", "platform", "off", 18, 45, [160, 160], [160, 0]],
   ["Integration & Data Engineer", "platform", "off", 30, 60, [160, 160], [160, 0]],
-  ["Second-line Support Lead", "support", "on", 80, 150, [160], [160]],
-  ["L2 Analyst (US shift)", "support", "off", 18, 45, [160, 160, 160, 160], [160, 160, 0, 0]],
+  ["Second-Line Support Lead", "support", "on", 80, 150, [160], [160]],
+  ["L2 Analyst (US Shift)", "support", "off", 18, 45, [160, 160, 160, 160], [160, 160, 0, 0]],
   ["Trainer & Change Lead", "support", "on", 80, 150, [160], [40]],
-  ["Members lead", "pod1", "on", 95, 175, [160], [160]],
+  ["Members Lead", "pod1", "on", 95, 175, [160], [160]],
   ["Developer", "pod1", "off", 22, 60, [160], [0]],
   ["Developer", "pod2", "off", 22, 60, [160], [160]],
   ["Developer", "pod3", "off", 22, 60, [160], [160]],
-  ["Club Ops lead", "pod4", "on", 95, 175, [160], [160]],
+  ["Club Ops Lead", "pod4", "on", 95, 175, [160], [160]],
   ["Developer", "pod4", "off", 22, 60, [160], [0]],
-  ["Finance lead", "pod5", "on", 95, 175, [160], [160]],
+  ["Finance Lead", "pod5", "on", 95, 175, [160], [160]],
   ["Developer", "pod6", "off", 22, 60, [160], [160]],
 ];
 /** Both rosters as first drawn: the same seed table, a person on each team where they have hours in that phase. */
@@ -159,13 +159,26 @@ type OldRow = { id: number; role: string; name: string; grp?: unknown; loc: "on"
  */
 export async function getDraft(slug: string): Promise<TeamDraft | null> {
   const d = (await readProposalFile(slug + TEAM_DRAFT_SUFFIX)) as (Partial<TeamDraft> & { team?: OldRow[] }) | null;
-  if (!d) return null;
-  const fix = (t: TeamRow): TeamRow => ({ ...t, grp: isGroup(t.grp) ? t.grp : "platform" });
-  if (Array.isArray(d.implTeam) && Array.isArray(d.msTeam)) return { ...(d as TeamDraft), implTeam: d.implTeam.map(fix), msTeam: d.msTeam.map(fix) };
+  if (!d || typeof d !== "object") return null;
+  const n = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : 0);
+  const fix = (t: TeamRow): TeamRow => ({ ...t, grp: isGroup(t.grp) ? t.grp : "platform", name: t.name ?? "", loc: t.loc === "on" ? "on" : "off", cost: n(t.cost), bill: n(t.bill), hours: n(t.hours) });
+  // every older draft lacked some of these: a missing list or figure becomes the default, never undefined
+  const rates = Array.isArray(d.rates) ? d.rates : DEFAULT_RATE_CARD;
+  const nums = migrateNums(d.nums);
+  if (Array.isArray(d.implTeam) && Array.isArray(d.msTeam)) return { ...(d as TeamDraft), implTeam: d.implTeam.map(fix), msTeam: d.msTeam.map(fix), rates, nums };
   if (!Array.isArray(d.team)) return null;
   const split = (k: "impl" | "ms"): TeamRow[] => d.team!.filter((r) => (r[k] ?? 0) > 0).map((r) => fix({ id: r.id, role: r.role, name: r.name, grp: r.grp as Group, loc: r.loc, cost: r.cost, bill: r.bill, hours: r[k] as number }));
-  const input: DraftInput = { implTeam: split("impl"), msTeam: split("ms"), rates: d.rates ?? [], nums: d.nums ?? {} };
+  const input: DraftInput = { implTeam: split("impl"), msTeam: split("ms"), rates, nums };
   return { ...input, hash: hashOf(input), at: d.at ?? "", by: d.by ?? "" };
+}
+
+/** The first drafts typed the two fees as svcMo and impl; they are now the overrides. */
+function migrateNums(raw: unknown): Nums {
+  const o = (raw && typeof raw === "object" ? { ...(raw as Nums) } : {}) as Nums;
+  if (typeof o.svcMo === "number" && o.svcOverride === undefined) o.svcOverride = o.svcMo;
+  if (typeof o.impl === "number" && o.implOverride === undefined) o.implOverride = o.impl;
+  delete o.svcMo; delete o.impl;
+  return o;
 }
 
 /** null when the stored draft is no longer the one the editor started from (someone else saved, or saved first). */
@@ -177,10 +190,34 @@ export async function saveDraft(slug: string, email: string, input: DraftInput, 
   return draft;
 }
 
+/**
+ * The published document in the current shape, whichever commit wrote it:
+ *  1. {peopleMs, hoursMs, peopleImpl, hoursImpl}           first publish (headcount only)
+ *  2. the same plus roles {i, m}                           role hours, no fees
+ *  3. {groups: {role, i, m}, svcMonthly, implMonthly}      one roster, both phases on each person
+ *  4. {impl: {groups}, ms: {groups}, svcMonthly, implMonthly}  two rosters (current)
+ * 3 converts exactly. 1 and 2 hold no roster to draw, so they take the default teams (what the page shows without data).
+ * Nums keep their keys; svcMo and impl (typed fees) become the overrides.
+ */
 export async function getPub(slug: string): Promise<TeamPub | null> {
-  const p = (await readProposalFile(slug + TEAM_PUB_SUFFIX)) as TeamPub | null;
-  // a document published before the snapshot carried a roster for each team cannot be drawn: the page falls back to its own defaults
-  return p && p.snap && p.snap.ms?.groups && p.snap.impl?.groups ? p : null;
+  const p = (await readProposalFile(slug + TEAM_PUB_SUFFIX)) as (Partial<TeamPub> & { snap?: Record<string, unknown> }) | null;
+  if (!p || typeof p !== "object" || !p.snap || typeof p.snap !== "object") return null;
+  type Old = { role?: unknown; i?: number[]; m?: number[] };
+  const sn = p.snap as { ms?: { groups?: unknown }; impl?: { groups?: unknown }; groups?: Record<string, Old[] | undefined>; svcMonthly?: unknown; implMonthly?: unknown };
+  const fee = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : null);
+  let snap: Snap;
+  const cur = sn.ms?.groups && sn.impl?.groups;
+  if (cur && fee(sn.svcMonthly) !== null && fee(sn.implMonthly) !== null) {
+    snap = sn as Snap;
+  } else if (sn.groups && typeof sn.groups === "object") {
+    const side = (k: "i" | "m") => Object.fromEntries(GROUPS.map((g) => [g, (sn.groups?.[g] ?? []).filter((e) => Array.isArray(e?.[k]) && (e[k] as number[]).length).map((e) => ({ role: String(e.role), h: e[k] as number[] }))])) as GroupSnap;
+    const d = defaultTeams(), dflt = snapOf(d.implTeam, d.msTeam);
+    snap = { impl: { groups: side("i") }, ms: { groups: side("m") }, svcMonthly: fee(sn.svcMonthly) ?? dflt.svcMonthly, implMonthly: fee(sn.implMonthly) ?? dflt.implMonthly };
+  } else {
+    const d = defaultTeams();
+    snap = snapOf(d.implTeam, d.msTeam);
+  }
+  return { snap, nums: migrateNums(p.nums), hash: String(p.hash ?? ""), at: String(p.at ?? ""), by: String(p.by ?? "") };
 }
 
 /** Publishes what was last saved, so a publish never carries unsaved edits. */
