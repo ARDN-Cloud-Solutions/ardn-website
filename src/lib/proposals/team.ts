@@ -22,10 +22,17 @@ export type RateRow = { id: number; label: string; cost: number; bill: number };
 /** The proposal's numbers by key; numbers, except the few keys listed in TEXT_KEYS. */
 export type Nums = Record<string, number | string>;
 export type TeamDraft = { team: TeamRow[]; rates: RateRow[]; nums: Nums; hash: string; at: string; by: string };
-export type Snap = { peopleMs: number; hoursMs: number; peopleImpl: number; hoursImpl: number };
+/** Hours of each person at go-live (i) and after rollout (m), by role: what the step-ups on the proposal are drawn from. No rates. */
+export type Snap = { peopleMs: number; hoursMs: number; peopleImpl: number; hoursImpl: number; roles: Record<string, { i: number[]; m: number[] }> };
 export type TeamPub = { snap: Snap; nums: Nums; hash: string; at: string; by: string };
 
-const TEXT_KEYS = new Set(["priceHold"]);
+const TEXT_KEYS = new Set(["priceHold", "redesignDate", "devDate"]);
+/** The figures the proposal page reads; the page lists the same keys. Anything else in a save is dropped. */
+const NUM_KEYS = new Set(["today", "entities", "entityFee", "cityClubs", "cityFee", "svcMo", "impl", "hyperMonths", "years", "goLiveFrom", "goLiveTo", "systems", "retire", "partial", "connect", "keep", "inHouse", "leadsDemo", "leadCopies", "rowsBuilt", "rowsTotal", "rowsWaiting", "screens", "memberPages", "dbChanges", "tests", "journeys", "roles", "goals", "leadPpl", "platformPpl", "supportPpl", "podSize", "pod1Sys", "pod2Sys", "pod3Sys", "pod4Sys", "pod5Sys", "pod6Sys", "feeds", "onshoreRate", "offshoreRate", "podDevs", "noticeDays", "p1RespMin", "p1RestoreH", "p2RespH", "p2FixD", "p3RespD", "p3FixD", "p4RespD", "p1TodayLo", "p1TodayHi", "priceHold", "day1", "day2", "day3", "sinceYear", "yearsTogether", "redesignDate", "devDate", "redesignWeeks", "partnerSince", "saveApp", "saveTeam", "saveQa", "saveDefect", "saveRoadmap", "saveLead", "showFlags"]);
+
+/** What a new row and a new rate start from in the staff tab; kept here so no rate is ever written into the page. */
+export const NEW_ROW = { cost: 22, bill: 60 };
+export const NEW_RATE = { cost: 30, bill: 60 };
 const MAX_ROWS = 80;
 const MAX_RATES = 30;
 
@@ -83,7 +90,7 @@ export function cleanDraftInput(body: { team?: unknown; rates?: unknown; nums?: 
   const entries = Object.entries(body.nums as Record<string, unknown>);
   if (entries.length > 300) return null;
   for (const [k, v] of entries) {
-    if (!/^[A-Za-z0-9]{1,32}$/.test(k)) continue;
+    if (!NUM_KEYS.has(k)) continue;
     if (TEXT_KEYS.has(k)) { if (typeof v === "string") nums[k] = text(v, 40); continue; }
     const n = num(v, 1e11);
     if (n === null) return null;
@@ -97,7 +104,13 @@ export const hashOf = (d: { team: TeamRow[]; rates: RateRow[]; nums: Nums }) => 
 /** Headcount and hours only: the one thing a viewer learns about the team table. */
 export function snapOf(team: TeamRow[]): Snap {
   const sum = (k: "impl" | "ms") => team.reduce((a, t) => a + t[k], 0);
-  return { peopleMs: team.filter((t) => t.ms > 0).length, hoursMs: sum("ms"), peopleImpl: team.filter((t) => t.impl > 0).length, hoursImpl: sum("impl") };
+  const roles: Snap["roles"] = {};
+  for (const t of team) {
+    const r = (roles[t.role] ||= { i: [], m: [] });
+    if (t.impl > 0) r.i.push(t.impl);
+    if (t.ms > 0) r.m.push(t.ms);
+  }
+  return { peopleMs: team.filter((t) => t.ms > 0).length, hoursMs: sum("ms"), peopleImpl: team.filter((t) => t.impl > 0).length, hoursImpl: sum("impl"), roles };
 }
 
 export async function getDraft(slug: string): Promise<TeamDraft | null> {
@@ -105,7 +118,10 @@ export async function getDraft(slug: string): Promise<TeamDraft | null> {
   return d && Array.isArray(d.team) ? d : null;
 }
 
-export async function saveDraft(slug: string, email: string, input: { team: TeamRow[]; rates: RateRow[]; nums: Nums }): Promise<TeamDraft> {
+/** null when the stored draft is no longer the one the editor started from (someone else saved, or saved first). */
+export async function saveDraft(slug: string, email: string, input: { team: TeamRow[]; rates: RateRow[]; nums: Nums }, expectedHash: string): Promise<TeamDraft | null> {
+  const current = await getDraft(slug);
+  if ((current?.hash ?? "") !== expectedHash) return null;
   const draft: TeamDraft = { ...input, hash: hashOf(input), at: new Date().toISOString(), by: email.trim().toLowerCase() };
   await writeProposalFile(slug + TEAM_DRAFT_SUFFIX, draft);
   return draft;
@@ -117,9 +133,10 @@ export async function getPub(slug: string): Promise<TeamPub | null> {
 }
 
 /** Publishes what was last saved, so a publish never carries unsaved edits. */
-export async function publishDraft(slug: string, email: string): Promise<TeamPub | null> {
+export async function publishDraft(slug: string, email: string, expectedHash: string): Promise<TeamPub | "none" | "conflict"> {
   const d = await getDraft(slug);
-  if (!d) return null;
+  if (!d) return "none";
+  if (d.hash !== expectedHash) return "conflict";
   const pub: TeamPub = { snap: snapOf(d.team), nums: d.nums, hash: d.hash, at: new Date().toISOString(), by: email.trim().toLowerCase() };
   await writeProposalFile(slug + TEAM_PUB_SUFFIX, pub);
   return pub;
