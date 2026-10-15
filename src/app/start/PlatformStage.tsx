@@ -12,7 +12,9 @@ import type { Platform } from "./hooks";
 // shifts at hydration; JS only crossfades it as each platform's copy scrolls
 // past its middle.
 
-export default function PlatformStage({ platforms }: { platforms: Platform[] }) {
+type StageIntro = { kicker: string; title: string; intro: string; footnote?: string };
+
+export default function PlatformStage({ platforms, intro }: { platforms: Platform[]; intro?: StageIntro }) {
   const [active, setActive] = useState(0);
   const steps = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -46,16 +48,26 @@ export default function PlatformStage({ platforms }: { platforms: Platform[] }) 
     <section className="lnd-stage" aria-labelledby="lnd-stage-title">
       <div className="lnd-stage-light" aria-hidden="true" />
       <div className="lnd-wrap">
-        <div className="lnd-stage-intro">
-          <span className="lnd-kicker">What we&apos;ve shipped</span>
-          <h2 id="lnd-stage-title" className="lnd-display lnd-display-dark">
-            Platforms we&apos;ve built and&nbsp;run.
-          </h2>
-          <p className="lnd-intro-text">
-            These are the kinds of organizations we&apos;ve built platforms for. Real screens from software our team designed, launched and still runs every
-            day.
-          </p>
-        </div>
+        {intro ? (
+          <div className="lnd-stage-intro">
+            <span className="lnd-kicker">{intro.kicker}</span>
+            <h2 id="lnd-stage-title" className="lnd-display lnd-display-dark">
+              {intro.title}
+            </h2>
+            <p className="lnd-intro-text">{intro.intro}</p>
+          </div>
+        ) : (
+          <div className="lnd-stage-intro">
+            <span className="lnd-kicker">What we&apos;ve shipped</span>
+            <h2 id="lnd-stage-title" className="lnd-display lnd-display-dark">
+              Platforms we&apos;ve built and&nbsp;run.
+            </h2>
+            <p className="lnd-intro-text">
+              These are the kinds of organizations we&apos;ve built platforms for. Real screens from software our team designed, launched and still runs every
+              day.
+            </p>
+          </div>
+        )}
 
         <div className="lnd-stage-grid">
           <ol className="lnd-stage-steps">
@@ -90,7 +102,7 @@ export default function PlatformStage({ platforms }: { platforms: Platform[] }) 
                     ))}
                   </ul>
                   <a className="lnd-step-link" href={p.href} target="_blank" rel="noopener">
-                    See {p.name}
+                    {p.linkLabel ?? <>See {p.name}</>}
                     <ArrowUpRight size={16} strokeWidth={2.4} aria-hidden="true" />
                     <span className="lnd-sr"> (opens in a new tab)</span>
                   </a>
@@ -128,6 +140,7 @@ export default function PlatformStage({ platforms }: { platforms: Platform[] }) 
             </div>
           </div>
         </div>
+        {intro?.footnote ? <p className="lnd-stage-note">{intro.footnote}</p> : null}
       </div>
     </section>
   );

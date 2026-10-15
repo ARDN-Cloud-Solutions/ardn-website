@@ -4,7 +4,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
 import FunnelForm from "@/components/ads/FunnelForm";
-import { APPS, FAQS, HOOK_SLUGS, PLATFORMS, PROOF, STEPS, getHook } from "../hooks";
+import { APPS, FAQS, PLATFORMS, PROOF, STEPS, getHook } from "../hooks";
+import { CLUB_HOOKS, CRM_HOOKS, type LandingHook } from "../productHooks";
+import { CLUB_PAGE, CRM_PAGE, type ProductPage } from "../productPages";
+import { ALL_HOOK_SLUGS } from "../registry";
+import ProductLanding from "../ProductLanding";
 import PlatformStage from "../PlatformStage";
 import AppGrid from "../AppGrid";
 import TrustLink from "../TrustLink";
@@ -19,12 +23,21 @@ type Props = { params: Promise<{ hook: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return HOOK_SLUGS.map((hook) => ({ hook }));
+  return ALL_HOOK_SLUGS.map((hook) => ({ hook }));
+}
+
+/** Club Steward and Ardn CRM hooks: the hook copy and its funnel's page. */
+function getProduct(slug: string): { hook: LandingHook; page: ProductPage } | undefined {
+  const club = CLUB_HOOKS.find((h) => h.slug === slug);
+  if (club) return { hook: club, page: CLUB_PAGE };
+  const crm = CRM_HOOKS.find((h) => h.slug === slug);
+  if (crm) return { hook: crm, page: CRM_PAGE };
+  return undefined;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { hook } = await params;
-  const h = getHook(hook);
+  const h = getHook(hook) ?? getProduct(hook)?.hook;
   if (!h) return {};
   const url = `https://ardncloudsolutions.com/start/${h.slug}`;
   return {
@@ -38,6 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function StartPage({ params }: Props) {
   const { hook } = await params;
+  const product = getProduct(hook);
+  if (product) return <ProductLanding hook={product.hook} page={product.page} />;
   const h = getHook(hook);
   if (!h) notFound();
   const proof = h.proof ?? PROOF;
