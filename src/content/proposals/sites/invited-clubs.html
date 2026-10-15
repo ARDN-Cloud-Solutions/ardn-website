@@ -328,7 +328,7 @@ body.noflags .flag{display:none}
       <div>
         <div style="display:flex;height:1.6em;border-radius:2px;overflow:hidden;font-size:max(14px,.85em);font-weight:700;">
           <div data-flex="retire" style="flex:36;background:#4B3FD8;color:#fff;display:flex;align-items:center;padding-left:.5em;"><span data-n="retire"></span> Retire</div>
-          <div data-flex="partial" style="flex:4;background:repeating-linear-gradient(135deg,#B9B4FF 0 6px,#DAD7FF 6px 12px);display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;color:#1C2045;">+<span data-n="partial"></span> In Part</div>
+          <div data-flex="partial" style="flex:4;background:#6A5BE6;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;color:#fff;">+<span data-n="partial"></span> In Part</div>
           <div data-flex="stay" style="flex:14;background:#4A5578;color:#fff;display:flex;align-items:center;justify-content:center;"><span data-n="stay"></span> Stay</div>
         </div>
         
@@ -557,7 +557,7 @@ body.noflags .flag{display:none}
         <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;">Mo <span data-n="breakeven"></span></span><span style="color:var(--soft);">breakeven, all costs included</span></div>
         <div style="color:var(--muted);">Fees start per club at go-live.</div>
         <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Cumulative Net by Month</div>
-        <div id="roiBox" style="position:relative;height:4.6em;margin:.1em .2em .2em;"></div>
+        <div id="roiBox" style="position:relative;height:6em;margin:.1em .2em .1em;"></div>
       </div>
       <div style="background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);border-radius:12px;padding:.8em 1.2em;flex:1;display:flex;flex-direction:column;justify-content:center;">
         <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.7em;font-weight:700;">Approve Mobilization</div>
@@ -1223,15 +1223,23 @@ function paintCalc() {
 /* Cumulative net by month as an area chart, drawn from the same derived figures as the Return card, so it moves with the admin numbers. */
 function paintRoi() {
   const box = $('#roiBox'); if (!box || !V.curve) return;
-  const c = V.curve, lo = Math.min(...c, 0), hi = Math.max(...c, 0), W = 300, H = 70, rng = (hi - lo) || 1;
-  const x = i => (i / Math.max(1, c.length - 1) * W).toFixed(1), y = v => (H - (v - lo) / rng * H).toFixed(1), z = y(0);
+  const c = V.curve, lo = Math.min(...c, 0), hi = Math.max(...c, 0), W = 300, H = 70, rng = (hi - lo) || 1, last = Math.max(1, c.length - 1);
+  const x = i => (i / last * W).toFixed(1), y = v => (H - (v - lo) / rng * H).toFixed(1), z = y(0), pct = v => ((H - (v - lo) / rng * H) / H * 100).toFixed(1);
   const pts = c.map((v, i) => x(i) + ',' + y(v)).join(' ');
-  const be = Math.min(V.breakeven, c.length - 1), bx = be / Math.max(1, c.length - 1) * 100;
-  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Cumulative net value by month, breaking even in month ${be}" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">`
+  const be = Math.min(V.breakeven, last), bx = be / last * 100, trough = c.indexOf(Math.min(...c)), tx = trough / last * 100;
+  const step = last > 36 ? 12 : 6, ticks = []; for (let m = 0; m <= last; m += step) ticks.push(m);
+  if (ticks[ticks.length - 1] !== last) ticks.push(last);
+  const lab = 'position:absolute;font-size:max(14px,.8em);white-space:nowrap;line-height:1.1;';
+  const tickHtml = ticks.map(m => `<span style="${lab}bottom:0;left:${(m / last * 100).toFixed(2)}%;transform:translateX(${m === 0 ? '0' : m === last ? '-100%' : '-50%'});color:var(--muted);">${m === last ? 'Mo ' + m : m}</span>`).join('');
+  box.innerHTML = `<div style="position:absolute;inset:0 0 1.45em 0;">`
+    + `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Cumulative net value by month, breaking even in month ${be}" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">`
     + `<polygon points="0,${z} ${pts} ${W},${z}" fill="rgba(75,63,216,.16)"/><line x1="0" x2="${W}" y1="${z}" y2="${z}" stroke="rgba(var(--fgrgb),.35)" stroke-width="1" vector-effect="non-scaling-stroke"/>`
     + `<line x1="${x(be)}" x2="${x(be)}" y1="0" y2="${H}" stroke="#4B3FD8" stroke-dasharray="3 3" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`
     + `<polyline points="${pts}" fill="none" stroke="#4B3FD8" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`
-    + `<span style="position:absolute;top:0;left:${bx}%;transform:translateX(${bx > 70 ? '-105%' : '6px'});font-size:max(14px,.8em);font-weight:700;color:var(--brass);white-space:nowrap;">Breakeven Mo ${be}</span>`;
+    + `<span style="${lab}top:0;left:${bx}%;transform:translateX(${bx > 70 ? '-105%' : '6px'});font-weight:700;color:var(--brass);">Breakeven Mo ${be}</span>`
+    + (c[trough] < 0 ? `<span style="${lab}bottom:calc(${(100 - pct(0)).toFixed(1)}% + 3px);left:${tx}%;transform:translateX(${tx > 60 ? '-100%' : tx < 15 ? '0' : '-30%'});color:var(--alarm);font-weight:600;">\u2212${FMTS.M(-c[trough])}</span>` : '')
+    + `<span style="${lab}top:${Math.max(0, pct(c[last]) - 0)}%;right:0;transform:translateY(-110%);font-weight:700;color:var(--good);">+${FMTS.M(c[last])}</span></div>`
+    + tickHtml;
 }
 
 /* ---------- loops: a template per list, filled from items that carry their own handlers ---------- */
