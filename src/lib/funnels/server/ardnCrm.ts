@@ -202,6 +202,8 @@ export const CRM_SERVER: ServerFunnel = {
     const lead = (m: LeadMeta): Lead => ({ ...m, answers });
     return {
       routing,
+      // Under $2M a year is below current pricing: still a lead, not an ad win.
+      adsConversion: !crmTooSmall(answers),
       email: (m) => buildEmail(lead(m), routing),
       confirmation: (m) => buildConfirmationEmail(lead(m)),
     };

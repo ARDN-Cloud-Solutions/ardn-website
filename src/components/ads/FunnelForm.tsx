@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, BookOpen, Briefcase, Check, Clock, Mail, Phone }
 
 import { toE164 } from "@/lib/leadFunnel";
 import { CLIENT_FUNNELS, type ClientFunnel } from "@/lib/funnels/client";
+import { crmTooSmall } from "@/lib/funnels/ardnCrm";
 import { asList, asText, type ChoiceQuestion, type FormAnswers, type FunnelId } from "@/lib/funnels/types";
 
 /**
@@ -458,7 +459,7 @@ export default function FunnelForm({ hook, funnel = "ardn-ai-consulting" }: { ho
     touch();
     setPhase("sending");
     try {
-      const { status, data } = await postLead<{ status?: string; offer?: string | null; error?: string }>({
+      const { status, data } = await postLead<{ status?: string; offer?: string | null; adsConversion?: boolean; error?: string }>({
         hook,
         answers: f.payload(answers),
         name: c.name,
@@ -481,7 +482,7 @@ export default function FunnelForm({ hook, funnel = "ardn-ai-consulting" }: { ho
       if (data.status === "qualified") {
         const o = data.offer ?? null;
         track("qualified_lead", ev({ offer: o ?? "", page: hook }));
-        if (GADS_QUALIFIED) adsConversion(GADS_QUALIFIED, c, f.leadIdKey);
+        if (GADS_QUALIFIED && data.adsConversion !== false) adsConversion(GADS_QUALIFIED, c, f.leadIdKey);
         setOffer(o);
         setPhase("qualified");
       } else {
@@ -832,12 +833,14 @@ function Qualified({
       if (ev === "calendly.event_scheduled" && !fired) {
         fired = true;
         track("book_call", { page: hook, offer: offer ?? "", ...f.eventExtra });
-        if (GADS_BOOKED) adsConversion(GADS_BOOKED, contact, f.leadIdKey);
+        // Same rule as the server's adsConversion flag: under-$2M CRM leads are not an ad win.
+        const adsOk = !(f.id === "ardn-crm" && crmTooSmall({ revenue: asText(answers.revenue) }));
+        if (GADS_BOOKED && adsOk) adsConversion(GADS_BOOKED, contact, f.leadIdKey);
       }
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [hook, offer, contact, f]);
+  }, [hook, offer, contact, f, answers]);
 
   const first = firstName(contact.name);
   return (
