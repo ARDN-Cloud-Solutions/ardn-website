@@ -12,7 +12,7 @@
   --ink:#1C2045; --soft:#2E3563; --muted:#5B6380;
   --brass:#4B3FD8; --brass2:#3B4289; --gold:#8E8AF8; --sand:#4A5578; --teal:#1B63BD; --slate:#566077; --alarm:#B14226; --good:#17754A;
   --fgrgb:28,32,69; --goldrgb:108,99,240; --bluergb:31,111,209; --alarmrgb:196,85,58; --slatergb:91,99,128; --goodrgb:30,142,87;
-  --navy:#1C2045; --indigo:#3A4289; --violet:#4E42E4;
+  --neg:#9F2D45; --navy:#1C2045; --indigo:#3A4289; --violet:#4E42E4;
   --bar-today:#C9D0E6; --bar-a:#272D63; --bar-b:#1F6FD1;
   --shadow:0 1px 2px rgba(28,32,69,.06),0 4px 16px rgba(28,32,69,.04);
   --sidew:56px; --sidew-open:224px;
@@ -115,7 +115,7 @@ button{font:inherit;color:inherit}
 body.noflags .flag{display:none}
 .dchip{border:1px solid rgba(238,242,255,.2)}
 .dchip.on{background:rgba(169,180,255,.16);border-color:rgba(169,180,255,.7)}
-.pillars{min-height:13.5em;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.5em}
+.pillars{min-height:11em;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.5em}
 @media (min-width:640px){.pillars{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1180px){.pillars{grid-template-columns:repeat(6,minmax(0,1fr))}}
 .admstats{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -306,7 +306,7 @@ body.noflags .flag{display:none}
 <main data-screen-label="01 Home" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:2em;padding:1.2em 1.8em;"><section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2em;"><div><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Proposal</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Club Steward, Prepared for Invited</h1><p style="margin:.5em 0 0;color:var(--soft);font-size:1.05em;line-height:1.45;">One club platform, built, run and supported by Ardn.</p></div><a class="cta" href="#summary">Start With the Executive Summary →</a></section><section id="homeCards" class="homecards"></section></main>
 </div>
 <div class="view" id="v-summary" data-view="summary" data-tab="summary" hidden>
-<main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.5em;padding:1em 1.8em;">
+<main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:.9em;padding:.7em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2.4em;">
     <div style="flex:1 1 30em;max-width:46em;">
       <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Club Steward · Proposal</div>
@@ -352,8 +352,12 @@ body.noflags .flag{display:none}
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
         <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">QA Automation</b></div>
-        <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;"><span data-n="tests"></span> tests every night.</div>
-        <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Regression labor</span></span><span data-save="saveQa" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:.3em;">
+          <div style="display:flex;align-items:baseline;gap:.35em;"><span data-n="tests" style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.45em;line-height:1;color:var(--brass);">1,693</span><span style="font-size:max(14px,.8em);font-weight:700;color:var(--ink);white-space:nowrap;">Automated Tests</span></div>
+          <div style="font-size:max(14px,.84em);color:var(--soft);line-height:1.3;">Every screen, role and money flow checked before each release.</div>
+          <div style="font-size:max(14px,.84em);color:var(--ink);font-weight:600;line-height:1.3;">New tests added with every feature.</div>
+        </div>
+        <div style="padding-top:.3em;border-top:1px solid rgba(var(--goldrgb),.25);font-size:max(14px,.8em);line-height:1.25;"><span><span style="color:var(--brass);font-weight:700;">Saves</span> <span style="color:var(--ink);">Manual Regression Testing</span></span><span data-save="saveQa" class="flag" style="font-size:max(14px,.72em);font-weight:700;color:var(--alarm);border:1px solid rgba(var(--alarmrgb),.55);border-radius:999px;padding:.05em .45em;white-space:nowrap;">$ to size</span></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em .75em;display:grid;grid-template-rows:auto 1fr auto;gap:.4em;">
         <div style="display:flex;align-items:center;gap:.5em;min-height:1.6em;"><span style="flex:none;width:1.9em;height:1.9em;border-radius:8px;background:rgba(var(--goldrgb),.12);display:grid;place-items:center;"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg></span><b style="color:var(--ink);font-size:max(14px,.95em);line-height:1.15;">Defects</b></div>
@@ -624,14 +628,14 @@ body.noflags .flag{display:none}
   <div data-dch="qa" style="display:contents">
   <section style="flex:1;display:flex;flex-wrap:wrap;gap:.8em;">
     <div style="flex:1 1 22em;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;display:flex;flex-direction:column;gap:.8em;">
-      <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Runs every night, by itself</div>
+      <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Runs on a set schedule, by itself</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9em;"><div><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.1em;color:var(--brass);line-height:1;"><span data-n="tests"></span></div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.2em;">Automated Test Files</div></div><div><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.1em;color:var(--ink);line-height:1;"><span data-n="journeys"></span></div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.2em;">Browser Journeys, as the Real Role</div></div><div><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.1em;color:var(--ink);line-height:1;"><span data-n="roles"></span></div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.2em;">Staff and Member Roles Simulated</div></div><div><div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.1em;color:var(--ink);line-height:1;"><span data-n="goals"></span></div><div style="font-size:max(14px,.84em);color:var(--soft);margin-top:.2em;">Goals Checked Every Run</div></div></div>
       <div style="margin-top:auto;padding-top:.55em;border-top:1px solid rgba(var(--fgrgb),.13);font-size:max(14px,.86em);color:var(--soft);">Every gate plants a known fault to prove it still catches it.</div>
     </div>
     <div style="flex:1.5 1 30em;display:flex;flex-direction:column;gap:.8em;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:.8em;">
         <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;border-color:rgba(var(--alarmrgb),.55);"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;color:var(--alarm);margin-bottom:.35em;">Today</div><div style="color:var(--ink);">Invited's people click through every release.</div><div style="font-size:max(14px,.88em);color:var(--soft);margin-top:.25em;">Defects reach clubs and come back as tickets.</div></div>
-        <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;border-color:rgba(var(--goldrgb),.6);"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.35em;">On Club Steward</div><div style="color:var(--ink);">The product tests itself every night.</div><div style="font-size:max(14px,.88em);color:var(--soft);margin-top:.25em;">Invited defines what "right" looks like. Ardn carries the testing.</div></div>
+        <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;border-color:rgba(var(--goldrgb),.6);"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.35em;">On Club Steward</div><div style="color:var(--ink);">The product tests itself on a set schedule, and the suite grows with each feature.</div><div style="font-size:max(14px,.88em);color:var(--soft);margin-top:.25em;">Invited defines what "right" looks like. Ardn carries the testing.</div></div>
       </div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;flex:1;display:flex;flex-direction:column;gap:.6em;">
         <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Every change passes the same gate</div>
@@ -650,10 +654,10 @@ body.noflags .flag{display:none}
     </div>
     <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;border-color:rgba(var(--goldrgb),.6);display:flex;flex-direction:column;gap:.55em;">
       <div style="display:flex;justify-content:space-between;gap:1em;flex-wrap:wrap;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">On Club Steward</span><span style="font-size:max(14px,.86em);color:var(--soft);">The test stays forever, so the same defect can't return unnoticed.</span></div>
-      <div style="display:flex;flex-wrap:wrap;gap:.4em;"><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>The nightly run finds it</b></div><span style="align-self:center;color:var(--brass);">→</span><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>Fixed with a new test</b></div><span style="align-self:center;color:var(--brass);">→</span><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>The gate proves it</b></div><span style="align-self:center;color:var(--brass);">→</span><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>Next Daily Release</b></div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4em;"><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>A scheduled run finds it</b></div><span style="align-self:center;color:var(--brass);">→</span><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>Fixed with a new test</b></div><span style="align-self:center;color:var(--brass);">→</span><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>The gate proves it</b></div><span style="align-self:center;color:var(--brass);">→</span><div style="flex:1 1 0;min-width:6.5em;border:1px solid rgba(var(--goldrgb),.6);border-radius:8px;padding:.45em .55em;font-size:max(14px,.84em);color:var(--ink);line-height:1.25;"><b>Next Daily Release</b></div></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:.8em;flex:1;">
-      <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.35em;">Real Example</div><div style="font-size:max(14px,.92em);color:var(--soft);">Nightly checks caught one club's records visible from another. <b style="color:var(--ink);">Fixed next day, before any user saw it.</b></div></div>
+      <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.35em;">Real Example</div><div style="font-size:max(14px,.92em);color:var(--soft);">A scheduled check caught one club's records visible from another. <b style="color:var(--ink);">Fixed next day, before any user saw it.</b></div></div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.35em;">Reported from the screen</div><div style="font-size:max(14px,.92em);color:var(--soft);">Staff report a problem from any page. Their last steps are attached, so support sees what they saw.</div></div>
       <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.65em 1em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.35em;">What Invited Stops Carrying</div><div style="font-size:max(14px,.92em);color:var(--soft);">Regression testing, reproducing tickets, chasing vendors across <span data-n="systems"></span> systems.</div></div>
     </div>
@@ -1192,14 +1196,15 @@ function paintCompare() {
     const st = {V: ['var(--slate)', 'rgba(var(--slatergb),.10)', 'var(--soft)', 500, 'Vendor'], I: ['var(--alarm)', 'rgba(var(--alarmrgb),.12)', 'var(--ink)', 500, 'Invited'], S: ['var(--sand)', 'rgba(var(--goldrgb),.10)', c === 3 ? 'var(--ink)' : 'var(--soft)', 500, 'Shared'], A: ['var(--brass)', 'rgba(var(--goldrgb),.18)', 'var(--ink)', 700, 'Ardn']}[who];
     return `<span style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:100%;line-height:1.25;padding:.12em .4em;border-radius:999px;border:1px solid ${st[0]};background:${st[1]};color:${st[2]};font-size:max(14px,.78em);font-weight:${st[3]};">${st[4]}</span>`;
   };
-  const cost = l => l ? `<span role="img" aria-label="Cost to Invited ${l} of 3" style="display:inline-flex;gap:.18em;">${[1, 2, 3].map(i => `<i style="width:.62em;height:.62em;border-radius:50%;background:${i <= l ? 'var(--good)' : 'rgba(var(--fgrgb),.16)'};"></i>`).join('')}</span>` : '';
+  // cost to Invited: more $ is more expense, so filled signs are the deep red and unfilled ones a light grey
+  const cost = l => l ? `<span role="img" aria-label="Cost: ${l} of 3" style="display:inline-flex;font-weight:700;letter-spacing:.02em;">${[1, 2, 3].map(i => `<span aria-hidden="true" style="color:${i <= l ? 'var(--neg)' : '#5F6682'};">$</span>`).join('')}</span>` : '';
   const body = JOBS.map(j => `<tr><th scope="row" style="text-align:left;padding:var(--rowpad) .6em var(--rowpad) 0;border-top:1px solid rgba(var(--fgrgb),.1);font-weight:500;color:var(--soft);font-size:max(14px,.86em);">${esc(j[0])}</th>` +
     [0, 1, 2, 3].map(c => `<td style="padding:var(--rowpad) .5em;border-top:1px solid rgba(var(--fgrgb),.1);text-align:center;${colStyle(c)}"><span style="display:inline-grid;grid-template-columns:4.8em 3.1em;align-items:center;justify-items:start;gap:.4em;">${pill(j[c + 2], c)}<span style="font-size:max(14px,.8em);line-height:1;white-space:nowrap;text-align:left;">${cost(jobCost(j[1], j[c + 2], c))}</span></span></td>`).join('') + '</tr>').join('');
-  const foot = `<tr><th scope="row" style="text-align:left;padding:.45em .6em .3em 0;border-top:1px solid rgba(var(--fgrgb),.26);color:var(--ink);font-size:max(14px,.9em);">What Invited Still Carries<div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;"><span style="display:inline-flex;gap:.18em;vertical-align:middle;"><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:rgba(var(--fgrgb),.16);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:rgba(var(--fgrgb),.16);"></i></span> to <span style="display:inline-flex;gap:.18em;vertical-align:middle;"><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i><i style="width:.62em;height:.62em;border-radius:50%;background:var(--good);"></i></span> cost to Invited</div><div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;">Club Steward integrates with InvitedAI.</div></th>` +
+  const foot = `<tr><th scope="row" style="text-align:left;padding:.45em .6em .3em 0;border-top:1px solid rgba(var(--fgrgb),.26);color:var(--ink);font-size:max(14px,.9em);">What Invited Still Carries<div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;"><span aria-hidden="true" style="font-weight:700;"><span style="color:var(--neg);">$</span><span style="color:#5F6682;">$$</span> to <span style="color:var(--neg);">$$$</span></span> cost to Invited</div><div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;">Club Steward integrates with InvitedAI.</div></th>` +
     JOB_COLS.map((c, i) => `<td style="padding:.28em .5em;border-top:1px solid rgba(var(--fgrgb),.1);text-align:center;padding-top:.45em;${i === 3 ? colStyle(i) + 'border-bottom:2px solid var(--gold);border-radius:0 0 12px 12px;box-shadow:0 8px 24px rgba(var(--goldrgb),.2);' : ''}">` +
-      `<div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:${i === 3 ? 'var(--brass)' : 'var(--alarm)'};">${c.full} <span style="font-size:max(14px,.5em);color:var(--muted);">of ${JOBS.length} jobs</span></div>` +
+      `<div style="font-family:'Source Serif 4',Georgia,serif;font-size:1.7em;line-height:1;color:${i === 3 ? 'var(--brass)' : 'var(--neg)'};">${c.full} <span style="font-size:max(14px,.5em);color:var(--muted);">of ${JOBS.length} jobs</span></div>` +
       `<div style="font-size:max(14px,.76em);color:var(--muted);">${c.shared ? '+ ' + c.shared + ' shared' : ''}</div>` +
-      `<div style="margin:.35em auto 0;width:80%;height:.45em;border-radius:999px;background:rgba(var(--fgrgb),.1);overflow:hidden;"><div style="height:100%;width:${Math.round(c.load / JOB_MAX * 100)}%;background:${i === 3 ? 'var(--gold)' : 'var(--alarm)'};"></div></div>` +
+      `<div style="margin:.35em auto 0;width:80%;height:.45em;border-radius:999px;background:rgba(var(--fgrgb),.1);overflow:hidden;"><div style="height:100%;width:${Math.round(c.load / JOB_MAX * 100)}%;background:${i === 3 ? 'var(--gold)' : 'var(--neg)'};"></div></div>` +
       `</td>`).join('') + '</tr>';
   $('#cmpBody').innerHTML = body; $('#cmpFoot').innerHTML = foot;
 }
@@ -1220,26 +1225,32 @@ function paintCalc() {
 }
 ['#cPods', '#cDevs', '#cMonths'].forEach(id => $(id).addEventListener('input', paintCalc));
 
-/* Cumulative net by month as an area chart, drawn from the same derived figures as the Return card, so it moves with the admin numbers. */
+/* Cumulative net by month as an area chart, drawn from the same derived figures as the Return card, so it moves with the admin numbers.
+   The plot keeps padding above and below so the low point and the end value sit clear of the axis, and the band is the gap from zero. */
 function paintRoi() {
   const box = $('#roiBox'); if (!box || !V.curve) return;
-  const c = V.curve, lo = Math.min(...c, 0), hi = Math.max(...c, 0), W = 300, H = 70, rng = (hi - lo) || 1, last = Math.max(1, c.length - 1);
-  const x = i => (i / last * W).toFixed(1), y = v => (H - (v - lo) / rng * H).toFixed(1), z = y(0), pct = v => ((H - (v - lo) / rng * H) / H * 100).toFixed(1);
+  const c = V.curve, lo = Math.min(...c, 0), hi = Math.max(...c, 0), W = 300, H = 100, rng = (hi - lo) || 1, last = Math.max(1, c.length - 1);
+  const TOP = 12, BOT = 70, yv = v => TOP + (hi - v) / rng * (BOT - TOP), x = i => (i / last * W).toFixed(1), y = v => yv(v).toFixed(1), z = y(0);
   const pts = c.map((v, i) => x(i) + ',' + y(v)).join(' ');
-  const be = Math.min(V.breakeven, last), bx = be / last * 100, trough = c.indexOf(Math.min(...c)), tx = trough / last * 100;
+  const be = Math.min(V.breakeven, last), bx = be / last * 100, trough = c.indexOf(Math.min(...c));
   const step = last > 36 ? 12 : 6, ticks = []; for (let m = 0; m <= last; m += step) ticks.push(m);
   if (ticks[ticks.length - 1] !== last) ticks.push(last);
-  const lab = 'position:absolute;font-size:max(14px,.8em);white-space:nowrap;line-height:1.1;';
-  const tickHtml = ticks.map(m => `<span style="${lab}bottom:0;left:${(m / last * 100).toFixed(2)}%;transform:translateX(${m === 0 ? '0' : m === last ? '-100%' : '-50%'});color:var(--muted);">${m === last ? 'Mo ' + m : m}</span>`).join('');
-  box.innerHTML = `<div style="position:absolute;inset:0 0 1.45em 0;">`
-    + `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Cumulative net value by month, breaking even in month ${be}" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">`
-    + `<polygon points="0,${z} ${pts} ${W},${z}" fill="rgba(75,63,216,.16)"/><line x1="0" x2="${W}" y1="${z}" y2="${z}" stroke="rgba(var(--fgrgb),.35)" stroke-width="1" vector-effect="non-scaling-stroke"/>`
+  const lab = 'position:absolute;font-size:max(14px,.8em);white-space:nowrap;line-height:1.15;';
+  const pill = 'background:var(--deep);padding:0 .3em;border-radius:4px;';
+  const dot = (l, t, col) => `<i style="position:absolute;left:${l}%;top:${t}%;width:.65em;height:.65em;border-radius:50%;transform:translate(-50%,-50%);background:${col};border:2px solid var(--deep);box-sizing:content-box;"></i>`;
+  const tickHtml = ticks.map(m => `<span style="${lab}bottom:0;left:${(m / last * 100).toFixed(2)}%;transform:translateX(${m === 0 ? '-20%' : m === last ? '-85%' : '-50%'});color:var(--muted);">${m === last ? 'Mo ' + m : m}</span>`).join('');
+  const lowX = trough / last * 100, lowY = yv(c[trough]), endY = yv(c[last]);
+  box.innerHTML = `<div style="position:absolute;inset:0 .5em 1.45em .5em;">`
+    + `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Cumulative net value by month: low point ${FMTS.M(-c[trough])} below zero, breaking even in month ${be}, ${FMTS.M(c[last])} by month ${last}" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">`
+    + `<defs><clipPath id="roiUp"><rect x="0" y="0" width="${W}" height="${z}"/></clipPath><clipPath id="roiDn"><rect x="0" y="${z}" width="${W}" height="${H}"/></clipPath></defs>`
+    + `<polygon clip-path="url(#roiUp)" points="0,${z} ${pts} ${W},${z}" fill="rgba(75,63,216,.18)"/><polygon clip-path="url(#roiDn)" points="0,${z} ${pts} ${W},${z}" fill="rgba(159,45,69,.16)"/>`
+    + `<line x1="0" x2="${W}" y1="${z}" y2="${z}" stroke="rgba(var(--fgrgb),.55)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`
     + `<line x1="${x(be)}" x2="${x(be)}" y1="0" y2="${H}" stroke="#4B3FD8" stroke-dasharray="3 3" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`
     + `<polyline points="${pts}" fill="none" stroke="#4B3FD8" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`
     + `<span style="${lab}top:0;left:${bx}%;transform:translateX(${bx > 70 ? '-105%' : '6px'});font-weight:700;color:var(--brass);">Breakeven Mo ${be}</span>`
-    + (c[trough] < 0 ? `<span style="${lab}bottom:calc(${(100 - pct(0)).toFixed(1)}% + 3px);left:${tx}%;transform:translateX(${tx > 60 ? '-100%' : tx < 15 ? '0' : '-30%'});color:var(--alarm);font-weight:600;">\u2212${FMTS.M(-c[trough])}</span>` : '')
-    + `<span style="${lab}top:${Math.max(0, pct(c[last]) - 0)}%;right:0;transform:translateY(-110%);font-weight:700;color:var(--good);">+${FMTS.M(c[last])}</span></div>`
-    + tickHtml;
+    + (c[trough] < 0 ? dot(lowX, lowY, 'var(--neg)') + `<span style="${lab}${pill}top:calc(${lowY}% + .55em);left:calc(${lowX}% + .35em);font-weight:700;color:var(--neg);">\u2212${FMTS.M(-c[trough])}</span>` : '')
+    + dot(100, endY, 'var(--good)') + `<span style="${lab}${pill}top:calc(${endY}% + .55em);right:.2em;font-weight:700;color:var(--good);">+${FMTS.M(c[last])}</span></div>`
+    + `<div style="position:absolute;inset:auto .5em 0 .5em;height:1.2em;">${tickHtml}</div>`;
 }
 
 /* ---------- loops: a template per list, filled from items that carry their own handlers ---------- */
