@@ -31,11 +31,11 @@ export const FAQS = [
   },
   {
     q: "What about point of sale and court booking?",
-    a: "Both are on the roadmap. A point-of-sale till is planned, starting with integration to a club's existing POS. Court booking for tennis, pickleball and padel is planned on the same booking engine as the tee sheet. We walk through the roadmap in the demo so nothing is assumed.",
+    a: "Both are built in. Point of sale gives every outlet (shop, dining, tee desk) its own register, taking card, cash and member-account payments, with gift cards, member pricing, kitchen and bar screens, and close-out with cash counts. Every sale lands on the member's statement the moment it's made, and dining keeps selling offline on cash and member account. Courts, classes and lessons book on the same rules as the tee sheet.",
   },
   {
     q: "How is our data kept separate and secure?",
-    a: "Club-level isolation is enforced inside the database with row-level security on every table, so one club's staff cannot query another club's records. On top of that are more than 400 individual permissions, per-person grants or denials with an expiry and a reason, field history on every tracked field, an audit log of staff actions, and a 30-day recycle bin. Members and anything with money, signatures or attendance behind it can never be deleted.",
+    a: "Club-level isolation is enforced inside the database with row-level security on every table, so one club's staff cannot query another club's records. On top of that are more than 550 individual permissions, per-person grants or denials with an expiry and a reason, field history on every tracked field, an audit log of staff actions, and a 30-day recycle bin. Members and anything with money, signatures or attendance behind it can never be deleted.",
   },
   {
     q: "Will our club websites lose their search rankings?",
