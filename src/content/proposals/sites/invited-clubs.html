@@ -602,67 +602,161 @@ section.vpage{padding-top:150px;border-top:0}
 .points li::before{content:counter(pt);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brass);color:var(--night);font-weight:700;font-size:14px;margin-bottom:12px}
 .points h4{margin:0 0 6px;font-size:17px}
 .points p{margin:0;color:var(--soft);font-size:15.5px}
-.slide{box-sizing:border-box;min-height:100vh;height:100vh;padding:84px 40px 18px;display:flex;flex-direction:column;gap:14px}
-.sl-kick{margin:0 0 6px;color:var(--brass);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.sl-title{margin:0;font:400 clamp(26px,2.55vw,40px)/1.12 var(--serif);max-width:none}
-.sl-title em{color:var(--brass2);font-style:normal}
-.sl-grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.25fr 1.1fr;gap:16px}
-.sl-col{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--deep);display:flex;flex-direction:column;min-height:0}
-.sl-h{margin:0 0 10px;font:700 12px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
-.sl-list{margin:0 0 14px;padding:0;list-style:none;display:grid;gap:9px}
-.sl-list li{position:relative;padding-left:16px;font-size:clamp(13px,1.05vw,15px);line-height:1.45;color:var(--soft)}
-.sl-list li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--brass)}
-.sl-list b,.sl-ans b{color:var(--ink)}
-.sl-ans{margin:0;font-size:clamp(13px,1.05vw,15px);line-height:1.5;color:var(--soft)}
-.sl-mid{background:radial-gradient(120% 70% at 50% 0,rgba(246,189,96,.10),transparent 65%),var(--deep);border-color:rgba(246,189,96,.3)}
-.sl-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px}
-.sl-kpis div{border-top:1px solid var(--line);padding-top:8px}
-.sl-kpis .lead{grid-column:1/-1;border-top:0;padding-top:0}
-.sl-kpis .n{margin:0;font:400 clamp(26px,2.5vw,38px)/1 var(--serif);color:var(--brass2)}
-.sl-kpis .lead .n{font-size:clamp(46px,5vw,76px);color:var(--brass)}
-.sl-kpis p:not(.n){margin:4px 0 0;color:var(--soft);font-size:13px;line-height:1.35}
-.sl-cmp{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--soft)}
-.sl-cmp b{font:400 clamp(22px,2vw,30px)/1 var(--serif);color:var(--ink);margin-left:6px}
-.sl-cmp span:first-child b{color:var(--brass)}.sl-cmp span:nth-child(3) b{color:#9fd0ff}
-.sl-cmp i{font-style:normal;color:var(--muted)}
-@media (min-width:1101px) and (max-height:820px){
-  .slide{padding-top:74px;gap:10px}
-  .sl-title{font-size:clamp(24px,2.3vw,34px)}
-  .sl-col{padding:12px 16px}
-  .sl-h{margin-bottom:7px}
-  .sl-list{gap:5px;margin-bottom:10px}
-  .sl-list li,.sl-ans{font-size:13px;line-height:1.38}
-  .sl-kpis .lead .n{font-size:clamp(40px,4vw,58px)}
-  .sl-kpis .n{font-size:clamp(22px,2.1vw,30px)}
-  .sl-kpis p:not(.n){font-size:12px}
-  .sl-team{padding:7px 0}
-  .sl-team .what{font-size:12px}
-  .sl-levers span{padding:3px 9px;font-size:12px}
-  .sl-foot{padding-top:8px}
-  .sl-basis{display:none}
+/* summary: the one-page executive summary (op-) */
+.op-page{
+  --op-fs:clamp(11.5px,min(1.85vh,1.2vw),18px);
+  --op-fs-s:clamp(11.5px,min(1.45vh,.95vw),14.5px);
+  --op-fs-sub:clamp(12.5px,min(2.1vh,1.35vw),20px);
+  --op-fs-title:clamp(21px,min(4vh,2.6vw),48px);
+  --op-fs-big:clamp(24px,min(5.2vh,3.3vw),62px);
+  --op-fs-mid:clamp(17px,min(3.2vh,2vw),34px);
+  --op-gap:clamp(6px,1.2vh,14px);
+  --op-colgap:clamp(10px,1.1vw,20px);
+  --op-pad:clamp(8px,1.5vh,18px);
+  --op-x:clamp(16px,2.2vw,40px);
+  --op-r:12px;
+  --op-blue:#9fd0ff;
+  box-sizing:border-box;height:100vh;height:100dvh;
+  padding:calc(var(--op-bar,64px) + var(--op-gap)) var(--op-x) var(--op-gap);
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) minmax(0,1fr);
+  grid-template-rows:auto auto minmax(min-content,1fr) auto auto;
+  grid-template-areas:"head head head" "time time time" "pain prop econ" "why why ask" "src src src";
+  gap:var(--op-gap) var(--op-colgap);
+  font-size:var(--op-fs);line-height:1.32;color:var(--soft);
 }
-.sl-team{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.sl-team .who{margin:0;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.sl-team.tech .who{color:#9fd0ff}.sl-team.svc .who{color:var(--brass)}.sl-team.impl .who{color:var(--soft)}
-.sl-team .what{margin:3px 0 0;font-size:12.5px;line-height:1.4;color:var(--muted)}
-.sl-team .amt{margin:0;font:400 clamp(22px,2vw,30px)/1 var(--serif);white-space:nowrap}
-.sl-total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 4px;font-weight:600}
-.sl-total b{font:400 clamp(26px,2.4vw,36px)/1 var(--serif);color:#9fd0ff}
-.sl-basis{margin:auto 0 0;font-size:12px;color:var(--muted);line-height:1.4}
-.sl-levers{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.sl-levers span{font-size:12.5px;padding:4px 11px;border-radius:20px;border:1px solid rgba(60,162,255,.4);color:#9fd0ff}
-.sl-levers .lab{border:0;padding-left:0;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
-.sl-foot{display:flex;flex-wrap:wrap;gap:10px 24px;padding-right:130px;align-items:center;justify-content:space-between;border-top:1px solid var(--line2);padding-top:12px}
-.sl-ask{font-size:14px;color:var(--soft)}
-.sl-ask b{color:var(--ink)}.sl-ask span{color:var(--brass2);font-weight:600}
-.sl-more{display:flex;gap:8px}
-.sl-more a{font-size:13.5px;font-weight:600;text-decoration:none;padding:7px 14px;border-radius:20px;border:1px solid var(--line2);color:var(--ink)}
-.sl-more a:first-child{background:var(--brass);border-color:var(--brass);color:var(--night)}
-.sl-src{margin:0;font-size:11.5px;color:var(--muted)}
-@media (max-width:1100px),(max-height:640px){.slide{height:auto}}
-@media (max-width:1100px){.sl-grid{grid-template-columns:1fr 1fr}.sl-mid{grid-column:1/-1;grid-row:1}}
-@media (max-width:700px){.slide{padding:120px 16px 24px}.sl-grid{grid-template-columns:1fr}}
-@media print{.slide{height:auto;min-height:0;padding-top:20px}}
+.op-page>*{min-width:0;min-height:0}
+.op-page p,.op-page h1,.op-page h2,.op-page ul,.op-page ol,.op-page table{margin:0}
+.op-page ul,.op-page ol{padding:0;list-style:none}
+.op-page b{color:var(--ink)}
+.op-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.op-head{grid-area:head}
+.op-kick{font-size:var(--op-fs-s);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);line-height:1.2}
+.op-title{font:400 var(--op-fs-title)/1.1 var(--serif);color:var(--ink);max-width:none;margin-top:.25em!important}
+.op-title em{color:var(--brass2);font-style:normal}
+.op-sub{font-size:var(--op-fs-sub);line-height:1.3;color:var(--soft);margin-top:.35em!important}
+.op-h{font:700 var(--op-fs-s)/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:calc(var(--op-gap)*.8)!important}
+.op-card{border:1px solid var(--line);border-radius:var(--op-r);background:var(--deep);padding:var(--op-pad) calc(var(--op-pad)*1.25);display:flex;flex-direction:column;min-height:0}
+/* timeline */
+.op-time{grid-area:time;border-top:1px solid var(--line);padding-top:var(--op-gap)}
+.op-time .op-h{margin-bottom:calc(var(--op-gap)*.4)!important}
+.op-tl{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:0 var(--op-colgap);position:relative}
+.op-tl::before{content:"";position:absolute;left:0;right:0;top:calc(var(--op-fs-s)*1.2 + 7px);height:1px;background:var(--line2)}
+.op-tl-i{position:relative;display:grid;grid-template-rows:auto 9px auto;row-gap:4px}
+.op-tl-i::before{content:"";grid-row:2;width:9px;height:9px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 3px var(--night);position:relative}
+.op-tl-d{grid-row:1;font-size:var(--op-fs-s);line-height:1.2;font-weight:700;color:var(--brass2);font-variant-numeric:tabular-nums lining-nums}
+.op-tl-t{grid-row:3;line-height:1.25;color:var(--soft);font-size:var(--op-fs-s)}
+.op-tl-i.is-now::before{width:12px;height:12px;margin:-1.5px 0 -1.5px -1.5px;background:var(--night);border:2px solid var(--brass);box-sizing:border-box}
+.op-tl-i.is-now .op-tl-t,.op-tl-i.is-now .op-tl-t b{color:var(--ink)}
+.op-tl-i.is-next::before{background:var(--night);border:1px solid var(--brass)}
+/* pain */
+.op-pain{grid-area:pain}
+.op-pt{font-size:inherit;line-height:inherit;table-layout:fixed;width:100%;border-collapse:collapse;flex:1}
+.op-pt th{font-size:var(--op-fs-s);font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:left;padding:0 0 4px}
+.op-pt th:first-child{color:var(--muted);width:47%}
+.op-pt th:last-child{color:var(--brass2);padding-left:22px}
+.op-pt td{padding:calc(var(--op-gap)*.45) 0;border-top:1px solid var(--line);vertical-align:top}
+.op-pt td:first-child{padding-left:9px;padding-right:10px;box-shadow:inset 2px 0 0 rgba(240,138,108,.6);color:var(--soft)}
+.op-pt td+td{position:relative;padding-left:22px;color:var(--ink)}
+.op-pt td+td::before{content:"→" / "";position:absolute;left:4px;top:calc(var(--op-gap)*.45);color:var(--brass)}
+.op-pt td+td b{font-weight:600}
+/* propose */
+.op-prop{grid-area:prop}
+.op-st{align-self:start;font-size:var(--op-fs-s);font-weight:600;padding:1px 8px;border-radius:20px;white-space:nowrap;line-height:1.3}
+.op-st.impl{border:1px dashed rgba(246,189,96,.6);color:var(--brass2)}
+.op-st.impl::before{border:1px solid var(--brass2)}
+/* value and investment */
+.op-econ{grid-area:econ;display:grid;grid-template-rows:minmax(min-content,1fr)}
+.op-value{justify-content:space-between;background:radial-gradient(120% 70% at 50% 0,rgba(246,189,96,.10),transparent 65%),var(--deep);border-color:rgba(246,189,96,.3)}
+.op-pillars{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:var(--op-gap) var(--op-colgap)}
+.op-pillars li{display:flex;gap:10px;align-items:flex-start;border-top:1px solid var(--line);padding-top:calc(var(--op-gap)*.8)}
+.op-pillars li>div{min-width:0;display:flex;flex-direction:column;gap:2px;align-items:flex-start}
+.op-pillars b{color:var(--ink);font-weight:700;line-height:1.2;font-size:1.12em}
+.op-pillars li>div>span{line-height:1.3}
+.op-pn{flex:none;width:1.7em;height:1.7em;border-radius:50%;display:inline-grid;place-items:center;background:var(--brass);color:var(--night);font:700 var(--op-fs-s)/1 var(--sans)}
+.op-st{align-self:flex-start;font-style:normal;font-size:var(--op-fs-s);font-weight:600;padding:1px 8px;border-radius:20px;white-space:nowrap;line-height:1.3;margin-top:3px}
+.op-st::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:1px;border:1px solid var(--brass2)}
+.op-vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:var(--op-colgap);margin-bottom:calc(var(--op-gap)*.8)!important;line-height:1.25}
+.op-vs .saas{color:var(--muted)}.op-vs .saas b{color:var(--muted)}
+.op-vs .ardn{color:var(--ink);border-left:2px solid var(--brass);padding-left:10px}.op-vs .ardn b{color:var(--brass2)}
+.op-why-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--op-colgap)}
+.op-why-i{display:flex;gap:8px;align-items:flex-start;line-height:1.28}
+.op-vp{font:400 calc(var(--op-fs)*1.45)/1.2 var(--serif);color:var(--ink);margin-bottom:calc(var(--op-gap)*.9)!important}
+.op-vp em{font-style:normal;color:var(--brass2)}
+.op-fig3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--op-colgap);padding-top:calc(var(--op-gap)*.6);border-top:2px solid var(--brass)}
+.op-fig{min-width:0}
+.op-n{font:400 min(var(--op-fs-big),2.3vw)/1.1 var(--serif);font-variant-numeric:tabular-nums lining-nums;color:var(--brass2);white-space:nowrap}
+.op-fig:first-child .op-n{color:var(--brass)}
+.op-nl{font-size:var(--op-fs-s);line-height:1.2;color:var(--soft);margin-top:2px!important}
+.op-bars{margin-top:0;padding-top:calc(var(--op-gap)*.7);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:calc(var(--op-gap)*.5) 10px;align-items:center;font-size:var(--op-fs-s);line-height:1.1}
+.op-bl{color:var(--soft)}
+.op-bv{color:var(--ink);font-weight:600;text-align:right}
+.op-track{position:relative;display:block;height:clamp(8px,1.2vh,12px)}
+.op-bar{position:absolute;left:0;top:0;bottom:0;border-radius:6px;transition:width .5s var(--out)}
+.op-bar.op-b-t{width:100%;background:var(--slate)}
+.op-bar.op-b-c{width:var(--w,48%);background:var(--teal)}
+.op-basis{font-size:var(--op-fs-s);line-height:1.3;color:var(--soft);margin-top:0!important;padding-top:calc(var(--op-gap)*.6);border-top:1px solid var(--line)}.op-basis b{font-weight:600}
+/* why and ask */
+.op-why{grid-area:why;border-top:1px solid var(--line2);padding-top:var(--op-gap)}
+.op-ask{grid-area:ask;border-color:rgba(246,189,96,.55);background:linear-gradient(180deg,rgba(246,189,96,.08),transparent 70%),var(--deep)}
+.op-ask-l{font-weight:700;color:var(--ink);font-size:max(11.5px,calc(var(--op-fs)*.95))}
+.op-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--op-colgap);margin-top:calc(var(--op-gap)*.6)!important}
+.op-steps li{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:0 6px;font-size:var(--op-fs-s);line-height:1.2}
+.op-steps b{font:400 var(--op-fs-mid)/1.1 var(--serif);color:var(--brass)}
+.op-steps small{display:none}
+.op-steps span{color:var(--soft)}.op-steps i{font-style:normal;color:var(--muted)}
+.op-valid{font-size:var(--op-fs-s);font-weight:600;color:var(--brass2);margin-top:calc(var(--op-gap)*.6)!important}
+.op-src{grid-area:src;font-size:var(--op-fs-s);color:var(--muted);padding-right:180px;line-height:1.3}
+body[data-view=summary] .cm-open{bottom:12px}
+@media (prefers-reduced-motion:reduce){.op-bar{transition:none}}
+@media (min-width:901px) and (max-height:780px){
+  .op-page{--op-pad:8px;--op-gap:6px;padding-top:calc(var(--op-bar,64px) + 6px);padding-bottom:6px}
+  .op-card{border-radius:10px}
+  .op-page{line-height:1.22}
+  .op-h{margin-bottom:4px!important}
+  .op-title{margin-top:0!important}
+  .op-sub{margin-top:2px!important}
+}
+@media (min-width:901px) and (max-height:680px){.op-page{height:auto;min-height:100dvh}}
+@media (max-width:1100px){
+  .op-page{height:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:none;
+    grid-template-areas:"head head" "time time" "pain prop" "econ why" "ask ask" "src src"}
+  .op-why-list{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .op-page{--op-fs:15px;--op-fs-s:12.5px;--op-fs-sub:16px;--op-fs-title:26px;--op-fs-big:34px;--op-fs-mid:22px;--op-gap:14px;--op-pad:14px;--op-x:16px;
+    grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "time" "pain" "prop" "econ" "why" "ask" "src"}
+  .op-tl{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:42%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 16px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 16px),transparent)}
+  .op-tl::before{right:auto;width:calc(var(--n,5)*42% + var(--n,5)*var(--op-colgap))}
+  .op-tl-i{scroll-snap-align:start}
+  .op-pt,.op-pt tbody,.op-pt tr{display:block}
+  .op-pt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .op-pt tr{border-top:1px solid var(--line);padding:6px 0}
+  .op-pt td{display:block;border-top:0;padding-top:2px;padding-bottom:2px}
+  .op-pt td:first-child{color:var(--muted)}
+  .op-pt td+td::before{top:2px}
+  .op-src{padding-right:0;padding-bottom:64px}
+  .op-n{font-size:25px}
+  .op-fig3{gap:8px}
+  .op-vs{grid-template-columns:1fr}
+  .op-why-list{grid-template-columns:1fr}
+  .op-pillars{grid-template-columns:1fr;grid-template-rows:none}
+}
+@page{size:landscape;margin:9mm}
+@media print{
+  :root{--night:#fff;--deep:#fff;--raise:#fff;--ink:#0F206C;--soft:#2B3566;--muted:#5A6283;--brass:#8A5A0C;--brass2:#8A5A0C;--line:rgba(15,32,108,.16);--line2:rgba(15,32,108,.32)}
+  .op-page{--op-blue:#1F5FA8;--op-fs:8.6pt;--op-fs-s:8.6pt;--op-fs-sub:10.5pt;--op-fs-title:17pt;--op-fs-big:22pt;--op-fs-mid:14pt;--op-gap:2.2mm;--op-pad:2.4mm;--op-colgap:4mm;--op-x:0;
+    height:auto;min-height:0;padding:0;width:100%;break-inside:avoid;page-break-inside:avoid}
+  .op-card,.op-why-i,.op-tl-i,.op-pt tr{break-inside:avoid}
+  .op-value,.op-ask{background:#fff}
+  .op-value{border-color:#8A5A0C}
+  .op-tl-i::before{box-shadow:0 0 0 3px #fff}
+  .op-bar{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .op-src{padding-right:0}
+  .brandbar,.rail,.progress,.cm-open,.cm,.filmbtn{display:none!important}
+  body{background:#fff}
+}
 .value{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line2);margin-top:44px}
 .value div{padding:24px 22px 24px 0;border-bottom:1px solid var(--line)}
 .value div+div{padding-left:22px;border-left:1px solid var(--line)}
@@ -916,48 +1010,87 @@ section.vpage{padding-top:150px;border-top:0}
 </div>
 
 <div class="view" id="v-summary" data-view="summary">
-<section class="slide" id="summary-page">
-  <div class="sl-top">
-    <p class="sl-kick">Executive summary · Ardn for Invited · October 2026</p>
-    <h1 class="sl-title">Club Steward takes <em id="sTitleSave"></em> a year out of Invited's <span id="sTitleToday"></span> IT spend, and earns back its setup in <span id="sTitlePay"></span>.</h1>
-  </div>
-  <div class="sl-grid">
-    <div class="sl-col">
-      <h2 class="sl-h">The situation</h2>
-      <ul class="sl-list">
-        <li><b>$8.3M a year</b> keeps fifty-four systems and their people running.</li>
-        <li><b>126 entities</b> are governed from corporate by hand, one instance at a time.</li>
-        <li><b>8 to 10 hours</b> to resolve each P1, sometimes across more than one day.</li>
-        <li>Invited is growing and wants more of it to reach the <b>bottom line</b>, without disrupting the clubs.</li>
-      </ul>
-      <h2 class="sl-h">The answer</h2>
-      <p class="sl-ans">One platform, <b>Club Steward</b>, already built against Invited's requirements. 36 systems retire, 4 retire in part. Two Ardn teams provide and run it for a fixed fee.</p>
-    </div>
-    <div class="sl-col sl-mid">
-      <h2 class="sl-h">The value</h2>
-      <div class="sl-kpis">
-        <div class="lead"><p class="n" id="sSave"></p><p id="sSaveMeta"></p></div>
-        <div><p class="n" id="sPay"></p><p>to earn back implementation</p></div>
-        <div><p class="n" id="sFive"></p><p>less over five years, after implementation</p></div>
-        <div><p class="n" id="sHalf"></p><p>payback even if only half the saving shows up</p></div>
+<section class="op-page" id="summary-page" aria-labelledby="op-title">
+  <header class="op-head">
+    <p class="op-kick">Executive summary · Ardn for Invited · October 2026</p>
+    <h1 class="op-title" id="op-title">Tailored to Invited, changed as Invited changes, by the partner since 2022: <em id="sTitleSave">$4.3M</em> a year back.</h1>
+    <p class="op-sub">"25 leads x 3 systems = 75 records." A club user, 2022. Club Steward is the fix.</p>
+  </header>
+
+  <section class="op-time" aria-labelledby="op-h-time">
+    <h2 class="op-h" id="op-h-time">We already know Invited</h2>
+    <ol class="op-tl" style="--n:3">
+      <li class="op-tl-i"><time class="op-tl-d" datetime="2022-03">Mar 2022</time><span class="op-tl-t">Running Invited's Salesforce, Leah Steele sponsoring</span></li>
+      <li class="op-tl-i"><time class="op-tl-d" datetime="2022-11">Nov 2022</time><span class="op-tl-t">Roadmap v4: Customer 360, retire ProspectPro</span></li>
+      <li class="op-tl-i is-now"><time class="op-tl-d" datetime="2026-10">Oct 2026</time><span class="op-tl-t">432 of 484 workbook rows built</span></li>
+    </ol>
+  </section>
+
+  <section class="op-card op-pain" aria-labelledby="op-h-pain">
+    <h2 class="op-h" id="op-h-pain">What hurts today</h2>
+    <table class="op-pt">
+      <caption class="op-vh">Today compared with Club Steward</caption>
+      <thead><tr><th scope="col">Today</th><th scope="col">With Club Steward</th></tr></thead>
+      <tbody>
+        <tr><td>54 systems, $8.3M a year</td><td><b>36 retire,</b> 4 in part</td></tr>
+        <tr><td>126 entities governed by hand</td><td><b>Every entity</b> from one place</td></tr>
+        <tr><td>"Key gaps in information on members" †</td><td><b>Member 360</b></td></tr>
+        <tr><td>P1s take 8–10 hours</td><td><b>Nightly tests look first;</b> Ardn fixes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="op-card op-prop" aria-labelledby="op-h-prop">
+    <h2 class="op-h" id="op-h-prop">How Ardn supports Invited</h2>
+    <ol class="op-pillars">
+      <li><span class="op-pn" aria-hidden="true">1</span><div><b>The app</b><span>Club Steward, 432/484 rows built, 143 entities</span></div></li>
+      <li><span class="op-pn" aria-hidden="true">2</span><div><b>The team</b><span>Named lead; Ardn since 2022; second line</span></div></li>
+      <li><span class="op-pn" aria-hidden="true">3</span><div><b>QA automation</b><span>1,693 test files, 116 journeys, nightly, real roles</span></div></li>
+      <li><span class="op-pn" aria-hidden="true">4</span><div><b>Active defect management</b><span>Filed from screen, triaged daily, fixed with a test</span></div></li>
+      <li><span class="op-pn" aria-hidden="true">5</span><div><b>IT roadmap</b><span>Your CIO ranks one backlog; no SOW per change</span><em class="op-st impl">Built in implementation</em></div></li>
+      <li><span class="op-pn" aria-hidden="true">6</span><div><b>Leadership view</b><span>Member 360, revenue by club</span></div></li>
+    </ol>
+  </section>
+
+  <div class="op-econ">
+    <section class="op-card op-value" aria-labelledby="op-h-value">
+      <h2 class="op-h" id="op-h-value">The value to Invited</h2>
+      <p class="op-vp">One system, one team, <em>about half</em> today's cost.</p>
+      <div class="op-fig3">
+        <div class="op-fig"><p class="op-n" id="sSave">$4.3M</p><p class="op-nl">saved a year (<span id="sPct">52%</span>)</p></div>
+        <div class="op-fig"><p class="op-n">10.5×</p><p class="op-nl">return on the $1.5M setup, 5 years</p></div>
+        <div class="op-fig"><p class="op-n">Month 17</p><p class="op-nl">breakeven, all-in</p></div>
       </div>
-      <p class="sl-cmp"><span>Today <b id="sToday"></b></span><i aria-hidden="true">→</i><span>Club Steward <b id="sYear2"></b></span><span class="tag F">a year</span></p>
-    </div>
-    <div class="sl-col">
-      <h2 class="sl-h">The investment: two teams</h2>
-      <div class="sl-team tech"><div><p class="who">Technology team</p><p class="what">The product: every app, every user, hosting, security, upgrades, nightly testing</p></div><p class="amt" id="sTech"></p></div>
-      <div class="sl-team svc"><div><p class="who">Services team</p><p class="what">Runs, changes and supports it: delivery lead, second-line support, change backlog, connectors, training</p></div><p class="amt" id="sSvc"></p></div>
-      <div class="sl-team impl"><div><p class="who">Implementation · one time</p><p class="what">Migration, pilots at one city and one golf club, club-by-club rollout</p></div><p class="amt" id="sImpl"></p></div>
-      <div class="sl-total"><span>Club Steward, a year</span><b id="sYear"></b></div>
-      <p class="sl-basis" id="sBasis"></p>
-    </div>
+      <div class="op-bars" id="opBars" role="img" aria-label="Annual IT cost: today $8.3 million; with Club Steward $4.0 million." style="--w:48%">
+        <span class="op-bl" aria-hidden="true">Today</span><span class="op-track" aria-hidden="true"><i class="op-bar op-b-t"></i></span><b class="op-bv num" aria-hidden="true" id="sToday">$8.3M</b>
+        <span class="op-bl" aria-hidden="true">Club Steward</span><span class="op-track" aria-hidden="true"><i class="op-bar op-b-c"></i></span><b class="op-bv num" aria-hidden="true" id="sYear2">$4.0M</b>
+      </div>
+      <p class="op-basis">Technology <b class="num" id="sTech">$2.0M</b> · Services <b class="num" id="sSvc">$2.0M</b> · Total <b class="num" id="sYear">$4.0M</b> a year · Implementation <b class="num" id="sImpl">$1.5M</b> once</p>
+    </section>
   </div>
-  <div class="sl-levers"><span class="lab">Where the saving comes from</span><span>36 systems and their licenses retire</span><span>Ardn runs and maintains it</span><span>The product tests itself nightly</span><span>Defects found before a club calls</span><span>No middleware to reconcile</span><span>Less re-keying at the clubs</span><span>One way to work, fewer IT requests</span></div>
-  <div class="sl-foot">
-    <div class="sl-ask"><b>The ask:</b> approve mobilization. <span>30 days</span> invoices replace estimates · <span>60</span> design signed, pilots chosen · <span>90</span> first migration rehearsed</div>
-    <div class="sl-more"><a href="#value">Value and pricing</a><a href="#demo">Try the demo</a></div>
-  </div>
-  <p class="sl-src">Today's spend: Invited, October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. Prices hold until December 15, 2026.</p>
+
+  <section class="op-why" aria-labelledby="op-h-why">
+    <h2 class="op-h" id="op-h-why">Why Ardn, not a SaaS vendor</h2>
+    <p class="op-vs"><span class="saas"><b>SaaS:</b> a platform you build on yourself.</span><span class="ardn"><b>Ardn:</b> tailored to Invited, changed as it changes.</span></p>
+    <ol class="op-why-list">
+      <li class="op-why-i"><span class="op-pn" aria-hidden="true">1</span><span><b>Same people since 2022:</b> we know how Invited works.</span></li>
+      <li class="op-why-i"><span class="op-pn" aria-hidden="true">2</span><span><b>New club, acquisition, rule:</b> your CIO ranks it, we build it.</span></li>
+      <li class="op-why-i"><span class="op-pn" aria-hidden="true">3</span><span><b>Every change tested nightly;</b> defects fixed with a test; second line included.</span></li>
+    </ol>
+  </section>
+
+  <section class="op-card op-ask" aria-labelledby="op-h-ask">
+    <h2 class="op-h op-vh" id="op-h-ask">The ask</h2>
+    <p class="op-ask-l">Approve mobilization.</p>
+    <ul class="op-steps">
+      <li><b class="num">30</b><span><i>days</i> invoices replace estimates</span></li>
+      <li><b class="num">60</b><span>design signed, pilots chosen</span></li>
+      <li><b class="num">90</b><span>first migration rehearsed</span></li>
+    </ul>
+    <p class="op-valid">Prices valid until Dec 15, 2026.</p>
+  </section>
+
+  <p class="op-src">Sources: Invited, Oct 13; Roadmap v4, Nov 2022 (quote); † Invited's SOWs; fit-gap review, Oct 7. The 18 systems that stay keep their own cost. ROI ($15.8M net over 5 years): $4.3M a year saving ramps in as clubs go live (months 8–18); fees are billed per club from its go-live; implementation $1.5M fixed.</p>
 </section>
 </div>
 
@@ -967,12 +1100,12 @@ section.vpage{padding-top:150px;border-top:0}
     <div class="vhead"><div><p class="kicker">Value and pricing</p><h2>What Invited saves, and what it pays</h2></div><p>The two teams, what each one takes off Invited's books, and a calculator to check every figure with your own numbers.</p></div>
     <div class="value" aria-live="polite">
       <div><p class="big num" id="vSave"></p><p id="vSaveMeta"></p></div>
-      <div><p class="big num" id="vPay"></p><p id="vPayMeta"></p></div>
-      <div><p class="big num" id="vFive"></p><p id="vFiveMeta"></p></div>
-      <div><p class="big num" id="vHalf"></p><p id="vHalfMeta"></p></div>
+      <div><p class="big num" id="vPay">10.5×</p><p id="vPayMeta">return on the $1.5M implementation over 5 years</p></div>
+      <div><p class="big num" id="vFive">Month 17</p><p id="vFiveMeta">breaks even from signing, implementation included</p></div>
+      <div><p class="big num" id="vHalf">$15.8M</p><p id="vHalfMeta">net over 5 years, after implementation</p></div>
     </div>
     <div class="cmpbars" id="vBa" role="img"></div>
-    <p class="src">Today's spend is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. <a href="#cost">Check the numbers</a> with your own figures.</p>
+    <p class="src">Today's spend is the figure Invited gave on October 13; Invited's invoices replace it in the first 30 days. The 18 systems that stay keep their own cost. ROI ($15.8M net over 5 years): $4.3M a year saving ramps in as clubs go live (months 8–18); fees are billed per club from its go-live; implementation $1.5M fixed. <a href="#cost">Check the numbers</a> with your own figures.</p>
 
     <div class="block" id="teams">
       <h3>Two teams, priced separately</h3>
@@ -1168,7 +1301,7 @@ section.vpage{padding-top:150px;border-top:0}
   <div class="wrap">
     <div class="chead"><div><p class="kicker">What we heard</p>
     <h2>Invited wants fewer systems and ten million dollars less IT cost every year</h2></div>
-    <p class="intro">This is our understanding of Invited's goals, built from your capability workbook, your systems list and our time supporting your Salesforce org since 2023. If we have any of it wrong, everything after this section changes, so please correct us here first.</p></div>
+    <p class="intro">This is our understanding of Invited's goals, built from your capability workbook, your systems list and our time supporting your Salesforce org since 2022. If we have any of it wrong, everything after this section changes, so please correct us here first.</p></div>
     <div class="heard">
       <div><p class="big num">$10M</p><p>Take ten million dollars a year out of IT cost. <span class="tag F">Invited's target</span></p></div>
       <div><p class="big num">54</p><p>Systems in use across membership, sales, finance, dining, golf, events and people. <span class="tag F">Systems sheet</span></p></div>
@@ -1511,7 +1644,7 @@ section.vpage{padding-top:150px;border-top:0}
       <div><p class="big num" data-count="84">84</p><p>server functions</p></div>
       <div><p class="big num" data-count="2927">2,927</p><p>tracked database changes</p></div>
       <div><p class="big num">432 / 484</p><p>rows of Invited's capability workbook were built at the October 7 review. 45 of them wait only on an account or file from Invited.</p></div>
-      <div><p class="big num">2020</p><p>Ardn has been a Salesforce partner since 2020 and has supported Invited's Salesforce org since 2023.</p></div>
+      <div><p class="big num">2020</p><p>Ardn has been a Salesforce partner since 2020 and has supported Invited's Salesforce org since 2022.</p></div>
     </div>
   </div>
 </section>
@@ -2520,32 +2653,29 @@ function baBars(el, p, c) {
 (() => {
   const c = costOf(PRICE);
   $('#vSave').textContent = fmtM(c.save);
-  $('#vSaveMeta').textContent = `less a year: ${Math.round(c.save / PRICE.today * 100)}% of the ${fmtM(PRICE.today)} Invited spends today`;
-  $('#vPay').textContent = months(c.pay);
-  $('#vPayMeta').textContent = `to earn back the one-time ${fmtM(PRICE.impl)} implementation from the saving`;
-  $('#vFive').textContent = fmtM(c.over);
-  $('#vFiveMeta').textContent = `less over ${PRICE.years} years, after implementation`;
-  $('#vHalf').textContent = months(c.half);
-  $('#vHalfMeta').textContent = 'payback even if only half of the saving shows up';
+  $('#vSaveMeta').textContent = `a year less (${Math.round(c.save / PRICE.today * 100)}% of the ${fmtM(PRICE.today)} Invited spends today) once every club is live`;
   baBars($('#vBa'), PRICE, c);
   $('#tTech').textContent = `${fmtM(c.tech)} a year`;
   $('#tTechMeta').textContent = `${fmt(PRICE.entityFee)} a month per golf and country club entity (${PRICE.entities}), ${fmt(PRICE.cityFee)} per city club (${PRICE.city})`;
   $('#tSvc').textContent = `${fmtM(c.svc)} a year`;
   $('#tSvcMeta').textContent = `${fmt(PRICE.svc)} a month, fixed, for every club`;
   $('#tImpl').textContent = fmtM(PRICE.impl);
-  $('#tImplMeta').textContent = `Paid once. Earned back in about ${months(c.pay).toLowerCase()}`;
+  $('#tImplMeta').textContent = 'Paid once. Breaks even in month 17 from signing, with fees billed per club from its go-live';
 })();
 (() => {
-  const c = costOf(PRICE);
-  $('#sTitleSave').textContent = fmtM(c.save); $('#sTitleToday').textContent = fmtM(PRICE.today);
-  $('#sTitlePay').textContent = months(c.pay).toLowerCase();
-  $('#sSave').textContent = fmtM(c.save);
-  $('#sSaveMeta').textContent = `less a year, ${Math.round(c.save / PRICE.today * 100)}% of today's ${fmtM(PRICE.today)}, back to the bottom line`;
-  $('#sPay').textContent = months(c.pay); $('#sFive').textContent = fmtM(c.over); $('#sHalf').textContent = months(c.half);
-  $('#sToday').textContent = fmtM(PRICE.today); $('#sYear2').textContent = fmtM(c.year);
-  $('#sTech').textContent = fmtM(c.tech); $('#sSvc').textContent = fmtM(c.svc); $('#sImpl').textContent = fmtM(PRICE.impl);
-  $('#sYear').textContent = fmtM(c.year);
-  $('#sBasis').textContent = `Technology: ${fmt(PRICE.entityFee)} a month × ${PRICE.entities} entities, ${fmt(PRICE.cityFee)} × ${PRICE.city} city clubs. Services: ${fmt(PRICE.svc)} a month, fixed.`;
+  const c = costOf(PRICE), put = (id, s) => { const e = document.getElementById(id); if (e) e.textContent = s; };
+  put('sTitleSave', fmtM(c.save));
+  put('sVpNew', fmtM(c.year)); put('sVpOld', fmtM(PRICE.today)); put('sSave', fmtM(c.save)); put('sPct', `${Math.round(c.save / PRICE.today * 100)}%`);
+  put('sToday', fmtM(PRICE.today)); put('sYear2', fmtM(c.year)); put('sGap', fmtM(c.save));
+  put('sTech', fmtM(c.tech)); put('sSvc', fmtM(c.svc)); put('sImpl', fmtM(PRICE.impl)); put('sYear', fmtM(c.year));
+  const bars = document.getElementById('opBars');
+  if (bars) {
+    bars.style.setProperty('--w', `${c.year / PRICE.today * 100}%`);
+    bars.setAttribute('aria-label', `Annual IT cost: today ${fmtM(PRICE.today)}; with Club Steward ${fmtM(c.year)}, ${fmtM(c.save)} less.`);
+  }
+  // the brand bar wraps below 1240px, so its height is measured, not assumed
+  const bar = document.querySelector('.brandbar');
+  if (bar && window.ResizeObserver) new ResizeObserver(() => document.documentElement.style.setProperty('--op-bar', bar.offsetHeight + 'px')).observe(bar);
 })();
 const cIds = {cToday: 'today', cEnt: 'entities', cEntFee: 'entityFee', cCity: 'city', cCityFee: 'cityFee', cSvc: 'svc', cImpl: 'impl', cYears: 'years'};
 const cMoney = new Set(['cToday', 'cEntFee', 'cCityFee', 'cSvc', 'cImpl']);
