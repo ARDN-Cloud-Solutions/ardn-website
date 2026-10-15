@@ -57,6 +57,8 @@ export type Platform = {
   width: number;
   height: number;
   href: string;
+  /** Link text; defaults to "See <name>". */
+  linkLabel?: string;
   /** Picks the ambient light colour behind the screen (1-4). */
   tone: 1 | 2 | 3 | 4;
 };
@@ -127,7 +129,12 @@ export type AppIcon =
   | "giving"
   | "ai"
   | "reports"
-  | "books";
+  | "books"
+  | "golf"
+  | "shop"
+  | "quote"
+  | "jobs"
+  | "accounts";
 
 export type App = {
   name: string;
@@ -138,6 +145,8 @@ export type App = {
   alt: string;
   /** Shown as a small "Preview" label: not generally available yet. */
   preview?: boolean;
+  /** A small label of its own (e.g. "Core"); wins over `preview`. */
+  tag?: string;
 };
 
 export const APPS: App[] = [

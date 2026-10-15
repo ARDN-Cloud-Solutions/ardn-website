@@ -4,9 +4,13 @@ import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
+  Building2,
   CalendarClock,
   ChartColumnBig,
   Check,
+  ClipboardList,
+  FileSignature,
+  Flag,
   HeartHandshake,
   Landmark,
   LifeBuoy,
@@ -14,6 +18,7 @@ import {
   PartyPopper,
   Plus,
   ScanBarcode,
+  ShoppingBag,
   Smartphone,
   Sparkles,
   SquareKanban,
@@ -42,11 +47,25 @@ const ICONS: Record<AppIcon, LucideIcon> = {
   ai: Sparkles,
   reports: ChartColumnBig,
   books: Landmark,
+  golf: Flag,
+  shop: ShoppingBag,
+  quote: FileSignature,
+  jobs: ClipboardList,
+  accounts: Building2,
 };
 
 const VIEW_ID = "lnd-app-view";
 
-export default function AppGrid({ apps }: { apps: App[] }) {
+/** `own`: the closing "Something else?" tile (default on); `ctaLabel`: the button under the grid. */
+export default function AppGrid({
+  apps,
+  own = true,
+  ctaLabel = "Tell us which apps you need",
+}: {
+  apps: App[];
+  own?: boolean;
+  ctaLabel?: string;
+}) {
   const [open, setOpen] = useState<number | null>(null);
   const [cols, setCols] = useState(2);
   const list = useRef<HTMLUListElement>(null);
@@ -54,7 +73,7 @@ export default function AppGrid({ apps }: { apps: App[] }) {
   const view = useRef<HTMLDivElement>(null);
   const openRef = useRef<number | null>(null);
   // +1 for the "Something else?" tile at the end
-  const total = apps.length + 1;
+  const total = apps.length + (own ? 1 : 0);
 
   const measure = useCallback(() => {
     if (!list.current) return 2;
@@ -123,7 +142,7 @@ export default function AppGrid({ apps }: { apps: App[] }) {
           <AppIconMark icon={current.icon} index={open!} size="sm" />
           <h3 id="lnd-app-view-title">
             {current.name}
-            {current.preview ? <span className="lnd-app-pill">Preview</span> : null}
+            {pill(current)}
           </h3>
           <p>{current.benefit}</p>
           <ul>
@@ -162,7 +181,7 @@ export default function AppGrid({ apps }: { apps: App[] }) {
                 <AppIconMark icon={a.icon} index={i} />
                 <span className="lnd-app-name">
                   {a.name}
-                  {a.preview ? <span className="lnd-app-pill">Preview</span> : null}
+                  {pill(a)}
                 </span>
                 <span className="lnd-app-benefit">{a.benefit}</span>
                 <span className="lnd-app-peek" aria-hidden="true">
@@ -173,25 +192,32 @@ export default function AppGrid({ apps }: { apps: App[] }) {
             {i === rowEnd ? preview : null}
           </Fragment>
         ))}
-        <li className="lnd-app-cell">
-          <a className="lnd-app lnd-app-own" href="#form">
-            <span className="lnd-app-icon lnd-app-icon-own" aria-hidden="true">
-              <Plus size={30} strokeWidth={2} />
-            </span>
-            <span className="lnd-app-name">Something else?</span>
-            <span className="lnd-app-benefit">Tell us the job. We build the app around it.</span>
-          </a>
-        </li>
-        {rowEnd === total - 1 ? preview : null}
+        {own ? (
+          <li className="lnd-app-cell">
+            <a className="lnd-app lnd-app-own" href="#form">
+              <span className="lnd-app-icon lnd-app-icon-own" aria-hidden="true">
+                <Plus size={30} strokeWidth={2} />
+              </span>
+              <span className="lnd-app-name">Something else?</span>
+              <span className="lnd-app-benefit">Tell us the job. We build the app around it.</span>
+            </a>
+          </li>
+        ) : null}
+        {own && rowEnd === total - 1 ? preview : null}
       </ul>
       <div className="lnd-apps-cta">
         <a className="lnd-btn lnd-btn-ink" href="#form">
-          Tell us which apps you need
+          {ctaLabel}
           <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
         </a>
       </div>
     </>
   );
+}
+
+function pill(a: App) {
+  const text = a.tag ?? (a.preview ? "Preview" : null);
+  return text ? <span className="lnd-app-pill">{text}</span> : null;
 }
 
 function AppIconMark({ icon, index, size }: { icon: AppIcon; index: number; size?: "sm" }) {

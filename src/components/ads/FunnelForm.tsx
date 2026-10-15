@@ -4,22 +4,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Briefcase, Check, Clock, Mail, Phone } from "lucide-react";
 
-import {
-  MAIN_PROBLEM_MIN,
-  QUESTIONS,
-  SELECT_CODES,
-  calendlyLink,
-  label,
-  toE164,
-  type Answers,
-  type SelectCode,
-} from "@/lib/leadFunnel";
+import { toE164 } from "@/lib/leadFunnel";
+import { CLIENT_FUNNELS, type ClientFunnel } from "@/lib/funnels/client";
+import { asList, asText, type ChoiceQuestion, type FormAnswers, type FunnelId } from "@/lib/funnels/types";
 
 /**
  * Multi-step qualification form for the Google Ads landing pages
- * (/start/<hook>). The questions live in @/lib/leadFunnel, shared with the
- * /api/lead route, which routes the finished lead (qualified + offer, or not
- * a fit) and emails it to the team.
+ * (/start/<hook>). One engine for every funnel: the questions, storage key,
+ * payload, booking link and copy come from the funnel's entry in
+ * @/lib/funnels/client (the AI consulting funnel's from @/lib/leadFunnel),
+ * shared with the /api/lead route, which routes the finished lead (qualified
+ * + offer, or not a fit) and emails it to the team.
  *
  * Every answer is saved as it's given (text debounced 300 ms) to
  * sessionStorage and localStorage, so a reload or a return visit within
@@ -35,41 +30,24 @@ import {
  * id and the gclid go in the team's lead email for offline conversion upload.
  */
 
-const FUNNEL = "ardn-ai-consulting"; // GA4 `form` parameter; unchanged so reports stay continuous
 const GADS_QUALIFIED = process.env.NEXT_PUBLIC_GADS_QUALIFIED_LABEL;
 const GADS_BOOKED = process.env.NEXT_PUBLIC_GADS_BOOKED_LABEL;
 const EMAIL = "contactus@ardncloudsolutions.com";
 const PHONE = "(407) 815-5303";
 const PHONE_HREF = "tel:+14078155303";
 const CLICK_KEY = "ardn-ads-click";
-const LEAD_ID_KEY = "ardn-lead-id";
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const RESUME_MS = 7 * 24 * 60 * 60_000;
 const ADVANCE_MS = 250;
 const TEXT_SAVE_MS = 300;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const TOTAL = QUESTIONS.length + 1; // + contact step
-
-/**
- * Shorter tile labels shown on phones only, so each option fits one line.
- * Display only: desktop shows the full label, and the values (and full labels
- * in the lead email) are unchanged.
- */
-const SHORT_LABELS: Record<string, string> = {
-  "want:ai_assistant": "AI assistant on our own data",
-  "want:automation": "Automate manual work",
-  "want:ai_agents": "AI agents in our systems",
-  "want:custom_software": "Custom software, portal or app",
-  "want:salesforce": "Salesforce help",
-  "want:not_sure": "Not sure yet — want advice",
-};
 
 type Contact = { name: string; company: string; email: string; phone: string };
 type ContactField = keyof Contact;
 type Phase = "form" | "sending" | "qualified" | "disqualified" | "failed";
 type Saved = {
-  answers: Answers;
+  answers: FormAnswers;
   contact: Contact;
   step: number;
   phase?: Phase;
@@ -78,7 +56,6 @@ type Saved = {
   savedAt?: number;
 };
 
-const EMPTY_ANSWERS: Answers = { want: [], main_problem: "", current_systems: "" };
 const EMPTY_CONTACT: Contact = { name: "", company: "", email: "", phone: "" };
 
 // ── helpers ─────────────────────────────────────────────────────────────────
@@ -124,14 +101,14 @@ function restore(key: string): Saved | null {
 }
 
 /** One id per lead (this tab's submission), kept in sessionStorage so a retry or the booked conversion reuses it. */
-function leadId(): string {
-  const saved = storeGet<string>(LEAD_ID_KEY);
+function leadId(key: string): string {
+  const saved = storeGet<string>(key);
   if (saved) return saved;
   const id =
     typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
       ? crypto.randomUUID()
       : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
-  storeSet(LEAD_ID_KEY, id);
+  storeSet(key, id);
   return id;
 }
 
@@ -140,14 +117,14 @@ function leadId(): string {
  * set first (gtag hashes it before sending), then the conversion, with the
  * lead id as transaction_id for deduplication.
  */
-function adsConversion(sendTo: string, contact: { email: string; phone: string }) {
+function adsConversion(sendTo: string, contact: { email: string; phone: string }, leadIdKey: string) {
   const email = contact.email.trim().toLowerCase();
   const phone = toE164(contact.phone);
   const userData: Record<string, string> = {};
   if (EMAIL_RE.test(email)) userData.email = email;
   if (phone) userData.phone_number = phone;
   if (Object.keys(userData).length) gtag("set", "user_data", userData);
-  gtag("event", "conversion", { send_to: sendTo, transaction_id: leadId() });
+  gtag("event", "conversion", { send_to: sendTo, transaction_id: leadId(leadIdKey) });
 }
 
 /** gclid/gbraid/wbraid and UTMs from the URL, kept in sessionStorage so they survive. */
@@ -203,66 +180,42 @@ async function postLead<T>(body: unknown): Promise<{ status: number; data: T }> 
   }
 }
 
-function summary(a: Answers, hook: string) {
-  const wants = a.want.map((w) => label("want", w)).join(", ");
-  return [
-    wants && `Wants: ${wants}`,
-    a.industry && `Industry: ${label("industry", a.industry)}`,
-    a.main_problem.trim() && `Problem: ${a.main_problem.trim()}`,
-    a.current_systems.trim() && `Tools: ${a.current_systems.trim()}`,
-    a.role && `Role: ${label("role", a.role)}`,
-    a.timeline && `Start: ${label("timeline", a.timeline)}`,
-    a.budget_band && `Budget: ${label("budget_band", a.budget_band)}`,
-    `From: ad page ${hook}`,
-  ]
-    .filter(Boolean)
-    .join(" · ");
-}
-
-/** One line for Calendly's a1 field, so the booking carries the essentials too. */
-function calendlyNote(a: Answers) {
-  const oneLine = (s: string) => s.replace(/\s+/g, " ").trim();
-  const problem = oneLine(a.main_problem);
-  return [
-    `Wants: ${a.want.map((w) => label("want", w)).join(", ")}`,
-    a.industry && `Industry: ${label("industry", a.industry)}`,
-    problem && `Problem: ${problem.length > 150 ? `${problem.slice(0, 150)}…` : problem}`,
-  ]
-    .filter(Boolean)
-    .join("; ");
-}
-
-function answersPayload(a: Answers) {
-  const out: Record<string, unknown> = { want: a.want, main_problem: a.main_problem.trim(), current_systems: a.current_systems.trim() };
-  for (const k of SELECT_CODES) if (a[k]) out[k] = a[k];
-  return out;
-}
-
 /** The first step that still needs an answer, or -1 when all are answered. */
-function firstGap(a: Answers) {
-  return QUESTIONS.findIndex((q) =>
-    "options" in q ? (q.multi ? a.want.length === 0 : !a[q.code as Exclude<SelectCode, "want">]) : a.main_problem.trim().length < MAIN_PROBLEM_MIN,
+function firstGap(f: ClientFunnel, a: FormAnswers) {
+  return f.questions.findIndex((q) =>
+    "options" in q
+      ? q.multi
+        ? asList(a[q.code]).length === 0
+        : !a[q.code]
+      : q.fields.some((x) => x.min > 0 && asText(a[x.code]).trim().length < x.min),
   );
 }
 
-function contactErrors(c: Contact): Partial<Record<ContactField, string>> {
+function contactErrors(c: Contact, companyLabel: string): Partial<Record<ContactField, string>> {
   const e: Partial<Record<ContactField, string>> = {};
   if (!EMAIL_RE.test(c.email.trim())) e.email = c.email.trim() ? "That email doesn't look right. Try name@company.com." : "Enter your work email.";
   if (c.name.trim().length < 2) e.name = "Enter your name.";
-  if (!c.company.trim()) e.company = "Enter your company.";
+  if (!c.company.trim()) e.company = `Enter your ${companyLabel.toLowerCase()}.`;
   if (c.phone.trim() && c.phone.replace(/\D/g, "").length < 7) e.phone = "Check the phone number, or leave it blank.";
   return e;
 }
 
 const firstName = (name: string) => name.trim().split(/\s+/)[0] ?? "";
 
+
 // ── component ───────────────────────────────────────────────────────────────
 
-export default function FunnelForm({ hook }: { hook: string }) {
-  const storeKey = `ardn-funnel:${FUNNEL}`;
+export default function FunnelForm({ hook, funnel = "ardn-ai-consulting" }: { hook: string; funnel?: FunnelId }) {
+  const f = CLIENT_FUNNELS[funnel];
+  const QUESTIONS = f.questions;
+  const TOTAL = QUESTIONS.length + 1; // + contact step
+  const storeKey = f.storeKey;
+  // GA4: `form` is the funnel id (unchanged for the AI funnel so reports stay
+  // continuous); the newer funnels also carry `funnel` on every event.
+  const ev = (params: Record<string, unknown>) => ({ ...params, ...f.eventExtra });
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState<"fwd" | "back">("fwd");
-  const [answers, setAnswers] = useState<Answers>(EMPTY_ANSWERS);
+  const [answers, setAnswers] = useState<FormAnswers>(f.empty);
   const [contact, setContact] = useState<Contact>(EMPTY_CONTACT);
   const [phase, setPhase] = useState<Phase>("form");
   const [offer, setOffer] = useState<string | null>(null);
@@ -290,12 +243,12 @@ export default function FunnelForm({ hook }: { hook: string }) {
     const saved = restore(storeKey);
     if (saved) {
       started.current = Boolean(saved.started);
-      const a = { ...EMPTY_ANSWERS, ...saved.answers };
+      const a = { ...f.empty, ...saved.answers };
       setAnswers(a);
       setContact({ ...EMPTY_CONTACT, ...saved.contact });
       // Never resume past a question that still needs an answer (e.g. one
       // added since the answers were saved).
-      const gap = firstGap(a);
+      const gap = firstGap(f, a);
       setStep(Math.min(Math.max(saved.step ?? 0, 0), gap === -1 ? TOTAL - 1 : gap));
       if (saved.phase === "qualified" || saved.phase === "disqualified") {
         setPhase(saved.phase);
@@ -306,7 +259,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
     queueMicrotask(() => {
       restored.current = true;
     });
-  }, [storeKey]);
+  }, [storeKey, f, TOTAL]);
 
   const snapshot = useCallback((): Saved => {
     const l = latest.current;
@@ -344,7 +297,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
       const body = JSON.stringify({
         partial: true,
         hook,
-        answers: answersPayload(a),
+        answers: f.payload(a),
         name: c.name.trim(),
         company: c.company.trim(),
         email: c.email.trim(),
@@ -367,7 +320,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
       window.removeEventListener("pagehide", leave);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [hook, storeKey, snapshot]);
+  }, [hook, storeKey, snapshot, f]);
 
   // Move focus to the new question (not on first load) for keyboard and screen-reader users.
   useEffect(() => {
@@ -381,9 +334,9 @@ export default function FunnelForm({ hook }: { hook: string }) {
   const touch = useCallback(() => {
     if (!started.current) {
       started.current = true;
-      track("lead_form_start", { form: FUNNEL, page: hook });
+      track("lead_form_start", { form: f.id, page: hook, ...f.eventExtra });
     }
-  }, [hook]);
+  }, [hook, f]);
 
   const scrollTop = () => {
     const el = root.current;
@@ -392,7 +345,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
   };
 
   const next = (code: string, from: number) => {
-    track("lead_form_step", { step: code, step_number: from + 1, page: hook });
+    track("lead_form_step", ev({ step: code, step_number: from + 1, page: hook }));
     navigated.current = true;
     setHint("");
     setPicked(null);
@@ -411,42 +364,48 @@ export default function FunnelForm({ hook }: { hook: string }) {
     setStep((s) => Math.max(s - 1, 0));
   };
 
-  const pickSingle = (code: SelectCode, value: string) => {
+  const pickSingle = (q: ChoiceQuestion, value: string) => {
     touch();
     setHint("");
-    setAnswers((prev) => ({ ...prev, [code]: value }));
-    setPicked(value);
+    setAnswers((prev) => ({ ...prev, [q.code]: value }));
     window.clearTimeout(advance.current);
+    // "Other": stay on the step so they can say what (optional), then Continue.
+    if (q.detail && q.detail.value === value) {
+      setPicked(null);
+      return;
+    }
+    setPicked(value);
     const from = step;
-    advance.current = window.setTimeout(() => next(code, from), ADVANCE_MS);
+    advance.current = window.setTimeout(() => next(q.code, from), ADVANCE_MS);
   };
 
-  const toggleWant = (value: string) => {
+  const toggleMulti = (code: string, value: string) => {
     touch();
     setHint("");
-    setAnswers((prev) => ({
-      ...prev,
-      want: prev.want.includes(value) ? prev.want.filter((w) => w !== value) : [...prev.want, value],
-    }));
+    setAnswers((prev) => {
+      const list = asList(prev[code]);
+      return { ...prev, [code]: list.includes(value) ? list.filter((w) => w !== value) : [...list, value] };
+    });
   };
 
   /** Continue on the multi-select and text steps, with inline validation. */
   const proceed = () => {
     const q = QUESTIONS[step];
     if (!q) return;
-    if ("options" in q && q.multi && answers.want.length === 0) return setHint("Pick at least one to continue.");
-    if ("text" in q && answers.main_problem.trim().length < MAIN_PROBLEM_MIN) {
-      return setHint(`A sentence or two, please (at least ${MAIN_PROBLEM_MIN} characters).`);
+    if ("options" in q && q.multi && asList(answers[q.code]).length === 0) return setHint("Pick at least one to continue.");
+    if ("text" in q) {
+      const short = q.fields.find((x) => x.min > 0 && asText(answers[x.code]).trim().length < x.min);
+      if (short) return setHint(`A sentence or two, please (at least ${short.min} characters).`);
     }
-    if ("options" in q && !q.multi && !answers[q.code as Exclude<SelectCode, "want">]) return setHint("Pick one to continue.");
+    if ("options" in q && !q.multi && !answers[q.code]) return setHint("Pick one to continue.");
     next(q.code, step);
   };
 
-  const setText = (code: "main_problem" | "current_systems", value: string) => {
+  const setText = (field: { code: string; min: number }, value: string) => {
     touch();
     textEdit.current = true;
-    if (code === "main_problem" && value.trim().length >= MAIN_PROBLEM_MIN) setHint("");
-    setAnswers((prev) => ({ ...prev, [code]: value }));
+    if (field.min > 0 && value.trim().length >= field.min) setHint("");
+    setAnswers((prev) => ({ ...prev, [field.code]: value }));
   };
 
   const setField = (field: ContactField, value: string) => {
@@ -456,7 +415,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
     setContact((prev) => ({ ...prev, [field]: value }));
   };
 
-  // Keyboard: 1–7 pick an option, Enter continues. Bound once; reads the latest render.
+  // Keyboard: 1–9 pick an option, Enter continues. Bound once; reads the latest render.
   useEffect(() => {
     keyHandler.current = (e: KeyboardEvent) => {
       if (phase !== "form" || e.metaKey || e.ctrlKey || e.altKey || e.defaultPrevented) return;
@@ -469,8 +428,8 @@ export default function FunnelForm({ hook }: { hook: string }) {
         const o = q.options[Number(e.key) - 1];
         if (!o) return;
         e.preventDefault();
-        if (q.multi) toggleWant(o.value);
-        else pickSingle(q.code, o.value);
+        if (q.multi) toggleMulti(q.code, o.value);
+        else pickSingle(q, o.value);
         return;
       }
       if (e.key === "Enter" && tag !== "BUTTON" && tag !== "A") {
@@ -488,7 +447,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTried(true);
-    const errs = contactErrors(contact);
+    const errs = contactErrors(contact, f.copy.companyLabel);
     const firstBad = (["email", "name", "company", "phone"] as const).find((k) => errs[k]);
     if (firstBad) {
       document.getElementById(`fn-${firstBad}`)?.focus();
@@ -501,13 +460,13 @@ export default function FunnelForm({ hook }: { hook: string }) {
     try {
       const { status, data } = await postLead<{ status?: string; offer?: string | null; error?: string }>({
         hook,
-        answers: answersPayload(answers),
+        answers: f.payload(answers),
         name: c.name,
         company: c.company,
         email: c.email,
         phone: c.phone,
         attribution: attribution(),
-        leadId: leadId(),
+        leadId: leadId(f.leadIdKey),
         website,
       });
       if (status === 422) {
@@ -517,16 +476,16 @@ export default function FunnelForm({ hook }: { hook: string }) {
       }
       if (status >= 400 || (data.status !== "qualified" && data.status !== "disqualified")) throw new Error(`HTTP ${status}`);
       partialSent.current = true; // finished: no "started" note on the way out
-      track("lead_form_step", { step: "contact", step_number: TOTAL, page: hook });
-      track("generate_lead", { form: FUNNEL, page: hook });
+      track("lead_form_step", ev({ step: "contact", step_number: TOTAL, page: hook }));
+      track("generate_lead", ev({ form: f.id, page: hook }));
       if (data.status === "qualified") {
         const o = data.offer ?? null;
-        track("qualified_lead", { offer: o ?? "", page: hook });
-        if (GADS_QUALIFIED) adsConversion(GADS_QUALIFIED, c);
+        track("qualified_lead", ev({ offer: o ?? "", page: hook }));
+        if (GADS_QUALIFIED) adsConversion(GADS_QUALIFIED, c, f.leadIdKey);
         setOffer(o);
         setPhase("qualified");
       } else {
-        track("disqualified_lead", { page: hook });
+        track("disqualified_lead", ev({ page: hook }));
         setPhase("disqualified");
       }
       scrollTop();
@@ -545,7 +504,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
   };
 
   // ── end screens ──
-  if (phase === "qualified") return <Qualified root={root} contact={contact} answers={answers} hook={hook} offer={offer} />;
+  if (phase === "qualified") return <Qualified root={root} contact={contact} answers={answers} hook={hook} offer={offer} funnel={f} />;
   if (phase === "disqualified") {
     const first = firstName(contact.name);
     return (
@@ -555,11 +514,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
             <BookOpen size={26} strokeWidth={2} />
           </span>
           <h2 className="fn-title fn-end-title">Thanks{first ? `, ${first}` : ""}. This call isn&apos;t the right match.</h2>
-          <p className="fn-text">
-            These calls are for businesses planning a project, so we&apos;ll skip the booking. If you&apos;re learning about AI
-            and software, our blog is a good place to start. And if you&apos;d like to work with us, take a look at our open
-            roles.
-          </p>
+          <p className="fn-text">{f.copy.disqualifiedText}</p>
           <div className="fn-links">
             <Link href="/blog">
               <span>
@@ -585,7 +540,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
     );
   }
   if (phase === "failed") {
-    const body = encodeURIComponent(`${summary(answers, hook)}\n\nName: ${contact.name}\nCompany: ${contact.company}\nPhone: ${contact.phone}`);
+    const body = encodeURIComponent(`${f.summary(answers, hook)}\n\nName: ${contact.name}\nCompany: ${contact.company}\nPhone: ${contact.phone}`);
     return (
       <div className="fn-card fn-end" ref={root}>
         <div className="fn-anim fn-anim-fwd">
@@ -595,7 +550,7 @@ export default function FunnelForm({ hook }: { hook: string }) {
             Try again <ArrowRight size={18} aria-hidden="true" />
           </button>
           <div className="fn-links fn-links-gap">
-            <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Free 30-minute call")}&body=${body}`}>
+            <a href={`mailto:${EMAIL}?subject=${encodeURIComponent(f.copy.failSubject)}&body=${body}`}>
               <span>
                 <Mail size={18} aria-hidden="true" /> {EMAIL}
               </span>
@@ -616,9 +571,11 @@ export default function FunnelForm({ hook }: { hook: string }) {
   // ── steps ──
   const q = QUESTIONS[step];
   const titleId = `fn-title-${step}`;
-  const errs = contactErrors(contact);
-  const show = (f: ContactField) => (tried || blurred[f]) && errs[f];
+  const errs = contactErrors(contact, f.copy.companyLabel);
+  const show = (field: ContactField) => (tried || blurred[field]) && errs[field];
   const sending = phase === "sending";
+  const short = (code: string, value: string) => f.shortLabels[`${code}:${value}`];
+  const detailOpen = Boolean(q && "options" in q && q.detail && answers[q.code] === q.detail.value);
 
   return (
     <div className="fn-card" ref={root}>
@@ -654,8 +611,9 @@ export default function FunnelForm({ hook }: { hook: string }) {
             {q.help && <p className="fn-help">{q.help}</p>}
             <div className="fn-options">
               {q.options.map((o, i) => {
-                const on = q.multi ? answers.want.includes(o.value) : answers[q.code] === o.value;
+                const on = q.multi ? asList(answers[q.code]).includes(o.value) : answers[q.code] === o.value;
                 const flash = !q.multi && picked === o.value;
+                const s = short(q.code, o.value);
                 return (
                   <button
                     key={o.value}
@@ -663,12 +621,12 @@ export default function FunnelForm({ hook }: { hook: string }) {
                     className={`fn-option${on ? " is-on" : ""}${flash ? " is-picked" : ""}`}
                     aria-pressed={on}
                     aria-keyshortcuts={String(i + 1)}
-                    onClick={() => (q.multi ? toggleWant(o.value) : pickSingle(q.code, o.value))}
+                    onClick={() => (q.multi ? toggleMulti(q.code, o.value) : pickSingle(q, o.value))}
                   >
-                    {SHORT_LABELS[`${q.code}:${o.value}`] ? (
+                    {s ? (
                       <span className="fn-option-label">
                         <span className="fn-label-full">{o.label}</span>
-                        <span className="fn-label-short">{SHORT_LABELS[`${q.code}:${o.value}`]}</span>
+                        <span className="fn-label-short">{s}</span>
                       </span>
                     ) : (
                       <span className="fn-option-label">{o.label}</span>
@@ -680,12 +638,33 @@ export default function FunnelForm({ hook }: { hook: string }) {
                 );
               })}
             </div>
+            {detailOpen && q.detail && (
+              <div className="fn-textfield fn-field">
+                <label htmlFor={`fn-${q.detail.field.code}`}>
+                  {q.detail.field.label}
+                </label>
+                <input
+                  id={`fn-${q.detail.field.code}`}
+                  maxLength={q.detail.field.max}
+                  placeholder={q.detail.field.placeholder}
+                  value={asText(answers[q.detail.field.code])}
+                  onFocus={touch}
+                  onChange={(e) => q.detail && setText(q.detail.field, e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.nativeEvent.isComposing) {
+                      e.preventDefault();
+                      proceed();
+                    }
+                  }}
+                />
+              </div>
+            )}
             {hint && (
               <p className="fn-error" role="alert">
                 {hint}
               </p>
             )}
-            {q.multi && (
+            {(q.multi || detailOpen) && (
               <div className="fn-dock">
                 <button type="button" className="fn-submit" onClick={proceed}>
                   Continue <ArrowRight size={18} aria-hidden="true" />
@@ -706,25 +685,25 @@ export default function FunnelForm({ hook }: { hook: string }) {
               {q.label}
             </h2>
             {q.help && <p className="fn-help">{q.help}</p>}
-            {q.fields.map((f, i) => (
-              <div className="fn-textfield" key={f.code}>
+            {q.fields.map((field, i) => (
+              <div className="fn-textfield" key={field.code}>
                 {i > 0 && (
-                  <label className="fn-label" htmlFor={`fn-${f.code}`}>
-                    {f.label}
+                  <label className="fn-label" htmlFor={`fn-${field.code}`}>
+                    {field.label}
                   </label>
                 )}
                 <textarea
-                  id={`fn-${f.code}`}
+                  id={`fn-${field.code}`}
                   className={`fn-textarea${i === 0 && hint ? " is-invalid" : ""}`}
                   rows={i === 0 ? 3 : 2}
-                  maxLength={f.max}
-                  placeholder={f.placeholder}
+                  maxLength={field.max}
+                  placeholder={field.placeholder}
                   aria-labelledby={i === 0 ? titleId : undefined}
                   aria-invalid={i === 0 && hint ? true : undefined}
                   aria-describedby={i === 0 && hint ? "fn-hint" : undefined}
-                  value={answers[f.code]}
+                  value={asText(answers[field.code])}
                   onFocus={touch}
-                  onChange={(e) => setText(f.code, e.target.value)}
+                  onChange={(e) => setText(field, e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
                       e.preventDefault();
@@ -752,13 +731,13 @@ export default function FunnelForm({ hook }: { hook: string }) {
             <h2 className="fn-title" id={titleId} ref={heading} tabIndex={-1}>
               Last step. Where should we send the details?
             </h2>
-            <p className="fn-help">We&apos;ll use these to set up your free 30-minute call.</p>
+            <p className="fn-help">{f.copy.contactHelp}</p>
             <div className="fn-fields">
               {(
                 [
                   ["email", "Work email", { type: "email", inputMode: "email", autoComplete: "email", placeholder: "you@company.com" }],
                   ["name", "Your name", { autoComplete: "name" }],
-                  ["company", "Company", { autoComplete: "organization" }],
+                  ["company", f.copy.companyLabel, { autoComplete: "organization" }],
                   ["phone", "Phone (optional)", { type: "tel", inputMode: "tel", autoComplete: "tel" }],
                 ] as const
               ).map(([field, text, props]) => {
@@ -821,16 +800,18 @@ function Qualified({
   answers,
   hook,
   offer,
+  funnel: f,
 }: {
   root: React.RefObject<HTMLDivElement | null>;
   contact: Contact;
-  answers: Answers;
+  answers: FormAnswers;
   hook: string;
   offer: string | null;
+  funnel: ClientFunnel;
 }) {
   const [src] = useState(() => {
-    const u = calendlyLink(contact.name, contact.email);
-    u.searchParams.set("a1", calendlyNote(answers).slice(0, 1000));
+    const u = f.calendly(contact.name, contact.email);
+    u.searchParams.set("a1", f.calendlyNote(answers).slice(0, 1000));
     u.searchParams.set("hide_gdpr_banner", "1");
     // Calendly only posts calendly.* events to the parent when these are set.
     u.searchParams.set("embed_type", "Inline");
@@ -850,13 +831,13 @@ function Qualified({
       const ev = (e.data as { event?: string } | null)?.event;
       if (ev === "calendly.event_scheduled" && !fired) {
         fired = true;
-        track("book_call", { page: hook, offer: offer ?? "" });
-        if (GADS_BOOKED) adsConversion(GADS_BOOKED, contact);
+        track("book_call", { page: hook, offer: offer ?? "", ...f.eventExtra });
+        if (GADS_BOOKED) adsConversion(GADS_BOOKED, contact, f.leadIdKey);
       }
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [hook, offer, contact]);
+  }, [hook, offer, contact, f]);
 
   const first = firstName(contact.name);
   return (
@@ -869,8 +850,8 @@ function Qualified({
         <h2 className="fn-title fn-end-title">
           You&apos;re a great fit{first ? `, ${first}` : ""}. Pick a time that works.
         </h2>
-        <p className="fn-text">Your free 30-minute call. Your answers come with you, so we start from what you told us.</p>
-        <iframe src={src} title="Pick a time for your free call with Ardn" className="fn-calendly" />
+        <p className="fn-text">{f.copy.qualifiedText}</p>
+        <iframe src={src} title={f.copy.calendlyTitle} className="fn-calendly" />
       </div>
     </div>
   );
