@@ -27,5 +27,10 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   const parts = staff ? await getProposalStaffParts(slug) : null;
   for (const name of ["STAFF-TAB", "STAFF-VIEW", "STAFF-SCRIPT"]) html = html.replace(`<!--${name}-->`, () => parts?.[name] ?? "");
 
+  // A view marked <!--GATE:setting--> reaches a client only once the published settings switch it on;
+  // until then it is cut out here, so it is not in the page at all, not merely hidden.
+  const nums = (pub?.nums ?? {}) as Record<string, unknown>;
+  html = html.replace(/<!--GATE:(\w+)-->([\s\S]*?)<!--\/GATE:\1-->/g, (_m, setting: string, view: string) => (staff || Number(nums[setting]) > 0 ? view : ""));
+
   return new NextResponse(html, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "private, no-store", "X-Robots-Tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai" } });
 }

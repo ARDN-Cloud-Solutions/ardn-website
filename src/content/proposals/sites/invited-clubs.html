@@ -833,7 +833,7 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
   </section>
 </main>
 </div>
-<div class="view" id="v-team" data-view="team" data-tab="team" hidden>
+<!--GATE:showTeam--><div class="view" id="v-team" data-view="team" data-tab="team" hidden>
 <main data-screen-label="02 The team" style="flex:1;display:flex;flex-direction:column;gap:.5em;padding:.5em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2.4em;">
     <div style="flex:1 1 30em;">
@@ -901,7 +901,8 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
   </section>
 </main>
 </div>
-<div class="view" id="v-org" data-view="org" data-tab="org" hidden>
+<!--/GATE:showTeam-->
+<!--GATE:showOrg--><div class="view" id="v-org" data-view="org" data-tab="org" hidden>
 <main data-screen-label="03 Org Chart" style="flex:1;display:flex;flex-direction:column;gap:.5em;padding:.7em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 2em;">
     <div style="flex:1 1 28em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.4em;">Org Chart</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Invited and Ardn, Side by Side</h1></div>
@@ -945,6 +946,7 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
   </div>
 </main>
 </div>
+<!--/GATE:showOrg-->
 <div class="view" id="v-compare" data-view="compare" data-tab="compare" hidden>
 <main data-screen-label="04 Compare" style="flex:1;display:flex;flex-direction:column;gap:.4em;padding:.5em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2.4em;">
@@ -982,7 +984,7 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
 </div>
 </main>
 </div>
-<div class="view" id="v-detail" data-view="detail" data-tab="detail" hidden>
+<!--GATE:showDetail--><div class="view" id="v-detail" data-view="detail" data-tab="detail" hidden>
 <main data-screen-label="04 Detail" style="flex:1;display:flex;flex-direction:column;gap:.5em;padding:.5em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
     <div style="flex:1 1 24em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Detail</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;"><span id="dTitle"></span></h1></div>
@@ -1115,6 +1117,7 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
   </div>
 </main>
 </div>
+<!--/GATE:showDetail-->
 <div class="view" id="v-value" data-view="value" data-tab="value" hidden>
 <main data-screen-label="03 Value" style="flex:1;display:flex;flex-direction:column;gap:1em;padding:1em 1.8em;">
   <div class="valtabs" role="tablist" aria-label="Value views"><button type="button" role="tab" data-valtab="spend" aria-selected="true">Monthly Spend</button><button type="button" role="tab" data-valtab="price" aria-selected="false">Price and Return</button></div>
@@ -1777,6 +1780,7 @@ function rolesOf(g) {
 const POD_INFO = [['Membership & Sales', 'pod1Sys'], ['Digital & Front Desk', 'pod2Sys'], ['Golf & Racquets', 'pod3Sys'], ['Dining & Events', 'pod4Sys'], ['Billing & Finance', 'pod5Sys'], ['Data & Integrations', 'pod6Sys']];
 const podLine = (e, w) => esc(e.role) + (w > 1 ? ' × ' + w : '');
 function paintTeam() {
+  if (!$('#v-team')) return; // cut out of the page for Invited until it is switched on
   $$('[data-gh]').forEach(e => { const g = e.dataset.gh; e.textContent = `Support ${countOf(PUBT.ms.groups[g]).n} · Rollout ${countOf(PUBT.impl.groups[g]).n}`; });
   $$('[data-roles]').forEach(el => {
     const g = el.dataset.roles, org = el.dataset.rv === 'org';
@@ -1823,6 +1827,7 @@ function paintCompare() {
 
 /* The capacity calculator: what adding people costs, from the published rates and the fee. */
 function paintCalc() {
+  if (!$('#v-team')) return; // cut out of the page for Invited until it is switched on
   const num = (id, lo, hi) => Math.min(hi, Math.max(lo, Math.round(+$(id).value || 0)));
   const pods = num('#cPods', 0, 6), devs = num('#cDevs', 0, 10), months = num('#cMonths', 1, 24);
   const addedMo = pods * (V.onshoreRate + V.podDevs * V.offshoreRate) + devs * V.offshoreRate;
@@ -1835,7 +1840,7 @@ function paintCalc() {
   put('#cFee', FMTS.usd(fee)); put('#cTotal', FMTS.M(total));
   put('#cSaving', FMTS.M(saving) + ' · ' + Math.round(V.today ? saving / V.today * 100 : 0) + '%');
 }
-['#cPods', '#cDevs', '#cMonths'].forEach(id => $(id).addEventListener('input', paintCalc));
+['#cPods', '#cDevs', '#cMonths'].forEach(id => { const el = $(id); if (el) el.addEventListener('input', paintCalc); });
 
 /* Cumulative net by month as an area chart, drawn from the same derived figures as the Return card, so it moves with the admin numbers.
    The plot keeps padding above and below so the low point and the end value sit clear of the axis, and the band is the gap from zero. */
@@ -1978,6 +1983,7 @@ const DTITLE = {
 };
 let dch = 'estate', selSys = 'MemberPride';
 function paintDetail() {
+  if (!$('#v-detail')) return; // cut out of the page for Invited until it is switched on
   $('#dTitle').textContent = DTITLE[dch](V);
   $$('[data-dt]').forEach(b => b.classList.toggle('on', b.dataset.dt === dch));
   $$('[data-dch]').forEach(c => { c.hidden = c.dataset.dch !== dch; });
@@ -2390,6 +2396,7 @@ function pickDemo(id, focus) {
   paintDemoPanel(); if (focus) $('#dmt-' + demoSel).focus();
 }
 function paintDemoQuality() {
+  if (!canEdit && !qualityOn()) { $('#dmQGrid').innerHTML = ''; return; } // nothing of it loads for Invited until it is switched on
   $('#dmQGrid').innerHTML = DEMO_QUALITY.map((q, i) => `<figure class="dm-qtile"><button type="button" data-zoom="${esc(q.img)}" data-cap="${esc(q.title + ': ' + q.cap)}" aria-label="Enlarge: ${esc(q.title)}"><img src="${demoImg(q.img)}" alt="${esc(q.alt)}" loading="lazy" decoding="async"></button><figcaption><b>${esc(q.title)}</b><span>${esc(q.cap)}</span></figcaption></figure>`).join('');
 }
 // the quality gallery is a tab-like view: Invited sees it only when the published settings switch it on; staff always see it, marked
@@ -2398,6 +2405,7 @@ function paintDemoGate() {
   const b = $('[data-dmmode=quality]'); if (!b) return;
   const on = qualityOn();
   b.hidden = !canEdit && !on;
+  if (!$('#dmQGrid').childElementCount !== !(canEdit || on)) paintDemoQuality(); // fill once allowed, empty once not
   b.innerHTML = 'How We Catch and Fix Issues' + (canEdit && !on ? ' <span class="dm-hid">Hidden From Invited</span>' : '');
   if (b.hidden && !$('#dmQuality').hidden) setDemoMode('roles');
 }
