@@ -2,6 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import ProposalShell from "@/components/proposals/ProposalShell";
 import Plan from "@/components/proposals/render/Plan";
 import { getProposal } from "@/content/proposals";
+import { getProposalSite } from "@/content/proposals/sites";
 import { getSession } from "@/lib/proposals/server";
 
 export const dynamic = "force-dynamic";
@@ -12,6 +13,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (!p) notFound();
   const session = await getSession(slug).catch(() => null);
   if (!session) redirect(`/proposals/${slug}/sign-in`);
+  // A proposal with a full site of its own has only that site; the older pages are not served.
+  if (await getProposalSite(slug)) redirect(`/proposals/${slug}/site`);
   return (
     <ProposalShell slug={slug} email={session.email}>
       <Plan p={p} />

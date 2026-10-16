@@ -425,6 +425,13 @@ const PLAN = {"systems":[{"id":"sys01","start":1,"ready":4,"retire":20,"lane":"M
 STAFFV.push('plan'); STAFFNAV.push(['plan', 'Rollout Plan']); VIEWKEYS.push('plan'); VIEWTITLE.plan = 'Rollout Plan'; VIEWHOOK.plan = () => renderPlan();
 ICONS.plan = '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M8 14h5"/><path d="M11 18h6"/>';
 $('#tabPlan .ic').innerHTML = icon('plan');
+// the Rollout Plan is never published: it carries the dashed hidden look and a Staff Only chip, and has no switch
+function paintStaffTabs() {
+  const a = $('#tabPlan'); if (!a) return;
+  a.classList.add('hid'); a.setAttribute('aria-label', 'Rollout Plan, Staff Only');
+  const l = $('.lbl', a); if (!l.querySelector('.so')) { l.textContent = 'Rollout Plan'; l.insertAdjacentHTML('beforeend', ' <span class="so">Staff Only</span>'); }
+}
+paintStaffTabs();
 const PL_KEY = 'ardn-plan-ui';
 const PL_SECS = [['phases', 'Program Phases & Milestones'], ['systems', 'Systems Timeline'], ['rollout', 'Rollout Team'], ['support', 'Support Team'], ['months', 'Month by Month'], ['chart', 'Team vs Need']];
 const PL = (() => {

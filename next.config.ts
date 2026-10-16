@@ -67,6 +67,13 @@ const nextConfig: NextConfig = {
     // Trailing slashes are stripped by the last rule in redirects() instead,
     // so legacy /slug/ URLs reach their destination in a single redirect.
     skipTrailingSlashRedirect: true,
+    async headers() {
+        const robots = "noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai";
+        return [
+            { source: "/proposals/:path*", headers: [{ key: "X-Robots-Tag", value: robots }, { key: "Cache-Control", value: "private, no-store" }] },
+            { source: "/proposal-sites/:path*", headers: [{ key: "X-Robots-Tag", value: robots }] },
+        ];
+    },
     async redirects() {
         return [
             // ReplyCX retired (2026-09-28); AI Forge is the closest AI offer.

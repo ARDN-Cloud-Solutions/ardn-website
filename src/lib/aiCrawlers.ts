@@ -47,4 +47,9 @@ export const AI_CRAWLERS = [
 ];
 
 /** Paths no robot may read: the proposal page and the screens it shows. */
-export const PRIVATE_PATHS = ["/golf-club-management-software/proposal", "/images/club-steward/"];
+export const PRIVATE_PATHS = [
+  "/golf-club-management-software/proposal",
+  "/images/club-steward/",
+  "/proposals/",
+  "/proposal-sites/",
+];
