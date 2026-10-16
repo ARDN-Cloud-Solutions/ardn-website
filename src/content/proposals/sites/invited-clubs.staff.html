@@ -532,7 +532,7 @@ function plStyle() {
 .pl-by{flex:none;width:380px;padding-left:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--soft)}
 .pl-row.hl{background:rgba(108,99,240,.12);outline:1px solid var(--brass)}
 .pl-row.dim{opacity:.35}
-.pl-pr{cursor:pointer}.pl-pr:hover{background:var(--raise)}.pl-pr.sel{background:rgba(108,99,240,.12);outline:1px solid var(--brass)}
+.pl-pr{cursor:pointer}.pl-pr:hover,.pl-row[data-sys]:hover{background:rgba(108,99,240,.09)}.pl-pr.sel{background:rgba(108,99,240,.12);outline:1px solid var(--brass)}
 .pl-pill{display:inline-block;font-size:14px;font-weight:700;padding:0 8px;border-radius:999px;color:#fff;margin-right:6px}
 .pl-pill.core{background:${PL_CORE}}.pl-pill.flex{background:${PL_FLEX}}
 .pl-meta{color:var(--muted);margin-left:6px}
@@ -558,10 +558,10 @@ function plStyle() {
 }
 
 function plAxis(from, to, lead, tail) {
-  let h = `<div class="pl-row head">${lead || '<div class="pl-lbl" style="align-self:flex-start;padding-top:2px;color:var(--muted)">Month After Signing</div>'}<div class="pl-area" style="width:${(to - from + 1) * PL_CW}px">`;
+  let h = `<div class="pl-row head">${lead || '<div class="pl-lbl" style="align-self:flex-start;padding-top:2px;color:var(--muted)">Month</div>'}<div class="pl-area" style="width:${(to - from + 1) * PL_CW}px">`;
   for (let m = from; m <= to; m++) {
     const jan = plMonth(m).startsWith('Jan');
-    h += `<div class="pl-mc" style="left:${(m - from) * PL_CW}px"${jan ? ' title="' + plMonth(m) + '"' : ''}>${m}<small>${jan || m === from ? plMonth(m).slice(-4) : ''}</small></div>`;
+    h += `<div class="pl-mc" style="left:${(m - from) * PL_CW}px" ${plT('Month ' + m, plMonth(m))} data-tipbelow>${m}<small>${jan || m === from ? plMonth(m).slice(-4) : ''}</small></div>`;
   }
   return h + '</div>' + (tail || '') + '</div>';
 }
@@ -617,7 +617,7 @@ function plTeamRows(list, from, to, M, extra) {
   }).join('');
 }
 const PL_TL = 250;
-function plAxisTeam(from, to) { return plAxis(from, to + 1, `<div class="pl-lbl" style="width:${PL_TL}px;align-self:flex-start;padding-top:2px;color:var(--muted)">Month After Signing</div><div class="pl-c" style="width:72px"><b>Full-Time</b></div><div class="pl-c" style="width:88px"><b>Location</b></div><div class="pl-c" style="width:70px"><b>Systems</b></div>`); }
+function plAxisTeam(from, to) { return plAxis(from, to + 1, `<div class="pl-lbl" style="width:${PL_TL}px;align-self:flex-start;padding-top:2px;color:var(--muted)">Month</div><div class="pl-c" style="width:72px"><b>Full-Time</b></div><div class="pl-c" style="width:88px"><b>Location</b></div><div class="pl-c" style="width:70px"><b>Systems</b></div>`); }
 function plRollout(M) {
   const list = M.people.filter(p => p.section === 'Rollout').sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'Core' ? -1 : 1) || a.start - b.start || a.end - b.end);
   if (!list.length) return '<div class="pl-empty">No One On The Rollout Team. Add A Person In Team Admin With The Rollout Section.</div>';
@@ -682,13 +682,14 @@ function plChart(M) {
   }
   s += `<path d="${line}" fill="none" stroke="#1C2045" stroke-width="2.5"/>`;
   for (let m = 1; m <= H; m++) s += `<circle cx="${left + (m - 1) * st + st / 2}" cy="${y(M.need[m])}" r="3.5" fill="${M.short.includes(m) ? '#9F2D45' : '#1C2045'}"/>`;
-  s += `<text x="${left}" y="${top + ch + 40}" fill="#5B6380">Month After Signing (M1 = ${plMonth(1)})</text><rect id="plHover" x="0" y="${top}" width="${st}" height="${ch}" fill="#1C2045" opacity="0" pointer-events="none"/></svg>`;
+  s += `<text x="${left}" y="${top + ch + 40}" fill="#5B6380">Month (M1 = ${plMonth(1)})</text><rect id="plHover" x="0" y="${top}" width="${st}" height="${ch}" fill="#1C2045" opacity="0" pointer-events="none"/></svg>`;
   PLCH = {M, left, st, y};
   const leg = `<div class="pl-leg"><span><i style="background:${PL_CORE}"></i>Core</span><span><i style="background:${PL_FLEX}"></i>Flex</span><span><i style="background:#1C2045;border-radius:50%"></i>Need</span><span><i style="background:#9F2D45"></i>Short Months (${M.short.length})</span></div>`;
   return leg + s;
 }
 
 function renderPlan() {
+  tipHide(); // the chart and rows are rebuilt below, so any tooltip on the old ones is stale
   plStyle();
   const root = $('#planRoot'); if (!root) return;
   if (!A.loaded) { root.innerHTML = '<div class="pl-empty">Loading The Team…</div>'; return; }

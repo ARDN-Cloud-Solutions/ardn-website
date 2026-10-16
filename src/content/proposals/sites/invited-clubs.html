@@ -310,7 +310,10 @@ body.noflags .flag{display:none}
 
 /* the shared chart tooltip floats over the page, so it is fixed to the window and carries its own colour tokens */
 .chtip{position:fixed;z-index:80;max-width:min(92vw,380px);white-space:normal}
-.chtip td+td{white-space:nowrap}
+/* labels stay on one line; a long value (a team list, a note) wraps inside the tooltip instead of spilling out of it */
+.chtip td:first-child{white-space:nowrap}
+.chtip td+td{white-space:normal;max-width:260px;overflow-wrap:anywhere}
+.chtip td.lg{text-align:left}
 .chtip[hidden]{display:none!important}
 [data-tip]:focus-visible,[data-scrub]:focus-visible{outline:2px solid #4B3FD8;outline-offset:2px}
 
@@ -975,7 +978,7 @@ const TIPS = {el: null, src: null, off: null, kb: false};
 const tipJson = (t, s, rows, sums) => JSON.stringify({t, s, r: rows || [], z: sums || []});
 const tipAttr = (t, s, rows, sums) => esc(tipJson(t, s, rows, sums)); // for markup strings; setAttribute takes tipJson as it is
 const tipHtml = d => `<b>${esc(d.t)}</b>${d.s ? `<span class="mute"> · ${esc(d.s)}</span>` : ''}` +
-  ((d.r && d.r.length) || (d.z && d.z.length) ? '<table>' + (d.r || []).map(([sw, l, v]) => `<tr><td>${sw ? `<i style="background:${esc(sw)}"></i>` : ''}${esc(l)}</td><td>${esc(v)}</td></tr>`).join('') +
+  ((d.r && d.r.length) || (d.z && d.z.length) ? '<table>' + (d.r || []).map(([sw, l, v]) => `<tr><td>${sw ? `<i style="background:${esc(sw)}"></i>` : ''}${esc(l)}</td><td${String(v).length > 28 ? ' class="lg"' : ''}>${esc(v)}</td></tr>`).join('') +
     (d.z || []).map(([l, v], i) => `<tr${i === 0 && d.r && d.r.length ? ' class="sum"' : ''}><td>${esc(l)}</td><td>${esc(v)}</td></tr>`).join('') + '</table>' : '');
 function tipEl() {
   if (!TIPS.el) { const e = document.createElement('div'); e.id = 'chTip'; e.className = 'sptip chtip'; e.setAttribute('role', 'tooltip'); e.hidden = true; document.body.appendChild(e); TIPS.el = e; }
@@ -992,7 +995,7 @@ function tipShow(d, x, y, src, below) {
   const e = tipEl();
   if (TIPS.src && TIPS.src !== src) tipHide();
   e.dataset.theme = src && src.closest && src.closest('[data-theme="dark"],#v-admin') ? 'dark' : '';
-  e.innerHTML = tipHtml(d); e.hidden = false;
+  const html = tipHtml(d); if (e.hidden || e._h !== html) { e.innerHTML = html; e._h = html; } e.hidden = false;
   const w = e.offsetWidth, h = e.offsetHeight, vw = document.documentElement.clientWidth, vh = innerHeight;
   let l = x + 14; if (l + w > vw - 4) l = x - w - 14;
   let t = below ? y + 16 : y - h - 10; if (t < 4 || t + h > vh - 4) t = below ? y - h - 10 : y + 16;
@@ -1009,6 +1012,7 @@ function scrubShow(el, k, i, pt) {
   if (s.mark) { s.mark(el, i); TIPS.off = () => s.mark(el, -1); }
 }
 const tipData = t => { try { return JSON.parse(t.getAttribute('data-tip')); } catch (e) { return null; } };
+const tipfData = f => { try { return JSON.parse(f.dataset.tipf); } catch (x) { return null; } };
 const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r.width / 2, r.top]; };
 (function () {
   const hit = (e, sel) => e.target && e.target.closest ? e.target.closest(sel) : null;
@@ -1018,7 +1022,17 @@ const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r
     TIPS.kb = false;
     if (sc) { scrubShow(sc, sc.dataset.scrub, SCRUB[sc.dataset.scrub].at(sc, e), [e.clientX, e.clientY]); return; }
     const t = hit(e, '[data-tip]'), d = t && tipData(t);
-    if (d) tipShow(d, e.clientX, e.clientY, t, t.hasAttribute('data-tipbelow')); else tipHide();
+    if (d) { tipShow(d, e.clientX, e.clientY, t, t.hasAttribute('data-tipbelow')); return; }
+    // a row that carries a summary shows it on hover as well as on focus; a plain title attribute is shown in this same tooltip
+    // (the browser's own title bubble is slow, unstyled and cannot be cleared by scrolling), so the attribute is moved aside
+    const ti = hit(e, '[title],[data-title]');
+    if (ti && ti.hasAttribute('title')) { ti.setAttribute('data-title', ti.getAttribute('title')); ti.removeAttribute('title'); }
+    const f = hit(e, '[data-tipf]'), fd = f && tipfData(f);
+    if (fd) { tipShow(fd, e.clientX, e.clientY, f, false); return; }
+    const tt = ti && ti.getAttribute('data-title');
+    // a title that only repeats the visible text of a label that is not cut short adds nothing
+    const same = ti && ti.scrollWidth <= ti.clientWidth + 1 && ti.textContent.trim() === tt;
+    if (tt && tt !== '—' && !same) tipShow({t: tt}, e.clientX, e.clientY, ti, false); else tipHide();
   });
   // on touch a tap shows the breakdown and a tap anywhere else hides it
   document.addEventListener('pointerdown', e => {
@@ -1035,7 +1049,7 @@ const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r
     const sc = hit(e, '[data-scrub]');
     if (sc) { const k = sc.dataset.scrub; scrubShow(sc, k, sc._i >= 0 ? sc._i : 0); return; }
     const t = e.target.matches && (e.target.matches('[data-tip]') ? e.target : e.target.querySelector && e.target.querySelector('[data-tip]'));
-    const d = t && (e.target.dataset && e.target.dataset.tipf ? (() => { try { return JSON.parse(e.target.dataset.tipf); } catch (x) { return null; } })() : tipData(t));
+    const d = t && (e.target.dataset && e.target.dataset.tipf ? tipfData(e.target) : tipData(t));
     if (d) { const [x, y] = tipAnchor(t); tipShow(d, x, y, e.target, t.hasAttribute('data-tipbelow')); }
   });
   document.addEventListener('focusout', () => tipHide());
@@ -1759,6 +1773,7 @@ function show(key) {
   try { localStorage.setItem('ardn-invited-tab', key); } catch (e) {}
   if (key === 'admin') renderAdmin();
   if (VIEWHOOK[key]) VIEWHOOK[key]();
+  tipHide(); // a tooltip opened on the last tab must not follow the reader to the next one
   viewMotion(key, prevKey); viewFocus(key);
   scrollTo(0, 0);
 }
