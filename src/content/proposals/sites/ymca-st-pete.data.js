@@ -155,10 +155,10 @@ export const SYS = [
     "Invited: pledges 880 + grants 1,024 + soft-credits 522 + gift-batches 2,055 + moves 2,053 = 6,534 ln of fundraising."],
 
   ["SGA", "Finance & Giving", "connect", false,
-    "Revenue posted to general-ledger codes",
-    "A journal-entry export to SGA's format. Behind it sits Invited's Books engine — 207 files and 53,190 lines of double-entry accounting",
-    "Connect first; the export is not built yet. Replacing the Y's accounting system is a much larger decision than this proposal asks for, and it is not on the Day 1 list.",
-    "Invited: books 207 files / 53,190 ln, accounting 1,154 ln, finance 371 ln."],
+    "The Y's accounting system of record: revenue posted to general-ledger codes",
+    "Two real options. CONNECT: a journal-entry export in SGA's format, posting revenue nightly, alongside the Feeds Out channel that already ships to warehouses and BI tools. REPLACE: Invited's Books engine — 207 files and 53,190 lines of double-entry accounting covering ledger, journal, close, reconcile, payables, receivables, budgets, assets and depreciation, leases, debt, cash forecast and multi-entity consolidation, with History Import to bring prior years across",
+    "Connect is the Day 1 path and the export is not yet written. Replace is a genuine option rather than a courtesy — Books is a working system, not a reporting layer — but swapping the Y's system of record is a decision about finance operations and audit, not a feature toggle. We recommend connecting first, running Books alongside on one fund or one branch, and letting the Y's finance team decide from evidence.",
+    "Invited: books 207 files / 53,190 ln (engine: posting, subledger, close, consolidate, reconciliation, receivables, payables, depreciation, deferral, recurring, aging, collections, periods), accounting 1,154 ln, finance 371 ln, plus history-import and feeds-out."],
 
   ["Mailchimp", "Marketing & Web", "connect", false,
     "Email campaigns and segments",
