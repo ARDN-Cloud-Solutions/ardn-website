@@ -1,6 +1,7 @@
 import { emptyProposal, type Proposal } from "@/lib/proposals/model";
 import { listProposalSlugs, readProposalFile } from "@/lib/proposals/store";
 import invited from "./seeds/invited-clubs.json";
+import ymcaStPete from "./seeds/ymca-st-pete.json";
 
 /**
  * Proposals live in the database (proposal_docs, see lib/proposals/store.ts),
@@ -16,6 +17,7 @@ export const isArdnStaff = (email: string) => ARDN_PEOPLE.includes(email.trim().
 /** Who may open a proposal, fixed in code so a saved copy cannot widen it. */
 const LOCKED_ACCESS: Record<string, { domains: string[]; emails: string[] }> = {
   "invited-clubs": { domains: ["invitedclubs.com"], emails: [] },
+  "ymca-st-pete": { domains: ["stpeteymca.org"], emails: [] },
 };
 
 /** Whether this address may hold a session for this slug ("admin" is Ardn only). */
@@ -28,7 +30,7 @@ export function lockedAllowed(slug: string, email: string): boolean | null {
   return lock.emails.includes(e) || lock.domains.includes(e.split("@")[1] || "");
 }
 
-const SEEDS: Record<string, Proposal> = { "invited-clubs": invited as Proposal };
+const SEEDS: Record<string, Proposal> = { "invited-clubs": invited as Proposal, "ymca-st-pete": ymcaStPete as unknown as Proposal };
 
 /**
  * "<slug>--comments" (lib/proposals/comments.ts), "<slug>--rates"
