@@ -48,7 +48,7 @@ button{font:inherit;color:inherit}
 .px button{cursor:pointer}
 .views{flex:1;display:flex;flex-direction:column;min-height:0}
 .view{flex:1;display:flex;flex-direction:column;min-height:0}
-.view[hidden],[data-show][hidden],[data-dch][hidden]{display:none!important}
+.view[hidden],[data-show][hidden],[data-dch][hidden],.dm [hidden]{display:none!important}
 
 /* sidebar: always icons; it opens over the page on hover or keyboard focus and the page never moves (its grid column is fixed). */
 /* the sidebar's width drives the main column, so opening it pushes the page over instead of covering it */
@@ -456,10 +456,84 @@ body.noflags .flag{display:none}
 
 /* phones: the job column stays narrow so the first option column shows beside it before the table scrolls sideways */
 @media (max-width:760px){.cmpjob{width:9.5em}}
+
+/* Demo: a picker of people on the left, what the chosen person can do on the right; one screen on a laptop, a stack on a phone */
+.dm{flex:1;display:flex;flex-direction:column;gap:.7em;padding:.8em 1.8em;min-height:0}
+.dm-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 1.5em}
+.dm-eyebrow{font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.dm h1{font-family:var(--serif);font-weight:500;font-size:1.55em;line-height:1.15;margin:.1em 0 0}
+.dm-title p{margin:.15em 0 0;color:var(--soft)}
+.dm-modes{display:flex;gap:8px}
+.dm-modes button{font:inherit;font-size:max(14px,.9em);font-weight:700;padding:.35em 1.1em;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--soft)}
+.dm-modes button.on{background:var(--brass);border-color:var(--brass);color:#fff}
+.dm-roles{flex:1;min-height:0;display:grid;grid-template-columns:minmax(14em,17em) minmax(0,1fr);gap:1.1em}
+.dm-pick{display:flex;flex-direction:column;gap:3px;min-height:0;overflow:auto;padding-right:2px}
+.dm-grp{font-size:max(14px,.8em);letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--brass);padding:.55em .3em .15em}
+.dm-grp:first-child{padding-top:0}
+.dm-who{display:flex;flex-direction:column;text-align:left;gap:0;padding:.18em .7em;border-radius:10px;border:1px solid transparent;background:transparent;color:var(--ink);line-height:1.2;position:relative}
+.dm-who b{font-size:1em}
+.dm-who span{font-size:max(14px,.88em);color:var(--muted)}
+.dm-who i{position:absolute;right:.6em;top:.35em;font-style:normal;font-size:max(14px,.8em);font-weight:700;color:var(--brass)}
+.dm-who:hover{background:var(--raise);border-color:var(--line)}
+.dm-who[aria-selected=true]{background:var(--brass);border-color:var(--brass);color:#fff}
+.dm-who[aria-selected=true] span,.dm-who[aria-selected=true] i{color:#E9EBFF}
+.dm-panel{min-height:0;min-width:0;overflow:auto;background:var(--deep);border:1px solid var(--line);border-radius:14px;padding:.9em 1.2em;display:flex;flex-direction:column;gap:.7em;box-shadow:var(--shadow)}
+.dm-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5em 1.2em}
+.dm-top h2{font-family:var(--serif);font-weight:500;font-size:1.55em;line-height:1.1;margin:0}
+.dm-sub{color:var(--soft);margin-top:.15em}
+.dm-role{font-weight:700;color:var(--brass2);margin-right:.5em}
+.dm-go{background:var(--brass);color:#fff!important;font-weight:700;border-radius:999px;padding:.55em 1.4em;text-decoration:none;white-space:nowrap}
+.px a.dm-go:hover{background:var(--brass2);text-decoration:none}
+.dm-cols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.2em;min-height:0}
+.dm-cols.one{grid-template-columns:1fr}
+.dm h3{font-size:max(14px,.8em);letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin:0 0 .35em}
+.dm-areas{display:flex;flex-direction:column;gap:.4em}
+.dm-area{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:.5em;align-items:start}
+.dm-area h4{margin:.25em 0 0;font-size:max(14px,.9em);color:var(--muted);font-weight:700}
+.dm-area ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.3em .4em}
+.dm-area li{font-size:max(14px,.92em);background:var(--raise);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.12em .75em;display:flex;align-items:center;gap:.4em}
+.dm-area li::before{content:"✓";color:var(--good);font-weight:700}
+.dm-fl{display:flex;flex-direction:column;gap:.55em;min-width:0}
+.dm-flow{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr);gap:.8em;align-items:start}
+.dm-thumb,.dm-qtile button{padding:0;border:1px solid var(--line2);border-radius:10px;overflow:hidden;background:var(--raise);display:block;cursor:zoom-in}
+.dm-thumb img{display:block;width:100%;height:auto;aspect-ratio:10/7;object-fit:cover;object-position:top left}
+.dm-flowtx h4{margin:0;font-size:1.05em}
+.dm-flowtx p{margin:.2em 0}
+.dm-rail{margin:.25em 0;padding:0;list-style:none;counter-reset:s;display:grid;grid-template-columns:1fr 1fr;gap:.1em .8em}
+.dm-rail li{counter-increment:s;font-size:max(14px,.9em);line-height:1.25;display:flex;gap:.4em;min-width:0}
+.dm-rail li::before{content:counter(s);flex:none;width:1.4em;height:1.4em;border-radius:50%;background:var(--brass);color:#fff;font-size:max(14px,.8em);font-weight:700;display:grid;place-items:center;margin-top:0}
+.dm-try{font-weight:700;color:var(--brass2);text-decoration:none}
+.dm-quality{flex:1;min-height:0;display:flex;flex-direction:column;gap:.6em}
+.dm-qintro{margin:0;color:var(--soft);max-width:60em}
+.dm-qgrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:.8em}
+.dm-qtile{margin:0;display:flex;flex-direction:column;gap:.3em;min-height:0;min-width:0}
+.dm-qtile button{flex:1;min-height:0;width:100%}
+.dm-qtile img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+.dm-qtile figcaption{display:flex;flex-direction:column;line-height:1.25}
+.dm-qtile figcaption span{color:var(--soft);font-size:max(14px,.92em)}
+@media (max-width:1000px){.dm-cols{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .dm{padding:.8em 1em}
+  .dm-roles{display:flex;flex-direction:column;gap:.8em}
+  .dm-pick{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:0 0 .4em;gap:6px;scroll-snap-type:x proximity}
+  .dm-grp{display:none}
+  .dm-who{flex:none;border-color:var(--line2);white-space:nowrap;padding:.35em .8em;scroll-snap-align:start}
+  .dm-who i{position:static;margin-top:0}
+  .dm-panel{overflow:visible}
+  .dm-area{grid-template-columns:1fr}
+  .dm-flow{grid-template-columns:1fr}
+  .dm-thumb{max-width:18em}
+  .dm-qgrid{display:flex;flex-direction:column}
+  .dm-qtile button{flex:none;height:12em}
+}
+/* on a laptop the Demo is exactly one screen: the page is as tall as the window and the people and the panel share what is left (each scrolls inside itself only if it has to) */
+@media (min-width:761px){body[data-view=demo] .col{height:100vh;height:100dvh;min-height:0}body[data-view=demo] .views,body[data-view=demo] .view{min-height:0;overflow:hidden}}
+.dm-go{display:inline-flex;align-items:center;min-height:44px}
+.dm-try{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:760px){.dm-who,.dm-modes button{min-height:44px}}
 .xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
 .xh1:hover{color:#F08A6C;}
 .xh2:hover{border-color:var(--ink);}
-.xh3:hover{border-color:rgba(var(--goldrgb),.7);background:var(--raise);}
 </style>
 
 <div class="px" id="px">
@@ -927,32 +1001,21 @@ body.noflags .flag{display:none}
 
 </div>
 <div class="view" id="v-demo" data-view="demo" data-tab="demo" hidden>
-<main data-screen-label="07 Demo" style="flex:1;display:flex;flex-direction:column;gap:1.4em;padding:1.2em 1.8em;">
-  <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2.4em;">
-    <div style="flex:1 1 30em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Demo Logins</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Pick a person. You land on their home page.</h1></div>
-    <p style="flex:1 1 22em;max-width:36em;margin:0;color:var(--soft);font-size:1.05em;line-height:1.45;">Sample data. Shared: others see your changes.</p>
-  </section>
-  <section class="demosec" style="display:flex;flex-direction:column;gap:.7em;">
-    <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700;">Staff App</div>
-    <div class="demogrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(14.5em,1fr));gap:1em;">
-      <div data-slot="staffPeople" data-as="p" style="display:contents"></div>
-    </div>
-  </section>
-  <div class="demorow" style="display:flex;flex-wrap:wrap;gap:1.4em 1.2em;align-items:stretch;">
-  <section class="demosec" style="flex:3 1 40em;display:flex;flex-direction:column;gap:.7em;">
-    <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700;">Member Portal</div>
-    <div class="demogrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(14.5em,1fr));gap:1em;">
-      <div data-slot="memberPeople" data-as="p" style="display:contents"></div>
-    </div>
-  </section>
-  <section class="demosec" style="flex:3 1 40em;display:flex;flex-direction:column;gap:.7em;">
-    <div style="font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700;">Point of Sale</div>
-    <div class="demogrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(14.5em,1fr));gap:1em;">
-      <div data-slot="posPeople" data-as="p" style="display:contents"></div>
-    </div>
-  </section>
+<main class="dm" data-screen-label="07 Demo">
+  <header class="dm-head">
+    <div class="dm-title"><div class="dm-eyebrow">Demo Logins</div><h1>Pick a person. See what they can do.</h1><p>Sample data. Shared: others see your changes.</p></div>
+    <div class="dm-modes" role="tablist" aria-label="Demo Views"><button type="button" role="tab" data-dmmode="roles" aria-selected="true" class="on">Roles</button><button type="button" role="tab" data-dmmode="quality" aria-selected="false">How We Catch and Fix Issues</button></div>
+  </header>
+  <div class="dm-roles" id="dmRoles">
+    <nav class="dm-pick" id="dmPick" role="tablist" aria-orientation="vertical" aria-label="Demo People"></nav>
+    <section class="dm-panel" id="dmPanel" role="tabpanel" aria-live="polite"></section>
+  </div>
+  <div class="dm-quality" id="dmQuality" hidden>
+    <p class="dm-qintro">Quality checks run as the product is built, so problems are found and fixed as they happen. These are screens from the Quality Console our team works in. Click one to enlarge it.</p>
+    <div class="dm-qgrid" id="dmQGrid"></div>
   </div>
 </main>
+
 </div>
 <!--STAFF-VIEW-->
 </div>
@@ -1002,24 +1065,6 @@ body.noflags .flag{display:none}
               <div data-slot="ar.items" data-as="it" style="display:contents"></div>
             </div>
           </div></template>
-<template id="tpl-staffPeople" data-as="p"><a href="{{ p.href }}" target="_blank" rel="noopener" style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:1.1em 1.2em;display:flex;flex-direction:column;gap:.4em;text-decoration:none;color:var(--ink);" class="xh3">
-          <span style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .5em;"><b style="font-size:1.3em;white-space:nowrap;">{{ p.name }}</b><span style="white-space:nowrap;font-size:max(14px,.74em);font-weight:700;color:var(--brass);">{{ p.tag }}</span></span>
-          <span style="font-size:max(14px,.92em);color:var(--muted);">{{ p.role }}</span>
-          <span style="font-size:1em;color:var(--soft);line-height:1.3;">{{ p.see }}</span>
-          <span style="margin-top:auto;padding-top:.35em;font-size:max(14px,.84em);font-weight:700;color:var(--brass2);">Sign In →</span>
-        </a></template>
-<template id="tpl-memberPeople" data-as="p"><a href="{{ p.href }}" target="_blank" rel="noopener" style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:1.1em 1.2em;display:flex;flex-direction:column;gap:.4em;text-decoration:none;color:var(--ink);" class="xh3">
-          <b style="font-size:1.3em;">{{ p.name }}</b>
-          <span style="font-size:max(14px,.92em);color:var(--muted);">{{ p.role }}</span>
-          <span style="font-size:1em;color:var(--soft);line-height:1.3;">{{ p.see }}</span>
-          <span style="margin-top:auto;padding-top:.35em;font-size:max(14px,.84em);font-weight:700;color:var(--brass2);">Sign In →</span>
-        </a></template>
-<template id="tpl-posPeople" data-as="p"><a data-pos href="{{ p.href }}" target="_blank" rel="noopener" style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:1.1em 1.2em;display:flex;flex-direction:column;gap:.4em;text-decoration:none;color:var(--ink);" class="xh3">
-          <b style="font-size:1.3em;">{{ p.name }}</b>
-          <span style="font-size:max(14px,.92em);color:var(--muted);">{{ p.role }}</span>
-          <span style="font-size:1em;color:var(--soft);line-height:1.3;">{{ p.see }}</span>
-          <span style="margin-top:auto;padding-top:.35em;font-size:max(14px,.84em);font-weight:700;color:var(--brass2);">Sign In to the POS →</span>
-        </a></template>
 <!--STATE-->
 <script>
 /* ---------- One hover breakdown for every chart. The Monthly Spend tooltip is the shared component: a title, each series with its value,
@@ -1721,27 +1766,6 @@ const DEMO = {
   staff: 'https://qa-invited-clubs-tenant-admin-web.developer-bef.workers.dev',
   member: 'https://qa-invited-clubs-member-portal-web.developer-bef.workers.dev',
 };
-// Everyone signs in to their home page, which shows the apps that person has; no deep links.
-renderSlot(slotOf('staffPeople'), [
-  ['Grant Whitaker', 'General Manager', 'Runs the club. Sees every app.', 'Start Here'],
-  ['Elena Ruiz', 'VP Membership · All Clubs', 'Grows membership across the clubs.', ''],
-  ['Ruth Abernathy', 'Club Controller', 'Owns the club’s books and billing.', ''],
-  ['Morgan Ellis', 'Private Events Director', 'Sells and runs private events.', ''],
-  ['Walt Henderson', 'Starter / Ranger', 'Keeps play moving on the course.', ''],
-].map(([name, role, see, tag]) => ({name, role, see, tag, first: name.split(' ')[0], href: DEMO.staff + '/?as=' + encodeURIComponent(name) + '&next=' + encodeURIComponent('/dashboard/home')})));
-renderSlot(slotOf('memberPeople'), [
-  ['Michael Johnson', 'Full Golf · Family Household', 'A member who books for the family.'],
-  ['Jane Johnson', 'Family Dependent', 'A dependent on a family membership.'],
-  ['William Ashby', 'Golf Member', 'A golf member of the club.'],
-].map(([name, role, see]) => ({name, role, see, first: name.split(' ')[0], href: DEMO.member + '/login?roster=1&as=' + encodeURIComponent(name)})));
-
-// People who work a register tap in at the POS sign-in (a page of the staff app); it takes no person in the address, so they pick their name there
-renderSlot(slotOf('posPeople'), [
-  ['Carmen Ruiz', 'Server / Bartender', 'Rings up dining room and bar orders on the register.'],
-  ['Jamie Cole', 'Server / Bartender', 'Takes orders and closes checks on the register.'],
-  ['Riley Brooks', 'Golf Shop Staff', 'Rings up sales at the golf shop counter.'],
-].map(([name, role, see]) => ({name, role, see, href: DEMO.staff + '/pos'})));
-
 /* ---------- tabs, footer, keys, the drawer ---------- */
 const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
 const VIEWKEYS = [...TABS.map(t => t[0]), 'admin'];
@@ -1853,6 +1877,7 @@ addEventListener('keydown', e => {
   if (typeof theatreOpenNow === 'function' && theatreOpenNow()) { e.preventDefault(); theatreStep(e.key === 'ArrowRight' ? 1 : -1); return; }
   // only while the screenshot viewer is open do the arrows belong to the screenshots; otherwise they move between tabs like everywhere else
   if (document.body.dataset.view === 'screens' && typeof viewerAt === 'number' && viewerAt >= 0) { e.preventDefault(); if (typeof shotArrow === 'function') shotArrow(e.key === 'ArrowRight' ? 1 : -1); return; }
+  if (!$('#lightbox').hidden) return; // a picture opened from the Demo owns the keys; Esc closes it
   const nav = navTabs(), i = nav.findIndex(t => t[0] === document.body.dataset.view);
   if (i < 0) return;
   if (e.key === 'ArrowRight' && i < nav.length - 1) location.hash = nav[i + 1][0];
@@ -1946,6 +1971,12 @@ function openViewer(at, from) {
   if (at < 0) return;
   viewerAt = at; viewerFrom = from || null; $('#lightbox').hidden = false; showViewer(); $('#lbClose').focus();
 }
+/* one picture that is not part of the Screens list (the Demo's flows and quality gallery), in the same viewer */
+function openPlain(src, cap, area, from) {
+  viewerAt = -1; viewerFrom = from || null;
+  const img = $('#lbImg'); img.src = src; img.alt = cap; $('#lbArea').textContent = area || ''; $('#lbCap').textContent = cap || ''; $('#lbCount').textContent = '';
+  $('#lbPrev').disabled = $('#lbNext').disabled = true; $('#lightbox').hidden = false; $('#lbClose').focus();
+}
 function closeViewer() {
   if (viewerAt < 0 && $('#lightbox').hidden) return;
   viewerAt = -1; $('#lightbox').hidden = true;
@@ -1953,6 +1984,7 @@ function closeViewer() {
   if (viewerFrom && document.contains(viewerFrom)) viewerFrom.focus(); viewerFrom = null;
 }
 function viewerStep(d) {
+  if (viewerAt < 0) return; // a picture from outside the Screens list has no neighbours
   const to = viewerAt + d; if (to < 0 || to >= SHOT_FLAT.length) return;
   viewerAt = to; showViewer();
   // keep the grid on the screen being looked at, so closing the viewer lands there
@@ -2013,6 +2045,135 @@ $('#thFull').onclick = e => {
 // a click on the scrim, outside the player and its controls, closes it
 $('#theatre').addEventListener('click', e => { if (!e.target.closest('#thBox, .thnav')) closeTheatre(); });
 paintVids();
+/* ---------- Demo: pick a person, see what they can do, and try it ----------
+   ONE data object holds who can do what. Edit DEMO_ROLES to change a person's functions or flows.
+   Functions are plain names for permissions the product really grants the role (quality/model/personas/staff-<role>.yaml, taken from the live grants);
+   member functions come from the member portal's own navigation (member-portal-web/src/lib/memberNav.ts). No permission ids are shown. */
+const DEMO_FLOWS = {
+  event: {title: 'Booking a Private Event', img: 'flows/event.jpg', alt: 'The Steps rail on a private event: seven steps, three of them ready.', path: '/dashboard/private-events/528b49e1-3dbf-4aac-bcbf-f48fb17374f6',
+    steps: ['Take The Inquiry', 'Rooms & Times', 'Menu & Bar', 'Rentals, Decor & Linens', 'Vendors', 'Hold The Room And The Date', 'Agree It And Confirm']},
+  sale: {title: 'Selling a Membership', img: 'flows/sales.jpg', alt: 'The Selling a Membership steps on a sales opportunity, all four done.', path: '/dashboard/sales-pipeline/a4ef3fb2-6ea4-44bc-99a1-bed15736d676',
+    steps: ['Take Their Details', 'Start The Sale', 'Choose What They Are Buying', 'Agreement And Payment']},
+};
+const DEMO_FLOW_EDITOR = {img: 'flows/settings.jpg', alt: 'The Guided Flows settings page: each flow with its steps, live version and when it was last changed.', path: '/dashboard/settings/guided-flows',
+  text: 'Admins edit the steps of every flow, and every change is kept as a version.'};
+// app: staff = Staff App, member = Member Portal, pos = Point of Sale (the register sign-in)
+const DEMO_ROLES = [
+  {id: 'grant', app: 'staff', name: 'Grant Whitaker', role: 'General Manager', tag: 'Start Here', summary: 'Runs the club and sees every app.', areas: [
+    ['People', ['Give Staff Their Jobs', 'Set the Staff Schedule', 'Approve Time Off and Shift Swaps', 'Approve Staff Requests']],
+    ['Members', ['Sell a Membership', 'Book and Pay as a Member']],
+    ['Tee Sheet', ['Run the Tee Sheet']],
+    ['Events', ['Run Private Events']],
+    ['Billing', ['Set How Members Are Billed']],
+    ['Reports', ['Build and Schedule Reports']],
+    ['Club', ['Change Club Settings']]]},
+  {id: 'elena', app: 'staff', name: 'Elena Ruiz', role: 'VP Membership · All Clubs', summary: 'Grows membership across the clubs.', flows: ['sale'], editor: true, areas: [
+    ['Sales', ['Sell a Membership', 'Work Sales Opportunities', 'Manage Leads and Lead Routing', 'Set Monthly Sales Goals']],
+    ['Membership', ['Accept or Decline Applications', 'Set Plans and Prices', 'Approve Resignations']],
+    ['Retention', ['See Members at Risk', 'Record Retention Calls']],
+    ['Reports', ['Build and Schedule Reports']]]},
+  {id: 'ruth', app: 'staff', name: 'Ruth Abernathy', role: 'Club Controller', summary: 'Owns the club’s books and billing.', areas: [
+    ['Billing', ['Run Billing Assessments', 'Write Off Balances Owed', 'Raise and Void Invoices', 'Refund and Collect Payments']],
+    ['Books', ['Approve and Pay Vendor Bills', 'Review Bank Transactions', 'Reconcile Bank Accounts', 'Close Accounting Months', 'Send Member Statements']],
+    ['People', ['Close Pay Periods']]]},
+  {id: 'morgan', app: 'staff', name: 'Morgan Ellis', role: 'Private Events Director', summary: 'Sells and runs private events.', flows: ['event'], areas: [
+    ['Selling', ['Hold a Date', 'Send Proposals', 'Prepare Contracts', 'Set the Price Book']],
+    ['Planning', ['Build Menus and Extras', 'Prepare Banquet Event Orders', 'Manage Guest Lists and Seating', 'Draw Floor Plans']],
+    ['Day Of', ['Run the Event on the Day']],
+    ['Billing', ['Record Payments', 'Send Final Invoices']]]},
+  {id: 'walt', app: 'staff', name: 'Walt Henderson', role: 'Starter / Ranger', summary: 'Keeps play moving on the course.', areas: [
+    ['Tee Sheet', ['Run the Starter Sheet']],
+    ['Golf', ['Assign Carts to Players', 'Track Carts on the Course']],
+    ['Club', ['See Rental Equipment', 'Message Colleagues in Team Chat']]]},
+  {id: 'michael', app: 'member', name: 'Michael Johnson', role: 'Full Golf · Family Household', summary: 'A member who books for the family.', areas: [
+    ['Book', ['Book a Tee Time', 'Book Dining', 'Register for Events', 'Book Classes, Lessons and Courts']],
+    ['Money', ['See Dues and Receipts', 'View the House Account', 'Manage Payment Methods']],
+    ['Family', ['Manage the Household', 'Invite Guests']],
+    ['Club', ['Browse the Member Directory']]]},
+  {id: 'jane', app: 'member', name: 'Jane Johnson', role: 'Family Dependent', summary: 'A dependent on a family membership.', areas: [
+    ['Book', ['Book a Tee Time', 'Book Dining', 'Register for Events']],
+    ['Club', ['See What My Plan Includes', 'Browse the Member Directory', 'View My Documents', 'Sign Waivers']],
+    ['Me', ['Update My Profile']]]},
+  {id: 'william', app: 'member', name: 'William Ashby', role: 'Golf Member', summary: 'A golf member of the club.', areas: [
+    ['Book', ['Book a Tee Time', 'Book Dining', 'Register for Events', 'Book Classes, Lessons and Courts']],
+    ['Money', ['See Dues and Receipts', 'View the House Account', 'Manage Payment Methods']],
+    ['Club', ['Browse the Member Directory', 'View My Documents', 'Sign Waivers']]]},
+  {id: 'carmen', app: 'pos', name: 'Carmen Ruiz', role: 'Server / Bartender', summary: 'Rings up dining room and bar orders on the register.', areas: [
+    ['POS', ['Open, Change and Close Checks', 'Take Card and Account Payments', 'Charge to House Accounts', 'Sell Gift Cards and Punch Cards', 'Open, Count and Close a Register', 'Clock In and Out']],
+    ['Dining', ['Book Tables', 'Read Banquet Event Orders']]]},
+  {id: 'jamie', app: 'pos', name: 'Jamie Cole', role: 'Server / Bartender', summary: 'Takes orders and closes checks on the register.', areas: [
+    ['POS', ['Open, Change and Close Checks', 'Take Card and Account Payments', 'Charge to House Accounts', 'Sell Gift Cards and Punch Cards', 'Open, Count and Close a Register', 'Clock In and Out']],
+    ['Dining', ['Book Tables', 'Read Banquet Event Orders']]]},
+  {id: 'riley', app: 'pos', name: 'Riley Brooks', role: 'Golf Shop Staff', summary: 'Rings up sales at the golf shop counter.', areas: [
+    ['Tee Sheet', ['Book and Cancel Tee Times', 'Block Out the Tee Sheet', 'Run the Tee-Time Lottery']],
+    ['Golf', ['Run Golf Events and Scoring', 'Maintain Handicaps', 'Manage Rentals and Assign Carts']],
+    ['POS', ['Sell From the Pro Shop', 'Sell Gift Cards and Punch Cards', 'Open and Close a Register']],
+    ['Club', ['Issue Guest Passes']]]},
+];
+const DEMO_GROUPS = [['staff', 'Staff App'], ['member', 'Member Portal'], ['pos', 'Point of Sale']];
+// screens of the Quality Console, cropped; paths, the console's internal wording and machine names are blurred or cropped out
+const DEMO_QUALITY = [
+  {img: 'quality/checks.jpg', title: 'Every Check, Every Result', cap: 'Each safety check keeps its last 30 results, so a slide from pass to fail is seen the day it happens.', alt: 'The Checks list: each check with its latest result and a history bar of passes and fails.'},
+  {img: 'quality/checkdetail.jpg', title: 'A Failing Check in Detail', cap: 'A failing check lists every run with its time and the exact version of the product it ran against, so the fix starts at the change that caused it.', alt: 'One failing check with every run, its status, time and version.'},
+  {img: 'quality/cases.jpg', title: 'Test Cases on Demand', cap: 'Any test case can be found by role, feature or latest result, and run on the spot, without waiting for a release.', alt: 'The Test Cases page with filters by persona, feature, suite and latest result.'},
+  {img: 'quality/findings.jpg', title: 'Problems Found Stay Counted', cap: 'Every problem found is logged by phase and stays open until it is fixed, so nothing is quietly dropped.', alt: 'The Findings page: open and fixed problems counted by phase.'},
+];
+const demoEnc = encodeURIComponent, demoImg = f => '/proposal-sites/invited-clubs/' + f;
+const demoRole = id => DEMO_ROLES.find(r => r.id === id) || DEMO_ROLES[0];
+const demoFirst = r => r.name.split(' ')[0];
+const demoSignIn = r => r.app === 'staff' ? DEMO.staff + '/?as=' + demoEnc(r.name) + '&next=' + demoEnc('/dashboard/home')
+  : r.app === 'member' ? DEMO.member + '/login?roster=1&as=' + demoEnc(r.name) : DEMO.staff + '/pos'; // the register sign-in takes no person in the address
+const demoTry = (r, path) => DEMO.staff + '/?as=' + demoEnc(r.name) + '&next=' + demoEnc(path);
+const demoCount = k => DEMO_ROLES.filter(r => r.app === k).length;
+let demoSel = 'grant';
+try { demoSel = demoRole(localStorage.getItem('ardn-invited-demo-role') || 'grant').id; } catch (e) {}
+
+function paintDemoPick() {
+  $('#dmPick').innerHTML = DEMO_GROUPS.map(([k, label]) => `<div class="dm-grp" role="presentation">${esc(label)}</div>` + DEMO_ROLES.filter(r => r.app === k).map(r =>
+    `<button type="button" role="tab" class="dm-who" id="dmt-${r.id}" data-role="${r.id}" aria-selected="${r.id === demoSel}" aria-controls="dmPanel" tabindex="${r.id === demoSel ? 0 : -1}"><b>${esc(r.name)}</b><span>${esc(r.role)}</span>${r.tag ? `<i>${esc(r.tag)}</i>` : ''}</button>`).join('')).join('');
+}
+function paintDemoPanel() {
+  const r = demoRole(demoSel), pos = r.app === 'pos';
+  const funcs = r.areas.map(([a, list]) => `<div class="dm-area"><h4>${esc(a)}</h4><ul>${list.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>`).join('');
+  const flows = (r.flows || []).map(k => { const f = DEMO_FLOWS[k]; return `<div class="dm-flow">
+    <button type="button" class="dm-thumb" data-zoom="${esc(f.img)}" data-cap="${esc(f.title + ': ' + f.alt)}" aria-label="Enlarge the ${esc(f.title)} steps"><img src="${demoImg(f.img)}" alt="" loading="lazy" decoding="async"></button>
+    <div class="dm-flowtx"><h4>${esc(f.title)}</h4><ol class="dm-rail">${f.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
+    <a class="dm-try" data-try href="${esc(demoTry(r, f.path))}" target="_blank" rel="noopener">Try It →</a></div></div>`; }).join('');
+  const editor = r.editor ? `<div class="dm-flow dm-editor">
+    <button type="button" class="dm-thumb" data-zoom="${esc(DEMO_FLOW_EDITOR.img)}" data-cap="${esc('Guided Flows Settings: ' + DEMO_FLOW_EDITOR.alt)}" aria-label="Enlarge the Guided Flows settings"><img src="${demoImg(DEMO_FLOW_EDITOR.img)}" alt="" loading="lazy" decoding="async"></button>
+    <div class="dm-flowtx"><h4>Configure the Flows</h4><p>${esc(DEMO_FLOW_EDITOR.text)}</p><a class="dm-try" data-try href="${esc(demoTry(r, DEMO_FLOW_EDITOR.path))}" target="_blank" rel="noopener">Try It →</a></div></div>` : '';
+  $('#dmPanel').setAttribute('aria-labelledby', 'dmt-' + r.id);
+  $('#dmPanel').innerHTML = `<div class="dm-top"><div><h2>${esc(r.name)}</h2><div class="dm-sub"><span class="dm-role">${esc(r.role)}</span> ${esc(r.summary)}</div></div>
+    <a class="dm-go" data-signin ${pos ? 'data-pos' : ''} href="${esc(demoSignIn(r))}" target="_blank" rel="noopener">${pos ? 'Sign In to the POS →' : 'Sign In as ' + esc(demoFirst(r)) + ' →'}</a></div>
+    <div class="dm-cols${flows || editor ? '' : ' one'}"><div class="dm-fn"><h3>What They Can Do</h3><div class="dm-areas">${funcs}</div></div>
+    ${flows || editor ? `<div class="dm-fl"><h3>Guided Flows</h3>${flows}${editor}</div>` : ''}</div>`;
+}
+function pickDemo(id, focus) {
+  demoSel = demoRole(id).id; try { localStorage.setItem('ardn-invited-demo-role', demoSel); } catch (e) {}
+  $$('#dmPick .dm-who').forEach(b => { const on = b.dataset.role === demoSel; b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; });
+  paintDemoPanel(); if (focus) $('#dmt-' + demoSel).focus();
+}
+function paintDemoQuality() {
+  $('#dmQGrid').innerHTML = DEMO_QUALITY.map((q, i) => `<figure class="dm-qtile"><button type="button" data-zoom="${esc(q.img)}" data-cap="${esc(q.title + ': ' + q.cap)}" aria-label="Enlarge: ${esc(q.title)}"><img src="${demoImg(q.img)}" alt="${esc(q.alt)}" loading="lazy" decoding="async"></button><figcaption><b>${esc(q.title)}</b><span>${esc(q.cap)}</span></figcaption></figure>`).join('');
+}
+function setDemoMode(m) {
+  $$('[data-dmmode]').forEach(b => { const on = b.dataset.dmmode === m; b.setAttribute('aria-selected', String(on)); b.classList.toggle('on', on); });
+  $('#dmRoles').hidden = m !== 'roles'; $('#dmQuality').hidden = m !== 'quality';
+}
+paintDemoPick(); paintDemoPanel(); paintDemoQuality();
+document.addEventListener('click', e => {
+  const w = e.target.closest('#dmPick .dm-who'); if (w) { pickDemo(w.dataset.role); return; }
+  const m = e.target.closest('[data-dmmode]'); if (m) { setDemoMode(m.dataset.dmmode); return; }
+  const z = e.target.closest('#v-demo [data-zoom], .dm [data-zoom]'); if (z) openPlain(demoImg(z.dataset.zoom), z.dataset.cap, 'Demo', z);
+});
+// arrows move through the people while the picker has focus; elsewhere they still move between tabs
+$('#dmPick').addEventListener('keydown', e => {
+  const k = {ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1}[e.key];
+  if (!k && e.key !== 'Home' && e.key !== 'End') return;
+  e.preventDefault(); e.stopPropagation();
+  const i = DEMO_ROLES.findIndex(r => r.id === demoSel);
+  pickDemo(DEMO_ROLES[e.key === 'Home' ? 0 : e.key === 'End' ? DEMO_ROLES.length - 1 : Math.max(0, Math.min(DEMO_ROLES.length - 1, i + k))].id, true);
+});
 /* ---------- Value tab: Invited's monthly spend. Every figure is worked out here from the proposal numbers (NV); nothing is typed in. ---------- */
 // Month 1 is a staff input (Month 1 Is, as YYYYMM); a value that is not a real month falls back to January 2027
 const spStartOf = () => { const v = Math.round((typeof NV !== 'undefined' && NV && NV.spStart) || 202701), y = Math.floor(v / 100), m = v % 100; return y >= 2000 && y <= 2100 && m >= 1 && m <= 12 ? {year: y, month: m - 1} : {year: 2027, month: 0}; };
@@ -2283,7 +2444,7 @@ const HOLE_TXT = {
   detail: ['Detail', 'Systems, Testing and Rollout in Depth', () => `${V.systems} Systems`],
   screens: ['Screens', 'Real Screens, by App', () => `${Math.floor(SHOT_DATA.reduce((a, g) => a + g.length, 0) / 10) * 10}+ Screens`],
   videos: ['Videos', 'Run the Whole Club on One Platform\u00a0·\u00a02\u00a0Min', () => `${VIDS.length} Films`],
-  demo: ['Demo', 'Sign In as Grant Whitaker, General Manager', () => `${$$('[data-slot=staffPeople] > *').length || 7} Staff Roles · ${$$('[data-slot=memberPeople] > *').length || 3} Member Roles · ${$$('[data-pos]').length || 1} Point of Sale`],
+  demo: ['Demo', 'Sign In as Grant Whitaker, General Manager', () => `${demoCount('staff')} Staff Roles · ${demoCount('member')} Member Roles · ${demoCount('pos')} Point of Sale`],
 };
 function paintHome() {
   const box = $('#homeCards'); if (!box) return;
