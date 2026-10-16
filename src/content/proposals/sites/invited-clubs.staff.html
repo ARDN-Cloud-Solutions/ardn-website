@@ -1,9 +1,9 @@
-<!--STAFF-TAB--><a href="#plan" id="tabPlan"><span class="ic"></span><span class="lbl">Rollout plan</span></a><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team Admin</span></a><!--/STAFF-TAB-->
+<!--STAFF-TAB--><a href="#plan" id="tabPlan"><span class="ic"></span><span class="lbl">Rollout Plan</span></a><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team Admin</span></a><!--/STAFF-TAB-->
 <!--STAFF-VIEW--><div class="view" id="v-plan" data-view="plan" data-tab="plan" hidden>
-<main data-screen-label="11 Rollout plan" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em 2em;"><section id="planRoot"></section></main>
+<main data-screen-label="11 Rollout Plan" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em 2em;"><section id="planRoot"></section></main>
 </div>
 <div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
-<main data-screen-label="10 Team admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
+<main data-screen-label="10 Team Admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
     <div style="flex:1 1 20em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-bottom:.35em;">Ardn Staff Only · Never Shown to Invited</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Team, Rates and Margin</h1></div>
     <div style="display:flex;gap:.4em;flex-wrap:wrap;align-items:center;">
@@ -422,7 +422,7 @@ const PLAN = {"systems":[{"id":"sys01","start":1,"ready":4,"retire":20,"lane":"M
 /* ---------- Rollout plan: Ardn staff only. Every person comes from the admin team rows (A.implTeam, A.msTeam); the systems, phases and
    milestones come from PLAN. Nothing is stored here, so an added or removed team member changes every section at once. ---------- */
 // register the view with the page's tab machinery; the client script knows none of this
-STAFFV.push('plan'); STAFFNAV.push(['plan', 'Rollout Plan']); VIEWKEYS.push('plan'); VIEWTITLE.plan = 'Rollout plan'; VIEWHOOK.plan = () => renderPlan();
+STAFFV.push('plan'); STAFFNAV.push(['plan', 'Rollout Plan']); VIEWKEYS.push('plan'); VIEWTITLE.plan = 'Rollout Plan'; VIEWHOOK.plan = () => renderPlan();
 ICONS.plan = '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M8 14h5"/><path d="M11 18h6"/>';
 $('#tabPlan .ic').innerHTML = icon('plan');
 const PL_KEY = 'ardn-plan-ui';
