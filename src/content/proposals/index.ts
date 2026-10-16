@@ -30,8 +30,16 @@ export function lockedAllowed(slug: string, email: string): boolean | null {
 
 const SEEDS: Record<string, Proposal> = { "invited-clubs": invited as Proposal };
 
+/**
+ * "<slug>--comments" (lib/proposals/comments.ts), "<slug>--rates"
+ * (lib/proposals/rates.ts) and "<slug>--team-draft" / "<slug>--team-pub"
+ * (lib/proposals/team.ts) are documents kept beside a proposal in the same
+ * store. They are never proposals themselves.
+ */
+const isCompanionDoc = (slug: string) => /--(comments|rates|team-draft|team-pub)$/.test(slug);
+
 export async function getProposal(slug: string): Promise<Proposal | null> {
-  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  if (!/^[a-z0-9-]+$/.test(slug) || isCompanionDoc(slug)) return null;
   const saved = (await readProposalFile(slug)) as Proposal | null;
   const p = saved || SEEDS[slug];
   if (!p) return null;
@@ -44,7 +52,7 @@ export async function getProposal(slug: string): Promise<Proposal | null> {
 }
 
 export async function listProposals(): Promise<Proposal[]> {
-  const slugs = Array.from(new Set([...Object.keys(SEEDS), ...(await listProposalSlugs())])).filter((s) => s !== "admin");
+  const slugs = Array.from(new Set([...Object.keys(SEEDS), ...(await listProposalSlugs())])).filter((s) => s !== "admin" && !isCompanionDoc(s));
   return (await Promise.all(slugs.map((s) => getProposal(s)))).filter((p): p is Proposal => !!p);
 }
 

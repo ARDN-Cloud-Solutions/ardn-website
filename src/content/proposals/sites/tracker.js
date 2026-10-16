@@ -93,6 +93,8 @@
     };
   }
   window.__ardnReport = report;
+  // The page reports video plays and the like through the same call.
+  window.__ardnTrack = function (type, data) { send(type, data); };
   function esc(x) { return String(x == null ? "" : x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function printHtml(r) {
     var d = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
@@ -143,5 +145,6 @@
     "#ardnPrint thead th{font-size:9px;color:#4A5170;text-align:right;border-bottom:1.5px solid #0A0F2C}#ardnPrint thead th:first-child{text-align:left}#ardnPrint tr{break-inside:avoid}#ardnPrint .pr-g th,#ardnPrint .pr-g td{background:#F3F4F9;font-weight:700;padding-top:6px}#ardnPrint .pr-keep th,#ardnPrint .pr-keep td{color:#8A8FA8}" +
     "#ardnPrint tfoot th,#ardnPrint tfoot td{font-weight:700;border-top:1.5px solid #0A0F2C;border-bottom:0}#ardnPrint .pr-ba th{font-weight:500}#ardnPrint .pr-ba td{font-weight:700;white-space:nowrap}#ardnPrint .pr-note{color:#4A5170;margin:6px 0}#ardnPrint footer{margin-top:16px;padding-top:8px;border-top:1px solid #D9DCE8;color:#6A7090;font-size:9px}}" +
     "@media print{.ardn-track-ui{display:none!important}}";
-  document.head.appendChild(st); document.body.appendChild(b); document.body.appendChild(pr);
+  // Only a page with the cost calculator gets this print layout and button. Any other page prints as itself.
+  if (q("#ctBody")) { document.head.appendChild(st); document.body.appendChild(b); document.body.appendChild(pr); }
 })();
