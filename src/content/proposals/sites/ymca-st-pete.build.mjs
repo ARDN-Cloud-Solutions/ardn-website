@@ -87,12 +87,34 @@ const brand = `
 .legend span{display:inline-flex;align-items:center;gap:.35em}
 .legend i{width:.75em;height:.75em;border-radius:2px}
 .legend b{color:var(--ink)}
+/* rollout plan — Invited's Rollout Plan grammar: a label, a track, phase bars */
+.pl{--cw:2.1em;display:flex;flex-direction:column;gap:.15em;min-width:0}
+.pl-head{display:grid;grid-template-columns:var(--lbl) 1fr;gap:.6em;align-items:end}
+.pl-ax{display:grid;grid-template-columns:repeat(var(--n),var(--cw))}
+.pl-mo{font-size:max(10px,.6em);font-weight:700;color:var(--muted);text-align:center;letter-spacing:.02em;line-height:1.15;padding-bottom:.25em}
+.pl-mo b{display:block;font-weight:400;font-size:.9em;color:var(--muted);opacity:.8}
+.pl-mo.apr{color:var(--alarm)}
+.pl-row{display:grid;grid-template-columns:var(--lbl) 1fr;gap:.6em;align-items:center;background:none;border:0;padding:.12em 0;font:inherit;text-align:left;cursor:pointer;border-radius:5px}
+.pl-row:hover{background:rgba(var(--fgrgb),.05)}
+.pl-row.on{background:rgba(var(--bluergb),.1)}
+.pl-lbl{font-size:max(12px,.76em);font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.pl-area{position:relative;height:1.5em;width:calc(var(--cw) * var(--n));background:repeating-linear-gradient(90deg,rgba(var(--fgrgb),.07) 0 1px,transparent 1px var(--cw));border-radius:3px}
+.pl-seg{position:absolute;top:.3em;height:.9em;border-radius:3px}
+.pl-dia{position:absolute;top:.42em;width:.66em;height:.66em;background:var(--alarm);transform:translateX(-50%) rotate(45deg);border-radius:1px}
+.pl-apr{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed var(--alarm);pointer-events:none}
+.pl-leg{display:flex;flex-wrap:wrap;gap:.3em 1em;font-size:max(12px,.74em);color:var(--muted);align-items:center}
+.pl-leg span{display:inline-flex;align-items:center;gap:.35em}
+.pl-leg i{width:.8em;height:.55em;border-radius:2px;display:block}
+.pl-row.crit .pl-lbl{color:var(--alarm)}
+.pl-risk{display:inline-grid;place-items:center;width:1.1em;height:1.1em;border-radius:50%;background:var(--sand);color:#fff;font-size:.72em;font-weight:800;font-style:normal;margin-right:.35em;vertical-align:.05em}
+.pl-leg i.d{width:.6em;height:.6em;background:var(--alarm);transform:rotate(45deg);border-radius:1px}
 @media (max-width:900px){.scr{padding:.7em 1em;justify-content:flex-start;overflow-y:auto}.strip{grid-template-columns:repeat(2,1fr)}.sq>div{grid-template-columns:1fr;gap:.15em}}
 `;
 
 const P = {
   team: '<path d="M16 19v-1.5a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3V19"/><circle cx="9.5" cy="7.5" r="3"/><path d="M21 19v-1.5a3 3 0 0 0-2.2-2.9"/><path d="M15.5 4.7a3 3 0 0 1 0 5.6"/>',
   org: '<rect x="9" y="3" width="6" height="4" rx="1"/><rect x="2" y="15" width="6" height="4" rx="1"/><rect x="16" y="15" width="6" height="4" rx="1"/><path d="M12 7v4M5 15v-2h14v2"/>',
+  plan: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M8 14h5"/><path d="M11 18h6"/>',
   value: '<path d="M12 2v20M17 6.5C17 4.6 14.8 4 12 4s-5 .9-5 3 2.2 2.8 5 3.3 5 1.2 5 3.2-2.2 3-5 3-5-.8-5-2.7"/>',
   compare: '<path d="M4 7h7M4 12h7M4 17h7"/><path d="M15 5h6v14h-6z"/><path d="m16.5 12 1.5 1.5 3-3"/>',
   detail: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/>',
@@ -110,7 +132,7 @@ const ico = (k) => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" 
 /* Invited's tab set, in Invited's order. Three of them (team, org, value) are
    driven by the commercial figures and stay out until the Y's spend and our
    price exist; they are not shipped with invented numbers. */
-const NAV = [["home", "Home"], ["summary", "Executive Summary"], ["value", "Value"], ["compare", "Compare"], ["detail", "Detail"]];
+const NAV = [["home", "Home"], ["summary", "Executive Summary"], ["value", "Value"], ["plan", "Plan"], ["compare", "Compare"], ["detail", "Detail"]];
 
 /* Commercials as quoted to Patricia. Every derived figure below is computed
    from these four, never typed twice, so the page cannot drift from the quote. */
@@ -136,6 +158,42 @@ const GAPS = new Set(["Daxko · data migration", "Daxko Attendance Tracker · li
 const fitOf = (r) => (GAPS.has(r[0]) ? "GAP" : r[2] === "partial" ? "PARTIAL" : "STRONG");
 const d1Fit = D1.reduce((m, r) => ((m[fitOf(r)] = (m[fitOf(r)] || 0) + 1), m), { STRONG: 0, PARTIAL: 0, GAP: 0 });
 const noRisk = TALLY.retire + TALLY.connect + TALLY.keep;
+
+/* The Home scene. Invited opens on its own world -- a golf course at dusk --
+   so the Y opens on its: dawn over the water at St. Petersburg, with the
+   pier silhouette on the horizon and swimming-pool lane ropes running out
+   of the foreground. Drawn, not photographed, and kept behind the text. */
+const hsScene = (() => {
+  const lanes = [0, 1, 2, 3, 4, 5].map((i) => {
+    const y = 600 + i * i * 10 + i * 26;
+    const inset = 150 - i * 26;
+    return `<path d="M${inset} ${y} Q800 ${y - 10} ${1600 - inset} ${y}" fill="none" stroke="#7FB9F0" stroke-opacity="${(0.42 - i * 0.05).toFixed(2)}" stroke-width="${(2.4 + i * 0.7).toFixed(1)}" stroke-dasharray="${18 + i * 7} ${12 + i * 5}" stroke-linecap="round"/>`;
+  }).join("");
+  const sparkle = [240, 520, 900, 1280, 1460].map((x, i) => `<ellipse cx="${x}" cy="${575 + i * 9}" rx="${34 - i * 4}" ry="1.6" fill="#A9D2F7" opacity="${(0.3 - i * 0.04).toFixed(2)}"/>`).join("");
+  // St. Petersburg's horizon: the inverted-pyramid Pier, a few towers, palms
+  const sky = `<linearGradient id="ySky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1A33"/><stop offset=".42" stop-color="#12284C"/><stop offset=".74" stop-color="#1E4C86"/><stop offset=".9" stop-color="#3D7FC4"/><stop offset="1" stop-color="#7FB9F0"/></linearGradient>`;
+  const glow = `<radialGradient id="yGlow" cx="1120" cy="545" r="460" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#92278F" stop-opacity=".30"/><stop offset="1" stop-color="#92278F" stop-opacity="0"/></radialGradient>`;
+  return `<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  <defs>${sky}${glow}</defs>
+  <rect width="1600" height="900" fill="url(#ySky)"/>
+  <rect width="1600" height="900" fill="url(#yGlow)"/>
+  <circle cx="1120" cy="546" r="46" fill="#F2C4EC" opacity=".22"/>
+  <g fill="#0C1C38" opacity=".95">
+    <rect x="120" y="470" width="34" height="78"/><rect x="166" y="496" width="22" height="52"/>
+    <rect x="300" y="452" width="28" height="96"/><rect x="340" y="486" width="40" height="62"/>
+    <rect x="1320" y="462" width="30" height="86"/><rect x="1362" y="492" width="24" height="56"/>
+    <path d="M980 548 L1046 498 L1112 548Z"/><rect x="1040" y="498" width="12" height="50"/>
+    <path d="M700 548 L742 508 L784 548Z" opacity=".8"/>
+  </g>
+  <g stroke="#0C1C38" stroke-width="4" fill="none" opacity=".9">
+    <path d="M232 548 V514"/><path d="M232 514 q-26 -16 -40 -4 M232 514 q26 -16 40 -4 M232 512 q-14 -24 -2 -34 M232 512 q14 -24 2 -34"/>
+    <path d="M1248 548 V518"/><path d="M1248 518 q-22 -14 -34 -4 M1248 518 q22 -14 34 -4 M1248 516 q-12 -20 -2 -30"/>
+  </g>
+  <rect y="548" width="1600" height="352" fill="#0A1A33"/>
+  ${sparkle}
+  ${lanes}
+  </svg>`;
+})();
 
 const view = (id, inner) => `<div class="view" id="v-${id}" data-view="${id}" data-tab="${id}" hidden>${inner}</div>`;
 const scr = (n, label, inner) => `<main data-screen-label="${n} ${label}" class="scr">${inner}</main>`;
@@ -179,6 +237,83 @@ const CMP = [
   ["Who carries the integrations", "p Vendor decides", "n The Y does", "y The Y does", "y Ardn does"],
 ];
 
+/* ---- The rollout plan, in Invited's Rollout Plan shape ----
+   Month 1 is Nov 2026. Each system carries design/build/test/deploy/parallel
+   spans as [firstMonth, lastMonth], and `retire` is the month the Y stops
+   paying for it. The one fixed date is DocuSign at M6 (April 2027); every
+   span before it is sized to clear that, and nothing retires before its
+   parallel run has finished. */
+const PL_M1 = { y: 2026, m: 10 }; // Nov 2026, zero-indexed month
+const PL_PH = { design: ["Design", "#7A86A8"], build: ["Build", "#0071CE"], test: ["Test", "#00748F"], deploy: ["Deploy", "#00874A"], parallel: ["Parallel run", "#8A94B8"] };
+const PLAN = [
+  { n: "Contracts and e-signature", lane: "Operations & IT", retire: 6, ends: "DocuSign", crit: true,
+    note: "The first fixed date. A port of Invited's contracts module, plus the state's own PDF field-filling.",
+    phases: { design: [1, 1], build: [2, 3], test: [4, 4], deploy: [5, 5], parallel: [5, 6] } },
+
+  { n: "Membership, billing, check-in", lane: "Membership & Billing", retire: 9, ends: "Daxko Operations", crit: true,
+    note: "Live in both products today, so this is configuration for the Y rather than a build. It has to be signed off before the June cutover.",
+    phases: { design: [1, 2], build: [2, 4], test: [4, 5], deploy: [5, 6], parallel: [6, 8] } },
+  { n: "Kid Zone child watch", lane: "Childcare", retire: 0, ends: "",
+    note: "Check-in works today and Invited's Play Center is the richer version. Moves with the rest of Operations in June.",
+    phases: { design: [1, 1], build: [2, 3], test: [4, 4], deploy: [5, 5], parallel: [6, 8] } },
+  { n: "Reports and the daily tracker", lane: "Membership & Billing", retire: 0, ends: "",
+    note: "Builder and 20 standard reports shipped 15 Oct. Adds the daily sales-and-joins tracker and the Y's own 19 reports.",
+    phases: { design: [2, 2], build: [3, 4], test: [5, 5], deploy: [6, 6], parallel: [6, 8] } },
+  { n: "Online program and camp registration", lane: "Programs & Camp", retire: 0, ends: "", risk: true,
+    note: "A gap today, and it cannot slip past the cutover: the Y cannot leave Daxko Operations without somewhere for parents to register. Online child registration, early-bird pricing and waiver enforcement.",
+    phases: { design: [2, 2], build: [3, 5], test: [6, 6], deploy: [7, 7], parallel: [7, 8] } },
+  { n: "PT packages", lane: "Programs & Camp", retire: 0, ends: "",
+    note: "Sell, book and redeem already work. Adds expiry, refunds and the desk-or-trainer balance before cutover.",
+    phases: { design: [3, 3], build: [4, 5], test: [6, 6], deploy: [7, 7], parallel: [7, 8] } },
+  { n: "Financial assistance", lane: "Finance & Giving", retire: 0, ends: "",
+    note: "Staff side and the discount work today. Adds the family's online application.",
+    phases: { design: [3, 3], build: [4, 6], test: [6, 6], deploy: [7, 7], parallel: [7, 8] } },
+  { n: "Sex-offender screening", lane: "Operations & IT", retire: 0, ends: "", risk: true,
+    note: "The workflow and audit trail port from Invited. The national registry feed is bought, not built, and it has to be contracted in time for the cutover.",
+    phases: { design: [3, 3], build: [4, 5], test: [6, 6], deploy: [7, 7], parallel: [7, 8] } },
+  { n: "Member mobile app", lane: "Membership & Billing", retire: 9, ends: "Daxko app",
+    note: "Invited's installable app with push and a wallet card. Goes when Daxko Operations goes, so members are never without one.",
+    phases: { design: [4, 4], build: [5, 6], test: [7, 7], deploy: [7, 7], parallel: [8, 9] } },
+  { n: "Migration off Daxko", lane: "Membership & Billing", retire: 9, ends: "Daxko Operations", crit: true,
+    note: "Members, families, barcodes and history. Design cannot start until the NDA and export access exist, which is why those are the first things we ask for. Stored cards move processor to processor and never pass through us. Cutover is end of June; the Y runs parallel for a month either side.",
+    phases: { design: [2, 3], build: [4, 6], test: [6, 7], deploy: [8, 8], parallel: [7, 9] } },
+
+  { n: "Appointments and tours", lane: "Programs & Camp", retire: 10, ends: "Appointment King",
+    note: "Not on the Daxko critical path, so it lands just after the cutover rather than competing with it.",
+    phases: { design: [7, 7], build: [8, 9], test: [9, 9], deploy: [10, 10], parallel: [10, 10] } },
+  { n: "Leads and sales pipeline", lane: "Marketing & Web", retire: 11, ends: "Salesforce",
+    note: "Three working Salesforce importers already exist, so the move brings the history across rather than abandoning it.",
+    phases: { design: [7, 7], build: [8, 10], test: [10, 10], deploy: [11, 11], parallel: [11, 11] } },
+  { n: "Surveys and NPS", lane: "Marketing & Web", retire: 11, ends: "Listen360",
+    note: "Five shipped survey types and a 644-line test suite. Public survey links for non-members.",
+    phases: { design: [8, 8], build: [9, 10], test: [10, 10], deploy: [11, 11], parallel: [11, 11] } },
+
+  { n: "Licensed childcare and preschool", lane: "Childcare", retire: 15, ends: "Daxko Attendance Tracker", crit: true,
+    note: "The longest build, and the one thing that cannot be compressed into the June cutover. Ratios, incidents, health records and ELC reimbursement. This is why the Attendance Tracker contract is treated separately from Daxko Operations.",
+    phases: { design: [2, 4], build: [4, 11], test: [11, 12], deploy: [12, 13], parallel: [13, 15] } },
+];
+const PL_END = Math.max(...PLAN.map((x) => Math.max(x.retire || 0, ...Object.values(x.phases).map((r) => r[1]))));
+const plMonth = (m) => new Date(PL_M1.y, PL_M1.m + m - 1, 1).toLocaleString("en-US", { month: "short", year: "numeric" });
+const plShort = (m) => new Date(PL_M1.y, PL_M1.m + m - 1, 1).toLocaleString("en-US", { month: "short" });
+const plYearAt = (m) => { const d = new Date(PL_M1.y, PL_M1.m + m - 1, 1); return d.getMonth() === 0 || m === 1 ? d.getFullYear() : ""; };
+const RETIRES = PLAN.filter((x) => x.retire).sort((a, b) => a.retire - b.retire);
+
+const planRows = PLAN.map((x) => {
+  const segs = Object.entries(PL_PH).map(([k, [, col]]) => {
+    const r = x.phases[k]; if (!r) return "";
+    const par = k === "parallel";
+    return `<div class="pl-seg" title="${esc(x.n)} — ${esc(PL_PH[k][0])}: ${esc(plMonth(r[0]))}${r[1] > r[0] ? " to " + esc(plMonth(r[1])) : ""}" style="left:calc(var(--cw) * ${r[0] - 1});width:calc(var(--cw) * ${r[1] - r[0] + 1});${par ? `top:60%;height:.45em;background:repeating-linear-gradient(45deg,${col} 0 3px,transparent 3px 6px);border:1px solid ${col};` : `background:${col};`}"></div>`;
+  }).join("");
+  const ret = x.retire ? `<div class="pl-dia" title="${esc(x.ends)} retires — ${esc(plMonth(x.retire))}" style="left:calc(var(--cw) * ${x.retire - 1} + var(--cw) / 2);"></div>` : "";
+  return `<button type="button" class="pl-row${x.crit ? " crit" : ""}" data-plan="${esc(x.n)}"><span class="pl-lbl">${x.risk ? '<i class="pl-risk" title="Carries risk against the cutover">!</i>' : ""}${esc(x.n)}</span><span class="pl-area">${segs}${ret}</span></button>`;
+}).join("");
+
+const planAxis = Array.from({ length: PL_END }, (_, i) => {
+  const m = i + 1, yr = plYearAt(m), apr = m === 6 || m === 8;
+  return `<span class="pl-mo${apr ? " apr" : ""}">${plShort(m)}${yr ? `<b>${yr}</b>` : ""}</span>`;
+}).join("");
+
+
 /* The rollout. The only hard external date the Y has is DocuSign ending at
    the end of April 2027, so Wave 1 lands in April and everything before it is
    sized to clear that. Months run Nov 2026 to Dec 2027; a wave's bar is
@@ -209,6 +344,7 @@ const WAVES = [
 const HOME_CARDS = [
   ["summary", "Executive Summary", "The answer, and the two builds that set the date.", `${SYS.length} capabilities`],
   ["value", "Value", "What it costs, and what comes with it at no charge.", `${usd(PRICE.impl)} + ${usd(PRICE.mo)}/mo`],
+  ["plan", "Plan", "What we are doing, month by month, and when each contract ends.", "First go-live Apr 2027"],
   ["compare", "Compare", "Four ways to run it. One takes the running off the Y.", "~17 vendors today"],
   ["detail", "Detail", "Every system, the gaps, the testing, the rollout, the proof.", `${TALLY.retire} retire · ${TALLY.partial} in part`],
 ];
@@ -221,20 +357,20 @@ const body = `
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>${baseCss}${brand}</style>
 
-<div class="px sopen" id="px">
+<div class="px" id="px">
 <aside class="side" id="side">
-  <div class="side-top"><span class="logo"><img src="/proposal-sites/ymca-st-pete/img/ardn-logo-white.svg" alt="Ardn"></span><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="true"></button></div>
+  <div class="side-top"><span class="logo"><img src="/proposal-sites/ymca-st-pete/img/ardn-logo-white.svg" alt="Ardn"></span><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
   <nav class="tabs" id="tabs" aria-label="Proposal">${tabs}</nav>
   <div class="side-bot"><span class="hold">Checked against code<br>16 Oct 2026</span></div>
 </aside>
 <div class="col">
 <div class="views" id="views">
 
-${view("home", `<main class="hs" data-screen-label="01 Home"><div class="hs-scene" aria-hidden="true" id="hsScene"></div>
+${view("home", `<main class="hs" data-screen-label="01 Home"><div class="hs-scene" aria-hidden="true" id="hsScene">${hsScene}</div>
 <section class="hs-hero">
   <div class="hs-eyebrow">Prepared for the YMCA of Greater St. Petersburg</div>
   <h1 id="hsTitle">One platform, in place of ${SYS.length} systems</h1>
-  <p class="hs-sub">Built, run, tested and supported by Ardn. Every status checked against working code &mdash; and where nothing exists yet, we say so.</p>
+  <p class="hs-sub">Membership, programs, childcare and giving on one platform &mdash; built, run and supported by Ardn. Every status in here was checked against working code, and where nothing exists yet, we say so.</p>
   <dl class="hs-fig" id="hsFig">
     <div><dt>Contracts End</dt><dd>${TALLY.retire}</dd></div>
     <div><dt>Retire in Part</dt><dd>${TALLY.partial}</dd></div>
@@ -243,7 +379,7 @@ ${view("home", `<main class="hs" data-screen-label="01 Home"><div class="hs-scen
   </dl>
   <a class="cta hs-cta" href="#summary">Begin With the Executive Summary &rarr;</a>
 </section>
-<nav class="hs-card" aria-label="Proposal, in Reading Order"><ol id="homeCards" class="hs-holes" style="--cols:4">${
+<nav class="hs-card" aria-label="Proposal, in Reading Order"><ol id="homeCards" class="hs-holes" style="--cols:${Math.ceil(HOME_CARDS.length / 2)}">${
   HOME_CARDS.map(([k, name, line, fig], i) => `<li class="hs-hole" style="--h:${i}"><a class="hs-link" href="#${k}" aria-label="${esc(name)}"></a><span class="hs-no" aria-hidden="true">${i + 1}</span><span class="hs-name">${esc(name)}</span><span class="hs-line">${esc(line)}</span><span class="hs-figure">${esc(fig)}</span></li>`).join("")
 }</ol></nav></main>`)}
 
@@ -345,6 +481,49 @@ ${view("value", scr("02", "Value", `
   </div>
 </section>
 <div class="note" style="font-size:max(13px,.84em);"><b>Terms.</b> ${PRICE.termMonths}-month term &middot; annual CPI escalation capped at ${PRICE.cpiCap * 100}% &middot; the dedicated support team starts at launch, not after it.</div>`))}
+
+${view("plan", scr("03", "Plan", `
+<section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 2em;">
+  <div style="flex:1 1 26em;"><div class="eyeb" style="margin-bottom:.35em;">Rollout Plan</div>
+  <h1 class="ttl" style="font-size:1.75em;">Two fixed dates: DocuSign in April, off Daxko Operations by the end of June</h1></div>
+  <div class="strip" style="grid-template-columns:repeat(3,auto);">
+    <div><b>6</b><span>months to DocuSign</span></div>
+    <div><b>8</b><span>months to the Daxko cutover</span></div>
+    <div><b>${PLAN.filter((x) => x.crit).length}</b><span>on the critical path</span></div>
+  </div>
+</section>
+
+<div style="display:flex;flex-wrap:wrap;gap:.6em;">
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Two dates are fixed, and neither is ours.</b> DocuSign ends end of April 2027 (month 6). The Y comes off <b>Daxko Operations end of June, beginning of July 2027</b> (month 8). Everything before each one is sized to clear it, and nothing is switched off until its parallel run has finished.</div>
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--brass);background:rgba(var(--bluergb),.07);"><b>The June date is what makes this tight.</b> Leaving Daxko Operations means everything it does must be live first &mdash; including online program registration, which is a gap today, and the sex-offender registry feed, which has to be bought. Those two are the risk in this plan, and they are marked on the chart.</div>
+</div>
+
+<section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.8em 1em;display:flex;flex-direction:column;gap:.5em;min-height:0;overflow:auto;">
+  <div class="pl" style="--n:${PL_END};--lbl:14em;min-width:42em;">
+    <div class="pl-head"><div></div><div class="pl-ax">${planAxis}</div></div>
+    ${planRows}
+  </div>
+  <div class="pl-leg" style="margin-top:.3em;">
+    ${Object.entries(PL_PH).map(([k, [n, c]]) => `<span><i style="${k === "parallel" ? `background:repeating-linear-gradient(45deg,${c} 0 3px,transparent 3px 6px);border:1px solid ${c}` : `background:${c}`}"></i>${esc(n)}</span>`).join("")}
+    <span><i class="d"></i>Contract ends</span><span><i style="background:var(--sand);border-radius:50%;width:.6em;height:.6em"></i>Risk against the cutover</span><span style="color:var(--alarm);font-weight:700;">Red label &middot; critical path</span>
+    <span style="color:var(--alarm);font-weight:700;margin-left:auto;">Apr 2027 DocuSign &middot; Jun 2027 Daxko</span>
+  </div>
+</section>
+
+<section style="display:flex;flex-wrap:wrap;gap:.7em;">
+  <div class="card" style="flex:2 1 24em;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5em;flex-wrap:wrap;">
+      <span class="cb" id="planName"></span><span id="planWhen" style="font-size:max(12px,.76em);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);white-space:nowrap;"></span>
+    </div>
+    <p id="planNote"></p>
+    <div class="foot"><span id="planPhases"></span></div>
+  </div>
+  <div class="card" style="flex:1 1 15em;border-color:rgba(var(--goodrgb),.4);">
+    <div class="ch" style="color:var(--good);">What Stops Being Paid For</div>
+    <div class="cb" id="planEnds" style="font-size:1.1em;"></div>
+    <div class="foot">Licence notices timed to each renewal. The Y pays twice only during a parallel run, and data is archived before anything is switched off.</div>
+  </div>
+</section>`))}
 
 ${view("compare", scr("03", "Compare", `
 <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2.4em;">
@@ -541,6 +720,20 @@ ${view("detail", scr("04", "Detail", `
     if(b){dch=b.dataset.dt;paintDetail();}
   });
   paintDetail();
+  var PLAN=${JSON.stringify(PLAN.map((x) => ({ n: x.n, note: x.note, ends: x.ends, retire: x.retire, when: plMonth(Math.min(...Object.values(x.phases).map((r) => r[0]))) + " – " + plMonth(Math.max(...Object.values(x.phases).map((r) => r[1]))), ph: Object.entries(x.phases).map(([k, r]) => PL_PH[k][0] + " " + (r[0] === r[1] ? "M" + r[0] : "M" + r[0] + "–" + r[1])).join(" · "), retMonth: x.retire ? plMonth(x.retire) : "" })))};
+  function paintPlan(name){
+    var x=PLAN.filter(function(p){return p.n===name;})[0]||PLAN[0];
+    function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    set('planName',x.n);set('planWhen',x.when);set('planNote',x.note);set('planPhases',x.ph);
+    set('planEnds',x.ends?x.ends+' — '+x.retMonth:'Nothing on its own. This one has to be live for the June cutover, and it retires as part of Daxko Operations.');
+    var pe=document.getElementById('planEnds');if(pe)pe.style.color=x.ends?'var(--good)':'var(--muted)';
+    document.querySelectorAll('[data-plan]').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-plan')===x.n);});
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-plan]');
+    if(b)paintPlan(b.getAttribute('data-plan'));
+  });
+  paintPlan('Contracts and e-signature');
   var WAVES=${JSON.stringify(WAVES)};
   function paintWave(name){
     var w=WAVES.filter(function(x){return x.n===name;})[0]||WAVES[2];
@@ -571,8 +764,45 @@ ${view("detail", scr("04", "Detail", `
   window.addEventListener('hashchange',fromHash);
   fromHash();
   paint(SYS[0].n);
-  var mb=document.getElementById('menuBtn'),px=document.getElementById('px');
-  if(mb&&px)mb.addEventListener('click',function(){var o=px.classList.toggle('sopen');mb.setAttribute('aria-expanded',o?'true':'false');});
+  /* The sidebar, as Invited does it: an icon rail that opens on hover and
+     pushes the page over, keeps itself open for keyboard focus, folds back
+     after a beat, and becomes a drawer with its own button on a phone. */
+  var px=document.getElementById('px'), side=document.getElementById('side'), mb=document.getElementById('menuBtn');
+  if(px&&side){
+    var phone=function(){return matchMedia('(max-width:760px)').matches;};
+    var t=0, over=false;
+    var open=function(on){
+      clearTimeout(t);
+      if(phone()||px.classList.contains('sopen')===on)return;
+      px.classList.toggle('sopen',on);
+    };
+    var kbIn=function(){
+      return side.contains(document.activeElement)&&document.activeElement.matches&&document.activeElement.matches(':focus-visible');
+    };
+    var later=function(){clearTimeout(t);t=setTimeout(function(){if(!over&&!kbIn())open(false);},300);};
+    side.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;over=true;clearTimeout(t);open(true);});
+    side.addEventListener('pointerleave',function(e){if(e.pointerType==='touch')return;over=false;later();});
+    side.addEventListener('focusin',function(){if(kbIn())open(true);});
+    side.addEventListener('focusout',function(e){if(!side.contains(e.relatedTarget))later();});
+    document.addEventListener('keydown',function(e){
+      if(e.key!=='Escape')return;
+      if(px.classList.contains('menuopen')){closeMenu();if(mb)mb.focus();return;}
+      if(!px.classList.contains('sopen'))return;
+      if(side.contains(document.activeElement)&&document.activeElement.blur)document.activeElement.blur();
+      over=false;open(false);
+    });
+    document.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='touch'){ if(side.contains(e.target))open(true); else open(false); return; }
+      if(px.classList.contains('menuopen')&&!e.target.closest('#side'))closeMenu();
+    });
+    var closeMenu=function(){px.classList.remove('menuopen');if(mb)mb.setAttribute('aria-expanded','false');};
+    if(mb)mb.addEventListener('click',function(){
+      var o=px.classList.toggle('menuopen');
+      mb.setAttribute('aria-expanded',o?'true':'false');
+    });
+    var tabsEl=document.getElementById('tabs');
+    if(tabsEl)tabsEl.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});
+  }
 })();
 </script>
 `;
