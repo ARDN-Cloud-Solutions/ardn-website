@@ -1053,11 +1053,6 @@ const NUMS = [
     ['spGolf2', 'Golf clubs live, two months after', 'int', 6],
     ['spGolf3', 'Golf clubs live, three months after', 'int', 15],
     ['spGolf4', 'Golf clubs live, four months after (the rest are spread evenly to the last go-live month)', 'int', 8],
-    ['feeStart', 'Services fee a month before any club is live', 'usd', 100000],
-    ['feePerClub', 'Services fee falls a month for each club live', 'usd', 140],
-    ['supPerClub', 'Production support a month for each club live, until the shared systems retire', 'usd', 560],
-    ['feeLedger', 'Services fee a month once the shared systems retire', 'usd', 80000],
-    ['feeRun', 'Services fee a month once Oracle is off', 'usd', 75000],
   ]],
   ['The Estate', [
     ['systems', 'Systems on Invited’s List', 'int', 54],
@@ -1869,7 +1864,9 @@ const spLabel = m => spCal(m).mon + ' ' + spCal(m).year;
 const spK = v => v >= 1e6 ? '$' + trimZeros((v / 1e6).toFixed(1)) + 'M' : '$' + Math.round(v / 1e3) + 'k';
 const spM = v => '$' + trimZeros((v / 1e6).toFixed(1)) + 'M';
 
-function spendModel(n) {
+/* Money comes only from derive() (v): the technology fee from each club's go-live, the services run fee ramping with clubs live, and the one-time
+   implementation fee spread over the rollout months. Nothing here is a price of its own. */
+function spendModel(n, v = V) {
   const N = 36, today = n.today / 12, a = Math.max(1, Math.round(n.goLiveFrom));
   const city = new Array(N + 2).fill(0), golf = new Array(N + 2).fill(0), put = (arr, m, v) => { if (m >= 1 && m <= N) arr[m] += Math.max(0, v); };
   put(city, a, n.spCity1); put(city, a + 1, n.spCity2); put(city, a + 2, n.cityClubs - n.spCity1 - n.spCity2);
@@ -1886,10 +1883,13 @@ function spendModel(n) {
     const live = cl + gl, retired = w.reduce((s, x, i) => s + (m >= n.retireFrom + i ? x : 0), 0) / wSum;
     const legacy = pool.club * (1 - (clubsAll ? Math.min(1, live / clubsAll) : 0)) + pool.shared * (1 - retired) + (m < n.oracleOff ? pool.oracle : 0);
     const tech = n.entityFee * gl + n.cityFee * cl;
-    const fee = m >= n.oracleOff ? n.feeRun : m >= n.retireFrom ? n.feeLedger : Math.max(0, n.feeStart - n.feePerClub * live);
-    const support = m >= n.retireFrom ? fee : Math.min(fee, n.supPerClub * live), impl = fee - support;
-    const total = legacy + tech + fee;
-    cum += total + (m === 1 ? n.implOther : 0); cumToday += today;
+    // the services run fee has no start rule in derive(), so it ramps pro rata with clubs live and reaches the full svcMo when all are live
+    const support = v.svcMo * (clubsAll ? Math.min(1, live / clubsAll) : 0), fee = support;
+    // the one-time fee: the other costs land in month 1 and the rest is spread evenly over the rollout months, so the layer sums to exactly v.impl
+    const other = Math.min(n.implOther, v.impl), months = Math.max(1, Math.round(n.hyperMonths));
+    const impl = (m <= months ? (v.impl - other) / months : 0) + (m === 1 ? other : 0);
+    const total = legacy + tech + fee + impl;
+    cum += total; cumToday += today;
     rows.push({m, live, cityLive: cl, golfLive: gl, legacy, tech, support, impl, fee, total, cum, cumToday});
   }
   const last = rows[N - 1];
@@ -1897,12 +1897,12 @@ function spendModel(n) {
   if (!(rows[below - 1].total < today)) below = 0;
   let steady = N; while (steady > 1 && Math.abs(rows[steady - 2].total - last.total) < 1) steady--;
   const firstAll = rows.find(r => r.live >= clubsAll), firstCity = rows.find(r => r.cityLive >= n.cityClubs && n.cityClubs > 0), firstLive = rows.find(r => r.live > 0);
-  return {rows, today, clubsAll, steadyTotal: last.total, steadyFrom: steady, below, yearSaving: (today - last.total) * 12,
+  return {rows, today, clubsAll, implSum: rows.reduce((s, r) => s + r.impl, 0), steadyTotal: last.total, steadyFrom: steady, below, yearSaving: (today - last.total) * 12,
     save36: last.cumToday - last.cum, liveBy: firstAll ? firstAll.m : 0, cityBy: firstCity ? firstCity.m : 0, pilot: firstLive ? firstLive.m : 0};
 }
 // "about a third of it", from the ratio of steady-state spend to today's
 function spFraction(r) {
-  const k = Math.round(1 / r), words = {2: 'a half', 3: 'a third', 4: 'a quarter', 5: 'a fifth', 6: 'a sixth', 8: 'an eighth', 10: 'a tenth'};
+  const k = Math.round(1 / r), words = {2: 'half', 3: 'a third', 4: 'a quarter', 5: 'a fifth', 6: 'a sixth', 8: 'an eighth', 10: 'a tenth'};
   return r > 0 && Math.abs(1 / r - k) < 0.4 && words[k] ? words[k] : Math.round(r * 100) + '%';
 }
 
@@ -1916,8 +1916,8 @@ function paintSpend() {
   const kp = [
     [`${M.clubsAll} Clubs`, `Live by ${M.liveBy ? spCal(M.liveBy).full + ' ' + spCal(M.liveBy).year : '—'}, City Clubs First`, false],
     [`${spK(M.today)} → ${spK(M.steadyTotal)}`, 'Monthly Spend, Today Against Steady State', false],
-    [`${spM(M.yearSaving)} a Year`, `Saved at Steady State, From ${spLabel(M.steadyFrom)}`, true],
-    [spM(M.save36), 'Saved Over the First Three Years, One-Time Costs Included', true],
+    [`${FMTS.M(M.yearSaving)} a Year`, `Saved at Steady State (${Math.round(V.savingPct)}%), From ${spLabel(M.steadyFrom)}`, true],
+    [FMTS.M(M.save36), 'Saved Over the First Three Years, One-Time Fee Included', true],
   ];
   $('#spKpis').innerHTML = kp.map(([b, s, good]) => `<div class="spkpi${good ? ' good' : ''}"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('');
   t('spToday', `Today, ${spK(M.today)} a Month`);
