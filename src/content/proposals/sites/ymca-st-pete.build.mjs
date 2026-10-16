@@ -326,7 +326,7 @@ const MONTHS = ["Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep
 const YEARMARK = { 0: "2026", 2: "2027" };
 const WAVES = [
   { n: "Scope and access", at: [0, 2], when: "Nov – Dec 2026", kind: "prep",
-    live: "Nothing goes live. We get the things that block everything else: the NDA and Daxko export access, the childcare licensing and ELC requirements, confirmation that the Y's Raiser's Edge tier allows production API access, Welld's file format, and Carla's Operate.Fit requirements.",
+    live: "Nothing goes live. We get the things that block everything else: the NDA and Daxko export access, the childcare licensing and ELC requirements, confirmation that the Y's Raiser's Edge tier allows production API access, Welld's file format, and the Y's Operate.Fit requirements.",
     retires: "", dep: "Daxko export access and an NDA. Without them the migration cannot even be designed." },
   { n: "Build", at: [1, 4], when: "Dec 2026 – Mar 2027", kind: "prep",
     live: "The e-signature port, the membership and billing configuration for the Y, and the first slice of licensed childcare. Childcare starts here, not later, because it is the longest build and it gates the Daxko exit.",
@@ -342,7 +342,7 @@ const WAVES = [
     retires: "Daxko, in full", dep: "The childcare build started in Dec 2026. This is where it lands, and it is the only thing that lets the Daxko contract close." },
   { n: "As dependencies clear", at: [6, 8], when: "When the vendor answers", kind: "wait",
     live: "The Welld usage feed, Operate.Fit, Clarissa, and sports leagues. We will not put a date on any of these until the thing they wait on arrives.",
-    retires: "", dep: "Welld's format · Carla's requirements · Clarissa's integration detail · a league season to build against." },
+    retires: "", dep: "Welld's format · the Y's Operate.Fit requirements · Clarissa's integration detail · a league season to build against." },
 ];
 
 const HOME_CARDS = [
@@ -417,7 +417,7 @@ ${view("summary", scr("01", "Summary", `
       <div style="flex:${TALLY.partial};background:#A8700F;">${TALLY.partial} In Part</div>
       <div style="flex:${TALLY.connect + TALLY.keep};background:#6B7280;">${TALLY.connect + TALLY.keep} Stay</div>
     </div>
-    <div class="foot">On Craig's Day 1 list: ${d1Fit.STRONG} strong, ${d1Fit.PARTIAL} partial, ${d1Fit.GAP} gap.</div>
+    <div class="foot">On the Y's Day 1 list: ${d1Fit.STRONG} strong, ${d1Fit.PARTIAL} partial, ${d1Fit.GAP} gap.</div>
   </div>
   <div class="card">
     <div class="ch">Why We Can Say It</div>
@@ -655,7 +655,7 @@ ${view("detail", scr("04", "Detail", `
   <table class="ptab"><thead><tr><th>Capability</th><th>Where</th><th>Evidence an evaluator can open</th><th>Verifiable</th></tr></thead><tbody>
   ${PROOF.map(([c, w, e]) => `<tr><td class="n">${esc(c)}</td><td>${esc(w)}</td><td class="e">${esc(e)}</td><td class="y">Yes</td></tr>`).join("")}
   </tbody></table></div>
-  <div class="note"><b>Risk, stated plainly.</b> On Craig's Day 1 list of ${D1.length}: ${d1Fit.STRONG} strong, ${d1Fit.PARTIAL} partial, ${d1Fit.GAP} gap. We corrected two of our own rows against the code while writing this — Salesforce and Listen360 both moved in the Y's favour. Nothing is switched off until its replacement is live and the Y has signed it off.</div>
+  <div class="note"><b>Risk, stated plainly.</b> On the Y's Day 1 list of ${D1.length}: ${d1Fit.STRONG} strong, ${d1Fit.PARTIAL} partial, ${d1Fit.GAP} gap. We corrected two of our own rows against the code while writing this — Salesforce and Listen360 both moved in the Y's favour. Nothing is switched off until its replacement is live and the Y has signed it off.</div>
 </section></div>`))}
 
 
@@ -706,7 +706,7 @@ ${view("detail", scr("04", "Detail", `
     proof:'Already built, and the Y can check every claim'
   };
   var DLEG={
-    estate:'${Object.entries(FATE).map(([k, v]) => `<span><i style="background:${v[0]}"></i><b>${TALLY[k] || 0}</b> ${esc(v[2])}</span>`).join("")}<span style="color:var(--alarm);font-weight:700;">D1 · Craig&rsquo;s Day 1</span>',
+    estate:'${Object.entries(FATE).map(([k, v]) => `<span><i style="background:${v[0]}"></i><b>${TALLY[k] || 0}</b> ${esc(v[2])}</span>`).join("")}<span style="color:var(--alarm);font-weight:700;">D1 · the Y&rsquo;s Day 1</span>',
     gaps:'<span><b>${GAPS.size}</b> true gaps</span><span><b>${d1Fit.PARTIAL}</b> named partials</span>',
     qa:'<span><b>370,471</b> lines of tests</span>',
     rollout:'<span><b>6</b> months to first go-live</span><span><b>${WAVES.filter(w=>w.kind==="live").length}</b> live waves</span>',
