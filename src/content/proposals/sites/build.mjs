@@ -4,8 +4,12 @@ import fs from "node:fs";
 const slug = process.argv[2];
 const dir = new URL(".", import.meta.url).pathname;
 const body = fs.readFileSync(dir + slug + ".html", "utf8");
+// Who each proposal is for. The tracker prints this on an exported PDF; it is
+// passed in per slug so no proposal can carry another client's name.
+const CLIENTS = { "invited-clubs": "Invited", "ymca-st-pete": "the YMCA of Greater St. Petersburg" };
+const client = CLIENTS[slug] || "";
 const tracker = fs.readFileSync(dir + "tracker.js", "utf8");
-const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"></head><body>${body}<script>window.__PROPOSAL_SLUG__=${JSON.stringify(slug)};${tracker}</script></body></html>`;
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"></head><body>${body}<script>window.__PROPOSAL_SLUG__=${JSON.stringify(slug)};window.__PROPOSAL_CLIENT__=${JSON.stringify(client)};${tracker}</script></body></html>`;
 // Anything staff-only (the team admin tab and its script) lives in <slug>.staff.html, outside the page every viewer gets.
 // Each part sits between <!--NAME--> and <!--/NAME--> and goes into its own module that only the staff path imports.
 const staffFile = dir + slug + ".staff.html";

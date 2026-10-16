@@ -4,28 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  Phone,
-  Search,
-  ChevronDown,
-  ChevronUp,
-  X,
-  Menu,
-  ArrowRight,
-  MailOpen,
-  Box,
-  Sparkles,
-  Code2,
-  LayoutDashboard,
-  Handshake,
-  Users,
-  HeartHandshake,
-  Flag,
-  HardHat,
-  Lightbulb,
-  Bot,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight, Bot, Box, ChevronDown, ChevronUp, Code2, Flag, Handshake, HardHat, HeartHandshake, LayoutDashboard, Lightbulb, MailOpen, Menu, Phone, Presentation, Search, Sparkles, Users, X, type LucideIcon } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
@@ -56,6 +35,7 @@ const productGroups: { title: string; items: ProductLink[] }[] = [
       { label: "AI Forge", href: "/ai-forge", blurb: "Custom AI apps, built and run for you", icon: Sparkles, tag: "Flagship" },
       { label: "AI Consulting", href: "/ai-consulting", blurb: "Assessment, roadmap, build and run", icon: Lightbulb },
       { label: "AI Agent Development", href: "/ai-agent-development", blurb: "Agents that answer and act on your data", icon: Bot },
+      { label: "Interactive Sales Proposals", href: "/interactive-sales-proposals", blurb: "Proposals your buyer's board can use", icon: Presentation },
       { label: "Custom Software Development", href: "/custom-software-development", blurb: "Software shaped around your workflow", icon: Code2 },
       { label: "Custom Portal Development", href: "/custom-portal-development", blurb: "Customer and member portals", icon: LayoutDashboard },
       { label: "Partner Portal Development", href: "/custom-partner-portal-development", blurb: "Portals for partners and resellers", icon: Handshake },

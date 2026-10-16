@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Supabase CLI link (per machine)
 supabase/.temp/
+
+# local agent scratch
+.claude/audit.log

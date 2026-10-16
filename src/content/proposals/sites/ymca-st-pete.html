@@ -1,0 +1,1072 @@
+
+<title>Ardn for the YMCA of Greater St. Petersburg</title>
+<meta name="description" content="Ardn's proposal to the YMCA of Greater St. Petersburg: one membership platform in place of the systems the Y runs today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --night:#F3F5FA; --deep:#FFFFFF; --raise:#F8FAFF; --field:#FFFFFF; --chip:#FFFFFF; --cardline:#D9DEEE;
+  --line:rgba(28,32,69,.13); --line2:rgba(28,32,69,.26);
+  --ink:#1C2045; --soft:#2E3563; --muted:#5B6380;
+  --brass:#4B3FD8; --brass2:#3B4289; --gold:#8E8AF8; --sand:#4A5578; --teal:#1B63BD; --slate:#566077; --alarm:#B14226; --good:#17754A;
+  --fgrgb:28,32,69; --goldrgb:108,99,240; --bluergb:31,111,209; --alarmrgb:196,85,58; --slatergb:91,99,128; --goodrgb:30,142,87;
+  --neg:#9F2D45; --navy:#1C2045; --indigo:#3A4289; --violet:#4E42E4;
+  --bar-today:#C9D0E6; --bar-a:#272D63; --bar-b:#1F6FD1;
+  --shadow:0 1px 2px rgba(28,32,69,.06),0 4px 16px rgba(28,32,69,.04);
+  --sidew:56px; --sidew-open:224px;
+  --serif:"Source Serif 4",Georgia,serif; --sans:Manrope,system-ui,sans-serif;
+  --out:cubic-bezier(.22,.8,.24,1);
+  color-scheme:light;
+}
+/* dark islands: the sidebar, the staff admin and the comments panel keep the navy look */
+.side,#v-admin{
+  --night:#1C2045; --deep:#272D63; --raise:#313874; --field:#1C2045; --chip:#FFFFFF; --cardline:rgba(238,242,255,.13);
+  --line:rgba(238,242,255,.13); --line2:rgba(238,242,255,.26);
+  --ink:#F3F5FF; --soft:#E6EAFB; --muted:#9AA1C0;
+  --brass:#A9B4FF; --brass2:#C9D0FF; --gold:#A9B4FF; --sand:#C9D0FF; --teal:#3CA2FF; --slate:#8A94A8; --alarm:#F08A6C; --good:#5FD08A;
+  --fgrgb:238,242,255; --goldrgb:169,180,255; --bluergb:60,162,255; --alarmrgb:240,138,108; --slatergb:138,148,168; --goodrgb:95,208,138;
+  color-scheme:dark;
+}
+#v-admin{background:#1C2045;color:var(--ink)}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#F3F5FA}
+body{color:var(--ink);font:400 16px/1.4 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--brass)}
+:focus-visible{outline:2px solid var(--brass2);outline-offset:3px;border-radius:4px}
+button{font:inherit;color:inherit}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* the page: header, one view that fills the screen, footer. Root size follows the screen, never under 14px. */
+.px{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:linear-gradient(180deg,#F8FAFF,#EEF1FA) fixed;color:var(--ink);font-family:var(--sans);font-size:clamp(14px,calc(1.1vh + .48vw),20px);line-height:1.3;font-variant-numeric:tabular-nums}
+.px h1,.px h2,.px h3{max-width:none;letter-spacing:normal}
+.px a:hover{color:var(--brass2);text-decoration:underline}
+.px input[type=range]{accent-color:var(--brass);width:100%;margin:0}
+.px button{cursor:pointer}
+.views{flex:1;display:flex;flex-direction:column;min-height:0}
+.view{flex:1;display:flex;flex-direction:column;min-height:0}
+.view[hidden],[data-show][hidden],[data-dch][hidden]{display:none!important}
+
+/* sidebar: always icons; it opens over the page on hover or keyboard focus and the page never moves (its grid column is fixed). */
+/* the sidebar's width drives the main column, so opening it pushes the page over instead of covering it */
+.px{--side-w:var(--sidew);display:grid;grid-template-columns:var(--side-w) minmax(0,1fr);transition:grid-template-columns .22s var(--out)}
+.px.sopen{--side-w:var(--sidew-open)}
+.col{display:flex;flex-direction:column;min-width:0;min-height:100vh;min-height:100dvh}
+.side{width:var(--side-w);position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;gap:.7em;padding:.8em 8px;font-size:15px;background:#1C2045;color:var(--ink);z-index:30;overflow:hidden;white-space:nowrap;transition:width .22s var(--out)}
+.side-top{display:flex;align-items:center;gap:.5em;padding:0;height:2em}
+.side-top .logo{display:block;flex:none;width:2.1em;height:1.1em;margin-left:.3em;overflow:hidden;transition:width .15s ease,height .15s ease}
+.side-top img{height:100%;width:auto;max-width:none;display:block}
+.px.sopen .side-top .logo{width:5.9em;height:1.5em;margin-left:.3em}
+.menubtn{background:none;border:1px solid transparent;border-radius:8px;color:var(--soft);padding:.3em;display:none;place-items:center}
+.menubtn svg{width:1.2em;height:1.2em}
+.side .for,.side .lbl,.side-bot .hold{opacity:0;transition:opacity .15s ease}
+.px.sopen .side .for,.px.sopen .side .lbl,.px.sopen .side .side-bot .hold{opacity:1}
+.side .for{font-size:.86em;color:var(--soft);padding:0 .4em}
+.side .for b{color:var(--ink);font-weight:700}
+.tabs{display:flex;flex-direction:column;gap:.2em;flex:1;min-height:0}
+.tabs a{display:flex;align-items:center;gap:.8em;padding:.5em .6em;border-radius:8px;color:var(--ink);text-decoration:none;white-space:nowrap;border:1px solid transparent}
+.tabs a:hover{background:rgba(238,242,255,.08);text-decoration:none;color:var(--ink)}
+.tabs a .ic{color:var(--brass);display:grid;flex:none}
+.tabs a .ic svg{width:1.3em;height:1.3em}
+.tabs a[aria-current=page]{background:rgba(169,180,255,.16);border-color:rgba(169,180,255,.6);color:var(--ink)}
+.tabs a.hid{opacity:.7;border-style:dashed;border-color:rgba(169,180,255,.35)}
+.tabs a#tabAdmin{margin-top:auto;border-top:1px solid rgba(238,242,255,.14);border-radius:0 0 8px 8px;padding-top:.7em}
+.tabs a#tabAdmin .ic{color:var(--teal)}
+.tabs a[hidden]{display:none}
+.side-bot{display:flex;flex-direction:column;gap:.5em;padding:.3em 0 0}
+.side-bot .cm-open{display:flex;align-items:center;gap:.8em;justify-content:flex-start;border-radius:8px;padding:.5em .6em}
+.side-bot .cm-open svg{width:1.3em;height:1.3em;flex:none}
+.side .cm-n{display:none}
+.px.sopen .side .cm-n:not(:empty){display:inline}
+@media (prefers-reduced-motion:reduce){.side,.side *,.px{transition:none!important}}
+.hold{font-size:.88em;color:var(--muted)}
+/* home: one card per tab */
+.cta{background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--ink);border-radius:999px;padding:.5em 1.1em;font-weight:700;text-decoration:none}
+.px a.cta:hover{color:var(--ink);background:rgba(169,180,255,.26);text-decoration:none}
+
+/* footer: previous, where you are, next. Room on the right for the floating comments button. */
+.pxfoot{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.4em 1.8em;border-top:1px solid rgba(238,242,255,.1);font-size:.86em;color:var(--muted)}
+.pxfoot button{background:none;border:0;padding:0;font:inherit}
+#fPrev{color:var(--muted)}
+#fNext{color:var(--brass);font-weight:700}
+.pxfoot button[hidden]{visibility:hidden;display:block}
+
+/* review flags (TBC, $ to size) show only while the staff tab has them on */
+body.noflags .flag{display:none}
+.dchip{border:1px solid rgba(238,242,255,.2)}
+.dchip.on{background:rgba(169,180,255,.16);border-color:rgba(169,180,255,.7)}
+.pillars{min-height:11em;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.5em}
+@media (min-width:640px){.pillars{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1180px){.pillars{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.admstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:700px){.admstats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1100px){.admstats{grid-template-columns:repeat(7,minmax(0,1fr))}}
+.scrollx{overflow-x:auto}
+
+/* phones: everything stacks and scrolls; the top bar opens a drawer */
+@media (max-width:760px){
+  .px{display:block}
+  .col{min-height:0}
+  .side{position:sticky;width:auto;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.5em 1em;overflow:visible;transition:none}
+  .px.sopen .side{width:auto}
+  .px{transition:none}
+  .side .for{display:none}
+  .side-top{flex:1;padding:0}
+  .side-top .logo{width:5.9em;height:1.5em}
+  .side .lbl,.side-bot .hold{opacity:1}
+  .menubtn{display:grid}
+  .tabs{display:none;flex:0 0 100%;order:3}
+  .px.menuopen .tabs{display:flex}
+  .side-bot{display:none}
+  .px.menuopen .side-bot{display:flex;flex:0 0 100%;order:4;flex-direction:row;align-items:center;justify-content:space-between}
+  .side-bot .cm-open .lbl{opacity:1}
+  .side .cm-n:not(:empty){display:inline}
+  .pxfoot{padding:.55em 1em}
+  main{padding-left:1em!important;padding-right:1em!important}
+}
+
+
+.cm-open{position:fixed;right:18px;bottom:8px;z-index:2147482999;border:1px solid var(--line2);background:rgba(39,45,99,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);border-radius:22px;padding:10px 18px;font:600 14px var(--sans);cursor:pointer;box-shadow:0 8px 24px -8px rgba(0,0,0,.55);display:inline-flex;gap:8px;align-items:center;transition:border-color .2s,transform .2s var(--out)}
+.cm-open:hover{border-color:var(--brass);transform:translateY(-1px)}
+.cm-n:empty{display:none}
+.cm-n{background:var(--brass);color:var(--night);border-radius:10px;padding:0 7px;font-size:14px;line-height:18px}
+.cm{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);z-index:2147483001;background:var(--deep);border-left:1px solid var(--line2);box-shadow:-12px 0 40px rgba(0,0,0,.45);display:flex;flex-direction:column;padding:20px 20px 16px;animation:cmIn .35s var(--out) both}
+@keyframes cmIn{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.cm{animation:none}}
+.cm[hidden]{display:none}
+.cm-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cm-head h3{font:400 30px/1.1 var(--serif);margin:0}
+.cm-intro{color:var(--soft);font-size:14.5px;margin:8px 0 14px}
+.cm-list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding-right:4px}
+.cm-t{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.cm-c{border-radius:10px;padding:10px 12px;background:rgba(238,242,255,.05)}
+.cm-c+.cm-c{margin-left:18px}
+.cm-c.ardn{background:rgba(60,162,255,.12);border:1px solid rgba(60,162,255,.3)}
+.cm-meta{font-size:14px;color:var(--muted)}
+.cm-meta b{color:var(--ink);font-weight:600}
+.cm-tag{margin-left:6px;font-size:14px;font-weight:700;color:var(--night);background:#C9D8FF;border-radius:8px;padding:0 6px}
+.cm-c p{margin:4px 0 0;font-size:15px;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.cm-rbtn{align-self:flex-start;border:0;background:transparent;color:var(--brass2);font-weight:600;font-size:14px;cursor:pointer;padding:2px 0}
+.cm-form{border-top:1px solid var(--line2);padding-top:12px;margin-top:12px}
+.cm-form textarea{width:100%;resize:vertical;min-height:76px;background:var(--night);border:1px solid var(--line2);border-radius:10px;color:var(--ink);font:15px/1.5 var(--sans);padding:10px 12px}
+.cm-form textarea:focus{border-color:var(--brass);outline:none}
+.cm-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.cm-send{border:0;background:var(--brass);color:var(--night);font-weight:700;border-radius:20px;padding:8px 18px;cursor:pointer;font-size:14px;transition:background .2s}
+.cm-send:hover:not(:disabled){background:var(--brass2)}
+.cm-send:disabled{opacity:.6;cursor:default}
+.cm-reply{margin:0 0 8px;font-size:14px;color:var(--soft)}
+.cm-err{margin:6px 0 0;color:var(--alarm);font-size:14px}
+.cm-err:empty{display:none}
+@media print{.cm,.cm-open{display:none!important}}
+/* the tracker adds an Export to PDF button that prints the old calculator; this page has none, so it stays out */
+.cm-open{font-size:14px}
+@media print{@page{size:landscape;margin:8mm}html,body,.px{background:var(--night)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.px{min-height:0}.pxfoot{display:none!important}.view{break-inside:avoid}}
+
+#lightbox[hidden],#drawer[hidden]{display:none!important}
+[data-flex]>[data-n]{margin-right:.3em}
+.pillars .flag{display:inline-block;margin-left:.4em}
+.side-bot .cm-open{position:static;border:1px solid var(--line2);background:rgba(39,45,99,.92);padding:.1em 1em;box-shadow:none;transform:none;font-size:14px;line-height:1.5}
+.side-bot .cm-open:hover{transform:none}
+.tl>div>div:nth-child(n+2){display:inline}.tl>div>div:nth-child(2){margin-right:.5em}
+.pods>div{display:block!important;position:relative;padding:.4em .65em!important}
+.pods>div>div:first-child{position:absolute;right:.65em;top:.3em;display:flex;gap:.3em;align-items:baseline;text-align:right!important;min-width:0!important}
+.pods>div>div:first-child>div:first-child{font-size:1.4em!important}
+.pods>div>div:nth-child(2){padding-right:4.5em}
+.shots{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
+@media (min-width:640px){.shots{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:900px){.shots{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1180px){.shots{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}}
+.vids{grid-template-columns:repeat(auto-fit,minmax(min(100%,22em),1fr))}
+@media (min-width:1180px){.vids{grid-template-columns:repeat(4,minmax(0,1fr));align-content:start}}
+
+.tabs a[hidden]{display:none!important}
+.tabs a.hid{opacity:.6;border-bottom:1px dashed rgba(169,180,255,.7)}
+
+.valgrid{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:1fr auto}
+@media (max-width:860px){.valgrid{grid-template-columns:1fr;grid-template-rows:none}}
+
+:root{--rowpad:.04em}
+@media (min-width:1000px) and (min-height:760px){:root{--rowpad:calc(.04em + (100vh - 720px)*.022)}}
+@media (min-width:1000px){
+ .shots{grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-auto-rows:1fr;align-content:stretch!important}
+ .shots>button{min-height:0}.shotimg{aspect-ratio:auto!important;flex:1 1 0;height:0;min-height:0}
+ .vids{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:1fr;align-content:stretch!important}
+ .vids>article{min-height:0}.vidv{aspect-ratio:auto!important;flex:1 1 0;height:0;min-height:0;object-fit:cover}
+}
+
+/* cards: white on paper with a very soft shadow */
+.view:not(#v-admin) [style*="background:var(--deep)"]{box-shadow:var(--shadow)}
+.hci{background:rgba(var(--goldrgb),.12)}
+.cta{background:rgba(var(--goldrgb),.1);border:1px solid rgba(var(--goldrgb),.45);color:var(--ink)}
+.px a.cta:hover{background:rgba(var(--goldrgb),.18);color:var(--ink)}
+.pxfoot{border-top-color:var(--line)}
+.px input[type=range]{accent-color:var(--gold)}
+@media print{.side{display:none}.px{display:block}}
+
+/* screens: app chips, a page of thumbnails that fits one screen, and the viewer */
+.shotbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4em 1em}
+.shotapps{display:flex;flex-wrap:wrap;gap:.35em}
+.shotchip{border:1px solid var(--cardline);background:var(--deep);color:var(--soft);border-radius:999px;padding:.2em .8em;font-size:max(14px,.86em);font-weight:600;cursor:pointer}
+.shotchip b{color:var(--muted);font-weight:600;margin-left:.2em}
+.shotchip:hover{border-color:rgba(var(--goldrgb),.7)}
+.shotchip[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.shotchip[aria-selected=true] b{color:#D9DDEA}
+.shothint{color:var(--muted);margin-right:.6em;font-size:max(14px,.86em)}
+.shotpager{display:flex;align-items:center;gap:.5em;font-size:max(14px,.86em);color:var(--soft)}
+.shotpager button{border:1px solid var(--cardline);background:var(--deep);border-radius:999px;width:2.1em;height:2.1em;font-size:1.2em;line-height:1;color:var(--ink);cursor:pointer;display:grid;place-items:center;padding:0 0 .12em}
+.shotpager button:disabled{opacity:.35;cursor:default}
+.shotpager button[hidden]{display:none}
+.shotgrid{flex:1;min-height:0;display:grid;gap:12px;grid-template-columns:repeat(var(--c,4),minmax(0,1fr));grid-template-rows:repeat(var(--r,2),minmax(0,1fr))}
+.shottile{display:flex;flex-direction:column;min-height:0;text-align:left;background:var(--deep);border:1px solid var(--cardline);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;color:inherit;font:inherit;box-shadow:var(--shadow)}
+.shottile:hover{border-color:rgba(var(--goldrgb),.7)}
+.shotimg{display:block;width:100%;flex:1 1 0;min-height:0;object-fit:cover;object-position:top left;background:var(--raise)}
+.shotcap{flex:none;box-sizing:border-box;height:50px;padding:6px 10px 8px;color:var(--ink);font-size:14px;line-height:18px}
+.shotcap span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.shotcap small{display:block;font-size:14px;line-height:18px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:760px){.shotgrid{grid-template-rows:none;grid-auto-rows:13em}.shotimg{height:8.5em;flex:none}}
+#lightbox{position:fixed;inset:0;z-index:50;background:rgba(28,32,69,.72);display:flex;align-items:center;justify-content:center;gap:1em;padding:1.2em;cursor:zoom-out}
+#lightbox[hidden]{display:none}
+#lbBox{margin:0;max-width:min(1400px,calc(100% - 9em));max-height:100%;min-width:0;display:flex;flex-direction:column;background:var(--deep);border:1px solid var(--cardline);border-radius:12px;box-shadow:0 12px 48px rgba(28,32,69,.35);overflow:hidden;cursor:default;font-size:16px;color:var(--ink)}
+.lbimgwrap{min-height:0;display:flex;justify-content:center;background:var(--raise)}
+#lbImg{display:block;max-width:100%;max-height:calc(100vh - 11em);object-fit:contain}
+#lbBox figcaption{display:flex;gap:.4em 1em;align-items:baseline;flex-wrap:wrap;padding:.7em 1em}
+#lbArea{flex:0 1 auto;max-width:100%;white-space:normal;overflow-wrap:anywhere;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-weight:700}
+#lbCap{flex:1 1 14em;color:var(--ink)}
+#lbCount{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+#lbClose{border:1px solid var(--cardline);background:var(--deep);border-radius:999px;padding:.15em .9em;font-size:14px;cursor:pointer;color:var(--ink)}
+.lbnav{flex:none;width:3em;height:3em;border-radius:50%;border:1px solid var(--cardline);background:var(--deep);color:var(--ink);font-size:1.8em;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 .1em;box-shadow:var(--shadow)}
+.lbnav:disabled{opacity:.35;cursor:default}
+@media (max-width:760px){.lbnav{display:none}#lbBox{max-width:100%}}
+
+/* videos: poster tiles; the film plays large in the theatre over a dark scrim, even on the light page */
+.vids{display:grid;flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8em;align-content:start}
+.vidtile{display:flex;flex-direction:column;min-height:0;text-align:left;background:var(--deep);border:1px solid var(--cardline);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;color:var(--ink);font:inherit;box-shadow:var(--shadow)}
+.vidtile:hover{border-color:rgba(var(--goldrgb),.7)}
+.vidposter{position:relative;display:block;flex:1 1 0;min-height:0;background:#272D63;aspect-ratio:16/9}
+.vidposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vidplay{position:absolute;left:50%;top:50%;width:3.4em;height:3.4em;margin:-1.7em 0 0 -1.7em;border-radius:50%;background:rgba(28,32,69,.82);color:#fff;display:grid;place-items:center;box-shadow:0 2px 12px rgba(28,32,69,.4)}
+.vidtile:hover .vidplay{background:#8E8AF8}
+.vidcap{display:flex;flex-direction:column;gap:.15em;padding:.55em .9em .65em}
+.vidcap b{color:var(--ink)}
+.viddur{color:var(--muted);font-size:max(14px,.86em);white-space:nowrap}
+.vidwho{font-size:max(14px,.84em);color:var(--soft)}
+@media (min-width:1000px){.vids{grid-auto-rows:1fr;align-content:stretch;flex:1;min-height:0}.vidposter{aspect-ratio:auto}}
+@media (max-width:760px){.vids{grid-template-columns:1fr}}
+#theatre{position:fixed;inset:0;z-index:60;background:rgba(6,10,30,.94);display:flex;align-items:center;justify-content:center;gap:.6em;padding:1em;cursor:zoom-out;color:#F3F5FF}
+#theatre[hidden]{display:none}
+#thBox{display:flex;flex-direction:column;gap:.5em;cursor:default;min-width:0}
+.thhead{display:flex;align-items:center;gap:.4em 1em;flex-wrap:wrap;font-size:16px}
+#thTitle{font-weight:700;font-size:1.1em}
+#thWho{color:#C9CEE3;flex:1 1 auto}
+#thCount{color:#C9CEE3;font-size:14px}
+.thhead button{font:inherit;font-size:14px;font-weight:600;color:#F3F5FF;background:rgba(238,242,255,.12);border:1px solid rgba(238,242,255,.35);border-radius:999px;padding:.3em .9em;cursor:pointer}
+.thhead button:hover{background:rgba(238,242,255,.24)}
+#thClose{width:2.4em;padding:.3em 0}
+#thVideo{display:block;width:min(92vw,calc(86vh * 16 / 9));max-height:86vh;aspect-ratio:16/9;background:#000;object-fit:contain;border-radius:8px}
+.thnav{flex:none;width:3em;height:3em;border-radius:50%;border:1px solid rgba(238,242,255,.4);background:rgba(238,242,255,.12);color:#F3F5FF;font-size:1.8em;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 .1em}
+.thnav:disabled{opacity:.35;cursor:default}
+@media (max-width:760px){.thnav{display:none}#theatre{padding:.5em}#thVideo{width:100%;max-height:none}#thBox{width:100%}}
+
+/* value tab: monthly spend illustration. Series colours are tokens so the chart reads in light and in dark. */
+.spend,.sptip{--sp-legacy:#AEB8D2;--sp-tech:#8F7BE8;--sp-svc:#3F6FD8;--sp-impl:#C4D0F2;--sp-clubs:#6D3FD6;--sp-rule:#D9DEEE;--sp-ink:#1C2045;--sp-mute:#5B6380;--sp-good:#17754A;--sp-panel:#FFFFFF}
+.spend[data-theme=dark],#v-admin .spend,.sptip[data-theme=dark]{--sp-legacy:#4A5578;--sp-tech:#8E78E0;--sp-svc:#5B7BE0;--sp-impl:#4A5C96;--sp-clubs:#B794FF;--sp-rule:#2A3352;--sp-ink:#E6EAF6;--sp-mute:#B3BBD6;--sp-good:#5FD08A;--sp-panel:#161D33;background:#0F1424;color:#E6EAF6}
+.valtabs{display:flex;gap:8px;position:absolute;top:8px;right:1.8em;z-index:2}
+#v-value main{position:relative}
+.valtabs button{font:inherit;font-size:14px;font-weight:700;padding:5px 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--soft);cursor:pointer}
+.valtabs button.on{background:var(--brass);border-color:var(--brass);color:#fff}
+.valprice{display:contents}
+.valprice[hidden]{display:none!important}
+.spend{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;color:var(--ink)}
+.spend[hidden]{display:none!important}
+.speyebrow{min-height:30px;display:flex;align-items:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.spend[data-theme=dark] .speyebrow{color:#C9D0FF}
+.spend h1{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.1vw,30px);line-height:1.15;letter-spacing:0;margin:0 0 4px;max-width:60em;text-wrap:balance}
+.splede{margin:0;color:var(--soft);font-size:15px;line-height:1.35;max-width:80ch}
+.spend[data-theme=dark] .splede{color:#C9D0FF}
+.spkpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.spkpi{background:var(--sp-panel);border:1px solid var(--sp-rule);border-radius:10px;padding:8px 14px;display:grid;gap:2px}
+.spkpi b{font-family:var(--serif);font-weight:500;font-size:clamp(20px,1.8vw,26px);line-height:1.1;font-variant-numeric:tabular-nums}
+.spkpi span{color:var(--sp-mute);font-size:14px;line-height:1.25}
+.spkpi.good b{color:var(--sp-good)}
+.sppanel{flex:1;min-height:0;background:var(--sp-panel);border:1px solid var(--sp-rule);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:4px}
+.sppanel h2{margin:0;font-size:16px;line-height:1.3;font-weight:700}
+.splegend{display:flex;flex-wrap:wrap;gap:2px 16px;font-size:14px;color:var(--sp-mute)}
+.splegend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.splegend i.line{height:3px;border-radius:0;vertical-align:3px}
+.splegend i.dash{height:0;border-top:2px dashed var(--sp-ink);background:none;vertical-align:3px}
+.spbox{position:relative;flex:1;min-height:300px}
+.spchart{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden}
+.spchart svg{display:block}
+.spchart svg text{font:14px var(--sans);fill:var(--sp-mute)}
+.spchart svg text.ink{fill:var(--sp-ink)}
+.sptip{position:absolute;z-index:3;pointer-events:none;background:var(--sp-panel);color:var(--sp-ink);border:1px solid var(--sp-rule);border-radius:8px;padding:8px 10px;font-size:14px;box-shadow:0 4px 16px rgba(28,32,69,.18);white-space:nowrap}
+.sptip table{border-collapse:collapse;margin-top:4px;color:inherit;font-size:inherit;width:100%}
+.sptip td{padding:1px 0;color:inherit}.sptip td+td{text-align:right;padding-left:18px;font-variant-numeric:tabular-nums}
+.sptip tr.sum td{border-top:1px solid var(--sp-rule);font-weight:700}
+.sptip i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.sptip .mute{color:var(--sp-mute)}
+@media (max-width:860px){.valtabs{position:static}.spkpis{grid-template-columns:repeat(2,minmax(0,1fr))}.spbox{flex:none;height:420px;min-height:0}.spend{flex:none}}
+
+/* the shared chart tooltip floats over the page, so it is fixed to the window and carries its own colour tokens */
+.chtip{position:fixed;z-index:80;max-width:min(92vw,380px);white-space:normal}
+/* labels stay on one line; a long value (a team list, a note) wraps inside the tooltip instead of spilling out of it */
+.chtip td:first-child{white-space:nowrap}
+.chtip td+td{white-space:normal;max-width:260px;overflow-wrap:anywhere}
+.chtip td.lg{text-align:left}
+.chtip[hidden]{display:none!important}
+[data-tip]:focus-visible,[data-scrub]:focus-visible{outline:2px solid #4B3FD8;outline-offset:2px}
+
+/* ===== The Course Card: cinematic Home (always the dark blue-hour scene, in light and dark) ===== */
+.hs{--hs-contour:#A9B4FF;--hs-ink:#F3F5FF;--hs-soft:#C9CEE3;--hs-muted:#A3ABD6;--hs-glass:rgba(14,19,52,.62);--hs-glassline:rgba(169,180,255,.22);
+  position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:.8em;padding:clamp(1.2em,3.2vh,2.6em) clamp(1.2em,3.2vw,3em) clamp(.9em,2.4vh,1.6em);color:var(--hs-ink);background:#0A0F2C;isolation:isolate}
+.hs-scene{position:absolute;inset:0;z-index:-1;overflow:hidden;--px:0;--py:0}
+.hs-scene svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hs-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,44,.85),transparent 55%),radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(10,15,44,.55))}
+.hs-scene .hs-l1{transform:translate3d(calc(var(--px)*4px),calc(var(--py)*2px),0)}
+.hs-scene .hs-l2{transform:translate3d(calc(var(--px)*8px),calc(var(--py)*4px),0)}
+.hs-scene .hs-l3{transform:translate3d(calc(var(--px)*12px),calc(var(--py)*6px),0)}
+.hs-flag{transform-box:fill-box;transform-origin:50% 100%}
+.hs-cloth{transform-box:fill-box;transform-origin:0 50%}
+.hs-hero{max-width:40em;display:flex;flex-direction:column;gap:.7em;min-height:0}
+.hs-eyebrow{font-size:max(14px,.8em);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--hs-muted)}
+.hs h1{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(2.4em,4.2vw,3.6em);line-height:1.05;color:var(--hs-ink)}
+.hs-sub{margin:0;color:var(--hs-soft);font-size:1.05em;max-width:32em}
+.hs-fig{margin:.4em 0 .2em;display:flex;gap:clamp(1em,2.6vw,2.6em);flex-wrap:wrap}
+.hs-fig>div{display:flex;flex-direction:column-reverse}
+.hs-fig dd{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(1.8em,2.6vw,2.4em);line-height:1.05;color:var(--hs-ink)}
+.hs-fig dt{font-size:max(14px,.86em);color:var(--hs-muted);font-weight:600}
+.px a.hs-cta{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;margin-top:.3em;background:#E6EAFB;border:1px solid #E6EAFB;color:#1C2045;padding:.6em 1.4em;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s var(--out),background .2s}
+.px a.hs-cta:hover{background:#fff;color:#1C2045;transform:translateY(-2px)}
+.hs-hold{position:absolute;right:clamp(1.2em,3.2vw,3em);top:clamp(1.2em,3.2vh,2.6em);font-size:max(14px,.86em);color:var(--hs-muted);font-weight:600}
+.hs :focus-visible{outline:2px solid #E6EAFB;outline-offset:3px}
+.hs-card{flex:none;background:var(--hs-glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--hs-glassline);border-radius:14px;padding:.8em}
+.hs-holes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,6),minmax(0,1fr));gap:.7em;grid-auto-flow:dense}
+.hs-hole{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 1fr auto auto auto auto;column-gap:.5em;row-gap:.2em;padding:.7em .8em;border:1px solid var(--hs-glassline);border-radius:10px;min-width:0;transition:transform .25s var(--out),border-color .2s,background .2s}
+.hs-hole.wide{grid-column:span 2;grid-template-columns:auto minmax(0,1fr) 40%}
+.hs-hole.wide .hs-line,.hs-hole.wide .hs-figure,.hs-hole.wide .hs-chip,.hs-hole.wide .hs-play{grid-column:1/3}
+.hs-hole.wide .hs-name{grid-column:2}
+.hs-hole.wide .hs-ph{grid-column:3;grid-row:1/span 6;margin:0 0 0 .6em;min-height:5.5em}
+.hs-hole.wide .hs-ph img{position:absolute;inset:0;height:100%;max-height:none;aspect-ratio:auto}
+.hs-hole.hid{border-style:dashed;border-color:rgba(169,180,255,.5)}
+.hs-hole:hover,.hs-hole:focus-within{transform:translateY(-3px);border-color:rgba(230,234,251,.8);background:rgba(169,180,255,.1)}
+.hs-link{position:absolute;inset:0;z-index:1;border-radius:10px}
+.px a.hs-link:hover{text-decoration:none}
+.hs-no{grid-row:1;align-self:center;width:1.7em;height:1.7em;border-radius:50%;border:1px solid var(--hs-contour);display:grid;place-items:center;font-family:var(--serif);font-weight:500;color:var(--hs-ink);font-size:1.1em}
+.hs-pinless{border:0;width:.2em}
+.hs-name{grid-row:1;grid-column:2;align-self:center;min-width:0;overflow-wrap:normal;word-break:normal;hyphens:none;font-family:var(--serif);font-weight:500;font-size:1.1em;line-height:1.15;color:var(--hs-ink)}
+.hs-line{grid-row:2;grid-column:1/-1;margin-top:.3em;font-size:max(14px,.86em);color:var(--hs-soft);line-height:1.3;overflow-wrap:normal;hyphens:none}
+.hs-figure{grid-row:3;grid-column:1/-1;font-size:max(14px,.86em);font-weight:700;color:#C9D0FF}
+.hs-chip{grid-row:4;grid-column:1/-1;justify-self:start;margin-top:.2em;font-size:max(14px,.8em);font-weight:700;color:var(--hs-ink);border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .6em}
+.hs-ph{grid-row:5;grid-column:1/-1;position:relative;display:block;margin-top:.4em;min-height:0;border-radius:6px;overflow:hidden;background:#1A1F5C}
+.hs-ph img{display:block;width:100%;aspect-ratio:16/9;max-height:6em;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.hs-ph:after{content:"";position:absolute;inset:0;background:#5B4FD6;mix-blend-mode:color}
+.hs-play{grid-row:6;position:relative;z-index:2;grid-column:1/-1;justify-self:start;margin-top:.4em;min-height:44px;background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--hs-ink);border-radius:999px;padding:0 1em;font-weight:700}
+.hs-holes.dense .hs-line,.hs-holes.dense .hs-ph,.hs-holes.dense .hs-play{display:none}
+.hs-holes.dense .hs-hole{padding:.5em .7em}
+@media (max-width:760px){
+  .hs{padding:1.2em 1em;justify-content:flex-start;gap:1em}
+  .hs-hero{min-height:0;padding:2.4em 0 5.5em}
+  /* portrait: scale the scene so the horizon and flag sit just under the call to action, in the first screen */
+  .hs-scene{bottom:auto;height:765px}
+  .hs-scene svg{width:1362px;height:765px;left:calc(82vw - 1008px)}
+  .hs-fig{flex-wrap:nowrap;gap:.8em}.hs-fig dd{font-size:1.5em}
+  .px a.hs-cta{align-self:stretch;justify-content:center}
+  .hs-hold{position:static}
+  .hs-holes,.hs-holes.dense{grid-template-columns:1fr}
+  .hs-hole.wide{grid-column:auto;grid-template-columns:auto minmax(0,1fr)}
+  .hs-hole.wide .hs-line,.hs-hole.wide .hs-figure,.hs-hole.wide .hs-chip,.hs-hole.wide .hs-play{grid-column:1/-1}
+  .hs-hole.wide .hs-ph{grid-column:1/-1;grid-row:auto;margin:.4em 0 0;width:100%;min-height:0;aspect-ratio:16/6}
+  .hs-hole{grid-template-rows:none}
+  .hs-no,.hs-name,.hs-line,.hs-figure,.hs-chip,.hs-play{grid-row:auto}
+  .hs-holes.dense .hs-line{display:block}
+  .hs-holes.dense .hs-play{display:inline-flex;align-items:center}
+  .hs-holes.dense .hs-ph{display:block}
+}
+
+/* intro: once per session, transform and opacity only */
+@keyframes hsFade{from{opacity:0}to{opacity:1}}
+@keyframes hsRise{from{opacity:0;transform:translate3d(0,12px,0)}to{opacity:1;transform:none}}
+@keyframes hsSway{0%,100%{transform:skewY(-2deg)}50%{transform:skewY(2deg)}}
+.hs-intro .hs-sky{animation:hsFade .6s ease both}
+.hs-intro .hs-row{animation:hsRise .6s var(--out) both;animation-delay:calc(var(--i)*18ms)}
+.hs-intro .hs-flag{animation:hsRise .5s var(--out) .6s both}
+.hs-intro #hsTitle,.hs-intro .hs-eyebrow{animation:hsRise .5s var(--out) .5s both}
+.hs-intro .hs-sub,.hs-intro .hs-cta{animation:hsRise .5s var(--out) .65s both}
+.hs-intro .hs-fig>div{animation:hsRise .5s var(--out) both;animation-delay:calc(.75s + var(--n,0)*60ms)}
+.hs-intro .hs-hole{animation:hsRise .5s var(--out) both;animation-delay:calc(.9s + var(--h)*50ms)}
+.hs-intro .hs-hold{animation:hsFade .5s ease 1s both}
+.view:not([hidden]) .hs-cloth{animation:hsSway 6s ease-in-out infinite}
+@media (max-width:760px){.hs-intro .hs-hole{animation-delay:calc(.2s + var(--h)*30ms)}.hs-intro .hs-flag{animation-delay:.2s}.hs-intro #hsTitle,.hs-intro .hs-eyebrow{animation-delay:.15s}.hs-intro .hs-fig>div{animation-delay:.3s}}
+
+/* site-wide: a push between tabs, blocks that rise in once, contours in the margins, the footer track */
+.views{position:relative;overflow-x:clip}
+#hsLayer{position:absolute;top:0;bottom:0;left:-15%;width:130%;pointer-events:none;z-index:0;opacity:.06;-webkit-mask-image:radial-gradient(ellipse 45% 70% at 50% 50%,transparent 55%,#000 100%);mask-image:radial-gradient(ellipse 45% 70% at 50% 50%,transparent 55%,#000 100%);transform:translate3d(calc(var(--hole,0)*-3%),0,0);transition:transform .6s var(--out)}
+#hsLayer svg{width:100%;height:100%;display:block}
+.view{position:relative;z-index:1}
+@keyframes push{from{opacity:0;transform:translate3d(calc(var(--dir,1)*28px),0,0) scale(.985)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+.view:not([hidden]).rv:not(#v-home){animation:push .48s var(--out) both}
+.view.rv [data-r]{animation:rise .5s var(--out) both;animation-delay:calc(var(--r)*70ms + 120ms)}
+.view h1:focus{outline:none}
+[data-hole]::before{white-space:nowrap;content:attr(data-hole);display:inline-block;margin-right:.7em;padding:0 .6em;border:1px solid currentColor;border-radius:999px;font-size:max(14px,1em);letter-spacing:.06em;vertical-align:baseline}
+#fPos{display:inline-flex;align-items:center;gap:.9em;color:var(--soft)}
+.trk{position:relative;display:inline-block;width:clamp(5em,14vw,11em);height:1.2em}
+.trk:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line2)}
+.trk-dots{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center}
+.trk-dots b{width:6px;height:6px;border-radius:50%;background:var(--line2)}
+.trk-dots b.on{background:var(--brass)}
+.trk-pin{position:absolute;left:0;top:-.1em;width:14px;height:1.3em;margin-left:-3px;transform:translateX(calc(var(--p,0)*(clamp(5em,14vw,11em) - 8px)));transition:transform .4s var(--out),opacity .2s;background:linear-gradient(var(--brass),var(--brass)) 3px 0/1.5px 100% no-repeat}
+.trk-pin:after{content:"";position:absolute;left:4.5px;top:0;border-left:9px solid var(--gold);border-top:4px solid transparent;border-bottom:4px solid transparent}
+@media (prefers-reduced-motion:reduce){.px *,.px *:before,.px *:after{animation:none!important;transition:none!important}}
+
+/* ===== touch and small screens: 44px targets, 16px fields (no zoom on focus), safe areas, no costly blur ===== */
+@media (hover:none) and (pointer:coarse),(max-width:760px){
+  .px button,.px select,.px input:not([type=range]):not([type=checkbox]):not([type=radio]),.px a.cta,.shotpager button{min-height:44px}
+  .shotpager button{min-width:44px}
+  .px input,.px select,.px textarea{font-size:16px!important}
+  .dchip{min-width:44px}
+  .px button,.px input:not([type=range]):not([type=checkbox]):not([type=radio]){min-width:44px}
+  .menubtn{min-width:44px;min-height:44px}
+  .hs-card,.cm-open,.chtip{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hs-card{background:rgba(14,19,52,.86)}
+}
+@media (max-width:760px){
+  .side{padding-top:max(.5em,env(safe-area-inset-top));padding-left:max(1em,env(safe-area-inset-left));padding-right:max(1em,env(safe-area-inset-right))}
+  .pxfoot{padding-bottom:max(.55em,env(safe-area-inset-bottom));padding-left:max(1em,env(safe-area-inset-left));padding-right:max(1em,env(safe-area-inset-right))}
+  .cm-open{bottom:max(8px,env(safe-area-inset-bottom));right:max(18px,env(safe-area-inset-right))}
+}
+
+/* a wide table or chart scrolls inside its own box; the fade at the right edge says there is more */
+.has-more:not(.at-end){-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}
+@media (max-width:999px){.vidposter{flex:none;width:100%}}
+@media (max-width:760px){
+  /* the round tracker stays on screen: where you are on top, then previous and next as full-size buttons */
+  .pxfoot{position:sticky;bottom:0;z-index:40;background:var(--night);flex-wrap:wrap;justify-content:space-between;row-gap:0;gap:0 .6em;padding-top:.3em;box-shadow:0 -6px 16px -10px rgba(20,24,70,.35)}
+  .pxfoot #fPos{order:-1;flex:0 0 100%;display:flex;justify-content:center;align-items:center;gap:.7em;min-height:1.9em}
+  .pxfoot .trk{flex:none}
+  .pxfoot .trk-lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pxfoot button{padding:0 .4em}
+  [style*="justify-content:space-between"]{flex-wrap:wrap;gap:.3em .8em}
+  .pl-h{flex-wrap:wrap;row-gap:.2em}.pl-h h2{white-space:normal}.pl-h .pl-sum{margin-left:0;text-align:left}
+  [data-flex="partial"]{text-indent:-999px}
+}
+
+/* phones: the job column stays narrow so the first option column shows beside it before the table scrolls sideways */
+@media (max-width:760px){.cmpjob{width:9.5em}}
+.xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
+.xh1:hover{color:#F08A6C;}
+.xh2:hover{border-color:var(--ink);}
+.xh3:hover{border-color:rgba(var(--goldrgb),.7);background:var(--raise);}
+
+:root{
+  --ink:#12284C; --soft:#23395F; --muted:#5B6880;
+  --brass:#0071CE; --brass2:#00457C; --gold:#92278F; --sand:#A8700F; --teal:#00748F;
+  --slate:#6B7280; --alarm:#D1002B; --good:#00874A;
+  --goldrgb:146,39,143; --bluergb:0,113,206; --alarmrgb:209,0,43; --slatergb:107,114,128; --goodrgb:0,135,74;
+  --fgrgb:18,40,76; --navy:#12284C; --indigo:#00457C; --violet:#92278F;
+}
+.side,#v-admin{
+  --ink:#F2F6FC; --soft:#DCE6F5; --muted:#9BA8BF;
+  --night:#12284C; --deep:#1B355E; --raise:#234373; --field:#12284C;
+  --brass:#7FB9F0; --brass2:#A9D2F7; --gold:#D9A6D7; --sand:#E0BE7A; --teal:#5FC2DE;
+  --fgrgb:242,246,252;
+}
+.side-bot .hold{white-space:normal;line-height:1.35}
+/* one-screen helpers; every size in em so it rides the viewport-scaled root */
+.scr{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.85em;padding:.7em 1.8em;min-height:0}
+.eyeb{font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.ttl{font-family:var(--serif);font-weight:500;font-size:2em;line-height:1.14;margin:0;text-wrap:balance;color:var(--ink)}
+.sub{margin:.35em 0 0;color:var(--soft);font-size:1.02em;line-height:1.4;max-width:44em}
+.card{background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.75em 1em;display:flex;flex-direction:column;gap:.3em;min-width:0}
+.card .ch{font-size:max(14px,.8em);letter-spacing:.13em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.card .cb{font-family:var(--serif);font-weight:500;font-size:1.22em;line-height:1.16;color:var(--ink)}
+.card p{margin:0;font-size:max(14px,.88em);line-height:1.4;color:var(--soft)}
+.card .foot{margin-top:auto;padding-top:.4em;border-top:1px solid rgba(var(--fgrgb),.12);font-size:max(13px,.78em);color:var(--muted)}
+.grid{display:grid;gap:.7em;min-height:0}
+.strip{display:grid;grid-template-columns:repeat(4,auto);border:1px solid rgba(var(--bluergb),.35);border-radius:12px}
+.strip>div{padding:.6em 1em}
+.strip>div+div{border-left:1px solid rgba(var(--bluergb),.2)}
+.strip b{display:block;font-family:var(--serif);font-weight:500;font-size:2em;color:var(--brass);line-height:1;font-variant-numeric:tabular-nums}
+.strip span{display:block;font-size:max(14px,.86em);color:var(--soft);margin-top:.25em}
+.bar{display:flex;height:1.6em;border-radius:3px;overflow:hidden;font-size:max(13px,.82em);font-weight:700;color:#fff}
+.bar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;padding:0 .4em}
+.sq{display:grid;gap:.4em;margin:0}
+.sq>div{display:grid;grid-template-columns:8em minmax(0,1fr);gap:.8em;align-items:baseline;padding:.45em .8em;border-left:2px solid rgba(var(--fgrgb),.16);background:var(--deep);border-radius:0 8px 8px 0}
+.sq>div:last-child{border-left-color:var(--brass);background:rgba(var(--bluergb),.07)}
+.sq dt{font-size:max(13px,.74em);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
+.sq>div:last-child dt{color:var(--brass)}
+.sq dd{margin:0;font-size:max(14px,.9em);line-height:1.4;color:var(--soft)}
+.sq b{color:var(--ink);font-weight:600}
+.sqp>div{background:transparent;border-left:0;padding:.1em 0;grid-template-columns:5.5em minmax(0,1fr)}
+.sqp>div:last-child{background:transparent}
+.chipw{display:flex;flex-wrap:wrap;gap:.3em}
+.sysb{font:inherit;font-size:max(13px,.78em);line-height:1.2;padding:.26em .5em;border-radius:6px;cursor:pointer;color:var(--ink);text-align:left}
+.d1{display:inline-block;margin-left:.3em;font-size:max(10px,.62em);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--alarm);border:1px solid var(--alarm);border-radius:999px;padding:0 .3em;vertical-align:.1em}
+.ptab{width:100%;border-collapse:collapse;font-size:max(13px,.8em)}
+.ptab th,.ptab td{text-align:left;padding:.3em .55em;border-bottom:1px solid rgba(var(--fgrgb),.1);vertical-align:top}
+.ptab thead th{font-size:max(12px,.7em);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid rgba(var(--fgrgb),.28)}
+.ptab td.n{color:var(--ink);font-weight:600}
+.ptab td.e{font-family:ui-monospace,Menlo,monospace;font-size:max(12px,.76em);color:var(--soft)}
+.ptab .y{color:var(--good);font-weight:700}
+.note{background:rgba(var(--goldrgb),.07);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;padding:.6em .9em;color:var(--soft);font-size:max(14px,.86em);line-height:1.45}
+.note b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:.3em 1.1em;align-items:center;font-size:max(14px,.84em);color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:.35em}
+.legend i{width:.75em;height:.75em;border-radius:2px}
+.legend b{color:var(--ink)}
+/* rollout plan: a label, a track, phase bars positioned by month */
+.pl{display:flex;flex-direction:column;gap:.15em;min-width:0;width:100%}
+.pl-head{display:grid;grid-template-columns:var(--lbl) minmax(0,1fr);gap:.6em;align-items:end}
+.pl-ax{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+.pl-mo{font-size:max(10px,.6em);font-weight:700;color:var(--muted);text-align:center;letter-spacing:.02em;line-height:1.15;padding-bottom:.25em}
+.pl-mo b{display:block;font-weight:400;font-size:.9em;color:var(--muted);opacity:.8}
+.pl-mo.apr{color:var(--alarm)}
+.pl-row{display:grid;grid-template-columns:var(--lbl) minmax(0,1fr);gap:.6em;width:100%;align-items:center;background:none;border:0;padding:.12em 0;font:inherit;text-align:left;cursor:pointer;border-radius:5px}
+.pl-row:hover{background:rgba(var(--fgrgb),.05)}
+.pl-row.on{background:rgba(var(--bluergb),.1)}
+.pl-lbl{font-size:max(12px,.76em);font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.pl-area{position:relative;height:1.5em;width:100%;background:repeating-linear-gradient(90deg,rgba(var(--fgrgb),.07) 0 1px,transparent 1px calc(100% / var(--n)));border-radius:3px}
+.pl-seg{position:absolute;top:.3em;height:.9em;border-radius:3px}
+.pl-dia{position:absolute;top:.42em;width:.66em;height:.66em;background:var(--alarm);transform:translateX(-50%) rotate(45deg);border-radius:1px}
+.pl-apr{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed var(--alarm);pointer-events:none}
+.pl-leg{display:flex;flex-wrap:wrap;gap:.3em 1em;font-size:max(12px,.74em);color:var(--muted);align-items:center}
+.pl-leg span{display:inline-flex;align-items:center;gap:.35em}
+.pl-leg i{width:.8em;height:.55em;border-radius:2px;display:block}
+.pl-row.crit .pl-lbl{color:var(--alarm)}
+.pl-risk{display:inline-grid;place-items:center;width:1.1em;height:1.1em;border-radius:50%;background:var(--sand);color:#fff;font-size:.72em;font-weight:800;font-style:normal;margin-right:.35em;vertical-align:.05em}
+.pl-leg i.d{width:.6em;height:.6em;background:var(--alarm);transform:rotate(45deg);border-radius:1px}
+@media (max-width:900px){.scr{padding:.7em 1em;justify-content:flex-start;overflow-y:auto}.strip{grid-template-columns:repeat(2,1fr)}.sq>div{grid-template-columns:1fr;gap:.15em}}
+</style>
+
+<div class="px" id="px">
+<aside class="side" id="side">
+  <div class="side-top"><span class="logo"><img src="/proposal-sites/ymca-st-pete/img/ardn-logo-white.svg" alt="Ardn"></span><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
+  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg></span><span class="lbl">Executive Summary</span></a><a href="#value"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 6.5C17 4.6 14.8 4 12 4s-5 .9-5 3 2.2 2.8 5 3.3 5 1.2 5 3.2-2.2 3-5 3-5-.8-5-2.7"/></svg></span><span class="lbl">Value</span></a><a href="#plan"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/><path d="m9 16 2 2 4-4"/></svg></span><span class="lbl">Plan</span></a><a href="#compare"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h7M4 12h7M4 17h7"/><path d="M15 5h6v14h-6z"/><path d="m16.5 12 1.5 1.5 3-3"/></svg></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><span class="lbl">Detail</span></a></nav>
+  <div class="side-bot"><span class="hold">Checked against code<br>16 Oct 2026</span></div>
+</aside>
+<div class="col">
+<div class="views" id="views">
+
+<div class="view" id="v-home" data-view="home" data-tab="home" hidden><main class="hs" data-screen-label="01 Home"><div class="hs-scene" aria-hidden="true" id="hsScene"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  <defs><linearGradient id="ySky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1A33"/><stop offset=".42" stop-color="#12284C"/><stop offset=".74" stop-color="#1E4C86"/><stop offset=".9" stop-color="#3D7FC4"/><stop offset="1" stop-color="#7FB9F0"/></linearGradient><radialGradient id="yGlow" cx="1120" cy="545" r="460" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#92278F" stop-opacity=".30"/><stop offset="1" stop-color="#92278F" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1600" height="900" fill="url(#ySky)"/>
+  <rect width="1600" height="900" fill="url(#yGlow)"/>
+  <circle cx="1120" cy="546" r="46" fill="#F2C4EC" opacity=".22"/>
+  <g fill="#0C1C38" opacity=".95">
+    <rect x="120" y="470" width="34" height="78"/><rect x="166" y="496" width="22" height="52"/>
+    <rect x="300" y="452" width="28" height="96"/><rect x="340" y="486" width="40" height="62"/>
+    <rect x="1320" y="462" width="30" height="86"/><rect x="1362" y="492" width="24" height="56"/>
+    <path d="M980 548 L1046 498 L1112 548Z"/><rect x="1040" y="498" width="12" height="50"/>
+    <path d="M700 548 L742 508 L784 548Z" opacity=".8"/>
+  </g>
+  <g stroke="#0C1C38" stroke-width="4" fill="none" opacity=".9">
+    <path d="M232 548 V514"/><path d="M232 514 q-26 -16 -40 -4 M232 514 q26 -16 40 -4 M232 512 q-14 -24 -2 -34 M232 512 q14 -24 2 -34"/>
+    <path d="M1248 548 V518"/><path d="M1248 518 q-22 -14 -34 -4 M1248 518 q22 -14 34 -4 M1248 516 q-12 -20 -2 -30"/>
+  </g>
+  <rect y="548" width="1600" height="352" fill="#0A1A33"/>
+  <ellipse cx="240" cy="575" rx="34" ry="1.6" fill="#A9D2F7" opacity="0.30"/><ellipse cx="520" cy="584" rx="30" ry="1.6" fill="#A9D2F7" opacity="0.26"/><ellipse cx="900" cy="593" rx="26" ry="1.6" fill="#A9D2F7" opacity="0.22"/><ellipse cx="1280" cy="602" rx="22" ry="1.6" fill="#A9D2F7" opacity="0.18"/><ellipse cx="1460" cy="611" rx="18" ry="1.6" fill="#A9D2F7" opacity="0.14"/>
+  <path d="M150 600 Q800 590 1450 600" fill="none" stroke="#7FB9F0" stroke-opacity="0.42" stroke-width="2.4" stroke-dasharray="18 12" stroke-linecap="round"/><path d="M124 636 Q800 626 1476 636" fill="none" stroke="#7FB9F0" stroke-opacity="0.37" stroke-width="3.1" stroke-dasharray="25 17" stroke-linecap="round"/><path d="M98 692 Q800 682 1502 692" fill="none" stroke="#7FB9F0" stroke-opacity="0.32" stroke-width="3.8" stroke-dasharray="32 22" stroke-linecap="round"/><path d="M72 768 Q800 758 1528 768" fill="none" stroke="#7FB9F0" stroke-opacity="0.27" stroke-width="4.5" stroke-dasharray="39 27" stroke-linecap="round"/><path d="M46 864 Q800 854 1554 864" fill="none" stroke="#7FB9F0" stroke-opacity="0.22" stroke-width="5.2" stroke-dasharray="46 32" stroke-linecap="round"/><path d="M20 980 Q800 970 1580 980" fill="none" stroke="#7FB9F0" stroke-opacity="0.17" stroke-width="5.9" stroke-dasharray="53 37" stroke-linecap="round"/>
+  </svg></div>
+<section class="hs-hero">
+  <div class="hs-eyebrow">Prepared for the YMCA of Greater St. Petersburg</div>
+  <h1 id="hsTitle">One platform, in place of 24 systems</h1>
+  <p class="hs-sub">Membership, programs, childcare and giving on one platform &mdash; built, run and supported by Ardn. Every status in here was checked against working code, and where nothing exists yet, we say so.</p>
+  <dl class="hs-fig" id="hsFig">
+    <div><dt>Contracts End</dt><dd>7</dd></div>
+    <div><dt>Retire in Part</dt><dd>8</dd></div>
+    <div><dt>You Keep, We Feed</dt><dd>7</dd></div>
+    <div><dt>True Gaps</dt><dd>2</dd></div>
+  </dl>
+  <a class="cta hs-cta" href="#summary">Begin With the Executive Summary &rarr;</a>
+</section>
+<nav class="hs-card" aria-label="Proposal, in Reading Order"><ol id="homeCards" class="hs-holes" style="--cols:3"><li class="hs-hole" style="--h:0"><a class="hs-link" href="#summary" aria-label="Executive Summary"></a><span class="hs-no" aria-hidden="true">1</span><span class="hs-name">Executive Summary</span><span class="hs-line">The answer, and the two builds that set the date.</span><span class="hs-figure">24 capabilities</span></li><li class="hs-hole" style="--h:1"><a class="hs-link" href="#value" aria-label="Value"></a><span class="hs-no" aria-hidden="true">2</span><span class="hs-name">Value</span><span class="hs-line">What it costs, and what comes with it at no charge.</span><span class="hs-figure">$9,500 + $11,000/mo</span></li><li class="hs-hole" style="--h:2"><a class="hs-link" href="#plan" aria-label="Plan"></a><span class="hs-no" aria-hidden="true">3</span><span class="hs-name">Plan</span><span class="hs-line">What we are doing, month by month, and when each contract ends.</span><span class="hs-figure">First go-live Apr 2027</span></li><li class="hs-hole" style="--h:3"><a class="hs-link" href="#compare" aria-label="Compare"></a><span class="hs-no" aria-hidden="true">4</span><span class="hs-name">Compare</span><span class="hs-line">Four ways to run it. One takes the running off the Y.</span><span class="hs-figure">~17 vendors today</span></li><li class="hs-hole" style="--h:4"><a class="hs-link" href="#detail" aria-label="Detail"></a><span class="hs-no" aria-hidden="true">5</span><span class="hs-name">Detail</span><span class="hs-line">Every system, the gaps, the testing, the rollout, the proof.</span><span class="hs-figure">7 retire · 8 in part</span></li></ol></nav></main></div>
+
+<div class="view" id="v-summary" data-view="summary" data-tab="summary" hidden><main data-screen-label="01 Summary" class="scr">
+<section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.8em 2.4em;">
+  <div style="flex:1 1 28em;max-width:44em;">
+    <div class="eyeb" style="margin-bottom:.4em;">Executive Summary</div>
+    <h1 class="ttl">7 contracts can end this year. Two builds decide when Daxko does.</h1>
+  </div>
+  <div class="strip">
+    <div><b>7</b><span>retire outright</span></div>
+    <div><b>8</b><span>retire in part</span></div>
+    <div><b>7</b><span>you keep, we feed</span></div>
+    <div><b>2</b><span>true gaps</span></div>
+  </div>
+</section>
+
+<dl class="sq">
+  <div><dt>Situation</dt><dd>The Y runs <b>24 capabilities</b> across about seventeen vendors, with Daxko underneath membership, programs, reports, screening, PT packages, child watch and licensed childcare.</dd></div>
+  <div><dt>Complication</dt><dd>Daxko cannot simply be switched off. One thing it does &mdash; <b>licensed childcare</b> &mdash; has no equivalent in any product Ardn owns, and we verified that rather than assumed it. Meanwhile <b>DocuSign expires at the end of April</b> regardless.</dd></div>
+  <div><dt>Question</dt><dd>What can the Y retire now, what must be built first, and in what order &mdash; with no gap at a front desk or on a childcare licence?</dd></div>
+  <div><dt>Recommendation</dt><dd>Retire <b>7</b> outright and connect <b>7</b> more, starting with DocuSign because it has a date. Put <b>licensed childcare on the critical path from day one</b>, parallel to the ports. Treat SGA as a connection now, a decision later.</dd></div>
+</dl>
+
+<section class="grid" style="grid-template-columns:repeat(auto-fit,minmax(17em,1fr));">
+  <div class="card">
+    <div class="ch">The Answer</div>
+    <div class="cb">16 of 24 carry no build risk.</div>
+    <div class="bar">
+      <div style="flex:7;background:#0071CE;">7 Retire</div>
+      <div style="flex:8;background:#A8700F;">8 In Part</div>
+      <div style="flex:9;background:#6B7280;">9 Stay</div>
+    </div>
+    <div class="foot">On the Y's Day 1 list: 3 strong, 4 partial, 2 gap.</div>
+  </div>
+  <div class="card">
+    <div class="ch">Why We Can Say It</div>
+    <p>The Y's product has <b style="color:var(--ink)">26 modules</b>. Our club platform &mdash; built on the Y's own codebase &mdash; has <b style="color:var(--ink)">about a hundred</b>. What left can come back.</p>
+    <div class="foot">Every row names its files and line counts, so the Y can check our work instead of trusting it.</div>
+  </div>
+  <div class="card" style="border-color:rgba(var(--goldrgb),.45);">
+    <div class="ch" style="color:var(--gold);">Two Rows Moved Your Way</div>
+    <p><b style="color:var(--ink)">Salesforce</b> &mdash; three working importers, 886 ln of tests. Now a straight retire.</p>
+    <p><b style="color:var(--ink)">Listen360</b> &mdash; five shipped survey types, 644 ln test suite. Also a retire.</p>
+    <div class="foot">We corrected our own 15 October sheet against the code.</div>
+  </div>
+</section></main></div>
+
+<div class="view" id="v-value" data-view="value" data-tab="value" hidden><main data-screen-label="02 Value" class="scr">
+<section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.7em 2.4em;">
+  <div style="flex:1 1 27em;max-width:42em;">
+    <div class="eyeb" style="margin-bottom:.4em;">Value and Pricing</div>
+    <h1 class="ttl">$9,500 to build it. $11,000 a month to run it <em style="font-style:normal;color:var(--brass2);">and support it.</em></h1>
+    <p class="sub">That fee is technology <b>and</b> the team that runs it &mdash; production support and fractional IT from day one, not a ticket queue. About $220k of build and integration work is included at no cost.</p>
+  </div>
+  <div class="strip">
+    <div><b>$9,500</b><span>one-time build</span></div>
+    <div><b>$11,000</b><span>a month, tech + support</span></div>
+    <div><b>$141,500</b><span>year one, total</span></div>
+    <div><b>~$220k</b><span>included at no cost</span></div>
+  </div>
+</section>
+
+<section style="flex:1;display:flex;flex-wrap:wrap;gap:.8em;min-height:0;align-items:stretch;">
+  <div style="flex:1.6 1 28em;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.7em 1em;display:flex;flex-direction:column;min-height:0;overflow:auto;">
+    <table class="ptab" style="font-size:max(13px,.86em);">
+      <thead><tr><th>Line item</th><th style="text-align:right;">Standard</th><th style="text-align:right;">Partnership</th></tr></thead>
+      <tbody>
+        <tr><td class="n">Implementation<small style="display:block;color:var(--muted);font-weight:400;">one-time build and launch</small></td><td style="text-align:right;color:var(--muted);text-decoration:line-through;">$45k&ndash;$55k</td><td style="text-align:right;font-weight:700;color:var(--ink);">$9,500</td></tr>
+        <tr><td class="n">Platform integrations<small style="display:block;color:var(--muted);font-weight:400;">up to 4, including Raiser&rsquo;s Edge</small></td><td style="text-align:right;color:var(--muted);text-decoration:line-through;">~$180k</td><td style="text-align:right;font-weight:700;color:var(--good);">Included</td></tr>
+        <tr><td class="n">Dedicated support team<small style="display:block;color:var(--muted);font-weight:400;">production support and fractional IT, from day one</small></td><td style="text-align:right;color:var(--muted);">&mdash;</td><td style="text-align:right;font-weight:700;color:var(--good);">Included</td></tr>
+        <tr><td class="n">Monthly subscription<small style="display:block;color:var(--muted);font-weight:400;">hosting, licence fees, updates, full access &mdash; <b style="color:var(--ink)">and the support team</b></small></td><td style="text-align:right;color:var(--muted);">&mdash;</td><td style="text-align:right;font-weight:700;color:var(--ink);">$11,000/mo</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><th style="padding-top:.6em;">Year one, all in</th><td></td><td style="text-align:right;font-weight:800;color:var(--brass);padding-top:.6em;font-size:1.15em;">$141,500</td></tr>
+        <tr><th>Each year after</th><td></td><td style="text-align:right;font-weight:700;color:var(--ink);">$132,000</td></tr>
+        <tr><th>36-month term<small style="display:block;color:var(--muted);font-weight:400;">flat, to $421,551 if CPI runs at the 4% cap every year</small></th><td></td><td style="text-align:right;font-weight:700;color:var(--ink);">$405,500</td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div style="flex:1 1 20em;display:flex;flex-direction:column;gap:.7em;min-width:0;">
+    <div class="card" style="border-color:rgba(var(--goodrgb),.45);background:rgba(var(--goodrgb),.07);">
+      <div class="ch" style="color:var(--good);">Included At No Cost</div>
+      <div class="cb" style="font-size:1.9em;color:var(--good);">~$220k</div>
+      <p>$45k&ndash;$55k of build, less the $9,500 charged, plus 4 integrations at about $45k each.</p>
+      <div class="foot">Integrations are at no cost where each vendor&rsquo;s API is reachable under the Y&rsquo;s current subscription. For Raiser&rsquo;s Edge we confirm the tier supports production API access during scoping.</div>
+    </div>
+    <div class="card">
+      <div class="ch">What You Pay Today</div>
+      <p style="margin-bottom:.3em;">Put in what the Y spends a year across the ~17 vendors and we will work from your figure, not ours.</p>
+      <label style="display:flex;align-items:center;gap:.5em;font-size:max(14px,.88em);color:var(--soft);">
+        <span style="white-space:nowrap;">Today, a year</span>
+        <input id="todaySpend" name="todaySpend" type="text" inputmode="numeric" placeholder="e.g. 180,000" aria-label="What the Y spends a year today" style="flex:1;min-width:0;font:inherit;font-size:max(14px,.92em);padding:.3em .5em;border-radius:7px;border:1px solid rgba(var(--fgrgb),.3);background:var(--field);color:var(--ink);">
+      </label>
+      <div id="spendOut" style="font-size:max(13px,.86em);color:var(--muted);line-height:1.4;margin-top:.1em;">Against $132,000 a year on Ardn.</div>
+      <div class="foot">We have not guessed this number. It is the Y&rsquo;s to supply, and whatever is typed here comes back to us with the proposal.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-wrap:wrap;gap:.7em;align-items:stretch;">
+  <div class="card" style="flex:1.25 1 22em;border-color:rgba(var(--bluergb),.45);background:rgba(var(--bluergb),.05);">
+    <div class="ch">Inside the $11,000 a Month</div>
+    <div class="cb">Technology <em style="font-style:normal;color:var(--brass);">and</em> the people who run it</div>
+    <ul style="margin:.2em 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:.22em;font-size:max(14px,.88em);color:var(--soft);line-height:1.4;">
+      <li>Hosting, licence fees, updates and full platform access</li>
+      <li><b style="color:var(--ink)">A production support team</b>, from launch rather than after it</li>
+      <li><b style="color:var(--ink)">Fractional IT support</b>, also from day one</li>
+      <li>The integrations between everything the Y keeps &mdash; built and maintained by us</li>
+      <li>Every upgrade, on every system in this proposal, carried by us</li>
+    </ul>
+  </div>
+  <div class="card" style="flex:1 1 20em;">
+    <div class="ch" style="color:var(--muted);">What a Licence Fee Buys</div>
+    <div class="cb" style="color:var(--muted);">The software, and a queue</div>
+    <ul style="margin:.2em 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:.22em;font-size:max(14px,.88em);color:var(--muted);line-height:1.4;">
+      <li>Access to the product</li>
+      <li>A support ticket queue, priced per incident or per tier</li>
+      <li>Integrations: the Y's problem, or a paid professional-services engagement</li>
+      <li>Upgrades: the Y's problem, on the vendor's timetable</li>
+      <li>The 7am failure: the Y's problem until the queue answers</li>
+    </ul>
+  </div>
+</section>
+<div class="note" style="border-left-color:var(--brass);background:rgba(var(--bluergb),.07);"><b>This is the part that does not appear on anyone's invoice.</b> Every other vendor in this proposal charges for technology. The work of running it &mdash; holding roughly seventeen vendors together, chasing the integration that broke overnight, taking the upgrade when it lands &mdash; stays with the Y, and the Y pays for it in staff time rather than in a line item. Our $11,000 covers both, and the integrations are included rather than quoted.</div>
+<div class="note" style="font-size:max(13px,.84em);"><b>Terms.</b> 36-month term &middot; annual CPI escalation capped at 4% &middot; the dedicated support team starts at launch, not after it.</div></main></div>
+
+<div class="view" id="v-plan" data-view="plan" data-tab="plan" hidden><main data-screen-label="03 Plan" class="scr">
+<section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 2em;">
+  <div style="flex:1 1 26em;"><div class="eyeb" style="margin-bottom:.35em;">Rollout Plan</div>
+  <h1 class="ttl" style="font-size:1.75em;">Two fixed dates: DocuSign in April, off Daxko entirely by the end of June</h1></div>
+  <div class="strip" style="grid-template-columns:repeat(3,auto);">
+    <div><b>6</b><span>months to DocuSign</span></div>
+    <div><b>8</b><span>months to the Daxko cutover</span></div>
+    <div><b>4</b><span>on the critical path</span></div>
+  </div>
+</section>
+
+<div style="display:flex;flex-wrap:wrap;gap:.6em;">
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Two dates are fixed, and neither is ours.</b> DocuSign ends end of April 2027 (month 6). The Y comes off <b>Daxko entirely &mdash; end of June, beginning of July 2027</b> (month 8). Everything before each one is sized to clear it, and nothing is switched off until its parallel run has finished.</div>
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Licensed childcare is started first, and it is the risk.</b> Leaving all of Daxko means the childcare build cannot wait its turn: it is the one capability with nothing to build on, so it begins in month one and gets a <b>five-month build rather than eight</b>. That compression is the largest risk here, and we would rather name it now than discover it in May.</div>
+</div>
+
+<section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.8em 1em;display:flex;flex-direction:column;gap:.5em;min-height:0;overflow:auto;">
+  <div class="pl" style="--n:11;--lbl:min(14em,22%);min-width:36em;">
+    <div class="pl-head"><div></div><div class="pl-ax"><span class="pl-mo">Nov<b>2026</b></span><span class="pl-mo">Dec</span><span class="pl-mo">Jan<b>2027</b></span><span class="pl-mo">Feb</span><span class="pl-mo">Mar</span><span class="pl-mo apr">Apr</span><span class="pl-mo">May</span><span class="pl-mo apr">Jun</span><span class="pl-mo">Jul</span><span class="pl-mo">Aug</span><span class="pl-mo">Sep</span></div></div>
+    <button type="button" class="pl-row crit" data-plan="Licensed childcare and preschool"><span class="pl-lbl"><i class="pl-risk" title="Carries risk against the cutover">!</i>Licensed childcare and preschool</span><span class="pl-area"><div class="pl-seg" title="Licensed childcare and preschool — Design: Nov 2026 to Dec 2026" style="left:0.000%;width:18.182%;background:#7A86A8;"></div><div class="pl-seg" title="Licensed childcare and preschool — Build: Dec 2026 to Apr 2027" style="left:9.091%;width:45.455%;background:#0071CE;"></div><div class="pl-seg" title="Licensed childcare and preschool — Test: Apr 2027 to May 2027" style="left:45.455%;width:18.182%;background:#00748F;"></div><div class="pl-seg" title="Licensed childcare and preschool — Deploy: May 2027" style="left:54.545%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Licensed childcare and preschool — Parallel run: May 2027 to Jul 2027" style="left:54.545%;width:27.273%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Daxko Attendance Tracker retires — Jul 2027" style="left:77.273%;"></div></span></button><button type="button" class="pl-row crit" data-plan="Contracts and e-signature"><span class="pl-lbl">Contracts and e-signature</span><span class="pl-area"><div class="pl-seg" title="Contracts and e-signature — Design: Nov 2026" style="left:0.000%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Contracts and e-signature — Build: Dec 2026 to Jan 2027" style="left:9.091%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Contracts and e-signature — Test: Feb 2027" style="left:27.273%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Contracts and e-signature — Deploy: Mar 2027" style="left:36.364%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Contracts and e-signature — Parallel run: Mar 2027 to Apr 2027" style="left:36.364%;width:18.182%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="DocuSign retires — Apr 2027" style="left:50.000%;"></div></span></button><button type="button" class="pl-row crit" data-plan="Membership, billing, check-in"><span class="pl-lbl">Membership, billing, check-in</span><span class="pl-area"><div class="pl-seg" title="Membership, billing, check-in — Design: Nov 2026 to Dec 2026" style="left:0.000%;width:18.182%;background:#7A86A8;"></div><div class="pl-seg" title="Membership, billing, check-in — Build: Dec 2026 to Feb 2027" style="left:9.091%;width:27.273%;background:#0071CE;"></div><div class="pl-seg" title="Membership, billing, check-in — Test: Feb 2027 to Mar 2027" style="left:27.273%;width:18.182%;background:#00748F;"></div><div class="pl-seg" title="Membership, billing, check-in — Deploy: Mar 2027 to Apr 2027" style="left:36.364%;width:18.182%;background:#00874A;"></div><div class="pl-seg" title="Membership, billing, check-in — Parallel run: Apr 2027 to Jun 2027" style="left:45.455%;width:27.273%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Daxko retires — Jul 2027" style="left:77.273%;"></div></span></button><button type="button" class="pl-row" data-plan="Kid Zone child watch"><span class="pl-lbl">Kid Zone child watch</span><span class="pl-area"><div class="pl-seg" title="Kid Zone child watch — Design: Nov 2026" style="left:0.000%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Kid Zone child watch — Build: Dec 2026 to Jan 2027" style="left:9.091%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Kid Zone child watch — Test: Feb 2027" style="left:27.273%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Kid Zone child watch — Deploy: Mar 2027" style="left:36.364%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Kid Zone child watch — Parallel run: Apr 2027 to Jun 2027" style="left:45.455%;width:27.273%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div></span></button><button type="button" class="pl-row" data-plan="Reports and the daily tracker"><span class="pl-lbl">Reports and the daily tracker</span><span class="pl-area"><div class="pl-seg" title="Reports and the daily tracker — Design: Dec 2026" style="left:9.091%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Reports and the daily tracker — Build: Jan 2027 to Feb 2027" style="left:18.182%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Reports and the daily tracker — Test: Mar 2027" style="left:36.364%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Reports and the daily tracker — Deploy: Apr 2027" style="left:45.455%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Reports and the daily tracker — Parallel run: Apr 2027 to Jun 2027" style="left:45.455%;width:27.273%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div></span></button><button type="button" class="pl-row" data-plan="Online program and camp registration"><span class="pl-lbl"><i class="pl-risk" title="Carries risk against the cutover">!</i>Online program and camp registration</span><span class="pl-area"><div class="pl-seg" title="Online program and camp registration — Design: Dec 2026" style="left:9.091%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Online program and camp registration — Build: Jan 2027 to Mar 2027" style="left:18.182%;width:27.273%;background:#0071CE;"></div><div class="pl-seg" title="Online program and camp registration — Test: Apr 2027" style="left:45.455%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Online program and camp registration — Deploy: May 2027" style="left:54.545%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Online program and camp registration — Parallel run: May 2027 to Jun 2027" style="left:54.545%;width:18.182%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div></span></button><button type="button" class="pl-row" data-plan="PT packages"><span class="pl-lbl">PT packages</span><span class="pl-area"><div class="pl-seg" title="PT packages — Design: Jan 2027" style="left:18.182%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="PT packages — Build: Feb 2027 to Mar 2027" style="left:27.273%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="PT packages — Test: Apr 2027" style="left:45.455%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="PT packages — Deploy: May 2027" style="left:54.545%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="PT packages — Parallel run: May 2027 to Jun 2027" style="left:54.545%;width:18.182%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div></span></button><button type="button" class="pl-row" data-plan="Financial assistance"><span class="pl-lbl">Financial assistance</span><span class="pl-area"><div class="pl-seg" title="Financial assistance — Design: Jan 2027" style="left:18.182%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Financial assistance — Build: Feb 2027 to Apr 2027" style="left:27.273%;width:27.273%;background:#0071CE;"></div><div class="pl-seg" title="Financial assistance — Test: Apr 2027" style="left:45.455%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Financial assistance — Deploy: May 2027" style="left:54.545%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Financial assistance — Parallel run: May 2027 to Jun 2027" style="left:54.545%;width:18.182%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div></span></button><button type="button" class="pl-row" data-plan="Sex-offender screening"><span class="pl-lbl"><i class="pl-risk" title="Carries risk against the cutover">!</i>Sex-offender screening</span><span class="pl-area"><div class="pl-seg" title="Sex-offender screening — Design: Jan 2027" style="left:18.182%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Sex-offender screening — Build: Feb 2027 to Mar 2027" style="left:27.273%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Sex-offender screening — Test: Apr 2027" style="left:45.455%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Sex-offender screening — Deploy: May 2027" style="left:54.545%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Sex-offender screening — Parallel run: May 2027 to Jun 2027" style="left:54.545%;width:18.182%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div></span></button><button type="button" class="pl-row" data-plan="Member mobile app"><span class="pl-lbl">Member mobile app</span><span class="pl-area"><div class="pl-seg" title="Member mobile app — Design: Feb 2027" style="left:27.273%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Member mobile app — Build: Mar 2027 to Apr 2027" style="left:36.364%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Member mobile app — Test: May 2027" style="left:54.545%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Member mobile app — Deploy: May 2027" style="left:54.545%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Member mobile app — Parallel run: Jun 2027 to Jul 2027" style="left:63.636%;width:18.182%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Daxko app retires — Jul 2027" style="left:77.273%;"></div></span></button><button type="button" class="pl-row crit" data-plan="Migration off Daxko"><span class="pl-lbl">Migration off Daxko</span><span class="pl-area"><div class="pl-seg" title="Migration off Daxko — Design: Dec 2026 to Jan 2027" style="left:9.091%;width:18.182%;background:#7A86A8;"></div><div class="pl-seg" title="Migration off Daxko — Build: Feb 2027 to Apr 2027" style="left:27.273%;width:27.273%;background:#0071CE;"></div><div class="pl-seg" title="Migration off Daxko — Test: Apr 2027 to May 2027" style="left:45.455%;width:18.182%;background:#00748F;"></div><div class="pl-seg" title="Migration off Daxko — Deploy: Jun 2027" style="left:63.636%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Migration off Daxko — Parallel run: May 2027 to Jul 2027" style="left:54.545%;width:27.273%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Daxko, in full retires — Jul 2027" style="left:77.273%;"></div></span></button><button type="button" class="pl-row" data-plan="Appointments and tours"><span class="pl-lbl">Appointments and tours</span><span class="pl-area"><div class="pl-seg" title="Appointments and tours — Design: May 2027" style="left:54.545%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Appointments and tours — Build: Jun 2027 to Jul 2027" style="left:63.636%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Appointments and tours — Test: Jul 2027" style="left:72.727%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Appointments and tours — Deploy: Aug 2027" style="left:81.818%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Appointments and tours — Parallel run: Aug 2027" style="left:81.818%;width:9.091%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Appointment King retires — Aug 2027" style="left:86.364%;"></div></span></button><button type="button" class="pl-row" data-plan="Leads and sales pipeline"><span class="pl-lbl">Leads and sales pipeline</span><span class="pl-area"><div class="pl-seg" title="Leads and sales pipeline — Design: May 2027" style="left:54.545%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Leads and sales pipeline — Build: Jun 2027 to Aug 2027" style="left:63.636%;width:27.273%;background:#0071CE;"></div><div class="pl-seg" title="Leads and sales pipeline — Test: Aug 2027" style="left:81.818%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Leads and sales pipeline — Deploy: Sep 2027" style="left:90.909%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Leads and sales pipeline — Parallel run: Sep 2027" style="left:90.909%;width:9.091%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Salesforce retires — Sep 2027" style="left:95.455%;"></div></span></button><button type="button" class="pl-row" data-plan="Surveys and NPS"><span class="pl-lbl">Surveys and NPS</span><span class="pl-area"><div class="pl-seg" title="Surveys and NPS — Design: Jun 2027" style="left:63.636%;width:9.091%;background:#7A86A8;"></div><div class="pl-seg" title="Surveys and NPS — Build: Jul 2027 to Aug 2027" style="left:72.727%;width:18.182%;background:#0071CE;"></div><div class="pl-seg" title="Surveys and NPS — Test: Aug 2027" style="left:81.818%;width:9.091%;background:#00748F;"></div><div class="pl-seg" title="Surveys and NPS — Deploy: Sep 2027" style="left:90.909%;width:9.091%;background:#00874A;"></div><div class="pl-seg" title="Surveys and NPS — Parallel run: Sep 2027" style="left:90.909%;width:9.091%;top:60%;height:.45em;background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8;"></div><div class="pl-dia" title="Listen360 retires — Sep 2027" style="left:95.455%;"></div></span></button>
+  </div>
+  <div class="pl-leg" style="margin-top:.3em;">
+    <span><i style="background:#7A86A8"></i>Design</span><span><i style="background:#0071CE"></i>Build</span><span><i style="background:#00748F"></i>Test</span><span><i style="background:#00874A"></i>Deploy</span><span><i style="background:repeating-linear-gradient(45deg,#8A94B8 0 3px,transparent 3px 6px);border:1px solid #8A94B8"></i>Parallel run</span>
+    <span><i class="d"></i>Contract ends</span><span><i style="background:var(--sand);border-radius:50%;width:.6em;height:.6em"></i>Risk against the cutover</span><span style="color:var(--alarm);font-weight:700;">Red label &middot; critical path</span>
+    <span style="color:var(--alarm);font-weight:700;margin-left:auto;">Apr 2027 DocuSign &middot; Jun 2027 Daxko</span>
+  </div>
+</section>
+
+<section style="display:flex;flex-wrap:wrap;gap:.7em;">
+  <div class="card" style="flex:2 1 24em;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5em;flex-wrap:wrap;">
+      <span class="cb" id="planName"></span><span id="planWhen" style="font-size:max(12px,.76em);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);white-space:nowrap;"></span>
+    </div>
+    <p id="planNote"></p>
+    <div class="foot"><span id="planPhases"></span></div>
+  </div>
+  <div class="card" style="flex:1 1 15em;border-color:rgba(var(--goodrgb),.4);">
+    <div class="ch" style="color:var(--good);">What Stops Being Paid For</div>
+    <div class="cb" id="planEnds" style="font-size:1.1em;"></div>
+    <div class="foot">Licence notices timed to each renewal. The Y pays twice only during a parallel run, and data is archived before anything is switched off.</div>
+  </div>
+</section></main></div>
+
+<div class="view" id="v-compare" data-view="compare" data-tab="compare" hidden><main data-screen-label="03 Compare" class="scr">
+<section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2.4em;">
+  <div style="flex:1 1 30em;"><div class="eyeb" style="margin-bottom:.45em;">Why Ardn</div>
+  <h1 class="ttl">Four ways to run the Y's systems. <em style="color:var(--brass2);font-style:normal;">One takes the running off the Y.</em></h1></div>
+  <p style="flex:1 1 20em;max-width:34em;margin:0;color:var(--soft);font-size:1.02em;line-height:1.45;">Daxko is one vendor for part of it. A best-of-breed stack is 24 vendors to hold together. Every one of them sells the Y technology and leaves the running of it with the Y &mdash; only a managed product carries both.</p>
+</section>
+<section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em 1em .4em;overflow:auto;min-height:0;">
+<table style="width:100%;border-collapse:separate;border-spacing:0;font-size:1em;min-width:42em;">
+<thead><tr>
+  <th style="text-align:left;vertical-align:bottom;padding:.5em .6em .5em 0;font-size:max(14px,.8em);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;">The Job</th>
+  <th style="padding:.5em .6em;vertical-align:bottom;"><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Stay on Daxko</div><div style="font-size:max(14px,.76em);color:var(--muted);">Today</div></th>
+  <th style="padding:.5em .6em;vertical-align:bottom;"><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Daxko + Point Tools</div><div style="font-size:max(14px,.76em);color:var(--muted);">24 vendors</div></th>
+  <th style="padding:.5em .6em;vertical-align:bottom;"><div style="font-weight:700;color:var(--ink);font-size:max(14px,.88em);">Build In-House</div><div style="font-size:max(14px,.76em);color:var(--muted);">Your own team</div></th>
+  <th style="position:relative;padding:.9em .6em .5em;vertical-align:bottom;background:linear-gradient(180deg,rgba(var(--bluergb),.22),rgba(var(--bluergb),.08));border:2px solid var(--brass);border-bottom:0;border-radius:12px 12px 0 0;">
+    <span style="position:absolute;top:-.85em;left:50%;transform:translateX(-50%);background:var(--brass);color:#fff;font-size:max(14px,.68em);font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25em .7em;border-radius:999px;white-space:nowrap;">Recommended</span>
+    <div style="font-weight:800;color:var(--ink);font-size:1em;">Ardn Membership</div><div style="font-size:max(14px,.76em);color:var(--muted);">Managed product</div></th>
+</tr></thead>
+<tbody><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Member records, billing, check-in</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; One vendor</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; One vendor</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ You build it</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Carried</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Program and camp registration</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ No online child reg</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; If you buy one</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ You build it</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--sand);">~ Named gap, bounded</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Licensed childcare and ELC</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Attendance Tracker</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Attendance Tracker</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Specialist domain</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--sand);">~ The one real build</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Member mobile app</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Daxko app</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Daxko app</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Two app stores</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Already built</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">E-signature after April</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; DocuSign ends</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Buy another</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; You build it</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Built, 2,317 ln</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Surveys and NPS</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Listen360 extra</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Listen360</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; You build it</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Built, 644 ln tests</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Fundraising beside members</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Raiser's Edge apart</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ Connector</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; You build it</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; 6,534 ln, or connect</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Accounting</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; SGA apart</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ Connector</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; You build it</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Connect or replace</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">What the fee covers</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Tech only</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Tech only, ×17</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Tech + salaries</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Tech AND support</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Who fixes it at 7am</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ A ticket queue</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; ~17 queues</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; Your team</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; A named team, included</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Who carries the integrations</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--sand);">~ Vendor decides</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; The Y does</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--good);">&#10003; The Y does</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; Ardn, 4 included</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Production support</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Priced separately</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Priced per vendor</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Your headcount</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; From day one, no cost</td>
+</tr><tr>
+  <th scope="row" style="text-align:left;padding:.45em .6em .45em 0;font-weight:600;color:var(--ink);font-size:max(14px,.9em);border-top:1px solid rgba(var(--fgrgb),.1);">Fractional IT</th>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Not offered</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Not offered</td><td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);font-size:max(14px,.85em);color:var(--muted);">&mdash; Your headcount</td>
+  <td style="padding:.45em .6em;text-align:center;border-top:1px solid rgba(var(--fgrgb),.1);border-left:2px solid var(--brass);border-right:2px solid var(--brass);background:rgba(var(--bluergb),.06);font-size:max(14px,.85em);font-weight:600;color:var(--good);">&#10003; From day one, no cost</td>
+</tr></tbody>
+<tfoot><tr><th scope="row" style="text-align:left;padding:.5em .6em;font-size:max(14px,.8em);color:var(--muted);">Vendors the Y manages</th>
+  <td style="text-align:center;padding:.5em .6em;font-weight:700;">~17</td><td style="text-align:center;padding:.5em .6em;font-weight:700;">~17</td><td style="text-align:center;padding:.5em .6em;font-weight:700;">~17 + a dev team</td>
+  <td style="text-align:center;padding:.5em .6em;font-weight:800;color:var(--brass);border-left:2px solid var(--brass);border-right:2px solid var(--brass);border-bottom:2px solid var(--brass);background:rgba(var(--bluergb),.06);">9 + Ardn</td></tr></tfoot>
+</table></section></main></div>
+
+<div class="view" id="v-detail" data-view="detail" data-tab="detail" hidden><main data-screen-label="04 Detail" class="scr">
+<section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 2em;">
+  <div><div class="eyeb" style="margin-bottom:.35em;">Detail</div><h1 class="ttl" style="font-size:1.75em;" id="dTitle"></h1></div>
+  <div class="legend" id="dLegend"></div>
+</section>
+<nav style="display:flex;flex-wrap:wrap;gap:.4em;">
+  <button class="dchip" type="button" data-dt="estate">Systems We Retire</button>
+  <button class="dchip" type="button" data-dt="gaps">What We Build</button>
+  <button class="dchip" type="button" data-dt="qa">Testing Built In</button>
+  <button class="dchip" type="button" data-dt="rollout">Rollout</button>
+  <button class="dchip" type="button" data-dt="proof">Proof &amp; Risk</button>
+</nav>
+
+<div data-dch="estate" style="display:contents">
+<section style="flex:1;display:flex;flex-wrap:wrap;gap:.8em;min-height:0;">
+  <div style="flex:2.3 1 32em;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.7em 1em;display:flex;flex-direction:column;gap:.5em;min-height:0;overflow:auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(13em,1fr));gap:.6em 1em;align-content:start;"><div><div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">Membership &amp; Billing <span style="color:var(--muted);font-weight:400;">· 4</span></div><div class="chipw"><button type="button" class="sysb" data-sys="Daxko Operations · membership" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">Daxko · membership<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Daxko Operations · reports" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Daxko · reports<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Daxko app" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">Daxko app<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Daxko · data migration" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Daxko · data migration<span class="d1">D1</span></button></div></div><div><div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">Programs &amp; Camp <span style="color:var(--muted);font-weight:400;">· 4</span></div><div class="chipw"><button type="button" class="sysb" data-sys="Daxko Operations · program and camp registration" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Daxko · program and camp registration<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Daxko · PT packages" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Daxko · PT packages<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Appointment King" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">Appointment King</button><button type="button" class="sysb" data-sys="TeamSideline" style="border:1px solid var(--slate);background:rgba(var(--slatergb),.12);">TeamSideline</button></div></div><div><div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">Childcare <span style="color:var(--muted);font-weight:400;">· 3</span></div><div class="chipw"><button type="button" class="sysb" data-sys="Daxko · Kid Zone child watch" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">Daxko · Kid Zone child watch</button><button type="button" class="sysb" data-sys="Daxko Attendance Tracker · licensed childcare" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Attendance · licensed childcare<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Tadpoles" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">Tadpoles</button></div></div><div><div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">Finance &amp; Giving <span style="color:var(--muted);font-weight:400;">· 3</span></div><div class="chipw"><button type="button" class="sysb" data-sys="Daxko · financial assistance (and FA Check)" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Daxko · financial assistance</button><button type="button" class="sysb" data-sys="Raiser's Edge" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">Raiser's Edge</button><button type="button" class="sysb" data-sys="SGA" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">SGA</button></div></div><div><div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">Marketing &amp; Web <span style="color:var(--muted);font-weight:400;">· 4</span></div><div class="chipw"><button type="button" class="sysb" data-sys="Salesforce" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">Salesforce</button><button type="button" class="sysb" data-sys="Listen360" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">Listen360</button><button type="button" class="sysb" data-sys="Mailchimp" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">Mailchimp</button><button type="button" class="sysb" data-sys="Accrisoft · Wufoo · Planable" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Accrisoft · Wufoo · Planable</button></div></div><div><div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">Operations &amp; IT <span style="color:var(--muted);font-weight:400;">· 6</span></div><div class="chipw"><button type="button" class="sysb" data-sys="Daxko · sex-offender screening" style="border:1px solid var(--sand);background:rgba(var(--goldrgb),.10);">Daxko · sex-offender screening<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="DocuSign" style="border:1px solid var(--brass);background:rgba(var(--goldrgb),.14);">DocuSign<span class="d1">D1</span></button><button type="button" class="sysb" data-sys="Welld" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">Welld</button><button type="button" class="sysb" data-sys="Volgistics" style="border:1px solid var(--slate);background:rgba(var(--slatergb),.12);">Volgistics</button><button type="button" class="sysb" data-sys="Operate.Fit" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">Operate.Fit</button><button type="button" class="sysb" data-sys="Clarissa" style="border:1px solid var(--teal);background:rgba(var(--bluergb),.12);">Clarissa</button></div></div></div>
+    <div style="margin-top:auto;padding-top:.4em;font-size:max(13px,.78em);color:var(--muted);">Select a system for what it does today, what replaces it, and the proof.</div>
+  </div>
+  <div style="flex:1 1 19em;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.7em 1em;display:flex;flex-direction:column;gap:.45em;min-height:0;overflow:auto;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5em;"><span style="font-family:var(--serif);font-weight:500;font-size:1.3em;line-height:1.15;" id="sysName"></span><span id="sysFateW" style="font-size:max(12px,.72em);font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.15em .55em;border-radius:999px;border:1px solid;white-space:nowrap;"><span id="sysFate"></span></span></div>
+    <div style="font-size:max(13px,.78em);color:var(--muted);"><span id="sysArea"></span> · Fit <b id="sysFit" style="color:var(--ink);"></b></div>
+    <div><div style="font-size:max(12px,.7em);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;">Today It Does</div><div style="font-size:max(14px,.88em);color:var(--soft);line-height:1.4;" id="sysUse"></div></div>
+    <div><div style="font-size:max(12px,.7em);letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700;">On Ardn</div><div style="font-size:max(14px,.88em);color:var(--ink);line-height:1.4;" id="sysOurs"></div></div>
+    <div id="sysWhyW"><div style="font-size:max(12px,.7em);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;">What It Depends On</div><div style="font-size:max(14px,.86em);color:var(--soft);line-height:1.4;" id="sysWhy"></div></div>
+    <div id="sysEvW" style="margin-top:auto;padding-top:.45em;border-top:1px solid rgba(var(--fgrgb),.13);"><div style="font-size:max(12px,.7em);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;">Proof</div><div style="font-size:max(12px,.76em);color:var(--muted);font-family:ui-monospace,Menlo,monospace;line-height:1.4;" id="sysEv"></div></div>
+  </div>
+</section></div>
+
+<div data-dch="gaps" style="display:contents">
+<section class="grid" style="flex:1;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));align-content:center;">
+  <div class="card" style="border-color:rgba(var(--alarmrgb),.4);"><div class="ch" style="color:var(--alarm);">Gap · Day 1</div><div class="cb">Licensed childcare and preschool</div><p>Parent sign in and out, staff-to-child ratios, incidents, health records, ELC reimbursement. <b style="color:var(--ink)">Zero matches in either product</b> — we checked each concept by name. Largest build, started first, and the July Daxko exit rests on it. Five months of build rather than eight.</p></div>
+  <div class="card" style="border-color:rgba(var(--alarmrgb),.4);"><div class="ch" style="color:var(--alarm);">Gap · Day 1</div><div class="cb">Migration off Daxko</div><p>Members, families, barcodes, stored cards, history. No import tooling exists; it needs Daxko export access and an NDA before it can be designed. Cards move processor-to-processor, never through us.</p></div>
+  <div class="card"><div class="ch" style="color:var(--sand);">Partial · Day 1</div><div class="cb">Online program and camp registration</div><p>Programs and Classes work. A parent cannot yet register a child online, early-bird is not charged, and waivers are not enforced.</p></div>
+  <div class="card"><div class="ch" style="color:var(--slate);">Not Day 1</div><div class="cb">Sports leagues</div><p>TeamSideline cannot integrate and nothing covers leagues. Run it alongside for one season and build against a real league in flight.</p></div>
+  <div class="card"><div class="ch" style="color:var(--teal);">Blocked On A Vendor</div><div class="cb">Welld insurance feed</div><p>A daily member-usage file. Waiting on Welld's format, not on engineering effort.</p></div>
+  <div class="card"><div class="ch" style="color:var(--teal);">Buy, Not Build</div><div class="cb">Sex-offender registry data</div><p>The screening workflow and audit trail already exist. The national registry data source does not, in either product.</p></div>
+</section></div>
+
+<div data-dch="qa" style="display:contents">
+<section style="flex:1;display:flex;flex-direction:column;gap:.8em;justify-content:center;">
+  <div class="strip"><div><b>370,471</b><span>lines of test code</span></div><div><b>1,379</b><span>test files</span></div><div><b>945</b><span>on the backend</span></div><div><b>Every PR</b><span>typecheck, build, suite</span></div></div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(15em,1fr));">
+    <div class="card"><div class="ch">Real Database, Not Mocks</div><p>The Y's suite runs against a live Postgres with the same roles and row-level-security policies production uses, so a permission bug fails in the pipeline instead of at a front desk.</p></div>
+    <div class="card"><div class="ch">A Shared Oracle</div><p>In the accounting engine the SQL rules and the TypeScript rules run the same cases and must agree. That found a defect where a month-end statement could never post — before a customer met it.</p></div>
+    <div class="card"><div class="ch">Nothing Merges On A Promise</div><p>CI runs the typecheck, the build and the suite on every pull request. Before it existed, &ldquo;the tests pass&rdquo; was a claim checked once on a laptop. Now it is a gate.</p></div>
+  </div>
+</section></div>
+
+<div data-dch="rollout" style="display:contents">
+<section style="flex:1;display:flex;flex-direction:column;gap:.6em;min-height:0;justify-content:center;">
+  <div class="note" style="border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>One date is fixed, and it is not ours.</b> DocuSign ends at the end of April 2027. Wave 1 is sized backwards from it, which is why first go-live is April and not later. Everything after that is sequenced by what blocks what.</div>
+
+  <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.7em 1em;overflow:auto;min-height:0;">
+    <div style="display:grid;grid-template-columns:11em repeat(14, minmax(1.6em,1fr));gap:.15em .1em;align-items:center;min-width:34em;">
+      <div></div>
+      <div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Nov<span style="display:block;font-weight:400;font-size:.85em;color:var(--muted);">2026</span></div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Dec</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Jan<span style="display:block;font-weight:400;font-size:.85em;color:var(--muted);">2027</span></div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Feb</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Mar</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--alarm);letter-spacing:.04em;">Apr</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">May</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Jun</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Jul</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Aug</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Sep</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Oct</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Nov</div><div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:var(--muted);letter-spacing:.04em;">Dec</div>
+      <button type="button" data-wave="Scope and access" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">Scope and access</button><div style="height:1.5em;background:rgba(var(--goldrgb),.3);border-radius:4px 0 0 4px;"></div><div style="height:1.5em;background:rgba(var(--goldrgb),.3);border-radius:0 4px 4px 0;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><button type="button" data-wave="Build" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">Build</button><div style="height:1.5em;"></div><div style="height:1.5em;background:rgba(var(--goldrgb),.3);border-radius:4px 0 0 4px;"></div><div style="height:1.5em;background:rgba(var(--goldrgb),.3);"></div><div style="height:1.5em;background:rgba(var(--goldrgb),.3);"></div><div style="height:1.5em;background:rgba(var(--goldrgb),.3);border-radius:0 4px 4px 0;"></div><div style="height:1.5em;box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><button type="button" data-wave="Wave 1 — first go-live" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">Wave 1 — first go-live</button><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);border-radius:4px 0 0 4px;border-radius:0 4px 4px 0;box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><button type="button" data-wave="Wave 2 — the ports" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">Wave 2 — the ports</button><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);border-radius:4px 0 0 4px;"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);border-radius:0 4px 4px 0;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><button type="button" data-wave="Wave 3 — childcare and the migration" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">Wave 3 — childcare and the migration</button><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);border-radius:4px 0 0 4px;"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);"></div><div style="height:1.5em;background:rgba(var(--bluergb),.85);border-radius:0 4px 4px 0;"></div><div style="height:1.5em;"></div><button type="button" data-wave="As dependencies clear" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">As dependencies clear</button><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;"></div><div style="height:1.5em;box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);border-radius:4px 0 0 4px;"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);"></div><div style="height:1.5em;background:rgba(var(--slatergb),.45);border-radius:0 4px 4px 0;"></div>
+    </div>
+    <div style="display:flex;gap:.3em 1.1em;flex-wrap:wrap;margin-top:.5em;font-size:max(12px,.74em);color:var(--muted);">
+      <span style="display:inline-flex;align-items:center;gap:.35em;"><i style="width:.75em;height:.75em;border-radius:2px;background:rgba(var(--goldrgb),.3);"></i>Build, nothing live yet</span>
+      <span style="display:inline-flex;align-items:center;gap:.35em;"><i style="width:.75em;height:.75em;border-radius:2px;background:rgba(var(--bluergb),.85);"></i>Goes live, a contract ends</span>
+      <span style="display:inline-flex;align-items:center;gap:.35em;"><i style="width:.75em;height:.75em;border-radius:2px;background:rgba(var(--slatergb),.45);"></i>Waiting on someone else</span>
+      <span style="color:var(--alarm);font-weight:700;">April 2027 · DocuSign ends</span>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:.7em;">
+    <div class="card" style="flex:2 1 24em;" id="waveCard">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5em;flex-wrap:wrap;">
+        <span class="cb" id="waveName"></span>
+        <span id="waveWhen" style="font-size:max(12px,.76em);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);white-space:nowrap;"></span>
+      </div>
+      <p id="waveLive"></p>
+      <div id="waveDepW" style="margin-top:.2em;"><span style="font-size:max(11px,.68em);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);">What it turns on</span><p id="waveDep" style="font-size:max(13px,.84em);"></p></div>
+    </div>
+    <div class="card" style="flex:1 1 15em;border-color:rgba(var(--goodrgb),.4);">
+      <div class="ch" style="color:var(--good);">What Stops Being Paid For</div>
+      <div class="cb" id="waveRet" style="font-size:1.1em;"></div>
+      <div class="foot">No system is switched off until its replacement is live and the Y has signed it off. Data is archived first.</div>
+    </div>
+  </div>
+</section></div>
+
+<div data-dch="proof" style="display:contents">
+<section style="flex:1;display:flex;flex-direction:column;gap:.7em;justify-content:center;min-height:0;">
+  <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.5em 1em;overflow:auto;min-height:0;">
+  <table class="ptab"><thead><tr><th>Capability</th><th>Where</th><th>Evidence an evaluator can open</th><th>Verifiable</th></tr></thead><tbody>
+  <tr><td class="n">Member mobile app</td><td>Club platform</td><td class="e">sw.js · web-push-crypto · worker-push-dispatch · wallet 297 ln</td><td class="y">Yes</td></tr><tr><td class="n">Contracts, e-signature</td><td>Club platform</td><td class="e">contracts 2,317 · forms 4,742 · acknowledgments 604 ln</td><td class="y">Yes</td></tr><tr><td class="n">Surveys and NPS</td><td>Club platform</td><td class="e">5 survey migrations · surveys.test.ts 644 ln</td><td class="y">Yes</td></tr><tr><td class="n">Salesforce replacement</td><td>Club platform</td><td class="e">leads 2,822 · sales-pipeline 4,221 · 3 importers · 886 ln tests</td><td class="y">Yes</td></tr><tr><td class="n">Financial assistance</td><td>Club platform</td><td class="e">financial-assistance 450 ln</td><td class="y">Yes</td></tr><tr><td class="n">Accounting</td><td>Club platform</td><td class="e">books 207 files / 53,190 ln · history-import · feeds-out</td><td class="y">Yes</td></tr><tr><td class="n">Fundraising</td><td>Club platform</td><td class="e">pledges · grants · soft-credits · gift-batches · moves = 6,534 ln</td><td class="y">Yes</td></tr><tr><td class="n">Reporting</td><td>Y platform</td><td class="e">builder, 20 standard reports, dashboards — merged 2026-10-15</td><td class="y">Yes</td></tr><tr><td class="n">Membership, billing, check-in</td><td>Y platform</td><td class="e">members · households · memberships · billing · checkin · roles</td><td class="y">Yes</td></tr>
+  </tbody></table></div>
+  <div class="note"><b>Risk, stated plainly.</b> On the Y's Day 1 list of 9: 3 strong, 4 partial, 2 gap. We corrected two of our own rows against the code while writing this — Salesforce and Listen360 both moved in the Y's favour. Nothing is switched off until its replacement is live and the Y has signed it off.</div>
+</section></div></main></div>
+
+
+</div>
+<footer class="pxfoot">Prepared by Ardn for the YMCA of Greater St. Petersburg. Confidential. Sources: the 15 October 2026 working sheet, re-checked on 16 October 2026 against both of Ardn's membership codebases.</footer>
+</div>
+</div>
+
+<script>
+(function(){
+  var SYS=[{"n":"Daxko Operations · membership","a":"Membership & Billing","f":"retire","t":"Family records, dues on a draft day, holds, check-in, POS, staff permissions","o":"Members, Households, Memberships, Billing, Check-in, Roles — all live in both products today","w":"","e":"YMCA: members, households, memberships, billing, checkin, roles. Strongest area we have.","fit":"STRONG"},{"n":"Daxko Operations · program and camp registration","a":"Programs & Camp","f":"partial","t":"Parent registers kids online, member and early-bird price, waitlists, required waivers","o":"Programs and Classes exist in both. Our club platform adds Waitlist (319 lines) and Membership Applications (902 lines) to bring across","w":"A parent cannot yet register a child online, early-bird price is not charged, and waivers are not enforced. Those three are a build, not a port.","e":"Club platform: waitlist 319 ln, membership-applications 902 ln. Online child registration absent in both.","fit":"PARTIAL"},{"n":"Daxko Operations · reports","a":"Membership & Billing","f":"partial","t":"Daxko reports plus the Y's own Excel tracker for daily sales and joins against goal","o":"Report builder, datasets and dashboards shipped on the Y product 2026-10-15 — plain-English report builder, 20 standard reports, filter-value pickers","w":"The daily sales-and-joins tracker is not built, and the Y has not yet named which 19 reports it needs.","e":"YMCA: reporting module + 16 commits of reporting work merged 2026-10-15.","fit":"PARTIAL"},{"n":"Daxko app","a":"Membership & Billing","f":"retire","t":"Member mobile app: barcode check-in, schedules, booking, payments, membership card","o":"Our installable member app — service worker, web-push and a wallet card — brought across","w":"","e":"Club platform: member-portal-web/src/app/sw.js, _shared/web-push-crypto.ts, worker-push-dispatch, wallet 297 ln. Not yet tested on phones; no app-store build.","fit":"STRONG"},{"n":"Daxko · sex-offender screening","a":"Operations & IT","f":"partial","t":"Screens every new person, re-checks monthly, covers staff and volunteers","o":"Our background-check logs (392 lines) carry the workflow and the audit trail","w":"The workflow exists; the national registry data source does not. That is a vendor feed to buy, not code to write.","e":"Club platform: background-check-logs 392 ln. No registry data source in either product.","fit":"PARTIAL"},{"n":"Daxko · PT packages","a":"Programs & Camp","f":"partial","t":"Sell personal-training packages, redeem sessions, track balances and expiry","o":"Selling, booking and redeeming work today; Our Appointments (456 lines) and Benefits engine come across","w":"No expiry, no refunds, and no desk-or-trainer balance view yet.","e":"Club platform: appointments 456 ln, benefits module. Expiry/refund/balance absent.","fit":"PARTIAL"},{"n":"Daxko · data migration","a":"Membership & Billing","f":"partial","t":"Members, families, barcodes, stored cards and history have to move off Daxko","o":"Nothing yet. This is tooling we write once we have Daxko export access and an NDA","w":"No import tooling exists in either product. Our club platform's 'Moves' module is fundraising moves-management, not data migration — it does not help here. Stored cards move processor-to-processor, never through us.","e":"Verified: the club platform's 'moves' 2,053 ln = donor cultivation pipeline (US-RE-005), not migration.","fit":"GAP"},{"n":"Daxko · Kid Zone child watch","a":"Childcare","f":"retire","t":"Check in and out, PIN pickup, time limits","o":"Check-in is live on the Y product and the Y has confirmed it works. Our Play Center (1,843 lines) is the richer version","w":"","e":"YMCA: checkin module. Club platform: play-center 1,843 ln, self-check-in 178 ln.","fit":"STRONG"},{"n":"Daxko Attendance Tracker · licensed childcare","a":"Childcare","f":"partial","t":"Parent sign in and out, staff-to-child ratios, incidents, health records, ELC reimbursement reporting","o":"Nothing. This is the largest build in the programme, it is started first, and it is what the July Daxko exit depends on","w":"Checked both codebases for staff-to-child ratios, licensing packets, classroom ratios and school-readiness reporting: zero matches in either. Net-new work, started in month one, and the July Daxko exit rests on it. Five months of build rather than eight is the compression we are carrying.","e":"VERIFIED ABSENT in both: staff-to-child 0, licensing packet 0, classroom ratio 0, school readiness 0.","fit":"GAP"},{"n":"Tadpoles","a":"Childcare","f":"connect","t":"Daily logs, photos, naps and meals sent to preschool parents","o":"The Y keeps Tadpoles on Day 1. We sync the class roster to it by file","w":"No public API was found, so the roster goes across as a file. Asilo is free but small and also has no API. Later, daily logs can move onto our classroom check-in.","e":"","fit":"STRONG"},{"n":"DocuSign","a":"Operations & IT","f":"retire","t":"Licensing packets, prefilled forms, reminders, signed PDFs","o":"Our Contracts (2,317 lines), Acknowledgments (604 lines), Forms (4,742 lines) and My Signature — templates, prefill, reminders, signed PDF","w":"","e":"Club platform: contracts 2,317 + forms 4,742 + acknowledgments 604 + my-signature. Needs state-PDF field filling added. DocuSign contract ends end of April — this one has a date on it.","fit":"STRONG"},{"n":"Appointment King","a":"Programs & Camp","f":"retire","t":"One calendar for tours, wellness consults and PT; staff availability","o":"Our Appointments (456 lines) and Tours (357 lines) — round-robin host, calendar invite, public booking","w":"","e":"Club platform: appointments 456 ln, tours 357 ln. Small gaps: staff reschedule, booking window.","fit":"STRONG"},{"n":"Salesforce","a":"Marketing & Web","f":"retire","t":"Prospect capture, follow-up and pipeline","o":"Our Leads (2,822 lines) and Sales Pipeline (4,221 lines), plus three working Salesforce importers with 886 lines of tests behind them","w":"","e":"CORRECTS THE 15 OCT SHEET, which said the importer was still needed. The club platform has salesforce-club-import.ts, salesforce-list-view-import.ts and salesforce-staff-import.ts, with 402 + 484 lines of tests.","fit":"STRONG"},{"n":"TeamSideline","a":"Programs & Camp","f":"keep","t":"Sports leagues: teams, schedules, rosters, parent pages, alerts","o":"Nothing today, and TeamSideline cannot integrate","w":"Buildable for what the Y actually uses, but not on Day 1. Run it alongside for one season and build against a real league in flight.","e":"Absent in both products.","fit":"STRONG"},{"n":"Listen360","a":"Marketing & Web","f":"retire","t":"Member surveys, NPS and alerts","o":"Our survey engine — five shipped survey types, an exit survey that asks four real questions, public survey links, and a 644-line test suite","w":"","e":"Club platform: 5 survey migrations + surveys.test.ts 644 ln + exit-survey-questions.test.ts 112 ln. The 15 Oct sheet listed this as a port; it is further along than that.","fit":"STRONG"},{"n":"Daxko · financial assistance (and FA Check)","a":"Finance & Giving","f":"partial","t":"Apply, verify, and get the discount onto the membership","o":"Our Financial Assistance module (450 lines); the staff side works and the discount reaches the card today","w":"Online application by the family is the missing piece.","e":"Club platform: financial-assistance 450 ln. Online apply absent.","fit":"PARTIAL"},{"n":"Welld","a":"Operations & IT","f":"connect","t":"Daily member usage sent to insurers for reimbursement","o":"A usage feed we build once Welld gives us its file format","w":"The Y keeps Welld. We send it the daily usage file. We cannot write the feed until Welld tells us the shape.","e":"Absent in both; blocked on a vendor spec, not on engineering.","fit":"STRONG"},{"n":"Raiser's Edge","a":"Finance & Giving","f":"connect","t":"Donor records held alongside member records","o":"A connector is built and waiting to be tested on the Y's own account. Separately, our club platform carries a full fundraising suite — Pledges (880), Grants (1,024), Soft Credits (522), Gift Batches (2,055) and Moves Management (2,053)","w":"Connect on Day 1. Worth a second conversation later: our fundraising suite is close to what Raiser's Edge is being paid for, so this may be a retire rather than a connect once the Y has seen it.","e":"Club platform: pledges 880 + grants 1,024 + soft-credits 522 + gift-batches 2,055 + moves 2,053 = 6,534 ln of fundraising.","fit":"STRONG"},{"n":"SGA","a":"Finance & Giving","f":"connect","t":"The Y's accounting system of record: revenue posted to general-ledger codes","o":"Two real options. CONNECT: a journal-entry export in SGA's format, posting revenue nightly, alongside the Feeds Out channel that already ships to warehouses and BI tools. REPLACE: Our Books engine — 207 files and 53,190 lines of double-entry accounting covering ledger, journal, close, reconcile, payables, receivables, budgets, assets and depreciation, leases, debt, cash forecast and multi-entity consolidation, with History Import to bring prior years across","w":"Connect is the Day 1 path and the export is not yet written. Replace is a genuine option rather than a courtesy — Books is a working system, not a reporting layer — but swapping the Y's system of record is a decision about finance operations and audit, not a feature toggle. We recommend connecting first, running Books alongside on one fund or one branch, and letting the Y's finance team decide from evidence.","e":"Club platform: books 207 files / 53,190 ln (engine: posting, subledger, close, consolidate, reconciliation, receivables, payables, depreciation, deferral, recurring, aging, collections, periods), accounting 1,154 ln, finance 371 ln, plus history-import and feeds-out.","fit":"STRONG"},{"n":"Mailchimp","a":"Marketing & Web","f":"connect","t":"Email campaigns and segments","o":"Campaigns, audiences and templates exist in both products","w":"Keep Mailchimp while the Y's texting opt-out handling is built; moving email is easy, moving text without opt-out handling is not.","e":"Both products have a marketing module.","fit":"STRONG"},{"n":"Volgistics","a":"Operations & IT","f":"keep","t":"Volunteers, Level 2 screening, hours","o":"A volunteers module exists in both products","w":"The Y has said this is not critical. Leave it alone; revisit after the Daxko work lands.","e":"Both products have volunteers.","fit":"STRONG"},{"n":"Operate.Fit","a":"Operations & IT","f":"connect","t":"Facility contracts and incident reports that carry member data","o":"Our Assets (388 lines) and Issues (530 lines) cover the shape of this","w":"Requirements are still pending from the Y. Nothing should be promised here until we have them.","e":"Club platform: assets 388 ln, issues 530 ln, club-conditions. Requirements outstanding.","fit":"STRONG"},{"n":"Clarissa","a":"Operations & IT","f":"connect","t":"AI call-centre agent that recognises members","o":"Member identification by phone number, and chat on the record","w":"We need the vendor's integration details before this can be scoped at all.","e":"Club platform: chat 175 ln, my-help-center. Vendor detail needed.","fit":"STRONG"},{"n":"Accrisoft · Wufoo · Planable","a":"Marketing & Web","f":"partial","t":"Public website, web forms, social posting","o":"Our Website CMS (3,456 lines) and Forms (4,742 lines) can take over the site and replace Wufoo outright","w":"This is the Y's call. Social posting stays where it is — posting belongs in each network's own tools.","e":"Club platform: website 3,456 ln, forms 4,742 ln. Wufoo is replaceable today; the site is a choice, not a need.","fit":"PARTIAL"}], FATE={"retire":["var(--brass)","rgba(var(--goldrgb),.14)","Retire"],"partial":["var(--sand)","rgba(var(--goldrgb),.10)","Retire in Part"],"connect":["var(--teal)","rgba(var(--bluergb),.12)","Connect"],"keep":["var(--slate)","rgba(var(--slatergb),.12)","Keep"]};
+  var views=["home","summary","value","plan","compare","detail"];
+  function show(id){
+    if(views.indexOf(id)<0)id=views[0];
+    views.forEach(function(v){var el=document.getElementById('v-'+v);if(el)el.hidden=(v!==id);});
+    document.querySelectorAll('#tabs a').forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id;
+      a.classList.toggle('on',on);
+      if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+  }
+  function paint(name){
+    var s=null;for(var i=0;i<SYS.length;i++){if(SYS[i].n===name){s=SYS[i];break;}}
+    if(!s)s=SYS[0];
+    var f=FATE[s.f];
+    function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    set('sysName',s.n);set('sysFate',f[2]);set('sysArea',s.a);set('sysFit',s.fit);
+    set('sysUse',s.t);set('sysOurs',s.o);set('sysWhy',s.w||'');set('sysEv',s.e||'');
+    var w=document.getElementById('sysFateW');if(w){w.style.borderColor=f[0];w.style.color=f[0];w.style.background=f[1];}
+    var ww=document.getElementById('sysWhyW');if(ww)ww.hidden=!s.w;
+    var ew=document.getElementById('sysEvW');if(ew)ew.hidden=!s.e;
+    document.querySelectorAll('[data-sys]').forEach(function(bt){
+      var on=bt.getAttribute('data-sys')===s.n;
+      bt.style.outline=on?'2px solid var(--ink)':'none';
+      bt.style.outlineOffset='1px';
+    });
+  }
+  document.addEventListener('click',function(e){
+    var bt=e.target.closest&&e.target.closest('[data-sys]');
+    if(bt)paint(bt.getAttribute('data-sys'));
+  });
+  // Detail sub-tabs. Each title asserts the finding.
+  var DTITLE={
+    estate:'Of 24 systems, 7 retire and 8 retire in part',
+    gaps:'Two true gaps set the date; the rest is bounded work',
+    qa:'Testing is built into the product, not bolted on',
+    rollout:'First go-live in April 2027, because DocuSign ends then',
+    proof:'Already built, and the Y can check every claim'
+  };
+  var DLEG={
+    estate:'<span><i style="background:var(--brass)"></i><b>7</b> Retire</span><span><i style="background:var(--sand)"></i><b>8</b> Retire in Part</span><span><i style="background:var(--teal)"></i><b>7</b> Connect</span><span><i style="background:var(--slate)"></i><b>2</b> Keep</span><span style="color:var(--alarm);font-weight:700;">D1 · the Y&rsquo;s Day 1</span>',
+    gaps:'<span><b>2</b> true gaps</span><span><b>4</b> named partials</span>',
+    qa:'<span><b>370,471</b> lines of tests</span>',
+    rollout:'<span><b>6</b> months to first go-live</span><span><b>3</b> live waves</span>',
+    proof:'<span><b>3</b> strong · <b>4</b> partial · <b>2</b> gap</span>'
+  };
+  var dch='estate';
+  function paintDetail(){
+    var t=document.getElementById('dTitle'); if(t)t.textContent=DTITLE[dch]||'';
+    var lg=document.getElementById('dLegend'); if(lg)lg.innerHTML=DLEG[dch]||'';
+    document.querySelectorAll('[data-dt]').forEach(function(b){b.classList.toggle('on',b.dataset.dt===dch);});
+    document.querySelectorAll('[data-dch]').forEach(function(c){c.hidden=c.dataset.dch!==dch;});
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-dt]');
+    if(b){dch=b.dataset.dt;paintDetail();}
+  });
+  paintDetail();
+  var PLAN=[{"n":"Licensed childcare and preschool","note":"Started first, because the Y leaves all of Daxko in July and this is the only part with nothing to build on. Ratios, incidents, health records, ELC reimbursement and parent sign in and out. The build window is five months rather than the eight it would take unpressured, and that compression is the single largest risk in the programme.","ends":"Daxko Attendance Tracker","retire":9,"when":"Nov 2026 – Jul 2027","ph":"Design M1–2 · Build M2–6 · Test M6–7 · Deploy M7 · Parallel run M7–9","retMonth":"Jul 2027"},{"n":"Contracts and e-signature","note":"The first fixed date. A port of our contracts module, plus the state's own PDF field-filling.","ends":"DocuSign","retire":6,"when":"Nov 2026 – Apr 2027","ph":"Design M1 · Build M2–3 · Test M4 · Deploy M5 · Parallel run M5–6","retMonth":"Apr 2027"},{"n":"Membership, billing, check-in","note":"Live in both products today, so this is configuration for the Y rather than a build. It has to be signed off before the June cutover.","ends":"Daxko","retire":9,"when":"Nov 2026 – Jun 2027","ph":"Design M1–2 · Build M2–4 · Test M4–5 · Deploy M5–6 · Parallel run M6–8","retMonth":"Jul 2027"},{"n":"Kid Zone child watch","note":"Check-in works today and our Play Center is the richer version. Moves with the rest of Operations in June.","ends":"","retire":0,"when":"Nov 2026 – Jun 2027","ph":"Design M1 · Build M2–3 · Test M4 · Deploy M5 · Parallel run M6–8","retMonth":""},{"n":"Reports and the daily tracker","note":"Builder and 20 standard reports shipped 15 Oct. Adds the daily sales-and-joins tracker and the Y's own 19 reports.","ends":"","retire":0,"when":"Dec 2026 – Jun 2027","ph":"Design M2 · Build M3–4 · Test M5 · Deploy M6 · Parallel run M6–8","retMonth":""},{"n":"Online program and camp registration","note":"A gap today, and it cannot slip past the cutover: the Y cannot leave Daxko Operations without somewhere for parents to register. Online child registration, early-bird pricing and waiver enforcement.","ends":"","retire":0,"when":"Dec 2026 – Jun 2027","ph":"Design M2 · Build M3–5 · Test M6 · Deploy M7 · Parallel run M7–8","retMonth":""},{"n":"PT packages","note":"Sell, book and redeem already work. Adds expiry, refunds and the desk-or-trainer balance before cutover.","ends":"","retire":0,"when":"Jan 2027 – Jun 2027","ph":"Design M3 · Build M4–5 · Test M6 · Deploy M7 · Parallel run M7–8","retMonth":""},{"n":"Financial assistance","note":"Staff side and the discount work today. Adds the family's online application.","ends":"","retire":0,"when":"Jan 2027 – Jun 2027","ph":"Design M3 · Build M4–6 · Test M6 · Deploy M7 · Parallel run M7–8","retMonth":""},{"n":"Sex-offender screening","note":"The workflow and audit trail port across. The national registry feed is bought, not built, and it has to be contracted in time for the cutover.","ends":"","retire":0,"when":"Jan 2027 – Jun 2027","ph":"Design M3 · Build M4–5 · Test M6 · Deploy M7 · Parallel run M7–8","retMonth":""},{"n":"Member mobile app","note":"Our installable app with push and a wallet card. Goes when Daxko Operations goes, so members are never without one.","ends":"Daxko app","retire":9,"when":"Feb 2027 – Jul 2027","ph":"Design M4 · Build M5–6 · Test M7 · Deploy M7 · Parallel run M8–9","retMonth":"Jul 2027"},{"n":"Migration off Daxko","note":"Members, families, barcodes, childcare records and history. Design cannot start until the NDA and export access exist, which is why those are the first things we ask for. Stored cards move processor to processor and never pass through us. Cutover is end of June; the Y runs parallel for a month either side.","ends":"Daxko, in full","retire":9,"when":"Dec 2026 – Jul 2027","ph":"Design M2–3 · Build M4–6 · Test M6–7 · Deploy M8 · Parallel run M7–9","retMonth":"Jul 2027"},{"n":"Appointments and tours","note":"Not on the Daxko critical path, so it lands just after the cutover rather than competing with it.","ends":"Appointment King","retire":10,"when":"May 2027 – Aug 2027","ph":"Design M7 · Build M8–9 · Test M9 · Deploy M10 · Parallel run M10","retMonth":"Aug 2027"},{"n":"Leads and sales pipeline","note":"Three working Salesforce importers already exist, so the move brings the history across rather than abandoning it.","ends":"Salesforce","retire":11,"when":"May 2027 – Sep 2027","ph":"Design M7 · Build M8–10 · Test M10 · Deploy M11 · Parallel run M11","retMonth":"Sep 2027"},{"n":"Surveys and NPS","note":"Five shipped survey types and a 644-line test suite. Public survey links for non-members.","ends":"Listen360","retire":11,"when":"Jun 2027 – Sep 2027","ph":"Design M8 · Build M9–10 · Test M10 · Deploy M11 · Parallel run M11","retMonth":"Sep 2027"}];
+  function paintPlan(name){
+    var x=PLAN.filter(function(p){return p.n===name;})[0]||PLAN[0];
+    function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    set('planName',x.n);set('planWhen',x.when);set('planNote',x.note);set('planPhases',x.ph);
+    set('planEnds',x.ends?x.ends+' — '+x.retMonth:'Nothing on its own. This one has to be live for the June cutover, and it retires as part of Daxko Operations.');
+    var pe=document.getElementById('planEnds');if(pe)pe.style.color=x.ends?'var(--good)':'var(--muted)';
+    document.querySelectorAll('[data-plan]').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-plan')===x.n);});
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-plan]');
+    if(b)paintPlan(b.getAttribute('data-plan'));
+  });
+  paintPlan('Contracts and e-signature');
+  var WAVES=[{"n":"Scope and access","at":[0,2],"when":"Nov – Dec 2026","kind":"prep","live":"Nothing goes live. We get the things that block everything else: the NDA and Daxko export access, the childcare licensing and ELC requirements, confirmation that the Y's Raiser's Edge tier allows production API access, Welld's file format, and the Y's Operate.Fit requirements.","retires":"","dep":"Daxko export access and an NDA. Without them the migration cannot even be designed."},{"n":"Build","at":[1,4],"when":"Dec 2026 – Mar 2027","kind":"prep","live":"The e-signature port, the membership and billing configuration for the Y, and the first slice of licensed childcare. Childcare starts here, not later, because it is the longest build and it gates the Daxko exit.","retires":"","dep":"Runs in parallel with Wave 1 preparation."},{"n":"Wave 1 — first go-live","at":[5,1],"when":"April 2027","kind":"live","live":"Contracts and e-signature, membership, billing, check-in, Kid Zone child watch, and reporting. Staff work in Ardn from this point.","retires":"DocuSign","dep":"DOCUSIGN ENDS AT THE END OF APRIL. This date is set by the Y's contract, not by us, and the wave is sized backwards from it."},{"n":"Wave 2 — the ports","at":[6,3],"when":"May – Jul 2027","kind":"live","live":"The member mobile app, appointments and tours, surveys and NPS, leads and the sales pipeline with the Salesforce import, and financial assistance. All working code already running, brought across.","retires":"Appointment King · Salesforce · Listen360","dep":"Each one ends a contract on the day it goes live."},{"n":"Wave 3 — childcare and the migration","at":[9,4],"when":"Aug – Nov 2027","kind":"live","live":"Licensed childcare and preschool in full — ratios, incidents, health records, ELC reimbursement — plus online program and camp registration, and the member and family data moved off Daxko.","retires":"Daxko, in full","dep":"The childcare build started in Dec 2026. This is where it lands, and it is the only thing that lets the Daxko contract close."},{"n":"As dependencies clear","at":[6,8],"when":"When the vendor answers","kind":"wait","live":"The Welld usage feed, Operate.Fit, Clarissa, and sports leagues. We will not put a date on any of these until the thing they wait on arrives.","retires":"","dep":"Welld's format · the Y's Operate.Fit requirements · Clarissa's integration detail · a league season to build against."}];
+  function paintWave(name){
+    var w=WAVES.filter(function(x){return x.n===name;})[0]||WAVES[2];
+    function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    set('waveName',w.n);set('waveWhen',w.when);set('waveLive',w.live);set('waveDep',w.dep);
+    set('waveRet',w.retires||'Nothing yet — this is build, not go-live.');
+    var rw=document.getElementById('waveRet');if(rw)rw.style.color=w.retires?'var(--good)':'var(--muted)';
+    document.querySelectorAll('[data-wave]').forEach(function(b){
+      b.style.color=b.getAttribute('data-wave')===w.n?'var(--brass)':'var(--ink)';
+    });
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-wave]');
+    if(b)paintWave(b.getAttribute('data-wave'));
+  });
+  paintWave('Wave 1 — first go-live');
+  var ts=document.getElementById('todaySpend'), so=document.getElementById('spendOut');
+  var ARDN_YR=132000;
+  if(ts&&so)ts.addEventListener('input',function(){
+    var n=parseFloat(ts.value.replace(/[^0-9.]/g,''));
+    if(!isFinite(n)||n<=0){so.textContent='Against '+ARDN_YR.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0})+' a year on Ardn.';so.style.color='var(--muted)';return;}
+    var d=n-ARDN_YR, pct=Math.round(Math.abs(d)/n*100);
+    var f=function(x){return x.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});};
+    so.textContent=d>0?(f(d)+' less a year on Ardn — '+pct+'% of what you spend now.'):(f(-d)+' more a year, before anything retires.');
+    so.style.color=d>0?'var(--good)':'var(--sand)';
+  });
+  function fromHash(){show((location.hash||'#home').slice(1));}
+  window.addEventListener('hashchange',fromHash);
+  fromHash();
+  paint(SYS[0].n);
+  /* The sidebar: an icon rail that opens on hover and
+     pushes the page over, keeps itself open for keyboard focus, folds back
+     after a beat, and becomes a drawer with its own button on a phone. */
+  var px=document.getElementById('px'), side=document.getElementById('side'), mb=document.getElementById('menuBtn');
+  if(px&&side){
+    var phone=function(){return matchMedia('(max-width:760px)').matches;};
+    var t=0, over=false;
+    var open=function(on){
+      clearTimeout(t);
+      if(phone()||px.classList.contains('sopen')===on)return;
+      px.classList.toggle('sopen',on);
+    };
+    var kbIn=function(){
+      return side.contains(document.activeElement)&&document.activeElement.matches&&document.activeElement.matches(':focus-visible');
+    };
+    var later=function(){clearTimeout(t);t=setTimeout(function(){if(!over&&!kbIn())open(false);},300);};
+    side.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;over=true;clearTimeout(t);open(true);});
+    side.addEventListener('pointerleave',function(e){if(e.pointerType==='touch')return;over=false;later();});
+    side.addEventListener('focusin',function(){if(kbIn())open(true);});
+    side.addEventListener('focusout',function(e){if(!side.contains(e.relatedTarget))later();});
+    document.addEventListener('keydown',function(e){
+      if(e.key!=='Escape')return;
+      if(px.classList.contains('menuopen')){closeMenu();if(mb)mb.focus();return;}
+      if(!px.classList.contains('sopen'))return;
+      if(side.contains(document.activeElement)&&document.activeElement.blur)document.activeElement.blur();
+      over=false;open(false);
+    });
+    document.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='touch'){ if(side.contains(e.target))open(true); else open(false); return; }
+      if(px.classList.contains('menuopen')&&!e.target.closest('#side'))closeMenu();
+    });
+    var closeMenu=function(){px.classList.remove('menuopen');if(mb)mb.setAttribute('aria-expanded','false');};
+    if(mb)mb.addEventListener('click',function(){
+      var o=px.classList.toggle('menuopen');
+      mb.setAttribute('aria-expanded',o?'true':'false');
+    });
+    var tabsEl=document.getElementById('tabs');
+    if(tabsEl)tabsEl.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});
+  }
+})();
+</script>
