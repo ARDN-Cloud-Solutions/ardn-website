@@ -50,7 +50,7 @@ function guessInterest(path: string): string | undefined {
   if (path.startsWith("/nonprofit") || path.startsWith("/ai-for-membership")) return "nonprofit";
   if (path.startsWith("/membership") || path.startsWith("/chapter")) return "membership";
   if (path.startsWith("/ai-forge") || path.startsWith("/ai-")) return "ai-forge";
-  if (/^\/(custom-|glp-1|compare|reduce-crm|savings)/.test(path)) return "custom-software";
+  if (/^\/(custom-|glp-1|compare|reduce-crm|savings|interactive-sales-proposals)/.test(path)) return "custom-software";
   if (/^\/(storefronts|license-guard|salesforce|buyers-guide)/.test(path)) return "salesforce";
   return undefined;
 }
