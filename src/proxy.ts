@@ -26,11 +26,23 @@ export function proxy(request: NextRequest) {
       headers: { "X-Robots-Tag": "noindex, nofollow, noarchive, noimageindex, noai, noimageai" },
     });
   }
+  // Proposal images are only for a signed-in viewer. This checks that the
+  // session cookie is present; the full session check needs the database,
+  // which the proxy does not call.
+  if (request.nextUrl.pathname.startsWith("/proposal-sites/") && !request.cookies.get("prp_session")) {
+    return new NextResponse("Sign in to view this proposal.", { status: 401, headers: { "X-Robots-Tag": "noindex, nofollow" } });
+  }
   const res = NextResponse.next();
   res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, noimageindex, noai, noimageai");
   return res;
 }
 
 export const config = {
-  matcher: ["/golf-club-management-software/proposal/:path*", "/images/club-steward/:path*", "/_next/image"],
+  matcher: [
+    "/golf-club-management-software/proposal/:path*",
+    "/images/club-steward/:path*",
+    "/proposals/:path*",
+    "/proposal-sites/:path*",
+    "/_next/image",
+  ],
 };

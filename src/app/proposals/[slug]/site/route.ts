@@ -20,12 +20,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   // The document holds headcount, hours and client-facing numbers only, never a rate or a margin.
   const pub = await getPub(slug).catch(() => null);
   const staff = isArdnStaff(session.email);
-  const state = { nums: pub?.nums ?? null, snap: pub?.snap ?? null, hash: pub?.hash ?? "", at: pub?.at ?? "", by: staff ? (pub?.by ?? "") : "", canEdit: staff };
+  const state = { nums: pub?.nums ?? null, snap: pub?.snap ?? null, hash: pub?.hash ?? "", at: pub?.at ?? "", by: staff ? (pub?.by ?? "") : "", canEdit: staff, viewer: session.email };
   html = html.replace("<!--STATE-->", () => `<script>window.__PROPOSAL_STATE__=${inline(state)}</script>`);
 
   // The team admin tab, its markup and its script exist only in the page a staff member is sent.
   const parts = staff ? await getProposalStaffParts(slug) : null;
   for (const name of ["STAFF-TAB", "STAFF-VIEW", "STAFF-SCRIPT"]) html = html.replace(`<!--${name}-->`, () => parts?.[name] ?? "");
 
-  return new NextResponse(html, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "private, no-store", "X-Robots-Tag": "noindex" } });
+  return new NextResponse(html, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "private, no-store", "X-Robots-Tag": "noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai" } });
 }
