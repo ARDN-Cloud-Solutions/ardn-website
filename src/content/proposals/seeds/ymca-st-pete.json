@@ -2,7 +2,7 @@
   "slug": "ymca-st-pete",
   "client": "YMCA of Greater St. Petersburg",
   "product": "Ardn Membership",
-  "status": "draft",
+  "status": "live",
   "access": {
     "domains": [
       "stpeteymca.org"
