@@ -781,4 +781,14 @@ document.addEventListener('change', e => {
   A.team = A.team.map(t => t.id === id ? upd(t) : t); renderAdmin();
 });
 
+// the plan's columns are sized from the width it has, so they are refitted once the sidebar has pushed the page; the redraw adds no reveal
+(function () {
+  let rt = 0, lastW = 0;
+  const refit = () => { clearTimeout(rt); rt = setTimeout(() => {
+    const r = $('#planRoot'); if (!r || !r.clientWidth || document.body.dataset.view !== 'plan') return;
+    if (Math.abs(r.clientWidth - lastW) < 24) return; lastW = r.clientWidth; renderPlan();
+  }, 120); };
+  const root = $('#planRoot'); if (root && window.ResizeObserver) { lastW = root.clientWidth; new ResizeObserver(refit).observe(root); }
+})();
+
 </script><!--/STAFF-SCRIPT-->
