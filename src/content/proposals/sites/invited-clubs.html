@@ -321,7 +321,7 @@ body.noflags .flag{display:none}
 .spchart svg text{font:14px var(--sans);fill:var(--sp-mute)}
 .spchart svg text.ink{fill:var(--sp-ink)}
 .sptip{position:absolute;z-index:3;pointer-events:none;background:var(--sp-panel);color:var(--sp-ink);border:1px solid var(--sp-rule);border-radius:8px;padding:8px 10px;font-size:14px;box-shadow:0 4px 16px rgba(28,32,69,.18);white-space:nowrap}
-.sptip table{border-collapse:collapse;margin-top:4px;color:inherit;font-size:inherit}
+.sptip table{border-collapse:collapse;margin-top:4px;color:inherit;font-size:inherit;width:100%}
 .sptip td{padding:1px 0;color:inherit}.sptip td+td{text-align:right;padding-left:18px;font-variant-numeric:tabular-nums}
 .sptip tr.sum td{border-top:1px solid var(--sp-rule);font-weight:700}
 .sptip i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
@@ -424,9 +424,8 @@ body.noflags .flag{display:none}
   </section>
 
   <section style="display:flex;flex-wrap:wrap;gap:1em;">
-    <div style="flex:1.3 1 26em;display:grid;grid-template-columns:1fr 1fr;gap:.6em;">
+    <div style="flex:1.3 1 26em;display:grid;grid-template-columns:1fr;gap:.6em;">
       <div style="border:1px solid rgba(var(--goldrgb),.4);border-radius:10px;padding:.45em .9em;display:flex;flex-direction:column;justify-content:center;"><div style="font-size:max(14px,.85em);color:var(--muted);white-space:nowrap;">Run Cost a Year<span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(var(--goldrgb),.6);border-radius:999px;padding:.05em .6em;margin-left:.5em;white-space:nowrap;">Per Year</span></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .7em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.45em;color:var(--brass);"><span data-n="total"></span></span><span style="font-size:max(14px,.84em);color:var(--soft);"><span data-n="techYear"></span> technology + <span data-n="svcYear"></span> production support</span></div></div>
-      <div style="border:1px dashed var(--teal);background:rgba(var(--bluergb),.10);border-radius:10px;padding:.45em .9em;display:flex;flex-direction:column;justify-content:center;"><div style="font-size:max(14px,.85em);color:var(--soft);white-space:nowrap;">One-Time Implementation Fee<span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:.05em .6em;margin-left:.5em;white-space:nowrap;">One Time</span></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .7em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.45em;"><span data-n="impl"></span></span><span style="font-size:max(14px,.84em);color:var(--soft);">Paid once</span></div></div>
     </div>
     <div style="flex:1 1 30em;background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);border-radius:12px;padding:.7em 1.1em;display:flex;flex-direction:column;gap:.5em;">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1em;">
@@ -906,14 +905,14 @@ function tipHide() {
   TIPS.src = null; if (TIPS.off) { TIPS.off(); TIPS.off = null; }
 }
 // the tooltip sits beside the point it describes and is pulled back inside the window, so it can never run off a phone or the page edge
-function tipShow(d, x, y, src) {
+function tipShow(d, x, y, src, below) {
   const e = tipEl();
   if (TIPS.src && TIPS.src !== src) tipHide();
   e.dataset.theme = src && src.closest && src.closest('[data-theme="dark"],#v-admin') ? 'dark' : '';
   e.innerHTML = tipHtml(d); e.hidden = false;
   const w = e.offsetWidth, h = e.offsetHeight, vw = document.documentElement.clientWidth, vh = innerHeight;
   let l = x + 14; if (l + w > vw - 4) l = x - w - 14;
-  let t = y - h - 10; if (t < 4) t = y + 16;
+  let t = below ? y + 16 : y - h - 10; if (t < 4 || t + h > vh - 4) t = below ? y - h - 10 : y + 16;
   e.style.left = Math.max(4, Math.min(vw - w - 4, l)) + 'px'; e.style.top = Math.max(4, Math.min(vh - h - 4, t)) + 'px';
   TIPS.src = src; if (src) src.setAttribute('aria-describedby', 'chTip');
 }
@@ -923,7 +922,7 @@ function scrubShow(el, k, i, pt) {
   if (!(i >= 0 && i < s.n(el))) { tipHide(); return; }
   if (TIPS.src === el && el._i !== i && TIPS.off) TIPS.off();
   el._i = i; const [x, y] = pt || s.anchor(el, i);
-  tipShow(s.data(i), x, y, el);
+  tipShow(s.data(i), x, y, el, s.below);
   if (s.mark) { s.mark(el, i); TIPS.off = () => s.mark(el, -1); }
 }
 const tipData = t => { try { return JSON.parse(t.getAttribute('data-tip')); } catch (e) { return null; } };
@@ -936,7 +935,7 @@ const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r
     TIPS.kb = false;
     if (sc) { scrubShow(sc, sc.dataset.scrub, SCRUB[sc.dataset.scrub].at(sc, e), [e.clientX, e.clientY]); return; }
     const t = hit(e, '[data-tip]'), d = t && tipData(t);
-    if (d) tipShow(d, e.clientX, e.clientY, t); else tipHide();
+    if (d) tipShow(d, e.clientX, e.clientY, t, t.hasAttribute('data-tipbelow')); else tipHide();
   });
   // on touch a tap shows the breakdown and a tap anywhere else hides it
   document.addEventListener('pointerdown', e => {
@@ -944,7 +943,7 @@ const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r
     TIPS.kb = false;
     const sc = hit(e, '[data-scrub]'), t = hit(e, '[data-tip]'), d = t && tipData(t);
     if (sc) scrubShow(sc, sc.dataset.scrub, SCRUB[sc.dataset.scrub].at(sc, e), [e.clientX, e.clientY]);
-    else if (d) { if (TIPS.src === t) tipHide(); else tipShow(d, e.clientX, e.clientY, t); }
+    else if (d) { if (TIPS.src === t) tipHide(); else tipShow(d, e.clientX, e.clientY, t, t.hasAttribute('data-tipbelow')); }
     else tipHide();
   });
   document.addEventListener('pointerout', e => { if (e.pointerType !== 'touch' && !e.relatedTarget) tipHide(); });
@@ -954,7 +953,7 @@ const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r
     if (sc) { const k = sc.dataset.scrub; scrubShow(sc, k, sc._i >= 0 ? sc._i : 0); return; }
     const t = e.target.matches && (e.target.matches('[data-tip]') ? e.target : e.target.querySelector && e.target.querySelector('[data-tip]'));
     const d = t && (e.target.dataset && e.target.dataset.tipf ? (() => { try { return JSON.parse(e.target.dataset.tipf); } catch (x) { return null; } })() : tipData(t));
-    if (d) { const [x, y] = tipAnchor(t); tipShow(d, x, y, e.target); }
+    if (d) { const [x, y] = tipAnchor(t); tipShow(d, x, y, e.target, t.hasAttribute('data-tipbelow')); }
   });
   document.addEventListener('focusout', () => tipHide());
   document.addEventListener('keydown', e => {
@@ -970,18 +969,20 @@ const tipAnchor = t => { const r = t.getBoundingClientRect(); return [r.left + r
   addEventListener('scroll', () => { if (!TIPS.kb) tipHide(); }, true);
 })();
 const tipSgn = v => (v < 0 ? '−' : '+') + FMTS.usd(Math.abs(v));
+// compact money for the curve: whole thousands under a million, one decimal place above, always a true minus
+const tipMoney = (v, sign) => { const a = Math.abs(v), s = v < 0 ? '−' : sign ? '+' : ''; return s + (a >= 1e6 ? '$' + trimZeros((a / 1e6).toFixed(1)) + 'M' : a >= 1e3 ? '$' + Math.round(a / 1e3) + 'k' : '$' + Math.round(a)); };
 
 /* The bars on the Value, Summary and Compare tabs are drawn from the wired figures V; their breakdowns are written from the same figures. */
 function paintTips() {
-  const mk = mk2;
-  mk($('[data-tipk="today"]'), {t: 'Run Cost Today', s: 'a year', r: [['var(--bar-today)', 'Current Systems', FMTS.usd(V.today)]], z: [['Per Month', FMTS.usd(V.today / 12)]]});
-  mk($('[data-flex="totalW"]'), {t: 'Club Steward Run Cost', s: 'a year', r: [['var(--bar-a)', 'Technology Team', FMTS.usd(V.techYear)], ['var(--bar-b)', 'Production Support Team', FMTS.usd(V.svcYear)]],
+  const mk = (el, d) => mk2(el, d, true);
+  mk($('[data-tipk="today"]'), {t: 'Run Cost Today', s: 'A Year', r: [['var(--bar-today)', 'Current Systems', FMTS.usd(V.today)]], z: [['Per Month', FMTS.usd(V.today / 12)]]});
+  mk($('[data-flex="totalW"]'), {t: 'Club Steward Run Cost', s: 'A Year', r: [['var(--bar-a)', 'Technology Team', FMTS.usd(V.techYear)], ['var(--bar-b)', 'Production Support Team', FMTS.usd(V.svcYear)]],
     z: [['Total', FMTS.usd(V.total)], ['Against Today', tipSgn(V.total - V.today)], ['Saved', FMTS.usd(V.saving) + ' · ' + V.savingPct + '%']]});
-  mk($('[data-wimpl]'), {t: 'One-Time Implementation Fee', s: 'paid once', r: [['#7C83F5', 'Implementation', FMTS.usd(V.impl)]], z: [['Against a Year of Today’s Cost', Math.round(V.today ? V.impl / V.today * 100 : 0) + '%']]});
+  mk($('[data-wimpl]'), {t: 'One-Time Implementation Fee', s: 'Paid Once', r: [['#7C83F5', 'Implementation', FMTS.usd(V.impl)]], z: [['Against a Year of Today’s Cost', Math.round(V.today ? V.impl / V.today * 100 : 0) + '%']]});
   const strip = $('[data-flex="retire"]');
   if (strip) {
     const kids = [...strip.parentElement.children], sum = kids.reduce((a, k) => a + (V[k.dataset.flex] || 0), 0);
-    mk(strip.parentElement, {t: 'Systems Today and After', s: 'count of systems', r: kids.map(k => [getComputedStyle(k).backgroundColor, k.textContent.replace(/^[+\d\s]+/, '').replace(/^./, c => c.toUpperCase()).replace(/ (\w)/g, (m, c) => ' ' + c.toUpperCase()).trim(), String(V[k.dataset.flex])]), z: [['Total', String(sum)]]});
+    mk(strip.parentElement, {t: 'Systems Today and After', s: 'Count of Systems', r: kids.map(k => [getComputedStyle(k).backgroundColor, k.textContent.replace(/^[+\d\s]+/, '').replace(/^./, c => c.toUpperCase()).replace(/ (\w)/g, (m, c) => ' ' + c.toUpperCase()).trim(), String(V[k.dataset.flex])]), z: [['Total', String(sum)]]});
   }
   const names = [...($('#cmpBody') ? $('#cmpBody').closest('table').querySelectorAll('thead th') : [])].map(th => { const dv = th.querySelectorAll(':scope > div'); return dv.length > 1 ? dv[dv.length - 2].textContent.trim() : ''; }).filter(Boolean);
   paintCompareTips(names);
@@ -992,9 +993,9 @@ function paintCompareTips(names) {
     const job = JOBS[j]; if (!job) return; const w = job[c + 2], cost = jobCost(job[1], w, c), sp = td.firstElementChild;
     mk2(sp, {t: job[0], s: names[c] || '', r: [[null, 'Carried By', WHO[w] || w], [null, 'Cost to Invited', cost ? '$'.repeat(cost) + ' (' + cost + ' of 3)' : 'In the Fee']]});
   }));
-  $$('#cmpFoot td').forEach((td, c) => { const k = JOB_COLS[c]; mk2(td, {t: names[c] || '', s: 'what Invited still carries', r: [[null, 'Jobs Carried in Full', k.full + ' of ' + JOBS.length], [null, 'Jobs Shared', String(k.shared)]], z: [['Load on Invited', Math.round(k.load / JOB_MAX * 100) + '%']]}); });
+  $$('#cmpFoot td').forEach((td, c) => { const k = JOB_COLS[c]; mk2(td, {t: names[c] || '', s: 'What Invited Still Carries', r: [[null, 'Jobs Carried in Full', k.full + ' of ' + JOBS.length], [null, 'Jobs Shared', String(k.shared)]], z: [['Load on Invited', Math.round(k.load / JOB_MAX * 100) + '%']]}); });
 }
-function mk2(el, d) { if (!el) return; el.setAttribute('data-tip', tipJson(d.t, d.s, d.r, d.z)); el.tabIndex = 0; }
+function mk2(el, d, below) { if (!el) return; el.setAttribute('data-tip', tipJson(d.t, d.s, d.r, d.z)); el.tabIndex = 0; if (below) el.setAttribute('data-tipbelow', ''); } // bars sit under their headings, so their tooltip opens below
 const SLUG = window.__PROPOSAL_SLUG__ || 'invited-clubs';
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -1381,7 +1382,7 @@ function paintCompare() {
     return `<span style="display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:100%;line-height:1.25;padding:.12em .4em;border-radius:999px;border:1px solid ${st[0]};background:${st[1]};color:${st[2]};font-size:max(14px,.78em);font-weight:${st[3]};">${st[4]}</span>`;
   };
   // cost to Invited: more $ is more expense, so filled signs are the deep red and unfilled ones a light grey
-  const cost = l => l ? `<span role="img" aria-label="Cost: ${l} of 3" style="display:inline-flex;font-weight:700;letter-spacing:.02em;">${[1, 2, 3].map(i => `<span aria-hidden="true" style="color:${i <= l ? 'var(--neg)' : '#5F6682'};">$</span>`).join('')}</span>` : '';
+  const cost = l => l ? `<span role="img" aria-label="Cost: ${l} of 3" style="display:inline-flex;font-weight:700;letter-spacing:.02em;">${[1, 2, 3].map(i => `<span aria-hidden="true" style="${i <= l ? 'color:var(--neg);' : 'color:#5F6682;font-weight:400;text-decoration:line-through;'}">$</span>`).join('')}</span>` : '';
   const body = JOBS.map(j => `<tr><th scope="row" style="text-align:left;padding:var(--rowpad) .6em var(--rowpad) 0;border-top:1px solid rgba(var(--fgrgb),.1);font-weight:500;color:var(--soft);font-size:max(14px,.86em);">${esc(j[0])}</th>` +
     [0, 1, 2, 3].map(c => `<td style="padding:var(--rowpad) .5em;border-top:1px solid rgba(var(--fgrgb),.1);text-align:center;${colStyle(c)}"><span style="display:inline-grid;grid-template-columns:4.8em 3.1em;align-items:center;justify-items:start;gap:.4em;">${pill(j[c + 2], c)}<span style="font-size:max(14px,.8em);line-height:1;white-space:nowrap;text-align:left;">${cost(jobCost(j[1], j[c + 2], c))}</span></span></td>`).join('') + '</tr>').join('');
   const foot = `<tr><th scope="row" style="text-align:left;padding:.45em .6em .3em 0;border-top:1px solid rgba(var(--fgrgb),.26);color:var(--ink);font-size:max(14px,.9em);">What Invited Still Carries<div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;"><span aria-hidden="true" style="font-weight:700;"><span style="color:var(--neg);">$</span><span style="color:#5F6682;">$$</span> to <span style="color:var(--neg);">$$$</span></span> cost to Invited</div><div style="font-size:max(14px,.78em);font-weight:400;color:var(--muted);margin-top:.2em;">Club Steward integrates with InvitedAI.</div></th>` +
@@ -1445,15 +1446,16 @@ SCRUB.roi = {
   n: () => (ROI ? ROI.c.length : 0),
   at: (el, e) => { const r = el.getBoundingClientRect(); return ROI ? Math.round((e.clientX - r.left) / r.width * ROI.last) : -1; },
   anchor: (el, i) => { const r = el.getBoundingClientRect(); return [r.left + i / ROI.last * r.width, r.top + ROI.yv(ROI.c[i]) / ROI.H * r.height]; },
+  below: true, // under the point, so it does not cover the chart's heading above
   mark: (el, i) => {
     const m = $('#roiMark'); if (!m) return;
     if (i < 0) { m.hidden = true; return; }
     m.hidden = false; m.style.left = (i / ROI.last * 100) + '%'; m.style.top = (ROI.yv(ROI.c[i]) / ROI.H * 100) + '%';
   },
   data: i => {
-    const c = ROI.c, sgn = v => (v < 0 ? '\u2212' : '+') + FMTS.M(Math.abs(v));
-    return {t: i === 0 ? 'Signing' : 'Month ' + i, s: 'cumulative net', r: [[c[i] < 0 ? 'var(--neg)' : 'var(--good)', 'Cumulative Net', sgn(c[i])], [null, 'Change in the Month', i ? sgn(c[i] - c[i - 1]) : '\u2014']],
-      z: [[i >= V.breakeven ? 'Past Breakeven' : 'Until Breakeven', i >= V.breakeven ? 'Mo ' + V.breakeven : (V.breakeven - i) + ' Months']]};
+    const c = ROI.c, sgn = v => tipMoney(v, true), left = V.breakeven - i;
+    return {t: i === 0 ? 'Signing' : 'Month ' + i, s: 'Cumulative Net', r: [[c[i] < 0 ? 'var(--neg)' : 'var(--good)', 'Cumulative Net', sgn(c[i])], [null, 'Change in the Month', i ? sgn(c[i] - c[i - 1]) : '\u2014']],
+      z: [[left <= 0 ? 'Breakeven Reached' : 'Until Breakeven', left <= 0 ? 'Month ' + V.breakeven : left + (left === 1 ? ' Month' : ' Months')]]};
   }
 };
 
@@ -1597,15 +1599,17 @@ let canEdit = false;
 // The team, org chart and detail tabs are shown to Invited only when the published settings switch them on; staff always see every tab
 const GATE = {home: 'showHome', team: 'showTeam', org: 'showOrg', detail: 'showDetail'};
 const tabOn = k => !GATE[k] || NV[GATE[k]] > 0;
-const navTabs = () => TABS.filter(t => canEdit || tabOn(t[0]));
+// the staff script adds its own views (not Team admin) after Demo, in the sidebar's order
+const STAFFNAV = [];
+const navTabs = () => TABS.filter(t => canEdit || tabOn(t[0])).concat(canEdit ? STAFFNAV : []);
 function paintFoot(key) {
   const nav = navTabs(), i = nav.findIndex(t => t[0] === key), on = tabOn(key);
   const prev = $('#fPrev'), next = $('#fNext');
   prev.hidden = i <= 0; next.hidden = i < 0 || i >= nav.length - 1;
   prev.textContent = i > 0 ? '← ' + nav[i - 1][1] : ''; next.textContent = i >= 0 && i < nav.length - 1 ? nav[i + 1][1] + ' →' : '';
   prev.onclick = () => { location.hash = nav[i - 1][0]; }; next.onclick = () => { location.hash = nav[i + 1][0]; };
-  const shown = nav.filter(t => tabOn(t[0]));
-  $('#fPos').textContent = i < 0 ? 'Ardn Staff' : on ? `${shown.findIndex(t => t[0] === key) + 1} of ${shown.length}` : 'Hidden From Invited';
+  const shown = nav.filter(t => tabOn(t[0]) && !STAFFV.includes(t[0]));
+  $('#fPos').textContent = i < 0 || STAFFV.includes(key) ? 'Ardn Staff' : on ? `${shown.findIndex(t => t[0] === key) + 1} of ${shown.length}` : 'Hidden From Invited';
   $('#fPos').style.color = i >= 0 && !on ? 'var(--brass)' : '';
 }
 function paintTabs() {
@@ -1691,12 +1695,12 @@ function route() {
 addEventListener('hashchange', route);
 addEventListener('keydown', e => {
   if (e.key === 'Escape') { $('#drawer').hidden = true; closeViewer(); closeTheatre(); return; }
-  if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName) || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName) || e.target.isContentEditable || e.metaKey || e.ctrlKey || e.altKey) return;
   if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
   // with a film open the arrows move between films
   if (typeof theatreOpenNow === 'function' && theatreOpenNow()) { e.preventDefault(); theatreStep(e.key === 'ArrowRight' ? 1 : -1); return; }
-  // on Screens the arrows belong to the screenshots (grid pages, apps, the viewer), never to the tabs
-  if (document.body.dataset.view === 'screens') { e.preventDefault(); if (typeof shotArrow === 'function') shotArrow(e.key === 'ArrowRight' ? 1 : -1); return; }
+  // only while the screenshot viewer is open do the arrows belong to the screenshots; otherwise they move between tabs like everywhere else
+  if (document.body.dataset.view === 'screens' && typeof viewerAt === 'number' && viewerAt >= 0) { e.preventDefault(); if (typeof shotArrow === 'function') shotArrow(e.key === 'ArrowRight' ? 1 : -1); return; }
   const nav = navTabs(), i = nav.findIndex(t => t[0] === document.body.dataset.view);
   if (i < 0) return;
   if (e.key === 'ArrowRight' && i < nav.length - 1) location.hash = nav[i + 1][0];
@@ -1885,9 +1889,9 @@ function spendModel(n, v = V) {
     const tech = n.entityFee * gl + n.cityFee * cl;
     // the services run fee has no start rule in derive(), so it ramps pro rata with clubs live and reaches the full svcMo when all are live
     const support = v.svcMo * (clubsAll ? Math.min(1, live / clubsAll) : 0), fee = support;
-    // the one-time fee: the other costs land in month 1 and the rest is spread evenly over the rollout months, so the layer sums to exactly v.impl
-    const other = Math.min(n.implOther, v.impl), months = Math.max(1, Math.round(n.hyperMonths));
-    const impl = (m <= months ? (v.impl - other) / months : 0) + (m === 1 ? other : 0);
+    // the one-time fee, other costs included, is spread evenly from month 1 to the last go-live month; the last month takes the rounding remainder
+    const months = Math.max(1, Math.min(N, Math.round(n.goLiveTo))), each = Math.round(v.impl / months * 100) / 100;
+    const impl = m < months ? each : m === months ? v.impl - each * (months - 1) : 0;
     const total = legacy + tech + fee + impl;
     cum += total; cumToday += today;
     rows.push({m, live, cityLive: cl, golfLive: gl, legacy, tech, support, impl, fee, total, cum, cumToday});
