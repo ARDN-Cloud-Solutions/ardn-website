@@ -1,5 +1,8 @@
-<!--STAFF-TAB--><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team Admin</span></a><!--/STAFF-TAB-->
-<!--STAFF-VIEW--><div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
+<!--STAFF-TAB--><a href="#plan" id="tabPlan"><span class="ic"></span><span class="lbl">Rollout plan</span></a><a href="#admin" id="tabAdmin"><span class="ic"></span><span class="lbl">Team Admin</span></a><!--/STAFF-TAB-->
+<!--STAFF-VIEW--><div class="view" id="v-plan" data-view="plan" data-tab="plan" hidden>
+<main data-screen-label="11 Rollout plan" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em 2em;"><section id="planRoot"></section></main>
+</div>
+<div class="view ardn-track-ui" id="v-admin" data-view="admin" data-tab="admin" hidden>
 <main data-screen-label="10 Team admin" style="flex:1;display:flex;flex-direction:column;gap:.6em;padding:.8em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2em;">
     <div style="flex:1 1 20em;"><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:#3CA2FF;font-weight:700;margin-bottom:.35em;">Ardn Staff Only · Never Shown to Invited</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Team, Rates and Margin</h1></div>
@@ -146,7 +149,7 @@ async function loadAdmin() {
     A.nums = {...DEFAULTS, ...cleanNums(A.draft ? A.draft.nums : {})};
     A.loaded = true; A.msg = '';
   } catch (e) { A.msg = 'The team didn’t load. Reload to try again.'; }
-  if (document.body.dataset.view === 'admin') renderAdmin(); else staffRefresh();
+  if (document.body.dataset.view === 'admin') renderAdmin(); else { staffRefresh(); renderPlan(); }
 }
 
 function initAdmin() {
@@ -249,8 +252,10 @@ function renderAdmin() {
   $('#admTeam').style.display = A.sub === 'team' ? 'flex' : 'none'; $('#admNums').style.display = A.sub === 'nums' ? 'flex' : 'none';
   if (A.sub === 'nums') renderNums();
   renderGroups();
+  renderPlanFields();
   renderStatus();
   staffRefresh();
+  renderPlan();
   // bulk-bar controls and the rest talk through ACT
   A.ctx = {team, rates, bulk, setTeam, sel};
 }
@@ -280,7 +285,7 @@ function staffRefresh() {
     $('#fPos').parentElement.prepend(bar);
     $('#prevBtn').onclick = () => { A.view = A.view === 'draft' ? 'published' : 'draft'; staffRefresh(); };
   }
-  const onClient = document.body.dataset.view !== 'admin';
+  const onClient = !STAFFV.includes(document.body.dataset.view);
   bar.style.display = onClient ? 'inline-flex' : 'none';
   $('#prevTxt').textContent = preview ? 'Showing: DRAFT (not what Invited sees)' : PUB.hash ? 'Showing: Published · ' + fmtAt(PUB.at) + (PUB.by ? ' by ' + PUB.by : '') : 'Showing: Published · Original Figures';
   $('#prevBtn').textContent = preview ? 'Back to published' : 'Preview Draft';
@@ -382,7 +387,8 @@ Object.assign(ACT, {
   bulkRate: (e, el) => { const rc = A.rates.find(x => String(x.id) === el.value); if (rc) A.ctx.bulk(t => (t.cost = rc.cost, t.bill = rc.bill, t)); el.value = ''; },
   bulkDelete: () => { A.team = A.team.filter(t => !A.sel.includes(t.id)); A.sel = []; renderAdmin(); },
   addRate: () => { A.rates = [...A.rates, {id: Date.now(), label: 'New rate', ...A.newRate}]; renderAdmin(); },
-  addRole: () => { A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', grp: 'platform', loc: 'off', ...A.newRow, hours: 160}]; renderAdmin(); },
+  // a new person starts on the plan: Flex, for the rollout months (or the run months on the support roster), building nothing yet
+  addRole: () => { const run = A.phase === 'ms'; A.team = [...A.team, {id: Date.now(), role: 'New role', name: '', grp: 'platform', loc: 'off', ...A.newRow, hours: 160, start: run ? PLAN.rollEnd + 1 : 1, end: run ? 36 : PLAN.rollEnd, kind: 'Flex', section: run ? 'Support' : 'Rollout', systems: []}]; renderAdmin(); },
   resetTeam: () => {
     const d = A.draft;
     const base = JSON.parse(A.baseJ); A.implTeam = clone(d ? d.implTeam : base.implTeam); A.msTeam = clone(d ? d.msTeam : base.msTeam); A.rates = clone(d ? d.rates : base.rates); A.nums = {...DEFAULTS, ...cleanNums(d ? d.nums : {})}; renderAdmin();
@@ -411,6 +417,349 @@ Object.assign(ACT, {
     } catch (e) { A.msg = 'The publish didn’t go through. Try again.'; }
     renderAdmin();
   },
+});
+const PLAN = {"systems":[{"id":"sys01","start":1,"ready":4,"retire":20,"lane":"Members & Digital","effort":27,"builtBy":[],"name":"MemberPride","pod":"membership","kind":"Retire","phases":{"design":[1,1],"build":[2,3],"test":[3,4],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys02","start":4,"ready":6,"retire":19,"lane":"Members & Digital","effort":5,"builtBy":[],"name":"ProspectPro","pod":"membership","kind":"Retire","phases":{"design":[4,4],"build":[5,6],"test":[6,6],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys03","start":1,"ready":3,"retire":19,"lane":"Members & Digital","effort":8,"builtBy":[],"name":"Salesforce","pod":"membership","kind":"Retire","phases":{"design":[1,1],"build":[2,3],"test":[3,3],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys04","start":5,"ready":7,"retire":19,"lane":"Members & Digital","effort":5,"builtBy":[],"name":"Pardot","pod":"membership","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys05","start":5,"ready":6,"retire":19,"lane":"Members & Digital","effort":3,"builtBy":[],"name":"DocuSign","pod":"membership","kind":"Retire","phases":{"design":[5,5],"build":[5,6],"test":[6,6],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys06","start":7,"ready":7,"retire":19,"lane":"Members & Digital","effort":1,"builtBy":[],"name":"Calendly","pod":"membership","kind":"Retire","phases":{"design":[7,7],"build":[7,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys07","start":6,"ready":7,"retire":19,"lane":"Members & Digital","effort":4,"builtBy":[],"name":"Club360","pod":"membership","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys08","start":4,"ready":6,"retire":19,"lane":"Members & Digital","effort":3,"builtBy":[],"name":"Club Connect","pod":"membership","kind":"Retire","phases":{"design":[4,4],"build":[5,6],"test":[6,6],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys09","start":8,"ready":9,"retire":19,"lane":"Members & Digital","effort":5,"builtBy":[],"name":"UniFocus","pod":"membership","kind":"Retire","phases":{"design":[8,8],"build":[8,9],"test":[9,9],"deploy":[10,18],"parallel":[10,19]}},{"id":"sys10","start":3,"ready":6,"retire":20,"lane":"Members & Digital","effort":8,"builtBy":[],"name":"Benefits Rules Engine","pod":"membership","kind":"Retire","phases":{"design":[3,3],"build":[4,5],"test":[5,6],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys11","start":5,"ready":7,"retire":19,"lane":"Members & Digital","effort":4,"builtBy":[],"name":"Mobile App","pod":"digital","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys12","start":4,"ready":6,"retire":19,"lane":"Members & Digital","effort":6,"builtBy":[],"name":"Member Portal / Website","pod":"digital","kind":"Retire","phases":{"design":[4,4],"build":[5,6],"test":[6,6],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys13","start":5,"ready":7,"retire":19,"lane":"Members & Digital","effort":5,"builtBy":[],"name":"MembersFirst","pod":"digital","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys14","start":6,"ready":7,"retire":19,"lane":"Members & Digital","effort":2,"builtBy":[],"name":"MIV","pod":"digital","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys15","start":7,"ready":7,"retire":19,"lane":"Members & Digital","effort":1,"builtBy":[],"name":"Service Desk","pod":"digital","kind":"Retire","phases":{"design":[7,7],"build":[7,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys16","start":6,"ready":7,"retire":19,"lane":"Members & Digital","effort":2,"builtBy":[],"name":"Scheduling Tools","pod":"digital","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys17","start":3,"ready":8,"retire":19,"lane":"Club Ops","effort":19,"builtBy":[],"name":"Tee Times Application","pod":"golf","kind":"Retire","phases":{"design":[3,3],"build":[4,7],"test":[7,8],"deploy":[9,18],"parallel":[9,19]}},{"id":"sys18","start":5,"ready":7,"retire":19,"lane":"Club Ops","effort":6,"builtBy":[],"name":"GLF","pod":"golf","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,7],"deploy":[9,18],"parallel":[9,19]}},{"id":"sys19","start":4,"ready":8,"retire":19,"lane":"Club Ops","effort":10,"builtBy":[],"name":"CourtReserve","pod":"golf","kind":"Retire","phases":{"design":[4,4],"build":[5,7],"test":[7,8],"deploy":[9,18],"parallel":[9,19]}},{"id":"sys20","start":5,"ready":8,"retire":19,"lane":"Club Ops","effort":9,"builtBy":[],"name":"Fitness & Aquatics Tools","pod":"golf","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,8],"deploy":[9,18],"parallel":[9,19]}},{"id":"sys21","start":6,"ready":7,"retire":19,"lane":"Club Ops","effort":4,"builtBy":[],"name":"Turf Assistant","pod":"golf","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[9,18],"parallel":[9,19]}},{"id":"sys22","start":2,"ready":7,"retire":20,"lane":"Club Ops","effort":26,"builtBy":[],"name":"Oracle MICROS","pod":"dining","kind":"Retire","phases":{"design":[2,2],"build":[3,6],"test":[6,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys23","start":6,"ready":7,"retire":20,"lane":"Club Ops","effort":2,"builtBy":[],"name":"Oracle R&A","pod":"dining","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys24","start":4,"ready":7,"retire":20,"lane":"Club Ops","effort":5,"builtBy":[],"name":"Checkbook","pod":"dining","kind":"Retire","phases":{"design":[4,4],"build":[5,6],"test":[6,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys25","start":5,"ready":7,"retire":20,"lane":"Club Ops","effort":2,"builtBy":[],"name":"Inventory Submission App","pod":"dining","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys26","start":4,"ready":5,"retire":19,"lane":"Club Ops","effort":3,"builtBy":[],"name":"SevenRooms / Resy / easyTable","pod":"dining","kind":"Retire","phases":{"design":[4,4],"build":[4,5],"test":[5,5],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys27","start":5,"ready":5,"retire":19,"lane":"Club Ops","effort":1,"builtBy":[],"name":"Qick Serve","pod":"dining","kind":"Retire","phases":{"design":[5,5],"build":[5,5],"test":[5,5],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys28","start":4,"ready":7,"retire":20,"lane":"Club Ops","effort":10,"builtBy":[],"name":"CaterPro","pod":"dining","kind":"Retire","phases":{"design":[4,4],"build":[5,6],"test":[6,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys29","start":6,"ready":7,"retire":19,"lane":"Club Ops","effort":2,"builtBy":[],"name":"AllSeated","pod":"dining","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,19]}},{"id":"sys30","start":1,"ready":6,"retire":20,"lane":"Billing & Books","effort":21,"builtBy":[],"name":"Oracle EBS","pod":"finance","kind":"Retire","phases":{"design":[1,1],"build":[2,5],"test":[5,6],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys31","start":3,"ready":6,"retire":20,"lane":"Billing & Books","effort":8,"builtBy":[],"name":"Oracle AR","pod":"finance","kind":"Retire","phases":{"design":[3,3],"build":[4,5],"test":[5,6],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys32","start":5,"ready":8,"retire":27,"lane":"Billing & Books","effort":16,"builtBy":[],"name":"Oracle GL","pod":"finance","kind":"Retire","phases":{"design":[5,5],"build":[6,7],"test":[7,8],"deploy":[22,22],"parallel":[8,27]}},{"id":"sys33","start":7,"ready":11,"retire":27,"lane":"Billing & Books","effort":14,"builtBy":[],"name":"Oracle Fusion","pod":"finance","kind":"Retire","phases":{"design":[7,7],"build":[8,10],"test":[10,11],"deploy":[22,22],"parallel":[12,27]}},{"id":"sys34","start":4,"ready":6,"retire":20,"lane":"Billing & Books","effort":4,"builtBy":[],"name":"MAGIC","pod":"finance","kind":"Retire","phases":{"design":[4,4],"build":[5,6],"test":[6,6],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys35","start":6,"ready":7,"retire":20,"lane":"Billing & Books","effort":3,"builtBy":[],"name":"CCR Portal","pod":"finance","kind":"Retire","phases":{"design":[6,6],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys36","start":5,"ready":7,"retire":20,"lane":"Billing & Books","effort":3,"builtBy":[],"name":"Lanvera","pod":"finance","kind":"Retire in Part","phases":{"design":[5,5],"build":[6,7],"test":[7,7],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys37","start":2,"ready":5,"retire":20,"lane":"Billing & Books","effort":7,"builtBy":[],"name":"CardX","pod":"finance","kind":"Retire in Part","phases":{"design":[2,2],"build":[3,4],"test":[4,5],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys38","start":4,"ready":6,"retire":20,"lane":"Billing & Books","effort":4,"builtBy":[],"name":"Paymentus","pod":"finance","kind":"Retire in Part","phases":{"design":[4,4],"build":[5,6],"test":[6,6],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys39","start":3,"ready":5,"retire":20,"lane":"Data & Integrations","effort":5,"builtBy":[],"name":"CSI","pod":"data","kind":"Retire","phases":{"design":[3,3],"build":[4,5],"test":[5,5],"deploy":[8,18],"parallel":[8,20]}},{"id":"sys40","start":6,"ready":8,"retire":21,"lane":"Data & Integrations","effort":8,"builtBy":[],"name":"Power BI","pod":"data","kind":"Retire in Part","phases":{"design":[6,6],"build":[7,8],"test":[8,8],"deploy":[8,18],"parallel":[8,21]}}],"stays":[{"id":"stay01","name":"Microsoft Entra ID","start":1,"ready":2,"pod":"data"},{"id":"stay02","name":"ADP","start":3,"ready":5,"pod":"data"},{"id":"stay03","name":"DialPad","start":6,"ready":6,"pod":"data"},{"id":"stay04","name":"Aidentified","start":3,"ready":4,"pod":"data"},{"id":"stay05","name":"Golf Genius","start":7,"ready":8,"pod":"data"},{"id":"stay06","name":"USGA GHIN","start":1,"ready":8,"pod":"data"},{"id":"stay07","name":"PACE","start":12,"ready":16,"pod":"data"},{"id":"stay08","name":"TechnoGym","start":19,"ready":21,"pod":"data"},{"id":"stay09","name":"Opera","start":6,"ready":7,"pod":"data"},{"id":"stay10","name":"Data Warehouse","start":4,"ready":6,"pod":"data"},{"id":"stay11","name":"Teams / Outlook","start":3,"ready":3,"pod":"data"},{"id":"stay12","name":"Azure DevOps","start":1,"ready":1,"pod":"data"},{"id":"stay13","name":"Canva","start":1,"ready":1,"pod":"data"},{"id":"stay14","name":"Social Media","start":1,"ready":1,"pod":"data"}],"lanes":["Members & Digital","Billing & Books","Club Ops","Data & Integrations"],"laneNote":{"Members & Digital":"Golden record first (M1-M4), then sales and enrollment, benefits, and the digital front door, all ready by M7; UniFocus follows at M9","Billing & Books":"EBS charges and dues first, then AR and payments, then financing and refunds (ready M6-M7); GL shadow close from M8 and Fusion by M11, both well ahead of the M22 ledger switch","Club Ops":"MICROS survey from M2, POS and events posting to billing once billing is ready (M7), then golf, racquets and fitness ready for the golf pilot (M8)","Data & Integrations":"Entra and access first, then the connectors for the 14 that stay, CSI, the warehouse feeds and Power BI datasets (M8)"},"goLives":[{"month":7,"pw":5,"label":"City pilot prep"},{"month":8,"pw":20,"label":"City pilot live (1); golf pilot and city C1 prep"},{"month":9,"pw":37,"label":"Golf pilot (1) + city C1 (8); C2 and G1 prep"},{"month":10,"pw":52,"label":"City C2 (8) + golf proving G1 (6); G2 prep"},{"month":11,"pw":46,"label":"Golf G2 (15); G3 prep"},{"month":12,"pw":48,"label":"Golf G3 (8, first half of December); G4 prep"},{"month":13,"pw":64,"label":"Golf G4 (16); G5 prep"},{"month":14,"pw":64,"label":"Golf G5 (16); G6 prep"},{"month":15,"pw":64,"label":"Golf G6 (16); G7 prep"},{"month":16,"pw":64,"label":"Golf G7 (16, spring risk); G8 prep"},{"month":17,"pw":64,"label":"Golf G8 (16, spring risk); G9 prep"},{"month":18,"pw":32,"label":"Golf G9 (16); last club live, 143 total"}],"shared":[{"from":1,"to":21,"fte":1.0,"label":"Delivery Management"},{"from":22,"to":36,"fte":0.5,"label":"Delivery Management (Run)"},{"from":1,"to":36,"fte":0.25,"label":"Architecture and Design Authority"},{"from":1,"to":2,"fte":0.5,"label":"Release Management"},{"from":3,"to":18,"fte":1.0,"label":"Release Management"},{"from":19,"to":36,"fte":0.5,"label":"Release Management (Run)"},{"from":1,"to":2,"fte":1.0,"label":"QA Regression and Migration Rehearsals"},{"from":3,"to":4,"fte":2.0,"label":"QA Regression and Migration Rehearsals"},{"from":5,"to":8,"fte":3.0,"label":"QA Regression and Migration Rehearsals (Pre-Pilot)"},{"from":9,"to":9,"fte":2.5,"label":"QA Regression and Migration Rehearsals"},{"from":10,"to":18,"fte":2.0,"label":"QA Regression and Per-Club Reconciliation"},{"from":19,"to":36,"fte":1.0,"label":"QA Regression (Run)"},{"from":1,"to":2,"fte":0.5,"label":"Mobilize and Design Workshops"},{"from":1,"to":4,"fte":0.25,"label":"Change and Comms Planning With Invited"},{"from":2,"to":5,"fte":1.75,"label":"Re-Baselined Open Gap Rows"},{"from":5,"to":8,"fte":1.25,"label":"Production Readiness (Scale, Pen Test, DR)"},{"from":5,"to":7,"fte":0.6,"label":"Training Kit and Practice Mode"},{"from":1,"to":8,"fte":0.6,"label":"Connectors for the 14 That Stay"},{"from":12,"to":16,"fte":0.3,"label":"PACE Connector (Optional)"},{"from":6,"to":7,"fte":1.0,"label":"Second-Line Support Readiness"},{"from":8,"to":9,"fte":1.5,"label":"Second-Line Support for Live Clubs"},{"from":10,"to":11,"fte":2.0,"label":"Second-Line Support for Live Clubs"},{"from":12,"to":13,"fte":2.5,"label":"Second-Line Support for Live Clubs"},{"from":14,"to":15,"fte":3.0,"label":"Second-Line Support for Live Clubs"},{"from":16,"to":19,"fte":4.0,"label":"Second-Line Support for Live Clubs"},{"from":20,"to":21,"fte":3.5,"label":"Second-Line Support for Live Clubs"},{"from":22,"to":36,"fte":3.0,"label":"Second-Line Support (Run)"},{"from":9,"to":10,"fte":0.5,"label":"Live-Club Fixes and Change Requests"},{"from":11,"to":13,"fte":1.0,"label":"Live-Club Fixes and Change Requests"},{"from":14,"to":21,"fte":1.5,"label":"Live-Club Fixes and Change Requests"},{"from":8,"to":20,"fte":0.5,"label":"Coexistence Running (Oracle Journals, Bridges, Split Members)"},{"from":19,"to":21,"fte":1.5,"label":"Archive and Switch-Off"},{"from":21,"to":23,"fte":1.0,"label":"Ledger Switch and Oracle Read-Only"},{"from":19,"to":36,"fte":0.25,"label":"Training (Run)"},{"from":19,"to":19,"fte":3.5,"label":"CIO Backlog and Deferred Items"},{"from":20,"to":20,"fte":3.0,"label":"CIO Backlog and Deferred Items"},{"from":21,"to":21,"fte":2.5,"label":"CIO Backlog and Deferred Items"},{"from":22,"to":23,"fte":6.0,"label":"CIO Backlog (Run)"},{"from":24,"to":36,"fte":7.0,"label":"CIO Backlog (Run)"}],"milestones":[{"month":1,"label":"Mobilize; Requests Filed","full":"Mobilize; GHIN, Carrier and Entra Requests Filed; D30 Invoices Replace Estimates"},{"month":2,"label":"Design Signed","full":"D60 Design Signed, Pilots Chosen, Processor Decided"},{"month":3,"label":"First Rehearsal","full":"D90 First Migration Rehearsed; Plan Re-Baselined"},{"month":4,"label":"Golden Record Ready","full":"Golden Record Ready"},{"month":6,"label":"Second Rehearsal","full":"Billing Subledger Ready; Second Rehearsal"},{"month":7,"label":"Dress Rehearsal","full":"Dress Rehearsal; City Pilot Scope Ready"},{"month":8,"label":"City Pilot Live","full":"City Pilot Live; Golf and Racquets Ready; Books Shadow Close Starts"},{"month":9,"label":"Golf Pilot Live","full":"Golf Pilot Live; City Wave C1"},{"month":10,"label":"All City Clubs Live","full":"All 17 City Clubs Live; Golf Proving Wave"},{"month":11,"label":"Golf Waves Start","full":"Golf Waves Start After a Clean Golf Pilot Cycle"},{"month":12,"label":"Year-End Freeze","full":"Year-End Freeze From Mid-December"},{"month":13,"label":"Peak Waves Begin","full":"Peak Waves Begin, 16 Golf Clubs a Month"},{"month":18,"label":"Last Club Live","full":"Last Club Live, 143 of 143"},{"month":19,"label":"22 Systems Retire","full":"22 Systems Retire After the Last Club's First Statement"},{"month":20,"label":"15 Systems Retire","full":"15 Systems Retire, 12 Fully and 3 in Part"},{"month":21,"label":"Power BI Retires","full":"Power BI Club Reports Retire"},{"month":22,"label":"Ledger Switch","full":"Ledger Switch to Club Steward; Run Team of 12.5"},{"month":27,"label":"Oracle Licences End","full":"Oracle GL and Fusion Licences End After the FY2028 Audit"}],"phases":[{"name":"Mobilize & Design","from":1,"to":2,"what":"Access, inputs list, design signed and pilots chosen by D60"},{"name":"Build","from":2,"to":10,"what":"Four lanes, staggered; all pilot scope built by M7, Fusion by M10"},{"name":"Test & Rehearse","from":3,"to":8,"what":"D90 first rehearsal, second rehearsal M6, SIT, dress rehearsal and UAT M7, golf SIT M8 (Fusion tests M10-M11)"},{"name":"Pilot","from":8,"to":10,"what":"City pilot M8, golf pilot M9, each to one clean statement cycle"},{"name":"Rollout Waves","from":9,"to":18,"what":"City waves M9-M10, golf proving M10, golf waves M11-M18; 143 live by M18"},{"name":"Hypercare","from":8,"to":19,"what":"Named person per club for 2 weeks and first close; last wave's first statement M19"},{"name":"Parallel Run","from":8,"to":21,"what":"Legacy serves clubs not yet live; Books shadow close beside Oracle GL"},{"name":"Retire & Switch Off","from":19,"to":21,"what":"Archive, then 22 systems off M19, 15 off M20, Power BI club reports M21"},{"name":"Ledger Switch","from":21,"to":22,"what":"Prepare M21, Club Steward becomes ledger of record M22; Oracle read-only to M27 for the FY2028 audit"},{"name":"Run","from":22,"to":36,"what":"Core team of 12.5 on the CIO-ranked backlog"}],"deps":{"sys10":["sys01"],"sys03":["stay01"]},"partialDeps":{"sys10":{"on":"sys17","reason":"Benefits rules and balances are authored and tested without the tee sheet (city pilot M8 has no golf); only the golf-entitlement checks need Tee Times, and they run in Tee Times' M7-M8 test before the golf pilot"},"sys03":{"on":"sys01","reason":"Salesforce is one of the golden record's four sources, not a consumer of it; its leads, opportunities and campaigns load and test by M3, and the contact-to-member match is tested inside MemberPride's M3-M4 test"}},"rollEnd":21};
+/* ---------- Rollout plan: Ardn staff only. Every person comes from the admin team rows (A.implTeam, A.msTeam); the systems, phases and
+   milestones come from PLAN. Nothing is stored here, so an added or removed team member changes every section at once. ---------- */
+// register the view with the page's tab machinery; the client script knows none of this
+STAFFV.push('plan'); VIEWKEYS.push('plan'); VIEWTITLE.plan = 'Rollout plan'; VIEWHOOK.plan = () => renderPlan();
+ICONS.plan = '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M8 14h5"/><path d="M11 18h6"/>';
+$('#tabPlan .ic').innerHTML = icon('plan');
+const PL_KEY = 'ardn-plan-ui';
+const PL_SECS = [['phases', 'Program Phases & Milestones'], ['systems', 'Systems Timeline'], ['rollout', 'Rollout Team'], ['support', 'Support Team'], ['months', 'Month by Month'], ['chart', 'Team vs Need']];
+const PL = (() => {
+  let s = {};
+  try { s = JSON.parse(localStorage.getItem(PL_KEY) || '{}'); } catch (e) {}
+  return {open: {phases: true, systems: true, rollout: true, support: true, months: true, chart: true, ...(s.open || {})}, sign: /^\d{4}-\d{2}$/.test(s.sign || '') ? s.sign : '2026-12', sel: null};
+})();
+const plSave = () => { try { localStorage.setItem(PL_KEY, JSON.stringify({open: PL.open, sign: PL.sign})); } catch (e) {} };
+const PL_PH = {design: ['Design', '#7A86A8'], build: ['Build', '#4B3FD8'], test: ['Test', '#1F6FD1'], deploy: ['Deploy', '#0B7A6A'], parallel: ['Parallel Run', '#8A94B8']};
+const PL_CORE = '#4B3FD8', PL_FLEX = '#1F6FD1', PL_LBL = 190, PL_FTE = 160;
+// a timeline column is as wide as the card allows (28 to 36 px), so a whole timeline fits without scrolling when it can
+let PL_CW = 32;
+const plFit = (fixed, cols) => { PL_CW = Math.max(30, Math.min(36, Math.floor((($('#planRoot') || document.body).clientWidth - 34 - fixed) / cols))); };
+const PL_NAMES = Object.fromEntries([...PLAN.systems, ...PLAN.stays].map(s => [s.id, s.name]));
+const plFix = n => (Math.round(n * 100) / 100).toString();
+const plNum1 = n => (Math.round(n * 10) / 10).toFixed(1);
+
+function plMonth(m) {
+  const [y, mo] = PL.sign.split('-').map(Number), d = new Date(y, mo - 1 + m, 1);
+  return d.toLocaleString('en-US', {month: 'short', year: 'numeric'});
+}
+function plPeople() {
+  const out = [];
+  const add = (team, tag) => team.forEach(t => {
+    if (typeof t.start !== 'number' || typeof t.end !== 'number' || !(t.hours > 0)) return;
+    out.push({key: tag + t.id, role: t.role || 'Unnamed', name: t.name || '', label: t.name ? t.name + ' · ' + (t.role || 'Unnamed') : (t.role || 'Unnamed'), kind: t.kind === 'Core' ? 'Core' : 'Flex',
+      section: t.section === 'Support' ? 'Support' : 'Rollout', loc: t.loc === 'on' ? 'Onshore' : 'Offshore', fte: t.hours / PL_FTE, start: t.start, end: t.end, systems: t.systems || []});
+  });
+  add(A.implTeam, 'i'); add(A.msTeam, 'm');
+  return out;
+}
+/* the demand rule: a system's effort in person-weeks ÷ 4.33 spread evenly over its start..ready months, plus each go-live's person-weeks
+   in its month, plus the shared lines' people */
+function plNeed(H) {
+  const need = new Array(H + 2).fill(0);
+  PLAN.systems.forEach(s => { const n = s.ready - s.start + 1; for (let m = s.start; m <= s.ready && m <= H; m++) need[m] += s.effort / 4.33 / n; });
+  PLAN.goLives.forEach(g => { if (g.month <= H) need[g.month] += g.pw / 4.33; });
+  PLAN.shared.forEach(l => { for (let m = l.from; m <= Math.min(l.to, H); m++) need[m] += l.fte; });
+  return need;
+}
+function plModel() {
+  const people = plPeople(), H = Math.max(PLAN.rollEnd, ...people.map(p => p.end));
+  const core = new Array(H + 2).fill(0), flex = new Array(H + 2).fill(0), need = plNeed(H);
+  people.forEach(p => { for (let m = p.start; m <= p.end; m++) (p.kind === 'Core' ? core : flex)[m] += p.fte; });
+  const total = m => core[m] + flex[m];
+  const short = []; for (let m = 1; m <= H; m++) if (total(m) + 0.05 < need[m]) short.push(m);
+  let pm = 0, peak = 0, corePeak = 0, flexPeak = 0, peakMonths = [];
+  for (let m = 1; m <= H; m++) {
+    if (m <= PLAN.rollEnd) pm += total(m);
+    corePeak = Math.max(corePeak, core[m]); flexPeak = Math.max(flexPeak, flex[m]);
+    if (total(m) > peak + 1e-9) { peak = total(m); peakMonths = [m]; } else if (Math.abs(total(m) - peak) < 1e-9) peakMonths.push(m);
+  }
+  const by = {};
+  people.forEach(p => p.systems.forEach(id => (by[id] = by[id] || []).push(p)));
+  return {people, H, core, flex, need, total, short, pm, peak, corePeak, flexPeak, peakMonths, by};
+}
+const plBy = list => {
+  const c = {}; list.forEach(p => { c[p.label] = (c[p.label] || 0) + 1; });
+  return Object.entries(c).map(([l, n]) => l + (n > 1 ? ' ×' + n : '')).join(', ');
+};
+const plRange = (a, b) => 'M' + a + '–M' + b;
+
+function plStyle() {
+  if ($('#planCss')) return;
+  const st = document.createElement('style'); st.id = 'planCss';
+  st.textContent = `
+.pl{display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.35;color:var(--ink)}
+.pl *{box-sizing:border-box}
+.pl-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 24px}
+.pl-top h1{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.15;margin:0}
+.pl-eyebrow{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:4px}
+.pl-ctl{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--soft)}
+.pl-ctl input{font:inherit;font-size:14px;color:var(--ink);background:var(--deep);border:1px solid var(--line2);border-radius:6px;padding:4px 8px}
+.pl-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.pl-stat{background:var(--deep);border:1px solid var(--cardline);border-radius:10px;padding:8px 12px;box-shadow:var(--shadow)}
+.pl-stat b{display:block;font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.pl-stat span{color:var(--muted)}
+.pl-stat.bad b{color:var(--neg)}
+.pl-sec{background:var(--deep);border:1px solid var(--cardline);border-radius:12px;box-shadow:var(--shadow)}
+.pl-h{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:none;border:0;padding:12px 16px;cursor:pointer;color:var(--ink);border-radius:12px}
+.pl-h h2{margin:0;font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.2;white-space:nowrap}
+.pl-h .pl-sum{color:var(--soft);font-size:14px;margin-left:auto;text-align:right}
+.pl-chev{flex:none;width:18px;height:18px;color:var(--brass);transition:transform .15s ease}
+.pl-sec[data-open="1"] .pl-chev{transform:rotate(90deg)}
+.pl-b{padding:4px 16px 16px;overflow-x:auto}
+.pl-note{color:var(--muted);margin:0 0 8px}
+.pl-grid{position:relative;min-width:max-content}
+.pl-row{display:flex;align-items:center;height:30px;border-top:1px solid var(--line)}
+.pl-row.head{height:44px;border-top:0;position:sticky;top:0}
+.pl-c{flex:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums;color:var(--soft);padding-right:8px}
+.pl-lbl{flex:none;width:${PL_LBL}px;padding-right:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-lane{height:30px;display:flex;align-items:center;font-weight:700;color:var(--brass2);background:var(--raise);border-top:1px solid var(--line);padding:0 8px;min-width:max-content}
+.pl-area{position:relative;flex:none;height:100%;background-image:repeating-linear-gradient(90deg,transparent 0 calc(var(--cw) - 1px),rgba(28,32,69,.09) calc(var(--cw) - 1px) var(--cw))}
+.pl-mc{position:absolute;top:0;height:100%;width:var(--cw);text-align:center;font-size:14px;color:var(--soft);padding-top:2px;line-height:1.1;font-variant-numeric:tabular-nums}
+.pl-mc small{display:block;font-size:14px;color:var(--muted)}
+.pl-bar{position:absolute;top:5px;height:20px;border-radius:5px;color:#fff;font-size:14px;line-height:20px;padding:0 6px;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}
+.pl-bar.core{background:${PL_CORE}}.pl-bar.flex{background:${PL_FLEX}}
+.pl-seg{position:absolute;top:7px;height:16px;border-radius:3px}
+.pl-seg.parallel{background:repeating-linear-gradient(45deg,#8A94B8 0 4px,#E3E7F6 4px 8px);border:1px solid #8A94B8}
+.pl-dia{position:absolute;top:8px;width:14px;height:14px;transform:rotate(45deg);background:var(--neg);border-radius:2px}
+.pl-flag{position:absolute;top:0;color:#B14226;font-size:16px;line-height:30px;font-weight:700}
+.pl-by{flex:none;width:380px;padding-left:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--soft)}
+.pl-row.hl{background:rgba(108,99,240,.12);outline:1px solid var(--brass)}
+.pl-row.dim{opacity:.35}
+.pl-pr{cursor:pointer}.pl-pr:hover{background:var(--raise)}.pl-pr.sel{background:rgba(108,99,240,.12);outline:1px solid var(--brass)}
+.pl-pill{display:inline-block;font-size:14px;font-weight:700;padding:0 8px;border-radius:999px;color:#fff;margin-right:6px}
+.pl-pill.core{background:${PL_CORE}}.pl-pill.flex{background:${PL_FLEX}}
+.pl-meta{color:var(--muted);margin-left:6px}
+.pl-leg{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 8px;color:var(--soft);align-items:center}
+.pl-leg i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.pl-ms{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:10px}
+.pl-ms span{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--cardline);border-radius:8px;padding:2px 8px;background:var(--raise)}
+.pl-ms b{color:var(--neg);font-variant-numeric:tabular-nums}
+.pl-tbl{border-collapse:collapse;min-width:max-content;width:100%}
+.pl-tbl th{position:sticky;top:0;background:var(--deep);text-align:left;font-size:14px;color:var(--muted);font-weight:700;padding:6px 8px;border-bottom:2px solid var(--line2);white-space:nowrap}
+.pl-tbl td{padding:3px 8px;border-top:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pl-tbl td.r,.pl-tbl th.r{text-align:right}
+.pl-tbl td.who{max-width:240px;overflow:hidden;text-overflow:ellipsis;color:var(--soft)}
+.pl-tbl tr.short td{background:rgba(159,45,69,.08)}
+.pl-tbl td.neg{color:var(--neg);font-weight:700}
+.pl-mini{display:inline-block;width:150px;height:14px;background:var(--raise);border:1px solid var(--line);border-radius:3px;position:relative;vertical-align:middle;overflow:hidden}
+.pl-mini i{position:absolute;left:0;top:0;height:100%}
+.pl-mini u{position:absolute;top:-2px;width:2px;height:18px;background:var(--ink)}
+.pl-btn{font:inherit;font-size:14px;color:var(--brass2);background:none;border:1px solid var(--brass);border-radius:6px;padding:2px 10px;cursor:pointer}
+.pl-empty{color:var(--muted);padding:8px 0}
+`;
+  document.head.append(st);
+}
+
+function plAxis(from, to, lead, tail) {
+  let h = `<div class="pl-row head">${lead || '<div class="pl-lbl" style="align-self:flex-start;padding-top:2px;color:var(--muted)">Month After Signing</div>'}<div class="pl-area" style="width:${(to - from + 1) * PL_CW}px">`;
+  for (let m = from; m <= to; m++) {
+    const jan = plMonth(m).startsWith('Jan');
+    h += `<div class="pl-mc" style="left:${(m - from) * PL_CW}px"${jan ? ' title="' + plMonth(m) + '"' : ''}>${m}<small>${jan || m === from ? plMonth(m).slice(-4) : ''}</small></div>`;
+  }
+  return h + '</div>' + (tail || '') + '</div>';
+}
+const plSec = (id, title, summary, body, open) => `<section class="pl-sec" id="plan-sec-${id}" data-sec="${id}" data-open="${open ? 1 : 0}">
+  <button type="button" class="pl-h" data-plan-toggle="${id}" aria-expanded="${open}" aria-controls="plan-body-${id}">
+  <svg class="pl-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  <h2>${esc(title)}</h2><span class="pl-sum" data-plan-sum="${id}">${esc(summary)}</span></button>
+  <div class="pl-b" id="plan-body-${id}" ${open ? '' : 'hidden'}>${open ? body : ''}</div></section>`;
+
+function plPhases(M) {
+  const H = Math.max(36, M.H); plFit(PL_LBL, H);
+  let h = `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxis(1, H);
+  PLAN.phases.forEach(p => {
+    h += `<div class="pl-row" title="${esc(p.what)}"><div class="pl-lbl">${esc(p.name)}</div><div class="pl-area" style="width:${H * PL_CW}px"><div class="pl-bar" style="left:${(p.from - 1) * PL_CW}px;width:${(p.to - p.from + 1) * PL_CW}px;background:${p.name === 'Run' ? '#0B7A6A' : '#4B3FD8'}">${p.to - p.from >= 2 ? plRange(p.from, p.to) : 'M' + p.from + (p.to > p.from ? '–' + p.to : '')}</div></div></div>`;
+  });
+  h += `<div class="pl-row" style="height:40px"><div class="pl-lbl"><b>Milestones</b></div><div class="pl-area" style="width:${H * PL_CW}px">` +
+    PLAN.milestones.map((x, i) => `<div class="pl-dia" style="left:${(x.month - 1) * PL_CW + 9}px" title="M${x.month} · ${esc(x.full)}"></div>`).join('') + '</div></div></div>';
+  h += '<div class="pl-ms">' + PLAN.milestones.map(x => `<span title="${esc(x.full)}"><b>M${x.month}</b>${esc(x.label)}</span>`).join('') + '</div>';
+  return h;
+}
+function plSystems(M) {
+  const H = Math.max(PLAN.rollEnd + 1, ...PLAN.systems.map(s => s.retire || 0)) + 1, sel = PL.sel && M.people.find(p => p.key === PL.sel);
+  plFit(PL_LBL + 380, H);
+  const mine = sel ? new Set(sel.systems) : null;
+  const dep = id => PLAN.deps[id] ? PLAN.deps[id].map(d => PL_NAMES[d]).join(', ') : '';
+  const part = id => PLAN.partialDeps[id] ? PLAN.partialDeps[id] : null;
+  const row = s => {
+    const builders = M.by[s.id] || [], cls = mine ? (mine.has(s.id) ? ' hl' : ' dim') : '';
+    let seg = '';
+    if (s.phases) Object.entries(PL_PH).forEach(([k]) => { const r = s.phases[k]; if (r) seg += `<div class="pl-seg ${k}" title="${PL_PH[k][0]} M${r[0]}–M${r[1]}" style="left:${(r[0] - 1) * PL_CW}px;width:${(r[1] - r[0] + 1) * PL_CW}px;${k === 'parallel' ? 'opacity:.9;' : 'background:' + PL_PH[k][1] + ';'}${k === 'parallel' ? 'top:11px;height:8px;' : ''}"></div>`; });
+    else seg = `<div class="pl-seg build" style="left:${(s.start - 1) * PL_CW}px;width:${(s.ready - s.start + 1) * PL_CW}px;background:${PL_PH.build[1]}" title="Build M${s.start}–M${s.ready}"></div>`;
+    const flag = PLAN.deps[s.id] || part(s.id) ? `<span class="pl-flag" style="left:${(s.start - 1) * PL_CW - 15}px" title="${esc((dep(s.id) ? 'Needs ' + dep(s.id) : '') + (part(s.id) ? (dep(s.id) ? ' · ' : '') + 'Partly needs ' + (PL_NAMES[part(s.id).on] || '') + ': ' + part(s.id).reason : ''))}">⚑</span>` : '';
+    const ret = s.retire && s.phases ? `<div class="pl-dia" style="left:${(s.retire - 1) * PL_CW + 9}px" title="Retires M${s.retire}"></div>` : '';
+    return `<div class="pl-row${cls}" data-sys="${s.id}"><div class="pl-lbl" title="${esc(s.name)}">${esc(s.name)}</div><div class="pl-area" style="width:${H * PL_CW}px">${seg}${ret}${flag}</div><div class="pl-by" data-by="${s.id}" title="${esc(plBy(builders))}">${builders.length ? esc(plBy(builders)) : '<span style="color:var(--muted)">Nobody Assigned</span>'}</div></div>`;
+  };
+  let h = `<div class="pl-leg">${Object.entries(PL_PH).map(([k, [n, c]]) => `<span><i style="${k === 'parallel' ? 'background:repeating-linear-gradient(45deg,#8A94B8 0 3px,#E3E7F6 3px 6px);border:1px solid #8A94B8' : 'background:' + c}"></i>${n}</span>`).join('')}<span><i style="background:var(--neg);transform:rotate(45deg) scale(.8)"></i>Retires</span><span><b style="color:#B14226">⚑</b> Depends On Another System</span>` +
+    (sel ? `<span style="margin-left:auto"><b>${esc(sel.label)}</b>: ${sel.systems.length} Systems <button type="button" class="pl-btn" data-plan-clear="1">Clear</button></span>` : '<span style="margin-left:auto;color:var(--muted)">Click A Person In A Team Section To Highlight Their Systems</span>') + '</div>';
+  h += `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxis(1, H, '', '<div class="pl-by"><b>Built By</b></div>');
+  PLAN.lanes.forEach(l => {
+    h += `<div class="pl-lane" title="${esc(PLAN.laneNote[l])}">${esc(l)}</div>` + PLAN.systems.filter(s => s.lane === l).map(row).join('');
+  });
+  h += '<div class="pl-lane">Systems That Stay</div>' + PLAN.stays.map(row).join('') + '</div>';
+  return h;
+}
+function plTeamRows(list, from, to, M, extra) {
+  const W = (to - from + 2) * PL_CW;
+  return list.map(p => {
+    const l = (p.start - from) * PL_CW, w = (p.end - p.start + 1) * PL_CW, n = p.end - p.start + 1;
+    return `<div class="pl-row pl-pr${PL.sel === p.key ? ' sel' : ''}" data-pk="${p.key}" data-kind="${p.kind}" tabindex="0" role="button" aria-pressed="${PL.sel === p.key}"><div class="pl-lbl" style="width:${PL_TL}px" title="${esc(p.label)}"><span class="pl-pill ${p.kind.toLowerCase()}">${p.kind}</span>${esc(p.label)}</div>
+      <div class="pl-c" style="width:72px" data-meta="fte">${plFix(p.fte)}</div><div class="pl-c" style="width:88px" data-meta="loc">${p.loc}</div><div class="pl-c" style="width:70px" data-meta="sys">${p.systems.length}</div>
+      <div class="pl-area" style="width:${W}px"><div class="pl-bar ${p.kind.toLowerCase()}" style="left:${l}px;width:${w}px;padding:0 4px" title="${esc(p.label)} · M${p.start}–M${p.end}">${n >= 2 ? plRange(p.start, p.end) : 'M' + p.start}</div>${extra || ''}</div></div>`;
+  }).join('');
+}
+const PL_TL = 270;
+function plAxisTeam(from, to) { return plAxis(from, to + 1, `<div class="pl-lbl" style="width:${PL_TL}px;align-self:flex-start;padding-top:2px;color:var(--muted)">Month After Signing</div><div class="pl-c" style="width:72px"><b>Full-Time</b></div><div class="pl-c" style="width:88px"><b>Location</b></div><div class="pl-c" style="width:70px"><b>Systems</b></div>`); }
+function plRollout(M) {
+  const list = M.people.filter(p => p.section === 'Rollout').sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'Core' ? -1 : 1) || a.start - b.start || a.end - b.end);
+  if (!list.length) return '<div class="pl-empty">No One On The Rollout Team. Add A Person In Team Admin With The Rollout Section.</div>';
+  const to = Math.max(PLAN.rollEnd, ...list.map(p => p.end)); plFit(PL_TL + 230, to);
+  return `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxisTeam(1, to) + plTeamRows(list, 1, to, M) + '</div>';
+}
+function plSupportEnd(M) { const s = M.people.filter(p => p.section === 'Support'); return s.length ? Math.max(...s.map(p => p.end)) : 0; }
+function plSupport(M) {
+  const list = M.people.filter(p => p.section === 'Support').sort((a, b) => a.start - b.start || a.end - b.end);
+  const first = Math.min(...PLAN.goLives.filter(g => /live/i.test(g.label)).map(g => g.month));
+  if (!list.length) return '<div class="pl-empty">No One On The Support Team. Add A Person In Team Admin With The Support Section.</div>';
+  const from = Math.min(...list.map(p => p.start)), to = Math.max(...list.map(p => p.end)), end = plSupportEnd(M), run = PLAN.rollEnd + 1;
+  const mark = (m, t) => m >= from && m <= to ? `<div style="position:absolute;left:${(m - from) * PL_CW}px;top:0;height:100%;border-left:2px dashed var(--neg)" title="${t}"></div>` : '';
+  const ctl = `<div class="pl-ctl" style="margin-bottom:8px"><label>Support Ends After Month <input type="number" id="plSupEnd" min="${run}" max="60" value="${end}" style="width:70px"></label>
+    <span data-plan-sup="len"><b>${to - run + 1} Months Of Run Support</b> (M${run}–M${to}, ${plMonth(run)} To ${plMonth(to)})</span><span style="color:var(--muted)">Dashed Lines: First Go-Live M${first}, Run Starts M${run}</span></div>`;
+  plFit(PL_TL + 230, to - from + 1);
+  return ctl + `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxisTeam(from, to) + plTeamRows(list, from, to, M, mark(first, 'First Go-Live') + mark(run, 'Run Starts')) + '</div>';
+}
+function plMonths(M) {
+  const ph = m => { const a = PLAN.phases.filter(p => m >= p.from && m <= p.to).sort((x, y) => y.from - x.from).map(p => p.name); return a.length ? a.slice(0, 2).join(' + ') + (a.length > 2 ? ' +' + (a.length - 2) : '') : '—'; };
+  const cnt = (m, k) => PLAN.systems.filter(s => s.phases && s.phases[k] && m >= s.phases[k][0] && m <= s.phases[k][1]).length;
+  const gl = m => PLAN.goLives.filter(g => g.month === m).map(g => g.label + ' (' + g.pw + ' Person-Weeks)').join('; ') || '—';
+  let h = '<table class="pl-tbl" id="planMonths"><thead><tr><th>Month</th><th>Program Phase</th><th class="r">Core</th><th class="r">Flex</th><th class="r">Total</th><th class="r">Need</th><th>Team vs Need</th>' +
+    Object.values(PL_PH).map(([n, c]) => `<th class="r" style="color:${n === 'Parallel Run' || n === 'Design' ? '#566077' : c}">${n}</th>`).join('') + '<th>Go-Lives</th><th>Joins</th><th>Leaves</th></tr></thead><tbody>';
+  const max = Math.max(...M.need, ...M.core.map((c, i) => c + M.flex[i]), 1);
+  for (let m = 1; m <= M.H; m++) {
+    const t = M.total(m), n = M.need[m], sh = M.short.includes(m);
+    const jl = list => list.length ? esc(plBy(list)) : '—', join = M.people.filter(p => p.start === m), leave = M.people.filter(p => p.end === m);
+    h += `<tr data-m="${m}" class="${sh ? 'short' : ''}"><td><b>M${m}</b> ${plMonth(m)}</td><td>${esc(ph(m))}</td><td class="r" data-c="core">${plFix(M.core[m])}</td><td class="r" data-c="flex">${plFix(M.flex[m])}</td><td class="r${sh ? ' neg' : ''}" data-c="total"><b>${plFix(t)}</b></td><td class="r" data-c="need">${plNum1(n)}</td>
+      <td><span class="pl-mini"><i style="width:${M.core[m] / max * 100}%;background:${PL_CORE}"></i><i style="left:${M.core[m] / max * 100}%;width:${M.flex[m] / max * 100}%;background:${PL_FLEX}"></i><u style="left:${Math.min(98, n / max * 100)}%"></u></span>${sh ? ` <b style="color:var(--neg)">Short ${plNum1(n - t)}</b>` : ''}</td>` +
+      Object.keys(PL_PH).map(k => `<td class="r">${cnt(m, k) || '—'}</td>`).join('') +
+      `<td class="who" title="${esc(gl(m))}">${esc(gl(m))}</td><td class="who" data-c="joins" title="${jl(join)}">${jl(join)}</td><td class="who" data-c="leaves" title="${jl(leave)}">${jl(leave)}</td></tr>`;
+  }
+  return h + '</tbody></table>';
+}
+function plChart(M) {
+  const H = M.H, top = 20, bot = 44, left = 44, ch = 280, st = PL_CW;
+  const ymax = Math.ceil((Math.max(...M.need.slice(0, H + 1), ...Array.from({length: H}, (_, i) => M.total(i + 1))) + 0.5) / 5) * 5, y = v => top + ch - v / ymax * ch;
+  let s = `<svg id="planChart" width="${left + H * st + 10}" height="${top + ch + bot}" role="img" aria-label="Team against need by month" style="font:14px Manrope,system-ui,sans-serif">`;
+  for (let v = 0; v <= ymax; v += 5) s += `<line x1="${left}" x2="${left + H * st}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(28,32,69,.12)"/><text x="${left - 6}" y="${y(v) + 5}" text-anchor="end" fill="#5B6380">${v}</text>`;
+  let line = '';
+  for (let m = 1; m <= H; m++) {
+    const x = left + (m - 1) * st + 4, w = st - 8, c = M.core[m], f = M.flex[m], n = M.need[m], sh = M.short.includes(m);
+    s += `<g data-cm="${m}"><rect x="${x}" y="${y(c)}" width="${w}" height="${c / ymax * ch}" fill="${PL_CORE}"/><rect x="${x}" y="${y(c + f)}" width="${w}" height="${f / ymax * ch}" fill="${PL_FLEX}"/>`;
+    if (sh) s += `<rect x="${x}" y="${y(n)}" width="${w}" height="${(n - c - f) / ymax * ch}" fill="#9F2D45" opacity=".75"/>`;
+    s += `<text x="${x + w / 2}" y="${top + ch + 20}" text-anchor="middle" fill="${sh ? '#9F2D45' : '#2E3563'}" font-weight="${sh ? 700 : 400}">${m}</text></g>`;
+    line += (m === 1 ? 'M' : 'L') + (x + w / 2) + ' ' + y(n) + ' ';
+  }
+  s += `<path d="${line}" fill="none" stroke="#1C2045" stroke-width="2.5"/>`;
+  for (let m = 1; m <= H; m++) s += `<circle cx="${left + (m - 1) * st + st / 2}" cy="${y(M.need[m])}" r="3.5" fill="${M.short.includes(m) ? '#9F2D45' : '#1C2045'}"/>`;
+  s += `<text x="${left}" y="${top + ch + 40}" fill="#5B6380">Month After Signing (M1 = ${plMonth(1)})</text></svg>`;
+  const leg = `<div class="pl-leg"><span><i style="background:${PL_CORE}"></i>Core</span><span><i style="background:${PL_FLEX}"></i>Flex</span><span><i style="background:#1C2045;border-radius:50%"></i>Need</span><span><i style="background:#9F2D45"></i>Short Months (${M.short.length})</span></div>`;
+  return leg + s;
+}
+
+function renderPlan() {
+  plStyle();
+  const root = $('#planRoot'); if (!root) return;
+  if (!A.loaded) { root.innerHTML = '<div class="pl-empty">Loading The Team…</div>'; return; }
+  const M = plModel();
+  const lead = M.people.filter(p => p.section === 'Rollout'), sup = M.people.filter(p => p.section === 'Support');
+  const stat = (k, v, l, bad) => `<div class="pl-stat${bad ? ' bad' : ''}"><b data-stat="${k}">${v}</b><span>${l}</span></div>`;
+  const pkm = M.peakMonths.length ? plRange(M.peakMonths[0], M.peakMonths[M.peakMonths.length - 1]) : '—';
+  const lanes = PLAN.lanes.length, sysN = PLAN.systems.length, stayN = PLAN.stays.length, supEnd = plSupportEnd(M);
+  const sums = {
+    phases: `${PLAN.phases.length} Phases · ${PLAN.milestones.length} Milestones · M1–M${Math.max(...PLAN.phases.map(p => p.to))}`,
+    systems: `${sysN} Systems · ${lanes} Lanes · ${stayN} Stay · Last Retire M${Math.max(...PLAN.systems.map(s => s.retire))}`,
+    rollout: `${lead.length} People · Core ${lead.filter(p => p.kind === 'Core').length} · Flex ${lead.filter(p => p.kind === 'Flex').length}`,
+    support: sup.length ? `${sup.length} People · M${Math.min(...sup.map(p => p.start))}–M${supEnd} · ${supEnd - PLAN.rollEnd} Months Of Run` : 'No One Yet',
+    months: `M1–M${M.H} · ${plFix(M.pm)} Person-Months To M${PLAN.rollEnd} · ${M.short.length} Short`,
+    chart: `Peak ${plFix(M.peak)} In ${pkm} · ${M.short.length} Short ${M.short.length === 1 ? 'Month' : 'Months'}`,
+  };
+  const bodies = {phases: plPhases, systems: plSystems, rollout: plRollout, support: plSupport, months: plMonths, chart: plChart};
+  const keep = {};
+  root.querySelectorAll('.pl-b').forEach(b => { keep[b.id] = b.scrollLeft; });
+  root.innerHTML = `<div class="pl">
+    <div class="pl-top"><div><div class="pl-eyebrow">Ardn Staff Only · Never Shown To Invited</div><h1>Rollout Plan</h1></div>
+      <div class="pl-ctl"><label>Signing Month <input type="month" id="plSign" value="${PL.sign}"></label><span>M1 = ${plMonth(1)}</span><span>People Come From Team Admin</span></div></div>
+    <div class="pl-stats">${stat('pm', plFix(M.pm), `Person-Months, M1–M${PLAN.rollEnd}`)}${stat('peak', plFix(M.peak), 'Peak Total Staffing · ' + pkm)}${stat('corePeak', plFix(M.corePeak), 'Core Peak')}${stat('flexPeak', plFix(M.flexPeak), 'Flex Peak')}${stat('people', M.people.length, 'People On The Plan')}${stat('short', M.short.length, 'Short Months', M.short.length > 0)}</div>
+    ${PL_SECS.map(([id, t]) => plSec(id, t, sums[id], PL.open[id] ? bodies[id](M) : '', PL.open[id])).join('')}</div>`;
+  root.querySelectorAll('.pl-b').forEach(b => { if (keep[b.id]) b.scrollLeft = keep[b.id]; });
+}
+
+/* one handler for the whole view */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-plan-toggle]');
+  if (t) { const id = t.dataset.planToggle; PL.open[id] = !PL.open[id]; plSave(); renderPlan(); return; }
+  if (e.target.closest('[data-plan-clear]')) { PL.sel = null; renderPlan(); return; }
+  const r = e.target.closest('.pl-pr');
+  if (r) { PL.sel = PL.sel === r.dataset.pk ? null : r.dataset.pk; renderPlan(); }
+});
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('pl-pr')) { e.preventDefault(); e.target.click(); } });
+document.addEventListener('change', e => {
+  if (e.target.id === 'plSign') { if (/^\d{4}-\d{2}$/.test(e.target.value)) { PL.sign = e.target.value; plSave(); renderPlan(); } return; }
+  if (e.target.id === 'plSupEnd') {
+    const M = plModel(), cur = plSupportEnd(M), v = Math.round(+e.target.value);
+    const lo = Math.max(PLAN.rollEnd + 1, ...M.people.filter(p => p.section === 'Support').map(p => p.start));
+    if (!isFinite(v) || !cur) return;
+    const to = Math.min(60, Math.max(lo, v));
+    // the people who run to the end of support move with it; anyone who ends earlier keeps their own end
+    const mv = t => t.section === 'Support' && t.end === cur ? {...t, end: Math.max(t.start, to)} : t;
+    A.implTeam = A.implTeam.map(mv); A.msTeam = A.msTeam.map(mv); renderAdmin();
+  }
+});
+
+/* ---------- the plan fields in Team Admin: the same rows as the table above them ---------- */
+function renderPlanFields() {
+  let box = $('#admPlan');
+  const host = $('#admGroups'); if (!host) return;
+  if (!box) { box = document.createElement('div'); box.id = 'admPlan'; box.style.cssText = 'margin-top:.8em;border-top:1px solid rgba(238,242,255,.13);padding-top:.6em'; host.parentElement.before(box); }
+  const team = A.team, inp = 'font:inherit;font-size:max(14px,.9em);background:#1C2045;color:#F3F5FF;border:1px solid rgba(238,242,255,.25);border-radius:6px;padding:.2em .35em;width:4.5em;text-align:right';
+  const sel = 'font:inherit;font-size:max(14px,.9em);background:#1C2045;color:#F3F5FF;border:1px solid rgba(238,242,255,.25);border-radius:6px;padding:.2em .3em';
+  const opts = (vals, v) => vals.map(x => `<option${x === v ? ' selected' : ''}>${x}</option>`).join('');
+  const lanes = [...PLAN.lanes.map(l => [l, PLAN.systems.filter(s => s.lane === l)]), ['Systems That Stay', PLAN.stays]];
+  box.innerHTML = `<div style="font-size:max(14px,.82em);letter-spacing:.12em;text-transform:uppercase;color:#A9B4FF;font-weight:700;margin-bottom:.4em">Rollout Plan Fields · ${A.phase === 'impl' ? 'Implementation' : 'Production Support'} Team</div>
+    <div style="font-size:max(14px,.84em);color:#A3ABD6;margin-bottom:.5em">Start And End Are Months After Signing. Full-Time Equivalent = Hours ÷ ${PL_FTE}. A Person Needs Both Months To Appear In The Rollout Plan.</div>
+    <div style="display:flex;flex-direction:column;gap:.35em">` + team.map(t => {
+    const n = (t.systems || []).length;
+    return `<div data-pf-row="${t.id}" style="border:1px solid rgba(238,242,255,.13);border-radius:8px;padding:.35em .6em"><div style="display:flex;flex-wrap:wrap;gap:.4em .9em;align-items:center">
+      <b style="flex:1 1 14em;color:#F3F5FF;min-width:12em">${esc(t.name ? t.name + ' · ' + t.role : t.role || 'Unnamed')}</b>
+      <label style="color:#E6EAFB">Section <select data-pf="section" style="${sel}">${opts(['Rollout', 'Support'], t.section === 'Support' ? 'Support' : 'Rollout')}</select></label>
+      <label style="color:#E6EAFB">Kind <select data-pf="kind" style="${sel}">${opts(['Core', 'Flex'], t.kind === 'Core' ? 'Core' : 'Flex')}</select></label>
+      <label style="color:#E6EAFB">Start Month <input data-pf="start" type="number" min="1" max="60" value="${t.start ?? ''}" style="${inp}"></label>
+      <label style="color:#E6EAFB">End Month <input data-pf="end" type="number" min="1" max="60" value="${t.end ?? ''}" style="${inp}"></label>
+      <label style="color:#E6EAFB">Full-Time Equivalent <input data-pf="fte" type="number" min="0" step="0.25" value="${plFix(t.hours / PL_FTE)}" style="${inp}"></label>
+      <details data-pf-sys="${t.id}"${A.pfOpen === t.id ? ' open' : ''} style="flex:1 1 100%;color:#E6EAFB"><summary style="cursor:pointer;color:#A9B4FF;font-weight:700">Builds ${n} ${n === 1 ? 'System' : 'Systems'}</summary>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:.1em .8em;margin-top:.4em;max-height:16em;overflow:auto;padding:.3em">` +
+      lanes.map(([l, list]) => `<div style="grid-column:1/-1;color:#A9B4FF;font-weight:700;margin-top:.3em">${esc(l)}</div>` + list.map(s => `<label style="display:flex;gap:.4em;align-items:center"><input type="checkbox" data-pf="sys" data-sys="${s.id}"${(t.systems || []).includes(s.id) ? ' checked' : ''} style="accent-color:#A9B4FF"> ${esc(s.name)}</label>`).join('')).join('') + `</div></details></div></div>`;
+  }).join('') + '</div>';
+}
+document.addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.pfSys) { const id = +d.dataset.pfSys; if (d.open) A.pfOpen = id; else if (A.pfOpen === id) A.pfOpen = null; } }, true);
+document.addEventListener('change', e => {
+  const f = e.target.dataset && e.target.dataset.pf; if (!f) return;
+  const row = e.target.closest('[data-pf-row]'), id = +row.dataset.pfRow, v = e.target.value;
+  const mon = x => { const n = Math.round(+x); return isFinite(n) && n >= 1 ? Math.min(60, n) : undefined; };
+  const upd = t => {
+    t = {...t};
+    if (f === 'section') t.section = v === 'Support' ? 'Support' : 'Rollout';
+    else if (f === 'kind') t.kind = v === 'Core' ? 'Core' : 'Flex';
+    else if (f === 'start') { t.start = mon(v); if (t.start && (t.end === undefined || t.end < t.start)) t.end = t.start; }
+    else if (f === 'end') { t.end = mon(v); if (t.end && (t.start === undefined || t.start > t.end)) t.start = t.end; }
+    else if (f === 'fte') t.hours = Math.max(0, Math.round((+v || 0) * PL_FTE));
+    else if (f === 'sys') { const s = new Set(t.systems || []); e.target.checked ? s.add(e.target.dataset.sys) : s.delete(e.target.dataset.sys); t.systems = [...s].sort(); A.pfOpen = id; }
+    return t;
+  };
+  A.team = A.team.map(t => t.id === id ? upd(t) : t); renderAdmin();
 });
 
 </script><!--/STAFF-SCRIPT-->

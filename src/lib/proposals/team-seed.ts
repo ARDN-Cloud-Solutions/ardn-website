@@ -1,0 +1,61 @@
+import type { TeamRow } from "./team";
+
+/**
+ * The rollout and support team as the delivery plan draws it (38 people; the core run team continues as separate Support rows
+ * from month 22). It seeds the staff tab only; nothing here reaches a viewer until a draft is published, and then only roles
+ * and hours. Generated from the plan files; edit the team in the staff tab, not here.
+ */
+export const SEED_IMPL: TeamRow[] = [
+  { id: 1, role: "Delivery Lead", name: "", grp: "lead", loc: "on", cost: 95, bill: 150, hours: 80, start: 1, end: 21, kind: "Core", section: "Rollout", systems: [] },
+  { id: 2, role: "Solution Architect", name: "", grp: "platform", loc: "on", cost: 95, bill: 175, hours: 40, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["stay01", "sys39", "sys40"] },
+  { id: 3, role: "Release Manager", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 80, start: 1, end: 21, kind: "Core", section: "Rollout", systems: [] },
+  { id: 4, role: "QA Automation Lead", name: "", grp: "platform", loc: "off", cost: 18, bill: 45, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["sys17"] },
+  { id: 5, role: "Integration and Data Engineer", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["stay02", "stay10", "sys01", "sys03", "sys05", "sys16", "sys17", "sys28", "sys30", "sys31", "sys37"] },
+  { id: 6, role: "Members Lead", name: "", grp: "pod1", loc: "on", cost: 95, bill: 175, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["sys01", "sys03", "sys07", "sys09", "sys10"] },
+  { id: 7, role: "Club Ops Lead", name: "", grp: "pod3", loc: "on", cost: 95, bill: 175, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["sys17", "sys22", "sys28"] },
+  { id: 8, role: "Finance Lead", name: "", grp: "pod5", loc: "on", cost: 95, bill: 175, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["sys21", "sys30", "sys31", "sys32", "sys33", "sys37"] },
+  { id: 9, role: "Developer, Members and Digital", name: "", grp: "pod2", loc: "off", cost: 22, bill: 60, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["sys01", "sys02", "sys03", "sys04", "sys06", "sys07", "sys09", "sys12", "sys13", "sys15"] },
+  { id: 10, role: "Developer, Club Ops", name: "", grp: "pod3", loc: "off", cost: 22, bill: 60, hours: 160, start: 2, end: 21, kind: "Core", section: "Rollout", systems: ["sys19", "sys20", "sys21", "sys22", "sys26", "sys27", "sys28", "sys29"] },
+  { id: 11, role: "Developer, Data and Integrations", name: "", grp: "platform", loc: "off", cost: 22, bill: 60, hours: 160, start: 1, end: 21, kind: "Core", section: "Rollout", systems: ["stay01", "stay02", "stay03", "stay04", "stay05", "stay06", "stay07", "stay08", "stay09", "stay10", "stay11", "sys36", "sys39", "sys40"] },
+  { id: 12, role: "Trainer and Change Lead", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 40, start: 1, end: 21, kind: "Core", section: "Rollout", systems: [] },
+  { id: 13, role: "Delivery Lead (Rollout Uplift)", name: "", grp: "lead", loc: "on", cost: 95, bill: 150, hours: 80, start: 1, end: 21, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 14, role: "Solution Architect (Rollout Uplift)", name: "", grp: "platform", loc: "on", cost: 95, bill: 175, hours: 40, start: 1, end: 18, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 15, role: "Release Manager (Rollout Uplift)", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 80, start: 3, end: 18, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 16, role: "Member Migration Developer", name: "", grp: "pod1", loc: "off", cost: 22, bill: 60, hours: 160, start: 3, end: 6, kind: "Flex", section: "Rollout", systems: ["sys01", "sys02", "sys05", "sys08", "sys10"] },
+  { id: 17, role: "Digital Developer", name: "", grp: "pod2", loc: "off", cost: 22, bill: 60, hours: 160, start: 5, end: 7, kind: "Flex", section: "Rollout", systems: ["sys11", "sys12", "sys13", "sys14", "sys16"] },
+  { id: 18, role: "Finance Developer", name: "", grp: "pod5", loc: "off", cost: 22, bill: 60, hours: 160, start: 3, end: 11, kind: "Flex", section: "Rollout", systems: ["sys30", "sys31", "sys32", "sys33", "sys37"] },
+  { id: 19, role: "Billing Migration Developer", name: "", grp: "pod5", loc: "off", cost: 22, bill: 60, hours: 160, start: 4, end: 7, kind: "Flex", section: "Rollout", systems: ["sys34", "sys35", "sys36", "sys38"] },
+  { id: 20, role: "POS Developer", name: "", grp: "pod4", loc: "off", cost: 22, bill: 60, hours: 160, start: 4, end: 7, kind: "Flex", section: "Rollout", systems: ["sys22", "sys23", "sys24", "sys25"] },
+  { id: 21, role: "Golf and Racquets Developer", name: "", grp: "pod3", loc: "off", cost: 22, bill: 60, hours: 160, start: 4, end: 8, kind: "Flex", section: "Rollout", systems: ["sys17", "sys18", "sys19"] },
+  { id: 22, role: "QA Analyst", name: "", grp: "platform", loc: "off", cost: 18, bill: 45, hours: 160, start: 3, end: 18, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 23, role: "QA Analyst (Pre-Pilot Rehearsals)", name: "", grp: "platform", loc: "off", cost: 18, bill: 45, hours: 160, start: 5, end: 8, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 24, role: "Integration and Data Engineer", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 160, start: 5, end: 18, kind: "Flex", section: "Rollout", systems: ["sys22"] },
+  { id: 25, role: "Performance and Security Engineer", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 160, start: 5, end: 7, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 26, role: "Trainer (Rollout Uplift)", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 120, start: 5, end: 18, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 27, role: "Go-Live Lead", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 160, start: 10, end: 18, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 28, role: "Go-Live Analyst", name: "", grp: "support", loc: "off", cost: 22, bill: 60, hours: 160, start: 10, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 29, role: "Go-Live Analyst", name: "", grp: "support", loc: "off", cost: 22, bill: 60, hours: 160, start: 10, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 30, role: "Go-Live Analyst", name: "", grp: "support", loc: "off", cost: 22, bill: 60, hours: 160, start: 10, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 31, role: "Go-Live Lead", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 160, start: 13, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 32, role: "Go-Live Analyst", name: "", grp: "support", loc: "off", cost: 22, bill: 60, hours: 160, start: 13, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 33, role: "Go-Live Analyst", name: "", grp: "support", loc: "off", cost: 22, bill: 60, hours: 160, start: 13, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+  { id: 34, role: "Go-Live Analyst", name: "", grp: "support", loc: "off", cost: 22, bill: 60, hours: 160, start: 13, end: 17, kind: "Flex", section: "Rollout", systems: [] },
+];
+export const SEED_MS: TeamRow[] = [
+  { id: 1, role: "Delivery Lead (Run)", name: "", grp: "lead", loc: "on", cost: 95, bill: 150, hours: 80, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 2, role: "Solution Architect (Run)", name: "", grp: "platform", loc: "on", cost: 95, bill: 175, hours: 40, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 3, role: "Release Manager (Run)", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 80, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 4, role: "QA Automation Lead (Run)", name: "", grp: "platform", loc: "off", cost: 18, bill: 45, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 5, role: "Integration and Data Engineer (Run)", name: "", grp: "platform", loc: "off", cost: 30, bill: 60, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 6, role: "Members Lead (Run)", name: "", grp: "pod1", loc: "on", cost: 95, bill: 175, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 7, role: "Club Ops Lead (Run)", name: "", grp: "pod3", loc: "on", cost: 95, bill: 175, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 8, role: "Finance Lead (Run)", name: "", grp: "pod5", loc: "on", cost: 95, bill: 175, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 9, role: "Developer, Members and Digital (Run)", name: "", grp: "pod2", loc: "off", cost: 22, bill: 60, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 10, role: "Developer, Club Ops (Run)", name: "", grp: "pod3", loc: "off", cost: 22, bill: 60, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 11, role: "Developer, Data and Integrations (Run)", name: "", grp: "platform", loc: "off", cost: 22, bill: 60, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 12, role: "Trainer and Change Lead (Run)", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 40, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 13, role: "Second-Line Support Lead", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 160, start: 6, end: 36, kind: "Core", section: "Support", systems: ["sys15"] },
+  { id: 14, role: "L2 Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 8, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 15, role: "L2 Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 8, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 16, role: "L2 Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 16, end: 19, kind: "Flex", section: "Support", systems: [] },
+];

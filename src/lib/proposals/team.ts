@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { readProposalFile, writeProposalFile } from "./store";
+import { SEED_IMPL, SEED_MS } from "./team-seed";
 
 /**
  * The services team behind a proposal and every number the proposal shows.
@@ -23,7 +24,15 @@ export type Group = (typeof GROUPS)[number];
 const isGroup = (v: unknown): v is Group => (GROUPS as readonly unknown[]).includes(v);
 
 /** One person on one team. Implementation and managed service are two separate rosters; a person can be on one and not the other. */
-export type TeamRow = { id: number; role: string; name: string; grp: Group; loc: "on" | "off"; cost: number; bill: number; hours: number };
+export type TeamRow = {
+  id: number; role: string; name: string; grp: Group; loc: "on" | "off"; cost: number; bill: number; hours: number;
+  /** Rollout planning, all optional: older drafts have none of these and still load. FTE is hours / 160, never stored twice. */
+  start?: number; end?: number; kind?: PlanKind; section?: PlanSection; systems?: string[];
+};
+export const PLAN_KINDS = ["Core", "Flex"] as const;
+export type PlanKind = (typeof PLAN_KINDS)[number];
+export const PLAN_SECTIONS = ["Rollout", "Support"] as const;
+export type PlanSection = (typeof PLAN_SECTIONS)[number];
 export type RateRow = { id: number; label: string; cost: number; bill: number };
 /** The proposal's numbers by key; numbers, except the few keys listed in TEXT_KEYS. */
 export type Nums = Record<string, number | string>;
@@ -46,6 +55,8 @@ const NUM_KEYS = new Set(["today", "entities", "entityFee", "cityClubs", "cityFe
 export const NEW_ROW = { cost: 22, bill: 60 };
 export const NEW_RATE = { cost: 30, bill: 60 };
 const MAX_ROWS = 80;
+const MAX_MONTH = 60;
+const SYSTEM_ID = /^(sys|stay)\d{2}$/;
 const MAX_RATES = 30;
 
 /** Placeholder rates until the real rate card is supplied (README: open item). */
@@ -86,8 +97,26 @@ export function defaultTeams(): { implTeam: TeamRow[]; msTeam: TeamRow[] } {
   return { implTeam, msTeam };
 }
 
+/** The staff tab's first roster: the rollout and support team from the delivery plan, with each person's months, kind and systems. */
+export function seedTeams(): { implTeam: TeamRow[]; msTeam: TeamRow[] } {
+  const copy = (rows: TeamRow[]) => rows.map((r) => ({ ...r, systems: [...(r.systems ?? [])] }));
+  return { implTeam: copy(SEED_IMPL), msTeam: copy(SEED_MS) };
+}
+
 const num = (v: unknown, max: number): number | null => (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= max ? v : null);
 const text = (v: unknown, max: number) => String(v ?? "").slice(0, max);
+
+/** The planning fields of a row; each is kept only when valid, so a row without them stays as it was. */
+function cleanPlan(r: Record<string, unknown>): Partial<TeamRow> {
+  const out: Partial<TeamRow> = {};
+  const month = (v: unknown) => (typeof v === "number" && Number.isInteger(v) && v >= 1 && v <= MAX_MONTH ? v : null);
+  const start = month(r.start), end = month(r.end);
+  if (start !== null && end !== null && end >= start) { out.start = start; out.end = end; }
+  if ((PLAN_KINDS as readonly unknown[]).includes(r.kind)) out.kind = r.kind as PlanKind;
+  if ((PLAN_SECTIONS as readonly unknown[]).includes(r.section)) out.section = r.section as PlanSection;
+  if (Array.isArray(r.systems)) out.systems = [...new Set(r.systems.filter((x): x is string => typeof x === "string" && SYSTEM_ID.test(x)))].slice(0, 60);
+  return out;
+}
 
 function cleanTeam(list: unknown): TeamRow[] | null {
   if (!Array.isArray(list) || list.length > MAX_ROWS) return null;
@@ -96,7 +125,9 @@ function cleanTeam(list: unknown): TeamRow[] | null {
     const id = num(r?.id, 1e15), cost = num(r?.cost, 5000), bill = num(r?.bill, 5000), hours = num(r?.hours, 744);
     if (id === null || cost === null || bill === null || hours === null) return null;
     // a row with a group this page does not know lands in Platform & quality
-    team.push({ id, role: text(r.role, 80), name: text(r.name, 80), grp: isGroup(r.grp) ? r.grp : "platform", loc: r.loc === "on" ? "on" : "off", cost, bill, hours });
+    const row: TeamRow = { id, role: text(r.role, 80), name: text(r.name, 80), grp: isGroup(r.grp) ? r.grp : "platform", loc: r.loc === "on" ? "on" : "off", cost, bill, hours };
+    Object.assign(row, cleanPlan(r));
+    team.push(row);
   }
   return team;
 }
@@ -161,7 +192,7 @@ export async function getDraft(slug: string): Promise<TeamDraft | null> {
   const d = (await readProposalFile(slug + TEAM_DRAFT_SUFFIX)) as (Partial<TeamDraft> & { team?: OldRow[] }) | null;
   if (!d || typeof d !== "object") return null;
   const n = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : 0);
-  const fix = (t: TeamRow): TeamRow => ({ ...t, grp: isGroup(t.grp) ? t.grp : "platform", name: t.name ?? "", loc: t.loc === "on" ? "on" : "off", cost: n(t.cost), bill: n(t.bill), hours: n(t.hours) });
+  const fix = (t: TeamRow): TeamRow => ({ ...t, ...cleanPlan(t as unknown as Record<string, unknown>), grp: isGroup(t.grp) ? t.grp : "platform", name: t.name ?? "", loc: t.loc === "on" ? "on" : "off", cost: n(t.cost), bill: n(t.bill), hours: n(t.hours) });
   // every older draft lacked some of these: a missing list or figure becomes the default, never undefined
   const rates = Array.isArray(d.rates) ? d.rates : DEFAULT_RATE_CARD;
   const nums = migrateNums(d.nums);

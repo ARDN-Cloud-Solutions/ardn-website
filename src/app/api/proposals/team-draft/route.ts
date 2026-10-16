@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { isArdnStaff } from "@/content/proposals";
 import { getSession, logEvent } from "@/lib/proposals/server";
-import { cleanDraftInput, defaultTeams, DEFAULT_RATE_CARD, getDraft, getPub, NEW_RATE, NEW_ROW, saveDraft } from "@/lib/proposals/team";
+import { cleanDraftInput, DEFAULT_RATE_CARD, getDraft, getPub, NEW_RATE, NEW_ROW, saveDraft, seedTeams } from "@/lib/proposals/team";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   try {
     const [draft, pub] = await Promise.all([getDraft(slug), getPub(slug)]);
     return NextResponse.json(
-      { ok: true, draft, published: pub ? { at: pub.at, by: pub.by, hash: pub.hash } : null, defaults: { ...defaultTeams(), rates: DEFAULT_RATE_CARD, newRow: NEW_ROW, newRate: NEW_RATE } },
+      { ok: true, draft, published: pub ? { at: pub.at, by: pub.by, hash: pub.hash } : null, defaults: { ...seedTeams(), rates: DEFAULT_RATE_CARD, newRow: NEW_ROW, newRate: NEW_RATE } },
       { headers: { "Cache-Control": "no-store" } },
     );
   } catch (err) {

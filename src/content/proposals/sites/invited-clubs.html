@@ -1385,6 +1385,8 @@ renderSlot(slotOf('memberPeople'), [
 /* ---------- tabs, footer, keys, the drawer ---------- */
 const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
 const VIEWKEYS = [...TABS.map(t => t[0]), 'admin'];
+// views only staff get: the staff script adds its own, with a title and a function that paints it when it opens
+const STAFFV = ['admin'], VIEWTITLE = {admin: 'Team Admin'}, VIEWHOOK = {};
 // links from the earlier version of this page
 const ALIAS = {'full-proposal': 'detail', 'one-system': 'summary'};
 let canEdit = false;
@@ -1406,13 +1408,13 @@ function paintTabs() {
   $$('#tabs a').forEach(a => {
     const k = a.getAttribute('href').slice(1), lbl = $('.lbl', a).textContent;
     a.setAttribute('aria-label', lbl);
-    if (k === 'admin') return;
+    if (STAFFV.includes(k)) return;
     const on = tabOn(k);
     a.hidden = !canEdit && !on;
     a.classList.toggle('hid', canEdit && !on);
   });
   const cur = document.body.dataset.view;
-  if (cur && !canEdit && cur !== 'admin' && !tabOn(cur)) show('summary'); else if (cur) paintFoot(cur);
+  if (cur && !canEdit && !STAFFV.includes(cur) && !tabOn(cur)) show('summary'); else if (cur) paintFoot(cur);
   paintHome();
 }
 /* lucide icons, inline */
@@ -1461,7 +1463,7 @@ function paintHome() {
 $('#menuBtn').onclick = () => { const o = $('#px').classList.toggle('menuopen'); $('#menuBtn').setAttribute('aria-expanded', String(o)); };
 $('#tabs').addEventListener('click', e => { if (e.target.closest('a')) { $('#px').classList.remove('menuopen'); $('#menuBtn').setAttribute('aria-expanded', 'false'); } });
 function show(key) {
-  if (key === 'admin' && !canEdit) key = 'home';
+  if (STAFFV.includes(key) && !canEdit) key = 'home';
   if (!canEdit && !tabOn(key)) { key = 'summary'; if (location.hash && location.hash !== '#summary') history.replaceState(null, '', '#summary'); }
   $$('.view').forEach(v => { v.hidden = v.dataset.view !== key; });
   $$('#tabs a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + key ? 'page' : 'false'));
@@ -1472,6 +1474,7 @@ function show(key) {
   if (key === 'screens') paintShots();
   try { localStorage.setItem('ardn-invited-tab', key); } catch (e) {}
   if (key === 'admin') renderAdmin();
+  if (VIEWHOOK[key]) VIEWHOOK[key]();
   scrollTo(0, 0);
 }
 function route() {
@@ -1510,7 +1513,7 @@ const ACT = {
 /** Where the reader is, for a comment. */
 function whereNow() {
   const v = document.body.dataset.view, t = TABS.find(x => x[0] === v);
-  return t ? t[1] : v === 'admin' ? 'Team Admin' : '';
+  return t ? t[1] : VIEWTITLE[v] || '';
 }
 /* ---------- Screens: one app at a time, a page of thumbnails that fits the screen, and a viewer that steps through them ---------- */
 const SHOT_GROUPS = ["Highlights"];
