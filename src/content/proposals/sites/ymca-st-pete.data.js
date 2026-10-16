@@ -40,7 +40,7 @@ export const FATE = {
 
 /* The 24 capability rows from "YMCA of Greater St. Petersburg: what you use
  * today vs. Ardn" (15 October 2026), each carried forward with the Ardn side
- * re-checked against both codebases. `d1` marks Craig's Day 1 list. */
+ * re-checked against both codebases. `d1` marks the Y's Day 1 list. */
 export const SYS = [
   // ── Membership & Billing ──────────────────────────────────────────────
   ["Daxko Operations · membership", "Membership & Billing", "retire", true,
@@ -56,7 +56,7 @@ export const SYS = [
     "Club platform: waitlist 319 ln, membership-applications 902 ln. Online child registration absent in both."],
 
   ["Daxko Operations · reports", "Membership & Billing", "partial", true,
-    "Daxko reports plus Craig's Excel tracker for daily sales and joins against goal",
+    "Daxko reports plus the Y's own Excel tracker for daily sales and joins against goal",
     "Report builder, datasets and dashboards shipped on the Y product 2026-10-15 — plain-English report builder, 20 standard reports, filter-value pickers",
     "The daily sales-and-joins tracker is not built, and the Y has not yet named which 19 reports it needs.",
     "YMCA: reporting module + 16 commits of reporting work merged 2026-10-15."],
@@ -88,7 +88,7 @@ export const SYS = [
   // ── Childcare ─────────────────────────────────────────────────────────
   ["Daxko · Kid Zone child watch", "Childcare", "retire", false,
     "Check in and out, PIN pickup, time limits",
-    "Check-in is live on the Y product and Craig confirmed it works. Our Play Center (1,843 lines) is the richer version",
+    "Check-in is live on the Y product and the Y has confirmed it works. Our Play Center (1,843 lines) is the richer version",
     "",
     "YMCA: checkin module. Club platform: play-center 1,843 ln, self-check-in 178 ln."],
 
@@ -170,13 +170,13 @@ export const SYS = [
   ["Volgistics", "Operations & IT", "keep", false,
     "Volunteers, Level 2 screening, hours",
     "A volunteers module exists in both products",
-    "Craig has said this is not critical. Leave it alone; revisit after the Daxko work lands.",
+    "The Y has said this is not critical. Leave it alone; revisit after the Daxko work lands.",
     "Both products have volunteers."],
 
   ["Operate.Fit", "Operations & IT", "connect", false,
     "Facility contracts and incident reports that carry member data",
     "Our Assets (388 lines) and Issues (530 lines) cover the shape of this",
-    "Requirements are still pending from Carla. Nothing should be promised here until we have them.",
+    "Requirements are still pending from the Y. Nothing should be promised here until we have them.",
     "Club platform: assets 388 ln, issues 530 ln, club-conditions. Requirements outstanding."],
 
   ["Clarissa", "Operations & IT", "connect", false,
@@ -188,7 +188,7 @@ export const SYS = [
   ["Accrisoft · Wufoo · Planable", "Marketing & Web", "partial", false,
     "Public website, web forms, social posting",
     "Our Website CMS (3,456 lines) and Forms (4,742 lines) can take over the site and replace Wufoo outright",
-    "This is Susie's area and hers to call. Social posting stays where it is — posting belongs in each network's own tools.",
+    "This is the Y's call. Social posting stays where it is — posting belongs in each network's own tools.",
     "Club platform: website 3,456 ln, forms 4,742 ln. Wufoo is replaceable today; the site is a choice, not a need."],
 ];
 
