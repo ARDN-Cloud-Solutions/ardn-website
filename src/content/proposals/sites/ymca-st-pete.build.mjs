@@ -93,17 +93,17 @@ const brand = `
 .legend i{width:.75em;height:.75em;border-radius:2px}
 .legend b{color:var(--ink)}
 /* rollout plan: a label, a track, phase bars positioned by month */
-.pl{--cw:2.1em;display:flex;flex-direction:column;gap:.15em;min-width:0}
-.pl-head{display:grid;grid-template-columns:var(--lbl) 1fr;gap:.6em;align-items:end}
-.pl-ax{display:grid;grid-template-columns:repeat(var(--n),var(--cw))}
+.pl{display:flex;flex-direction:column;gap:.15em;min-width:0;width:100%}
+.pl-head{display:grid;grid-template-columns:var(--lbl) minmax(0,1fr);gap:.6em;align-items:end}
+.pl-ax{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
 .pl-mo{font-size:max(10px,.6em);font-weight:700;color:var(--muted);text-align:center;letter-spacing:.02em;line-height:1.15;padding-bottom:.25em}
 .pl-mo b{display:block;font-weight:400;font-size:.9em;color:var(--muted);opacity:.8}
 .pl-mo.apr{color:var(--alarm)}
-.pl-row{display:grid;grid-template-columns:var(--lbl) 1fr;gap:.6em;align-items:center;background:none;border:0;padding:.12em 0;font:inherit;text-align:left;cursor:pointer;border-radius:5px}
+.pl-row{display:grid;grid-template-columns:var(--lbl) minmax(0,1fr);gap:.6em;width:100%;align-items:center;background:none;border:0;padding:.12em 0;font:inherit;text-align:left;cursor:pointer;border-radius:5px}
 .pl-row:hover{background:rgba(var(--fgrgb),.05)}
 .pl-row.on{background:rgba(var(--bluergb),.1)}
 .pl-lbl{font-size:max(12px,.76em);font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
-.pl-area{position:relative;height:1.5em;width:calc(var(--cw) * var(--n));background:repeating-linear-gradient(90deg,rgba(var(--fgrgb),.07) 0 1px,transparent 1px var(--cw));border-radius:3px}
+.pl-area{position:relative;height:1.5em;width:100%;background:repeating-linear-gradient(90deg,rgba(var(--fgrgb),.07) 0 1px,transparent 1px calc(100% / var(--n)));border-radius:3px}
 .pl-seg{position:absolute;top:.3em;height:.9em;border-radius:3px}
 .pl-dia{position:absolute;top:.42em;width:.66em;height:.66em;background:var(--alarm);transform:translateX(-50%) rotate(45deg);border-radius:1px}
 .pl-apr{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed var(--alarm);pointer-events:none}
@@ -141,7 +141,7 @@ const NAV = [["home", "Home"], ["summary", "Executive Summary"], ["value", "Valu
 
 /* Commercials as quoted to Patricia. Every derived figure below is computed
    from these four, never typed twice, so the page cannot drift from the quote. */
-const PRICE = { impl: 9500, implStdLo: 45000, implStdHi: 55000, mo: 9000, integrations: 4, integrationEach: 45000, termMonths: 36, cpiCap: 0.04 };
+const PRICE = { impl: 9500, implStdLo: 45000, implStdHi: 55000, mo: 11000, integrations: 4, integrationEach: 45000, termMonths: 36, cpiCap: 0.04 };
 const yr1Run = PRICE.mo * 12;
 const yearOne = PRICE.impl + yr1Run;
 const termFlat = PRICE.impl + PRICE.mo * PRICE.termMonths;
@@ -306,9 +306,9 @@ const planRows = PLAN.map((x) => {
   const segs = Object.entries(PL_PH).map(([k, [, col]]) => {
     const r = x.phases[k]; if (!r) return "";
     const par = k === "parallel";
-    return `<div class="pl-seg" title="${esc(x.n)} — ${esc(PL_PH[k][0])}: ${esc(plMonth(r[0]))}${r[1] > r[0] ? " to " + esc(plMonth(r[1])) : ""}" style="left:calc(var(--cw) * ${r[0] - 1});width:calc(var(--cw) * ${r[1] - r[0] + 1});${par ? `top:60%;height:.45em;background:repeating-linear-gradient(45deg,${col} 0 3px,transparent 3px 6px);border:1px solid ${col};` : `background:${col};`}"></div>`;
+    return `<div class="pl-seg" title="${esc(x.n)} — ${esc(PL_PH[k][0])}: ${esc(plMonth(r[0]))}${r[1] > r[0] ? " to " + esc(plMonth(r[1])) : ""}" style="left:${(((r[0] - 1) / PL_END) * 100).toFixed(3)}%;width:${(((r[1] - r[0] + 1) / PL_END) * 100).toFixed(3)}%;${par ? `top:60%;height:.45em;background:repeating-linear-gradient(45deg,${col} 0 3px,transparent 3px 6px);border:1px solid ${col};` : `background:${col};`}"></div>`;
   }).join("");
-  const ret = x.retire ? `<div class="pl-dia" title="${esc(x.ends)} retires — ${esc(plMonth(x.retire))}" style="left:calc(var(--cw) * ${x.retire - 1} + var(--cw) / 2);"></div>` : "";
+  const ret = x.retire ? `<div class="pl-dia" title="${esc(x.ends)} retires — ${esc(plMonth(x.retire))}" style="left:${(((x.retire - 0.5) / PL_END) * 100).toFixed(3)}%;"></div>` : "";
   return `<button type="button" class="pl-row${x.crit ? " crit" : ""}" data-plan="${esc(x.n)}"><span class="pl-lbl">${x.risk ? '<i class="pl-risk" title="Carries risk against the cutover">!</i>' : ""}${esc(x.n)}</span><span class="pl-area">${segs}${ret}</span></button>`;
 }).join("");
 
@@ -437,7 +437,7 @@ ${view("value", scr("02", "Value", `
   <div style="flex:1 1 27em;max-width:42em;">
     <div class="eyeb" style="margin-bottom:.4em;">Value and Pricing</div>
     <h1 class="ttl">${usd(PRICE.impl)} to build it. ${usd(PRICE.mo)} a month to run it.</h1>
-    <p class="sub">About ${usdK(valueHi)} of build and integration work is included at no cost, as part of the partnership.</p>
+    <p class="sub">About ${usdK(valueStated)} of build and integration work is included at no cost, as part of the partnership.</p>
   </div>
   <div class="strip">
     <div><b>${usd(PRICE.impl)}</b><span>one-time build</span></div>
@@ -503,7 +503,7 @@ ${view("plan", scr("03", "Plan", `
 </div>
 
 <section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.8em 1em;display:flex;flex-direction:column;gap:.5em;min-height:0;overflow:auto;">
-  <div class="pl" style="--n:${PL_END};--lbl:14em;min-width:42em;">
+  <div class="pl" style="--n:${PL_END};--lbl:min(14em,22%);min-width:36em;">
     <div class="pl-head"><div></div><div class="pl-ax">${planAxis}</div></div>
     ${planRows}
   </div>
