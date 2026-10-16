@@ -250,11 +250,14 @@ const CMP = [
 const PL_M1 = { y: 2026, m: 10 }; // Nov 2026, zero-indexed month
 const PL_PH = { design: ["Design", "#7A86A8"], build: ["Build", "#0071CE"], test: ["Test", "#00748F"], deploy: ["Deploy", "#00874A"], parallel: ["Parallel run", "#8A94B8"] };
 const PLAN = [
+  { n: "Licensed childcare and preschool", lane: "Childcare", retire: 9, ends: "Daxko Attendance Tracker", crit: true, risk: true,
+    note: "Started first, because the Y leaves all of Daxko in July and this is the only part with nothing to build on. Ratios, incidents, health records, ELC reimbursement and parent sign in and out. The build window is five months rather than the eight it would take unpressured, and that compression is the single largest risk in the programme.",
+    phases: { design: [1, 2], build: [2, 6], test: [6, 7], deploy: [7, 7], parallel: [7, 9] } },
   { n: "Contracts and e-signature", lane: "Operations & IT", retire: 6, ends: "DocuSign", crit: true,
     note: "The first fixed date. A port of our contracts module, plus the state's own PDF field-filling.",
     phases: { design: [1, 1], build: [2, 3], test: [4, 4], deploy: [5, 5], parallel: [5, 6] } },
 
-  { n: "Membership, billing, check-in", lane: "Membership & Billing", retire: 9, ends: "Daxko Operations", crit: true,
+  { n: "Membership, billing, check-in", lane: "Membership & Billing", retire: 9, ends: "Daxko", crit: true,
     note: "Live in both products today, so this is configuration for the Y rather than a build. It has to be signed off before the June cutover.",
     phases: { design: [1, 2], build: [2, 4], test: [4, 5], deploy: [5, 6], parallel: [6, 8] } },
   { n: "Kid Zone child watch", lane: "Childcare", retire: 0, ends: "",
@@ -278,8 +281,8 @@ const PLAN = [
   { n: "Member mobile app", lane: "Membership & Billing", retire: 9, ends: "Daxko app",
     note: "Our installable app with push and a wallet card. Goes when Daxko Operations goes, so members are never without one.",
     phases: { design: [4, 4], build: [5, 6], test: [7, 7], deploy: [7, 7], parallel: [8, 9] } },
-  { n: "Migration off Daxko", lane: "Membership & Billing", retire: 9, ends: "Daxko Operations", crit: true,
-    note: "Members, families, barcodes and history. Design cannot start until the NDA and export access exist, which is why those are the first things we ask for. Stored cards move processor to processor and never pass through us. Cutover is end of June; the Y runs parallel for a month either side.",
+  { n: "Migration off Daxko", lane: "Membership & Billing", retire: 9, ends: "Daxko, in full", crit: true,
+    note: "Members, families, barcodes, childcare records and history. Design cannot start until the NDA and export access exist, which is why those are the first things we ask for. Stored cards move processor to processor and never pass through us. Cutover is end of June; the Y runs parallel for a month either side.",
     phases: { design: [2, 3], build: [4, 6], test: [6, 7], deploy: [8, 8], parallel: [7, 9] } },
 
   { n: "Appointments and tours", lane: "Programs & Camp", retire: 10, ends: "Appointment King",
@@ -292,9 +295,6 @@ const PLAN = [
     note: "Five shipped survey types and a 644-line test suite. Public survey links for non-members.",
     phases: { design: [8, 8], build: [9, 10], test: [10, 10], deploy: [11, 11], parallel: [11, 11] } },
 
-  { n: "Licensed childcare and preschool", lane: "Childcare", retire: 15, ends: "Daxko Attendance Tracker", crit: true,
-    note: "The longest build, and the one thing that cannot be compressed into the June cutover. Ratios, incidents, health records and ELC reimbursement. This is why the Attendance Tracker contract is treated separately from Daxko Operations.",
-    phases: { design: [2, 4], build: [4, 11], test: [11, 12], deploy: [12, 13], parallel: [13, 15] } },
 ];
 const PL_END = Math.max(...PLAN.map((x) => Math.max(x.retire || 0, ...Object.values(x.phases).map((r) => r[1]))));
 const plMonth = (m) => new Date(PL_M1.y, PL_M1.m + m - 1, 1).toLocaleString("en-US", { month: "short", year: "numeric" });
@@ -489,7 +489,7 @@ ${view("value", scr("02", "Value", `
 ${view("plan", scr("03", "Plan", `
 <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 2em;">
   <div style="flex:1 1 26em;"><div class="eyeb" style="margin-bottom:.35em;">Rollout Plan</div>
-  <h1 class="ttl" style="font-size:1.75em;">Two fixed dates: DocuSign in April, off Daxko Operations by the end of June</h1></div>
+  <h1 class="ttl" style="font-size:1.75em;">Two fixed dates: DocuSign in April, off Daxko entirely by the end of June</h1></div>
   <div class="strip" style="grid-template-columns:repeat(3,auto);">
     <div><b>6</b><span>months to DocuSign</span></div>
     <div><b>8</b><span>months to the Daxko cutover</span></div>
@@ -498,8 +498,8 @@ ${view("plan", scr("03", "Plan", `
 </section>
 
 <div style="display:flex;flex-wrap:wrap;gap:.6em;">
-  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Two dates are fixed, and neither is ours.</b> DocuSign ends end of April 2027 (month 6). The Y comes off <b>Daxko Operations end of June, beginning of July 2027</b> (month 8). Everything before each one is sized to clear it, and nothing is switched off until its parallel run has finished.</div>
-  <div class="note" style="flex:1 1 22em;border-left-color:var(--brass);background:rgba(var(--bluergb),.07);"><b>The June date is what makes this tight.</b> Leaving Daxko Operations means everything it does must be live first &mdash; including online program registration, which is a gap today, and the sex-offender registry feed, which has to be bought. Those two are the risk in this plan, and they are marked on the chart.</div>
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Two dates are fixed, and neither is ours.</b> DocuSign ends end of April 2027 (month 6). The Y comes off <b>Daxko entirely &mdash; end of June, beginning of July 2027</b> (month 8). Everything before each one is sized to clear it, and nothing is switched off until its parallel run has finished.</div>
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Licensed childcare is started first, and it is the risk.</b> Leaving all of Daxko means the childcare build cannot wait its turn: it is the one capability with nothing to build on, so it begins in month one and gets a <b>five-month build rather than eight</b>. That compression is the largest risk here, and we would rather name it now than discover it in May.</div>
 </div>
 
 <section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.8em 1em;display:flex;flex-direction:column;gap:.5em;min-height:0;overflow:auto;">
@@ -587,7 +587,7 @@ ${view("detail", scr("04", "Detail", `
 
 <div data-dch="gaps" style="display:contents">
 <section class="grid" style="flex:1;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));align-content:center;">
-  <div class="card" style="border-color:rgba(var(--alarmrgb),.4);"><div class="ch" style="color:var(--alarm);">Gap · Day 1</div><div class="cb">Licensed childcare and preschool</div><p>Parent sign in and out, staff-to-child ratios, incidents, health records, ELC reimbursement. <b style="color:var(--ink)">Zero matches in either product</b> — we checked each concept by name. Largest build; critical path to closing Daxko.</p></div>
+  <div class="card" style="border-color:rgba(var(--alarmrgb),.4);"><div class="ch" style="color:var(--alarm);">Gap · Day 1</div><div class="cb">Licensed childcare and preschool</div><p>Parent sign in and out, staff-to-child ratios, incidents, health records, ELC reimbursement. <b style="color:var(--ink)">Zero matches in either product</b> — we checked each concept by name. Largest build, started first, and the July Daxko exit rests on it. Five months of build rather than eight.</p></div>
   <div class="card" style="border-color:rgba(var(--alarmrgb),.4);"><div class="ch" style="color:var(--alarm);">Gap · Day 1</div><div class="cb">Migration off Daxko</div><p>Members, families, barcodes, stored cards, history. No import tooling exists; it needs Daxko export access and an NDA before it can be designed. Cards move processor-to-processor, never through us.</p></div>
   <div class="card"><div class="ch" style="color:var(--sand);">Partial · Day 1</div><div class="cb">Online program and camp registration</div><p>Programs and Classes work. A parent cannot yet register a child online, early-bird is not charged, and waivers are not enforced.</p></div>
   <div class="card"><div class="ch" style="color:var(--slate);">Not Day 1</div><div class="cb">Sports leagues</div><p>TeamSideline cannot integrate and nothing covers leagues. Run it alongside for one season and build against a real league in flight.</p></div>
