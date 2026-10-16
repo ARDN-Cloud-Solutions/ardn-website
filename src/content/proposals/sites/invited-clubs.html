@@ -1,4 +1,5 @@
 <title>Club Steward for Invited</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of its systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,9 +49,6 @@ button{font:inherit;color:inherit}
 .views{flex:1;display:flex;flex-direction:column;min-height:0}
 .view{flex:1;display:flex;flex-direction:column;min-height:0}
 .view[hidden],[data-show][hidden],[data-dch][hidden]{display:none!important}
-.view:not([hidden]){animation:viewIn .3s var(--out) both}
-@keyframes viewIn{from{opacity:0}to{opacity:1}}
-@media (prefers-reduced-motion:reduce){.view:not([hidden]){animation:none}}
 
 /* sidebar: always icons; it opens over the page on hover or keyboard focus and the page never moves (its grid column is fixed). */
 .px{display:grid;grid-template-columns:var(--sidew) minmax(0,1fr)}
@@ -87,22 +85,6 @@ button{font:inherit;color:inherit}
 /* home: one card per tab */
 .cta{background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--ink);border-radius:999px;padding:.5em 1.1em;font-weight:700;text-decoration:none}
 .px a.cta:hover{color:var(--ink);background:rgba(169,180,255,.26);text-decoration:none}
-.homecards{flex:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:13em;gap:1em}
-.hc{display:flex;flex-direction:column;gap:.5em;justify-content:center;padding:1em 1.3em;background:var(--deep);border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none}
-.px a.hc:hover{border-color:rgba(169,180,255,.7);background:var(--raise);color:var(--ink);text-decoration:none}
-.hc.hid{border-style:dashed;border-color:rgba(var(--goldrgb),.6)}
-.hci{width:2.6em;height:2.6em;border-radius:10px;background:rgba(169,180,255,.12);color:var(--brass);display:grid;place-items:center}
-.hci svg{width:1.4em;height:1.4em}
-.hcn{font-family:var(--serif);font-weight:500;font-size:1.4em;line-height:1.15}
-.hcl{color:var(--soft)}
-.hct{font-size:max(14px,.86em);color:var(--brass)}
-.homecards{min-height:0}
-.homecards.dense{flex:1;grid-auto-rows:minmax(0,1fr);gap:.7em}
-.homecards.dense .hc{display:grid;grid-template-columns:auto 1fr;column-gap:.9em;row-gap:0;align-content:center;padding:.5em 1em}
-.homecards.dense .hci{grid-row:span 3;width:2.2em;height:2.2em}
-.homecards.dense .hcn{font-size:1.2em}
-@media (max-width:900px){.homecards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.homecards{grid-template-columns:1fr}}
 
 /* footer: previous, where you are, next. Room on the right for the floating comments button. */
 .pxfoot{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.4em 1.8em;border-top:1px solid rgba(238,242,255,.1);font-size:.86em;color:var(--muted)}
@@ -214,9 +196,7 @@ body.noflags .flag{display:none}
 }
 
 /* cards: white on paper with a very soft shadow */
-.view:not(#v-admin) [style*="background:var(--deep)"],.hc{box-shadow:var(--shadow)}
-.hc{border-color:var(--cardline)}
-.px a.hc:hover{background:var(--deep);border-color:rgba(var(--goldrgb),.7);box-shadow:0 2px 4px rgba(28,32,69,.08),0 8px 24px rgba(28,32,69,.08)}
+.view:not(#v-admin) [style*="background:var(--deep)"]{box-shadow:var(--shadow)}
 .hci{background:rgba(var(--goldrgb),.12)}
 .cta{background:rgba(var(--goldrgb),.1);border:1px solid rgba(var(--goldrgb),.45);color:var(--ink)}
 .px a.cta:hover{background:rgba(var(--goldrgb),.18);color:var(--ink)}
@@ -333,6 +313,100 @@ body.noflags .flag{display:none}
 .chtip td+td{white-space:nowrap}
 .chtip[hidden]{display:none!important}
 [data-tip]:focus-visible,[data-scrub]:focus-visible{outline:2px solid #4B3FD8;outline-offset:2px}
+
+/* ===== The Course Card: cinematic Home (always the dark blue-hour scene, in light and dark) ===== */
+.hs{--hs-contour:#A9B4FF;--hs-ink:#F3F5FF;--hs-soft:#C9CEE3;--hs-muted:#A3ABD6;--hs-glass:rgba(14,19,52,.62);--hs-glassline:rgba(169,180,255,.22);
+  position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:.8em;padding:clamp(1.2em,3.2vh,2.6em) clamp(1.2em,3.2vw,3em) clamp(.9em,2.4vh,1.6em);color:var(--hs-ink);background:#0A0F2C;isolation:isolate}
+.hs-scene{position:absolute;inset:0;z-index:-1;overflow:hidden;--px:0;--py:0}
+.hs-scene svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hs-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,44,.85),transparent 55%),radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(10,15,44,.55))}
+.hs-scene .hs-l1{transform:translate3d(calc(var(--px)*4px),calc(var(--py)*2px),0)}
+.hs-scene .hs-l2{transform:translate3d(calc(var(--px)*8px),calc(var(--py)*4px),0)}
+.hs-scene .hs-l3{transform:translate3d(calc(var(--px)*12px),calc(var(--py)*6px),0)}
+.hs-flag{transform-box:fill-box;transform-origin:50% 100%}
+.hs-cloth{transform-box:fill-box;transform-origin:0 50%}
+.hs-hero{max-width:40em;display:flex;flex-direction:column;gap:.7em;min-height:0}
+.hs-eyebrow{font-size:max(14px,.8em);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--hs-muted)}
+.hs h1{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(2.4em,4.2vw,3.6em);line-height:1.05;color:var(--hs-ink)}
+.hs-sub{margin:0;color:var(--hs-soft);font-size:1.05em;max-width:32em}
+.hs-fig{margin:.4em 0 .2em;display:flex;gap:clamp(1em,2.6vw,2.6em);flex-wrap:wrap}
+.hs-fig>div{display:flex;flex-direction:column-reverse}
+.hs-fig dd{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(1.8em,2.6vw,2.4em);line-height:1.05;color:var(--hs-ink)}
+.hs-fig dt{font-size:max(14px,.86em);color:var(--hs-muted);font-weight:600}
+.px a.hs-cta{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;margin-top:.3em;background:#E6EAFB;border:1px solid #E6EAFB;color:#1C2045;padding:.6em 1.4em;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s var(--out),background .2s}
+.px a.hs-cta:hover{background:#fff;color:#1C2045;transform:translateY(-2px)}
+.hs-hold{position:absolute;right:clamp(1.2em,3.2vw,3em);top:clamp(1.2em,3.2vh,2.6em);font-size:max(14px,.86em);color:var(--hs-muted);font-weight:600}
+.hs :focus-visible{outline:2px solid #E6EAFB;outline-offset:3px}
+.hs-card{flex:none;background:var(--hs-glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--hs-glassline);border-radius:14px;padding:.8em}
+.hs-holes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,6),minmax(0,1fr));gap:.7em;grid-auto-flow:dense}
+.hs-hole{position:relative;display:grid;grid-template-columns:auto 1fr;column-gap:.5em;row-gap:.1em;align-content:start;padding:.7em .8em;border:1px solid var(--hs-glassline);border-radius:10px;min-width:0;transition:transform .25s var(--out),border-color .2s,background .2s}
+.hs-hole.wide{grid-column:span 2}
+.hs-hole.hid{border-style:dashed;border-color:rgba(169,180,255,.5)}
+.hs-hole:hover,.hs-hole:focus-within{transform:translateY(-3px);border-color:rgba(230,234,251,.8);background:rgba(169,180,255,.1)}
+.hs-link{position:absolute;inset:0;z-index:1;border-radius:10px}
+.px a.hs-link:hover{text-decoration:none}
+.hs-no{align-self:center;width:1.7em;height:1.7em;border-radius:50%;border:1px solid var(--hs-contour);display:grid;place-items:center;font-family:var(--serif);font-weight:500;color:var(--hs-ink);font-size:1.1em}
+.hs-pinless{border:0;width:.2em}
+.hs-name{font-family:var(--serif);font-weight:500;font-size:1.1em;line-height:1.15;color:var(--hs-ink)}
+.hs-line,.hs-figure{grid-column:1/-1}
+.hs-name{align-self:center;min-width:0;overflow-wrap:break-word;font-size:1em}
+.hs-line{margin-top:.4em;font-size:max(14px,.86em);color:var(--hs-soft);line-height:1.3}
+.hs-figure{font-size:max(14px,.86em);font-weight:700;color:#C9D0FF}
+.hs-chip{grid-column:1/-1;justify-self:start;margin-top:.2em;font-size:max(14px,.8em);font-weight:700;color:var(--hs-ink);border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .6em}
+.hs-thumb{order:9;grid-column:1/-1;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin-top:.5em;min-height:0;max-height:5.5em}
+.hs-play{order:10;position:relative;z-index:2;grid-column:1/-1;justify-self:start;margin-top:.4em;min-height:44px;background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--hs-ink);border-radius:999px;padding:0 1em;font-weight:700}
+.hs-holes.dense .hs-line{display:none}
+.hs-holes.dense .hs-thumb,.hs-holes.dense .hs-play{display:none}
+.hs-holes.dense .hs-hole{padding:.5em .7em}
+@media (max-width:760px){
+  .hs{padding:1.2em 1em;justify-content:flex-start;gap:1.2em}
+  .hs-hero{min-height:72svh;justify-content:flex-end}
+  .hs-fig{flex-wrap:nowrap;gap:.8em}.hs-fig dd{font-size:1.5em}
+  .px a.hs-cta{align-self:stretch;justify-content:center}
+  .hs-hold{position:static}
+  .hs-holes,.hs-holes.dense{grid-template-columns:1fr}
+  .hs-hole.wide{grid-column:auto}
+  .hs-holes.dense .hs-line{display:block}
+  .hs-thumb,.hs-holes.dense .hs-thumb{display:block;width:96px;grid-column:1;grid-row:1/span 5;max-height:none}
+  .hs-hole.wide{grid-template-columns:auto 1fr auto}
+  .hs-holes.dense .hs-play{display:inline-flex;align-items:center}
+}
+
+/* intro: once per session, transform and opacity only */
+@keyframes hsFade{from{opacity:0}to{opacity:1}}
+@keyframes hsRise{from{opacity:0;transform:translate3d(0,12px,0)}to{opacity:1;transform:none}}
+@keyframes hsSway{0%,100%{transform:skewY(-2deg)}50%{transform:skewY(2deg)}}
+.hs-intro .hs-sky{animation:hsFade .6s ease both}
+.hs-intro .hs-row{animation:hsRise .6s var(--out) both;animation-delay:calc(var(--i)*18ms)}
+.hs-intro .hs-flag{animation:hsRise .5s var(--out) .6s both}
+.hs-intro #hsTitle,.hs-intro .hs-eyebrow{animation:hsRise .5s var(--out) .5s both}
+.hs-intro .hs-sub,.hs-intro .hs-cta{animation:hsRise .5s var(--out) .65s both}
+.hs-intro .hs-fig>div{animation:hsRise .5s var(--out) both;animation-delay:calc(.75s + var(--n,0)*60ms)}
+.hs-intro .hs-hole{animation:hsRise .5s var(--out) both;animation-delay:calc(.9s + var(--h)*50ms)}
+.hs-intro .hs-hold{animation:hsFade .5s ease 1s both}
+.view:not([hidden]) .hs-cloth{animation:hsSway 6s ease-in-out infinite}
+@media (max-width:760px){.hs-intro .hs-hole{animation-delay:calc(.2s + var(--h)*30ms)}.hs-intro .hs-flag{animation-delay:.2s}.hs-intro #hsTitle,.hs-intro .hs-eyebrow{animation-delay:.15s}.hs-intro .hs-fig>div{animation-delay:.3s}}
+
+/* site-wide: a push between tabs, blocks that rise in once, contours in the margins, the footer track */
+.views{position:relative;overflow-x:clip}
+#hsLayer{position:absolute;top:0;bottom:0;left:-15%;width:130%;pointer-events:none;z-index:0;opacity:.06;-webkit-mask-image:radial-gradient(ellipse 45% 70% at 50% 50%,transparent 55%,#000 100%);mask-image:radial-gradient(ellipse 45% 70% at 50% 50%,transparent 55%,#000 100%);transform:translate3d(calc(var(--hole,0)*-3%),0,0);transition:transform .6s var(--out)}
+#hsLayer svg{width:100%;height:100%;display:block}
+.view{position:relative;z-index:1}
+@keyframes push{from{opacity:0;transform:translate3d(calc(var(--dir,1)*28px),0,0) scale(.985)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+.view:not([hidden]).rv:not(#v-home){animation:push .48s var(--out) both}
+.view.rv [data-r]{animation:rise .5s var(--out) both;animation-delay:calc(var(--r)*70ms + 120ms)}
+.view h1:focus{outline:none}
+[data-hole]::before{content:attr(data-hole);display:inline-block;margin-right:.7em;padding:0 .6em;border:1px solid currentColor;border-radius:999px;font-size:max(14px,1em);letter-spacing:.06em;vertical-align:baseline}
+#fPos{display:inline-flex;align-items:center;gap:.9em;color:var(--soft)}
+.trk{position:relative;display:inline-block;width:clamp(5em,14vw,11em);height:1.2em}
+.trk:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line2)}
+.trk-dots{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center}
+.trk-dots b{width:6px;height:6px;border-radius:50%;background:var(--line2)}
+.trk-dots b.on{background:var(--brass)}
+.trk-pin{position:absolute;left:0;top:-.1em;width:14px;height:1.3em;margin-left:-3px;transform:translateX(calc(var(--p,0)*(clamp(5em,14vw,11em) - 8px)));transition:transform .4s var(--out),opacity .2s;background:linear-gradient(var(--brass),var(--brass)) 3px 0/1.5px 100% no-repeat}
+.trk-pin:after{content:"";position:absolute;left:4.5px;top:0;border-left:9px solid var(--gold);border-top:4px solid transparent;border-bottom:4px solid transparent}
+@media (prefers-reduced-motion:reduce){.px *,.px *:before,.px *:after{animation:none!important;transition:none!important}}
 .xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
 .xh1:hover{color:#F08A6C;}
 .xh2:hover{border-color:var(--ink);}
@@ -349,7 +423,7 @@ body.noflags .flag{display:none}
 <div class="col">
 <div class="views">
 <div class="view" id="v-home" data-view="home" data-tab="home" hidden>
-<main data-screen-label="01 Home" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:2em;padding:1.2em 1.8em;"><section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1em 2em;"><div><div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Proposal</div><h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;">Club Steward, Prepared for Invited</h1><p style="margin:.5em 0 0;color:var(--soft);font-size:1.05em;line-height:1.45;">One club platform, built, run and supported by Ardn.</p></div><a class="cta" href="#summary">Start With the Executive Summary →</a></section><section id="homeCards" class="homecards"></section></main>
+<main class="hs" data-screen-label="01 Home"><div class="hs-scene" aria-hidden="true" id="hsScene"></div><section class="hs-hero"><div class="hs-eyebrow">Club Steward · Prepared for Invited Clubs</div><h1 id="hsTitle">Club Steward for Invited</h1><p class="hs-sub">Built, run, tested and supported by Ardn. City clubs first, then golf and country.</p><dl class="hs-fig" id="hsFig"></dl><a class="cta hs-cta" href="#summary">Begin With the Executive Summary →</a></section><div class="hs-hold" id="hsHold"></div><nav class="hs-card" aria-label="Proposal, in Reading Order"><ol id="homeCards" class="hs-holes"></ol></nav></main>
 </div>
 <div class="view" id="v-summary" data-view="summary" data-tab="summary" hidden>
 <main data-screen-label="01 Summary" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:.9em;padding:.7em 1.8em;">
@@ -1048,6 +1122,7 @@ const NUMS = [
     ['spRet3', 'Shared systems retiring the month after that, weight', 'raw', 22.5],
     ['oracleOff', 'Oracle off, and the run fee steps down, from month', 'int', 28],
     ['spLedger', 'Ledger switch month (a marker on the chart)', 'int', 22],
+    ['spStart', 'Month 1 is (year and month, such as 202701 for January 2027); every calendar label follows it', 'raw', 202701],
     ['spCity1', 'City clubs live in the first go-live month', 'int', 1],
     ['spCity2', 'City clubs live the month after (the rest follow the month after that)', 'int', 8],
     ['spGolf1', 'Golf clubs live, month after the first go-live', 'int', 1],
@@ -1609,7 +1684,7 @@ function paintFoot(key) {
   prev.textContent = i > 0 ? '← ' + nav[i - 1][1] : ''; next.textContent = i >= 0 && i < nav.length - 1 ? nav[i + 1][1] + ' →' : '';
   prev.onclick = () => { location.hash = nav[i - 1][0]; }; next.onclick = () => { location.hash = nav[i + 1][0]; };
   const shown = nav.filter(t => tabOn(t[0]) && !STAFFV.includes(t[0]));
-  $('#fPos').textContent = i < 0 || STAFFV.includes(key) ? 'Ardn Staff' : on ? `${shown.findIndex(t => t[0] === key) + 1} of ${shown.length}` : 'Hidden From Invited';
+  paintTrack(key);
   $('#fPos').style.color = i >= 0 && !on ? 'var(--brass)' : '';
 }
 function paintTabs() {
@@ -1623,7 +1698,7 @@ function paintTabs() {
   });
   const cur = document.body.dataset.view;
   if (cur && !canEdit && !STAFFV.includes(cur) && !tabOn(cur)) show('summary'); else if (cur) paintFoot(cur);
-  paintHome();
+  paintHome(); paintHoles();
 }
 /* lucide icons, inline */
 const ICONS = {
@@ -1658,21 +1733,13 @@ const TAB_INFO = {
   org: 'How Ardn and Invited work together',
   detail: 'Systems, testing and rollout in depth',
 };
-function paintHome() {
-  const box = $('#homeCards'); if (!box) return;
-  box.innerHTML = navTabs().filter(t => TAB_INFO[t[0]]).map(([k, name]) => {
-    const line = typeof TAB_INFO[k] === 'function' ? TAB_INFO[k]() : TAB_INFO[k], hid = !tabOn(k);
-    return `<a class="hc${hid ? ' hid' : ''}" href="#${k}"><span class="hci">${icon(k)}</span><span class="hcn">${esc(name)}</span><span class="hcl">${esc(line)}</span>${hid ? '<span class="hct">Hidden From Invited</span>' : ''}</a>`;
-  }).join('');
-  box.dataset.n = String(box.children.length); box.classList.toggle('dense', box.children.length > 6);
-}
-
 /* the sidebar is icons only and opens over the page on hover or focus (CSS); nothing here remembers a choice */
 $('#menuBtn').onclick = () => { const o = $('#px').classList.toggle('menuopen'); $('#menuBtn').setAttribute('aria-expanded', String(o)); };
 $('#tabs').addEventListener('click', e => { if (e.target.closest('a')) { $('#px').classList.remove('menuopen'); $('#menuBtn').setAttribute('aria-expanded', 'false'); } });
 function show(key) {
   if (STAFFV.includes(key) && !canEdit) key = 'home';
   if (!canEdit && !tabOn(key)) { key = 'summary'; if (location.hash && location.hash !== '#summary') history.replaceState(null, '', '#summary'); }
+  const prevKey = document.body.dataset.view || 'home';
   $$('.view').forEach(v => { v.hidden = v.dataset.view !== key; });
   $$('#tabs a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + key ? 'page' : 'false'));
   document.body.dataset.view = key;
@@ -1683,6 +1750,7 @@ function show(key) {
   try { localStorage.setItem('ardn-invited-tab', key); } catch (e) {}
   if (key === 'admin') renderAdmin();
   if (VIEWHOOK[key]) VIEWHOOK[key]();
+  viewMotion(key, prevKey); viewFocus(key);
   scrollTo(0, 0);
 }
 function route() {
@@ -1862,8 +1930,9 @@ $('#thFull').onclick = e => {
 $('#theatre').addEventListener('click', e => { if (!e.target.closest('#thBox, .thnav')) closeTheatre(); });
 paintVids();
 /* ---------- Value tab: Invited's monthly spend. Every figure is worked out here from the proposal numbers (NV); nothing is typed in. ---------- */
-const SPEND_START = {year: 2027, month: 0}; // month 1 is January 2027
-const spCal = m => { const d = new Date(SPEND_START.year, SPEND_START.month + m - 1, 1); return {mon: d.toLocaleString('en-US', {month: 'short'}), full: d.toLocaleString('en-US', {month: 'long'}), year: d.getFullYear()}; };
+// Month 1 is a staff input (Month 1 Is, as YYYYMM); a value that is not a real month falls back to January 2027
+const spStartOf = () => { const v = Math.round((typeof NV !== 'undefined' && NV && NV.spStart) || 202701), y = Math.floor(v / 100), m = v % 100; return y >= 2000 && y <= 2100 && m >= 1 && m <= 12 ? {year: y, month: m - 1} : {year: 2027, month: 0}; };
+const spCal = m => { const s = spStartOf(), d = new Date(s.year, s.month + m - 1, 1); return {mon: d.toLocaleString('en-US', {month: 'short'}), full: d.toLocaleString('en-US', {month: 'long'}), year: d.getFullYear()}; };
 const spLabel = m => spCal(m).mon + ' ' + spCal(m).year;
 const spK = v => v >= 1e6 ? '$' + trimZeros((v / 1e6).toFixed(1)) + 'M' : '$' + Math.round(v / 1e3) + 'k';
 const spM = v => '$' + trimZeros((v / 1e6).toFixed(1)) + 'M';
@@ -2078,6 +2147,136 @@ document.addEventListener('DOMContentLoaded', () => {
   paintTabs();
   route();
 });
+/* ---------- The Course Card: the cinematic Home and the layer that carries across the site ----------
+   One idea: a blue-hour course drawn in contour lines with one flagstick. Home is the tee, each tab a hole. All money and counts come from V (derive()). */
+const hsRand = seed => { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; };
+const hsLerp = (a, b, t) => a + (b - a) * t;
+// Catmull-Rom through the points, as cubic Beziers
+function hsSmooth(p) {
+  let d = `M${p[0][0].toFixed(1)} ${p[0][1].toFixed(1)}`;
+  for (let i = 0; i < p.length - 1; i++) {
+    const a = p[i - 1] || p[i], b = p[i], c = p[i + 1], e = p[i + 2] || c;
+    d += `C${(b[0] + (c[0] - a[0]) / 6).toFixed(1)} ${(b[1] + (c[1] - a[1]) / 6).toFixed(1)} ${(c[0] - (e[0] - b[0]) / 6).toFixed(1)} ${(c[1] - (e[1] - b[1]) / 6).toFixed(1)} ${c[0].toFixed(1)} ${c[1].toFixed(1)}`;
+  }
+  return d;
+}
+// seeded and deterministic: the same lines on every load. flat mode spreads them over the whole page for the site-wide margin texture.
+function hsContours(flat) {
+  const rows = flat ? 22 : 26, rnd = hsRand(flat ? 7 : 2027), out = [];
+  for (let i = 0; i < rows; i++) {
+    const t = i / (rows - 1), y0 = flat ? 40 + t * 820 : 560 + 340 * Math.pow(t, 1.8), amp = hsLerp(6, 26, t), phi = rnd() * 6.28, f1 = 0.004 + rnd() * 0.004, f2 = 0.011 + rnd() * 0.004;
+    const cx = hsLerp(1180, 820, t), w = hsLerp(60, 420, t), depth = flat ? 0 : hsLerp(46, 8, t), pts = [];
+    for (let x = -40; x <= 1640; x += 40) pts.push([x, y0 + amp * (0.6 * Math.sin(f1 * x + phi) + 0.4 * Math.sin(f2 * x)) - depth * Math.exp(-(((x - cx) / w) ** 2))]);
+    out.push({d: hsSmooth(pts), op: hsLerp(0.14, 0.42, t).toFixed(2), w: hsLerp(0.6, 1.4, t).toFixed(2)});
+  }
+  return out;
+}
+function hsSceneSvg() {
+  const rnd = hsRand(91), tree = []; let x = -20;
+  while (x < 1640) { const h = 18 + rnd() * 34, w = 14 + rnd() * 20; tree.push(`L${x.toFixed(0)} ${(498 - h).toFixed(0)} L${(x + w / 2).toFixed(0)} ${(498 - h - 10).toFixed(0)}`); x += w; }
+  const c = hsContours(false).map((k, i) => `<g class="hs-row" style="--i:${i}"><path d="${k.d}" fill="none" stroke="#A9B4FF" stroke-opacity="${k.op}" stroke-width="${k.w}"/></g>`).join('');
+  const ell = [70, 56, 43, 31, 18].map(rx => `<ellipse cx="1180" cy="548" rx="${rx}" ry="${(rx * 0.22).toFixed(1)}" fill="none" stroke="#C9D0FF" stroke-opacity=".5" stroke-width=".8"/>`).join('');
+  return `<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  <defs><linearGradient id="hsSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A0F2C"/><stop offset=".45" stop-color="#1A1F5C"/><stop offset=".78" stop-color="#33348E"/><stop offset=".92" stop-color="#5B4FD6"/><stop offset="1" stop-color="#7F78F0"/></linearGradient>
+  <radialGradient id="hsGlow" cx="1180" cy="560" r="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8E8AF8" stop-opacity=".35"/><stop offset="1" stop-color="#8E8AF8" stop-opacity="0"/></radialGradient></defs>
+  <g class="hs-l0"><rect class="hs-sky" width="1600" height="900" fill="url(#hsSky)"/><rect width="1600" height="900" fill="url(#hsGlow)"/></g>
+  <g class="hs-l1"><path d="M-40 520 C200 470 380 500 600 478 C820 458 1020 500 1240 470 C1400 450 1520 480 1660 466 L1660 560 L-40 560Z" fill="#121845"/>
+    <path d="M-20 498 ${tree.join(' ')} L1640 498 L1640 560 L-20 560Z" fill="#0E1440" opacity=".9"/></g>
+  <g class="hs-l2"><rect y="540" width="1600" height="360" fill="#0B102F"/>${c}</g>
+  <g class="hs-l3">${ell}<g class="hs-flag"><line x1="1186" y1="548" x2="1186" y2="470" stroke="#E6EAFB" stroke-width="2"/><path class="hs-cloth" d="M1186 470 L1216 479 L1186 488Z" fill="#8E8AF8"/></g></g>
+  </svg>`;
+}
+// holes, in reading order: the numbers count only the tabs Invited sees
+const hsHoles = () => navTabs().filter(t => t[0] !== 'home' && !STAFFV.includes(t[0]));
+const holeNo = key => { let n = 0; for (const t of hsHoles()) { if (!tabOn(t[0])) continue; n++; if (t[0] === key) return n; } return 0; };
+const holeCount = () => hsHoles().filter(t => tabOn(t[0])).length;
+const HOLE_TXT = {
+  summary: ['Executive Summary', 'The Answer, the Saving and the Ask', () => `${Math.round(V.savingPct)}% Saved`],
+  team: ['The Team', 'Who Runs It, Role by Role', () => `${V.peopleMs} People`],
+  org: ['Org Chart', 'How Ardn and Invited Work Together', () => `${V.podCount} Pods`],
+  value: ['Value', 'Monthly Spend, Price and Return', () => `${FMTS.M(V.total)} a Year · ${FMTS.M(V.impl)} One Time`],
+  compare: ['Compare', 'Who Carries the Work, Four Options', () => `Ardn Carries ${V.ardnCarries} of ${V.jobs}`],
+  detail: ['Detail', 'Systems, Testing and Rollout in Depth', () => `${V.systems} Systems`],
+  screens: ['Screens', 'Real Screens, by App', () => `${Math.floor(SHOT_DATA.reduce((a, g) => a + g.length, 0) / 10) * 10}+ Screens`],
+  videos: ['Videos', 'Run the Whole Club on One Platform · 2 Min', () => `${VIDS.length} Films`],
+  demo: ['Demo', 'Sign In as Grant Whitaker, General Manager', () => `${$$('[data-slot=staffPeople] > *').length || 7} Staff Roles · ${$$('[data-slot=memberPeople] > *').length || 3} Member Roles`],
+};
+function paintHome() {
+  const box = $('#homeCards'); if (!box) return;
+  if (!$('#hsScene').firstChild) $('#hsScene').innerHTML = hsSceneSvg();
+  const clubs = V ? V.clubs : 0, t = (id, v) => { const e = $('#' + id); if (e) e.textContent = v; };
+  t('hsTitle', `${clubs} Clubs. One Platform.`);
+  $('#hsFig').innerHTML = [[String(clubs), 'Clubs, One Platform'], [FMTS.M(V.saving), `Saved a Year · ${Math.round(V.savingPct)}%`], [String(V.retire), 'Systems Retire']]
+    .map(([n, l], i) => `<div style="--n:${i}"><dt>${esc(l)}</dt><dd>${esc(n)}</dd></div>`).join('');
+  t('hsHold', `Prices Hold to ${V.priceHold}`);
+  const list = hsHoles().filter(x => HOLE_TXT[x[0]]);
+  box.innerHTML = list.map(([k], i) => {
+    const [name, line, fig] = HOLE_TXT[k], on = tabOn(k), no = holeNo(k), wide = k === 'videos' || k === 'demo';
+    const head = on ? `<span class="hs-no" aria-hidden="true">${no}</span>` : '<span class="hs-no hs-pinless" aria-hidden="true"></span>';
+    const thumb = k === 'videos' ? '<img class="hs-thumb" src="/videos/club-steward-run-the-whole-club-poster.webp" alt="" loading="lazy">' : k === 'demo' ? '<img class="hs-thumb" src="/proposal-sites/invited-clubs/demo/staff-home-gm.jpg" alt="" loading="lazy">' : '';
+    const play = k === 'videos' ? '<button type="button" class="hs-play" data-hs-play="1">Play 2 Min Film</button>' : '';
+    return `<li class="hs-hole${wide ? ' wide' : ''}${on ? '' : ' hid'}" style="--h:${i}"><a class="hs-link" href="#${k}" aria-label="${esc(on ? `Hole ${no}: ${name}` : `${name}, hidden from Invited`)}"></a>${head}${thumb}
+      <span class="hs-name">${esc(name)}</span><span class="hs-line">${esc(line)}</span><span class="hs-figure">${esc(fig())}</span>${on ? '' : '<span class="hs-chip">Hidden From Invited</span>'}${play}</li>`;
+  }).join('');
+  const units = list.reduce((a, [k]) => a + (k === 'videos' || k === 'demo' ? 2 : 1), 0);
+  box.style.setProperty('--cols', String(units > 8 ? Math.ceil(units / 2) : units)); box.classList.toggle('dense', units > 8);
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-hs-play]')) openTheatre(0); });
+
+/* ----- site-wide layer ----- */
+const HS_REDUCED = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+function paintHoles() {
+  $$('[data-hole]').forEach(e => e.removeAttribute('data-hole'));
+  const eyes = v => $$('main [style*="letter-spacing:.14em"], main .speyebrow, main .pl-eyebrow', v);
+  $$('.view').forEach(v => {
+    const k = v.dataset.view; if (k === 'home') return;
+    const txt = STAFFV.includes(k) ? 'Staff Only' : !tabOn(k) ? 'Hidden From Invited' : holeNo(k) ? `Hole ${holeNo(k)}` : '';
+    if (!txt) return;
+    const all = eyes(v), price = $('#valPrice', v), first = all.find(e => !price || !price.contains(e)), firstP = price && all.find(e => price.contains(e));
+    [first, firstP].forEach(e => { if (e) e.setAttribute('data-hole', txt); });
+  });
+}
+// the footer: a hairline track of holes with a flagstick that moves to the current one
+function paintTrack(key) {
+  const f = $('#fPos'); if (!f) return;
+  if (!f.querySelector('.trk')) f.innerHTML = '<span class="trk" aria-hidden="true"><span class="trk-dots"></span><i class="trk-pin"></i></span><span class="trk-lbl"></span>';
+  const n = holeNo(key), N = holeCount(), names = Object.fromEntries(TABS);
+  f.querySelector('.trk-dots').innerHTML = Array.from({length: N}, (_, i) => `<b${i + 1 === n ? ' class="on"' : ''}></b>`).join('');
+  const pin = f.querySelector('.trk-pin'); pin.style.setProperty('--p', n && N > 1 ? (n - 1) / (N - 1) : 0); pin.style.opacity = n ? 1 : 0.35;
+  f.querySelector('.trk-lbl').textContent = key === 'home' ? 'The Tee' : STAFFV.includes(key) ? 'Ardn Staff' : !tabOn(key) ? 'Hidden From Invited' : `Hole ${n} of ${N} · ${names[key]}`;
+}
+// every view's blocks rise in once per show; a redraw after that replays nothing
+function revealAssign(view) {
+  if (view.dataset.view === 'home' || view.dataset.rv) return; view.dataset.rv = '1';
+  const main = view.querySelector('main'); if (!main) return; let n = 0;
+  const add = el => { el.setAttribute('data-r', ''); el.style.setProperty('--r', Math.min(n++, 12)); };
+  const walk = c => { if (!(c instanceof HTMLElement)) return; const d = getComputedStyle(c).display; if (d === 'none') return; if (d === 'contents') [...c.children].forEach(walk); else if (d === 'grid' && c.children.length >= 3) [...c.children].forEach(add); else add(c); };
+  [...main.children].forEach(walk);
+}
+let HS_T = 0;
+function viewMotion(key, prev) {
+  const v = $('#v-' + key); if (!v) return;
+  const order = navTabs().map(t => t[0]), dir = order.indexOf(key) >= order.indexOf(prev) ? 1 : -1;
+  document.body.style.setProperty('--dir', String(dir));
+  const lay = $('#hsLayer'); if (lay) lay.style.setProperty('--hole', String(Math.max(0, order.indexOf(key))));
+  if (HS_REDUCED()) return;
+  v.classList.remove('settled'); revealAssign(v); v.classList.add('rv');
+  if (key === 'home') { let seen = false; try { seen = sessionStorage.getItem('ardn-home-intro') === '1'; sessionStorage.setItem('ardn-home-intro', '1'); } catch (e) {} if (!seen) v.classList.add('hs-intro'); }
+  clearTimeout(HS_T); HS_T = setTimeout(() => { $$('.view').forEach(x => { if (x.classList.contains('rv')) { x.classList.remove('rv', 'hs-intro'); x.classList.add('settled'); } }); }, key === 'home' ? 2100 : 1500);
+}
+function viewFocus(key) { const h = $('#v-' + key + ' h1'); if (h && key !== 'home') { h.tabIndex = -1; try { h.focus({preventScroll: true}); } catch (e) {} } }
+(function () {
+  const lay = document.createElement('div'); lay.id = 'hsLayer'; lay.setAttribute('aria-hidden', 'true');
+  lay.innerHTML = '<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" focusable="false">' + hsContours(true).map(k => `<path d="${k.d}" fill="none" stroke="#4B3FD8" stroke-width="${(+k.w + 0.2).toFixed(2)}"/>`).join('') + '</svg>';
+  const views = $('.views'); if (views) views.prepend(lay);
+  // pointer parallax on the Home scene, fine pointers only, one frame at a time, off when the page is hidden
+  let raf = 0, px = 0, py = 0;
+  document.addEventListener('pointermove', e => {
+    if (HS_REDUCED() || e.pointerType !== 'mouse' || document.body.dataset.view !== 'home' || document.hidden) return;
+    px = e.clientX / innerWidth - 0.5; py = e.clientY / innerHeight - 0.5;
+    if (!raf) raf = requestAnimationFrame(() => { raf = 0; const s = $('#hsScene'); if (s) { s.style.setProperty('--px', px.toFixed(3)); s.style.setProperty('--py', py.toFixed(3)); } });
+  });
+})();
 
 </script>
 <!--STAFF-SCRIPT-->
