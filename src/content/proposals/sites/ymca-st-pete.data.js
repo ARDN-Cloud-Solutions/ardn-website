@@ -94,8 +94,8 @@ export const SYS = [
 
   ["Daxko Attendance Tracker · licensed childcare", "Childcare", "partial", true,
     "Parent sign in and out, staff-to-child ratios, incidents, health records, ELC reimbursement reporting",
-    "Nothing. This is the largest build in the programme and it is the one thing holding the Daxko contract open",
-    "Checked both codebases for staff-to-child ratios, licensing packets, classroom ratios and school-readiness reporting: zero matches in either. This is net-new work, and it is the critical path to retiring Daxko completely.",
+    "Nothing. This is the largest build in the programme, it is started first, and it is what the July Daxko exit depends on",
+    "Checked both codebases for staff-to-child ratios, licensing packets, classroom ratios and school-readiness reporting: zero matches in either. Net-new work, started in month one, and the July Daxko exit rests on it. Five months of build rather than eight is the compression we are carrying.",
     "VERIFIED ABSENT in both: staff-to-child 0, licensing packet 0, classroom ratio 0, school readiness 0."],
 
   ["Tadpoles", "Childcare", "connect", false,
