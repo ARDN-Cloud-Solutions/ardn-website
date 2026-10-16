@@ -1,0 +1,45 @@
+{
+  "slug": "ymca-st-pete",
+  "client": "YMCA of Greater St. Petersburg",
+  "product": "Ardn Membership",
+  "status": "draft",
+  "access": {
+    "domains": [
+      "stpeteymca.org"
+    ],
+    "emails": []
+  },
+  "hero": {
+    "eyebrow": "A proposal for the YMCA of Greater St. Petersburg",
+    "headline": "One platform, in place of 24 systems.",
+    "intro": "Checked against working code on 16 October 2026, not against a roadmap."
+  },
+  "stats": [
+    {
+      "value": "7",
+      "label": "contracts end"
+    },
+    {
+      "value": "8",
+      "label": "retire in part"
+    },
+    {
+      "value": "9",
+      "label": "on the Day 1 list"
+    }
+  ],
+  "sections": {
+    "aiFirst": true,
+    "whyArdn": true,
+    "aiSupport": true
+  },
+  "leadWithRoi": false,
+  "strategic": "",
+  "videos": [],
+  "systems": [],
+  "phases": [],
+  "modules": [],
+  "nextSteps": [],
+  "gaps": [],
+  "fitRows": []
+}
