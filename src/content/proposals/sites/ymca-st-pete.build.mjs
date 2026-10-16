@@ -237,8 +237,11 @@ const CMP = [
   ["Surveys and NPS", "n Listen360 extra", "y Listen360", "n You build it", "y Built, 644 ln tests"],
   ["Fundraising beside members", "n Raiser's Edge apart", "p Connector", "n You build it", "y 6,534 ln, or connect"],
   ["Accounting", "n SGA apart", "p Connector", "n You build it", "y Connect or replace"],
-  ["Who fixes it at 7am", "p Vendor queue", "n ~17 queues", "y Your team", "y Ardn, named team"],
-  ["Who carries the integrations", "p Vendor decides", "n The Y does", "y The Y does", "y Ardn does"],
+  ["What the fee covers", "n Tech only", "n Tech only, ×17", "n Tech + salaries", "y Tech AND support"],
+  ["Who fixes it at 7am", "p A ticket queue", "n ~17 queues", "y Your team", "y A named team, included"],
+  ["Who carries the integrations", "p Vendor decides", "n The Y does", "y The Y does", "y Ardn, 4 included"],
+  ["Production support", "n Priced separately", "n Priced per vendor", "n Your headcount", "y From day one, no cost"],
+  ["Fractional IT", "n Not offered", "n Not offered", "n Your headcount", "y From day one, no cost"],
 ];
 
 /* ---- The rollout plan, in Invited's Rollout Plan shape ----
@@ -436,12 +439,12 @@ ${view("value", scr("02", "Value", `
 <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.7em 2.4em;">
   <div style="flex:1 1 27em;max-width:42em;">
     <div class="eyeb" style="margin-bottom:.4em;">Value and Pricing</div>
-    <h1 class="ttl">${usd(PRICE.impl)} to build it. ${usd(PRICE.mo)} a month to run it.</h1>
-    <p class="sub">About ${usdK(valueStated)} of build and integration work is included at no cost, as part of the partnership.</p>
+    <h1 class="ttl">${usd(PRICE.impl)} to build it. ${usd(PRICE.mo)} a month to run it <em style="font-style:normal;color:var(--brass2);">and support it.</em></h1>
+    <p class="sub">That fee is technology <b>and</b> the team that runs it &mdash; production support and fractional IT from day one, not a ticket queue. About ${usdK(valueStated)} of build and integration work is included at no cost.</p>
   </div>
   <div class="strip">
     <div><b>${usd(PRICE.impl)}</b><span>one-time build</span></div>
-    <div><b>${usd(PRICE.mo)}</b><span>a month, all in</span></div>
+    <div><b>${usd(PRICE.mo)}</b><span>a month, tech + support</span></div>
     <div><b>${usd(yearOne)}</b><span>year one, total</span></div>
     <div><b>~${usdK(valueStated)}</b><span>included at no cost</span></div>
   </div>
@@ -455,7 +458,7 @@ ${view("value", scr("02", "Value", `
         <tr><td class="n">Implementation<small style="display:block;color:var(--muted);font-weight:400;">one-time build and launch</small></td><td style="text-align:right;color:var(--muted);text-decoration:line-through;">${usdK(PRICE.implStdLo)}&ndash;${usdK(PRICE.implStdHi)}</td><td style="text-align:right;font-weight:700;color:var(--ink);">${usd(PRICE.impl)}</td></tr>
         <tr><td class="n">Platform integrations<small style="display:block;color:var(--muted);font-weight:400;">up to ${PRICE.integrations}, including Raiser&rsquo;s Edge</small></td><td style="text-align:right;color:var(--muted);text-decoration:line-through;">~${usdK(integrationsValue)}</td><td style="text-align:right;font-weight:700;color:var(--good);">Included</td></tr>
         <tr><td class="n">Dedicated support team<small style="display:block;color:var(--muted);font-weight:400;">production support and fractional IT, from day one</small></td><td style="text-align:right;color:var(--muted);">&mdash;</td><td style="text-align:right;font-weight:700;color:var(--good);">Included</td></tr>
-        <tr><td class="n">Monthly subscription<small style="display:block;color:var(--muted);font-weight:400;">hosting, licence fees, updates, full access</small></td><td style="text-align:right;color:var(--muted);">&mdash;</td><td style="text-align:right;font-weight:700;color:var(--ink);">${usd(PRICE.mo)}/mo</td></tr>
+        <tr><td class="n">Monthly subscription<small style="display:block;color:var(--muted);font-weight:400;">hosting, licence fees, updates, full access &mdash; <b style="color:var(--ink)">and the support team</b></small></td><td style="text-align:right;color:var(--muted);">&mdash;</td><td style="text-align:right;font-weight:700;color:var(--ink);">${usd(PRICE.mo)}/mo</td></tr>
       </tbody>
       <tfoot>
         <tr><th style="padding-top:.6em;">Year one, all in</th><td></td><td style="text-align:right;font-weight:800;color:var(--brass);padding-top:.6em;font-size:1.15em;">${usd(yearOne)}</td></tr>
@@ -484,6 +487,32 @@ ${view("value", scr("02", "Value", `
     </div>
   </div>
 </section>
+
+<section style="display:flex;flex-wrap:wrap;gap:.7em;align-items:stretch;">
+  <div class="card" style="flex:1.25 1 22em;border-color:rgba(var(--bluergb),.45);background:rgba(var(--bluergb),.05);">
+    <div class="ch">Inside the ${usd(PRICE.mo)} a Month</div>
+    <div class="cb">Technology <em style="font-style:normal;color:var(--brass);">and</em> the people who run it</div>
+    <ul style="margin:.2em 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:.22em;font-size:max(14px,.88em);color:var(--soft);line-height:1.4;">
+      <li>Hosting, licence fees, updates and full platform access</li>
+      <li><b style="color:var(--ink)">A production support team</b>, from launch rather than after it</li>
+      <li><b style="color:var(--ink)">Fractional IT support</b>, also from day one</li>
+      <li>The integrations between everything the Y keeps &mdash; built and maintained by us</li>
+      <li>Every upgrade, on every system in this proposal, carried by us</li>
+    </ul>
+  </div>
+  <div class="card" style="flex:1 1 20em;">
+    <div class="ch" style="color:var(--muted);">What a Licence Fee Buys</div>
+    <div class="cb" style="color:var(--muted);">The software, and a queue</div>
+    <ul style="margin:.2em 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:.22em;font-size:max(14px,.88em);color:var(--muted);line-height:1.4;">
+      <li>Access to the product</li>
+      <li>A support ticket queue, priced per incident or per tier</li>
+      <li>Integrations: the Y's problem, or a paid professional-services engagement</li>
+      <li>Upgrades: the Y's problem, on the vendor's timetable</li>
+      <li>The 7am failure: the Y's problem until the queue answers</li>
+    </ul>
+  </div>
+</section>
+<div class="note" style="border-left-color:var(--brass);background:rgba(var(--bluergb),.07);"><b>This is the part that does not appear on anyone's invoice.</b> Every other vendor in this proposal charges for technology. The work of running it &mdash; holding roughly seventeen vendors together, chasing the integration that broke overnight, taking the upgrade when it lands &mdash; stays with the Y, and the Y pays for it in staff time rather than in a line item. Our ${usd(PRICE.mo)} covers both, and the integrations are included rather than quoted.</div>
 <div class="note" style="font-size:max(13px,.84em);"><b>Terms.</b> ${PRICE.termMonths}-month term &middot; annual CPI escalation capped at ${PRICE.cpiCap * 100}% &middot; the dedicated support team starts at launch, not after it.</div>`))}
 
 ${view("plan", scr("03", "Plan", `
@@ -533,7 +562,7 @@ ${view("compare", scr("03", "Compare", `
 <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2.4em;">
   <div style="flex:1 1 30em;"><div class="eyeb" style="margin-bottom:.45em;">Why Ardn</div>
   <h1 class="ttl">Four ways to run the Y's systems. <em style="color:var(--brass2);font-style:normal;">One takes the running off the Y.</em></h1></div>
-  <p style="flex:1 1 20em;max-width:34em;margin:0;color:var(--soft);font-size:1.02em;line-height:1.45;">Daxko is one vendor for part of it. A best-of-breed stack is ${SYS.length} vendors to hold together. Only a managed product carries the whole job.</p>
+  <p style="flex:1 1 20em;max-width:34em;margin:0;color:var(--soft);font-size:1.02em;line-height:1.45;">Daxko is one vendor for part of it. A best-of-breed stack is ${SYS.length} vendors to hold together. Every one of them sells the Y technology and leaves the running of it with the Y &mdash; only a managed product carries both.</p>
 </section>
 <section style="flex:1;background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.6em 1em .4em;overflow:auto;min-height:0;">
 <table style="width:100%;border-collapse:separate;border-spacing:0;font-size:1em;min-width:42em;">
