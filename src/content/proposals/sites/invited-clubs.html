@@ -499,7 +499,7 @@ body.noflags .flag{display:none}
 .dm-thumb img{display:block;width:100%;height:auto;aspect-ratio:10/7;object-fit:cover;object-position:top left}
 .dm-flowtx h4{margin:0;font-size:1.05em}
 .dm-flowtx p{margin:.2em 0}
-.dm-rail{margin:.25em 0;padding:0;list-style:none;counter-reset:s;display:grid;grid-template-columns:1fr 1fr;gap:.1em .8em}
+.dm-rail{margin:.25em 0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:.15em}
 .dm-rail li{counter-increment:s;font-size:max(14px,.9em);line-height:1.25;display:flex;gap:.4em;min-width:0}
 .dm-rail li::before{content:counter(s);flex:none;width:1.4em;height:1.4em;border-radius:50%;background:var(--brass);color:#fff;font-size:max(14px,.8em);font-weight:700;display:grid;place-items:center;margin-top:0}
 .dm-try{font-weight:700;color:var(--brass2);text-decoration:none}
@@ -531,6 +531,8 @@ body.noflags .flag{display:none}
 .dm-go{display:inline-flex;align-items:center;min-height:44px}
 .dm-try{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:760px){.dm-who,.dm-modes button{min-height:44px}}
+.dm-hid{font-size:max(14px,.85em);font-weight:700;color:var(--alarm);margin-left:.4em}
+.dm-modes button.on .dm-hid{color:#fff}
 .xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
 .xh1:hover{color:#F08A6C;}
 .xh2:hover{border-color:var(--ink);}
@@ -1326,6 +1328,7 @@ const NUMS = [
     ['showTeam', 'The Team', 'int', 0],
     ['showOrg', 'Org Chart', 'int', 0],
     ['showDetail', 'Detail', 'int', 0],
+    ['showQuality', 'Demo: How We Catch and Fix Issues', 'int', 0],
   ]],
   ['Display', [
     ['showFlags', 'Show Review Flags (TBC, $ to size): 1 yes, 0 no', 'int', 0],
@@ -1801,7 +1804,7 @@ function paintTabs() {
   });
   const cur = document.body.dataset.view;
   if (cur && !canEdit && !STAFFV.includes(cur) && !tabOn(cur)) show('summary'); else if (cur) paintFoot(cur);
-  paintHome(); paintHoles();
+  paintHome(); paintHoles(); if (typeof paintDemoGate === 'function') paintDemoGate();
 }
 /* lucide icons, inline */
 const ICONS = {
@@ -2051,9 +2054,9 @@ paintVids();
    member functions come from the member portal's own navigation (member-portal-web/src/lib/memberNav.ts). No permission ids are shown. */
 const DEMO_FLOWS = {
   event: {title: 'Booking a Private Event', img: 'flows/event.jpg', alt: 'The Steps rail on a private event: seven steps, three of them ready.', path: '/dashboard/private-events/528b49e1-3dbf-4aac-bcbf-f48fb17374f6',
-    steps: ['Take The Inquiry', 'Rooms & Times', 'Menu & Bar', 'Rentals, Decor & Linens', 'Vendors', 'Hold The Room And The Date', 'Agree It And Confirm']},
+    steps: ['Take the Inquiry', 'Rooms & Times', 'Menu & Bar', 'Rentals, Decor & Linens', 'Vendors', 'Hold the Room and the Date', 'Agree It and Confirm']},
   sale: {title: 'Selling a Membership', img: 'flows/sales.jpg', alt: 'The Selling a Membership steps on a sales opportunity, all four done.', path: '/dashboard/sales-pipeline/a4ef3fb2-6ea4-44bc-99a1-bed15736d676',
-    steps: ['Take Their Details', 'Start The Sale', 'Choose What They Are Buying', 'Agreement And Payment']},
+    steps: ['Take Their Details', 'Start the Sale', 'Choose What They Are Buying', 'Agreement and Payment']},
 };
 const DEMO_FLOW_EDITOR = {img: 'flows/settings.jpg', alt: 'The Guided Flows settings page: each flow with its steps, live version and when it was last changed.', path: '/dashboard/settings/guided-flows',
   text: 'Admins edit the steps of every flow, and every change is kept as a version.'};
@@ -2156,11 +2159,20 @@ function pickDemo(id, focus) {
 function paintDemoQuality() {
   $('#dmQGrid').innerHTML = DEMO_QUALITY.map((q, i) => `<figure class="dm-qtile"><button type="button" data-zoom="${esc(q.img)}" data-cap="${esc(q.title + ': ' + q.cap)}" aria-label="Enlarge: ${esc(q.title)}"><img src="${demoImg(q.img)}" alt="${esc(q.alt)}" loading="lazy" decoding="async"></button><figcaption><b>${esc(q.title)}</b><span>${esc(q.cap)}</span></figcaption></figure>`).join('');
 }
+// the quality gallery is a tab-like view: Invited sees it only when the published settings switch it on; staff always see it, marked
+function qualityOn() { return NV.showQuality > 0; }
+function paintDemoGate() {
+  const b = $('[data-dmmode=quality]'); if (!b) return;
+  const on = qualityOn();
+  b.hidden = !canEdit && !on;
+  b.innerHTML = 'How We Catch and Fix Issues' + (canEdit && !on ? ' <span class="dm-hid">Hidden From Invited</span>' : '');
+  if (b.hidden && !$('#dmQuality').hidden) setDemoMode('roles');
+}
 function setDemoMode(m) {
   $$('[data-dmmode]').forEach(b => { const on = b.dataset.dmmode === m; b.setAttribute('aria-selected', String(on)); b.classList.toggle('on', on); });
   $('#dmRoles').hidden = m !== 'roles'; $('#dmQuality').hidden = m !== 'quality';
 }
-paintDemoPick(); paintDemoPanel(); paintDemoQuality();
+paintDemoPick(); paintDemoPanel(); paintDemoQuality(); paintDemoGate();
 document.addEventListener('click', e => {
   const w = e.target.closest('#dmPick .dm-who'); if (w) { pickDemo(w.dataset.role); return; }
   const m = e.target.closest('[data-dmmode]'); if (m) { setDemoMode(m.dataset.dmmode); return; }
