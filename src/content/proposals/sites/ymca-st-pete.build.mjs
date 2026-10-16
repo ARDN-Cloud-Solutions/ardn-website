@@ -288,15 +288,15 @@ const PLAN = [
     note: "Members, families, barcodes, childcare records and history. Design cannot start until the NDA and export access exist, which is why those are the first things we ask for. Stored cards move processor to processor and never pass through us. Cutover is end of June; the Y runs parallel for a month either side.",
     phases: { design: [2, 3], build: [4, 6], test: [6, 7], deploy: [8, 8], parallel: [7, 9] } },
 
-  { n: "Appointments and tours", lane: "Programs & Camp", retire: 10, ends: "Appointment King",
-    note: "Not on the Daxko critical path, so it lands just after the cutover rather than competing with it.",
-    phases: { design: [7, 7], build: [8, 9], test: [9, 9], deploy: [10, 10], parallel: [10, 10] } },
-  { n: "Leads and sales pipeline", lane: "Marketing & Web", retire: 11, ends: "Salesforce",
-    note: "Three working Salesforce importers already exist, so the move brings the history across rather than abandoning it.",
-    phases: { design: [7, 7], build: [8, 10], test: [10, 10], deploy: [11, 11], parallel: [11, 11] } },
-  { n: "Surveys and NPS", lane: "Marketing & Web", retire: 11, ends: "Listen360",
-    note: "Five shipped survey types and a 644-line test suite. Public survey links for non-members.",
-    phases: { design: [8, 8], build: [9, 10], test: [10, 10], deploy: [11, 11], parallel: [11, 11] } },
+  { n: "Appointments and tours", lane: "Programs & Camp", retire: 9, ends: "Appointment King",
+    note: "Brought inside the July window so nothing trails past it. Round-robin host, calendar invite and public booking; the gaps are staff reschedule and the booking window.",
+    phases: { design: [5, 5], build: [6, 7], test: [7, 7], deploy: [8, 8], parallel: [8, 9] } },
+  { n: "Leads and sales pipeline", lane: "Marketing & Web", retire: 9, ends: "Salesforce",
+    note: "Three working Salesforce importers already exist, so the move brings the history across rather than abandoning it. That is why it can be pulled forward without risking the data.",
+    phases: { design: [5, 5], build: [6, 7], test: [8, 8], deploy: [8, 8], parallel: [8, 9] } },
+  { n: "Surveys and NPS", lane: "Marketing & Web", retire: 9, ends: "Listen360",
+    note: "Five shipped survey types and a 644-line test suite, so this is configuration rather than a build. Public survey links for non-members.",
+    phases: { design: [6, 6], build: [7, 8], test: [8, 8], deploy: [8, 8], parallel: [8, 9] } },
 
 ];
 const PL_END = Math.max(...PLAN.map((x) => Math.max(x.retire || 0, ...Object.values(x.phases).map((r) => r[1]))));
@@ -518,16 +518,16 @@ ${view("value", scr("02", "Value", `
 ${view("plan", scr("03", "Plan", `
 <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.5em 2em;">
   <div style="flex:1 1 26em;"><div class="eyeb" style="margin-bottom:.35em;">Rollout Plan</div>
-  <h1 class="ttl" style="font-size:1.75em;">Two fixed dates: DocuSign in April, off Daxko entirely by the end of June</h1></div>
+  <h1 class="ttl" style="font-size:1.75em;">Everything live by July 2027, and off Daxko entirely</h1></div>
   <div class="strip" style="grid-template-columns:repeat(3,auto);">
     <div><b>6</b><span>months to DocuSign</span></div>
     <div><b>8</b><span>months to the Daxko cutover</span></div>
-    <div><b>${PLAN.filter((x) => x.crit).length}</b><span>on the critical path</span></div>
+    <div><b>${PL_END}</b><span>months, everything live</span></div>
   </div>
 </section>
 
 <div style="display:flex;flex-wrap:wrap;gap:.6em;">
-  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Two dates are fixed, and neither is ours.</b> DocuSign ends end of April 2027 (month 6). The Y comes off <b>Daxko entirely &mdash; end of June, beginning of July 2027</b> (month 8). Everything before each one is sized to clear it, and nothing is switched off until its parallel run has finished.</div>
+  <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Two dates are fixed, and neither is ours.</b> DocuSign ends end of April 2027 (month 6). The Y comes off <b>Daxko entirely &mdash; end of June, beginning of July 2027</b> (month 8). <b>Every system in this proposal is live by July</b>, with nothing trailing into the autumn, and nothing is switched off until its parallel run has finished.</div>
   <div class="note" style="flex:1 1 22em;border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>Licensed childcare is started first, and it is the risk.</b> Leaving all of Daxko means the childcare build cannot wait its turn: it is the one capability with nothing to build on, so it begins in month one and gets a <b>five-month build rather than eight</b>. That compression is the largest risk here, and we would rather name it now than discover it in May.</div>
 </div>
 
