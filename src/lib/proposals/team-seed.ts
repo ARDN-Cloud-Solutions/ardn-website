@@ -55,7 +55,7 @@ export const SEED_MS: TeamRow[] = [
   { id: 11, role: "Developer, Data and Integrations (Run)", name: "", grp: "platform", loc: "off", cost: 22, bill: 60, hours: 160, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
   { id: 12, role: "Trainer and Change Lead (Run)", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 40, start: 22, end: 36, kind: "Core", section: "Support", systems: [] },
   { id: 13, role: "Second-Line Support Lead", name: "", grp: "support", loc: "on", cost: 80, bill: 150, hours: 160, start: 6, end: 36, kind: "Core", section: "Support", systems: ["sys15"] },
-  { id: 14, role: "L2 Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 8, end: 36, kind: "Core", section: "Support", systems: [] },
-  { id: 15, role: "L2 Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 8, end: 36, kind: "Core", section: "Support", systems: [] },
-  { id: 16, role: "L2 Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 16, end: 19, kind: "Flex", section: "Support", systems: [] },
+  { id: 14, role: "Second-Line Support Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 8, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 15, role: "Second-Line Support Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 8, end: 36, kind: "Core", section: "Support", systems: [] },
+  { id: 16, role: "Second-Line Support Analyst", name: "", grp: "support", loc: "off", cost: 18, bill: 45, hours: 160, start: 16, end: 19, kind: "Flex", section: "Support", systems: [] },
 ];

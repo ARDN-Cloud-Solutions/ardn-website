@@ -437,7 +437,7 @@ const PL_PH = {design: ['Design', '#7A86A8'], build: ['Build', '#4B3FD8'], test:
 const PL_CORE = '#4B3FD8', PL_FLEX = '#1F6FD1', PL_LBL = 190, PL_FTE = 160;
 // a timeline column is as wide as the card allows (28 to 36 px), so a whole timeline fits without scrolling when it can
 let PL_CW = 32;
-const plFit = (fixed, cols) => { PL_CW = Math.max(30, Math.min(36, Math.floor((($('#planRoot') || document.body).clientWidth - 34 - fixed) / cols))); };
+const plFit = (fixed, cols) => { PL_CW = Math.max(24, Math.min(36, Math.floor((($('#planRoot') || document.body).clientWidth - 34 - fixed) / cols))); };
 const PL_NAMES = Object.fromEntries([...PLAN.systems, ...PLAN.stays].map(s => [s.id, s.name]));
 const plFix = n => (Math.round(n * 100) / 100).toString();
 const plNum1 = n => (Math.round(n * 10) / 10).toFixed(1);
@@ -609,15 +609,15 @@ function plTeamRows(list, from, to, M, extra) {
     const l = (p.start - from) * PL_CW, w = (p.end - p.start + 1) * PL_CW, n = p.end - p.start + 1;
     return `<div class="pl-row pl-pr${PL.sel === p.key ? ' sel' : ''}" data-pk="${p.key}" data-kind="${p.kind}" tabindex="0" role="button" aria-pressed="${PL.sel === p.key}"><div class="pl-lbl" style="width:${PL_TL}px" title="${esc(p.label)}"><span class="pl-pill ${p.kind.toLowerCase()}">${p.kind}</span>${esc(p.label)}</div>
       <div class="pl-c" style="width:72px" data-meta="fte">${plFix(p.fte)}</div><div class="pl-c" style="width:88px" data-meta="loc">${p.loc}</div><div class="pl-c" style="width:70px" data-meta="sys">${p.systems.length}</div>
-      <div class="pl-area" style="width:${W}px"><div class="pl-bar ${p.kind.toLowerCase()}" style="left:${l}px;width:${w}px;padding:0 4px" title="${esc(p.label)} · M${p.start}–M${p.end}">${n >= 2 ? plRange(p.start, p.end) : 'M' + p.start}</div>${extra || ''}</div></div>`;
+      <div class="pl-area" style="width:${W}px"><div class="pl-bar ${p.kind.toLowerCase()}" style="left:${l}px;width:${w}px;padding:0 4px" title="${esc(p.label)} · M${p.start}–M${p.end}">${n >= 3 ? plRange(p.start, p.end) : n === 2 ? 'M' + p.start + '–' + p.end : 'M' + p.start}</div>${extra || ''}</div></div>`;
   }).join('');
 }
-const PL_TL = 270;
+const PL_TL = 250;
 function plAxisTeam(from, to) { return plAxis(from, to + 1, `<div class="pl-lbl" style="width:${PL_TL}px;align-self:flex-start;padding-top:2px;color:var(--muted)">Month After Signing</div><div class="pl-c" style="width:72px"><b>Full-Time</b></div><div class="pl-c" style="width:88px"><b>Location</b></div><div class="pl-c" style="width:70px"><b>Systems</b></div>`); }
 function plRollout(M) {
   const list = M.people.filter(p => p.section === 'Rollout').sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'Core' ? -1 : 1) || a.start - b.start || a.end - b.end);
   if (!list.length) return '<div class="pl-empty">No One On The Rollout Team. Add A Person In Team Admin With The Rollout Section.</div>';
-  const to = Math.max(PLAN.rollEnd, ...list.map(p => p.end)); plFit(PL_TL + 230, to);
+  const to = Math.max(PLAN.rollEnd, ...list.map(p => p.end)); plFit(PL_TL + 230, to + 1);
   return `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxisTeam(1, to) + plTeamRows(list, 1, to, M) + '</div>';
 }
 function plSupportEnd(M) { const s = M.people.filter(p => p.section === 'Support'); return s.length ? Math.max(...s.map(p => p.end)) : 0; }
@@ -629,7 +629,7 @@ function plSupport(M) {
   const mark = (m, t) => m >= from && m <= to ? `<div style="position:absolute;left:${(m - from) * PL_CW}px;top:0;height:100%;border-left:2px dashed var(--neg)" title="${t}"></div>` : '';
   const ctl = `<div class="pl-ctl" style="margin-bottom:8px"><label>Support Ends After Month <input type="number" id="plSupEnd" min="${run}" max="60" value="${end}" style="width:70px"></label>
     <span data-plan-sup="len"><b>${to - run + 1} Months Of Run Support</b> (M${run}–M${to}, ${plMonth(run)} To ${plMonth(to)})</span><span style="color:var(--muted)">Dashed Lines: First Go-Live M${first}, Run Starts M${run}</span></div>`;
-  plFit(PL_TL + 230, to - from + 1);
+  plFit(PL_TL + 230, to - from + 2);
   return ctl + `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxisTeam(from, to) + plTeamRows(list, from, to, M, mark(first, 'First Go-Live') + mark(run, 'Run Starts')) + '</div>';
 }
 function plMonths(M) {
