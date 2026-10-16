@@ -339,37 +339,46 @@ body.noflags .flag{display:none}
 .hs :focus-visible{outline:2px solid #E6EAFB;outline-offset:3px}
 .hs-card{flex:none;background:var(--hs-glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--hs-glassline);border-radius:14px;padding:.8em}
 .hs-holes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,6),minmax(0,1fr));gap:.7em;grid-auto-flow:dense}
-.hs-hole{position:relative;display:grid;grid-template-columns:auto 1fr;column-gap:.5em;row-gap:.1em;align-content:start;padding:.7em .8em;border:1px solid var(--hs-glassline);border-radius:10px;min-width:0;transition:transform .25s var(--out),border-color .2s,background .2s}
-.hs-hole.wide{grid-column:span 2}
+.hs-hole{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 1fr auto auto auto auto;column-gap:.5em;row-gap:.2em;padding:.7em .8em;border:1px solid var(--hs-glassline);border-radius:10px;min-width:0;transition:transform .25s var(--out),border-color .2s,background .2s}
+.hs-hole.wide{grid-column:span 2;grid-template-columns:auto minmax(0,1fr) 40%}
+.hs-hole.wide .hs-line,.hs-hole.wide .hs-figure,.hs-hole.wide .hs-chip,.hs-hole.wide .hs-play{grid-column:1/3}
+.hs-hole.wide .hs-name{grid-column:2}
+.hs-hole.wide .hs-ph{grid-column:3;grid-row:1/span 6;margin:0 0 0 .6em;min-height:5.5em}
+.hs-hole.wide .hs-ph img{position:absolute;inset:0;height:100%;max-height:none;aspect-ratio:auto}
 .hs-hole.hid{border-style:dashed;border-color:rgba(169,180,255,.5)}
 .hs-hole:hover,.hs-hole:focus-within{transform:translateY(-3px);border-color:rgba(230,234,251,.8);background:rgba(169,180,255,.1)}
 .hs-link{position:absolute;inset:0;z-index:1;border-radius:10px}
 .px a.hs-link:hover{text-decoration:none}
-.hs-no{align-self:center;width:1.7em;height:1.7em;border-radius:50%;border:1px solid var(--hs-contour);display:grid;place-items:center;font-family:var(--serif);font-weight:500;color:var(--hs-ink);font-size:1.1em}
+.hs-no{grid-row:1;align-self:center;width:1.7em;height:1.7em;border-radius:50%;border:1px solid var(--hs-contour);display:grid;place-items:center;font-family:var(--serif);font-weight:500;color:var(--hs-ink);font-size:1.1em}
 .hs-pinless{border:0;width:.2em}
-.hs-name{font-family:var(--serif);font-weight:500;font-size:1.1em;line-height:1.15;color:var(--hs-ink)}
-.hs-line,.hs-figure{grid-column:1/-1}
-.hs-name{align-self:center;min-width:0;overflow-wrap:break-word;font-size:1em}
-.hs-line{margin-top:.4em;font-size:max(14px,.86em);color:var(--hs-soft);line-height:1.3}
-.hs-figure{font-size:max(14px,.86em);font-weight:700;color:#C9D0FF}
-.hs-chip{grid-column:1/-1;justify-self:start;margin-top:.2em;font-size:max(14px,.8em);font-weight:700;color:var(--hs-ink);border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .6em}
-.hs-thumb{order:9;grid-column:1/-1;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin-top:.5em;min-height:0;max-height:5.5em}
-.hs-play{order:10;position:relative;z-index:2;grid-column:1/-1;justify-self:start;margin-top:.4em;min-height:44px;background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--hs-ink);border-radius:999px;padding:0 1em;font-weight:700}
-.hs-holes.dense .hs-line{display:none}
-.hs-holes.dense .hs-thumb,.hs-holes.dense .hs-play{display:none}
+.hs-name{grid-row:1;grid-column:2;align-self:center;min-width:0;overflow-wrap:normal;word-break:normal;hyphens:none;font-family:var(--serif);font-weight:500;font-size:1.1em;line-height:1.15;color:var(--hs-ink)}
+.hs-line{grid-row:2;grid-column:1/-1;margin-top:.3em;font-size:max(14px,.86em);color:var(--hs-soft);line-height:1.3;overflow-wrap:normal;hyphens:none}
+.hs-figure{grid-row:3;grid-column:1/-1;font-size:max(14px,.86em);font-weight:700;color:#C9D0FF}
+.hs-chip{grid-row:4;grid-column:1/-1;justify-self:start;margin-top:.2em;font-size:max(14px,.8em);font-weight:700;color:var(--hs-ink);border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .6em}
+.hs-ph{grid-row:5;grid-column:1/-1;position:relative;display:block;margin-top:.4em;min-height:0;border-radius:6px;overflow:hidden;background:#1A1F5C}
+.hs-ph img{display:block;width:100%;aspect-ratio:16/9;max-height:6em;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.hs-ph:after{content:"";position:absolute;inset:0;background:#5B4FD6;mix-blend-mode:color}
+.hs-play{grid-row:6;position:relative;z-index:2;grid-column:1/-1;justify-self:start;margin-top:.4em;min-height:44px;background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--hs-ink);border-radius:999px;padding:0 1em;font-weight:700}
+.hs-holes.dense .hs-line,.hs-holes.dense .hs-ph,.hs-holes.dense .hs-play{display:none}
 .hs-holes.dense .hs-hole{padding:.5em .7em}
 @media (max-width:760px){
-  .hs{padding:1.2em 1em;justify-content:flex-start;gap:1.2em}
-  .hs-hero{min-height:72svh;justify-content:flex-end}
+  .hs{padding:1.2em 1em;justify-content:flex-start;gap:1em}
+  .hs-hero{min-height:0;padding:2.4em 0 5.5em}
+  /* portrait: scale the scene so the horizon and flag sit just under the call to action, in the first screen */
+  .hs-scene{bottom:auto;height:765px}
+  .hs-scene svg{width:1362px;height:765px;left:calc(82vw - 1008px)}
   .hs-fig{flex-wrap:nowrap;gap:.8em}.hs-fig dd{font-size:1.5em}
   .px a.hs-cta{align-self:stretch;justify-content:center}
   .hs-hold{position:static}
   .hs-holes,.hs-holes.dense{grid-template-columns:1fr}
-  .hs-hole.wide{grid-column:auto}
+  .hs-hole.wide{grid-column:auto;grid-template-columns:auto minmax(0,1fr)}
+  .hs-hole.wide .hs-line,.hs-hole.wide .hs-figure,.hs-hole.wide .hs-chip,.hs-hole.wide .hs-play{grid-column:1/-1}
+  .hs-hole.wide .hs-ph{grid-column:1/-1;grid-row:auto;margin:.4em 0 0;width:100%;min-height:0;aspect-ratio:16/6}
+  .hs-hole{grid-template-rows:none}
+  .hs-no,.hs-name,.hs-line,.hs-figure,.hs-chip,.hs-play{grid-row:auto}
   .hs-holes.dense .hs-line{display:block}
-  .hs-thumb,.hs-holes.dense .hs-thumb{display:block;width:96px;grid-column:1;grid-row:1/span 5;max-height:none}
-  .hs-hole.wide{grid-template-columns:auto 1fr auto}
   .hs-holes.dense .hs-play{display:inline-flex;align-items:center}
+  .hs-holes.dense .hs-ph{display:block}
 }
 
 /* intro: once per session, transform and opacity only */
@@ -2198,7 +2207,7 @@ const HOLE_TXT = {
   compare: ['Compare', 'Who Carries the Work, Four Options', () => `Ardn Carries ${V.ardnCarries} of ${V.jobs}`],
   detail: ['Detail', 'Systems, Testing and Rollout in Depth', () => `${V.systems} Systems`],
   screens: ['Screens', 'Real Screens, by App', () => `${Math.floor(SHOT_DATA.reduce((a, g) => a + g.length, 0) / 10) * 10}+ Screens`],
-  videos: ['Videos', 'Run the Whole Club on One Platform · 2 Min', () => `${VIDS.length} Films`],
+  videos: ['Videos', 'Run the Whole Club on One Platform\u00a0·\u00a02\u00a0Min', () => `${VIDS.length} Films`],
   demo: ['Demo', 'Sign In as Grant Whitaker, General Manager', () => `${$$('[data-slot=staffPeople] > *').length || 7} Staff Roles · ${$$('[data-slot=memberPeople] > *').length || 3} Member Roles`],
 };
 function paintHome() {
@@ -2213,13 +2222,14 @@ function paintHome() {
   box.innerHTML = list.map(([k], i) => {
     const [name, line, fig] = HOLE_TXT[k], on = tabOn(k), no = holeNo(k), wide = k === 'videos' || k === 'demo';
     const head = on ? `<span class="hs-no" aria-hidden="true">${no}</span>` : '<span class="hs-no hs-pinless" aria-hidden="true"></span>';
-    const thumb = k === 'videos' ? '<img class="hs-thumb" src="/videos/club-steward-run-the-whole-club-poster.webp" alt="" loading="lazy">' : k === 'demo' ? '<img class="hs-thumb" src="/proposal-sites/invited-clubs/demo/staff-home-gm.jpg" alt="" loading="lazy">' : '';
+    // the shots carry their own colours (green and gold), so both are toned violet by an overlay to keep the Ardn palette
+    const thumb = k === 'videos' ? '<span class="hs-ph"><img src="/videos/club-steward-run-the-whole-club-poster.webp" alt="" loading="lazy"></span>' : k === 'demo' ? '<span class="hs-ph"><img src="/proposal-sites/invited-clubs/demo/staff-roster.jpg" alt="" loading="lazy" style="object-position:50% 58%"></span>' : '';
     const play = k === 'videos' ? '<button type="button" class="hs-play" data-hs-play="1">Play 2 Min Film</button>' : '';
     return `<li class="hs-hole${wide ? ' wide' : ''}${on ? '' : ' hid'}" style="--h:${i}"><a class="hs-link" href="#${k}" aria-label="${esc(on ? `Hole ${no}: ${name}` : `${name}, hidden from Invited`)}"></a>${head}${thumb}
       <span class="hs-name">${esc(name)}</span><span class="hs-line">${esc(line)}</span><span class="hs-figure">${esc(fig())}</span>${on ? '' : '<span class="hs-chip">Hidden From Invited</span>'}${play}</li>`;
   }).join('');
   const units = list.reduce((a, [k]) => a + (k === 'videos' || k === 'demo' ? 2 : 1), 0);
-  box.style.setProperty('--cols', String(units > 8 ? Math.ceil(units / 2) : units)); box.classList.toggle('dense', units > 8);
+  box.style.setProperty('--cols', String(Math.ceil(units / 2))); box.classList.toggle('dense', units > 8);
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-hs-play]')) openTheatre(0); });
 
