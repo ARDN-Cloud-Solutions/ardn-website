@@ -537,8 +537,7 @@ body.noflags .flag{display:none}
 
 .tabs .so{font-size:14px;font-weight:700;border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .55em;margin-left:.4em;white-space:nowrap}
 
-/* Confidential: viewer mark above the viewers (lightbox 50, theatre 60), below the chart tooltip (80); printing off; veil when the window is away */
-#wm{position:fixed;inset:0;z-index:70;pointer-events:none;background-repeat:repeat}
+/* Confidential: printing off; veil when the window is away */
 .conf{color:var(--muted);font-size:max(14px,.86em);white-space:nowrap}
 .pxfoot .conf{text-align:center}
 #lbBox .conf,.thhead .conf{margin-left:auto}
@@ -2595,18 +2594,10 @@ document.addEventListener('scroll', e => { const t = e.target; if (t && t.classL
 addEventListener('resize', () => { clearTimeout(HS_C); HS_C = setTimeout(paintScrollCues, 150); });
 addEventListener('hashchange', () => { clearTimeout(HS_C); HS_C = setTimeout(paintScrollCues, 800); });
 let HS_C = 0; setTimeout(paintScrollCues, 900);
-/* Confidentiality: a faint viewer mark, no printing, no saving of images, and a veil when the window loses focus.
+/* Confidentiality: no printing, no saving of images, and a veil when the window loses focus.
    Quiet by design; nothing here tells the viewer what it is for. */
 (function () {
   try {
-    var who = (typeof ST !== "undefined" && ST.viewer) || "Invited Viewer";
-    var day = new Date().toISOString().slice(0, 10);
-    var esc = function (t) { return String(t).replace(/[&<>"']/g, function (c) { return "&#" + c.charCodeAt(0) + ";"; }); };
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="240"><text x="30" y="150" transform="rotate(-22 210 120)" font-family="Manrope,Arial,sans-serif" font-size="15" font-weight="600" fill="#9AA5F0" fill-opacity=".11">' + esc(who) + " · " + day + "</text></svg>";
-    var wm = document.createElement("div");
-    wm.id = "wm"; wm.setAttribute("aria-hidden", "true"); wm.setAttribute("data-wm", who);
-    wm.style.backgroundImage = 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
-    document.body.appendChild(wm);
 
     var inMedia = function (e) { return e.target && e.target.closest && e.target.closest("img,video,canvas,.lbimgwrap,#theatre,.fg-shot"); };
     document.addEventListener("contextmenu", function (e) { if (inMedia(e)) e.preventDefault(); });
