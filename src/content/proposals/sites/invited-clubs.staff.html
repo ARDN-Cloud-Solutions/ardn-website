@@ -434,6 +434,8 @@ const PL = (() => {
 })();
 const plSave = () => { try { localStorage.setItem(PL_KEY, JSON.stringify({open: PL.open, sign: PL.sign})); } catch (e) {} };
 const PL_PH = {design: ['Design', '#7A86A8'], build: ['Build', '#4B3FD8'], test: ['Test', '#1F6FD1'], deploy: ['Deploy', '#0B7A6A'], parallel: ['Parallel Run', '#8A94B8']};
+const plT = (t, s, r, z) => `data-tip="${tipAttr(t, s, r, z)}"`;
+const plSpan = (a, b) => [[null, 'Starts', plMonth(a)], [null, 'Ends', plMonth(b)], [null, 'Length', (b - a + 1) + (b > a ? ' Months' : ' Month')]];
 const PL_CORE = '#4B3FD8', PL_FLEX = '#1F6FD1', PL_LBL = 190, PL_FTE = 160;
 // a timeline column is as wide as the card allows (28 to 36 px), so a whole timeline fits without scrolling when it can
 let PL_CW = 32;
@@ -572,10 +574,10 @@ function plPhases(M) {
   const H = Math.max(36, M.H); plFit(PL_LBL, H);
   let h = `<div class="pl-grid" style="--cw:${PL_CW}px">` + plAxis(1, H);
   PLAN.phases.forEach(p => {
-    h += `<div class="pl-row" title="${esc(p.what)}"><div class="pl-lbl">${esc(p.name)}</div><div class="pl-area" style="width:${H * PL_CW}px"><div class="pl-bar" style="left:${(p.from - 1) * PL_CW}px;width:${(p.to - p.from + 1) * PL_CW}px;background:${p.name === 'Run' ? '#0B7A6A' : '#4B3FD8'}">${p.to - p.from >= 2 ? plRange(p.from, p.to) : 'M' + p.from + (p.to > p.from ? '–' + p.to : '')}</div></div></div>`;
+    h += `<div class="pl-row"><div class="pl-lbl">${esc(p.name)}</div><div class="pl-area" style="width:${H * PL_CW}px"><div class="pl-bar" tabindex="0" ${plT(p.name, plRange(p.from, p.to), plSpan(p.from, p.to).concat([[null, 'What', p.what]]))} style="left:${(p.from - 1) * PL_CW}px;width:${(p.to - p.from + 1) * PL_CW}px;background:${p.name === 'Run' ? '#0B7A6A' : '#4B3FD8'}">${p.to - p.from >= 2 ? plRange(p.from, p.to) : 'M' + p.from + (p.to > p.from ? '–' + p.to : '')}</div></div></div>`;
   });
   h += `<div class="pl-row" style="height:40px"><div class="pl-lbl"><b>Milestones</b></div><div class="pl-area" style="width:${H * PL_CW}px">` +
-    PLAN.milestones.map((x, i) => `<div class="pl-dia" style="left:${(x.month - 1) * PL_CW + 9}px" title="M${x.month} · ${esc(x.full)}"></div>`).join('') + '</div></div></div>';
+    PLAN.milestones.map((x, i) => `<div class="pl-dia" tabindex="0" ${plT(x.full, 'M' + x.month, [[null, 'Date', plMonth(x.month)]])} style="left:${(x.month - 1) * PL_CW + 9}px"></div>`).join('') + '</div></div></div>';
   h += '<div class="pl-ms">' + PLAN.milestones.map(x => `<span title="${esc(x.full)}"><b>M${x.month}</b>${esc(x.label)}</span>`).join('') + '</div>';
   return h;
 }
@@ -588,11 +590,12 @@ function plSystems(M) {
   const row = s => {
     const builders = M.by[s.id] || [], cls = mine ? (mine.has(s.id) ? ' hl' : ' dim') : '';
     let seg = '';
-    if (s.phases) Object.entries(PL_PH).forEach(([k]) => { const r = s.phases[k]; if (r) seg += `<div class="pl-seg ${k}" title="${PL_PH[k][0]} M${r[0]}–M${r[1]}" style="left:${(r[0] - 1) * PL_CW}px;width:${(r[1] - r[0] + 1) * PL_CW}px;${k === 'parallel' ? 'opacity:.9;' : 'background:' + PL_PH[k][1] + ';'}${k === 'parallel' ? 'top:11px;height:8px;' : ''}"></div>`; });
-    else seg = `<div class="pl-seg build" style="left:${(s.start - 1) * PL_CW}px;width:${(s.ready - s.start + 1) * PL_CW}px;background:${PL_PH.build[1]}" title="Build M${s.start}–M${s.ready}"></div>`;
-    const flag = PLAN.deps[s.id] || part(s.id) ? `<span class="pl-flag" style="left:${(s.start - 1) * PL_CW - 15}px" title="${esc((dep(s.id) ? 'Needs ' + dep(s.id) : '') + (part(s.id) ? (dep(s.id) ? ' · ' : '') + 'Partly needs ' + (PL_NAMES[part(s.id).on] || '') + ': ' + part(s.id).reason : ''))}">⚑</span>` : '';
-    const ret = s.retire && s.phases ? `<div class="pl-dia" style="left:${(s.retire - 1) * PL_CW + 9}px" title="Retires M${s.retire}"></div>` : '';
-    return `<div class="pl-row${cls}" data-sys="${s.id}"><div class="pl-lbl" title="${esc(s.name)}">${esc(s.name)}</div><div class="pl-area" style="width:${H * PL_CW}px">${seg}${ret}${flag}</div><div class="pl-by" data-by="${s.id}" title="${esc(plBy(builders))}">${builders.length ? esc(plBy(builders)) : '<span style="color:var(--muted)">Nobody Assigned</span>'}</div></div>`;
+    if (s.phases) Object.entries(PL_PH).forEach(([k]) => { const r = s.phases[k]; if (r) seg += `<div class="pl-seg ${k}" ${plT(s.name, PL_PH[k][0], plSpan(r[0], r[1]))} style="left:${(r[0] - 1) * PL_CW}px;width:${(r[1] - r[0] + 1) * PL_CW}px;${k === 'parallel' ? 'opacity:.9;' : 'background:' + PL_PH[k][1] + ';'}${k === 'parallel' ? 'top:11px;height:8px;' : ''}"></div>`; });
+    else seg = `<div class="pl-seg build" ${plT(s.name, 'Build', plSpan(s.start, s.ready))} style="left:${(s.start - 1) * PL_CW}px;width:${(s.ready - s.start + 1) * PL_CW}px;background:${PL_PH.build[1]}"></div>`;
+    const flag = PLAN.deps[s.id] || part(s.id) ? `<span class="pl-flag" style="left:${(s.start - 1) * PL_CW - 15}px" ${plT(s.name, 'Depends On Another System', (dep(s.id) ? [[null, 'Needs', dep(s.id)]] : []).concat(part(s.id) ? [[null, 'Partly Needs', (PL_NAMES[part(s.id).on] || '') + ': ' + part(s.id).reason]] : []))}>⚑</span>` : '';
+    const ret = s.retire && s.phases ? `<div class="pl-dia" style="left:${(s.retire - 1) * PL_CW + 9}px" ${plT(s.name, 'Retires', [[null, 'Month', 'M' + s.retire], [null, 'Date', plMonth(s.retire)]])}></div>` : '';
+    const sum = tipAttr(s.name, 'every phase', Object.entries(PL_PH).filter(([k]) => s.phases && s.phases[k]).map(([k, [n, c]]) => [c, n, plRange(s.phases[k][0], s.phases[k][1])]).concat(s.phases ? [] : [[PL_PH.build[1], 'Build', plRange(s.start, s.ready)]]).concat(s.retire && s.phases ? [[null, 'Retires', 'M' + s.retire]] : []), [['Built By', builders.length ? plBy(builders) : 'Nobody Assigned']]);
+    return `<div class="pl-row${cls}" data-sys="${s.id}" tabindex="0" data-tipf="${sum}"><div class="pl-lbl" title="${esc(s.name)}">${esc(s.name)}</div><div class="pl-area" style="width:${H * PL_CW}px">${seg}${ret}${flag}</div><div class="pl-by" data-by="${s.id}" title="${esc(plBy(builders))}">${builders.length ? esc(plBy(builders)) : '<span style="color:var(--muted)">Nobody Assigned</span>'}</div></div>`;
   };
   let h = `<div class="pl-leg">${Object.entries(PL_PH).map(([k, [n, c]]) => `<span><i style="${k === 'parallel' ? 'background:repeating-linear-gradient(45deg,#8A94B8 0 3px,#E3E7F6 3px 6px);border:1px solid #8A94B8' : 'background:' + c}"></i>${n}</span>`).join('')}<span><i style="background:var(--neg);transform:rotate(45deg) scale(.8)"></i>Retires</span><span><b style="color:#B14226">⚑</b> Depends On Another System</span>` +
     (sel ? `<span style="margin-left:auto"><b>${esc(sel.label)}</b>: ${sel.systems.length} Systems <button type="button" class="pl-btn" data-plan-clear="1">Clear</button></span>` : '<span style="margin-left:auto;color:var(--muted)">Click A Person In A Team Section To Highlight Their Systems</span>') + '</div>';
@@ -609,7 +612,7 @@ function plTeamRows(list, from, to, M, extra) {
     const l = (p.start - from) * PL_CW, w = (p.end - p.start + 1) * PL_CW, n = p.end - p.start + 1;
     return `<div class="pl-row pl-pr${PL.sel === p.key ? ' sel' : ''}" data-pk="${p.key}" data-kind="${p.kind}" tabindex="0" role="button" aria-pressed="${PL.sel === p.key}"><div class="pl-lbl" style="width:${PL_TL}px" title="${esc(p.label)}"><span class="pl-pill ${p.kind.toLowerCase()}">${p.kind}</span>${esc(p.label)}</div>
       <div class="pl-c" style="width:72px" data-meta="fte">${plFix(p.fte)}</div><div class="pl-c" style="width:88px" data-meta="loc">${p.loc}</div><div class="pl-c" style="width:70px" data-meta="sys">${p.systems.length}</div>
-      <div class="pl-area" style="width:${W}px"><div class="pl-bar ${p.kind.toLowerCase()}" style="left:${l}px;width:${w}px;padding:0 4px" title="${esc(p.label)} · M${p.start}–M${p.end}">${n >= 3 ? plRange(p.start, p.end) : n === 2 ? 'M' + p.start + '–' + p.end : 'M' + p.start}</div>${extra || ''}</div></div>`;
+      <div class="pl-area" style="width:${W}px"><div class="pl-bar ${p.kind.toLowerCase()}" style="left:${l}px;width:${w}px;padding:0 4px" ${plT(p.label, p.kind + ' · ' + p.section, plSpan(p.start, p.end).concat([[null, 'Full-Time', plFix(p.fte)], [null, 'Location', p.loc], [null, 'Systems', String(p.systems.length)]]))}>${n >= 3 ? plRange(p.start, p.end) : n === 2 ? 'M' + p.start + '–' + p.end : 'M' + p.start}</div>${extra || ''}</div></div>`;
   }).join('');
 }
 const PL_TL = 250;
@@ -643,16 +646,30 @@ function plMonths(M) {
     const t = M.total(m), n = M.need[m], sh = M.short.includes(m);
     const jl = list => list.length ? esc(plBy(list)) : '—', join = M.people.filter(p => p.start === m), leave = M.people.filter(p => p.end === m);
     h += `<tr data-m="${m}" class="${sh ? 'short' : ''}"><td><b>M${m}</b> ${plMonth(m)}</td><td>${esc(ph(m))}</td><td class="r" data-c="core">${plFix(M.core[m])}</td><td class="r" data-c="flex">${plFix(M.flex[m])}</td><td class="r${sh ? ' neg' : ''}" data-c="total"><b>${plFix(t)}</b></td><td class="r" data-c="need">${plNum1(n)}</td>
-      <td><span class="pl-mini"><i style="width:${M.core[m] / max * 100}%;background:${PL_CORE}"></i><i style="left:${M.core[m] / max * 100}%;width:${M.flex[m] / max * 100}%;background:${PL_FLEX}"></i><u style="left:${Math.min(98, n / max * 100)}%"></u></span>${sh ? ` <b style="color:var(--neg)">Short ${plNum1(n - t)}</b>` : ''}</td>` +
+      <td><span class="pl-mini" tabindex="0" ${plT(...plMonthTip(M, m))}><i style="width:${M.core[m] / max * 100}%;background:${PL_CORE}"></i><i style="left:${M.core[m] / max * 100}%;width:${M.flex[m] / max * 100}%;background:${PL_FLEX}"></i><u style="left:${Math.min(98, n / max * 100)}%"></u></span>${sh ? ` <b style="color:var(--neg)">Short ${plNum1(n - t)}</b>` : ''}</td>` +
       Object.keys(PL_PH).map(k => `<td class="r">${cnt(m, k) || '—'}</td>`).join('') +
       `<td class="who" title="${esc(gl(m))}">${esc(gl(m))}</td><td class="who" data-c="joins" title="${jl(join)}">${jl(join)}</td><td class="who" data-c="leaves" title="${jl(leave)}">${jl(leave)}</td></tr>`;
   }
   return h + '</tbody></table>';
 }
+/* one month's team against need, read from the model: the table's mini bar and the chart's hover both use it */
+function plMonthTip(M, m) {
+  const t = M.total(m), n = M.need[m], gap = n - t;
+  return ['M' + m, plMonth(m), [[PL_CORE, 'Core', plFix(M.core[m]) + ' People'], [PL_FLEX, 'Flex', plFix(M.flex[m]) + ' People']],
+    [['Total', plFix(t) + ' People'], ['Need', plNum1(n) + ' People'], [gap > 0.05 ? 'Short' : 'Spare', plNum1(Math.abs(gap)) + ' People']]];
+}
+let PLCH = null;
+SCRUB.plan = {
+  n: () => (PLCH ? PLCH.M.H : 0),
+  at: (el, e) => PLCH ? Math.floor((e.clientX - el.getBoundingClientRect().left - PLCH.left) / PLCH.st) : -1,
+  anchor: (el, i) => { const r = el.getBoundingClientRect(); return [r.left + PLCH.left + i * PLCH.st + PLCH.st / 2, r.top + PLCH.y(Math.max(PLCH.M.total(i + 1), PLCH.M.need[i + 1]))]; },
+  mark: (el, i) => { const h = $('#plHover'); if (!h) return; if (i < 0) { h.setAttribute('opacity', 0); return; } h.setAttribute('x', PLCH.left + i * PLCH.st); h.setAttribute('opacity', .1); },
+  data: i => { const [t, s, r, z] = plMonthTip(PLCH.M, i + 1); return {t, s, r, z}; }
+};
 function plChart(M) {
   const H = M.H, top = 20, bot = 44, left = 44, ch = 280, st = PL_CW;
   const ymax = Math.ceil((Math.max(...M.need.slice(0, H + 1), ...Array.from({length: H}, (_, i) => M.total(i + 1))) + 0.5) / 5) * 5, y = v => top + ch - v / ymax * ch;
-  let s = `<svg id="planChart" width="${left + H * st + 10}" height="${top + ch + bot}" role="img" aria-label="Team against need by month" style="font:14px Manrope,system-ui,sans-serif">`;
+  let s = `<svg id="planChart" data-scrub="plan" tabindex="0" width="${left + H * st + 10}" height="${top + ch + bot}" role="img" aria-label="Team against need by month" style="font:14px Manrope,system-ui,sans-serif">`;
   for (let v = 0; v <= ymax; v += 5) s += `<line x1="${left}" x2="${left + H * st}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(28,32,69,.12)"/><text x="${left - 6}" y="${y(v) + 5}" text-anchor="end" fill="#5B6380">${v}</text>`;
   let line = '';
   for (let m = 1; m <= H; m++) {
@@ -664,7 +681,8 @@ function plChart(M) {
   }
   s += `<path d="${line}" fill="none" stroke="#1C2045" stroke-width="2.5"/>`;
   for (let m = 1; m <= H; m++) s += `<circle cx="${left + (m - 1) * st + st / 2}" cy="${y(M.need[m])}" r="3.5" fill="${M.short.includes(m) ? '#9F2D45' : '#1C2045'}"/>`;
-  s += `<text x="${left}" y="${top + ch + 40}" fill="#5B6380">Month After Signing (M1 = ${plMonth(1)})</text></svg>`;
+  s += `<text x="${left}" y="${top + ch + 40}" fill="#5B6380">Month After Signing (M1 = ${plMonth(1)})</text><rect id="plHover" x="0" y="${top}" width="${st}" height="${ch}" fill="#1C2045" opacity="0" pointer-events="none"/></svg>`;
+  PLCH = {M, left, st, y};
   const leg = `<div class="pl-leg"><span><i style="background:${PL_CORE}"></i>Core</span><span><i style="background:${PL_FLEX}"></i>Flex</span><span><i style="background:#1C2045;border-radius:50%"></i>Need</span><span><i style="background:#9F2D45"></i>Short Months (${M.short.length})</span></div>`;
   return leg + s;
 }
