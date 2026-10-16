@@ -432,6 +432,12 @@ function paintStaffTabs() {
   const l = $('.lbl', a); if (!l.querySelector('.so')) { l.textContent = 'Rollout Plan'; l.insertAdjacentHTML('beforeend', ' <span class="so">Staff Only</span>'); }
 }
 paintStaffTabs();
+// Ardn staff see which assumptions wait on Deep's decision; the client page has none of this
+const AS_HOLD = ['hosted-in-the-united-states', 'certified-hosting', 'penetration-testing'];
+function assumeStaffMark() {
+  AS_HOLD.forEach(id => { const h = $('#asPanel [data-aid="' + id + '"] h3'); if (h && !h.querySelector('.as-hold')) h.insertAdjacentHTML('beforeend', ' <span class="as-chip as-hold">Pending Deep</span>'); });
+}
+assumeStaffMark();
 const PL_KEY = 'ardn-plan-ui';
 const PL_SECS = [['phases', 'Program Phases & Milestones'], ['systems', 'Systems Timeline'], ['rollout', 'Rollout Team'], ['support', 'Support Team'], ['months', 'Month by Month'], ['chart', 'Team vs Need']];
 const PL = (() => {

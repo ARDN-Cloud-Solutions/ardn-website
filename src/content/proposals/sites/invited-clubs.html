@@ -367,6 +367,7 @@ body.noflags .flag{display:none}
 .hs-play{grid-row:6;position:relative;z-index:2;grid-column:1/-1;justify-self:start;margin-top:.4em;min-height:44px;background:rgba(169,180,255,.16);border:1px solid rgba(169,180,255,.6);color:var(--hs-ink);border-radius:999px;padding:0 1em;font-weight:700}
 .hs-holes.dense .hs-line,.hs-holes.dense .hs-ph,.hs-holes.dense .hs-play{display:none}
 .hs-holes.dense .hs-hole{padding:.5em .7em}
+@media (min-width:761px) and (max-height:799px){.hs-holes .hs-line,.hs-holes .hs-ph,.hs-holes .hs-play{display:none}.hs-holes .hs-hole{padding:.5em .7em}}
 @media (max-width:760px){
   .hs{padding:1.2em 1em;justify-content:flex-start;gap:1em}
   .hs-hero{min-height:0;padding:2.4em 0 5.5em}
@@ -537,6 +538,57 @@ body.noflags .flag{display:none}
 
 .tabs .so{font-size:14px;font-weight:700;border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .55em;margin-left:.4em;white-space:nowrap}
 
+/* Assumptions: groups on the left, the items of one group on the right; one screen on a laptop */
+.as{flex:1;display:flex;flex-direction:column;gap:.7em;padding:.8em 1.8em;min-height:0}
+.as-eyebrow{font-size:max(14px,.78em);letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.as h1{font-family:var(--serif);font-weight:500;font-size:1.55em;line-height:1.15;margin:.1em 0 0}
+.as-head p{margin:.15em 0 0;color:var(--soft)}
+.as-body{flex:1;min-height:0;display:grid;grid-template-columns:minmax(14em,17em) minmax(0,1fr);gap:1.1em}
+.as-pick{display:flex;flex-direction:column;gap:3px;min-height:0;overflow:auto}
+.as-g{display:flex;justify-content:space-between;align-items:center;gap:.5em;text-align:left;font:inherit;padding:.32em .7em;border-radius:10px;border:1px solid transparent;background:transparent;color:var(--ink);line-height:1.2}
+.as-g i{font-style:normal;color:var(--muted);font-size:max(14px,.88em);display:flex;align-items:center;gap:.4em}
+.as-g:hover{background:var(--raise);border-color:var(--line)}
+.as-g[aria-selected=true]{background:var(--brass);border-color:var(--brass);color:#fff;font-weight:700}
+.as-g[aria-selected=true] i{color:#E9EBFF}
+.as-dot{display:inline-block;width:.55em;height:.55em;border-radius:50%;border:1.5px dashed currentColor}
+.as-panel{min-height:0;min-width:0;overflow:auto;background:var(--deep);border:1px solid var(--line);border-radius:14px;padding:.9em 1.2em;display:flex;flex-direction:column;gap:.7em;box-shadow:var(--shadow)}
+.as-top h2{font-family:var(--serif);font-weight:500;font-size:1.55em;line-height:1.1;margin:0}
+.as-sub{color:var(--soft);margin-top:.15em}
+.as-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7em}
+.as-item{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:.6em .9em}
+.as-item h3{margin:0 0 .2em;font-size:1.05em;display:flex;flex-wrap:wrap;align-items:center;gap:.2em .5em}
+.as-item p{margin:0;color:var(--soft);line-height:1.4}
+.as-chip{font-size:max(14px,.8em);font-weight:700;color:var(--brass2);border:1px dashed var(--brass2);border-radius:999px;padding:0 .6em;white-space:nowrap;background:transparent}
+.as-store{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:1.2em;align-items:start}
+.as-chart{margin:0}
+.as-cols{display:flex;gap:.6em;align-items:flex-end}
+.as-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:stretch;border-radius:8px}
+.as-plot{height:clamp(9em,32vh,19em);display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.as-tot{font-weight:700;height:1.6em}
+.as-stack{display:flex;flex-direction:column;width:100%;height:calc((100% - 1.6em) * var(--r));border-radius:6px 6px 0 0;overflow:hidden;gap:1px}
+.as-stack i,.as-legend i{display:block;min-height:2px}
+.as-stack .db,.as-legend .db{background:#4B3FD8}
+.as-stack .fl,.as-legend .fl{background:#1B63BD}
+.as-lab{text-align:center;font-size:max(14px,.9em);color:var(--soft);border-top:1px solid var(--line2);padding-top:.25em;line-height:1.2}
+.as-legend{display:flex;flex-wrap:wrap;gap:.3em 1.2em;margin-top:.5em;font-size:max(14px,.9em);color:var(--soft)}
+.as-legend span{display:flex;align-items:center;gap:.4em}
+.as-legend i{width:.9em;height:.9em;border-radius:3px}
+.as-legend .mute{color:var(--muted)}
+.as-tbl{width:100%;border-collapse:collapse}
+.as-tbl th,.as-tbl td{padding:.35em .6em;border-bottom:1px solid var(--line);text-align:left}
+.as-tbl th[scope=col]{font-size:max(14px,.82em);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.as-tbl .num{text-align:right}
+.as-cap{margin:0;color:var(--soft)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:1000px){.as-items{grid-template-columns:1fr}.as-store{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .as{padding:.8em 1em}
+  .as-body{display:flex;flex-direction:column;gap:.8em}
+  .as-pick{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:0 0 .4em;gap:6px}
+  .as-g{flex:none;border-color:var(--line2);white-space:nowrap;min-height:44px}
+  .as-panel{overflow:visible}
+}
+@media (min-width:761px){body[data-view=assumptions] .col{height:100vh;height:100dvh;min-height:0}body[data-view=assumptions] .views,body[data-view=assumptions] .view{min-height:0;overflow:hidden}}
 /* Confidential: printing off; veil when the window is away */
 .conf{color:var(--muted);font-size:max(14px,.86em);white-space:nowrap}
 .pxfoot .conf{text-align:center}
@@ -556,7 +608,7 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
 <aside class="side" id="side">
   <div class="side-top"><span class="logo"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"></span><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
   <div class="for">Prepared for <b>Invited</b></div>
-  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Executive Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The Team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org Chart</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
+  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Executive Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The Team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org Chart</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#assumptions"><span class="ic"></span><span class="lbl">Assumptions</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
   <div class="side-bot"><span class="hold">Prices hold to <span data-n="priceHold"></span></span></div>
 </aside>
 <div class="col">
@@ -991,6 +1043,20 @@ img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-sel
       <div style="flex:1 1 16em;color:var(--soft);line-height:1.35;">Migration, pilots, rollout, <span data-n="hyperMonths"></span> months of hypercare. <b style="color:var(--ink);">Paid once. Not in the run cost.</b></div>
     </div>
   </section>
+  </div>
+</main>
+
+</div>
+<div class="view" id="v-assumptions" data-view="assumptions" data-tab="assumptions" hidden>
+<main class="as" data-screen-label="04 Assumptions">
+  <header class="as-head">
+    <div class="as-eyebrow">Assumptions</div>
+    <h1>What we assume, and what we need from Invited</h1>
+    <p id="asSub"></p>
+  </header>
+  <div class="as-body">
+    <nav class="as-pick" id="asPick" role="tablist" aria-orientation="vertical" aria-label="Assumption Groups"></nav>
+    <section class="as-panel" id="asPanel" role="tabpanel" aria-live="polite"></section>
   </div>
 </main>
 
@@ -1784,7 +1850,7 @@ const DEMO = {
   member: 'https://qa-invited-clubs-member-portal-web.developer-bef.workers.dev',
 };
 /* ---------- tabs, footer, keys, the drawer ---------- */
-const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['compare', 'Compare'], ['detail', 'Detail'], ['value', 'Value'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
+const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['compare', 'Compare'], ['detail', 'Detail'], ['value', 'Value'], ['assumptions', 'Assumptions'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
 const VIEWKEYS = [...TABS.map(t => t[0]), 'admin'];
 // views only staff get: the staff script adds its own, with a title and a function that paints it when it opens
 const STAFFV = ['admin'], VIEWTITLE = {admin: 'Team Admin'}, VIEWHOOK = {};
@@ -1826,6 +1892,7 @@ const ICONS = {
   home: '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
   summary: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
   value: '<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>',
+  assumptions: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
   compare: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/>',
   screens: '<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>',
   videos: '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>',
@@ -1847,6 +1914,7 @@ const TAB_INFO = {
   summary: 'The answer, the saving and the ask',
   value: 'Price, saving and the one-time fee',
   compare: () => `How the options compare on ${JOBS.length} jobs`,
+  assumptions: 'What we assume, and what we need from Invited',
   screens: () => `${Math.floor(SHOT_DATA.reduce((a, g) => a + g.length, 0) / 10) * 10}+ real screens, by app`,
   videos: 'Four short films on the whole club',
   demo: 'Sign in as a club person and try it',
@@ -2202,6 +2270,58 @@ $('#dmPick').addEventListener('keydown', e => {
   const i = DEMO_ROLES.findIndex(r => r.id === demoSel);
   pickDemo(DEMO_ROLES[e.key === 'Home' ? 0 : e.key === 'End' ? DEMO_ROLES.length - 1 : Math.max(0, Math.min(DEMO_ROLES.length - 1, i + k))].id, true);
 });
+const ASSUME = {"groups":[{"id":"hosting-and-data","title":"Hosting and Data","items":[{"id":"hosted-in-the-united-states","title":"Hosted in the United States","text":"Club Steward and all Invited data are hosted in the United States, in an environment used only by Invited.","confirms":false},{"id":"three-environments","title":"Three Environments","text":"Production, Full Copy (a copy of production for testing and training, with the same security) and Quality Assurance (QA).","confirms":false},{"id":"storage-included","title":"Storage Included","text":"Storage is sized for 143 clubs and about 400,000 members: about 1.5 terabytes (TB) of data and 3 TB of files by year 3, with a growth allowance, included in the technology fee.","confirms":false}]},{"id":"storage","title":"Storage Allowance","storage":true,"items":[]},{"id":"backup-recovery-and-retention","title":"Backup, Recovery and Retention","items":[{"id":"daily-backups","title":"Daily Backups","text":"Backups are taken daily and kept 30 days, and the database can be restored to any point in the last 14 days.","confirms":false},{"id":"recovery-targets","title":"Recovery Targets","text":"Recovery point objective (RPO) of 15 minutes and recovery time objective (RTO) of 4 hours, in line with the Priority 1 restore target.","confirms":false},{"id":"a-copy-invited-owns","title":"A Copy Invited Owns","text":"A monthly copy of Invited’s data is delivered to storage Invited owns.","confirms":false},{"id":"financial-records","title":"Financial Records","text":"Financial records (ledger, invoices, statements and payments) are kept 7 years.","confirms":false},{"id":"signed-records-and-audit-trail","title":"Signed Records and Audit Trail","text":"Signed agreements, waivers and the audit trail of every change are kept 7 years (a minor’s waiver until age 21, if later).","confirms":false}]},{"id":"security-and-compliance","title":"Security and Compliance","items":[{"id":"card-data","title":"Card Data","text":"Card data is handled by the payment processor, not stored by Club Steward, which keeps only a token, the card brand and the last four digits.","confirms":false},{"id":"encryption","title":"Encryption","text":"Data is encrypted in transit and at rest.","confirms":false},{"id":"certified-hosting","title":"Certified Hosting","text":"Hosting providers hold SOC 2 (Service Organization Control 2) Type II reports, available to Invited on request.","confirms":false},{"id":"penetration-testing","title":"Penetration Testing","text":"An independent penetration test is run before the first club goes live and every year after.","confirms":false}]},{"id":"identity-and-single-sign-on","title":"Identity and Single Sign-On","items":[{"id":"staff-sign-in","title":"Staff Sign-In","text":"Staff sign in with Microsoft Entra ID single sign-on (SSO); Invited provides the app registration and the mapping of groups to roles.","confirms":true}]},{"id":"artificial-intelligence","title":"Artificial Intelligence","items":[{"id":"invited-s-own-ai","title":"Invited’s Own AI","text":"All artificial intelligence (AI) features use Invited’s own AI (InvitedAI or Microsoft Copilot), so club and member data stays within Invited and is not sent to outside AI providers.","confirms":false},{"id":"ai-access","title":"AI Access","text":"Invited provides the InvitedAI or Copilot endpoint and access keys within its own tenant.","confirms":true}]},{"id":"integrations-and-data-migration","title":"Integrations and Data Migration","items":[{"id":"integration-accounts","title":"Integration Accounts","text":"Invited provides accounts, keys and test access for connected systems, such as the payment processor, Entra ID, GHIN, Power BI and Azure, email and text messaging, and the statement print vendor.","confirms":true},{"id":"history-window","title":"History Window","text":"All member and membership records come across, with 2 years of billing, payment and booking history; older history stays in an archive Invited owns.","confirms":true},{"id":"data-cleanup","title":"Data Cleanup","text":"Invited’s data owners decide how duplicate and incorrect records are fixed; Ardn loads, matches and reconciles the data.","confirms":false}]},{"id":"devices","title":"Devices","items":[{"id":"club-devices","title":"Club Devices","text":"Invited provides point of sale (POS) terminals, card readers, kiosks, cart trackers and club Wi-Fi that meet Club Steward’s device list.","confirms":true}]},{"id":"support-and-training","title":"Support and Training","items":[{"id":"support-targets","title":"Support Targets","text":"Priority 1 (P1): 30-minute response, 24×7, restored within 4 hours. P2: 2-hour response, fixed within 2 business days. P3: 1-business-day response, fixed within 10. P4: 2-business-day response, then the backlog.","confirms":false},{"id":"training-and-go-live","title":"Training and Go-Live","text":"Invited’s rollout team trains club staff and runs each club’s go-live; Ardn provides train-the-trainer sessions, training materials and the pilot clubs.","confirms":false}]},{"id":"commercial","title":"Commercial","items":[{"id":"third-party-fees","title":"Third-Party Fees","text":"Third-party usage fees, such as card processing, text messages and Invited’s own Microsoft and AI capacity, are paid by Invited directly, as today.","confirms":false},{"id":"out-of-scope","title":"Out of Scope","text":"Systems Invited keeps or connects to (such as ADP payroll, Opera, Teams and Outlook, and the data warehouse), hardware purchases and club network cabling.","confirms":false},{"id":"pricing-validity","title":"Pricing Validity","text":"Prices hold to Dec 15, 2026.","confirms":false}]}],"rows":[{"label":"Go-Live (Month 18)","db":0.3,"files":0.8,"total":1.1},{"label":"Year 1","db":0.8,"files":1.6,"total":2.4},{"label":"Year 2","db":1.1,"files":2.3,"total":3.4},{"label":"Year 3","db":1.5,"files":3.0,"total":4.5},{"label":"Year 5","db":2.3,"files":4.5,"total":6.8}]};
+/* ---------- Assumptions: a list of groups on the left, the items of one group on the right ---------- */
+let asSel = ASSUME.groups[0].id;
+const asConfirms = () => ASSUME.groups.reduce((a, g) => a + g.items.filter(i => i.confirms).length, 0);
+const asTotal = () => ASSUME.groups.reduce((a, g) => a + g.items.length, 0);
+const asGroup = id => ASSUME.groups.find(g => g.id === id) || ASSUME.groups[0];
+function asStorage() {
+  const R = ASSUME.rows, max = Math.max(...R.map(r => r.total)), f = n => n.toFixed(1);
+  const bars = R.map(r => {
+    const tip = () => tipAttr(r.label, 'Storage Allowance', [['#4B3FD8', 'Database', f(r.db) + ' TB'], ['#1B63BD', 'Files', f(r.files) + ' TB']], [['Total', f(r.total) + ' TB']]);
+    return `<div class="as-col" tabindex="0" role="img" aria-label="${esc(r.label)}: ${f(r.total)} terabytes, ${f(r.db)} database and ${f(r.files)} files" data-tip="${tip()}">
+      <div class="as-plot"><span class="as-tot num">${f(r.total)}</span><span class="as-stack" style="--r:${(r.total / max).toFixed(3)}"><i class="fl" style="flex:${r.files} 1 0"></i><i class="db" style="flex:${r.db} 1 0"></i></span></div><span class="as-lab">${esc(r.label)}</span></div>`;
+  }).join('');
+  const rows = R.map(r => `<tr><th scope="row">${esc(r.label)}</th><td class="num">${f(r.db)}</td><td class="num">${f(r.files)}</td><td class="num"><b>${f(r.total)}</b></td></tr>`).join('');
+  return `<div class="as-top"><h2>Storage Allowance</h2><div class="as-sub">Sized for 143 clubs and about 400,000 members.</div></div>
+    <div class="as-store"><figure class="as-chart"><div class="as-cols">${bars}</div>
+      <div class="as-legend"><span><i class="db"></i>Database</span><span><i class="fl"></i>Files</span><span class="mute">Terabytes (TB)</span></div></figure>
+    <table class="as-tbl"><caption class="sr">Storage Allowance by Year, in Terabytes</caption><thead><tr><th scope="col">Point</th><th scope="col" class="num">Database</th><th scope="col" class="num">Files</th><th scope="col" class="num">Total</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="as-cap">Includes a 25% growth allowance. Included in the technology fee. Year 1 is the first full year after all 143 clubs are live.</p>`;
+}
+function paintAssumePick() {
+  $('#asPick').innerHTML = ASSUME.groups.map(g => {
+    const c = g.items.filter(i => i.confirms).length;
+    return `<button type="button" role="tab" class="as-g" id="ast-${g.id}" data-ag="${g.id}" aria-selected="${g.id === asSel}" aria-controls="asPanel" tabindex="${g.id === asSel ? 0 : -1}"><span>${esc(g.title)}</span><i>${g.storage ? '' : g.items.length}${c ? '<b class="as-dot" title="Includes an item Invited confirms"></b>' : ''}</i></button>`;
+  }).join('');
+}
+function paintAssumePanel() {
+  const g = asGroup(asSel); $('#asPanel').setAttribute('aria-labelledby', 'ast-' + g.id);
+  $('#asPanel').innerHTML = g.storage ? asStorage() :
+    `<div class="as-top"><h2>${esc(g.title)}</h2></div><div class="as-items">${g.items.map(i =>
+      `<article class="as-item" data-aid="${i.id}"><h3>${esc(i.title)}${i.confirms ? ' <span class="as-chip">Invited Confirms</span>' : ''}</h3><p>${esc(i.text)}</p></article>`).join('')}</div>`;
+  if (typeof assumeStaffMark === 'function') assumeStaffMark();
+}
+function paintAssume() {
+  $('#asSub').textContent = `${asTotal()} assumptions behind the price and the plan. ${asConfirms()} need Invited to confirm or provide something.`;
+  paintAssumePick(); paintAssumePanel();
+}
+function pickAssume(id, focus) {
+  asSel = asGroup(id).id;
+  $$('#asPick .as-g').forEach(b => { const on = b.dataset.ag === asSel; b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; });
+  paintAssumePanel(); if (focus) $('#ast-' + asSel).focus();
+}
+document.addEventListener('click', e => { const b = e.target.closest('#asPick .as-g'); if (b) pickAssume(b.dataset.ag); });
+// arrows move through the groups while the list has focus; elsewhere they still move between tabs
+$('#asPick').addEventListener('keydown', e => {
+  const k = {ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1}[e.key];
+  if (!k && e.key !== 'Home' && e.key !== 'End') return;
+  e.preventDefault(); e.stopPropagation();
+  const G = ASSUME.groups, i = G.findIndex(g => g.id === asSel);
+  pickAssume(G[e.key === 'Home' ? 0 : e.key === 'End' ? G.length - 1 : Math.max(0, Math.min(G.length - 1, i + k))].id, true);
+});
+paintAssume();
 /* ---------- Value tab: Invited's monthly spend. Every figure is worked out here from the proposal numbers (NV); nothing is typed in. ---------- */
 // Month 1 is a staff input (Month 1 Is, as YYYYMM); a value that is not a real month falls back to January 2027
 const spStartOf = () => { const v = Math.round((typeof NV !== 'undefined' && NV && NV.spStart) || 202701), y = Math.floor(v / 100), m = v % 100; return y >= 2000 && y <= 2100 && m >= 1 && m <= 12 ? {year: y, month: m - 1} : {year: 2027, month: 0}; };
@@ -2470,6 +2590,7 @@ const HOLE_TXT = {
   value: ['Value', 'Monthly Spend, Price and Return', () => `${FMTS.M(V.total)} a Year · ${FMTS.M(V.impl)} One Time`],
   compare: ['Compare', 'Who Carries the Work, Four Options', () => `Ardn Carries ${V.ardnCarries} of ${V.jobs}`],
   detail: ['Detail', 'Systems, Testing and Rollout in Depth', () => `${V.systems} Systems`],
+  assumptions: ['Assumptions', 'What We Assume, and What We Need', () => `${asTotal()} Assumptions · ${asConfirms()} for Invited to Confirm`],
   screens: ['Screens', 'Real Screens, by App', () => `${Math.floor(SHOT_DATA.reduce((a, g) => a + g.length, 0) / 10) * 10}+ Screens`],
   videos: ['Videos', 'Run the Whole Club on One Platform\u00a0·\u00a02\u00a0Min', () => `${VIDS.length} Films`],
   demo: ['Demo', 'Sign In as Grant Whitaker, General Manager', () => `${demoCount('staff')} Staff Roles · ${demoCount('member')} Member Roles · ${demoCount('pos')} Point of Sale`],
@@ -2493,7 +2614,7 @@ function paintHome() {
       <span class="hs-name">${esc(name)}</span><span class="hs-line">${esc(line)}</span><span class="hs-figure">${esc(fig())}</span>${on ? '' : '<span class="hs-chip">Hidden From Invited</span>'}${play}</li>`;
   }).join('');
   const units = list.reduce((a, [k]) => a + (k === 'videos' || k === 'demo' ? 2 : 1), 0);
-  box.style.setProperty('--cols', String(Math.ceil(units / 2))); box.classList.toggle('dense', units > 8);
+  box.style.setProperty('--cols', String(Math.ceil(units / 2))); box.classList.toggle('dense', units > 9);
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-hs-play]')) openTheatre(0); });
 
