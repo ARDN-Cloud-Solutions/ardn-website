@@ -179,6 +179,33 @@ const CMP = [
   ["Who carries the integrations", "p Vendor decides", "n The Y does", "y The Y does", "y Ardn does"],
 ];
 
+/* The rollout. The only hard external date the Y has is DocuSign ending at
+   the end of April 2027, so Wave 1 lands in April and everything before it is
+   sized to clear that. Months run Nov 2026 to Dec 2027; a wave's bar is
+   [startIndex, span]. "retires" is what the Y stops paying for at that wave. */
+const MONTHS = ["Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const YEARMARK = { 0: "2026", 2: "2027" };
+const WAVES = [
+  { n: "Scope and access", at: [0, 2], when: "Nov – Dec 2026", kind: "prep",
+    live: "Nothing goes live. We get the things that block everything else: the NDA and Daxko export access, the childcare licensing and ELC requirements, confirmation that the Y's Raiser's Edge tier allows production API access, Welld's file format, and Carla's Operate.Fit requirements.",
+    retires: "", dep: "Daxko export access and an NDA. Without them the migration cannot even be designed." },
+  { n: "Build", at: [1, 4], when: "Dec 2026 – Mar 2027", kind: "prep",
+    live: "The e-signature port, the membership and billing configuration for the Y, and the first slice of licensed childcare. Childcare starts here, not later, because it is the longest build and it gates the Daxko exit.",
+    retires: "", dep: "Runs in parallel with Wave 1 preparation." },
+  { n: "Wave 1 — first go-live", at: [5, 1], when: "April 2027", kind: "live",
+    live: "Contracts and e-signature, membership, billing, check-in, Kid Zone child watch, and reporting. Staff work in Ardn from this point.",
+    retires: "DocuSign", dep: "DOCUSIGN ENDS AT THE END OF APRIL. This date is set by the Y's contract, not by us, and the wave is sized backwards from it." },
+  { n: "Wave 2 — the ports", at: [6, 3], when: "May – Jul 2027", kind: "live",
+    live: "The member mobile app, appointments and tours, surveys and NPS, leads and the sales pipeline with the Salesforce import, and financial assistance. All working code in Invited, brought across.",
+    retires: "Appointment King · Salesforce · Listen360", dep: "Each one ends a contract on the day it goes live." },
+  { n: "Wave 3 — childcare and the migration", at: [9, 4], when: "Aug – Nov 2027", kind: "live",
+    live: "Licensed childcare and preschool in full — ratios, incidents, health records, ELC reimbursement — plus online program and camp registration, and the member and family data moved off Daxko.",
+    retires: "Daxko, in full", dep: "The childcare build started in Dec 2026. This is where it lands, and it is the only thing that lets the Daxko contract close." },
+  { n: "As dependencies clear", at: [6, 8], when: "When the vendor answers", kind: "wait",
+    live: "The Welld usage feed, Operate.Fit, Clarissa, and sports leagues. We will not put a date on any of these until the thing they wait on arrives.",
+    retires: "", dep: "Welld's format · Carla's requirements · Clarissa's integration detail · a league season to build against." },
+];
+
 const HOME_CARDS = [
   ["summary", "Executive Summary", "The answer, and the two builds that set the date.", `${SYS.length} capabilities`],
   ["value", "Value", "What it costs, and what comes with it at no charge.", `${usd(PRICE.impl)} + ${usd(PRICE.mo)}/mo`],
@@ -396,12 +423,47 @@ ${view("detail", scr("04", "Detail", `
 </section></div>
 
 <div data-dch="rollout" style="display:contents">
-<section class="grid" style="flex:1;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));align-content:center;">
-  <div class="card" style="border-color:rgba(var(--alarmrgb),.4);"><div class="ch" style="color:var(--alarm);">First · Has A Date</div><div class="cb">DocuSign, by end of April</div><p>Contracts and e-signature is a port, not a build — templates, prefill, reminders, signed PDFs. Needs the state's own PDF field-filling added.</p></div>
-  <div class="card" style="border-color:rgba(var(--bluergb),.45);"><div class="ch">From Day One, In Parallel</div><div class="cb">Licensed childcare</div><p>Starts immediately and runs alongside every port, because it is the critical path and the only thing standing between the Y and a closed Daxko contract.</p></div>
-  <div class="card"><div class="ch">Then</div><div class="cb">The ports</div><p>Mobile app, surveys, the Salesforce replacement, appointments and tours, financial assistance. Working code in Invited. Each one ends a contract.</p></div>
-  <div class="card"><div class="ch">Alongside</div><div class="cb">The named partials</div><p>Online child registration, early-bird pricing, waivers; the daily sales tracker; package expiry and refunds. Bounded work against a base that runs.</p></div>
-  <div class="card"><div class="ch" style="color:var(--slate);">Last · Needs Someone Else</div><div class="cb">The blocked four</div><p>Welld's file format. Carla's Operate.Fit requirements. Clarissa's integration detail. Daxko export access and an NDA. No dates until the dependency clears.</p></div>
+<section style="flex:1;display:flex;flex-direction:column;gap:.6em;min-height:0;justify-content:center;">
+  <div class="note" style="border-left-color:var(--alarm);background:rgba(var(--alarmrgb),.07);"><b>One date is fixed, and it is not ours.</b> DocuSign ends at the end of April 2027. Wave 1 is sized backwards from it, which is why first go-live is April and not later. Everything after that is sequenced by what blocks what.</div>
+
+  <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.13);border-radius:12px;padding:.7em 1em;overflow:auto;min-height:0;">
+    <div style="display:grid;grid-template-columns:11em repeat(${MONTHS.length}, minmax(1.6em,1fr));gap:.15em .1em;align-items:center;min-width:34em;">
+      <div></div>
+      ${MONTHS.map((m, i) => `<div style="text-align:center;font-size:max(11px,.66em);font-weight:700;color:${i === 5 ? "var(--alarm)" : "var(--muted)"};letter-spacing:.04em;">${m}${YEARMARK[i] ? `<span style="display:block;font-weight:400;font-size:.85em;color:var(--muted);">${YEARMARK[i]}</span>` : ""}</div>`).join("")}
+      ${WAVES.map((w) => {
+        const c = w.kind === "live" ? "var(--brass)" : w.kind === "wait" ? "var(--slate)" : "var(--sand)";
+        const bg = w.kind === "live" ? "rgba(var(--bluergb),.85)" : w.kind === "wait" ? "rgba(var(--slatergb),.45)" : "rgba(var(--goldrgb),.3)";
+        return `<button type="button" data-wave="${esc(w.n)}" style="text-align:left;font:inherit;font-size:max(12px,.76em);font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer;padding:.2em 0;line-height:1.2;">${esc(w.n)}</button>` +
+          MONTHS.map((_, i) => {
+            const on = i >= w.at[0] && i < w.at[0] + w.at[1];
+            const first = i === w.at[0];
+            return `<div style="height:1.5em;${on ? `background:${bg};${first ? "border-radius:4px 0 0 4px;" : ""}${i === w.at[0] + w.at[1] - 1 ? "border-radius:0 4px 4px 0;" : ""}` : ""}${i === 5 ? "box-shadow:inset 1px 0 0 var(--alarm), inset -1px 0 0 var(--alarm);" : ""}"></div>`;
+          }).join("");
+      }).join("")}
+    </div>
+    <div style="display:flex;gap:.3em 1.1em;flex-wrap:wrap;margin-top:.5em;font-size:max(12px,.74em);color:var(--muted);">
+      <span style="display:inline-flex;align-items:center;gap:.35em;"><i style="width:.75em;height:.75em;border-radius:2px;background:rgba(var(--goldrgb),.3);"></i>Build, nothing live yet</span>
+      <span style="display:inline-flex;align-items:center;gap:.35em;"><i style="width:.75em;height:.75em;border-radius:2px;background:rgba(var(--bluergb),.85);"></i>Goes live, a contract ends</span>
+      <span style="display:inline-flex;align-items:center;gap:.35em;"><i style="width:.75em;height:.75em;border-radius:2px;background:rgba(var(--slatergb),.45);"></i>Waiting on someone else</span>
+      <span style="color:var(--alarm);font-weight:700;">April 2027 · DocuSign ends</span>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:.7em;">
+    <div class="card" style="flex:2 1 24em;" id="waveCard">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5em;flex-wrap:wrap;">
+        <span class="cb" id="waveName"></span>
+        <span id="waveWhen" style="font-size:max(12px,.76em);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);white-space:nowrap;"></span>
+      </div>
+      <p id="waveLive"></p>
+      <div id="waveDepW" style="margin-top:.2em;"><span style="font-size:max(11px,.68em);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);">What it turns on</span><p id="waveDep" style="font-size:max(13px,.84em);"></p></div>
+    </div>
+    <div class="card" style="flex:1 1 15em;border-color:rgba(var(--goodrgb),.4);">
+      <div class="ch" style="color:var(--good);">What Stops Being Paid For</div>
+      <div class="cb" id="waveRet" style="font-size:1.1em;"></div>
+      <div class="foot">No system is switched off until its replacement is live and the Y has signed it off. Data is archived first.</div>
+    </div>
+  </div>
 </section></div>
 
 <div data-dch="proof" style="display:contents">
@@ -457,14 +519,14 @@ ${view("detail", scr("04", "Detail", `
     estate:'Of ${SYS.length} systems, ${TALLY.retire} retire and ${TALLY.partial} retire in part',
     gaps:'Two true gaps set the date; the rest is bounded work',
     qa:'Testing is built into the product, not bolted on',
-    rollout:'DocuSign sets the first date; childcare sets the last',
+    rollout:'First go-live in April 2027, because DocuSign ends then',
     proof:'Already built, and the Y can check every claim'
   };
   var DLEG={
     estate:'${Object.entries(FATE).map(([k, v]) => `<span><i style="background:${v[0]}"></i><b>${TALLY[k] || 0}</b> ${esc(v[2])}</span>`).join("")}<span style="color:var(--alarm);font-weight:700;">D1 · Craig&rsquo;s Day 1</span>',
     gaps:'<span><b>${GAPS.size}</b> true gaps</span><span><b>${d1Fit.PARTIAL}</b> named partials</span>',
     qa:'<span><b>370,471</b> lines of tests</span>',
-    rollout:'<span><b>${D1.length}</b> on the Day 1 list</span>',
+    rollout:'<span><b>6</b> months to first go-live</span><span><b>${WAVES.filter(w=>w.kind==="live").length}</b> live waves</span>',
     proof:'<span><b>${d1Fit.STRONG}</b> strong · <b>${d1Fit.PARTIAL}</b> partial · <b>${d1Fit.GAP}</b> gap</span>'
   };
   var dch='estate';
@@ -479,6 +541,22 @@ ${view("detail", scr("04", "Detail", `
     if(b){dch=b.dataset.dt;paintDetail();}
   });
   paintDetail();
+  var WAVES=${JSON.stringify(WAVES)};
+  function paintWave(name){
+    var w=WAVES.filter(function(x){return x.n===name;})[0]||WAVES[2];
+    function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    set('waveName',w.n);set('waveWhen',w.when);set('waveLive',w.live);set('waveDep',w.dep);
+    set('waveRet',w.retires||'Nothing yet — this is build, not go-live.');
+    var rw=document.getElementById('waveRet');if(rw)rw.style.color=w.retires?'var(--good)':'var(--muted)';
+    document.querySelectorAll('[data-wave]').forEach(function(b){
+      b.style.color=b.getAttribute('data-wave')===w.n?'var(--brass)':'var(--ink)';
+    });
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-wave]');
+    if(b)paintWave(b.getAttribute('data-wave'));
+  });
+  paintWave('Wave 1 — first go-live');
   var ts=document.getElementById('todaySpend'), so=document.getElementById('spendOut');
   var ARDN_YR=${yr1Run};
   if(ts&&so)ts.addEventListener('input',function(){
