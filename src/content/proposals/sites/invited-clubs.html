@@ -287,6 +287,46 @@ body.noflags .flag{display:none}
 .thnav{flex:none;width:3em;height:3em;border-radius:50%;border:1px solid rgba(238,242,255,.4);background:rgba(238,242,255,.12);color:#F3F5FF;font-size:1.8em;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 .1em}
 .thnav:disabled{opacity:.35;cursor:default}
 @media (max-width:760px){.thnav{display:none}#theatre{padding:.5em}#thVideo{width:100%;max-height:none}#thBox{width:100%}}
+
+/* value tab: monthly spend illustration. Series colours are tokens so the chart reads in light and in dark. */
+.spend{--sp-legacy:#AEB8D2;--sp-tech:#8F7BE8;--sp-svc:#3F6FD8;--sp-impl:#C4D0F2;--sp-clubs:#6D3FD6;--sp-rule:#D9DEEE;--sp-ink:#1C2045;--sp-mute:#5B6380;--sp-good:#17754A;--sp-panel:#FFFFFF}
+.spend[data-theme=dark],#v-admin .spend{--sp-legacy:#4A5578;--sp-tech:#8E78E0;--sp-svc:#5B7BE0;--sp-impl:#4A5C96;--sp-clubs:#B794FF;--sp-rule:#2A3352;--sp-ink:#E6EAF6;--sp-mute:#B3BBD6;--sp-good:#5FD08A;--sp-panel:#161D33;background:#0F1424;color:#E6EAF6}
+.valtabs{display:flex;gap:8px;position:absolute;top:8px;right:1.8em;z-index:2}
+#v-value main{position:relative}
+.valtabs button{font:inherit;font-size:14px;font-weight:700;padding:5px 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--soft);cursor:pointer}
+.valtabs button.on{background:var(--brass);border-color:var(--brass);color:#fff}
+.valprice{display:contents}
+.valprice[hidden]{display:none!important}
+.spend{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;color:var(--ink)}
+.spend[hidden]{display:none!important}
+.speyebrow{min-height:30px;display:flex;align-items:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.spend[data-theme=dark] .speyebrow{color:#C9D0FF}
+.spend h1{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.1vw,30px);line-height:1.15;letter-spacing:0;margin:0 0 4px;max-width:60em;text-wrap:balance}
+.splede{margin:0;color:var(--soft);font-size:15px;line-height:1.35;max-width:80ch}
+.spend[data-theme=dark] .splede{color:#C9D0FF}
+.spkpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.spkpi{background:var(--sp-panel);border:1px solid var(--sp-rule);border-radius:10px;padding:8px 14px;display:grid;gap:2px}
+.spkpi b{font-family:var(--serif);font-weight:500;font-size:clamp(20px,1.8vw,26px);line-height:1.1;font-variant-numeric:tabular-nums}
+.spkpi span{color:var(--sp-mute);font-size:14px;line-height:1.25}
+.spkpi.good b{color:var(--sp-good)}
+.sppanel{flex:1;min-height:0;background:var(--sp-panel);border:1px solid var(--sp-rule);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:4px}
+.sppanel h2{margin:0;font-size:16px;line-height:1.3;font-weight:700}
+.splegend{display:flex;flex-wrap:wrap;gap:2px 16px;font-size:14px;color:var(--sp-mute)}
+.splegend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.splegend i.line{height:3px;border-radius:0;vertical-align:3px}
+.splegend i.dash{height:0;border-top:2px dashed var(--sp-ink);background:none;vertical-align:3px}
+.spbox{position:relative;flex:1;min-height:300px}
+.spchart{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden}
+.spchart svg{display:block}
+.spchart svg text{font:14px var(--sans);fill:var(--sp-mute)}
+.spchart svg text.ink{fill:var(--sp-ink)}
+.sptip{position:absolute;z-index:3;pointer-events:none;background:var(--sp-panel);color:var(--sp-ink);border:1px solid var(--sp-rule);border-radius:8px;padding:8px 10px;font-size:14px;box-shadow:0 4px 16px rgba(28,32,69,.18);white-space:nowrap}
+.sptip table{border-collapse:collapse;margin-top:4px;color:inherit;font-size:inherit}
+.sptip td{padding:1px 0;color:inherit}.sptip td+td{text-align:right;padding-left:18px;font-variant-numeric:tabular-nums}
+.sptip tr.sum td{border-top:1px solid var(--sp-rule);font-weight:700}
+.sptip i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.sptip .mute{color:var(--sp-mute)}
+@media (max-width:860px){.valtabs{position:static}.spkpis{grid-template-columns:repeat(2,minmax(0,1fr))}.spbox{flex:none;height:420px;min-height:0}.spend{flex:none}}
 .xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
 .xh1:hover{color:#F08A6C;}
 .xh2:hover{border-color:var(--ink);}
@@ -510,6 +550,17 @@ body.noflags .flag{display:none}
 </div>
 <div class="view" id="v-value" data-view="value" data-tab="value" hidden>
 <main data-screen-label="03 Value" style="flex:1;display:flex;flex-direction:column;gap:1em;padding:1em 1.8em;">
+  <div class="valtabs" role="tablist" aria-label="Value views"><button type="button" role="tab" data-valtab="spend" aria-selected="true">Monthly Spend</button><button type="button" role="tab" data-valtab="price" aria-selected="false">Price and Return</button></div>
+  <div id="valSpend" class="spend">
+    <header class="sphead"><div id="spEyebrow" class="speyebrow"></div><h1 id="spHead"></h1><p class="splede">Each club that moves takes its old tools with it, the shared systems retire after the last wave, and the cost of getting there steps down as clubs go live.</p></header>
+    <section class="spkpis" id="spKpis"></section>
+    <section class="sppanel">
+      <h2>Invited's Monthly Spend</h2>
+      <div class="splegend"><span><i style="background:var(--sp-legacy)"></i>Current Systems</span><span><i style="background:var(--sp-tech)"></i>Club Steward Product</span><span><i style="background:var(--sp-svc)"></i>Production Support</span><span><i style="background:var(--sp-impl)"></i>Implementation</span><span><i class="line" style="background:var(--sp-clubs)"></i>Clubs Live (Right Axis)</span><span><i class="dash"></i><span id="spToday">Today</span></span></div>
+      <div class="spbox" id="spBox"><div class="spchart" id="spChart"><svg id="spSvg" role="img" aria-label="Stacked monthly spend with clubs live"></svg></div><div id="spTip" class="sptip" hidden></div></div>
+    </section>
+  </div>
+  <div id="valPrice" class="valprice">
   <section>
     <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Value and Pricing</div>
     <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;"><span data-n="total"></span> a year, against <span data-n="today"></span> today.</h1>
@@ -574,7 +625,9 @@ body.noflags .flag{display:none}
       <div style="flex:1 1 16em;color:var(--soft);line-height:1.35;">Migration, pilots, rollout, <span data-n="hyperMonths"></span> months of hypercare. <b style="color:var(--ink);">Paid once. Not in the run cost.</b></div>
     </div>
   </section>
+  </div>
 </main>
+
 </div>
 <div class="view" id="v-compare" data-view="compare" data-tab="compare" hidden>
 <main data-screen-label="04 Compare" style="flex:1;display:flex;flex-direction:column;gap:.4em;padding:.5em 1.8em;">
@@ -870,6 +923,27 @@ const NUMS = [
     ['goLiveFrom', 'Clubs go live from month (return, net and breakeven are worked out from this ramp)', 'int', 8],
     ['goLiveTo', 'Clubs Go Live Until Month', 'int', 18],
   ]],
+  ['Spend curve', [
+    ['spClubPct', 'Cost basis that falls club by club, share (%)', 'int', 30],
+    ['spSharedPct', 'Cost basis in shared systems that retire, share (%); the rest is Oracle', 'int', 55],
+    ['retireFrom', 'Shared systems start retiring in month', 'int', 19],
+    ['spRet1', 'Shared systems retiring in that month, weight', 'raw', 225],
+    ['spRet2', 'Shared systems retiring the month after, weight', 'raw', 165],
+    ['spRet3', 'Shared systems retiring the month after that, weight', 'raw', 22.5],
+    ['oracleOff', 'Oracle off, and the run fee steps down, from month', 'int', 28],
+    ['spLedger', 'Ledger switch month (a marker on the chart)', 'int', 22],
+    ['spCity1', 'City clubs live in the first go-live month', 'int', 1],
+    ['spCity2', 'City clubs live the month after (the rest follow the month after that)', 'int', 8],
+    ['spGolf1', 'Golf clubs live, month after the first go-live', 'int', 1],
+    ['spGolf2', 'Golf clubs live, two months after', 'int', 6],
+    ['spGolf3', 'Golf clubs live, three months after', 'int', 15],
+    ['spGolf4', 'Golf clubs live, four months after (the rest are spread evenly to the last go-live month)', 'int', 8],
+    ['feeStart', 'Services fee a month before any club is live', 'usd', 100000],
+    ['feePerClub', 'Services fee falls a month for each club live', 'usd', 140],
+    ['supPerClub', 'Production support a month for each club live, until the shared systems retire', 'usd', 560],
+    ['feeLedger', 'Services fee a month once the shared systems retire', 'usd', 80000],
+    ['feeRun', 'Services fee a month once Oracle is off', 'usd', 75000],
+  ]],
   ['The Estate', [
     ['systems', 'Systems on Invited’s List', 'int', 54],
     ['retire', 'Retire', 'int', 36],
@@ -1137,7 +1211,7 @@ function paint() {
   });
   document.body.classList.toggle('noflags', !V.showFlags);
   $$('[data-step]').forEach(e => { e.textContent = groupLine(e.dataset.step); });
-  paintTeam(); paintRoi();
+  paintTeam(); paintRoi(); paintSpend();
   const md = $('meta[name=description]'); if (md) md.content = `Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of ${V.systems} systems.`;
   paintTabs(); paintCompare(); paintCalc(); paintDetail();
   if (typeof paintAdminNote === 'function') paintAdminNote();
@@ -1653,6 +1727,130 @@ $('#thFull').onclick = e => {
 // a click on the scrim, outside the player and its controls, closes it
 $('#theatre').addEventListener('click', e => { if (!e.target.closest('#thBox, .thnav')) closeTheatre(); });
 paintVids();
+/* ---------- Value tab: Invited's monthly spend. Every figure is worked out here from the proposal numbers (NV); nothing is typed in. ---------- */
+const SPEND_START = {year: 2027, month: 0}; // month 1 is January 2027
+const spCal = m => { const d = new Date(SPEND_START.year, SPEND_START.month + m - 1, 1); return {mon: d.toLocaleString('en-US', {month: 'short'}), full: d.toLocaleString('en-US', {month: 'long'}), year: d.getFullYear()}; };
+const spLabel = m => spCal(m).mon + ' ' + spCal(m).year;
+const spK = v => v >= 1e6 ? '$' + trimZeros((v / 1e6).toFixed(1)) + 'M' : '$' + Math.round(v / 1e3) + 'k';
+const spM = v => '$' + trimZeros((v / 1e6).toFixed(1)) + 'M';
+
+function spendModel(n) {
+  const N = 36, today = n.today / 12, a = Math.max(1, Math.round(n.goLiveFrom));
+  const city = new Array(N + 2).fill(0), golf = new Array(N + 2).fill(0), put = (arr, m, v) => { if (m >= 1 && m <= N) arr[m] += Math.max(0, v); };
+  put(city, a, n.spCity1); put(city, a + 1, n.spCity2); put(city, a + 2, n.cityClubs - n.spCity1 - n.spCity2);
+  [n.spGolf1, n.spGolf2, n.spGolf3, n.spGolf4].forEach((v, i) => put(golf, a + 1 + i, v));
+  // the rest of the golf clubs go live evenly, from the month after the named ones to the last go-live month
+  const rest = Math.max(0, n.entities - (n.spGolf1 + n.spGolf2 + n.spGolf3 + n.spGolf4)), months = Math.max(1, Math.round(n.goLiveTo) - (a + 4));
+  for (let i = 0; i < months; i++) put(golf, a + 5 + i, Math.floor(rest / months) + (i < rest % months ? 1 : 0));
+  const clubsAll = n.entities + n.cityClubs, pool = {club: today * n.spClubPct / 100, shared: today * n.spSharedPct / 100};
+  pool.oracle = Math.max(0, today - pool.club - pool.shared);
+  const w = [n.spRet1, n.spRet2, n.spRet3], wSum = w.reduce((x, y) => x + y, 0) || 1;
+  const rows = []; let cl = 0, gl = 0, cum = 0, cumToday = 0;
+  for (let m = 1; m <= N; m++) {
+    cl += city[m]; gl += golf[m];
+    const live = cl + gl, retired = w.reduce((s, x, i) => s + (m >= n.retireFrom + i ? x : 0), 0) / wSum;
+    const legacy = pool.club * (1 - (clubsAll ? Math.min(1, live / clubsAll) : 0)) + pool.shared * (1 - retired) + (m < n.oracleOff ? pool.oracle : 0);
+    const tech = n.entityFee * gl + n.cityFee * cl;
+    const fee = m >= n.oracleOff ? n.feeRun : m >= n.retireFrom ? n.feeLedger : Math.max(0, n.feeStart - n.feePerClub * live);
+    const support = m >= n.retireFrom ? fee : Math.min(fee, n.supPerClub * live), impl = fee - support;
+    const total = legacy + tech + fee;
+    cum += total + (m === 1 ? n.implOther : 0); cumToday += today;
+    rows.push({m, live, cityLive: cl, golfLive: gl, legacy, tech, support, impl, fee, total, cum, cumToday});
+  }
+  const last = rows[N - 1];
+  let below = N; while (below > 1 && rows[below - 2].total < today) below--;
+  if (!(rows[below - 1].total < today)) below = 0;
+  let steady = N; while (steady > 1 && Math.abs(rows[steady - 2].total - last.total) < 1) steady--;
+  const firstAll = rows.find(r => r.live >= clubsAll), firstCity = rows.find(r => r.cityLive >= n.cityClubs && n.cityClubs > 0), firstLive = rows.find(r => r.live > 0);
+  return {rows, today, clubsAll, steadyTotal: last.total, steadyFrom: steady, below, yearSaving: (today - last.total) * 12,
+    save36: last.cumToday - last.cum, liveBy: firstAll ? firstAll.m : 0, cityBy: firstCity ? firstCity.m : 0, pilot: firstLive ? firstLive.m : 0};
+}
+// "about a third of it", from the ratio of steady-state spend to today's
+function spFraction(r) {
+  const k = Math.round(1 / r), words = {2: 'a half', 3: 'a third', 4: 'a quarter', 5: 'a fifth', 6: 'a sixth', 8: 'an eighth', 10: 'a tenth'};
+  return r > 0 && Math.abs(1 / r - k) < 0.4 && words[k] ? words[k] : Math.round(r * 100) + '%';
+}
+
+let SPM = null;
+function paintSpend() {
+  const root = $('#valSpend'); if (!root) return;
+  const M = SPM = spendModel(NV), n = NV;
+  const t = (id, v) => { const e = $('#' + id); if (e) e.textContent = v; };
+  t('spEyebrow', `Club Steward for Invited Clubs · ${spLabel(1)} – ${spLabel(36)}`);
+  t('spHead', M.below ? `Invited's technology spend drops below today's from ${spCal(M.below).full} ${spCal(M.below).year} and settles at about ${spFraction(M.steadyTotal / M.today)} of it` : `Invited's technology spend settles at about ${spFraction(M.steadyTotal / M.today)} of today's`);
+  const kp = [
+    [`${M.clubsAll} Clubs`, `Live by ${M.liveBy ? spCal(M.liveBy).full + ' ' + spCal(M.liveBy).year : '—'}, City Clubs First`, false],
+    [`${spK(M.today)} → ${spK(M.steadyTotal)}`, 'Monthly Spend, Today Against Steady State', false],
+    [`${spM(M.yearSaving)} a Year`, `Saved at Steady State, From ${spLabel(M.steadyFrom)}`, true],
+    [spM(M.save36), 'Saved Over the First Three Years, One-Time Costs Included', true],
+  ];
+  $('#spKpis').innerHTML = kp.map(([b, s, good]) => `<div class="spkpi${good ? ' good' : ''}"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('');
+  t('spToday', `Today, ${spK(M.today)} a Month`);
+  drawSpend();
+}
+function drawSpend() {
+  const M = SPM, box = $('#spChart'); if (!M || !box || !box.clientWidth) return;
+  const svg = $('#spSvg'), cs = getComputedStyle($('#valSpend')), css = v => cs.getPropertyValue(v).trim();
+  const W = Math.max(900, box.clientWidth), H = Math.max(300, box.clientHeight), L = 56, R = 44, T = 12, B = 92, iw = W - L - R, ih = H - T - B, bw = iw / 36;
+  const top = Math.ceil(Math.max(...M.rows.map(r => r.total), M.today) / 150000) * 150000, y = v => T + ih - v / top * ih, yc = c => T + ih - c / M.clubsAll * ih;
+  svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const NS = 'http://www.w3.org/2000/svg', parts = [];
+  const el = (tag, a, txt) => parts.push(`<${tag} ${Object.entries(a).map(([k, v]) => `${k}="${v}"`).join(' ')}>${txt == null ? '' : esc(txt)}</${tag}>`);
+  for (let v = 0; v <= top; v += 150000) { el('line', {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: css('--sp-rule')}); el('text', {x: L - 8, y: y(v) + 5, 'text-anchor': 'end', class: 'mute'}, spK(v)); }
+  [0, 50, 100, M.clubsAll].forEach(c => el('text', {x: W - R + 8, y: yc(c) + 5, fill: css('--sp-clubs')}, c));
+  M.rows.forEach((r, i) => {
+    const x = L + i * bw + bw * 0.14, w = bw * 0.72; let base = 0;
+    [['legacy', '--sp-legacy'], ['tech', '--sp-tech'], ['support', '--sp-svc'], ['impl', '--sp-impl']].forEach(([k, c]) => { const v = r[k]; if (v > 0) el('rect', {x, y: y(base + v), width: w, height: y(base) - y(base + v), fill: css(c)}); base += v; });
+    el('text', {x: x + w / 2, y: H - B + 18, 'text-anchor': 'middle', class: 'mute'}, spCal(r.m).mon[0]);
+    if (i % 12 === 0) el('text', {x, y: H - B + 36, class: 'ink', 'font-weight': 700}, spCal(r.m).year);
+  });
+  el('line', {x1: L, x2: W - R, y1: y(M.today), y2: y(M.today), stroke: css('--sp-ink'), 'stroke-width': 1.5, 'stroke-dasharray': '6 4'});
+  el('text', {x: W - R - 4, y: y(M.today) - 6, 'text-anchor': 'end', class: 'ink'}, 'Today, ' + spK(M.today) + ' a Month');
+  el('path', {d: M.rows.map((r, i) => (i ? 'L' : 'M') + (L + i * bw + bw / 2) + ' ' + yc(r.live)).join(' '), fill: 'none', stroke: css('--sp-clubs'), 'stroke-width': 2.5});
+  const first = M.rows[0].total;
+  el('text', {x: L + bw * 4, y: y(first) - 8, 'text-anchor': 'middle', class: 'ink'}, 'Old and new run side by side');
+  const marks = [[M.pilot, 'City Pilot'], [M.cityBy, `${NV.cityClubs} City Clubs`], [M.liveBy, `All ${M.clubsAll} Live`], [M.below, 'Below Today'], [Math.round(NV.spLedger), 'Ledger Switch'], [Math.round(NV.oracleOff), 'Oracle Off']].filter(([m]) => m >= 1 && m <= 36);
+  marks.forEach(([m, label], j) => {
+    const x = L + (m - 1) * bw + bw / 2, dy = j % 2 ? 22 : 0;
+    el('line', {x1: x, x2: x, y1: H - B + 42, y2: H - B + 48 + dy, stroke: css('--sp-mute')});
+    const nx = marks[j + 1]; // a label whose neighbour is one month on ends at its own tick, so the next tick never cuts through it
+    el('text', {x: nx && nx[0] - m <= 1 ? x + 3 : x, y: H - B + 64 + dy, 'text-anchor': nx && nx[0] - m <= 1 ? 'end' : 'middle', class: 'ink'}, label);
+  });
+  el('rect', {id: 'spHover', x: 0, y: T, width: bw, height: ih, fill: css('--sp-ink'), opacity: 0, 'pointer-events': 'none'});
+  svg.innerHTML = parts.join('');
+  svg.dataset.l = L; svg.dataset.bw = bw;
+}
+function spTip(e) {
+  const M = SPM, svg = $('#spSvg'), tip = $('#spTip'), L = +svg.dataset.l, bw = +svg.dataset.bw, rc = svg.getBoundingClientRect();
+  const i = Math.floor((e.clientX - rc.left - L) / bw), hov = $('#spHover');
+  if (!M || i < 0 || i > 35) { tip.hidden = true; if (hov) hov.setAttribute('opacity', 0); return; }
+  const r = M.rows[i], c = spCal(r.m), row = (sw, l, v) => `<tr><td>${sw ? `<i style="background:var(${sw})"></i>` : ''}${l}</td><td>${v}</td></tr>`;
+  tip.innerHTML = `<b>${c.full} ${c.year}</b><span class="mute"> · Month ${r.m}</span><table>` +
+    row('--sp-legacy', 'Current Systems', FMTS.usd(r.legacy)) + row('--sp-tech', 'Club Steward Product', FMTS.usd(r.tech)) + row('--sp-svc', 'Production Support', FMTS.usd(r.support)) + row('--sp-impl', 'Implementation', FMTS.usd(r.impl)) +
+    `<tr class="sum"><td>Total</td><td>${FMTS.usd(r.total)}</td></tr><tr><td>Against Today</td><td>${r.total <= M.today ? '−' : '+'}${FMTS.usd(Math.abs(M.today - r.total))}</td></tr><tr><td>Clubs Live</td><td>${r.live}</td></tr></table>`;
+  tip.hidden = false;
+  const pr = $('#spBox').getBoundingClientRect(), tw = tip.offsetWidth;
+  tip.style.left = Math.min(pr.width - tw - 4, Math.max(4, e.clientX - pr.left + 14)) + 'px'; tip.style.top = Math.max(4, e.clientY - pr.top - tip.offsetHeight - 10) + 'px';
+  if (hov) { hov.setAttribute('x', L + i * bw); hov.setAttribute('opacity', .08); }
+}
+VIEWHOOK.value = () => drawSpend();
+(function () {
+  const root = $('#valSpend'); if (!root) return;
+  const show = k => {
+    $('#valSpend').hidden = k !== 'spend'; $('#valPrice').hidden = k !== 'price';
+    $$('[data-valtab]').forEach(b => { const on = b.dataset.valtab === k; b.setAttribute('aria-selected', String(on)); b.classList.toggle('on', on); });
+    try { sessionStorage.setItem('ardn-value-pane', k); } catch (e) {}
+    if (k === 'spend') drawSpend();
+  };
+  $$('[data-valtab]').forEach(b => { b.onclick = () => show(b.dataset.valtab); });
+  let k = 'spend'; try { k = sessionStorage.getItem('ardn-value-pane') || 'spend'; } catch (e) {}
+  show(k === 'price' ? 'price' : 'spend');
+  const svg = $('#spSvg');
+  svg.addEventListener('pointermove', spTip); svg.addEventListener('pointerdown', spTip);
+  svg.addEventListener('pointerleave', () => { $('#spTip').hidden = true; const h = $('#spHover'); if (h) h.setAttribute('opacity', 0); });
+  if (window.ResizeObserver) new ResizeObserver(() => { if (!root.hidden) drawSpend(); }).observe($('#spChart'));
+  addEventListener('hashchange', () => setTimeout(() => { if (!root.hidden) drawSpend(); }, 0));
+})();
 
 /* ---------- comments (unchanged behaviour) ---------- */
 const el = (t, a = {}, h = '') => { const e = document.createElement(t); for (const k in a) e.setAttribute(k, a[k]); if (h) e.innerHTML = h; return e; };
