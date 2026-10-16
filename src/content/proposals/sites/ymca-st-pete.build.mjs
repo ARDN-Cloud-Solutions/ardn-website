@@ -26,7 +26,12 @@ const dir = new URL(".", import.meta.url).pathname;
 const src = fs.readFileSync(dir + "invited-clubs.html", "utf8");
 const a = src.indexOf("<style>"), b = src.indexOf("</style>");
 if (a < 0 || b < 0) throw new Error("invited-clubs.html: no <style> block to inherit");
-const baseCss = src.slice(a + 7, b);
+let baseCss = src.slice(a + 7, b);
+// The stylesheet is inherited from another client's proposal, and its comments
+// name that client. They would ship inside this page, so they are removed here
+// rather than edited at the source: this page must carry no reference to any
+// client but the Y.
+baseCss = baseCss.replace(/\/\*[\s\S]*?\*\//g, (c) => (/invited/i.test(c) ? "" : c));
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -45,7 +50,7 @@ const brand = `
   --fgrgb:242,246,252;
 }
 .side-bot .hold{white-space:normal;line-height:1.35}
-/* one-screen helpers; every size in em so it rides Invited's viewport-scaled root */
+/* one-screen helpers; every size in em so it rides the viewport-scaled root */
 .scr{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.85em;padding:.7em 1.8em;min-height:0}
 .eyeb{font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700}
 .ttl{font-family:var(--serif);font-weight:500;font-size:2em;line-height:1.14;margin:0;text-wrap:balance;color:var(--ink)}
@@ -87,7 +92,7 @@ const brand = `
 .legend span{display:inline-flex;align-items:center;gap:.35em}
 .legend i{width:.75em;height:.75em;border-radius:2px}
 .legend b{color:var(--ink)}
-/* rollout plan — Invited's Rollout Plan grammar: a label, a track, phase bars */
+/* rollout plan: a label, a track, phase bars positioned by month */
 .pl{--cw:2.1em;display:flex;flex-direction:column;gap:.15em;min-width:0}
 .pl-head{display:grid;grid-template-columns:var(--lbl) 1fr;gap:.6em;align-items:end}
 .pl-ax{display:grid;grid-template-columns:repeat(var(--n),var(--cw))}
@@ -129,7 +134,7 @@ const P = {
 };
 const ico = (k) => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[k]}</svg>`;
 
-/* Invited's tab set, in Invited's order. Three of them (team, org, value) are
+/* The tab set. Three of them (team, org, value) are
    driven by the commercial figures and stay out until the Y's spend and our
    price exist; they are not shipped with invented numbers. */
 const NAV = [["home", "Home"], ["summary", "Executive Summary"], ["value", "Value"], ["plan", "Plan"], ["compare", "Compare"], ["detail", "Detail"]];
@@ -159,8 +164,7 @@ const fitOf = (r) => (GAPS.has(r[0]) ? "GAP" : r[2] === "partial" ? "PARTIAL" : 
 const d1Fit = D1.reduce((m, r) => ((m[fitOf(r)] = (m[fitOf(r)] || 0) + 1), m), { STRONG: 0, PARTIAL: 0, GAP: 0 });
 const noRisk = TALLY.retire + TALLY.connect + TALLY.keep;
 
-/* The Home scene. Invited opens on its own world -- a golf course at dusk --
-   so the Y opens on its: dawn over the water at St. Petersburg, with the
+/* The Home scene: dawn over the water at St. Petersburg, with the
    pier silhouette on the horizon and swimming-pool lane ropes running out
    of the foreground. Drawn, not photographed, and kept behind the text. */
 const hsScene = (() => {
@@ -212,15 +216,15 @@ const SYSJSON = JSON.stringify(SYS.map((r) => ({ n: r[0], a: r[1], f: r[2], t: r
 const FATEJSON = JSON.stringify(FATE);
 
 const PROOF = [
-  ["Member mobile app", "Invited", "sw.js · web-push-crypto · worker-push-dispatch · wallet 297 ln"],
-  ["Contracts, e-signature", "Invited", "contracts 2,317 · forms 4,742 · acknowledgments 604 ln"],
-  ["Surveys and NPS", "Invited", "5 survey migrations · surveys.test.ts 644 ln"],
-  ["Salesforce replacement", "Invited", "leads 2,822 · sales-pipeline 4,221 · 3 importers · 886 ln tests"],
-  ["Financial assistance", "Invited", "financial-assistance 450 ln"],
-  ["Accounting", "Invited", "books 207 files / 53,190 ln · history-import · feeds-out"],
-  ["Fundraising", "Invited", "pledges · grants · soft-credits · gift-batches · moves = 6,534 ln"],
-  ["Reporting", "YMCA", "builder, 20 standard reports, dashboards — merged 2026-10-15"],
-  ["Membership, billing, check-in", "YMCA", "members · households · memberships · billing · checkin · roles"],
+  ["Member mobile app", "Club platform", "sw.js · web-push-crypto · worker-push-dispatch · wallet 297 ln"],
+  ["Contracts, e-signature", "Club platform", "contracts 2,317 · forms 4,742 · acknowledgments 604 ln"],
+  ["Surveys and NPS", "Club platform", "5 survey migrations · surveys.test.ts 644 ln"],
+  ["Salesforce replacement", "Club platform", "leads 2,822 · sales-pipeline 4,221 · 3 importers · 886 ln tests"],
+  ["Financial assistance", "Club platform", "financial-assistance 450 ln"],
+  ["Accounting", "Club platform", "books 207 files / 53,190 ln · history-import · feeds-out"],
+  ["Fundraising", "Club platform", "pledges · grants · soft-credits · gift-batches · moves = 6,534 ln"],
+  ["Reporting", "Y platform", "builder, 20 standard reports, dashboards — merged 2026-10-15"],
+  ["Membership, billing, check-in", "Y platform", "members · households · memberships · billing · checkin · roles"],
 ];
 
 /* Compare: the four honest ways to run the Y's estate. y = yes, p = partial, n = no. */
@@ -228,7 +232,7 @@ const CMP = [
   ["Member records, billing, check-in", "y One vendor", "y One vendor", "p You build it", "y Carried"],
   ["Program and camp registration", "p No online child reg", "y If you buy one", "p You build it", "p Named gap, bounded"],
   ["Licensed childcare and ELC", "y Attendance Tracker", "y Attendance Tracker", "n Specialist domain", "p The one real build"],
-  ["Member mobile app", "y Daxko app", "y Daxko app", "n Two app stores", "y Ported from Invited"],
+  ["Member mobile app", "y Daxko app", "y Daxko app", "n Two app stores", "y Already built"],
   ["E-signature after April", "n DocuSign ends", "y Buy another", "n You build it", "y Built, 2,317 ln"],
   ["Surveys and NPS", "n Listen360 extra", "y Listen360", "n You build it", "y Built, 644 ln tests"],
   ["Fundraising beside members", "n Raiser's Edge apart", "p Connector", "n You build it", "y 6,534 ln, or connect"],
@@ -247,14 +251,14 @@ const PL_M1 = { y: 2026, m: 10 }; // Nov 2026, zero-indexed month
 const PL_PH = { design: ["Design", "#7A86A8"], build: ["Build", "#0071CE"], test: ["Test", "#00748F"], deploy: ["Deploy", "#00874A"], parallel: ["Parallel run", "#8A94B8"] };
 const PLAN = [
   { n: "Contracts and e-signature", lane: "Operations & IT", retire: 6, ends: "DocuSign", crit: true,
-    note: "The first fixed date. A port of Invited's contracts module, plus the state's own PDF field-filling.",
+    note: "The first fixed date. A port of our contracts module, plus the state's own PDF field-filling.",
     phases: { design: [1, 1], build: [2, 3], test: [4, 4], deploy: [5, 5], parallel: [5, 6] } },
 
   { n: "Membership, billing, check-in", lane: "Membership & Billing", retire: 9, ends: "Daxko Operations", crit: true,
     note: "Live in both products today, so this is configuration for the Y rather than a build. It has to be signed off before the June cutover.",
     phases: { design: [1, 2], build: [2, 4], test: [4, 5], deploy: [5, 6], parallel: [6, 8] } },
   { n: "Kid Zone child watch", lane: "Childcare", retire: 0, ends: "",
-    note: "Check-in works today and Invited's Play Center is the richer version. Moves with the rest of Operations in June.",
+    note: "Check-in works today and our Play Center is the richer version. Moves with the rest of Operations in June.",
     phases: { design: [1, 1], build: [2, 3], test: [4, 4], deploy: [5, 5], parallel: [6, 8] } },
   { n: "Reports and the daily tracker", lane: "Membership & Billing", retire: 0, ends: "",
     note: "Builder and 20 standard reports shipped 15 Oct. Adds the daily sales-and-joins tracker and the Y's own 19 reports.",
@@ -269,10 +273,10 @@ const PLAN = [
     note: "Staff side and the discount work today. Adds the family's online application.",
     phases: { design: [3, 3], build: [4, 6], test: [6, 6], deploy: [7, 7], parallel: [7, 8] } },
   { n: "Sex-offender screening", lane: "Operations & IT", retire: 0, ends: "", risk: true,
-    note: "The workflow and audit trail port from Invited. The national registry feed is bought, not built, and it has to be contracted in time for the cutover.",
+    note: "The workflow and audit trail port across. The national registry feed is bought, not built, and it has to be contracted in time for the cutover.",
     phases: { design: [3, 3], build: [4, 5], test: [6, 6], deploy: [7, 7], parallel: [7, 8] } },
   { n: "Member mobile app", lane: "Membership & Billing", retire: 9, ends: "Daxko app",
-    note: "Invited's installable app with push and a wallet card. Goes when Daxko Operations goes, so members are never without one.",
+    note: "Our installable app with push and a wallet card. Goes when Daxko Operations goes, so members are never without one.",
     phases: { design: [4, 4], build: [5, 6], test: [7, 7], deploy: [7, 7], parallel: [8, 9] } },
   { n: "Migration off Daxko", lane: "Membership & Billing", retire: 9, ends: "Daxko Operations", crit: true,
     note: "Members, families, barcodes and history. Design cannot start until the NDA and export access exist, which is why those are the first things we ask for. Stored cards move processor to processor and never pass through us. Cutover is end of June; the Y runs parallel for a month either side.",
@@ -331,7 +335,7 @@ const WAVES = [
     live: "Contracts and e-signature, membership, billing, check-in, Kid Zone child watch, and reporting. Staff work in Ardn from this point.",
     retires: "DocuSign", dep: "DOCUSIGN ENDS AT THE END OF APRIL. This date is set by the Y's contract, not by us, and the wave is sized backwards from it." },
   { n: "Wave 2 — the ports", at: [6, 3], when: "May – Jul 2027", kind: "live",
-    live: "The member mobile app, appointments and tours, surveys and NPS, leads and the sales pipeline with the Salesforce import, and financial assistance. All working code in Invited, brought across.",
+    live: "The member mobile app, appointments and tours, surveys and NPS, leads and the sales pipeline with the Salesforce import, and financial assistance. All working code already running, brought across.",
     retires: "Appointment King · Salesforce · Listen360", dep: "Each one ends a contract on the day it goes live." },
   { n: "Wave 3 — childcare and the migration", at: [9, 4], when: "Aug – Nov 2027", kind: "live",
     live: "Licensed childcare and preschool in full — ratios, incidents, health records, ELC reimbursement — plus online program and camp registration, and the member and family data moved off Daxko.",
@@ -417,7 +421,7 @@ ${view("summary", scr("01", "Summary", `
   </div>
   <div class="card">
     <div class="ch">Why We Can Say It</div>
-    <p>The Y's product has <b style="color:var(--ink)">26 modules</b>. Invited &mdash; built on the Y's own codebase &mdash; has <b style="color:var(--ink)">about a hundred</b>. What left can come back.</p>
+    <p>The Y's product has <b style="color:var(--ink)">26 modules</b>. Our club platform &mdash; built on the Y's own codebase &mdash; has <b style="color:var(--ink)">about a hundred</b>. What left can come back.</p>
     <div class="foot">Every row names its files and line counts, so the Y can check our work instead of trusting it.</div>
   </div>
   <div class="card" style="border-color:rgba(var(--goldrgb),.45);">
@@ -588,7 +592,7 @@ ${view("detail", scr("04", "Detail", `
   <div class="card"><div class="ch" style="color:var(--sand);">Partial · Day 1</div><div class="cb">Online program and camp registration</div><p>Programs and Classes work. A parent cannot yet register a child online, early-bird is not charged, and waivers are not enforced.</p></div>
   <div class="card"><div class="ch" style="color:var(--slate);">Not Day 1</div><div class="cb">Sports leagues</div><p>TeamSideline cannot integrate and nothing covers leagues. Run it alongside for one season and build against a real league in flight.</p></div>
   <div class="card"><div class="ch" style="color:var(--teal);">Blocked On A Vendor</div><div class="cb">Welld insurance feed</div><p>A daily member-usage file. Waiting on Welld's format, not on engineering effort.</p></div>
-  <div class="card"><div class="ch" style="color:var(--teal);">Buy, Not Build</div><div class="cb">Sex-offender registry data</div><p>The screening workflow and audit trail exist in Invited. The national registry data source does not, in either product.</p></div>
+  <div class="card"><div class="ch" style="color:var(--teal);">Buy, Not Build</div><div class="cb">Sex-offender registry data</div><p>The screening workflow and audit trail already exist. The national registry data source does not, in either product.</p></div>
 </section></div>
 
 <div data-dch="qa" style="display:contents">
@@ -656,7 +660,7 @@ ${view("detail", scr("04", "Detail", `
 
 
 </div>
-<footer class="pxfoot">Prepared by Ardn for the YMCA of Greater St. Petersburg. Confidential. Sources: the 15 October 2026 working sheet, re-checked 16 October 2026 against ARDN-Cloud-Solutions/membership and invited-clubs-memberships.</footer>
+<footer class="pxfoot">Prepared by Ardn for the YMCA of Greater St. Petersburg. Confidential. Sources: the 15 October 2026 working sheet, re-checked on 16 October 2026 against both of Ardn's membership codebases.</footer>
 </div>
 </div>
 
@@ -693,7 +697,7 @@ ${view("detail", scr("04", "Detail", `
     var bt=e.target.closest&&e.target.closest('[data-sys]');
     if(bt)paint(bt.getAttribute('data-sys'));
   });
-  // Detail sub-tabs, Invited's dch pattern. Each title asserts the finding.
+  // Detail sub-tabs. Each title asserts the finding.
   var DTITLE={
     estate:'Of ${SYS.length} systems, ${TALLY.retire} retire and ${TALLY.partial} retire in part',
     gaps:'Two true gaps set the date; the rest is bounded work',
@@ -764,7 +768,7 @@ ${view("detail", scr("04", "Detail", `
   window.addEventListener('hashchange',fromHash);
   fromHash();
   paint(SYS[0].n);
-  /* The sidebar, as Invited does it: an icon rail that opens on hover and
+  /* The sidebar: an icon rail that opens on hover and
      pushes the page over, keeps itself open for keyboard focus, folds back
      after a beat, and becomes a drawer with its own button on a phone. */
   var px=document.getElementById('px'), side=document.getElementById('side'), mb=document.getElementById('menuBtn');

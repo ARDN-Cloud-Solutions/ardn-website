@@ -2,6 +2,9 @@
    every input on the page as it changes, and Export to PDF. */
 (function () {
   var slug = window.__PROPOSAL_SLUG__, started = Date.now(), lastSent = "", timer = null;
+  // The client this proposal is for. Set per-proposal by build.mjs; a proposal
+  // must never carry another client's name, so this is never hardcoded here.
+  var CLIENT = window.__PROPOSAL_CLIENT__ || "";
   function send(type, data, beacon) {
     var body = JSON.stringify({ slug: slug, type: type, page: "site", data: data || null });
     if (beacon && navigator.sendBeacon) { navigator.sendBeacon("/api/proposals/track", new Blob([body], { type: "application/json" })); return; }
@@ -98,7 +101,7 @@
   function esc(x) { return String(x == null ? "" : x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function printHtml(r) {
     var d = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-    var h = '<header><div class="pr-brand">Club Steward · prepared for Invited by Ardn</div><h1>Your figures, ' + esc(d) + '</h1><p class="pr-lede">' + esc(r.title) + '</p></header>';
+    var h = '<header><div class="pr-brand">' + esc(CLIENT ? 'Prepared for ' + CLIENT + ' by Ardn' : 'Prepared by Ardn') + '</div><h1>Your figures, ' + esc(d) + '</h1><p class="pr-lede">' + esc(r.title) + '</p></header>';
     h += '<div class="pr-cards"><div class="pr-card"><span>Today, before Ardn’s fee</span><b>' + esc(r.today.gross) + '</b><small>a year taken out by retiring these systems</small></div>';
     h += '<div class="pr-card pr-cs"><span>Club Steward</span><b>' + esc(r.proposal.fee ? "$" + String(r.proposal.fee).replace(/^\$/, "") + " / club / month" : "Fee not entered") + '</b><small>' + esc(r.proposal.clubs) + ' clubs · ' + esc(r.proposal.net) + '</small></div></div>';
     if (r.proposal.perClub.length) h += '<table class="pr-ba">' + r.proposal.perClub.map(function (x) { return '<tr><th>' + esc(x[0]) + (x[1] ? '<small>' + esc(x[1]) + '</small>' : '') + '</th><td>' + esc(x[2]) + '</td></tr>'; }).join("") + '</table>';
@@ -111,7 +114,7 @@
     });
     h += '<tfoot><tr><th colspan="3">Taken out each year, before Ardn’s fee</th><td>' + esc(r.totals.license) + '</td><td>' + esc(r.totals.support) + '</td><td>' + esc(r.totals.total) + '</td><td></td></tr></tfoot></table>';
     if (r.p1.today) h += '<h2>One critical defect (P1)</h2><table class="pr-ba"><tr><th>Today</th><td>' + esc(r.p1.today) + '</td></tr><tr><th>On Club Steward</th><td>' + esc(r.p1.steward) + '</td></tr></table>';
-    h += '<footer>Prepared by Ardn for Invited. Confidential. Figures are public list prices, Invited’s own figures where entered, and labeled assumptions.</footer>';
+    h += '<footer>' + esc('Prepared by Ardn' + (CLIENT ? ' for ' + CLIENT : '') + '. Confidential. Figures are public list prices, the client’s own figures where entered, and labeled assumptions.') + '</footer>';
     return h;
   }
   var pr = document.createElement("div"); pr.id = "ardnPrint"; pr.className = "ardn-track-ui-print";
