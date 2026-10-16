@@ -1,5 +1,6 @@
 <title>Club Steward for Invited</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,noai,noimageai">
 <meta name="description" content="Ardn's proposal to Invited: one club platform, built, run, tested and supported by Ardn, in place of its systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -533,6 +534,20 @@ body.noflags .flag{display:none}
 @media (max-width:760px){.dm-who,.dm-modes button{min-height:44px}}
 .dm-hid{font-size:max(14px,.85em);font-weight:700;color:var(--alarm);margin-left:.4em}
 .dm-modes button.on .dm-hid{color:#fff}
+
+.tabs .so{font-size:14px;font-weight:700;border:1px dashed rgba(169,180,255,.6);border-radius:999px;padding:0 .55em;margin-left:.4em;white-space:nowrap}
+
+/* Confidential: viewer mark above the viewers (lightbox 50, theatre 60), below the chart tooltip (80); printing off; veil when the window is away */
+#wm{position:fixed;inset:0;z-index:70;pointer-events:none;background-repeat:repeat}
+.conf{color:var(--muted);font-size:max(14px,.86em);white-space:nowrap}
+.pxfoot .conf{text-align:center}
+#lbBox .conf,.thhead .conf{margin-left:auto}
+img,.lbimgwrap,.fg-shot{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
+.away .views,.away .side,.away #lightbox,.away #theatre,.away #drawer{filter:blur(12px)}
+#awayVeil{position:fixed;inset:0;z-index:75;border:0;background:rgba(28,32,69,.55);color:#fff;font:700 18px var(--sans);cursor:pointer}
+#awayVeil[hidden]{display:none}
+@media (max-width:760px){.pxfoot .conf{flex-basis:100%;order:9}}
+@media print{html body>*{display:none!important}html body::before{content:"Printing is turned off for this proposal";display:block;padding:2em;font:700 20px sans-serif;color:#fff}}
 .xf0:focus{border-color:rgba(169,180,255,.7);background:#1C2045;outline:none;}
 .xh1:hover{color:#F08A6C;}
 .xh2:hover{border-color:var(--ink);}
@@ -542,7 +557,7 @@ body.noflags .flag{display:none}
 <aside class="side" id="side">
   <div class="side-top"><span class="logo"><img src="/proposal-sites/invited-clubs/img/ardn-logo-white.svg" alt="Ardn"></span><button type="button" id="menuBtn" class="menubtn" aria-label="Menu" aria-controls="tabs" aria-expanded="false"></button></div>
   <div class="for">Prepared for <b>Invited</b></div>
-  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Executive Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The Team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org Chart</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
+  <nav class="tabs" id="tabs" aria-label="Proposal"><a href="#home"><span class="ic"></span><span class="lbl">Home</span></a><a href="#summary"><span class="ic"></span><span class="lbl">Executive Summary</span></a><a href="#team"><span class="ic"></span><span class="lbl">The Team</span></a><a href="#org"><span class="ic"></span><span class="lbl">Org Chart</span></a><a href="#compare"><span class="ic"></span><span class="lbl">Compare</span></a><a href="#detail"><span class="ic"></span><span class="lbl">Detail</span></a><a href="#value"><span class="ic"></span><span class="lbl">Value</span></a><a href="#screens"><span class="ic"></span><span class="lbl">Screens</span></a><a href="#videos"><span class="ic"></span><span class="lbl">Videos</span></a><a href="#demo"><span class="ic"></span><span class="lbl">Demo</span></a><!--STAFF-TAB--></nav>
   <div class="side-bot"><span class="hold">Prices hold to <span data-n="priceHold"></span></span></div>
 </aside>
 <div class="col">
@@ -752,87 +767,6 @@ body.noflags .flag{display:none}
   </div>
 </main>
 </div>
-<div class="view" id="v-value" data-view="value" data-tab="value" hidden>
-<main data-screen-label="03 Value" style="flex:1;display:flex;flex-direction:column;gap:1em;padding:1em 1.8em;">
-  <div class="valtabs" role="tablist" aria-label="Value views"><button type="button" role="tab" data-valtab="spend" aria-selected="true">Monthly Spend</button><button type="button" role="tab" data-valtab="price" aria-selected="false">Price and Return</button></div>
-  <div id="valSpend" class="spend">
-    <header class="sphead"><div id="spEyebrow" class="speyebrow"></div><h1 id="spHead"></h1><p class="splede">Each club that moves takes its old tools with it, the shared systems retire after the last wave, and the cost of getting there steps down as clubs go live.</p></header>
-    <section class="spkpis" id="spKpis"></section>
-    <section class="sppanel">
-      <h2>Invited's Monthly Spend</h2>
-      <div class="splegend"><span><i style="background:var(--sp-legacy)"></i>Current Systems</span><span><i style="background:var(--sp-tech)"></i>Club Steward Product</span><span><i style="background:var(--sp-svc)"></i>Production Support</span><span><i style="background:var(--sp-impl)"></i>Implementation</span><span><i class="line" style="background:var(--sp-clubs)"></i>Clubs Live (Right Axis)</span><span><i class="dash"></i><span id="spToday">Today</span></span></div>
-      <div class="spbox" id="spBox"><div class="spchart" id="spChart"><svg id="spSvg" data-scrub="spend" tabindex="0" role="img" aria-label="Stacked monthly spend with clubs live"></svg></div></div>
-    </section>
-  </div>
-  <div id="valPrice" class="valprice">
-  <section>
-    <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Value and Pricing</div>
-    <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;"><span data-n="total"></span> a year, against <span data-n="today"></span> today.</h1>
-  </section>
-  <section class="valgrid" style="flex:1;gap:1em;">
-    <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;display:flex;flex-direction:column;justify-content:space-between;gap:1em;">
-      <div style="display:flex;align-items:center;gap:.7em;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Run Cost a Year</span><span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--gold);border-radius:999px;padding:.05em .7em;white-space:nowrap;">Per Year</span></div>
-      <div style="display:grid;grid-template-columns:6em 1fr auto;gap:.6em 1em;align-items:center;">
-        <span style="color:var(--soft);">Today</span>
-        <div data-tipk="today" style="height:2.2em;background:var(--bar-today);border-radius:3px;"></div>
-        <span style="font-weight:700;font-size:1.25em;text-align:right;"><span data-n="today"></span></span>
-        <span style="color:var(--soft);">Club Steward</span>
-        <div data-flex="totalW" style="display:flex;width:49.4%;height:2.2em;border-radius:3px;overflow:hidden;font-weight:700;color:var(--ink);">
-          <div data-flex="techYear" style="flex:1.99;background:var(--bar-a);color:#fff;display:flex;align-items:center;padding-left:.6em;"><span data-n="techYear"></span></div>
-          <div data-flex="svcYear" style="flex:2.46;background:var(--bar-b);color:#fff;display:flex;align-items:center;padding-left:.6em;border-left:2px solid var(--deep);"><span data-n="svcYear"></span></div>
-        </div>
-        <span style="font-weight:700;font-size:1.25em;color:var(--brass);text-align:right;"><span data-n="total"></span></span>
-        <span style="color:var(--soft);">One-Time Fee</span>
-        <div style="height:1.6em;display:flex;"><div data-wimpl style="height:100%;width:32%;background:#7C83F5;border-radius:3px;"></div></div>
-        <span data-n="impl" style="font-weight:700;font-size:1.25em;text-align:right;">$2.9M</span>
-        <span style="color:var(--good);font-weight:700;">You Save</span>
-        <div style="border-top:1px dashed rgba(var(--fgrgb),.25);"></div>
-        <span style="font-weight:700;font-size:1.25em;color:var(--good);text-align:right;white-space:nowrap;"><span data-n="saving"></span> · <span data-n="savingPct"></span></span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;">
-        <div style="border-top:2px solid var(--gold);padding-top:.55em;">
-          <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Technology Team</span><span><span data-n="techYear"></span></span></div>
-          <div style="color:var(--soft);margin-top:.3em;">Product, hosting, security, upgrades.</div>
-          <div style="color:var(--muted);margin-top:.3em;"><span data-n="entityFee" data-f="usd"></span>/mo × <span data-n="entities"></span> entities · <span data-n="cityFee" data-f="usd"></span>/mo × <span data-n="cityClubs"></span> city clubs</div>
-        </div>
-        <div style="border-top:2px solid var(--teal);padding-top:.55em;">
-          <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Production Support Team</span><span><span data-n="svcYear"></span></span></div>
-          <div style="color:var(--soft);margin-top:.3em;"><span data-n="peopleMs" data-f="ppl"></span>, ranked by your CIO.</div>
-          <div style="color:var(--muted);margin-top:.3em;"><span data-n="svcMo" data-f="usd"></span> a month</div>
-          <div style="margin-top:.4em;background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);border-radius:3px;padding:.2em .5em;font-weight:700;color:var(--ink);">Includes tier 1 support: first call, access, how-to</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:.5em;">
-        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Three Environments Included</div>
-        <div style="display:flex;gap:.7em;"><div style="flex:1;border:1px solid rgba(var(--fgrgb),.14);border-radius:8px;padding:.5em .8em;"><div style="font-weight:700;color:var(--ink);">QA</div><div style="color:var(--soft);font-size:max(14px,.92em);">Where every change is tested before it reaches Full Copy.</div></div><div style="flex:1;border:1px solid rgba(var(--fgrgb),.14);border-radius:8px;padding:.5em .8em;"><div style="font-weight:700;color:var(--ink);">Full Copy</div><div style="color:var(--soft);font-size:max(14px,.92em);">Production data, for testing and training.</div></div><div style="flex:1;border:1px solid rgba(var(--fgrgb),.14);border-radius:8px;padding:.5em .8em;"><div style="font-weight:700;color:var(--ink);">Production</div><div style="color:var(--soft);font-size:max(14px,.92em);">The live system.</div></div></div>
-      </div>
-      <div style="padding-top:.7em;border-top:1px solid rgba(var(--fgrgb),.1);color:var(--soft);">Built on and integrated with <b style="color:var(--brass);">InvitedAI</b>, Invited's AI tech stack. No parallel stack. <span class="flag" style="font-size:max(14px,.84em);font-weight:700;color:var(--ink);background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);border-radius:2px;padding:0 .3em;">TBC</span></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:1em;">
-      <div style="flex:none;background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;border-color:rgba(var(--goldrgb),.45);display:flex;flex-direction:column;justify-content:flex-start;gap:.7em;">
-        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Return</div>
-        <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;"><span data-n="roi"></span></span><span style="color:var(--soft);">return on the <span data-n="impl"></span> one-time fee over <span data-n="years"></span> years</span></div>
-        <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;"><span data-n="net"></span></span><span style="color:var(--soft);">net over <span data-n="years"></span> years</span></div>
-        <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;">Mo <span data-n="breakeven"></span></span><span style="color:var(--soft);">breakeven, all costs included</span></div>
-        <div style="color:var(--muted);">Fees start per club at go-live.</div>
-        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Cumulative Net by Month</div>
-        <div id="roiBox" style="position:relative;height:6em;margin:.1em .2em .1em;"></div>
-      </div>
-      <div style="background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);border-radius:12px;padding:.8em 1.2em;flex:1;display:flex;flex-direction:column;justify-content:center;">
-        <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.7em;font-weight:700;">Approve Mobilization</div>
-        <div style="font-weight:500;margin-top:.7em;line-height:2;font-size:1.08em;">Day <span data-n="day1"></span>: savings confirmed against invoices<br>Day <span data-n="day2"></span>: design signed, pilots chosen<br>Day <span data-n="day3"></span>: first data migration rehearsed</div>
-      </div>
-    </div>
-    <div style="grid-column:1/-1;background:rgba(var(--bluergb),.10);border:1px dashed var(--teal);border-radius:12px;padding:.8em 1.2em;display:flex;flex-wrap:wrap;align-items:center;gap:.5em 1.6em;">
-      <div style="display:flex;align-items:center;gap:.7em;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;">One-time Implementation Fee</span><span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:.05em .7em;white-space:nowrap;">One Time</span></div>
-      <span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1;color:var(--ink);"><span data-n="impl"></span></span>
-      <div style="flex:1 1 16em;color:var(--soft);line-height:1.35;">Migration, pilots, rollout, <span data-n="hyperMonths"></span> months of hypercare. <b style="color:var(--ink);">Paid once. Not in the run cost.</b></div>
-    </div>
-  </section>
-  </div>
-</main>
-
-</div>
 <div class="view" id="v-compare" data-view="compare" data-tab="compare" hidden>
 <main data-screen-label="04 Compare" style="flex:1;display:flex;flex-direction:column;gap:.4em;padding:.5em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em 2.4em;">
@@ -981,6 +915,87 @@ body.noflags .flag{display:none}
   </div>
 </main>
 </div>
+<div class="view" id="v-value" data-view="value" data-tab="value" hidden>
+<main data-screen-label="03 Value" style="flex:1;display:flex;flex-direction:column;gap:1em;padding:1em 1.8em;">
+  <div class="valtabs" role="tablist" aria-label="Value views"><button type="button" role="tab" data-valtab="spend" aria-selected="true">Monthly Spend</button><button type="button" role="tab" data-valtab="price" aria-selected="false">Price and Return</button></div>
+  <div id="valSpend" class="spend">
+    <header class="sphead"><div id="spEyebrow" class="speyebrow"></div><h1 id="spHead"></h1><p class="splede">Each club that moves takes its old tools with it, the shared systems retire after the last wave, and the cost of getting there steps down as clubs go live.</p></header>
+    <section class="spkpis" id="spKpis"></section>
+    <section class="sppanel">
+      <h2>Invited's Monthly Spend</h2>
+      <div class="splegend"><span><i style="background:var(--sp-legacy)"></i>Current Systems</span><span><i style="background:var(--sp-tech)"></i>Club Steward Product</span><span><i style="background:var(--sp-svc)"></i>Production Support</span><span><i style="background:var(--sp-impl)"></i>Implementation</span><span><i class="line" style="background:var(--sp-clubs)"></i>Clubs Live (Right Axis)</span><span><i class="dash"></i><span id="spToday">Today</span></span></div>
+      <div class="spbox" id="spBox"><div class="spchart" id="spChart"><svg id="spSvg" data-scrub="spend" tabindex="0" role="img" aria-label="Stacked monthly spend with clubs live"></svg></div></div>
+    </section>
+  </div>
+  <div id="valPrice" class="valprice">
+  <section>
+    <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:.45em;">Value and Pricing</div>
+    <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2em;line-height:1.15;letter-spacing:0;margin:0;"><span data-n="total"></span> a year, against <span data-n="today"></span> today.</h1>
+  </section>
+  <section class="valgrid" style="flex:1;gap:1em;">
+    <div style="background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;display:flex;flex-direction:column;justify-content:space-between;gap:1em;">
+      <div style="display:flex;align-items:center;gap:.7em;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Run Cost a Year</span><span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--gold);border-radius:999px;padding:.05em .7em;white-space:nowrap;">Per Year</span></div>
+      <div style="display:grid;grid-template-columns:6em 1fr auto;gap:.6em 1em;align-items:center;">
+        <span style="color:var(--soft);">Today</span>
+        <div data-tipk="today" style="height:2.2em;background:var(--bar-today);border-radius:3px;"></div>
+        <span style="font-weight:700;font-size:1.25em;text-align:right;"><span data-n="today"></span></span>
+        <span style="color:var(--soft);">Club Steward</span>
+        <div data-flex="totalW" style="display:flex;width:49.4%;height:2.2em;border-radius:3px;overflow:hidden;font-weight:700;color:var(--ink);">
+          <div data-flex="techYear" style="flex:1.99;background:var(--bar-a);color:#fff;display:flex;align-items:center;padding-left:.6em;"><span data-n="techYear"></span></div>
+          <div data-flex="svcYear" style="flex:2.46;background:var(--bar-b);color:#fff;display:flex;align-items:center;padding-left:.6em;border-left:2px solid var(--deep);"><span data-n="svcYear"></span></div>
+        </div>
+        <span style="font-weight:700;font-size:1.25em;color:var(--brass);text-align:right;"><span data-n="total"></span></span>
+        <span style="color:var(--soft);">One-Time Fee</span>
+        <div style="height:1.6em;display:flex;"><div data-wimpl style="height:100%;width:32%;background:#7C83F5;border-radius:3px;"></div></div>
+        <span data-n="impl" style="font-weight:700;font-size:1.25em;text-align:right;">$2.9M</span>
+        <span style="color:var(--good);font-weight:700;">You Save</span>
+        <div style="border-top:1px dashed rgba(var(--fgrgb),.25);"></div>
+        <span style="font-weight:700;font-size:1.25em;color:var(--good);text-align:right;white-space:nowrap;"><span data-n="saving"></span> · <span data-n="savingPct"></span></span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;">
+        <div style="border-top:2px solid var(--gold);padding-top:.55em;">
+          <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Technology Team</span><span><span data-n="techYear"></span></span></div>
+          <div style="color:var(--soft);margin-top:.3em;">Product, hosting, security, upgrades.</div>
+          <div style="color:var(--muted);margin-top:.3em;"><span data-n="entityFee" data-f="usd"></span>/mo × <span data-n="entities"></span> entities · <span data-n="cityFee" data-f="usd"></span>/mo × <span data-n="cityClubs"></span> city clubs</div>
+        </div>
+        <div style="border-top:2px solid var(--teal);padding-top:.55em;">
+          <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Production Support Team</span><span><span data-n="svcYear"></span></span></div>
+          <div style="color:var(--soft);margin-top:.3em;"><span data-n="peopleMs" data-f="ppl"></span>, ranked by your CIO.</div>
+          <div style="color:var(--muted);margin-top:.3em;"><span data-n="svcMo" data-f="usd"></span> a month</div>
+          <div style="margin-top:.4em;background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);border-radius:3px;padding:.2em .5em;font-weight:700;color:var(--ink);">Includes tier 1 support: first call, access, how-to</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.5em;">
+        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Three Environments Included</div>
+        <div style="display:flex;gap:.7em;"><div style="flex:1;border:1px solid rgba(var(--fgrgb),.14);border-radius:8px;padding:.5em .8em;"><div style="font-weight:700;color:var(--ink);">QA</div><div style="color:var(--soft);font-size:max(14px,.92em);">Where every change is tested before it reaches Full Copy.</div></div><div style="flex:1;border:1px solid rgba(var(--fgrgb),.14);border-radius:8px;padding:.5em .8em;"><div style="font-weight:700;color:var(--ink);">Full Copy</div><div style="color:var(--soft);font-size:max(14px,.92em);">Production data, for testing and training.</div></div><div style="flex:1;border:1px solid rgba(var(--fgrgb),.14);border-radius:8px;padding:.5em .8em;"><div style="font-weight:700;color:var(--ink);">Production</div><div style="color:var(--soft);font-size:max(14px,.92em);">The live system.</div></div></div>
+      </div>
+      <div style="padding-top:.7em;border-top:1px solid rgba(var(--fgrgb),.1);color:var(--soft);">Built on and integrated with <b style="color:var(--brass);">InvitedAI</b>, Invited's AI tech stack. No parallel stack. <span class="flag" style="font-size:max(14px,.84em);font-weight:700;color:var(--ink);background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);border-radius:2px;padding:0 .3em;">TBC</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1em;">
+      <div style="flex:none;background:var(--deep);border:1px solid rgba(var(--fgrgb),.1);border-radius:12px;padding:.9em 1.2em;border-color:rgba(var(--goldrgb),.45);display:flex;flex-direction:column;justify-content:flex-start;gap:.7em;">
+        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Return</div>
+        <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;"><span data-n="roi"></span></span><span style="color:var(--soft);">return on the <span data-n="impl"></span> one-time fee over <span data-n="years"></span> years</span></div>
+        <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;"><span data-n="net"></span></span><span style="color:var(--soft);">net over <span data-n="years"></span> years</span></div>
+        <div style="display:flex;align-items:baseline;gap:1em;"><span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1.1;color:var(--brass);min-width:2.9em;">Mo <span data-n="breakeven"></span></span><span style="color:var(--soft);">breakeven, all costs included</span></div>
+        <div style="color:var(--muted);">Fees start per club at go-live.</div>
+        <div style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700;">Cumulative Net by Month</div>
+        <div id="roiBox" style="position:relative;height:6em;margin:.1em .2em .1em;"></div>
+      </div>
+      <div style="background:rgba(var(--goldrgb),.16);box-shadow:inset 0 0 0 1px rgba(var(--goldrgb),.6);color:var(--ink);border-radius:12px;padding:.8em 1.2em;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:1.7em;font-weight:700;">Approve Mobilization</div>
+        <div style="font-weight:500;margin-top:.7em;line-height:2;font-size:1.08em;">Day <span data-n="day1"></span>: savings confirmed against invoices<br>Day <span data-n="day2"></span>: design signed, pilots chosen<br>Day <span data-n="day3"></span>: first data migration rehearsed</div>
+      </div>
+    </div>
+    <div style="grid-column:1/-1;background:rgba(var(--bluergb),.10);border:1px dashed var(--teal);border-radius:12px;padding:.8em 1.2em;display:flex;flex-wrap:wrap;align-items:center;gap:.5em 1.6em;">
+      <div style="display:flex;align-items:center;gap:.7em;"><span style="font-size:max(14px,.82em);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;">One-time Implementation Fee</span><span style="font-size:max(14px,.78em);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:.05em .7em;white-space:nowrap;">One Time</span></div>
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:2.4em;line-height:1;color:var(--ink);"><span data-n="impl"></span></span>
+      <div style="flex:1 1 16em;color:var(--soft);line-height:1.35;">Migration, pilots, rollout, <span data-n="hyperMonths"></span> months of hypercare. <b style="color:var(--ink);">Paid once. Not in the run cost.</b></div>
+    </div>
+  </section>
+  </div>
+</main>
+
+</div>
 <div class="view" id="v-screens" data-view="screens" data-tab="screens" hidden>
 <main data-screen-label="05 Screens" style="flex:1;display:flex;flex-direction:column;gap:.5em;padding:.5em 1.8em;">
   <section style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.4em 2.4em;">
@@ -1021,7 +1036,7 @@ body.noflags .flag{display:none}
 </div>
 <!--STAFF-VIEW-->
 </div>
-<footer class="pxfoot"><button type="button" id="fPrev"></button><span id="fPos"></span><button type="button" id="fNext"></button></footer>
+<footer class="pxfoot"><button type="button" id="fPrev"></button><span id="fPos"></span><span class="conf">Confidential · Prepared for Invited Clubs</span><button type="button" id="fNext"></button></footer>
 </div>
 </div>
 <div id="drawer" hidden>
@@ -1058,8 +1073,8 @@ body.noflags .flag{display:none}
     
   </aside>
 </div>
-<div id="theatre" hidden role="dialog" aria-modal="true" aria-label="Film player"><button type="button" id="thPrev" class="thnav" aria-label="Previous film">‹</button><div id="thBox"><div class="thhead"><span id="thTitle"></span><span id="thWho"></span><span id="thCount"></span><button type="button" id="thFull" aria-label="Full screen">Full Screen</button><button type="button" id="thClose" aria-label="Close player">✕</button></div><video id="thVideo" controls playsinline preload="auto"></video></div><button type="button" id="thNext" class="thnav" aria-label="Next film">›</button></div>
-<div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot viewer" data-act="closeShot" data-ev="click"><button type="button" id="lbPrev" class="lbnav lbl-prev" aria-label="Previous screen">‹</button><figure id="lbBox"><div class="lbimgwrap"><img id="lbImg" alt=""></div><figcaption><span id="lbArea"></span><span id="lbCap"></span><span id="lbCount"></span><button type="button" id="lbClose" aria-label="Close viewer">Close · Esc</button></figcaption></figure><button type="button" id="lbNext" class="lbnav lbl-next" aria-label="Next screen">›</button></div>
+<div id="theatre" hidden role="dialog" aria-modal="true" aria-label="Film player"><button type="button" id="thPrev" class="thnav" aria-label="Previous film">‹</button><div id="thBox"><div class="thhead"><span id="thTitle"></span><span id="thWho"></span><span id="thCount"></span><span class="conf">Confidential · Prepared for Invited Clubs</span><button type="button" id="thFull" aria-label="Full screen">Full Screen</button><button type="button" id="thClose" aria-label="Close player">✕</button></div><video id="thVideo" controls playsinline preload="auto"></video></div><button type="button" id="thNext" class="thnav" aria-label="Next film">›</button></div>
+<div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot viewer" data-act="closeShot" data-ev="click"><button type="button" id="lbPrev" class="lbnav lbl-prev" aria-label="Previous screen">‹</button><figure id="lbBox"><div class="lbimgwrap"><img id="lbImg" alt=""></div><figcaption><span id="lbArea"></span><span id="lbCap"></span><span id="lbCount"></span><span class="conf">Confidential · Prepared for Invited Clubs</span><button type="button" id="lbClose" aria-label="Close viewer">Close · Esc</button></figcaption></figure><button type="button" id="lbNext" class="lbnav lbl-next" aria-label="Next screen">›</button></div>
 <template id="tpl-ar.items" data-as="it"><button data-on-click="pick" style="font:inherit;font-size:max(14px,.8em);line-height:1.2;padding:.28em .55em;border-radius:6px;cursor:pointer;border:1px solid {{ it.c }};background:{{ it.bg }};color:var(--ink);text-decoration:{{ it.strike }};text-decoration-color:rgba(var(--fgrgb),.5);">{{ it.name }}</button></template>
 <template id="tpl-areas" data-as="ar"><div>
             <div style="font-size:max(14px,.8em);font-weight:700;color:var(--soft);margin-bottom:.3em;">{{ ar.name }} <span style="color:var(--muted);font-weight:400;">· {{ ar.count }}</span></div>
@@ -1770,7 +1785,7 @@ const DEMO = {
   member: 'https://qa-invited-clubs-member-portal-web.developer-bef.workers.dev',
 };
 /* ---------- tabs, footer, keys, the drawer ---------- */
-const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['value', 'Value'], ['compare', 'Compare'], ['detail', 'Detail'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
+const TABS = [['home', 'Home'], ['summary', 'Executive Summary'], ['team', 'The Team'], ['org', 'Org Chart'], ['compare', 'Compare'], ['detail', 'Detail'], ['value', 'Value'], ['screens', 'Screens'], ['videos', 'Videos'], ['demo', 'Demo']];
 const VIEWKEYS = [...TABS.map(t => t[0]), 'admin'];
 // views only staff get: the staff script adds its own, with a title and a function that paints it when it opens
 const STAFFV = ['admin'], VIEWTITLE = {admin: 'Team Admin'}, VIEWHOOK = {};
@@ -1804,6 +1819,7 @@ function paintTabs() {
   });
   const cur = document.body.dataset.view;
   if (cur && !canEdit && !STAFFV.includes(cur) && !tabOn(cur)) show('summary'); else if (cur) paintFoot(cur);
+  if (typeof paintStaffTabs === 'function') paintStaffTabs();
   paintHome(); paintHoles(); if (typeof paintDemoGate === 'function') paintDemoGate();
 }
 /* lucide icons, inline */
@@ -1880,6 +1896,7 @@ addEventListener('keydown', e => {
   if (typeof theatreOpenNow === 'function' && theatreOpenNow()) { e.preventDefault(); theatreStep(e.key === 'ArrowRight' ? 1 : -1); return; }
   // only while the screenshot viewer is open do the arrows belong to the screenshots; otherwise they move between tabs like everywhere else
   if (document.body.dataset.view === 'screens' && typeof viewerAt === 'number' && viewerAt >= 0) { e.preventDefault(); if (typeof shotArrow === 'function') shotArrow(e.key === 'ArrowRight' ? 1 : -1); return; }
+  if (document.body.dataset.fgdrawer) return; // the Fit-Gap detail is open: its own keys
   if (!$('#lightbox').hidden) return; // a picture opened from the Demo owns the keys; Esc closes it
   const nav = navTabs(), i = nav.findIndex(t => t[0] === document.body.dataset.view);
   if (i < 0) return;
@@ -2578,6 +2595,38 @@ document.addEventListener('scroll', e => { const t = e.target; if (t && t.classL
 addEventListener('resize', () => { clearTimeout(HS_C); HS_C = setTimeout(paintScrollCues, 150); });
 addEventListener('hashchange', () => { clearTimeout(HS_C); HS_C = setTimeout(paintScrollCues, 800); });
 let HS_C = 0; setTimeout(paintScrollCues, 900);
+/* Confidentiality: a faint viewer mark, no printing, no saving of images, and a veil when the window loses focus.
+   Quiet by design; nothing here tells the viewer what it is for. */
+(function () {
+  try {
+    var who = (typeof ST !== "undefined" && ST.viewer) || "Invited Viewer";
+    var day = new Date().toISOString().slice(0, 10);
+    var esc = function (t) { return String(t).replace(/[&<>"']/g, function (c) { return "&#" + c.charCodeAt(0) + ";"; }); };
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="240"><text x="30" y="150" transform="rotate(-22 210 120)" font-family="Manrope,Arial,sans-serif" font-size="15" font-weight="600" fill="#9AA5F0" fill-opacity=".11">' + esc(who) + " · " + day + "</text></svg>";
+    var wm = document.createElement("div");
+    wm.id = "wm"; wm.setAttribute("aria-hidden", "true"); wm.setAttribute("data-wm", who);
+    wm.style.backgroundImage = 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+    document.body.appendChild(wm);
+
+    var inMedia = function (e) { return e.target && e.target.closest && e.target.closest("img,video,canvas,.lbimgwrap,#theatre,.fg-shot"); };
+    document.addEventListener("contextmenu", function (e) { if (inMedia(e)) e.preventDefault(); });
+    document.addEventListener("dragstart", function (e) { if (inMedia(e)) e.preventDefault(); });
+    var lock = function (root) { (root.querySelectorAll ? root.querySelectorAll("img:not([draggable])") : []).forEach(function (i) { i.draggable = false; }); };
+    lock(document);
+    new MutationObserver(function (ms) { ms.forEach(function (m) { m.addedNodes.forEach(function (n) { if (n.nodeType === 1) { if (n.tagName === "IMG") n.draggable = false; lock(n); } }); }); }).observe(document.body, { childList: true, subtree: true });
+
+    var fine = matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches;
+    if (!fine) return;
+    var veil = document.createElement("button");
+    veil.type = "button"; veil.id = "awayVeil"; veil.hidden = true; veil.textContent = "Click to Continue";
+    document.body.appendChild(veil);
+    var away = function (on) { document.documentElement.classList.toggle("away", on); veil.hidden = !on; if (!on) veil.blur(); };
+    window.addEventListener("blur", function () { away(true); });
+    document.addEventListener("visibilitychange", function () { if (document.hidden) away(true); });
+    window.addEventListener("focus", function () { away(false); });
+    veil.addEventListener("click", function () { away(false); });
+  } catch (e) { /* the page works without it */ }
+})();
 
 </script>
 <!--STAFF-SCRIPT-->
