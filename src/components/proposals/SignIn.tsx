@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 
-type Props = { slug: string; product: string; client: string; admin?: boolean };
+type Props = { slug: string; product: string; client: string; admin?: boolean; next?: string };
 
-export default function SignIn({ slug, product, client, admin }: Props) {
+export default function SignIn({ slug, product, client, admin, next }: Props) {
   const [step, setStep] = useState<"email" | "code">("email");
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -41,7 +41,7 @@ export default function SignIn({ slug, product, client, admin }: Props) {
     setError("");
     try {
       const r = await post("/api/proposals/verify-code", { slug, email, code });
-      window.location.assign(r.next || `/proposals/${slug}`);
+      window.location.assign(next || r.next || `/proposals/${slug}`);
     } catch (err) {
       setError((err as Error).message);
       setBusy(false);

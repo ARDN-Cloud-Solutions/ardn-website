@@ -9,6 +9,10 @@ export const dynamic = "force-dynamic";
  * The Invited Clubs apps report here when an AI tool or crawler tries to read a page.
  * The apps refuse it with a 403 first; this records who it was (IP, place, network,
  * bot) and emails Deep and Jaimin, at most once an hour for the same bot and IP.
+ * When the report says this scan paused both test sites, the email always goes and
+ * links to /proposals/admin/security/resume, where only Deep or Jaimin, signed in,
+ * can turn them back on. The Worker's own resume link (it holds the token) is kept
+ * here on the server and never put in the email.
  *
  * Callers send SECURITY_ALERT_KEY in x-alert-key; anything else is refused.
  * Records go in proposal_events under the slug "invited-app-security".
@@ -17,7 +21,7 @@ const SLUG = "invited-app-security";
 const NOTIFY = ["deep.patel@ardncloudsolutions.com", "jaimin.patel@ardncloudsolutions.com"];
 const HOUR = 60 * 60 * 1000;
 
-type Report = { app?: string; host?: string; path?: string; ip?: string; country?: string; userAgent?: string; bot?: string };
+type Report = { app?: string; host?: string; path?: string; ip?: string; country?: string; userAgent?: string; bot?: string; paused?: boolean; resume?: string };
 type Place = { city?: string; region?: string; country?: string; org?: string };
 
 const same = (a: string, b: string) => a.length === b.length && crypto.timingSafeEqual(Buffer.from(a), Buffer.from(b));
@@ -41,18 +45,24 @@ export async function POST(req: Request) {
 
   const body = (await req.json().catch(() => ({}))) as Report;
   const r = { app: clip(body.app, 60), host: clip(body.host, 120), path: clip(body.path, 500), ip: clip(body.ip, 60), country: clip(body.country, 8), userAgent: clip(body.userAgent, 500), bot: clip(body.bot, 60) || "Unknown bot" };
+  // Only a link back to the app that sent the report: a resume page on an https host.
+  const resume = body.paused === true && typeof body.resume === "string" && /^https:\/\/[^/]+\/__site\/resume\?t=[0-9a-f]{16,128}$/.test(body.resume) ? body.resume : "";
+  const rid = resume ? crypto.randomBytes(16).toString("hex") : "";
   const where = await place(r.ip);
   const at = new Date();
 
   const recent = await store.listEvents(5000).catch(() => []);
-  const seen = recent.some((e) => e.slug === SLUG && e.email === r.bot && (e.data as Report | null)?.ip === r.ip && at.getTime() - Date.parse(e.created_at) < HOUR);
+  const seen = !resume && recent.some((e) => e.slug === SLUG && e.email === r.bot && (e.data as Report | null)?.ip === r.ip && at.getTime() - Date.parse(e.created_at) < HOUR);
 
-  await store.insertEvent({ slug: SLUG, email: r.bot, session_id: null, type: "ai-crawler", page: `${r.host}${r.path}`, data: { ...r, ...where, emailed: !seen } });
+  await store.insertEvent({ slug: SLUG, email: r.bot, session_id: null, type: "ai-crawler", page: `${r.host}${r.path}`, data: { ...r, ...where, paused: !!resume, ...(resume ? { rid, resumeUrl: resume } : {}), emailed: !seen } });
   if (seen) return NextResponse.json({ ok: true, emailed: false });
 
   const placeLine = [where.city, where.region, where.country || r.country].filter(Boolean).join(", ") || "Unknown";
   const lines = [
     `${r.bot} tried to read the Invited Clubs ${r.app || "app"} and was refused.`,
+    ...(resume
+      ? ["", "Both Invited Clubs test sites (the staff app and the member portal) are now down for everyone.", "They stay down until Deep or Jaimin signs in and turns them back on here:", `${new URL(req.url).origin}/proposals/admin/security/resume?id=${rid}`]
+      : []),
     "",
     `Page: https://${r.host}${r.path}`,
     `IP: ${r.ip || "Unknown"}`,
@@ -70,7 +80,7 @@ export async function POST(req: Request) {
       secure: Number(process.env.SMTP_PORT) === 465,
       auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
     });
-    await transporter.sendMail({ from: `"Ardn Security" <${process.env.SMTP_USER}>`, to: NOTIFY.join(", "), subject: `AI scan blocked: ${r.bot} on ${r.host}`, text: lines.join("\n") });
+    await transporter.sendMail({ from: `"Ardn Security" <${process.env.SMTP_USER}>`, to: NOTIFY.join(", "), subject: resume ? `Site paused: AI scan by ${r.bot} on ${r.host}` : `AI scan blocked: ${r.bot} on ${r.host}`, text: lines.join("\n") });
   } catch (e) {
     console.error("security alert email failed", e);
     return NextResponse.json({ ok: true, emailed: false });
