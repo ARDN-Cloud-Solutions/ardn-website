@@ -2372,9 +2372,11 @@ const DEMO_QUALITY = [
 const demoEnc = encodeURIComponent, demoImg = f => '/proposal-sites/invited-clubs/' + f;
 const demoRole = id => DEMO_ROLES.find(r => r.id === id) || DEMO_ROLES[0];
 const demoFirst = r => r.name.split(' ')[0];
-const demoSignIn = r => r.app === 'staff' ? DEMO.staff + '/?as=' + demoEnc(r.name) + '&next=' + demoEnc('/dashboard/home')
-  : r.app === 'member' ? DEMO.member + '/login?roster=1&as=' + demoEnc(r.name) : DEMO.staff + '/pos'; // the register sign-in takes no person in the address
-const demoTry = (r, path) => DEMO.staff + '/?as=' + demoEnc(r.name) + '&next=' + demoEnc(path);
+// The test sites open only through the proposal: this address checks the sign-in and hands the site a short pass.
+const demoGo = (app, p) => '/proposals/invited-clubs/open?app=' + app + '&to=' + encodeURIComponent(p);
+const demoSignIn = r => r.app === 'staff' ? demoGo('staff', '/?as=' + demoEnc(r.name) + '&next=' + demoEnc('/dashboard/home'))
+  : r.app === 'member' ? demoGo('member', '/login?roster=1&as=' + demoEnc(r.name)) : demoGo('staff', '/pos'); // the register sign-in takes no person in the address
+const demoTry = (r, path) => demoGo('staff', '/?as=' + demoEnc(r.name) + '&next=' + demoEnc(path));
 const demoCount = k => DEMO_ROLES.filter(r => r.app === k).length;
 let demoSel = 'grant';
 try { demoSel = demoRole(localStorage.getItem('ardn-invited-demo-role') || 'grant').id; } catch (e) {}
